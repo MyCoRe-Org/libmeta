@@ -9,8 +9,8 @@
   </parent>
   <artifactId>libmeta-mycoreclass</artifactId>
 
-  <name>LibMeta MyCoreClass</name>
-  <description>Java API for common bibliographic metadata models.</description>
+  <name>LibMeta MyCoReClass</name>
+  <description>Java API for MyCoRe classifications objects.</description>
 
   <dependencies>
     <dependency>
