@@ -9,8 +9,8 @@
   </parent>
   <artifactId>libmeta-alto</artifactId>
 
-  <name>LibMeta MyCoreClass</name>
-  <description>Java API for common bibliographic metadata models.</description>
+  <name>LibMeta Alto</name>
+  <description>Java API for ALTO metadata model.</description>
 
   <dependencies>
     <dependency>
