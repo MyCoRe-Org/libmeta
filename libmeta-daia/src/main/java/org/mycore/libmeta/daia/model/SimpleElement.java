@@ -37,7 +37,7 @@ public class SimpleElement {
     /**
      * Identifier of this element
      *
-     * //<xs:attribute name="id" type="xs:anyURI" use="optional">
+     * &lt;xs:attribute name="id" type="xs:anyURI" use="optional"&gt;
      */
     @XmlAttribute(name = "id", required = false)
     protected String id;
@@ -45,7 +45,7 @@ public class SimpleElement {
     /**
      * Hyperlink to information about this element
      * 
-     * //<xs:attribute name="href" type="xs:anyURI" use="optional">
+     * &lt;xs:attribute name="href" type="xs:anyURI" use="optional"&gt;
      */
     @XmlAttribute(name = "href", required = false)
     protected String href;

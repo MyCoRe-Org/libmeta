@@ -38,7 +38,7 @@ public class Message {
     /**
      * ISO-639 language code (en, fr, de, ...) of the messageIdentifier of this element
      *
-     * //<xs:attribute name="lang" type="xs:language" use="required">
+     * &lt;xs:attribute name="lang" type="xs:language" use="required"&gt;
      * 
      */
     @XmlAttribute(name = "lang", required = true)
@@ -48,7 +48,7 @@ public class Message {
      * Error code. Use positive values for core errors and
      * negative values for transformation errors.
      * 
-     * // <xs:attribute name="errno" type="xs:integer" use="optional">
+     *  &lt;xs:attribute name="errno" type="xs:integer" use="optional"&gt;
      */
     @XmlAttribute(name = "errno", required = false)
     protected Integer errno;
