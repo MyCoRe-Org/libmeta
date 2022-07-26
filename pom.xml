@@ -39,12 +39,12 @@
       <dependency>
         <groupId>org.mycore.libmeta</groupId>
         <artifactId>libmeta-xlink</artifactId>
-        <version>${revision}</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
       <groupId>org.mycore.libmeta</groupId>
       <artifactId>libmeta-common</artifactId>
-      <version>${revision}</version>
+      <version>${project.version}</version>
     </dependency>
       <dependency>
         <groupId>junit</groupId>
@@ -174,7 +174,6 @@
     <module>libmeta-mix</module>
     <module>libmeta-mods</module>
     <module>libmeta-mycoreclass</module>
-    <module>libmeta-picaextxml</module>
     <module>libmeta-alto</module>
     <module>libmeta-xlink</module>
     <module>libmeta-common</module>
