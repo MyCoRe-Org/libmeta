@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 11.06.2014 RS extented 
+                added new elements for sponsor, sponsorLogo, sponsorSiteURL, license 
+                for implementation of METS-Anwendungsprofil Version 2.1 
+                http://dfg-viewer.de/fileadmin/groups/dfgviewer/METS-Anwendungsprofil_2.1.pdf
+                 
+	 24.09.2013 RS created 
+	            schema location: http://purl.uni-rostock.de/ub/standards/dfg-viewer.xsd 
+	            physical schema location: http://rosdok.uni-rostock.de/data/standards/dfg-viewer.xsd 
+	            
+	            author: Robert Stephan 
+				based upon: http://dfg-viewer.de/profil-der-metadaten/ 
+-->
+<xs:schema targetNamespace="http://dfg-viewer.de/" xmlns="http://dfg-viewer.de/" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="rights" type="rightsType" />
+	<xs:element name="links" type="linksType" />
+
+	<xs:complexType name="rightsType">
+		<xs:all>
+			<xs:element name="owner" type="xs:string" minOccurs="1" />
+			<xs:element name="ownerContact" type="xs:anyURI" minOccurs="0" />
+			<xs:element name="ownerLogo" type="xs:anyURI" minOccurs="1" />
+			<xs:element name="ownerSiteURL" type="xs:anyURI" minOccurs="1" />
+			<xs:element name="sponsor" type="xs:string" minOccurs="0" />
+			<xs:element name="sponsorLogo" type="xs:anyURI" minOccurs="0" />
+			<xs:element name="sponsorSiteURL" type="xs:anyURI" minOccurs="0" />
+			<xs:element name="license" type="licenseType" minOccurs="0" />
+		</xs:all>
+	</xs:complexType>
+
+	<xs:complexType name="linksType">
+		<xs:all>
+			<xs:element name="reference" type="xs:anyURI" minOccurs="1" />
+			<xs:element name="presentation" type="xs:anyURI" minOccurs="1" />
+		</xs:all>
+	</xs:complexType>
+
+	<xs:simpleType name="licenseType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="cc0" />
+			<xs:enumeration value="cc-by" />
+			<xs:enumeration value="cc-by-sa" />
+			<xs:enumeration value="cc-by-nd" />
+			<xs:enumeration value="cc-by-nc" />
+			<xs:enumeration value="cc-by-nc-sa" />
+			<xs:enumeration value="cc-by-nc-nd" />
+			<xs:enumeration value="reserved" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

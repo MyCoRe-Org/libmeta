@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--18.12.2013 schema location: http://purl.uni-rostock.de/ub/standards/mets-extended-v1.0.xsd
+                physical schema location: http://rosdok.uni-rostock.de/data/standards/mets-extended-v1.0.xsd 
+ 
+    20.06.2014  new element "legalInformation" added               
+ author: Robert Stephan -->
+<xs:schema targetNamespace="http://purl.uni-rostock.de/ub/standards/mets-extended-v1.0" xmlns="http://purl.uni-rostock.de/ub/standards/mets-extended-v1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:element name="legalInformation" type="legalInformationType" />
+	
+	<!-- deprecated - to be deleted: -->
+	<xs:element name="digiprov" type="digiprovType" />
+	
+	<!-- deprecated - to be deleted: -->
+	<xs:complexType name="digiprovType">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="provider" type="keyValueType" />
+			<xs:element name="purl_base" type="xs:string" />
+			<!-- deprecated -->			
+			<xs:element name="sponsor" type="keyValueType" />
+			<xs:element name="license" type="keyValueType" />
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name="legalInformationType">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="permissionToStore">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="key">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="public_domain" />
+										<xs:enumeration value="granted" />
+										<xs:enumeration value="cc_license" />
+										<xs:enumeration value="owned_by_uni-rostock" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+							<xs:attribute name="uri" type="xs:anyURI" use="optional" />
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="licenseInformation">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="originalWork" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="license">
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:string">
+													<xs:attribute name="key">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:enumeration value="public_domain" />
+																<xs:enumeration value="reserved" />
+																<xs:enumeration value="cc0" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:attribute>
+													<xs:attribute name="uri" type="xs:anyURI" use="optional" />
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="digitizedImages" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="license">
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:string">
+													<xs:attribute name="key">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:enumeration value="cc-by-sa" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:attribute>
+													<xs:attribute name="uri" type="xs:anyURI" use="optional" />
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="metadata" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="license">
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:string">
+													<xs:attribute name="key">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:enumeration value="cc0" />
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:attribute>
+													<xs:attribute name="uri" type="xs:anyURI" use="optional" />
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="sponsors">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="sponsor" minOccurs="0" maxOccurs="unbounded" type="keyValueType" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="accessConditions">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="accessRestriction" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="key">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="none" />
+													<xs:enumeration value="applied" />
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:attribute>
+										<xs:attribute name="uri" type="xs:anyURI" use="optional" />
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+
+				</xs:complexType>
+			</xs:element>
+
+
+			<xs:element name="license" type="keyValueType" />
+			<xs:element name="purl_base" type="xs:string" />
+		</xs:choice>
+	</xs:complexType>
+
+
+	<xs:complexType name="keyValueType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="key" type="xs:string" />
+				<xs:attribute name="uri" type="xs:anyURI" use="optional" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+
+
+</xs:schema>
+
