@@ -33,7 +33,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
  * 
  * a subfield contains any content
  * 
- * @see http://www.loc.gov/standards/sru/resources/pica-xml-v1-0.xsd
+ * @see <a href="http://www.loc.gov/standards/sru/resources/pica-xml-v1-0.xsd">PicaXML XML Schema</a>
  * 
  * @author Robert Stephan
  * 
@@ -49,13 +49,13 @@ public class PicaSubfield extends PicaObject {
     protected List<Object> contents = new Vector<Object>();
 
     /**
-     * <xs:attribute name="" use="required">
-     *   <xs:simpleType>
-     *     <xs:restriction base="xs:string">
-     *       <xs:pattern value="[0-9A-Za-z]"/>
-     *     </xs:restriction>
-     *   </xs:simpleType>    
-     * </xs:attribute>      
+     * &lt;xs:attribute name="" use="required"&gt;
+     *   &lt;xs:simpleType&gt;
+     *     &lt;xs:restriction base="xs:string"&gt;
+     *       &lt;xs:pattern value="[0-9A-Za-z]"/&gt;
+     *     &lt;/xs:restriction&gt;
+     *   &lt;/xs:simpleType&gt;    
+     * &lt;/xs:attribute&gt;      
      */
     @XmlAttribute(name = "code", required = true)
     protected String code;

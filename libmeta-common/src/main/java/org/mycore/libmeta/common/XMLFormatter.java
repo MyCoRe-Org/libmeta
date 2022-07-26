@@ -106,7 +106,6 @@ public class XMLFormatter {
     /**
      * identify "empty" text nodes and remove them 
      * @param doc the XML document
-     * @throws XPathExpressionException
      */
     public static void cleanEmptyTextNodes(Document doc) {
         try {

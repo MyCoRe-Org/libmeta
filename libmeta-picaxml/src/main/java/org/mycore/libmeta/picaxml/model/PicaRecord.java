@@ -32,7 +32,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
  * 
  * a record contains datafields
  * 
- * @see http://www.loc.gov/standards/sru/resources/pica-xml-v1-0.xsd
+ * @see <a href="http://www.loc.gov/standards/sru/resources/pica-xml-v1-0.xsd">PicaXML XML Schema</a>
  * 
  * @author Robert Stephan
  * 

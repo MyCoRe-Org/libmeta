@@ -33,7 +33,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
  * 
  * a datafield cotains subfields
  * 
- * @see http://www.loc.gov/standards/sru/resources/pica-xml-v1-0.xsd
+ * @see <a href="http://www.loc.gov/standards/sru/resources/pica-xml-v1-0.xsd">PicaXML XML Schema</a>
  * 
  * @author Robert Stephan
  * 
@@ -49,25 +49,25 @@ public class PicaDatafield extends PicaObject {
     protected List<PicaSubfield> subfields = new Vector<PicaSubfield>();
     
     /**
-     * <xs:attribute name="tag" use="required">
-     *   <xs:simpleType>
-     *     <xs:restriction base="xs:string">
-     *       <xs:pattern value="[0-9][0-9][0-9][A-Z@]"/>
-     *     </xs:restriction>
-     *   </xs:simpleType>    
-     * </xs:attribute>
+     * &lt;xs:attribute name="tag" use="required"&gt;
+     *   &lt;xs:simpleType&gt;
+     *     &lt;xs:restriction base="xs:string"&gt;
+     *       &lt;xs:pattern value="[0-9][0-9][0-9][A-Z@]"/&gt;
+     *     &lt;/xs:restriction&gt;
+     *   &lt;/xs:simpleType&gt;    
+     * &lt;/xs:attribute&gt;
      */
     @XmlAttribute(name = "tag", required = true)
     protected String tag;
     
     /**
-     * <xs:attribute name="occurrence" use="optional">
-     *   <xs:simpleType>
-     *     <xs:restriction base="xs:string">
-     *       <xs:pattern value="[0-9][0-9]"/>
-     *     </xs:restriction>
-     *   </xs:simpleType>    
-     * </xs:attribute>     
+     * &lt;xs:attribute name="occurrence" use="optional"&gt;
+     *   &lt;xs:simpleType&gt;
+     *     &lt;xs:restriction base="xs:string"&gt;
+     *       &lt;xs:pattern value="[0-9][0-9]"/&gt;
+     *     &lt;/xs:restriction&gt;
+     *   &lt;/xs:simpleType&gt;    
+     * &lt;/xs:attribute&gt;     
      */
     @XmlAttribute(name = "occurrence", required = false)
     protected String occurrence;

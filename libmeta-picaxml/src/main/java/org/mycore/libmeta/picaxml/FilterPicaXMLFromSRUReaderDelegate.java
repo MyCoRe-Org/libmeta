@@ -55,113 +55,122 @@ import javax.xml.stream.util.EventReaderDelegate;
  */
 public class FilterPicaXMLFromSRUReaderDelegate extends EventReaderDelegate {
     private static QName qnCollection = new QName("info:srw/schema/5/picaXML-v1.0", "collection");
+
     private static QName qnRecord = new QName("info:srw/schema/5/picaXML-v1.0", "record");
+
     @SuppressWarnings("unused")
     private static QName qnDatafield = new QName("info:srw/schema/5/picaXML-v1.0", "datafield");
+
     @SuppressWarnings("unused")
     private static QName qnSubfield = new QName("info:srw/schema/5/picaXML-v1.0", "subfield");
+
     private static QName qnZSRecords = new QName("http://www.loc.gov/zing/srw/", "records");
-    
 
     private Queue<XMLEvent> queueOfNewEvents = new LinkedList<XMLEvent>();
+
     private XMLEventFactory eventFactory = XMLEventFactory.newInstance();
+
     private boolean showText = false;
 
     /**
-     * Konstruktor
+     * Constructor
      * 
-     * @param parentXMLEventReader
+     * @param parentXMLEventReader - the parent XML event reader
      */
     public FilterPicaXMLFromSRUReaderDelegate(XMLEventReader parentXMLEventReader) {
-	super(parentXMLEventReader);
+        super(parentXMLEventReader);
     }
 
     @Override
     public XMLEvent nextEvent() throws XMLStreamException {
-	if (!queueOfNewEvents.isEmpty()) {
-	    return queueOfNewEvents.poll();
-	}
+        if (!queueOfNewEvents.isEmpty()) {
+            return queueOfNewEvents.poll();
+        }
 
-	XMLEvent xmlEvent = super.nextEvent();
-	if(xmlEvent == null){
-	    return null;
-	}
-	if (xmlEvent.isStartElement()) {
-	    if (xmlEvent.asStartElement().getName().equals(qnZSRecords)) {
-		queueOfNewEvents.add(eventFactory.createStartElement(qnCollection, null, null));
-		queueOfNewEvents.add(eventFactory.createNamespace("info:srw/schema/5/picaXML-v1.0"));
-		return nextEvent();
-	    }
-	    if (xmlEvent.asStartElement().getName().equals(qnRecord)) {		
-	 	showText=true;
-	    }
-	    	    
-	    if (!xmlEvent.asStartElement().getName().getNamespaceURI().equals("info:srw/schema/5/picaXML-v1.0")) {		
-		return nextEvent();
-	    }
-		
-	}
+        XMLEvent xmlEvent = super.nextEvent();
+        if (xmlEvent == null) {
+            return null;
+        }
+        if (xmlEvent.isStartElement()) {
+            if (xmlEvent.asStartElement().getName().equals(qnZSRecords)) {
+                queueOfNewEvents.add(eventFactory.createStartElement(qnCollection, null, null));
+                queueOfNewEvents.add(eventFactory.createNamespace("info:srw/schema/5/picaXML-v1.0"));
+                return nextEvent();
+            }
+            if (xmlEvent.asStartElement().getName().equals(qnRecord)) {
+                showText = true;
+            }
 
-	if (xmlEvent.isEndElement()) {
-	    if (xmlEvent.asEndElement().getName().equals(qnZSRecords)) {		
-		return eventFactory.createEndElement(qnCollection, null);
-	    }
-	    if (xmlEvent.asEndElement().getName().equals(qnRecord)) {		
-	  	showText=false;
-	    }
-	    if (!xmlEvent.asEndElement().getName().getNamespaceURI().equals("info:srw/schema/5/picaXML-v1.0")){	
-		return nextEvent();
-	    }    
-	}
-	if (xmlEvent.isCharacters() && !showText) {
-	    return nextEvent();
-	}
-		
-	return xmlEvent;
-	
+            if (!xmlEvent.asStartElement().getName().getNamespaceURI().equals("info:srw/schema/5/picaXML-v1.0")) {
+                return nextEvent();
+            }
+
+        }
+
+        if (xmlEvent.isEndElement()) {
+            if (xmlEvent.asEndElement().getName().equals(qnZSRecords)) {
+                return eventFactory.createEndElement(qnCollection, null);
+            }
+            if (xmlEvent.asEndElement().getName().equals(qnRecord)) {
+                showText = false;
+            }
+            if (!xmlEvent.asEndElement().getName().getNamespaceURI().equals("info:srw/schema/5/picaXML-v1.0")) {
+                return nextEvent();
+            }
+        }
+        if (xmlEvent.isCharacters() && !showText) {
+            return nextEvent();
+        }
+
+        return xmlEvent;
 
     }
 
     /**
-     * Utility Funktion zum Filtern von PicaXML aus SRU Antworten
+     * utility function to retrieve picaXML from SRU responses
+     * 
+     * @param in - the input XML
+     * @param out - the output XML
+     * @throws Exception - an error during processing occured
      */
     public static void filterPicaXML(Reader in, Writer out) throws Exception {
-	XMLInputFactory inputFactory = XMLInputFactory.newInstance();
-	XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
+        XMLInputFactory inputFactory = XMLInputFactory.newInstance();
+        XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
 
-	XMLEventReader xmlEventReader = new FilterPicaXMLFromSRUReaderDelegate(inputFactory.createXMLEventReader(in));
-	XMLEventWriter xmlEventWriter = outputFactory.createXMLEventWriter(out);
+        XMLEventReader xmlEventReader = new FilterPicaXMLFromSRUReaderDelegate(inputFactory.createXMLEventReader(in));
+        XMLEventWriter xmlEventWriter = outputFactory.createXMLEventWriter(out);
 
-	while (xmlEventReader.hasNext()) {
-	    xmlEventWriter.add(xmlEventReader.nextEvent());
-	}
-	xmlEventReader.close();
-	xmlEventWriter.close();
+        while (xmlEventReader.hasNext()) {
+            xmlEventWriter.add(xmlEventReader.nextEvent());
+        }
+        xmlEventReader.close();
+        xmlEventWriter.close();
     }
 
     /**
      * Main Funktion mit Beispiel-Code zur Demonstration.
      * 
-     * @param args
-     * @throws Exception
+     * @param args - the default input parameters (empty)
+     * @throws Exception - if anything goes wrong
      */
     public static void main(String[] args) throws Exception {
-	// 574683887
-	// String SOURCE_URL =
-	// "http://sru.gbv.de/vd17?version=1.1&operation=searchRetrieve&maximumRecords=1&recordSchema=picaxml&query=pica.ppn%3D006901972";
-	// File OUTPUT_FILE = new File("C:\\temp\\ppn_006901972_local.xml");
+        // 574683887
+        // String SOURCE_URL =
+        // "http://sru.gbv.de/vd17?version=1.1&operation=searchRetrieve&maximumRecords=1&recordSchema=picaxml&query=pica.ppn%3D006901972";
+        // File OUTPUT_FILE = new File("C:\\temp\\ppn_006901972_local.xml");
 
-	//String SOURCE_URL = "http://sru.gbv.de/gvk?version=1.1&operation=searchRetrieve&maximumRecords=1&recordSchema=picaxml&query=pica.ppn%3D340126604";
-	String SOURCE_URL = "http://sru.gbv.de/gvk?version=1.1&operation=searchRetrieve&maximumRecords=1&recordSchema=picaxml&query=pica.url%3Dpurl.uni-rostock.de*";
-	File OUTPUT_FILE = new File("F:\\workspaces\\vaadin\\projects\\metadata\\target\\output\\picaxml\\ppn_340126604_local.xml");
-	OUTPUT_FILE.getParentFile().mkdirs();
+        //String SOURCE_URL = "http://sru.gbv.de/gvk?version=1.1&operation=searchRetrieve&maximumRecords=1&recordSchema=picaxml&query=pica.ppn%3D340126604";
+        String SOURCE_URL = "http://sru.gbv.de/gvk?version=1.1&operation=searchRetrieve&maximumRecords=1&recordSchema=picaxml&query=pica.url%3Dpurl.uni-rostock.de*";
+        File OUTPUT_FILE = new File(
+            "F:\\workspaces\\vaadin\\projects\\metadata\\target\\output\\picaxml\\ppn_340126604_local.xml");
+        OUTPUT_FILE.getParentFile().mkdirs();
 
-	URL url = new URL(SOURCE_URL);
-	URLConnection urlConnection = url.openConnection();
-	BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
-	BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(OUTPUT_FILE), "UTF-8"));
-	//BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out, "UTF-8"));
+        URL url = new URL(SOURCE_URL);
+        URLConnection urlConnection = url.openConnection();
+        BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(OUTPUT_FILE), "UTF-8"));
+        //BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out, "UTF-8"));
 
-	filterPicaXML(br, bw);
+        filterPicaXML(br, bw);
     }
 }
