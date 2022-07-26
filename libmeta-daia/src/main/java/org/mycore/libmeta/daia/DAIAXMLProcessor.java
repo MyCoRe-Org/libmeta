@@ -17,13 +17,13 @@
  */
 package org.mycore.libmeta.daia;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Path;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.stream.StreamResult;
 
 import org.mycore.libmeta.daia.model.DAIA;
 import org.w3c.dom.Document;
@@ -34,8 +34,17 @@ import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
 
-public class DAIAUtils {
-    public static void marshal(DAIA daia, File f) {
+public class DAIAXMLProcessor {
+ private static final DAIAXMLProcessor INSTANCE = new DAIAXMLProcessor();
+    
+    //private constructor to avoid client applications to use constructor
+    private DAIAXMLProcessor() {}
+    
+    public static DAIAXMLProcessor getInstance() {
+        return INSTANCE;
+    }
+    
+    public static void marshal(DAIA daia, Path p) {
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(DAIA.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
@@ -47,16 +56,12 @@ public class DAIAUtils {
             // NamespacePrefixMapper mapper = new NamespacePrefixMapper(){
             // jaxbMarshaller.setProperty("com.sun.xml.internal.bind.namespacePrefixMapper",
             // mapper);
-
-            jaxbMarshaller.marshal(daia, f);
+            StreamResult stream = new StreamResult(p.toFile());
+            jaxbMarshaller.marshal(daia, stream);
 
         } catch (JAXBException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void marshal(DAIA daia, Path p) {
-        marshal(daia, p.toFile());
     }
 
     public static Document marshalToDOM(DAIA daia) {
@@ -82,12 +87,12 @@ public class DAIAUtils {
         return null;
     }
 
-    public static DAIA unmarshal(File f) {
+    public static DAIA unmarshal(Path p) {
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(DAIA.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 
-            DAIA daia = (DAIA) jaxbUnmarshaller.unmarshal(f);
+            DAIA daia = (DAIA) jaxbUnmarshaller.unmarshal(p.toFile());
 
             return daia;
 
@@ -95,10 +100,6 @@ public class DAIAUtils {
             e.printStackTrace();
             return null;
         }
-    }
-
-    public static DAIA unmarshal(Path p) {
-        return unmarshal(p.toFile());
     }
 
     public static DAIA unmarshal(URL url) {
@@ -133,11 +134,11 @@ public class DAIAUtils {
 
     public static void main(String[] args) {
         try {
-            DAIA daia = DAIAUtils.unmarshal(new URL("http://daia.gbv.de/?format=xml&id=opac-de-28%3Appn%3A56147334X"));
+            DAIA daia = DAIAXMLProcessor.unmarshal(new URL("http://daia.gbv.de/?format=xml&id=opac-de-28%3Appn%3A56147334X"));
             System.out.println(daia.getTimestamp());
             System.out.println(daia.getDocument().get(0).getItem().get(0).getAvailable().get(0).getHref());
 
-            DAIA daia2 = DAIAUtils.unmarshal(new URL("http://daia.gbv.de/?format=xml&id=opac-de-28%3Appn%3A782683118"));
+            DAIA daia2 = DAIAXMLProcessor.unmarshal(new URL("http://daia.gbv.de/?format=xml&id=opac-de-28%3Appn%3A782683118"));
             System.out.println(daia2.getTimestamp());
 
         } catch (MalformedURLException e) {

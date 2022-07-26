@@ -9,8 +9,8 @@
   </parent>
   <artifactId>libmeta-daia</artifactId>
 
-  <name>LibMeta Daia</name>
-  <description>Java API for common bibliographic metadata models.</description>
+  <name>LibMeta DAIA</name>
+  <description>Java API for DAIA library metadata model.</description>
 
   <dependencies>
     <dependency>
