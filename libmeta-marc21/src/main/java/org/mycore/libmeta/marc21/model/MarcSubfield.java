@@ -27,26 +27,26 @@ import jakarta.xml.bind.annotation.XmlValue;
 
 /**
  * MARC21 subfield
- *  <xsd:complexType name="subfieldatafieldType" id="subfield.ct">
- *    <xsd:simpleContent>
- *      <xsd:extension base="subfieldDataType">
- *        <xsd:attribute name="id" type="idDataType" use="optional"/>
- *        <xsd:attribute name="code" type="subfieldcodeDataType" use="required"/>
- *      </xsd:extension>
- *    </xsd:simpleContent>
- *  </xsd:complexType>
- *  <xsd:simpleType name="subfieldDataType" id="subfield.st">
- *    <xsd:restriction base="xsd:string">
- *      <xsd:whiteSpace value="preserve"/>
- *    </xsd:restriction>
- *  </xsd:simpleType>
- *  <xsd:simpleType name="subfieldcodeDataType" id="code.st">
- *    <xsd:restriction base="xsd:string">
- *      <xsd:whiteSpace value="preserve"/>
- *      <xsd:pattern value="[\dA-Za-z!&quot;#$%&amp;'()*+,-./:;&lt;=&gt;?{}_^`~\[\]\\]{1}"/>
- *      <!-- "A-Z" added after "\d" May 21, 2009 -->
- *    </xsd:restriction>
- *  </xsd:simpleType>
+ *  &lt;xsd:complexType name="subfieldatafieldType" id="subfield.ct"&gt;
+ *    &lt;xsd:simpleContent&gt;
+ *      &lt;xsd:extension base="subfieldDataType"&gt;
+ *        &lt;xsd:attribute name="id" type="idDataType" use="optional"/&gt;
+ *        &lt;xsd:attribute name="code" type="subfieldcodeDataType" use="required"/&gt;
+ *      &lt;/xsd:extension&gt;
+ *    &lt;/xsd:simpleContent&gt;
+ *  &lt;/xsd:complexType&gt;
+ *  &lt;xsd:simpleType name="subfieldDataType" id="subfield.st"&gt;
+ *    &lt;xsd:restriction base="xsd:string"&gt;
+ *      &lt;xsd:whiteSpace value="preserve"/&gt;
+ *    &lt;/xsd:restriction&gt;
+ *  &lt;/xsd:simpleType&gt;
+ *  &lt;xsd:simpleType name="subfieldcodeDataType" id="code.st"&gt;
+ *    &lt;xsd:restriction base="xsd:string"&gt;
+ *      &lt;xsd:whiteSpace value="preserve"/&gt;
+ *      &lt;xsd:pattern value="[\dA-Za-z!&quot;#$%&amp;'()*+,-./:;&lt;=&gt;?{}_^`~\[\]\\]{1}"/&gt;
+ *      &lt;!-- "A-Z" added after "\d" May 21, 2009 --&gt;
+ *    &lt;/xsd:restriction&gt;
+ *  &lt;/xsd:simpleType&gt;
  * 
  * @author Robert Stephan
  * @version MARC21 1.2
@@ -61,7 +61,7 @@ public class MarcSubfield extends MarcObject {
     protected String content;
 
     /**
-     * <xsd:pattern value="[\dA-Za-z!&quot;#$%&amp;'()*+,-./:;&lt;=&gt;?{}_^`~\[\]\\]{1}"/> 
+     * &lt;xsd:pattern value="[\dA-Za-z!&quot;#$%&amp;'()*+,-./:;&lt;=&gt;?{}_^`~\[\]\\]{1}"/&gt; 
      */
     @XmlAttribute(name = "code", required = true)
     protected String code;

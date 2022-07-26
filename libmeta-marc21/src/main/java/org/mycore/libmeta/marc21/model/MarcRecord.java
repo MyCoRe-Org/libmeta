@@ -32,15 +32,15 @@ import jakarta.xml.bind.annotation.XmlType;
 /**
  * MARC21 record is a top level container element for all of the field elements which compose the record
  * 
- * <xsd:complexType name="recordType" id="record.ct">
- *   <xsd:sequence minOccurs="0">
- *     <xsd:element name="leader" type="leaderFieldType"/>
- *     <xsd:element name="controlfield" type="controlFieldType" minOccurs="0" maxOccurs="unbounded"/>
- *     <xsd:element name="datafield" type="dataFieldType" minOccurs="0" maxOccurs="unbounded"/>
- *   </xsd:sequence>
- *   <xsd:attribute name="type" type="recordTypeType" use="optional"/>
- *   <xsd:attribute name="id" type="idDataType" use="optional"/>
- * </xsd:complexType>
+ * &lt;xsd:complexType name="recordType" id="record.ct"&gt;
+ *   &lt;xsd:sequence minOccurs="0"&gt;
+ *     &lt;xsd:element name="leader" type="leaderFieldType"/&gt;
+ *     &lt;xsd:element name="controlfield" type="controlFieldType" minOccurs="0" maxOccurs="unbounded"/&gt;
+ *     &lt;xsd:element name="datafield" type="dataFieldType" minOccurs="0" maxOccurs="unbounded"/&gt;
+ *   &lt;/xsd:sequence&gt;
+ *   &lt;xsd:attribute name="type" type="recordTypeType" use="optional"/&gt;
+ *   &lt;xsd:attribute name="id" type="idDataType" use="optional"/&gt;
+ * &lt;/xsd:complexType&gt;
  * 
  * @author Robert Stephan
  * @version MARC21 1.2

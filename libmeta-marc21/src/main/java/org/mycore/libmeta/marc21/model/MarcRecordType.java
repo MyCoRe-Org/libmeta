@@ -18,15 +18,15 @@
 package org.mycore.libmeta.marc21.model;
 
 /**
- * <xsd:simpleType name="recordTypeType" id="type.st">
- *   <xsd:restriction base="xsd:NMTOKEN">
- *     <xsd:enumeration value="Bibliographic"/>
- *     <xsd:enumeration value="Authority"/>
- *     <xsd:enumeration value="Holdings"/>
- *     <xsd:enumeration value="Classification"/>
- *     <xsd:enumeration value="Community"/>
- *   </xsd:restriction>
- * </xsd:simpleType>
+ * &lt;xsd:simpleType name="recordTypeType" id="type.st"&gt;
+ *   &lt;xsd:restriction base="xsd:NMTOKEN"&gt;
+ *     &lt;xsd:enumeration value="Bibliographic"/&gt;
+ *     &lt;xsd:enumeration value="Authority"/&gt;
+ *     &lt;xsd:enumeration value="Holdings"/&gt;
+ *     &lt;xsd:enumeration value="Classification"/&gt;
+ *     &lt;xsd:enumeration value="Community"/&gt;
+ *   &lt;/xsd:restriction&gt;
+ * &lt;/xsd:simpleType&gt;
  * 
  * @author Robert Stephan
  * @version MARC21 1.2

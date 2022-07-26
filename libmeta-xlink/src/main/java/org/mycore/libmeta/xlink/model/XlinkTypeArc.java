@@ -23,7 +23,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 /**
  * Enumeration of values for attribute xlink:actuate
  * 
- * @see http://www.w3.org/1999/xlink
+ * @see <a href="http://www.w3.org/1999/xlink">XML Schema for XLink</a>
  * 
  * @author Robert Stephan
  * 

@@ -29,22 +29,22 @@ import jakarta.xml.bind.annotation.XmlValue;
  * MARC21 Leader, 24 bytes
  * -----------------------
  * 
- *  <xsd:complexType name="leaderFieldType" id="leader.ct">
- *   <xsd:annotation>
- *     <xsd:documentation>MARC21 Leader, 24 bytes</xsd:documentation>
- *   </xsd:annotation>
- *   <xsd:simpleContent>
- *     <xsd:extension base="leaderDataType">
- *       <xsd:attribute name="id" type="idDataType" use="optional"/>
- *     </xsd:extension>
- *   </xsd:simpleContent>
- * </xsd:complexType>
- * <xsd:simpleType name="leaderDataType" id="leader.st">
- *   <xsd:restriction base="xsd:string">
- *     <xsd:whiteSpace value="preserve"/>
- *     <xsd:pattern value="[\d ]{5}[\dA-Za-z ]{1}[\dA-Za-z]{1}[\dA-Za-z ]{3}(2| )(2| )[\d ]{5}[\dA-Za-z ]{3}(4500|    )"/>
- *   </xsd:restriction>
- * </xsd:simpleType>
+ *  &lt;xsd:complexType name="leaderFieldType" id="leader.ct"&gt;
+ *   &lt;xsd:annotation&gt;
+ *     &lt;xsd:documentation&gt;MARC21 Leader, 24 bytes&lt;/xsd:documentation&gt;
+ *   &lt;/xsd:annotation&gt;
+ *   &lt;xsd:simpleContent&gt;
+ *     &lt;xsd:extension base="leaderDataType"&gt;
+ *       &lt;xsd:attribute name="id" type="idDataType" use="optional"/&gt;
+ *     &lt;/xsd:extension&gt;
+ *   &lt;/xsd:simpleContent&gt;
+ * &lt;/xsd:complexType&gt;
+ * &lt;xsd:simpleType name="leaderDataType" id="leader.st"&gt;
+ *   &lt;xsd:restriction base="xsd:string"&gt;
+ *     &lt;xsd:whiteSpace value="preserve"/&gt;
+ *     &lt;xsd:pattern value="[\d ]{5}[\dA-Za-z ]{1}[\dA-Za-z]{1}[\dA-Za-z ]{3}(2| )(2| )[\d ]{5}[\dA-Za-z ]{3}(4500|    )"/&gt;
+ *   &lt;/xsd:restriction&gt;
+ * &lt;/xsd:simpleType&gt;
  *  
  * @author Robert Stephan
  * @version MARC21 1.2

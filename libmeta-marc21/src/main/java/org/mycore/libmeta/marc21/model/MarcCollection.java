@@ -31,11 +31,11 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 /**
  * MARC21 collection is a top level container element for 0 or many records
  * 
- * <xsd:complexType name="collectionType" id="collection.ct">
- * <xsd:sequence minOccurs="0" maxOccurs="unbounded">
- * <xsd:element ref="record"/> </xsd:sequence>
- * <xsd:attribute name="id" type="idDataType" use="optional"/>
- * </xsd:complexType>
+ * &lt;xsd:complexType name="collectionType" id="collection.ct"&gt;
+ *   &lt;xsd:sequence minOccurs="0" maxOccurs="unbounded"&gt;
+ *   &lt;xsd:element ref="record"/&gt; &lt;/xsd:sequence&gt;
+ *   &lt;xsd:attribute name="id" type="idDataType" use="optional"/&gt;
+ * &lt;/xsd:complexType&gt;
  * 
  * @author Robert Stephan
  * @version MARC21 1.2

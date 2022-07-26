@@ -123,9 +123,10 @@ public class MarcXMLQuery {
 	 * @param tag
 	 *            MarcDatafield tag.
 	 * @param code
-	 *            Subfield code. * @param separator - a String, that will be
+	 *            Subfield code. 
+	 * @param separator - a String, that will be
 	 *            used to separate multiple values - if
-	 *            <code>null</null> the parameter will be ignored
+	 *            <code>null</code> the parameter will be ignored
 	 * @return Datafield's subfield's string content or <code>null</code> if
 	 *         datafield or subfield is null or doesn't exist.
 	 */
@@ -150,7 +151,7 @@ public class MarcXMLQuery {
 	 *            Subfield code.
 	 * @param separator
 	 *            - a String, that will be used to separate multiple values
-	 *            - if <code>null</null> the parameter will be ignored
+	 *            - if <code>null</code> the parameter will be ignored
 	 * @return Subfield's string content or <code>null</code> if subfield is
 	 *         null or doesn't exist.
 	 */

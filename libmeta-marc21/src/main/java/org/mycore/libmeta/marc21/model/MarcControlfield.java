@@ -28,31 +28,31 @@ import jakarta.xml.bind.annotation.XmlValue;
 /**
  * MARC21 Fields 001-009
  * 
- *  <xsd:complexType name="controlFieldType" id="controlfield.ct">
- *   <xsd:annotation>
- *     <xsd:documentation>MARC21 Fields 001-009</xsd:documentation>
- *   </xsd:annotation>
- *   <xsd:simpleContent>
- *     <xsd:extension base="controlDataType">
- *       <xsd:attribute name="id" type="idDataType" use="optional"/>
- *       <xsd:attribute name="tag" type="controltagDataType" use="required"/>
- *     </xsd:extension>
- *   </xsd:simpleContent>
- * </xsd:complexType>
- * <xsd:simpleType name="controlDataType" id="controlfield.st">
- *   <xsd:restriction base="xsd:string">
- *     <xsd:whiteSpace value="preserve"/>
- *   </xsd:restriction>
- * </xsd:simpleType>
- * <xsd:simpleType name="controltagDataType" id="controltag.st">
- *   <xsd:restriction base="xsd:string">
- *     <xsd:whiteSpace value="preserve"/>
- *     <xsd:pattern value="00[1-9A-Za-z]{1}"/>
- *   </xsd:restriction>
- * </xsd:simpleType>
+ *  &lt;xsd:complexType name="controlFieldType" id="controlfield.ct"&gt;
+ *   &lt;xsd:annotation&gt;
+ *     &lt;xsd:documentation&gt;MARC21 Fields 001-009&lt;/xsd:documentation&gt;
+ *   &lt;/xsd:annotation&gt;
+ *   &lt;xsd:simpleContent&gt;
+ *     &lt;xsd:extension base="controlDataType"&gt;
+ *       &lt;xsd:attribute name="id" type="idDataType" use="optional"/&gt;
+ *       &lt;xsd:attribute name="tag" type="controltagDataType" use="required"/&gt;
+ *     &lt;/xsd:extension&gt;
+ *   &lt;/xsd:simpleContent&gt;
+ * &lt;/xsd:complexType&gt;
+ * &lt;xsd:simpleType name="controlDataType" id="controlfield.st"&gt;
+ *   &lt;xsd:restriction base="xsd:string"&gt;
+ *     &lt;xsd:whiteSpace value="preserve"/&gt;
+ *   &lt;/xsd:restriction&gt;
+ * &lt;/xsd:simpleType&gt;
+ * &lt;xsd:simpleType name="controltagDataType" id="controltag.st"&gt;
+ *   &lt;xsd:restriction base="xsd:string"&gt;
+ *     &lt;xsd:whiteSpace value="preserve"/&gt;
+ *     &lt;xsd:pattern value="00[1-9A-Za-z]{1}"/&gt;
+ *   &lt;/xsd:restriction&gt;
+ * &lt;/xsd:simpleType&gt;
  * 
  * @author Robert Stephan
- * @verson MARC21 1.2
+ * @version MARC21 1.2
  * 
  */
 
@@ -67,7 +67,7 @@ public class MarcControlfield extends MarcObject {
     protected String id;
 
     /**
-     * <xsd:pattern value="00[1-9A-Za-z]{1}"/>
+     * &lt;xsd:pattern value="00[1-9A-Za-z]{1}"/&gt;
      */
     @XmlAttribute(name = "tag", required = true)
     protected String tag;

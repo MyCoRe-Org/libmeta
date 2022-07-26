@@ -31,30 +31,30 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 /**
  * MARC21 Variable Data Fields 010-999
  * 
- *  <xsd:complexType name="dataFieldType" id="datafield.ct">
- *    <xsd:annotation>
- *      <xsd:documentation>MARC21 Variable Data Fields 010-999</xsd:documentation>
- *    </xsd:annotation>
- *    <xsd:sequence maxOccurs="unbounded">
- *      <xsd:element name="subfield" type="subfieldatafieldType"/>
- *    </xsd:sequence>
- *    <xsd:attribute name="id" type="idDataType" use="optional"/>
- *    <xsd:attribute name="tag" type="tagDataType" use="required"/>
- *    <xsd:attribute name="ind1" type="indicatorDataType" use="required"/>
- *    <xsd:attribute name="ind2" type="indicatorDataType" use="required"/>
- *  </xsd:complexType>
- *  <xsd:simpleType name="tagDataType" id="tag.st">
- *    <xsd:restriction base="xsd:string">
- *     <xsd:whiteSpace value="preserve"/>
- *      <xsd:pattern value="(0([1-9A-Z][0-9A-Z])|0([1-9a-z][0-9a-z]))|(([1-9A-Z][0-9A-Z]{2})|([1-9a-z][0-9a-z]{2}))"/>
- *    </xsd:restriction>
- *  </xsd:simpleType>
- *  <xsd:simpleType name="indicatorDataType" id="ind.st">
- *    <xsd:restriction base="xsd:string">
- *      <xsd:whiteSpace value="preserve"/>
- *      <xsd:pattern value="[\da-z ]{1}"/>
- *    </xsd:restriction>
- *  </xsd:simpleType>
+ *  &lt;xsd:complexType name="dataFieldType" id="datafield.ct"&gt;
+ *    &lt;xsd:annotation&gt;
+ *      &lt;xsd:documentation&gt;MARC21 Variable Data Fields 010-999&lt;/xsd:documentation&gt;
+ *    &lt;/xsd:annotation&gt;
+ *    &lt;xsd:sequence maxOccurs="unbounded"&gt;
+ *      &lt;xsd:element name="subfield" type="subfieldatafieldType"/&gt;
+ *    &lt;/xsd:sequence&gt;
+ *    &lt;xsd:attribute name="id" type="idDataType" use="optional"/&gt;
+ *    &lt;xsd:attribute name="tag" type="tagDataType" use="required"/&gt;
+ *    &lt;xsd:attribute name="ind1" type="indicatorDataType" use="required"/&gt;
+ *    &lt;xsd:attribute name="ind2" type="indicatorDataType" use="required"/&gt;
+ *  &lt;/xsd:complexType&gt;
+ *  &lt;xsd:simpleType name="tagDataType" id="tag.st"&gt;
+ *    &lt;xsd:restriction base="xsd:string"&gt;
+ *     &lt;xsd:whiteSpace value="preserve"/&gt;
+ *      &lt;xsd:pattern value="(0([1-9A-Z][0-9A-Z])|0([1-9a-z][0-9a-z]))|(([1-9A-Z][0-9A-Z]{2})|([1-9a-z][0-9a-z]{2}))"/&gt;
+ *    &lt;/xsd:restriction&gt;
+ *  &lt;/xsd:simpleType&gt;
+ *  &lt;xsd:simpleType name="indicatorDataType" id="ind.st"&gt;
+ *    &lt;xsd:restriction base="xsd:string"&gt;
+ *      &lt;xsd:whiteSpace value="preserve"/&gt;
+ *      &lt;xsd:pattern value="[\da-z ]{1}"/&gt;
+ *    &lt;/xsd:restriction&gt;
+ *  &lt;/xsd:simpleType&gt;
  * 
  * 
  * @author Robert Stephan
@@ -75,19 +75,19 @@ public class MarcDatafield extends MarcObject {
     protected String id;
 
     /**
-     * <xsd:pattern value="(0([1-9A-Z][0-9A-Z])|0([1-9a-z][0-9a-z]))|(([1-9A-Z][0-9A-Z]{2})|([1-9a-z][0-9a-z]{2}))"/>
+     * &lt;xsd:pattern value="(0([1-9A-Z][0-9A-Z])|0([1-9a-z][0-9a-z]))|(([1-9A-Z][0-9A-Z]{2})|([1-9a-z][0-9a-z]{2}))"/&gt;
      */
     @XmlAttribute(name = "tag", required = true)
     protected String tag;
 
     /**
-     *  <xsd:pattern value="[\da-z ]{1}"/>
+     *  &lt;xsd:pattern value="[\da-z ]{1}"/&gt;
      */
     @XmlAttribute(name = "ind1", required = true)
     protected String ind1;
 
     /**
-     *  <xsd:pattern value="[\da-z ]{1}"/>
+     *  &lt;xsd:pattern value="[\da-z ]{1}"/&gt;
      */
     @XmlAttribute(name = "ind2", required = true)
     protected String ind2;
