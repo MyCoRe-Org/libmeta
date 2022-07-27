@@ -34,6 +34,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
+ * {@code
  * <xsd:complexType name="amdSecType">
  *   <xsd:sequence>
  *     <xsd:element name="techMD" type="mdSecType" minOccurs="0" maxOccurs="unbounded" />
@@ -41,7 +42,8 @@ import jakarta.xml.bind.annotation.XmlType;
  *     <xsd:element name="sourceMD" type="mdSecType" minOccurs="0" maxOccurs="unbounded" />
  *     <xsd:element name="digiprovMD" type="mdSecType" minOccurs="0" maxOccurs="unbounded" />
  *	</xsd:sequence>
- *	
+ *	}
+ *
  * amdSecType: Complex Type for Administrative Metadata Sections
  * 
  * The administrative metadata section consists of four possible subsidiary
@@ -61,7 +63,9 @@ public class AmdSec {
     // <xsd:sequence>
 
     /**
+     * {@code
      * <xsd:element name="techMD" type="mdSecType" minOccurs="0" maxOccurs="unbounded">
+     * }
      * 
      * A technical metadata element &lt;techMD&gt; records technical metadata
      * about a component of the METS object, such as a digital content file. The
@@ -79,7 +83,9 @@ public class AmdSec {
     protected List<MdSec> techMD = new Vector<MdSec>();
 
     /**
+     * {@code
      * <xsd:element name="rightsMD" type="mdSecType" minOccurs="0" maxOccurs="unbounded">
+     * }
      * 
      * An intellectual property rights metadata element &lt;rightsMD&gt; records
      * information about copyright and licensing pertaining to a component of
@@ -98,7 +104,9 @@ public class AmdSec {
     protected List<MdSec> rightsMD = new Vector<MdSec>();
 
     /**
+     * {@code
      * <xsd:element name="sourceMD" type="mdSecType" minOccurs="0" maxOccurs="unbounded">
+     * }
      * 
      * A source metadata element &lt;sourceMD&gt; records descriptive and
      * administrative metadata about the source format or media of a component
@@ -118,7 +126,9 @@ public class AmdSec {
     protected List<MdSec> sourceMD = new Vector<MdSec>();
 
     /**
+     * {@code
      * <xsd:element name="digiprovMD" type="mdSecType" minOccurs="0" maxOccurs="unbounded">
+     * }
      * 
      * A digital provenance metadata element &lt;digiprovMD&gt; can be used to
      * record any preservation-related actions taken on the various files which
@@ -152,7 +162,9 @@ public class AmdSec {
     protected List<MdSec> digiprovMD = new Vector<MdSec>();
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -164,7 +176,9 @@ public class AmdSec {
     protected String ID;
 
     /**
+     * {@code
      * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+     * }
      */
     @XmlAnyAttribute
     protected Map<QName, String> otherAttributes = new HashMap<QName, String>();

@@ -32,7 +32,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
+ * {@code
  * <xsd:complexType name="structMapType">
+ * }
  * 
  * structMapType: Complex Type for Structural Maps
  * 
@@ -49,7 +51,9 @@ public class StructMap {
     // <xsd:sequence>
 
     /**
+     * {@code
      * <xsd:element name="div" type="divType">
+     * }
      * 
      * The structural divisions of the hierarchical organization provided by a
      * &lt;structMap&gt; are represented by division &lt;div&gt; elements, which
@@ -63,7 +67,9 @@ public class StructMap {
     protected Div div;
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -75,7 +81,9 @@ public class StructMap {
     protected String ID;
 
     /**
+     * {@code
      * <xsd:attribute name="TYPE" type="xsd:string" use="optional">
+     * }
      * 
      * TYPE (string/O): Identifies the type of structure represented by the
      * &lt;structMap&gt;. For example, a &lt;structMap&gt; that represented a
@@ -90,7 +98,9 @@ public class StructMap {
     protected String TYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="LABEL" type="xsd:string" use="optional">
+     * }
      * 
      * LABEL (string/O): Describes the &lt;structMap&gt; to viewers of the METS
      * document. This would be useful primarily where more than one
@@ -102,7 +112,9 @@ public class StructMap {
     protected String LABEL;
 
     /**
+     * {@code
      * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+     * }
      */
     @XmlAnyAttribute
     protected Map<QName, String> otherAttributes = new HashMap<QName, String>();

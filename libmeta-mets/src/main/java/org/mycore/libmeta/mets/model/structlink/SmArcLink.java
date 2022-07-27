@@ -29,7 +29,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
+ * {@code
  * <xsd:element name="smArcLink" minOccurs="1" maxOccurs="unbounded">
+ * }
  * 
  * The structMap arc link element &lt;smArcLink&gt; is of xlink:type
  * &quot;arc&quot; It can be used to establish a traversal link between two
@@ -45,13 +47,15 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 @XmlAccessorType(XmlAccessType.NONE)
 public class SmArcLink implements IAttributeGroupXlinkArcLink {
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID"> //TODO-CHECK required=true?
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
      * another element or document via an IDREF or an XPTR. For more information
      * on using ID attributes for internal and external linking see Chapter 4 of
-     * the METS Primer.</xsd:documentation>
+     * the METS Primer.
      * 
      */
     @XmlAttribute(name = "ID", required = true)
@@ -60,43 +64,57 @@ public class SmArcLink implements IAttributeGroupXlinkArcLink {
     // attributeGroup xlink:arcLink - begin
 
     /**
+     * {@code
      * <attribute name="type" type="string" fixed="arc" form="qualified"/>
+     * }
      */
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
     protected XlinkTypeArc xlinkType = XlinkTypeArc.ARC;
 
     /**
+     * {@code
      * <attribute ref="xlink:arcrole" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkArcrole;
 
     /**
+     * {@code
      * <attribute ref="xlink:title" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkTitle;
 
     /**
+     * {@code
      * <attribute ref="xlink:show" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkShow xlinkShow;
 
     /**
+     * {@code
      * <attribute ref="xlink:actuate" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkActuate xlinkActuate;
 
     /**
+     * {@code
      * <attribute ref="xlink:from" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "from", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkFrom;
 
     /**
+     * {@code
      * <attribute ref="xlink:to" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "to", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkTo;
@@ -104,7 +122,9 @@ public class SmArcLink implements IAttributeGroupXlinkArcLink {
     // attributeGroup xlink:arcLink - end
 
     /**
+     * {@code
      * <xsd:attribute name="ARCTYPE" type="xsd:string">
+     * }
      * 
      * ARCTYPE (string/O):The ARCTYPE attribute provides a means of specifying
      * the relationship between the &lt;div&gt; elements participating in the
@@ -119,7 +139,9 @@ public class SmArcLink implements IAttributeGroupXlinkArcLink {
     protected String ARCTYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+     * }
      * 
      * ADMID (IDREFS/O): Contains the ID attribute values identifying the
      * &lt;sourceMD&gt;, &lt;techMD&gt;, &lt;digiprovMD&gt; and/or

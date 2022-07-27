@@ -26,7 +26,9 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 
 /**
+ * {@code
  * <xsd:element name="FContent" minOccurs="0">
+ * }
  * 
  * The file content element &lt;FContent&gt; is used to identify a content file
  * contained internally within a METS document. The content file must be either
@@ -42,7 +44,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 public class FContent {
     // <xsd:choice>
     /**
+     * {@code
      * <xsd:element name="binData" type="xsd:base64Binary" minOccurs="0">
+     * }
      * 
      * A binary data wrapper element &lt;binData&gt; is used to contain a Base64
      * encoded file.
@@ -51,7 +55,9 @@ public class FContent {
     private String binData;
 
     /**
+     * {@code
      * <xsd:element name="xmlData" minOccurs="0">
+     * }
      * 
      * An xml data wrapper element &lt;xmlData&gt; is used to contain an XML
      * encoded file. The content of an &lt;xmlData&gt; element can be in any
@@ -69,7 +75,9 @@ public class FContent {
     private XMLData xmlData;
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -81,7 +89,9 @@ public class FContent {
     private String ID;
 
     /**
+     * {@code
      * <xsd:attribute name="USE" type="xsd:string" use="optional">
+     * }
      * 
      * USE (string/O): A tagging attribute to indicate the intended use of the
      * specific copy of the file represented by the &lt;FContent&gt; element

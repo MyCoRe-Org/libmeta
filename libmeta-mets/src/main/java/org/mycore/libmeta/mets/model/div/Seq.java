@@ -36,7 +36,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
 
 /**
+ * {@code
  * <xsd:complexType name="seqType">
+ * }
  * 
  * seqType: Complex Type for Sequences of Files
  * 
@@ -52,17 +54,21 @@ import jakarta.xml.bind.annotation.XmlElements;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Seq extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS {
     /**
+     * {@code
      * <xsd:choice maxOccurs="unbounded">
      * 		<xsd:element name="area" type="areaType" minOccurs="0"/>
      * 		<xsd:element name="par" type="parType" minOccurs="0"/>
      * </xsd:choice>
+     * }
      */
     @XmlElements({ @XmlElement(name = "area", namespace = "http://www.loc.gov/METS/", type = Area.class),
         @XmlElement(name = "par", namespace = "http://www.loc.gov/METS/", type = Par.class) })
     protected List<AreaOrSeqOrPar> areaOrPar = new Vector<>();
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -87,7 +93,9 @@ public class Seq extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS {
     //AttributeGroup ORDERLABES - end
 
     /**
+     * {@code
      * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+     * }
      */
     @XmlAnyAttribute
     protected Map<QName, String> otherAttributes = new HashMap<QName, String>();

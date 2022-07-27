@@ -35,7 +35,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
 
 /**
+ * {@code
  * <xsd:element name="fptr" minOccurs="0" maxOccurs="unbounded">
+ * }
  * 
  * The &lt;fptr&gt; or file pointer element represents digital content that
  * manifests its parent &lt;div&gt; element. The content represented by an
@@ -62,7 +64,9 @@ public class Fptr {
     // <xsd:choice>
 
     /**
+     * {@code
      * <xsd:element name="par" type="parType" minOccurs="0">
+     * }
      * 
      * The &lt;par&gt; or parallel files element aggregates pointers to files,
      * parts of files, and/or sequences of files or parts of files that must be
@@ -82,7 +86,9 @@ public class Fptr {
      */
 
     /**
+     * {@code
      * <xsd:element name="seq" type="seqType" minOccurs="0">
+     * }
      * 
      * The sequence of files element &lt;seq&gt; aggregates pointers to files,
      * parts of files and/or parallel sets of files or parts of files that must
@@ -101,7 +107,9 @@ public class Fptr {
      */
 
     /**
+     * {@code
      * <xsd:element name="area" type="areaType" minOccurs="0">
+     * }
      * 
      * The area element &lt;area&gt; typically points to content consisting of
      * just a portion or area of a file represented by a &lt;file&gt; element in
@@ -124,7 +132,9 @@ public class Fptr {
     private AreaOrSeqOrPar parOrSeqOrArea;
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -136,7 +146,9 @@ public class Fptr {
     protected String ID;
 
     /**
+     * {@code
      * <xsd:attribute name="FILEID" type="xsd:IDREF" use="optional">
+     * }
      * 
      * FILEID (IDREF/O): An optional attribute that provides the XML ID
      * identifying the &lt;file&gt; element that links to and/or contains the
@@ -150,7 +162,9 @@ public class Fptr {
     protected String FILEID;
 
     /**
+     * {@code
      * <xsd:attribute name="CONTENTIDS" type="URIs" use="optional">
+     * }
      * 
      * CONTENTIDS (URI/O): Content IDs for the content represented by the
      * &lt;fptr&gt; (equivalent to DIDL DII or Digital Item Identifier, a unique
@@ -160,7 +174,9 @@ public class Fptr {
     protected URIs CONTENTIDS = new URIs();
 
     /**
+     * {@code
      * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+     * }
      */
     @XmlAnyAttribute
     protected Map<QName, String> otherAttributes = new HashMap<QName, String>();

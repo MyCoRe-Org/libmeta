@@ -21,7 +21,11 @@ import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 
 /**
- * SHAPE (string/O): An attribute that can be used as in HTML to define the shape of the relevant area within the content file pointed to by the &lt;area&gt; element. Typically this would be used with image content (still image or video frame) when only a portion of an integal image map pertains. If SHAPE is specified then COORDS must also be present. SHAPE should be used in conjunction with COORDS in the manner defined for the shape and coords attributes on an HTML4 &lt;area&gt; element. SHAPE must contain one of the following values:
+ * SHAPE (string/O): An attribute that can be used as in HTML to define the shape of the relevant area within the content
+ * file pointed to by the &lt;area&gt; element. Typically this would be used with image content (still image or video frame)
+ * when only a portion of an integal image map pertains. If SHAPE is specified then COORDS must also be present.
+ * SHAPE should be used in conjunction with COORDS in the manner defined for the shape and coords attributes on an
+ * HTML4 &lt;area&gt; element. SHAPE must contain one of the following values:
  * 	RECT 
  * 	CIRCLE
  * 	POLY

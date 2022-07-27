@@ -34,7 +34,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
+ * {@code
  * <xsd:element name="fileSec" minOccurs="0">
+ * }
  * 
  * The overall purpose of the content file section element &lt;fileSec&gt; is to
  * provide an inventory of and the location for the content files that comprise
@@ -49,7 +51,9 @@ public class FileSec {
     // <xsd:sequence>
 
     /**
+     * {@code
      * <xsd:element name="fileGrp" maxOccurs="unbounded">
+     * }
      * 
      * A sequence of file group elements &lt;fileGrp&gt; can be used group the
      * digital files comprising the content of a METS object either into a flat
@@ -90,7 +94,9 @@ public class FileSec {
     protected List<FileGrp> fileGrp = new Vector<>();
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -102,7 +108,9 @@ public class FileSec {
     protected String ID;
     
     /**
+     * {@code
 	 * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+	 * }
 	 */
 	@XmlAnyAttribute
 	protected Map<QName, String> otherAttributes = new HashMap<QName, String>();

@@ -25,7 +25,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
+ * {@code
  * <xsd:element name="stream" minOccurs="0" maxOccurs="unbounded">
+ * }
  * 
  * A component byte stream element &lt;stream&gt; may be composed of one or more
  * subsidiary streams. An MPEG4 file, for example, might contain separate audio
@@ -33,7 +35,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  * repeatable &lt;stream&gt; element provides a mechanism to record the
  * existence of separate data streams within a particular file, and the
  * opportunity to associate &lt;dmdSec&gt; and &lt;amdSec&gt; with those
- * subsidiary data streams if desired. </xsd:documentation>
+ * subsidiary data streams if desired.
  * 
  * @author Robert Stephan
  * @version METS 1.10
@@ -42,7 +44,9 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Stream {
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -54,16 +58,20 @@ public class Stream {
     protected String ID;
 
     /**
+     * {@code
      * <xsd:attribute name="streamType" type="xsd:string" use="optional">
+     * }
      * 
      * streamType (string/O): The IANA MIME media type for the
-     * bytestream.</xsd:documentation>
+     * bytestream.
      */
     @XmlAttribute(name = "streamType", required = false)
     protected String streamType;
 
     /**
+     * {@code
      * <xsd:attribute name="OWNERID" type="xsd:string" use="optional">
+     * }
      * 
      * OWNERID (string/O): Used to provide a unique identifier (which could
      * include a URI) assigned to the file. This identifier may differ from the
@@ -73,7 +81,9 @@ public class Stream {
     protected String OWNERID;
 
     /**
+     * {@code
      * <xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+     * }
      * 
      * ADMID (IDREFS/O): Contains the ID attribute values of the &lt;techMD&gt;,
      * &lt;sourceMD&gt;, &lt;rightsMD&gt; and/or &lt;digiprovMD&gt; elements
@@ -86,7 +96,9 @@ public class Stream {
     protected String ADMID;
 
     /**
+     * {@code
      * <xsd:attribute name="DMDID" type="xsd:IDREFS" use="optional">
+     * }
      * 
      * DMDID (IDREFS/O): Contains the ID attribute values identifying the
      * &lt;dmdSec&gt;, elements in the METS document that contain or link to
@@ -99,7 +111,9 @@ public class Stream {
     protected String DMDID;
 
     /**
+     * {@code
      * <xsd:attribute name="BEGIN" type="xsd:string" use="optional">
+     * }
      * 
      * BEGIN (string/O): An attribute that specifies the point in the parent
      * &lt;file&gt; where the current &lt;stream&gt; begins. It can be used in
@@ -115,7 +129,9 @@ public class Stream {
     protected String BEGIN;
 
     /**
+     * {@code
      * <xsd:attribute name="END" type="xsd:string" use="optional">
+     * }
      * 
      * END (string/O): An attribute that specifies the point in the parent
      * &lt;file&gt; where the &lt;stream&gt; ends. It can only be interpreted
@@ -127,7 +143,9 @@ public class Stream {
     protected String END;
 
     /**
+     * {@code
      * <xsd:attribute name="BETYPE" use="optional">
+     * }
      * 
      * BETYPE: Begin/End Type.
      * 

@@ -73,7 +73,11 @@ public class Mets {
     //<xsd:sequence>
 
     /**
-     * <xsd:element name="metsHdr" minOccurs="0"> The mets header element
+     * {@code
+     * <xsd:element name="metsHdr" minOccurs="0">
+     * }
+     * 
+     * The mets header element
      * &lt;metsHdr&gt; captures metadata about the METS document itself, not the
      * digital object the METS document encodes. Although it records a more
      * limited set of metadata, it is very similar in function and purpose to
@@ -84,8 +88,12 @@ public class Mets {
     protected MetsHdr metsHdr;
 
     /**
+     * {@code
      * <xsd:element name="dmdSec" type="mdSecType" minOccurs="0"
-     * maxOccurs="unbounded"> A descriptive metadata section &lt;dmdSec&gt;
+     * maxOccurs="unbounded">
+     * }
+     * 
+     * A descriptive metadata section &lt;dmdSec&gt;
      * records descriptive metadata pertaining to the METS object as a whole or
      * one of its components. The &lt;dmdSec&gt; element conforms to same
      * generic datatype as the &lt;techMD&gt;, &lt;rightsMD&gt;,
@@ -102,8 +110,12 @@ public class Mets {
     protected List<MdSec> dmdSec = new Vector<MdSec>();
 
     /**
+     * {@code
      * <xsd:element name="amdSec" type="amdSecType" minOccurs="0"
-     * maxOccurs="unbounded"> The administrative metadata section &lt;amdSec&gt;
+     * maxOccurs="unbounded">
+     * }
+     * 
+     * The administrative metadata section &lt;amdSec&gt;
      * contains the administrative metadata pertaining to the digital object,
      * its components and any original source material from which the digital
      * object is derived. The &lt;amdSec&gt; is separated into four sub-sections
@@ -118,13 +130,17 @@ public class Mets {
      * not define a vocabulary or syntax for encoding administrative metadata.
      * Administrative metadata can be expressed within the amdSec sub-elements
      * according to many current community defined standards, or locally
-     * produced XML schemas. </xsd:documentation>
+     * produced XML schemas.
      */
     @XmlElement(name = "amdSec", namespace = "http://www.loc.gov/METS/", required = false)
     protected List<AmdSec> amdSec = new Vector<AmdSec>();
 
     /**
-     * <xsd:element name="fileSec" minOccurs="0"> The overall purpose of the
+     * {@code
+     * <xsd:element name="fileSec" minOccurs="0">
+     * }
+     * 
+     * The overall purpose of the
      * content file section element &lt;fileSec&gt; is to provide an inventory
      * of and the location for the content files that comprise the digital
      * object being described in the METS document.
@@ -133,7 +149,10 @@ public class Mets {
     protected FileSec fileSec;
 
     /**
+     * {@code
      * <xsd:element name="structMap" type="structMapType" maxOccurs="unbounded">
+     * }
+     * 
      * The structural map section &lt;structMap&gt; is the heart of a METS
      * document. It provides a means for organizing the digital content
      * represented by the &lt;file&gt; elements in the &lt;fileSec&gt; of the
@@ -164,7 +183,11 @@ public class Mets {
     protected List<StructMap> structMap = new Vector<StructMap>();
 
     /**
-     * <xsd:element name="structLink" minOccurs="0"> The structural link section
+     * {@code
+     * <xsd:element name="structLink" minOccurs="0">
+     * }
+     * 
+     * The structural link section
      * element &lt;structLink&gt; allows for the specification of hyperlinks
      * between the different components of a METS structure that are delineated
      * in a structural map. This element is a container for a single, repeatable
@@ -176,8 +199,12 @@ public class Mets {
     protected StructLink structLink;
 
     /**
+     * {@code
      * <xsd:element name="behaviorSec" type="behaviorSecType" minOccurs="0"
-     * maxOccurs="unbounded"> A behavior section element &lt;behaviorSec&gt;
+     * maxOccurs="unbounded">
+     * }
+     * 
+     * A behavior section element &lt;behaviorSec&gt;
      * associates executable behaviors with content in the METS document by
      * means of a repeatable behavior &lt;behavior&gt; element. This element has
      * an interface definition &lt;interfaceDef&gt; element that represents an
@@ -189,13 +216,17 @@ public class Mets {
      * be used to group individual behaviors within the structure of the METS
      * document. Such grouping can be useful for organizing families of
      * behaviors together or to indicate other relationships between particular
-     * behaviors.</xsd:documentation>
+     * behaviors.
      */
     @XmlElement(name = "behaviorSec", namespace = "http://www.loc.gov/METS/", required = false)
     protected List<BehaviorSec> behaviorSec = new Vector<BehaviorSec>();
 
     /**
-     * <xsd:attribute name="ID" type="xsd:ID" use="optional"> ID (ID/O): This
+     * {@code
+     * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
+     * 
+     * ID (ID/O): This
      * attribute uniquely identifies the element within the METS document, and
      * would allow the element to be referenced unambiguously from another
      * element or document via an IDREF or an XPTR. For more information on
@@ -206,7 +237,11 @@ public class Mets {
     protected String ID;
 
     /**
-     * <xsd:attribute name="OBJID" type="xsd:string" use="optional"> OBJID
+     * {@code
+     * <xsd:attribute name="OBJID" type="xsd:string" use="optional">
+     * }
+     * 
+     * OBJID
      * (string/O): Is the primary identifier assigned to the METS object as a
      * whole. Although this attribute is not required, it is strongly
      * recommended. This identifier is used to tag the entire METS object to
@@ -216,7 +251,11 @@ public class Mets {
     protected String OBJID;
 
     /**
-     * <xsd:attribute name="LABEL" type="xsd:string" use="optional"> LABEL
+     * {@code
+     * <xsd:attribute name="LABEL" type="xsd:string" use="optional">
+     * }
+     * 
+     * LABEL
      * (string/O): Is a simple title string used to identify the object/entity
      * being described in the METS document for the user.
      */
@@ -224,7 +263,11 @@ public class Mets {
     protected String LABEL;
 
     /**
-     * <xsd:attribute name="TYPE" type="xsd:string" use="optional"> TYPE
+     * {@code
+     * <xsd:attribute name="TYPE" type="xsd:string" use="optional">
+     * }
+     * 
+     * TYPE
      * (string/O): Specifies the class or type of the object, e.g.: book,
      * journal, stereograph, dataset, video, etc.
      */
@@ -232,7 +275,11 @@ public class Mets {
     protected String TYPE;
 
     /**
-     * <xsd:attribute name="PROFILE" type="xsd:string" use="optional"> PROFILE
+     * {@code
+     * <xsd:attribute name="PROFILE" type="xsd:string" use="optional">
+     * }
+     * 
+     * PROFILE
      * (string/O): Indicates to which of the registered profile(s) the METS
      * document conforms. For additional information about PROFILES see Chapter
      * 5 of the METS Primer.
@@ -241,7 +288,9 @@ public class Mets {
     protected String PROFILE;
 
     /**
+     * {@code
      * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+     * }
      */
     @XmlAnyAttribute
     protected Map<QName, String> otherAttributes = new HashMap<QName, String>();

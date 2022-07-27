@@ -93,13 +93,16 @@ public class METSQuery {
     }
 
     /**
+     * {@code
      * <mets:fileSec ID="fileSec_rosdok_document_000000000029">
-    	<mets:fileGrp USE="MIN">
-      		<mets:file MIMETYPE="image/jpeg" ID="etwas_1737_i0001_MIN">
-        		<mets:FLocat LOCTYPE="URL" xlink:href="http://rosdok.uni-rostock.de/data/etwas/etwas1737/MIN/intro/etwas_1737_i0001.jpg"/>
-      		</mets:file>
+     *	<mets:fileGrp USE="MIN">
+     * 		<mets:file MIMETYPE="image/jpeg" ID="etwas_1737_i0001_MIN">
+     *  		<mets:FLocat LOCTYPE="URL" xlink:href="http://rosdok.uni-rostock.de/data/etwas/etwas1737/MIN/intro/etwas_1737_i0001.jpg"/>
+     *		</mets:file>
+     *	}
      * @return
      */
+    
     public static FLocat findFLocat(Mets mets, String fileGrpUSE, String fileID, LOCTYPE locType) {
         for (FileGrp fg : mets.getFileSec().getFileGrp()) {
             if (fg.getUSE().equals(fileGrpUSE)) {

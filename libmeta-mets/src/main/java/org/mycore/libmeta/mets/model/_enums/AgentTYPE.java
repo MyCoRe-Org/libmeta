@@ -22,6 +22,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 
 /**
  * Agent Type
+ * {@code
  * <xsd:attribute name="TYPE" use="optional">
  *   <xsd:simpleType>
  *     <xsd:restriction base="xsd:string">
@@ -31,6 +32,8 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  *     </xsd:restriction>
  *   </xsd:simpleType>
  * </xsd:attribute>
+ * }
+ * 
  * TYPE (string/O): is used to specify the type of AGENT. 
  * It must be one of the following values:
  *   INDIVIDUAL: Use if an individual has served as the agent.

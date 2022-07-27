@@ -22,7 +22,11 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 
 /**
  * BETYPE: Begin/End Type.
- * BETYPE (string/O): An attribute that specifies the kind of BEGIN and/or END values that are being used. For example, if BYTE is specified, then the BEGIN and END point values represent the byte offsets into a file. If IDREF is specified, then the BEGIN element specifies the ID value that identifies the element in a structured text file where the relevant section of the file begins; and the END value (if present) would specify the ID value that identifies the element with which the relevant section of the file ends. Must be one of the following values:
+ * BETYPE (string/O): An attribute that specifies the kind of BEGIN and/or END values that are being used. For example,
+ * if BYTE is specified, then the BEGIN and END point values represent the byte offsets into a file. If IDREF is specified,
+ * then the BEGIN element specifies the ID value that identifies the element in a structured text file where
+ * the relevant section of the file begins; and the END value (if present) would specify the ID value that identifies
+ * the element with which the relevant section of the file ends. Must be one of the following values:
  * 	BYTE
  * 	IDREF
  * 	SMIL

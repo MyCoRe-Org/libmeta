@@ -26,7 +26,11 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
- * <xsd:element name="smLink"> The Structural Map Link element &lt;smLink&gt;
+ * {@code
+ * <xsd:element name="smLink">
+ * }
+ * 
+ * The Structural Map Link element &lt;smLink&gt;
  * identifies a hyperlink between two nodes in the structural map. You would use
  * &lt;smLink&gt;, for instance, to note the existence of hypertext links
  * between web pages, if you wished to record those links within METS. NOTE:
@@ -41,7 +45,9 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 @XmlAccessorType(XmlAccessType.NONE)
 public class SmLink extends SmLinkOrSmLinkGrp {
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -53,7 +59,9 @@ public class SmLink extends SmLinkOrSmLinkGrp {
     protected String ID;
 
     /**
+     * {@code
      * <xsd:attribute ref="xlink:arcrole" use="optional">
+     * }
      * 
      * xlink:arcrole - the role of the link, as per the xlink specification. See
      * http://www.w3.org/TR/xlink/
@@ -62,7 +70,9 @@ public class SmLink extends SmLinkOrSmLinkGrp {
     protected String xlinkArcrole;
 
     /**
+     * {@code
      * <xsd:attribute ref="xlink:title" use="optional">
+     * }
      * 
      * xlink:title - a title for the link (if needed), as per the xlink
      * specification. See http://www.w3.org/TR/xlink/
@@ -71,7 +81,9 @@ public class SmLink extends SmLinkOrSmLinkGrp {
     protected String xlinkTitle;
 
     /**
+     * {@code
      * <xsd:attribute ref="xlink:show" use="optional">
+     * }
      * 
      * xlink:show - see the xlink specification at http://www.w3.org/TR/xlink/
      */
@@ -79,7 +91,9 @@ public class SmLink extends SmLinkOrSmLinkGrp {
     protected XlinkShow xlinkShow;
 
     /**
+     * {@code
      * <xsd:attribute ref="xlink:actuate" use="optional">
+     * }
      * 
      * xlink:actuate - see the xlink specification at
      * http://www.w3.org/TR/xlink/
@@ -88,7 +102,9 @@ public class SmLink extends SmLinkOrSmLinkGrp {
     protected XlinkActuate xlinkActuate;
 
     /**
+     * {@code
      * <xsd:attribute ref="xlink:from" use="required">
+     * }
      * 
      * xlink:from - the value of the label for the element in the structMap you
      * are linking from.
@@ -97,7 +113,9 @@ public class SmLink extends SmLinkOrSmLinkGrp {
     protected String xlinkFrom;
 
     /**
+     * {@code
      * <xsd:attribute ref="xlink:to" use="required">
+     * }
      * 
      * xlink:to - the value of the label for the element in the structMap you
      * are linking to.

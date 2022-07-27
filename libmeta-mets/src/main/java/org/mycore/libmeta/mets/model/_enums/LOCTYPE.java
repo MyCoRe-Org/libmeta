@@ -22,6 +22,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 
 /**
  * Location LOCTYPE
+ * {@code
  * <xsd:attribute name="LOCTYPE" use="required">
  *   <xsd:simpleType>
  *     <xsd:restriction base="xsd:string">
@@ -35,6 +36,8 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  *     </xsd:restriction>
  *   </xsd:simpleType>
  * </xsd:attribute>
+ * }
+ * 
  * LOCTYPE (string/R): Specifies the locator type used in the xlink:href
  * attribute. Valid values for LOCTYPE are:
  * ARK  URN  URL  PURL  HANDLE  DOI  OTHER

@@ -30,7 +30,7 @@ import jakarta.xml.bind.annotation.XmlAnyAttribute;
 import jakarta.xml.bind.annotation.XmlValue;
 
 /**
- * The <note> element can be used to record any additional information regarding the agent's activities with respect to the METS document.
+ * The &lt;note&gt; element can be used to record any additional information regarding the agent's activities with respect to the METS document.
 											
  * @author Robert Stephan
  *
@@ -42,7 +42,9 @@ public class AgentNote {
     protected String content;
     
     /**
+     * {@code
      * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+     * }
      */
     @XmlAnyAttribute
     protected Map<QName, String> otherAttributes = new HashMap<QName, String>();

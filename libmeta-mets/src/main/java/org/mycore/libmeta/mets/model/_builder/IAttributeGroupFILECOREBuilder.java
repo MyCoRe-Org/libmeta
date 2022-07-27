@@ -34,7 +34,10 @@ public interface IAttributeGroupFILECOREBuilder<T extends IAttributeGroupFILECOR
     public B _self();
     
 	/**
+	 * {@code
 	 * <xsd:attribute name="MIMETYPE" type="xsd:string" use="optional">
+	 * }
+	 * 
 	 * MIMETYPE (string/O): The IANA MIME media type for the associated file
 	 *			or wrapped content. Some values for this attribute can be found on the IANA website.
 	 */
@@ -45,7 +48,10 @@ public interface IAttributeGroupFILECOREBuilder<T extends IAttributeGroupFILECOR
 	}
 
 	/**
+	 * {@code
 	 * <xsd:attribute name="SIZE" type="xsd:long" use="optional">
+	 * }
+	 * 
 	 * SIZE (long/O): Specifies the size in bytes of the associated file or
 	 * wrapped content.
 	 */
@@ -56,7 +62,10 @@ public interface IAttributeGroupFILECOREBuilder<T extends IAttributeGroupFILECOR
 	}
 
 	/**
+	 * {@code
 	 * <xsd:attribute name="CREATED" type="xsd:dateTime" use="optional">
+	 * }
+	 * 
 	 * CREATED (dateTime/O): Specifies the date and time of creation for the
 	 * associated file or wrapped content.
 	 */
@@ -66,7 +75,10 @@ public interface IAttributeGroupFILECOREBuilder<T extends IAttributeGroupFILECOR
 	}
 
 	/**
+	 * {@code
 	 * <xsd:attribute name="CHECKSUM" type="xsd:string" use="optional">
+	 * }
+	 * 
 	 * CHECKSUM (string/O): Provides a checksum value for the associated file
 	 * or wrapped content.
 	 */
@@ -76,6 +88,7 @@ public interface IAttributeGroupFILECOREBuilder<T extends IAttributeGroupFILECOR
 	}
 
 	/**
+	 * {@code
 	 * <xsd:attribute name="CHECKSUMTYPE" use="optional">
 	 *   </xsd:annotation>
 	 *     <xsd:simpleType>
@@ -95,6 +108,8 @@ public interface IAttributeGroupFILECOREBuilder<T extends IAttributeGroupFILECOR
 	 *     </xsd:simpleType>
 	 *   </xsd:attribute>
 	 * </xsd:attributeGroup>
+	 * }
+	 * 
 	 * CHECKSUMTYPE (enumerated string/O): Specifies the checksum algorithm
 	 * used to produce the value contained in the CHECKSUM attribute. CHECKSUMTYPE must contain one of the following
 	 * values: Adler-32  CRC32  HAVAL  MD5  MNP  SHA-1  SHA-256  SHA-384  SHA-512  TIGER  WHIRLPOOL

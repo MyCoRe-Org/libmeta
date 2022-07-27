@@ -34,7 +34,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
+ * {@code
  * <xsd:element name="metsHdr" minOccurs="0">
+ * }
  * 
  * The mets header element &lt;metsHdr&gt; captures metadata about the METS
  * document itself, not the digital object the METS document encodes. Although
@@ -51,7 +53,9 @@ public class MetsHdr {
     // <xsd:sequence>
 
     /**
+     * {@code
      * <xsd:element name="agent" minOccurs="0" maxOccurs="unbounded">
+     * }
      * 
      * The agent element &lt;agent&gt; provides for various parties and their
      * roles with respect to the METS record to be documented.
@@ -60,7 +64,9 @@ public class MetsHdr {
     protected List<Agent> agent = new Vector<Agent>();
 
     /**
+     * {@code
      * <xsd:element name="altRecordID" minOccurs="0" maxOccurs="unbounded">
+     * }
      * 
      * The alternative record identifier element &lt;altRecordID&gt; allows one
      * to use alternative record identifier values for the digital object
@@ -71,7 +77,9 @@ public class MetsHdr {
     protected List<Identifier> altRecordID = new Vector<Identifier>();
 
     /**
+     * {@code
      * <xsd:element name="metsDocumentID" minOccurs="0">
+     * }
      * 
      * The metsDocument identifier element &lt;metsDocumentID&gt; allows a
      * unique identifier to be assigned to the METS document itself. This may be
@@ -83,7 +91,9 @@ public class MetsHdr {
     protected Identifier metsDocumentID;
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -95,7 +105,9 @@ public class MetsHdr {
     protected String ID;
 
     /**
+     * {@code
      * xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+     * }
      * 
      * ADMID (IDREFS/O): Contains the ID attribute values of the &lt;techMD&gt;,
      * &lt;sourceMD&gt;, &lt;rightsMD&gt; and/or &lt;digiprovMD&gt; elements
@@ -108,7 +120,9 @@ public class MetsHdr {
     protected String ADMID;
 
     /**
+     * {@code
      * <xsd:attribute name="CREATEDATE" type="xsd:dateTime" use="optional">
+     * }
      * 
      * CREATEDATE (dateTime/O): Records the date/time the METS document was
      * created.
@@ -117,7 +131,9 @@ public class MetsHdr {
     protected String CREATEDATE;
 
     /**
+     * {@code
      * <xsd:attribute name="LASTMODDATE" type="xsd:dateTime" use="optional">
+     * }
      * 
      * LASTMODDATE (dateTime/O): Is used to indicate the date/time the METS
      * document was last modified.
@@ -126,7 +142,9 @@ public class MetsHdr {
     protected String LASTMODDATE;
 
     /**
+     * {@code
      * <xsd:attribute name="RECORDSTATUS" type="xsd:string" use="optional">
+     * }
      * 
      * RECORDSTATUS (string/O): Specifies the status of the METS document. It is
      * used for internal processing purposes.
@@ -135,7 +153,9 @@ public class MetsHdr {
     protected String RECORDSTATUS;
 
     /**
+     * {@code
      * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+     * }
      */
     @XmlAnyAttribute
     protected Map<QName, String> otherAttributes = new HashMap<QName, String>();

@@ -38,7 +38,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
+ * {@code
  * <xsd:element name="smLinkGrp">
+ * }
  * 
  * The structMap link group element &lt;smLinkGrp&gt; provides an implementation
  * of xlink:extendLink, and provides xlink compliant mechanisms for establishing
@@ -68,7 +70,9 @@ public class SmLinkGrp extends SmLinkOrSmLinkGrp implements IAttributeGroupXlink
 
     // <xsd:sequence>
     /**
+     * {@code
      * <xsd:element name="smLocatorLink" minOccurs="2" maxOccurs="unbounded" >
+     * }
      * 
      * The structMap locator link element &lt;smLocatorLink&gt; is of xlink:type
      * &quot;locator&quot;. It provides a means of identifying a &lt;div&gt;
@@ -91,7 +95,9 @@ public class SmLinkGrp extends SmLinkOrSmLinkGrp implements IAttributeGroupXlink
     protected List<SmLocatorLink> smLocatorLink = new Vector<>();
 
     /**
+     * {@code
      * <xsd:element name="smArcLink" minOccurs="1" maxOccurs="unbounded">
+     * }
      * 
      * The structMap arc link element &lt;smArcLink&gt; is of xlink:type
      * &quot;arc&quot; It can be used to establish a traversal link between two
@@ -105,20 +111,25 @@ public class SmLinkGrp extends SmLinkOrSmLinkGrp implements IAttributeGroupXlink
     protected List<SmArcLink> smArcLink = new Vector<>();
 
     /**
-     * <xsd:attribute name="ID" type="xsd:ID"/> //TODO-CHECK no documentation
+     * {@code
+     * <xsd:attribute name="ID" type="xsd:ID"/>
+     * }
+     * //TODO-CHECK no documentation
      */
     @XmlAttribute(name = "ID", required = true)
     protected String ID;
 
     /**
+     * {@code
      * <xsd:attribute name="ARCLINKORDER" default="unordered">
+     * }
      * 
      * ARCLINKORDER (enumerated string/O): ARCLINKORDER is used to indicate
      * whether the order of the smArcLink elements aggregated by the smLinkGrp
      * element is significant. If the order is significant, then a value of
      * &quot;ordered&quot; should be supplied. Value defaults to
      * &quot;unordered&quot; Note that the ARLINKORDER attribute has no xlink
-     * specified meaning.</xsd:documentation>
+     * specified meaning.
      */
     @XmlAttribute(name = "ARCLINKORDER", required = true)
     protected SmLinkGrpARCLINKORDER ARCLINKORDER = SmLinkGrpARCLINKORDER.UNORDERED;
@@ -126,25 +137,33 @@ public class SmLinkGrp extends SmLinkOrSmLinkGrp implements IAttributeGroupXlink
     // attributeGroup xlink:extendedLink - begin
 
     /**
+     * {@code
      * <attribute name="type" type="string" fixed="extended" form="qualified"/>
+     * }
      */
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
     protected XlinkTypeExtended xlinkType = XlinkTypeExtended.EXTENDED;
 
     /**
+     * {@code
      * <attribute ref="xlink:role" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkRole;
 
     /**
+     * {@code
      * <attribute ref="xlink:title" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkTitle;
 
     /**
+     * {@code
      * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+     * }
      */
     @XmlAnyAttribute
     protected Map<QName, String> otherAttributes = new HashMap<QName, String>();

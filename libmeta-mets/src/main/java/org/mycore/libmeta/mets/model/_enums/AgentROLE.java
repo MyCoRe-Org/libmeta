@@ -23,6 +23,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 /**
  * Agent Roles
  * 
+ * {@code
  * <xsd:simpleType>
  *   <xsd:restriction base="xsd:string">
  *      <xsd:enumeration value="CREATOR" />
@@ -35,6 +36,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  *       <xsd:enumeration value="OTHER" />
  *     </xsd:restriction>
  *   </xsd:simpleType>
+ * }
  *   
  * ROLE (string/R): Specifies the function of the agent with respect to the METS record. 
  * The allowed values are:

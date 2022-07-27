@@ -38,7 +38,9 @@ import jakarta.xml.bind.annotation.XmlAnyAttribute;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
+ * {@code
  * <xsd:complexType name="areaType">
+ * }
  * 
  * areaType: Complex Type for Area Linking
  * 
@@ -57,7 +59,9 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 public class Area extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS{
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -69,7 +73,9 @@ public class Area extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS{
     protected String ID;
 
     /**
+     * {@code
      * <xsd:attribute name="FILEID" type="xsd:IDREF" use="required">
+     * }
      * 
      * FILEID (IDREF/R): An attribute which provides the XML ID value that
      * identifies the &lt;file&gt; element in the &lt;fileSec&gt; that then
@@ -82,7 +88,9 @@ public class Area extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS{
     protected String FILEID;
 
     /**
+     * {@code
      * <xsd:attribute name="SHAPE" use="optional">
+     * }
      * 
      * SHAPE (string/O): An attribute that can be used as in HTML to define the
      * shape of the relevant area within the content file pointed to by the
@@ -104,7 +112,9 @@ public class Area extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS{
     protected AreaSHAPE SHAPE;
 
     /**
+     * {@code
      * <xsd:attribute name="COORDS" type="xsd:string" use="optional">
+     * }
      * 
      * COORDS (string/O): Specifies the coordinates in an image map for the
      * shape of the pertinent area as specified in the SHAPE attribute. While
@@ -121,7 +131,9 @@ public class Area extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS{
     protected String COORDS;
 
     /**
+     * {@code
      * <xsd:attribute name="BEGIN" type="xsd:string" use="optional">
+     * }
      * 
      * BEGIN (string/O): An attribute that specifies the point in the content
      * file where the relevant section of content begins. It can be used in
@@ -137,7 +149,9 @@ public class Area extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS{
     protected String BEGIN;
 
     /**
+     * {@code
      * <xsd:attribute name="END" type="xsd:string" use="optional">
+     * }
      * 
      * END (string/O): An attribute that specifies the point in the content file
      * where the relevant section of content ends. It can only be interpreted
@@ -149,7 +163,9 @@ public class Area extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS{
     protected String END;
 
     /**
+     * {@code
      * <xsd:attribute name="BETYPE" use="optional">
+     * }
      * 
      * BETYPE: Begin/End Type.
      * 
@@ -182,7 +198,9 @@ public class Area extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS{
     protected AreaBETYPE BETYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="EXTENT" type="xsd:string" use="optional">
+     * }
      * 
      * EXTENT (string/O): An attribute that specifies the extent of the relevant
      * section of the content file. Can only be interpreted meaningfully in
@@ -195,7 +213,9 @@ public class Area extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS{
     protected String EXTEND;
 
     /**
+     * {@code
      * <xsd:attribute name="EXTTYPE" use="optional">
+     * }
      * 
      * EXTTYPE (string/O): An attribute that specifies the kind of EXTENT values
      * that are being used. For example if BYTE is specified then EXTENT would
@@ -230,7 +250,9 @@ public class Area extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS{
     protected AreaEXTTYPE EXTTYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+     * }
      * 
      * ADMID (IDREFS/O): Contains the ID attribute values identifying the
      * &lt;rightsMD&gt;, &lt;sourceMD&gt;, &lt;techMD&gt; and/or
@@ -248,7 +270,9 @@ public class Area extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS{
     protected String ADMID;
 
     /**
+     * {@code
      * <xsd:attribute name="CONTENTIDS" type="URIs" use="optional">
+     * }
      * 
      * CONTENTIDS (URI/O): Content IDs for the content represented by the
      * &lt;area&gt; (equivalent to DIDL DII or Digital Item Identifier, a unique
@@ -271,7 +295,9 @@ public class Area extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS{
     //AttributeGroup ORDERLABES - end
     
     /**
+     * {@code
    	 * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+   	 * }
    	 */
    	@XmlAnyAttribute
    	protected Map<QName, String> otherAttributes = new HashMap<QName, String>();

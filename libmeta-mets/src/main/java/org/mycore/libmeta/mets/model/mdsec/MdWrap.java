@@ -39,8 +39,10 @@ import jakarta.xml.bind.annotation.XmlElement;
  * metadata is Base64 encoded and wrapped in a &lt;binData&gt; element within
  * the internal descriptive metadata element.
  * 
+ * {@code
  * 		<xsd:attributeGroup ref="METADATA" />
 		<xsd:attributeGroup ref="FILECORE" />
+	}
  * 
  * @author Robert Stephan
  * @version METS 1.10
@@ -51,7 +53,9 @@ public class MdWrap implements IAttributeGroupMETADATA, IAttributeGroupFILECORE 
     // <xsd:choice>
 
     /**
+     * {@code
      * <xsd:element name="binData" type="xsd:base64Binary" minOccurs="0">
+     * }
      * 
      * The binary data wrapper element &lt;binData&gt; is used to contain Base64
      * encoded metadata.
@@ -60,7 +64,9 @@ public class MdWrap implements IAttributeGroupMETADATA, IAttributeGroupFILECORE 
     protected String binData;
 
     /**
+     * {@code
      * <xsd:element name="xmlData" minOccurs="0">
+     * }
      * 
      * The xml data wrapper element &lt;xmlData&gt; is used to contain XML
      * encoded metadata. The content of an &lt;xmlData&gt; element can be in any
@@ -78,7 +84,9 @@ public class MdWrap implements IAttributeGroupMETADATA, IAttributeGroupFILECORE 
     protected XMLData xmlData;
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -92,7 +100,9 @@ public class MdWrap implements IAttributeGroupMETADATA, IAttributeGroupFILECORE 
     // attribute group METADATA begin
 
     /**
+     * {@code
      * <xsd:attribute name="MDTYPE" use="required">
+     * }
      * 
      * MDTYPE (string/R): Is used to indicate the type of the associated
      * metadata.
@@ -101,7 +111,9 @@ public class MdWrap implements IAttributeGroupMETADATA, IAttributeGroupFILECORE 
     protected MDTYPE MDTYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="OTHERMDTYPE" type="xsd:string" use="optional">
+     * }
      * 
      * OTHERMDTYPE (string/O): Specifies the form of metadata in use when the
      * value OTHER is indicated in the MDTYPE attribute.
@@ -110,13 +122,15 @@ public class MdWrap implements IAttributeGroupMETADATA, IAttributeGroupFILECORE 
     protected String OTHERMDTYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="MDTYPEVERSION" type="xsd:string" use="optional">
+     * }
      * 
      * MDTYPEVERSION(string/O): Provides a means for recording the version of
      * the type of metadata (as recorded in the MDTYPE or OTHERMDTYPE attribute)
      * that is being used. This may represent the version of the underlying data
      * dictionary or metadata model rather than a schema version.
-     * </xsd:documentation>
+     * 
      */
     @XmlAttribute(name = "MDTYPEVERSION", required = false)
     protected String MDTYPEVERSION;
@@ -125,7 +139,9 @@ public class MdWrap implements IAttributeGroupMETADATA, IAttributeGroupFILECORE 
 
     // attribute group FILECORE begin
     /**
+     * {@code
      * <xsd:attribute name="MIMETYPE" type="xsd:string" use="optional">
+     * }
      * 
      * MIMETYPE (string/O): The IANA MIME media type for the associated file or
      * wrapped content. Some values for this attribute can be found on the IANA
@@ -135,7 +151,9 @@ public class MdWrap implements IAttributeGroupMETADATA, IAttributeGroupFILECORE 
     protected String MIMETYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="SIZE" type="xsd:long" use="optional">
+     * }
      * 
      * SIZE (long/O): Specifies the size in bytes of the associated file or
      * wrapped content.
@@ -144,7 +162,9 @@ public class MdWrap implements IAttributeGroupMETADATA, IAttributeGroupFILECORE 
     protected Long SIZE;
 
     /**
+     * {@code
      * <xsd:attribute name="CREATED" type="xsd:dateTime" use="optional">
+     * }
      * 
      * CREATED (dateTime/O): Specifies the date and time of creation for the
      * associated file or wrapped content.
@@ -153,7 +173,9 @@ public class MdWrap implements IAttributeGroupMETADATA, IAttributeGroupFILECORE 
     protected String CREATED;
 
     /**
+     * {@code
      * <xsd:attribute name="CHECKSUM" type="xsd:string" use="optional">
+     * }
      * 
      * CHECKSUM (string/O): Provides a checksum value for the associated file or
      * wrapped content.
@@ -162,7 +184,9 @@ public class MdWrap implements IAttributeGroupMETADATA, IAttributeGroupFILECORE 
     protected String CHECKSUM;
 
     /**
+     * {@code
      * <xsd:attribute name="CHECKSUMTYPE" use="optional">
+     * }
      * 
      * CHECKSUMTYPE (enumerated string/O): Specifies the checksum algorithm used
      * to produce the value contained in the CHECKSUM attribute.
@@ -173,7 +197,9 @@ public class MdWrap implements IAttributeGroupMETADATA, IAttributeGroupFILECORE 
     // attribute group FILECORE - end
 
     /**
+     * {@code
      * <xsd:attribute name="LABEL" type="xsd:string" use="optional">
+     * }
      * 
      * LABEL: an optional string attribute providing a label to display to the
      * viewer of the METS document identifying the metadata.

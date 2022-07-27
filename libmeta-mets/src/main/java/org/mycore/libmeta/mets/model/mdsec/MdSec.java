@@ -31,7 +31,9 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 
 /**
+ * {@code
  * <xsd:complexType name="mdSecType">
+ * }
  * 
  * mdSecType: Complex Type for Metadata Sections
  * 
@@ -48,7 +50,9 @@ public class MdSec {
     // <xsd:all>
 
     /**
+     * {@code
      * <xsd:element name="mdRef" minOccurs="0">
+     * }
      * 
      * The metadata reference element &lt;mdRef&gt; element is a generic element
      * used throughout the METS schema to provide a pointer to metadata which
@@ -60,7 +64,9 @@ public class MdSec {
     protected MdRef mdRef;
 
     /**
+     * {@code
      * <xsd:element name="mdWrap" minOccurs="0">
+     * }
      * 
      * A metadata wrapper element &lt;mdWrap&gt; provides a wrapper around
      * metadata embedded within a METS document. The element is repeatable. Such
@@ -74,7 +80,9 @@ public class MdSec {
     protected MdWrap mdWrap;
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="required">
+     * }
      * 
      * ID (ID/R): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -99,7 +107,9 @@ public class MdSec {
     protected String ID;
 
     /**
+     * {@code
      * <xsd:attribute name="GROUPID" type="xsd:string" use="optional">
+     * }
      * 
      * GROUPID (string/O): This identifier is used to indicate that different
      * metadata sections may be considered as part of a group. Two metadata
@@ -112,7 +122,9 @@ public class MdSec {
     protected String GROUPID;
 
     /**
+     * {@code
      * <xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+     * }
      * 
      * ADMID (IDREFS/O): Contains the ID attribute values of the
      * &lt;digiprovMD&gt;, &lt;techMD&gt;, &lt;sourceMD&gt; and/or
@@ -127,7 +139,9 @@ public class MdSec {
     protected String ADMID;
 
     /**
+     * {@code
      * <xsd:attribute name="CREATED" type="xsd:dateTime" use="optional">
+     * }
      * 
      * CREATED (dateTime/O): Specifies the date and time of creation for the
      * metadata.
@@ -136,7 +150,9 @@ public class MdSec {
     protected String CREATED;
 
     /**
+     * {@code
      * <xsd:attribute name="STATUS" type="xsd:string" use="optional">
+     * }
      * 
      * STATUS (string/O): Indicates the status of this metadata (e.g.,
      * superseded, current, etc.).
@@ -145,7 +161,9 @@ public class MdSec {
     protected String STATUS;
 
     /**
+     * {@code
      * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+     * }
      */
     @XmlAnyAttribute
     protected Map<QName, String> otherAttributes = new HashMap<QName, String>();

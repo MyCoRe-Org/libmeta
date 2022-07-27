@@ -34,7 +34,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
 
 /**
+ * {@code
  * <xsd:complexType name="structLinkType">
+ * }
  * 
  * structLinkType: Complex Type for Structural Map Linking
  * 
@@ -61,7 +63,9 @@ public class StructLink {
     protected List<SmLinkOrSmLinkGrp> smLinkOrsmLinkGrp = new Vector<>();
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -73,7 +77,9 @@ public class StructLink {
     protected String ID;
 
     /**
+     * {@code
      * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+     * }
      */
     @XmlAnyAttribute
     protected Map<QName, String> otherAttributes = new HashMap<QName, String>();

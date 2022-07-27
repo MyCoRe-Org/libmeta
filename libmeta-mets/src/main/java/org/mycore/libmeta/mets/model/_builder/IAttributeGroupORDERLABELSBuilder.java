@@ -33,7 +33,10 @@ public interface IAttributeGroupORDERLABELSBuilder<T extends IAttributeGroupORDE
     public B _self();
     
 	/**
-	 * <xsd:attribute name="ORDER" type="xsd:integer" use="optional" /> 
+	 * {@code
+	 * <xsd:attribute name="ORDER" type="xsd:integer" use="optional" />
+	 * }
+	 *  
 	 * ORDER (integer/O): A representation of the element's order among its
 	 * siblings (e.g., its absolute, numeric sequence). For an example, and clarification of the distinction 
 	 * between ORDER and ORDERLABEL, see the description of the ORDERLABEL attribute.
@@ -44,7 +47,10 @@ public interface IAttributeGroupORDERLABELSBuilder<T extends IAttributeGroupORDE
 	}
 	
 	/**
+	 * {@code
 	 * <xsd:attribute name="ORDERLABEL" type="xsd:string" use="optional" />
+	 * }
+	 * 
 	 * ORDERLABEL (string/O): A representation of the element's order among
 	 * its siblings (e.g., “xii”), or of any non-integer native numbering system. It is presumed that this value will
 	 * still be machine actionable (e.g., it would support ‘go to page ___’ function), and it should not be used as a
@@ -59,7 +65,10 @@ public interface IAttributeGroupORDERLABELSBuilder<T extends IAttributeGroupORDE
 	}
 	
 	/**
+	 * {@code
 	 * <xsd:attribute name="LABEL" type="xsd:string" use="optional" />
+	 * }
+	 * 
 	 * LABEL (string/O): An attribute used, for example, to identify a
 	 * &lt;div&gt; to an end user viewing the document. Thus a hierarchical arrangement of the &lt;div&gt; LABEL values
 	 * could provide a table of contents to the digital content represented by a METS document and facilitate the users’

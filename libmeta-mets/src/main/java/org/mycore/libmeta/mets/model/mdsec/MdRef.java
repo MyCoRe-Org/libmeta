@@ -46,17 +46,21 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  * @author Robert Stephan
  * @version METS 1.10
  * 
+ * {@code
  * 		<xsd:attributeGroup ref="LOCATION" />
 		<xsd:attributeGroup ref="xlink:simpleLink" />
 		<xsd:attributeGroup ref="METADATA" />
 		<xsd:attributeGroup ref="FILECORE" />
+	}
  * 
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpleLink, IAttributeGroupMETADATA,
     IAttributeGroupFILECORE {
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -78,7 +82,9 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
     protected LOCTYPE LOCTYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="OTHERLOCTYPE" type="xsd:string" use="optional">
+     * }
      * 
      * OTHERLOCTYPE (string/O): Specifies the locator type when the value OTHER
      * is used in the LOCTYPE attribute. Although optional, it is strongly
@@ -92,43 +98,57 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
     // attributeGroup xlink:simpleLink - begin
 
     /**
+     * {@code
      * <attribute name="type" type="string" fixed="simple" form="qualified"/>
+     * }
      */
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
     protected String xlinkType;
 
     /**
+     * {@code
      * <attribute ref="xlink:href" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkHref;
 
     /**
+     * {@code
      * <attribute ref="xlink:role" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkRole;
 
     /**
+     * {@code
      * <attribute ref="xlink:arcrole" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkArcrole;
 
     /**
+     * {@code
      * <attribute ref="xlink:title" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkTitle;
 
     /**
+     * {@code
      * <attribute ref="xlink:show" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkShow xlinkShow;
 
     /**
+     * {@code
      * <attribute ref="xlink:actuate" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkActuate xlinkActuate;
@@ -138,7 +158,9 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
     // attributeGroup METADATA - begin
 
     /**
+     * {@code
      * <xsd:attribute name="MDTYPE" use="required">
+     * }
      * 
      * MDTYPE (string/R): Is used to indicate the type of the associated
      * metadata.
@@ -147,7 +169,9 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
     protected MDTYPE MDTYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="OTHERMDTYPE" type="xsd:string" use="optional">
+     * }
      * 
      * OTHERMDTYPE (string/O): Specifies the form of metadata in use when the
      * value OTHER is indicated in the MDTYPE attribute.
@@ -156,13 +180,14 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
     protected String OTHERMDTYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="MDTYPEVERSION" type="xsd:string" use="optional">
+     * }
      * 
      * MDTYPEVERSION(string/O): Provides a means for recording the version of
      * the type of metadata (as recorded in the MDTYPE or OTHERMDTYPE attribute)
      * that is being used. This may represent the version of the underlying data
      * dictionary or metadata model rather than a schema version.
-     * </xsd:documentation>
      */
     @XmlAttribute(name = "MDTYPEVERSION", required = false)
     protected String MDTYPEVERSION;
@@ -171,7 +196,9 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
 
     // attributeGroup FILECORE - begin
     /**
+     * {@code
      * <xsd:attribute name="MIMETYPE" type="xsd:string" use="optional">
+     * }
      * 
      * MIMETYPE (string/O): The IANA MIME media type for the associated file or
      * wrapped content. Some values for this attribute can be found on the IANA
@@ -181,7 +208,9 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
     protected String MIMETYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="SIZE" type="xsd:long" use="optional">
+     * }
      * 
      * SIZE (long/O): Specifies the size in bytes of the associated file or
      * wrapped content.
@@ -190,7 +219,9 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
     protected Long SIZE;
 
     /**
+     * {@code
      * <xsd:attribute name="CREATED" type="xsd:dateTime" use="optional">
+     * }
      * 
      * CREATED (dateTime/O): Specifies the date and time of creation for the
      * associated file or wrapped content.
@@ -199,7 +230,9 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
     protected String CREATED;
 
     /**
+     * {@code
      * <xsd:attribute name="CHECKSUM" type="xsd:string" use="optional">
+     * }
      * 
      * CHECKSUM (string/O): Provides a checksum value for the associated file or
      * wrapped content.
@@ -208,7 +241,9 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
     protected String CHECKSUM;
 
     /**
+     * {@code
      * <xsd:attribute name="CHECKSUMTYPE" use="optional">
+     * }
      * 
      * CHECKSUMTYPE (enumerated string/O): Specifies the checksum algorithm used
      * to produce the value contained in the CHECKSUM attribute.
@@ -218,7 +253,9 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
 
     // attributeGroup FILECORE - end
     /**
+     * {@code
      * <xsd:attribute name="LABEL" type="xsd:string" use="optional">
+     * }
      * 
      * LABEL (string/O): Provides a label to display to the viewer of the METS
      * document that identifies the associated metadata.
@@ -227,7 +264,9 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
     protected String LABEL;
 
     /**
+     * {@code
      * <xsd:attribute name="XPTR" type="xsd:string" use="optional">
+     * }
      * 
      * XPTR (string/O): Locates the point within a file to which the
      * &lt;mdRef&gt; element refers, if applicable.

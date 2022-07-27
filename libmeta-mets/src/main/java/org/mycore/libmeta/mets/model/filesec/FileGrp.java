@@ -33,7 +33,9 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 
 /**
+ * {@code
  * <xsd:complexType name="fileGrpType">
+ * }
  * 
  * fileGrpType: Complex Type for File Groups
  * 
@@ -54,14 +56,18 @@ public class FileGrp {
 	// <xsd:choice>
 
 	/**
+	 * {@code
 	 * <xsd:element name="fileGrp" type="fileGrpType" minOccurs="0"
 	 * maxOccurs="unbounded"/>
+	 * }
 	 */
 	@XmlElement(name = "fileGrp", namespace = "http://www.loc.gov/METS/", required = false)
 	protected List<FileGrp> fileGrp = new Vector<FileGrp>();
 
 	/**
+	 * {@code
 	 * <xsd:element name="file" minOccurs="0" maxOccurs="unbounded" type="fileType" >
+	 * }
 	 * 
 	 * The file element &lt;file&gt; provides access to the content files for
 	 * the digital object being described by the METS document. A &lt;file&gt;
@@ -84,7 +90,9 @@ public class FileGrp {
 	protected List<File> file = new Vector<File>();
 
 	/**
+	 * {@code
 	 * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+	 * }
 	 * 
 	 * ID (ID/O): This attribute uniquely identifies the element within the METS
 	 * document, and would allow the element to be referenced unambiguously from
@@ -96,7 +104,9 @@ public class FileGrp {
 	protected String ID;
 
 	/**
+	 * {@code
 	 * <xsd:attribute name="VERSDATE" type="xsd:dateTime" use="optional">
+	 * }
 	 * 
 	 * VERSDATE (dateTime/O): An optional dateTime attribute specifying the date
 	 * this version/fileGrp of the digital object was created.
@@ -105,7 +115,9 @@ public class FileGrp {
 	protected String VERSDATE;
 
 	/**
+	 * {@code
 	 * <xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+	 * }
 	 * 
 	 * ADMID (IDREF/O): Contains the ID attribute values of the &lt;techMD&gt;,
 	 * &lt;sourceMD&gt;, &lt;rightsMD&gt; and/or &lt;digiprovMD&gt; elements
@@ -118,7 +130,9 @@ public class FileGrp {
 	protected String ADMID;
 
 	/**
+	 * {@code
 	 * <xsd:attribute name="USE" type="xsd:string" use="optional">
+	 * }
 	 * 
 	 * USE (string/O): A tagging attribute to indicate the intended use of files
 	 * within this file group (e.g., master, reference, thumbnails for image
@@ -136,7 +150,9 @@ public class FileGrp {
 	protected String USE;
 
 	/**
+	 * {@code
 	 * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+	 * }
 	 */
 	@XmlAnyAttribute
 	protected Map<QName, String> otherAttributes = new HashMap<QName, String>();

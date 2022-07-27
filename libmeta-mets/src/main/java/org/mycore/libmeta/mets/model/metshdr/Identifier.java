@@ -35,7 +35,9 @@ public class Identifier {
     protected String content;
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -47,7 +49,9 @@ public class Identifier {
     protected String ID;
 
     /**
+     * {@code
      * <xsd:attribute name="TYPE" type="xsd:string" use="optional">
+     * }
      * 
      * TYPE (string/O): A description of the identifier type.
      */

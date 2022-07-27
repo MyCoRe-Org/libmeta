@@ -36,7 +36,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
+ * {@code
  * <xsd:complexType name="divType">
+ * }
  * 
  * divType: Complex Type for Divisions
  * 
@@ -64,7 +66,9 @@ public class Div implements IAttributeGroupORDERLABELS {
     // <xsd:sequence>
 
     /**
+     * {@code
      * <xsd:element name="mptr" minOccurs="0" maxOccurs="unbounded">
+     * }
      * 
      * Like the &lt;fptr&gt; element, the METS pointer element &lt;mptr&gt;
      * represents digital content that manifests its parent &lt;div&gt; element.
@@ -89,7 +93,9 @@ public class Div implements IAttributeGroupORDERLABELS {
     protected List<Mptr> mptr = new Vector<Mptr>();
 
     /**
+     * {@code
      * <xsd:element name="fptr" minOccurs="0" maxOccurs="unbounded">
+     * }
      * 
      * The &lt;fptr&gt; or file pointer element represents digital content that
      * manifests its parent &lt;div&gt; element. The content represented by an
@@ -111,14 +117,18 @@ public class Div implements IAttributeGroupORDERLABELS {
     protected List<Fptr> fptr = new Vector<Fptr>();
 
     /**
+     * {@code
      * <xsd:element name="div" type="divType" minOccurs="0"
      * maxOccurs="unbounded"/>
+     * }
      */
     @XmlElement(name = "div", namespace = "http://www.loc.gov/METS/", required = false)
     protected List<Div> div = new Vector<Div>();
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -130,7 +140,9 @@ public class Div implements IAttributeGroupORDERLABELS {
     protected String ID;
 
     /**
+     * {@code
      * <xsd:attribute name="ORDER" type="xsd:integer" use="optional">
+     * }
      * 
      * ORDER (integer/O): A representation of the div's order among its siblings
      * (e.g., its absolute, numeric sequence). For an example, and clarification
@@ -141,7 +153,9 @@ public class Div implements IAttributeGroupORDERLABELS {
     protected Integer ORDER;
 
     /**
+     * {@code
      * <xsd:attribute name="ORDERLABEL" type="xsd:string" use="optional">
+     * }
      * 
      * ORDERLABEL (string/O): A representation of the div's order among its
      * siblings (e.g., "xii"), or of any non-integer native numbering system. It
@@ -158,7 +172,9 @@ public class Div implements IAttributeGroupORDERLABELS {
     protected String ORDERLABEL;
 
     /**
+     * {@code
      * <xsd:attribute name="LABEL" type="xsd:string" use="optional">
+     * }
      * 
      * LABEL (string/O): An attribute used, for example, to identify a
      * &lt;div&gt; to an end user viewing the document. Thus a hierarchical
@@ -177,7 +193,9 @@ public class Div implements IAttributeGroupORDERLABELS {
     protected String LABEL;
 
     /**
+     * {@code
      * <xsd:attribute name="DMDID" type="xsd:IDREFS" use="optional">
+     * }
      * 
      * DMDID (IDREFS/O): Contains the ID attribute values identifying the
      * &lt;dmdSec&gt;, elements in the METS document that contain or link to
@@ -190,7 +208,9 @@ public class Div implements IAttributeGroupORDERLABELS {
     protected String DMDID;
 
     /**
+     * {@code
      * <xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+     * }
      * 
      * ADMID (IDREFS/O): Contains the ID attribute values identifying the
      * &lt;rightsMD&gt;, &lt;sourceMD&gt;, &lt;techMD&gt; and/or
@@ -208,7 +228,9 @@ public class Div implements IAttributeGroupORDERLABELS {
     protected String ADMID;
 
     /**
+     * {@code
      * <xsd:attribute name="TYPE" type="xsd:string" use="optional">
+     * }
      * 
      * TYPE (string/O): An attribute that specifies the type of structural
      * division that the &lt;div&gt; element represents. Possible &lt;div&gt;
@@ -221,7 +243,9 @@ public class Div implements IAttributeGroupORDERLABELS {
     protected String TYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="CONTENTIDS" type="URIs" use="optional">
+     * }
      * 
      * CONTENTIDS (URI/O): Content IDs for the content represented by the
      * &lt;div&gt; (equivalent to DIDL DII or Digital Item Identifier, a unique
@@ -231,10 +255,12 @@ public class Div implements IAttributeGroupORDERLABELS {
     protected URIs CONTENTIDS = new URIs();
 
     /**
+     * {@code
      * <xsd:attribute ref="xlink:label">
+     * }
      * 
      * xlink:label - an xlink label to be referred to by an smLink
-     * element</xsd:documentation>
+     * element
      */
     @XmlAttribute(name = "label", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkLabel;

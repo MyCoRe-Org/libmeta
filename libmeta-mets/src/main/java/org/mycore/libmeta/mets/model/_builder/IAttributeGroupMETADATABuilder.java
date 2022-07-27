@@ -34,6 +34,7 @@ public interface IAttributeGroupMETADATABuilder<T extends IAttributeGroupMETADAT
     public B _self();
     
 	/**
+	 * {@code
 	 * <xsd:attribute name="MDTYPE" use="required">
 	 *   <xsd:simpleType>
 	 *     <xsd:restriction base="xsd:string">
@@ -62,6 +63,8 @@ public interface IAttributeGroupMETADATABuilder<T extends IAttributeGroupMETADAT
 	 *     </xsd:restriction>
 	 *   </xsd:simpleType>
 	 * </xsd:attribute>
+	 * }
+	 * 
 	 * MDTYPE (string/R): Is used to indicate the type of the associated metadata. 
 	 * It must have one of the following values:
 	 *   MARC: any form of MARC record
@@ -93,7 +96,10 @@ public interface IAttributeGroupMETADATABuilder<T extends IAttributeGroupMETADAT
 	};
 
 	/**
+	 * {@code
 	 * <xsd:attribute name="OTHERMDTYPE" type="xsd:string" use="optional" />
+	 * }
+	 * 
 	 * OTHERMDTYPE (string/O): Specifies the form of metadata in use when the
 	 * value OTHER is indicated in the MDTYPE attribute.
 	 **/
@@ -103,7 +109,10 @@ public interface IAttributeGroupMETADATABuilder<T extends IAttributeGroupMETADAT
 	}
 
 	/**
+	 * {@code
 	 * <xsd:attribute name="MDTYPEVERSION" type="xsd:string" use="optional" />
+	 * }
+	 * 
 	 * MDTYPEVERSION(string/O): Provides a means for recording the version of
 	 * the type of metadata (as recorded in the MDTYPE or OTHERMDTYPE attribute) that is being used. This may represent
 	 * the version of the underlying data dictionary or metadata model rather than a schema version.

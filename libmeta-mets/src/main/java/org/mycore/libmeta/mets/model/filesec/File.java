@@ -42,7 +42,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
+ * {@code
  * <xsd:complexType name="fileType">
+ * }
  * 
  * fileType: Complex Type for Files
  * 
@@ -62,7 +64,9 @@ import jakarta.xml.bind.annotation.XmlType;
 public class File implements IAttributeGroupFILECORE {
     // <xsd:sequence>
     /**
+     * {@code
      * <xsd:element name="FLocat" minOccurs="0" maxOccurs="unbounded">
+     * }
      * 
      * The file location element &lt;FLocat&gt; provides a pointer to the
      * location of a content file. It uses the XLink reference syntax to provide
@@ -75,7 +79,9 @@ public class File implements IAttributeGroupFILECORE {
     protected List<FLocat> fLocat = new Vector<>();
 
     /**
+     * {@code
      * <xsd:element name="FContent" minOccurs="0">
+     * }
      * 
      * The file content element &lt;FContent&gt; is used to identify a content
      * file contained internally within a METS document. The content file must
@@ -87,7 +93,9 @@ public class File implements IAttributeGroupFILECORE {
     protected FContent fContent;
 
     /**
+     * {@code
      * <xsd:element name="stream" minOccurs="0" maxOccurs="unbounded">
+     * }
      * 
      * A component byte stream element &lt;stream&gt; may be composed of one or
      * more subsidiary streams. An MPEG4 file, for example, might contain
@@ -96,33 +104,38 @@ public class File implements IAttributeGroupFILECORE {
      * mechanism to record the existence of separate data streams within a
      * particular file, and the opportunity to associate &lt;dmdSec&gt; and
      * &lt;amdSec&gt; with those subsidiary data streams if desired.
-     * </xsd:documentation>
      */
     @XmlElement(name = "stream", namespace = "http://www.loc.gov/METS/", required = false)
     protected List<Stream> stream = new Vector<>();
 
     /**
+     * {@code
      * <xsd:element name="transformFile" minOccurs="0" maxOccurs="unbounded">
+     * }
      * 
      * The transform file element &lt;transformFile&gt; provides a means to
      * access any subsidiary files listed below a &lt;file&gt; element by
      * indicating the steps required to "unpack" or transform the subsidiary
      * files. This element is repeatable and might provide a link to a
      * &lt;behavior&gt; in the &lt;behaviorSec&gt; that performs the
-     * transformation.</xsd:documentation>
+     * transformation.
      */
     @XmlElement(name = "transformFile", namespace = "http://www.loc.gov/METS/", required = false)
     protected List<TransformFile> transformFile = new Vector<>();
 
     /**
+     * {@code
      * <xsd:element name="file" type="fileType" minOccurs="0"
      * maxOccurs="unbounded" />
+     * }
      */
     @XmlElement(name = "file", namespace = "http://www.loc.gov/METS/", required = false)
     protected List<File> file = new Vector<>();
 
     /**
-     * <xsd:attribute name="ID" type="xsd:ID" use="required"> //TODO-CHECK: ID
+     * {@code
+     * <xsd:attribute name="ID" type="xsd:ID" use="required">
+     * } //TODO-CHECK: ID
      * required
      * 
      * ID (ID/R): This attribute uniquely identifies the element within the METS
@@ -140,7 +153,9 @@ public class File implements IAttributeGroupFILECORE {
     protected String ID;
 
     /**
+     * {@code
      * <xsd:attribute name="SEQ" type="xsd:int" use="optional">
+     * }
      * 
      * SEQ (integer/O): Indicates the sequence of this &lt;file&gt; relative to
      * the others in its &lt;fileGrp&gt;.
@@ -150,7 +165,9 @@ public class File implements IAttributeGroupFILECORE {
 
     // attributeGroup FILECORE - begin
     /**
+     * {@code
      * <xsd:attribute name="MIMETYPE" type="xsd:string" use="optional">
+     * }
      * 
      * MIMETYPE (string/O): The IANA MIME media type for the associated file or
      * wrapped content. Some values for this attribute can be found on the IANA
@@ -160,7 +177,9 @@ public class File implements IAttributeGroupFILECORE {
     protected String MIMETYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="SIZE" type="xsd:long" use="optional">
+     * }
      * 
      * SIZE (long/O): Specifies the size in bytes of the associated file or
      * wrapped content.
@@ -169,7 +188,9 @@ public class File implements IAttributeGroupFILECORE {
     protected Long SIZE;
 
     /**
+     * {@code
      * <xsd:attribute name="CREATED" type="xsd:dateTime" use="optional">
+     * }
      * 
      * CREATED (dateTime/O): Specifies the date and time of creation for the
      * associated file or wrapped content.
@@ -178,7 +199,9 @@ public class File implements IAttributeGroupFILECORE {
     protected String CREATED;
 
     /**
+     * {@code
      * <xsd:attribute name="CHECKSUM" type="xsd:string" use="optional">
+     * }
      * 
      * CHECKSUM (string/O): Provides a checksum value for the associated file or
      * wrapped content.
@@ -187,7 +210,9 @@ public class File implements IAttributeGroupFILECORE {
     protected String CHECKSUM;
 
     /**
+     * {@code
      * <xsd:attribute name="CHECKSUMTYPE" use="optional">
+     * }
      * 
      * CHECKSUMTYPE (enumerated string/O): Specifies the checksum algorithm used
      * to produce the value contained in the CHECKSUM attribute.
@@ -198,7 +223,9 @@ public class File implements IAttributeGroupFILECORE {
     // attributeGroup FILECORE - end
 
     /**
+     * {@code
      * <xsd:attribute name="OWNERID" type="xsd:string" use="optional">
+     * }
      * 
      * OWNERID (string/O): A unique identifier assigned to the file by its
      * owner. This may be a URI which differs from the URI used to retrieve the
@@ -208,7 +235,9 @@ public class File implements IAttributeGroupFILECORE {
     protected String OWNERID;
 
     /**
+     * {@code
      * <xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+     * }
      * 
      * ADMID (IDREFS/O): Contains the ID attribute values of the &lt;techMD&gt;,
      * &lt;sourceMD&gt;, &lt;rightsMD&gt; and/or &lt;digiprovMD&gt; elements
@@ -221,7 +250,9 @@ public class File implements IAttributeGroupFILECORE {
     protected String ADMID;
 
     /**
+     * {@code
      * <xsd:attribute name="DMDID" type="xsd:IDREFS" use="optional">
+     * }
      * 
      * >DMDID (IDREFS/O): Contains the ID attribute values identifying the
      * &lt;dmdSec&gt;, elements in the METS document that contain or link to
@@ -234,7 +265,9 @@ public class File implements IAttributeGroupFILECORE {
     protected String DMDID;
 
     /**
+     * {@code
      * <xsd:attribute name="GROUPID" type="xsd:string" use="optional">
+     * }
      * 
      * GROUPID (string/O): An identifier that establishes a correspondence
      * between this file and files in other file groups. Typically, this will be
@@ -245,7 +278,9 @@ public class File implements IAttributeGroupFILECORE {
     protected String GROUPID;
 
     /**
+     * {@code
      * <xsd:attribute name="USE" type="xsd:string" use="optional">
+     * }
      * 
      * USE (string/O): A tagging attribute to indicate the intended use of all
      * copies of the file aggregated by the &lt;file&gt; element (e.g., master,
@@ -263,7 +298,9 @@ public class File implements IAttributeGroupFILECORE {
     protected String USE;
 
     /**
+     * {@code
      * <xsd:attribute name="BEGIN" type="xsd:string" use="optional">
+     * }
      * 
      * BEGIN (string/O): An attribute that specifies the point in the parent
      * &lt;file&gt; where the current &lt;file&gt; begins. When used in
@@ -282,7 +319,9 @@ public class File implements IAttributeGroupFILECORE {
     protected String BEGIN;
 
     /**
+     * {@code
      * <xsd:attribute name="END" type="xsd:string" use="optional">
+     * }
      * 
      * END (string/O): An attribute that specifies the point in the parent
      * &lt;file&gt; where the current, nested &lt;file&gt; ends. It can only be
@@ -294,7 +333,9 @@ public class File implements IAttributeGroupFILECORE {
     protected String END;
 
     /**
+     * {@code
      * <xsd:attribute name="BETYPE" use="optional">
+     * }
      * 
      * BETYPE: Begin/End Type.
      * 
@@ -307,7 +348,9 @@ public class File implements IAttributeGroupFILECORE {
     protected BETYPE BETYPE;
 
     /**
+     * {@code
      * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+     * }
      */
     @XmlAnyAttribute
     protected Map<QName, String> otherAttributes = new HashMap<QName, String>();

@@ -34,6 +34,7 @@ public interface IAttributeGroupLOCATIONBuilder<T extends IAttributeGroupLOCATIO
     public B _self();
     
 	/**
+	 * {@code
 	 * <xsd:attribute name="LOCTYPE" use="required">
 	 *   <xsd:simpleType>
 	 *     <xsd:restriction base="xsd:string">
@@ -47,6 +48,8 @@ public interface IAttributeGroupLOCATIONBuilder<T extends IAttributeGroupLOCATIO
 	 *     </xsd:restriction>
 	 *   </xsd:simpleType>
 	 * /xsd:attribute>
+	 * }
+	 * 
 	 * LOCTYPE (string/R): Specifies the locator type used in the xlink:href attribute. 
 	 * Valid values for LOCTYPE are:
 	 *		ARK  URN  URL  PURL  HANDLE DOI OTHER
@@ -58,7 +61,10 @@ public interface IAttributeGroupLOCATIONBuilder<T extends IAttributeGroupLOCATIO
 	}
 
 	/**
+	 * {@code
 	 * <xsd:attribute name="OTHERLOCTYPE" type="xsd:string" use="optional" />
+	 * }
+	 * 
 	 * OTHERLOCTYPE (string/O): Specifies the locator type when the value
 	 * OTHER is used in the LOCTYPE attribute. Although optional, it is strongly recommended when OTHER is used.
 	 */

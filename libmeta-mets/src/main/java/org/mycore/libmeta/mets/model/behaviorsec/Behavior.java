@@ -121,7 +121,7 @@ public class Behavior {
      * }
      * 
      * BTYPE (string/O): The behavior type provides a means of categorizing the
-     * related behavior.</xsd:documentation>
+     * related behavior.
      */
     @XmlAttribute(name = "BTYPE", required = false)
     protected String BTYPE;

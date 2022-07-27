@@ -51,28 +51,30 @@ import jakarta.xml.bind.annotation.XmlElements;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 /**
+ * {@code
  *	<xs:choice maxOccurs="unbounded">
  * 			<xs:element ref="abstract"/>
-			<xs:element ref="accessCondition"/>
-			<xs:element ref="classification"/>
-			<xs:element ref="extension"/>
-			<xs:element ref="genre"/>
-			<xs:element ref="identifier"/>
-			<xs:element ref="language"/>
-			<xs:element ref="location"/>
-			<xs:element ref="name"/>
-			<xs:element ref="note"/>
-			<xs:element ref="originInfo"/>
-			<xs:element ref="part"/>
-			<xs:element ref="physicalDescription"/>
-			<xs:element ref="recordInfo"/>
-			<xs:element ref="relatedItem"/>
-			<xs:element ref="subject"/>
-			<xs:element ref="tableOfContents"/>
-			<xs:element ref="targetAudience"/>
-			<xs:element ref="titleInfo"/>
-			<xs:element ref="typeOfResource"/>
-	</xs:choice>
+ *			<xs:element ref="accessCondition"/>
+ *			<xs:element ref="classification"/>
+ *			<xs:element ref="extension"/>
+ *			<xs:element ref="genre"/>
+ *			<xs:element ref="identifier"/>
+ *			<xs:element ref="language"/>
+ *			<xs:element ref="location"/>
+ *			<xs:element ref="name"/>
+ *			<xs:element ref="note"/>
+ *			<xs:element ref="originInfo"/>
+ *			<xs:element ref="part"/>
+ *			<xs:element ref="physicalDescription"/>
+ *			<xs:element ref="recordInfo"/>
+ *			<xs:element ref="relatedItem"/>
+ *			<xs:element ref="subject"/>
+ *			<xs:element ref="tableOfContents"/>
+ *			<xs:element ref="targetAudience"/>
+ *			<xs:element ref="titleInfo"/>
+ *			<xs:element ref="typeOfResource"/>
+ *	</xs:choice>
+ *	}
  */
 @XmlRootElement(name = "mods", namespace = "http://www.loc.gov/mods/v3")
 @XmlAccessorType(XmlAccessType.NONE)

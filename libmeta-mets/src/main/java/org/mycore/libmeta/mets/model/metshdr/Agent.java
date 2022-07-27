@@ -44,7 +44,9 @@ public class Agent {
     // sequence
 
     /**
+     * {@code
      * <xsd:element name="name" type="xsd:string">
+     * }
      * 
      * The element &lt;name&gt; can be used to record the full name of the
      * document agent.
@@ -53,7 +55,9 @@ public class Agent {
     protected String name;
 
     /**
+     * {@code
      * <xsd:element name="altRecordID" minOccurs="0" maxOccurs="unbounded">
+     * }
      * 
      * The &lt;note&gt; element can be used to record any additional information
      * regarding the agent's activities with respect to the METS document.
@@ -62,7 +66,9 @@ public class Agent {
     protected List<AgentNote> note = new Vector<AgentNote>();
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -74,7 +80,9 @@ public class Agent {
     protected String ID;
 
     /**
-     * <xsd:attribute name="ROLE" use="required"> <!--class: AgentROLE -->
+     * {@code
+     * <xsd:attribute name="ROLE" use="required"> 
+     * }
      * ROLE (string/R): Specifies the function of the agent with respect to the METS record. 
      * The allowed values are:
      *    CREATOR: The person(s) or institution(s) responsible for the METS document.
@@ -94,7 +102,9 @@ public class Agent {
     protected AgentROLE ROLE;
 
     /**
+     * {@code
      * <xsd:attribute name="OTHERROLE" type="xsd:string" use="optional">
+     * }
      * 
      * OTHERROLE (string/O): Denotes a role not contained in the allowed values
      * set if OTHER is indicated in the ROLE attribute.
@@ -103,7 +113,9 @@ public class Agent {
     protected String OTHERROLE;
 
     /**
-     * <xsd:attribute name="TYPE" use="optional" /> <!-- class: AgenType -->
+     * {@code
+     * <xsd:attribute name="TYPE" use="optional" />
+     * }
      * TYPE (string/O): is used to specify the type of AGENT. 
      * It must be one of the following values:
      *   INDIVIDUAL: Use if an individual has served as the agent.
@@ -116,7 +128,9 @@ public class Agent {
     protected AgentTYPE TYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="OTHERTYPE" type="xsd:string" use="optional">
+     * }
      * 
      * OTHERTYPE (string/O): Specifies the type of agent when the value OTHER is
      * indicated in the TYPE attribute.

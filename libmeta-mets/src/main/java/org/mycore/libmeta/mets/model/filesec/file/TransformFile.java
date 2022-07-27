@@ -25,13 +25,15 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
+ * {@code
  * <xsd:element name="transformFile" minOccurs="0" maxOccurs="unbounded">
+ * }
  * 
  * The transform file element &lt;transformFile&gt; provides a means to access
  * any subsidiary files listed below a &lt;file&gt; element by indicating the
  * steps required to "unpack" or transform the subsidiary files. This element is
  * repeatable and might provide a link to a &lt;behavior&gt; in the
- * &lt;behaviorSec&gt; that performs the transformation.</xsd:documentation>
+ * &lt;behaviorSec&gt; that performs the transformation.
  * 
  * @author Robert Stephan
  * @version METS 1.10
@@ -40,7 +42,9 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 @XmlAccessorType(XmlAccessType.NONE)
 public class TransformFile {
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -52,7 +56,9 @@ public class TransformFile {
     protected String ID;
 
     /**
+     * {@code
      * <xsd:attribute name="TRANSFORMTYPE" use="required">
+     * }
      * 
      * TRANSFORMTYPE (string/R): Is used to indicate the type of transformation
      * needed to render content of a file accessible. This may include unpacking
@@ -63,48 +69,56 @@ public class TransformFile {
      * unencoded representation would use by means of specific encoding schemas.
      * Decryption is defined as the process of restoring data that has been
      * obscured to make it unreadable without special knowledge (encrypted data)
-     * to its original form. </xsd:documentation>
+     * to its original form.
      */
     @XmlAttribute(name = "TRANSFORMTYPE", required = true)
     protected TRANSFORMTYPE TRANSFORMTYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="TRANSFORMALGORITHM" type="xsd:string"
      * use="required">
+     * }
      * 
      * TRANSFORM-ALGORITHM (string/R): Specifies the decompression or decryption
      * routine used to access the contents of the file. Algorithms for
-     * compression can be either loss-less or lossy.</xsd:documentation>
+     * compression can be either loss-less or lossy.
      */
     @XmlAttribute(name = "TRANSFORMALGORITHMN", required = true)
     protected String TRANSFORMALGORITHMN;
 
     /**
+     * {@code
      * <xsd:attribute name="TRANSFORMKEY" type="xsd:string" use="optional">
+     * }
      * 
      * <xsd:documentation xml:lang="en">TRANSFORMKEY (string/O): A key to be
      * used with the transform algorithm for accessing the file's
-     * contents.</xsd:documentation>
+     * contents.
      */
     @XmlAttribute(name = "TRANSFORMKEY", required = false)
     protected String TRANSFORMKEY;
 
     /**
+     * {@code
      * <xsd:attribute name="TRANSFORMBEHAVIOR" type="xsd:IDREF" use="optional">
+     * }
      * 
      * TRANSFORMBEHAVIOR (string/O): An IDREF to a behavior element for this
-     * transformation.</xsd:documentation>
+     * transformation.
      */
     @XmlAttribute(name = "TRANSFORMBEHAVIOR", required = false)
     protected String TRANSFORMBEHAVIOR;
 
     /**
+     * {@code
      * <xsd:attribute name="TRANSFORMORDER" type="xsd:positiveInteger"
      * use="required">
+     * }
      * 
      * TRANSFORMORDER (postive-integer/R): The order in which the instructions
      * must be followed in order to unpack or transform the container
-     * file.</xsd:documentation>
+     * file.
      */
     @XmlAttribute(name = "TRANSFORMORDER", required = true)
     protected String TRANSFORMORDER;

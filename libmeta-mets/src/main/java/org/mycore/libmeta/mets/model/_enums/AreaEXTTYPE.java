@@ -18,7 +18,9 @@
 package org.mycore.libmeta.mets.model._enums;
 
 /**
- * EXTTYPE (string/O): An attribute that specifies the kind of EXTENT values that are being used. For example if BYTE is specified then EXTENT would represent a byte count. If TIME is specified the EXTENT would represent a duration of time. EXTTYPE must be one of the following values:
+ * EXTTYPE (string/O): An attribute that specifies the kind of EXTENT values that are being used. For example if BYTE
+ * is specified then EXTENT would represent a byte count. If TIME is specified the EXTENT would represent a duration
+ * of time. EXTTYPE must be one of the following values:
  * 	BYTE
  * 	SMIL
  * 	MIDI
@@ -35,17 +37,26 @@ package org.mycore.libmeta.mets.model._enums;
  *
  */
 public enum AreaEXTTYPE {
-    BYTE("BYTE"), SMIL("SMIL"), MIDI("MIDI"), SMPTE_25("SMPTE-25"), SMPTE_24("SMPTE-24"), SMPTE_DF30("SMPTE-DF30"), SMPTE_NDF30("SMPTE-NDF30"), SMPTE_DF29_97("SMPTE-DF29.97"), SMPTE_NDF29_97(
-	    "SMPTE-NDF29.97"), TIME("TIME"), TCF("TCF");
+    BYTE("BYTE"),
+    SMIL("SMIL"),
+    MIDI("MIDI"),
+    SMPTE_25("SMPTE-25"),
+    SMPTE_24("SMPTE-24"),
+    SMPTE_DF30("SMPTE-DF30"),
+    SMPTE_NDF30("SMPTE-NDF30"),
+    SMPTE_DF29_97("SMPTE-DF29.97"),
+    SMPTE_NDF29_97("SMPTE-NDF29.97"),
+    TIME("TIME"),
+    TCF("TCF");
 
     private String value;
 
     private AreaEXTTYPE(String value) {
-	this.value = value;
+        this.value = value;
     }
 
     @Override
     public String toString() {
-	return value;
+        return value;
     }
 }

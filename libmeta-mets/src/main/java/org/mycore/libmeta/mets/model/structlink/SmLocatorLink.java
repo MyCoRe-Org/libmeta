@@ -27,7 +27,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
+ * {@code
  * <xsd:element name="smLocatorLink" minOccurs="2" maxOccurs="unbounded" >
+ * }
  * 
  * The structMap locator link element &lt;smLocatorLink&gt; is of xlink:type
  * &quot;locator&quot;. It provides a means of identifying a &lt;div&gt; element
@@ -52,44 +54,57 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 @XmlAccessorType(XmlAccessType.NONE)
 public class SmLocatorLink implements IAttributeGroupXlinkLocatorLink {
     /**
-     * <xsd:attribute name="ID" type="xsd:ID"> //TODO-CHECK required=true
+     * {@code
+     * <xsd:attribute name="ID" type="xsd:ID">
+     * }
+     * //TODO-CHECK required=true
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
      * another element or document via an IDREF or an XPTR. For more information
      * on using ID attributes for internal and external linking see Chapter 4 of
-     * the METS Primer.</xsd:documentation>
+     * the METS Primer.
      */
     @XmlAttribute(name = "ID", required = true)
     protected String ID;
 
     // attributeGroup xlink:locatorLink - begin
     /**
+     * {@code
      * <attribute name="type" type="string" fixed="locator" form="qualified"/>
+     * }
      */
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
     protected XlinkTypeLocator xlinkType = XlinkTypeLocator.LOCATOR;
 
     /**
+     * {@code
      * <attribute ref="xlink:href" use="required"/>
+     * }
      */
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = true)
     protected String xlinkHref;
 
     /**
+     * {@code
      * <attribute ref="xlink:role" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkRole;
 
     /**
+     * {@code
      * <attribute ref="xlink:title" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkTitle;
 
     /**
+     * {@code
      * <attribute ref="xlink:label" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "label", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkLabel;

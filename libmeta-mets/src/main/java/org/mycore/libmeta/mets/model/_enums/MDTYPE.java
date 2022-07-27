@@ -21,6 +21,7 @@ import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 
 /**
+ * {@code
  * <xsd:attribute name="MDTYPE" use="required">
  *   <xsd:simpleType>
  *     <xsd:restriction base="xsd:string">
@@ -49,6 +50,8 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  *     </xsd:restriction>
  *   </xsd:simpleType>
  * </xsd:attribute>
+ * }
+ * 
  * MDTYPE (string/R): Is used to indicate the type of the associated metadata. 
  * It must have one of the following values:
  *

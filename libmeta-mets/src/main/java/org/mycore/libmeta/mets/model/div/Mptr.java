@@ -35,7 +35,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
+ * {@code
  * <xsd:element name="mptr" minOccurs="0" maxOccurs="unbounded">
+ * }
  * 
  * Like the &lt;fptr&gt; element, the METS pointer element &lt;mptr&gt;
  * represents digital content that manifests its parent &lt;div&gt; element.
@@ -64,7 +66,9 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 public class Mptr implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpleLink {
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -77,7 +81,9 @@ public class Mptr implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimple
 
     // attributeGroup LOCATION - begin
     /**
+     * {@code
      * <xsd:attribute name="LOCTYPE" use="required">
+     * }
      * 
      * LOCTYPE (string/R): Specifies the locator type used in the xlink:href
      * attribute. Valid values for LOCTYPE are:
@@ -86,7 +92,9 @@ public class Mptr implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimple
     protected LOCTYPE LOCTYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="OTHERLOCTYPE" type="xsd:string" use="optional">
+     * }
      * 
      * OTHERLOCTYPE (string/O): Specifies the locator type when the value OTHER
      * is used in the LOCTYPE attribute. Although optional, it is strongly
@@ -100,43 +108,57 @@ public class Mptr implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimple
     // attributeGroup xlink:simpleLink - begin
 
     /**
+     * {@code
      * <attribute name="type" type="string" fixed="simple" form="qualified"/>
+     * }
      */
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
     protected String xlinkType;
 
     /**
+     * {@code
      * <attribute ref="xlink:href" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkHref;
 
     /**
+     * {@code
      * <attribute ref="xlink:role" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkRole;
 
     /**
+     * {@code
      * <attribute ref="xlink:arcrole" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkArcrole;
 
     /**
+     * {@code
      * <attribute ref="xlink:title" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkTitle;
 
     /**
+     * {@code
      * <attribute ref="xlink:show" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkShow xlinkShow;
 
     /**
+     * {@code
      * <attribute ref="xlink:actuate" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkActuate xlinkActuate;
@@ -144,7 +166,9 @@ public class Mptr implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimple
     // attributeGroup xlink:simpleLink - end
 
     /**
+     * {@code
      * <xsd:attribute name="CONTENTIDS" type="URIs" use="optional">
+     * }
      * 
      * CONTENTIDS (URI/O): Content IDs for the content represented by the
      * &lt;mptr&gt; (equivalent to DIDL DII or Digital Item Identifier, a unique
