@@ -34,8 +34,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
+ * {@code
  * <xsd:complexType name="behaviorSecType">
- * 
+ * }
  * behaviorSecType: Complex Type for Behavior Sections
  * 
  * Behaviors are executable code which can be associated with parts of a METS
@@ -53,8 +54,10 @@ import jakarta.xml.bind.annotation.XmlType;
 public class BehaviorSec {
     // <xsd:sequence>
     /**
+     * {@code
      * <xsd:element name="behaviorSec" type="behaviorSecType" minOccurs="0"
      * maxOccurs="unbounded"/>
+     * }
      * 
      * Behaviors are executable code which can be associated with parts of a
      * METS object. The behaviorSec element is used to group individual
@@ -66,8 +69,10 @@ public class BehaviorSec {
     protected List<BehaviorSec> behaviorSec = new Vector<>();
 
     /**
+     * {@code
      * <xsd:element name="behavior" type="behaviorType" minOccurs="0"
      * maxOccurs="unbounded">
+     * }
      * 
      * A behavior element &lt;behavior&gt; can be used to associate executable
      * behaviors with content in the METS document. This element has an
@@ -81,7 +86,9 @@ public class BehaviorSec {
     protected List<Behavior> behavior = new Vector<>();
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -93,7 +100,9 @@ public class BehaviorSec {
     protected String ID;
 
     /**
+     * {@code
      * <xsd:attribute name="CREATED" type="xsd:dateTime" use="optional">
+     * }
      * 
      * CREATED (dateTime/O): Specifies the date and time of creation for the
      * &lt;behaviorSec&gt;
@@ -102,7 +111,9 @@ public class BehaviorSec {
     protected String CREATED;
 
     /**
+     * {@code
      * <xsd:attribute name="LABEL" type="xsd:string" use="optional">
+     * }
      * 
      * LABEL (string/O): A text description of the behavior section.
      */
@@ -110,7 +121,9 @@ public class BehaviorSec {
     protected String LABEL;
 
     /**
-     * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+     * {@code
+     * <xsd:anyAttribute namespace="##other" processContents="lax" />
+     * }
      */
     @XmlAnyAttribute
     protected Map<QName, String> otherAttributes = new HashMap<QName, String>();

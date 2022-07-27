@@ -26,7 +26,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
+ * {@code
  * <xsd:complexType name="behaviorType">
+ * }
  * 
  * behaviorType: Complex Type for Behaviors
  * 
@@ -46,7 +48,9 @@ import jakarta.xml.bind.annotation.XmlType;
 public class Behavior {
     // <xsd:sequence>
     /**
+     * {@code
      * <xsd:element name="interfaceDef" type="objectType" minOccurs="0">
+     * }
      * 
      * The interface definition &lt;interfaceDef&gt; element contains a pointer
      * to an abstract definition of a single behavior or a set of related
@@ -64,7 +68,9 @@ public class Behavior {
     protected Object interfaceDef;
 
     /**
+     * {@code
      * <xsd:element name="mechanism" type="objectType">
+     * }
      * 
      * A mechanism element &lt;mechanism&gt; contains a pointer to an executable
      * code module that implements a set of behaviors defined by an interface
@@ -78,7 +84,9 @@ public class Behavior {
     protected Object mechanism;
 
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -93,7 +101,9 @@ public class Behavior {
     protected String ID;
 
     /**
+     * {@code
      * <xsd:attribute name="STRUCTID" type="xsd:IDREFS" use="optional">
+     * }
      * 
      * STRUCTID (IDREFS/O): An XML IDREFS attribute used to link a
      * &lt;behavior&gt; to one or more &lt;div&gt; elements within a
@@ -106,7 +116,9 @@ public class Behavior {
     protected String STRUCTID;
 
     /**
+     * {@code
      * <xsd:attribute name="BTYPE" type="xsd:string" use="optional">
+     * }
      * 
      * BTYPE (string/O): The behavior type provides a means of categorizing the
      * related behavior.</xsd:documentation>
@@ -115,7 +127,9 @@ public class Behavior {
     protected String BTYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="CREATED" type="xsd:dateTime" use="optional">
+     * }
      * 
      * CREATED (dateTime/O): The dateTime of creation for the behavior.
      */
@@ -123,7 +137,9 @@ public class Behavior {
     protected String CREATED;
 
     /**
+     * {@code
      * <xsd:attribute name="LABEL" type="xsd:string" use="optional">
+     * }
      * 
      * LABEL (string/O): A text description of the behavior.
      */
@@ -131,7 +147,9 @@ public class Behavior {
     protected String LABEL;
 
     /**
+     * {@code
      * <xsd:attribute name="GROUPID" type="xsd:string" use="optional">
+     * }
      * 
      * GROUPID (string/O): An identifier that establishes a correspondence
      * between the given behavior and other behaviors, typically used to
@@ -141,7 +159,9 @@ public class Behavior {
     protected String GROUPID;
 
     /**
+     * {@code
      * <xsd:attribute name="ADMID" type="xsd:IDREFS" use="optional">
+     * }
      * 
      * ADMID (IDREFS/O): An optional attribute listing the XML ID values of
      * administrative metadata sections within the METS document pertaining to

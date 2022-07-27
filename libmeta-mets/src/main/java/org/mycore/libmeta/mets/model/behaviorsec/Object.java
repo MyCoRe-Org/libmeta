@@ -31,7 +31,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
+ * {@code
  * <xsd:complexType name="objectType">
+ * }
  * 
  * objectType: complexType for interfaceDef and mechanism elements
  * 
@@ -47,8 +49,11 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class Object implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpleLink {
+    
     /**
+     * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
+     * }
      * 
      * ID (ID/O): This attribute uniquely identifies the element within the METS
      * document, and would allow the element to be referenced unambiguously from
@@ -60,7 +65,9 @@ public class Object implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimp
     protected String ID;
 
     /**
+     * {@code
      * <xsd:attribute name="LABEL" type="xsd:string" use="optional">
+     * }
      * 
      * LABEL (string/O): A text description of the entity represented.
      */
@@ -69,7 +76,9 @@ public class Object implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimp
 
     // attributeGroup LOCATION - begin
     /**
+     * {@code
      * <xsd:attribute name="LOCTYPE" use="required">
+     * }
      * 
      * LOCTYPE (string/R): Specifies the locator type used in the xlink:href
      * attribute. Valid values for LOCTYPE are:
@@ -78,7 +87,9 @@ public class Object implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimp
     protected LOCTYPE LOCTYPE;
 
     /**
+     * {@code
      * <xsd:attribute name="OTHERLOCTYPE" type="xsd:string" use="optional">
+     * }
      * 
      * OTHERLOCTYPE (string/O): Specifies the locator type when the value OTHER
      * is used in the LOCTYPE attribute. Although optional, it is strongly
@@ -92,42 +103,56 @@ public class Object implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimp
     // attributeGroup xlink:simpleLink - begin
 
     /**
+     * {@code
      * <attribute name="type" type="string" fixed="simple" form="qualified"/>
+     * }
      */
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
     protected String xlinkType;
     /**
+     * {@code
      * <attribute ref="xlink:href" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkHref;
 
     /**
+     * {@code
      * <attribute ref="xlink:role" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkRole;
 
     /**
+     * {@code
      * <attribute ref="xlink:arcrole" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkArcrole;
 
     /**
+     * {@code
      * <attribute ref="xlink:title" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkTitle;
 
     /**
+     * {@code
      * <attribute ref="xlink:show" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkShow xlinkShow;
 
     /**
+     * {@code
      * <attribute ref="xlink:actuate" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkActuate xlinkActuate;
