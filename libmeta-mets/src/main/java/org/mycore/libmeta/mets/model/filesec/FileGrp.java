@@ -157,9 +157,6 @@ public class FileGrp {
 	@XmlAnyAttribute
 	protected Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
-	/**
-	 * Constructor
-	 */
 	public List<FileGrp> getFileGrp() {
 		return fileGrp;
 	}

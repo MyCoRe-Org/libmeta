@@ -254,7 +254,7 @@ public class File implements IAttributeGroupFILECORE {
      * <xsd:attribute name="DMDID" type="xsd:IDREFS" use="optional">
      * }
      * 
-     * >DMDID (IDREFS/O): Contains the ID attribute values identifying the
+     * DMDID (IDREFS/O): Contains the ID attribute values identifying the
      * &lt;dmdSec&gt;, elements in the METS document that contain or link to
      * descriptive metadata pertaining to the content file represented by the
      * current &lt;file&gt; element. For more information on using METS IDREFS

@@ -84,6 +84,8 @@ public interface IAttributeGroupMETADATA {
 	 *   EAC-CPF: Encoded Archival Context - Corporate Bodies, Persons, and Families
 	 *   LIDO: Lightweight Information Describing Objects
 	 *   OTHER: metadata in a format not specified above
+	 *   
+	 *   @return the metadata type
 	 **/
 	public MDTYPE getMDTYPE();
 
@@ -96,6 +98,8 @@ public interface IAttributeGroupMETADATA {
 	 * 
 	 * OTHERMDTYPE (string/O): Specifies the form of metadata in use when the
 	 * value OTHER is indicated in the MDTYPE attribute.
+	 * 
+	 * @return the other metadata type
 	 **/
 	public String getOTHERMDTYPE();
 
@@ -109,6 +113,8 @@ public interface IAttributeGroupMETADATA {
 	 * MDTYPEVERSION(string/O): Provides a means for recording the version of
 	 * the type of metadata (as recorded in the MDTYPE or OTHERMDTYPE attribute) that is being used. This may represent
 	 * the version of the underlying data dictionary or metadata model rather than a schema version.
+	 * 
+	 * @return the metadata type version
 	 **/
 	public String getMDTYPEVERSION();
 

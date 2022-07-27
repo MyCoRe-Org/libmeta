@@ -73,7 +73,9 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
 
     // attributeGroup LOCATION - begin
     /**
+     * {@code
      * <xsd:attribute name="LOCTYPE" use="required">
+     * }
      * 
      * LOCTYPE (string/R): Specifies the locator type used in the xlink:href
      * attribute. Valid values for LOCTYPE are:

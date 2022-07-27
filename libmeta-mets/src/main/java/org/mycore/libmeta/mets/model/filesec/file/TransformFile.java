@@ -92,7 +92,7 @@ public class TransformFile {
      * <xsd:attribute name="TRANSFORMKEY" type="xsd:string" use="optional">
      * }
      * 
-     * <xsd:documentation xml:lang="en">TRANSFORMKEY (string/O): A key to be
+     * TRANSFORMKEY (string/O): A key to be
      * used with the transform algorithm for accessing the file's
      * contents.
      */

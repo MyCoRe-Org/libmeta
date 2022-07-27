@@ -40,6 +40,9 @@ public interface IAttributeGroupORDERLABELSBuilder<T extends IAttributeGroupORDE
 	 * ORDER (integer/O): A representation of the element's order among its
 	 * siblings (e.g., its absolute, numeric sequence). For an example, and clarification of the distinction 
 	 * between ORDER and ORDERLABEL, see the description of the ORDERLABEL attribute.
+	 * 
+	 * @param order - the order as integer
+	 * @return the builder
 	 */
 	public default B ORDER(Integer order) {
 	    _target().setORDER(order);
@@ -58,6 +61,9 @@ public interface IAttributeGroupORDERLABELSBuilder<T extends IAttributeGroupORDE
 	 * imagine a text with 10 roman numbered pages followed by 10 arabic numbered pages. Page iii would have an ORDER of
 	 * “3”, an ORDERLABEL of “iii” and a LABEL of “Page iii”, while page 3 would have an ORDER of “13”, an ORDERLABEL of
 	 * “3” and a LABEL of “Page 3”.
+	 * 
+	 * @param orderlabel - the orderLabel as String
+	 * @return the builder
 	 */
 	public default B ORDERLABEL(String orderlabel) {
 	    _target().setORDERLABEL(orderlabel);
@@ -76,6 +82,9 @@ public interface IAttributeGroupORDERLABELSBuilder<T extends IAttributeGroupORDE
 	 * map. In the case of a book with chapters, the book &lt;div&gt; LABEL should have the book title and the chapter
 	 * &lt;div&gt;; LABELs should have the individual chapter titles, rather than having the chapter &lt;div&gt; LABELs
 	 * combine both book title and chapter title . For further of the distinction between LABEL and ORDERLABEL see the
+	 * 
+	 * @param label - the label
+	 * @return the builder
 	 */
 	public default B LABEL(String label) {
 	    _target().setLABEL(label);

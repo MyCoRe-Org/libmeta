@@ -90,7 +90,7 @@ public class AmdSec {
      * An intellectual property rights metadata element &lt;rightsMD&gt; records
      * information about copyright and licensing pertaining to a component of
      * the METS object. The &lt;rightsMD&gt; element conforms to same generic
-     * datatype as the &lt;dmdSec&gt;, &lt;techMD>, &lt;sourceMD&gt; and
+     * datatype as the &lt;dmdSec&gt;, &lt;techMD&gt;, &lt;sourceMD&gt; and
      * &lt;digiprovMD&gt; elements, and supports the same sub-elements and
      * attributes. A rights metadata element can either wrap the metadata
      * (mdWrap) or reference it in an external location (mdRef) or both. METS
@@ -151,7 +151,7 @@ public class AmdSec {
      * supports the same sub-elements and attributes. A digital provenance
      * metadata element can either wrap the metadata (mdWrap) or reference it in
      * an external location (mdRef) or both. METS allows multiple
-     * &lt;digiprovMD> elements; and digital provenance metadata can be
+     * &lt;digiprovMD&gt; elements; and digital provenance metadata can be
      * associated with any METS element that supports an ADMID attribute.
      * Digital provenance metadata can be expressed according to current digital
      * provenance description standards (such as PREMIS) or a locally produced

@@ -35,6 +35,8 @@ public interface IAttributeGroupFILECORE {
 	 * 
 	 * MIMETYPE (string/O): The IANA MIME media type for the associated file
 	 *			or wrapped content. Some values for this attribute can be found on the IANA website.
+	 *
+	 *@return the mimetype
 	 */
 	public String getMIMETYPE();
 
@@ -47,6 +49,8 @@ public interface IAttributeGroupFILECORE {
 	 * 
 	 * SIZE (long/O): Specifies the size in bytes of the associated file or
 	 * wrapped content.
+	 * 
+	 * @return the size
 	 */
 	public Long getSIZE();
 
@@ -59,6 +63,8 @@ public interface IAttributeGroupFILECORE {
 	 * 
 	 * CREATED (dateTime/O): Specifies the date and time of creation for the
 	 * associated file or wrapped content.
+	 * 
+	 * @return the create date
 	 */
 	public String getCREATED();
 
@@ -71,6 +77,8 @@ public interface IAttributeGroupFILECORE {
 	 * 
 	 * CHECKSUM (string/O): Provides a checksum value for the associated file
 	 * or wrapped content.
+	 * 
+	 * @return the checksum
 	 */
 	public String getCHECKSUM();
 
@@ -102,6 +110,8 @@ public interface IAttributeGroupFILECORE {
 	 * CHECKSUMTYPE (enumerated string/O): Specifies the checksum algorithm
 	 * used to produce the value contained in the CHECKSUM attribute. CHECKSUMTYPE must contain one of the following
 	 * values: Adler-32  CRC32  HAVAL  MD5  MNP  SHA-1  SHA-256  SHA-384  SHA-512  TIGER  WHIRLPOOL
+	 * 
+	 * @return the checksum type
 	 */
 	public CHECKSUMTYPE getCHECKSUMTYPE();
 

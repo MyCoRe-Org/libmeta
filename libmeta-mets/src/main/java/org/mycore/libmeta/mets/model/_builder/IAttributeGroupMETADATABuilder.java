@@ -89,6 +89,9 @@ public interface IAttributeGroupMETADATABuilder<T extends IAttributeGroupMETADAT
 	 *   EAC-CPF: Encoded Archival Context - Corporate Bodies, Persons, and Families
 	 *   LIDO: Lightweight Information Describing Objects
 	 *   OTHER: metadata in a format not specified above
+	 *   
+	 *   @param mdtype - the metadata type
+	 *   @return the builder
 	 **/
 	public default B MDTYPE(MDTYPE mdtype) {
 	    _target().setMDTYPE(mdtype);
@@ -102,6 +105,9 @@ public interface IAttributeGroupMETADATABuilder<T extends IAttributeGroupMETADAT
 	 * 
 	 * OTHERMDTYPE (string/O): Specifies the form of metadata in use when the
 	 * value OTHER is indicated in the MDTYPE attribute.
+	 * 
+	 * @param otherMdType - the other metadata type
+	 * @return the builder
 	 **/
 	public default B OTHERMDTYPE(String otherMdType) {
 	    _target().setOTHERMDTYPE(otherMdType);
@@ -116,6 +122,9 @@ public interface IAttributeGroupMETADATABuilder<T extends IAttributeGroupMETADAT
 	 * MDTYPEVERSION(string/O): Provides a means for recording the version of
 	 * the type of metadata (as recorded in the MDTYPE or OTHERMDTYPE attribute) that is being used. This may represent
 	 * the version of the underlying data dictionary or metadata model rather than a schema version.
+	 * 
+	 * @param mdTypeVersion - the version of the metadata type
+	 * @return the builder
 	 **/
 	public default B MDTYPEVERSION(String mdTypeVersion) {
 	    _target().setMDTYPEVERSION(mdTypeVersion);

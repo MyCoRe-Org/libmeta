@@ -48,6 +48,8 @@ public interface IAttributeGroupLOCATION {
 	 * LOCTYPE (string/R): Specifies the locator type used in the xlink:href attribute. 
 	 * Valid values for LOCTYPE are:
 	 *		ARK  URN  URL  PURL  HANDLE DOI OTHER
+	 *
+	 * @return the location type
 	 */
 	public LOCTYPE getLOCTYPE();
 
@@ -60,6 +62,8 @@ public interface IAttributeGroupLOCATION {
 	 * 
 	 * OTHERLOCTYPE (string/O): Specifies the locator type when the value
 	 * OTHER is used in the LOCTYPE attribute. Although optional, it is strongly recommended when OTHER is used.
+	 * 
+	 * @return the other location type
 	 */
 	public String getOTHERLOCTYPE();
 

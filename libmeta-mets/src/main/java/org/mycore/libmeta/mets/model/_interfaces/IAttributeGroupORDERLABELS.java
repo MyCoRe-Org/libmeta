@@ -34,6 +34,8 @@ public interface IAttributeGroupORDERLABELS {
 	 * ORDER (integer/O): A representation of the element's order among its
 	 * siblings (e.g., its absolute, numeric sequence). For an example, and clarification of the distinction 
 	 * between ORDER and ORDERLABEL, see the description of the ORDERLABEL attribute.
+	 * 
+	 * @return the order as integer
 	 */
 	public Integer getORDER();
 	public void setORDER(Integer order);
@@ -50,6 +52,8 @@ public interface IAttributeGroupORDERLABELS {
 	 * imagine a text with 10 roman numbered pages followed by 10 arabic numbered pages. Page iii would have an ORDER of
 	 * “3”, an ORDERLABEL of “iii” and a LABEL of “Page iii”, while page 3 would have an ORDER of “13”, an ORDERLABEL of
 	 * “3” and a LABEL of “Page 3”.
+	 * 
+	 * @return the orderlabel
 	 */
 	public String getORDERLABEL();
 	public void setORDERLABEL(String orderlabel);
@@ -65,7 +69,9 @@ public interface IAttributeGroupORDERLABELS {
 	 * navigation of the digital object. Note that a &lt;div&gt; LABEL should be specific to its level in the structural
 	 * map. In the case of a book with chapters, the book &lt;div&gt; LABEL should have the book title and the chapter
 	 * &lt;div&gt;; LABELs should have the individual chapter titles, rather than having the chapter &lt;div&gt; LABELs
-	 * combine both book title and chapter title . For further of the distinction between LABEL and ORDERLABEL see the
+	 * combine both book title and chapter title . 
+	 * 
+	 * @return the label
 	 */
 	public String getLABEL();
 	public void setLABEL(String label);

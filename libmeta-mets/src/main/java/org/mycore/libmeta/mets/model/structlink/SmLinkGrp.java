@@ -83,7 +83,7 @@ public class SmLinkGrp extends SmLinkOrSmLinkGrp implements IAttributeGroupXlink
      * xlink:href attribute. The lowest level of this xlink:href URI value
      * should be a fragment identifier that references the ID value that
      * identifies the relevant &lt;div&gt; element. For example,
-     * &quot;xlink:href=&apos;#div20&apos;&quot; where &quot;div20&quot; is the
+     * &quot;xlink:href='#div20'&quot; where &quot;div20&quot; is the
      * ID value that identifies the pertinent &lt;div&gt; in the current METS
      * document. Although not required by the xlink specification, an
      * &lt;smLocatorLink&gt; element will typically include an xlink:label

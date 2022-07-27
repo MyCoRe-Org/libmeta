@@ -209,8 +209,10 @@ public class MetsHdr {
     }
 
     /**
-     *use Instant.now().toString()
+     *use {@code Instant.now().toString()}
      *to set current timestamp
+     *
+     * @param lastModDate- the last modified date
      */
     public void setLASTMODDATE(String lastModDate) {
         LASTMODDATE = lastModDate;
@@ -274,8 +276,10 @@ public class MetsHdr {
         }
 
         /**
-         *use Instant.now().toString()
-         *to set current timestamp
+         * use {@code Instant.now().toString(}) to set current timestamp
+         * @param lastModDate - the lastmodified date
+         * @return the builder
+         *
          */
         public Builder LASTMODDATE(String lastModDate) {
             _target().setLASTMODDATE(lastModDate);

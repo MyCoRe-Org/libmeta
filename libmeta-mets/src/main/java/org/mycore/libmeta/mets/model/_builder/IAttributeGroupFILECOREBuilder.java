@@ -40,6 +40,9 @@ public interface IAttributeGroupFILECOREBuilder<T extends IAttributeGroupFILECOR
 	 * 
 	 * MIMETYPE (string/O): The IANA MIME media type for the associated file
 	 *			or wrapped content. Some values for this attribute can be found on the IANA website.
+	 *
+	 * @param mimetype - the mime type
+	 * @return the builder
 	 */
 	
 	public default B MIMETYPE(String mimetype) {
@@ -54,6 +57,9 @@ public interface IAttributeGroupFILECOREBuilder<T extends IAttributeGroupFILECOR
 	 * 
 	 * SIZE (long/O): Specifies the size in bytes of the associated file or
 	 * wrapped content.
+	 * 
+	 * @param size - the size
+	 * @return the builder
 	 */
 
 	public default B SIZE(Long size) {
@@ -68,6 +74,9 @@ public interface IAttributeGroupFILECOREBuilder<T extends IAttributeGroupFILECOR
 	 * 
 	 * CREATED (dateTime/O): Specifies the date and time of creation for the
 	 * associated file or wrapped content.
+	 * 
+	 * @param created - the create date
+	 * @return the builder
 	 */
 	public default B CREATED(String created) {
 	    _target().setCREATED(created);
@@ -81,6 +90,9 @@ public interface IAttributeGroupFILECOREBuilder<T extends IAttributeGroupFILECOR
 	 * 
 	 * CHECKSUM (string/O): Provides a checksum value for the associated file
 	 * or wrapped content.
+	 * 
+	 * @param checksum - the checksum
+	 * @return the builder
 	 */
 	public default B CHECKSUM(String checksum) {
 	    _target().setCHECKSUM(checksum);
@@ -113,6 +125,9 @@ public interface IAttributeGroupFILECOREBuilder<T extends IAttributeGroupFILECOR
 	 * CHECKSUMTYPE (enumerated string/O): Specifies the checksum algorithm
 	 * used to produce the value contained in the CHECKSUM attribute. CHECKSUMTYPE must contain one of the following
 	 * values: Adler-32  CRC32  HAVAL  MD5  MNP  SHA-1  SHA-256  SHA-384  SHA-512  TIGER  WHIRLPOOL
+	 * 
+	 * @param checksumType - the checksumType
+	 * @return the builder
 	 */
 	public default B CHECKSUMTYPE(CHECKSUMTYPE checksumType) {
 	    _target().setCHECKSUMTYPE(checksumType);
