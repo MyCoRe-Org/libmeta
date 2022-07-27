@@ -24,6 +24,7 @@ hs_err_pid*
 
 # Maven target directory
 **/target
+**/pom.xml.versionsBackup
 
 # Eclipse configuration files
 **/.project
