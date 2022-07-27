@@ -35,9 +35,7 @@ import jakarta.xml.bind.annotation.XmlType;
  * only a minimal subset is currently supported image width, image height and
  * sampling frequency
  * 
- * @see http://www.loc.gov/mix/v20
- * @see http://www.loc.gov/standards/mix/
- * @see http://www.niso.org/kst/reports/standards?step=2&gid=None&project_key=b897b0cf3e2ee526252d9f830207b3cc9f3b6c2c
+ * @see <a href="http://www.loc.gov/standards/mix/">MIX Homepage (Library of Congress)</a>
  * 
  * @author Robert Stephan
  * 
