@@ -40,10 +40,10 @@ public class ProcessingStep {
 
 	/**
 	 * Date or DateTime the image was processed.
-	 * 
-	 * @TODO support Java DateTime object
-	 *       (supported schema types: {@code <xsd:union memberTypes="xsd:date xsd:dateTime xsd:gYear xsd:gYearMonth"/>})
-	 */
+	 */ 
+	 // @TODO support Java DateTime objects
+	 //       (supported schema types: {@code <xsd:union memberTypes="xsd:date xsd:dateTime xsd:gYear xsd:gYearMonth"/>})
+	 
 	@XmlElement(name = "processingDateTime", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
 	protected String processingDateTime;
 
@@ -71,7 +71,7 @@ public class ProcessingStep {
 
 	/**
 	 * Information about a software application. Where applicable, the preferred
-	 * method for determining this information is by selecting Help --> About.
+	 * method for determining this information is by selecting Help -- About.
 	 */
 	@XmlElement(name = "processingSoftware", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
 	protected ProcessingSoftware processingSoftware;

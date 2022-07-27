@@ -26,7 +26,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * Information about a software application. Where applicable, the preferred
- * method for determining this information is by selecting Help --> About.
+ * method for determining this information is by selecting Help -- About.
  * 
  * @author Robert Stephan
  * @version Alto 2.1
