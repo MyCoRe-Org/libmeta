@@ -134,7 +134,7 @@ public class OriginInfo implements ITopLevelElement, ILanguageAttributeGroup {
     protected String altRepGroup;
 
     /**
-    * following attribute, @eventType, is new in version 3.5 -->
+    * The following attribute, {@literal @eventType}, is new in version 3.5
     * Recomended values are "production", "publication", "distribution", "manufacture"
     * So when eventType="production"
     * 	- {@literal <publisher>} is the producer

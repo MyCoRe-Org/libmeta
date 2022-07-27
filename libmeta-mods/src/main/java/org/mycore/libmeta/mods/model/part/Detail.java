@@ -53,9 +53,8 @@ import jakarta.xml.bind.annotation.XmlElements;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class Detail implements IPartSubelement {
-    /**
-     * 	<xs:choice maxOccurs="unbounded">
-     */
+    
+    // <xs:choice maxOccurs="unbounded">
     @XmlElements({
         @XmlElement(name = "number", namespace = "http://www.loc.gov/mods/v3", type = org.mycore.libmeta.mods.model.part.detail.Number.class),
         @XmlElement(name = "caption", namespace = "http://www.loc.gov/mods/v3", type = Caption.class),

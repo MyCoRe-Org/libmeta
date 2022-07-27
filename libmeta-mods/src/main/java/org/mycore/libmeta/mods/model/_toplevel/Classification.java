@@ -71,10 +71,9 @@ public class Classification extends StringPlusLanguagePlusAuthority implements I
      * <xs:attribute name="generator" type="xs:string"/>
      * }
      * 
-     * <!-- The following attribute, generator, is new in version 3.5-->
-     * <!-- @generator may be used to indicate that the classification is automatically generated,
-     *       and its value may indicate the nature of the generation, for example "lcc to ddc" -->
-     * @return
+     * The following attribute, generator, is new in version 3.5
+     * {@literal @generator} may be used to indicate that the classification is automatically generated,
+     * and its value may indicate the nature of the generation, for example "lcc to ddc" 
      */
     @XmlAttribute(name = "generator")
     protected String generator;

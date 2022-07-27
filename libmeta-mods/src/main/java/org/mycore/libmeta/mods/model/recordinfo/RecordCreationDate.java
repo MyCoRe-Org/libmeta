@@ -27,7 +27,7 @@ import org.mycore.libmeta.mods.model._misc.builder.IDateDefinitionBuilder;
  * }
  * 
  * @author Robert Stephan
- * @versio MODS 3.6
+ * @version MODS 3.6
  *
  */
 public class RecordCreationDate extends DateDefinition implements IRecordInfoSubelement {
