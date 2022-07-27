@@ -23,7 +23,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 /**
  *  namePartTypeAttributeDefinition
  *  
- *  "type" attribute of <namePart>
+ *  "type" attribute of {@literal <namePart>}
  *  
  * 
  * @author Robert Stephan

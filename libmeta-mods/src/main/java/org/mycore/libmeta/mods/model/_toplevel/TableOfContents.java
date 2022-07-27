@@ -34,7 +34,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
- *  Top Level Element <tableOfContents>
+ *  Top Level Element {@literal <tableOfContents>}
  * 
  * @author Robert Stephan
  * @version MODS 3.6
@@ -53,37 +53,49 @@ public class TableOfContents extends StringPlusLanguage
 	// IXlinkSimpleLinkAttributeGroup - begin
 
 	/**
+	 * {@code 
 	 * <attribute ref="xlink:href" use="optional"/>
+	 * }
 	 */
 	@XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
 	protected String xlinkHref;
 
 	/**
+	 * {@code 
 	 * <attribute ref="xlink:role" use="optional"/>
+	 * }
 	 */
 	@XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink", required = false)
 	protected String xlinkRole;
 
 	/**
+	 * {@code 
 	 * <attribute ref="xlink:arcrole" use="optional"/>
+	 * }
 	 */
 	@XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink", required = false)
 	protected String xlinkArcrole;
 
 	/**
+	 * {@code 
 	 * <attribute ref="xlink:title" use="optional"/>
+	 * }
 	 */
 	@XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink", required = false)
 	protected String xlinkTitle;
 
 	/**
+	 * {@code 
 	 * <attribute ref="xlink:show" use="optional"/>
+	 * }
 	 */
 	@XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink", required = false)
 	protected XlinkShow xlinkShow;
 
 	/**
+	 * {@code 
 	 * <attribute ref="xlink:actuate" use="optional"/>
+	 * }
 	 */
 	@XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink", required = false)
 	protected XlinkActuate xlinkActuate;

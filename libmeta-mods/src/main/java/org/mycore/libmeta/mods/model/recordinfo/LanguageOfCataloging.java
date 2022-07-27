@@ -20,7 +20,9 @@ package org.mycore.libmeta.mods.model.recordinfo;
 import org.mycore.libmeta.mods.model._toplevel.Language;
 
 /**
+ * {@code
  * <xs:element name="languageOfCataloging" type="languageDefinition"/>
+ * }
  *  
  * @author Robert Stephan
  * @version MODS 3.6

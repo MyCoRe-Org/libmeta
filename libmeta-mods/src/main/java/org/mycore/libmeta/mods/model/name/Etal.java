@@ -23,9 +23,11 @@ import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 
 /**
- * MODS Name Subelement <etal>
+ * MODS Name Subelement {@literal <etal>}
  * 
- * <xs:element name="etal" type="stringPlusLanguage"/> 
+ * {@code
+ * <xs:element name="etal" type="stringPlusLanguage"/>
+ * } 
  *  
  * @author stephan
  *

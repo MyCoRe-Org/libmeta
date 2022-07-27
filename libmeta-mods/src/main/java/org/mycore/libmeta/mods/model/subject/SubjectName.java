@@ -43,6 +43,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
 
 /**
+ * {@code
  * 	<xs:complexType name="subjectNameDefinition">
  *		<xs:choice minOccurs="0" maxOccurs="unbounded">
  *			<xs:element ref="namePart"/>
@@ -70,6 +71,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *		<xs:attributeGroup ref="languageAttributeGroup"/>
  *		<xs:attribute name="displayLabel" type="xs:string"/>
  *	</xs:complexType>
+ * }
  *
  * @author Robert Stephan
  * @version MODS 3.6
@@ -87,19 +89,25 @@ public class SubjectName implements ISubjectSubelement, IAuthorityAttributeGroup
     protected List<ISubjectNameSubelement> content = new Vector<>();
 
     /**
+     * {@code
      * <xs:attribute name="type" type="relatedItemTypeAttributeDefinition"/>
+     * }
      */
     @XmlAttribute(name = "type", required = false)
     protected SubjectNameType type;
 
     /**
+     * {@code
      * <xs:attribute name="displayLabel" type="xs:string"/>
+     * }
      */
     @XmlAttribute(name = "displayLabel", required = false)
     protected String displayLabel;
 
     /**
+     * {@code
      * <xs:attribute name="ID" type="xs:ID"/>
+     * }
      */
     @XmlAttribute(name = "ID", required = false)
     protected String ID;
@@ -107,37 +115,49 @@ public class SubjectName implements ISubjectSubelement, IAuthorityAttributeGroup
     // IXlinkSimpleLinkAttributeGroup - begin
 
     /**
+     * {@code
      * <attribute ref="xlink:href" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkHref;
 
     /**
+     * {@code
      * <attribute ref="xlink:role" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkRole;
 
     /**
+     * {@code
      * <attribute ref="xlink:arcrole" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkArcrole;
 
     /**
+     * {@code
      * <attribute ref="xlink:title" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkTitle;
 
     /**
+     * {@code
      * <attribute ref="xlink:show" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkShow xlinkShow;
 
     /**
+     * {@code
      * <attribute ref="xlink:actuate" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkActuate xlinkActuate;
@@ -146,19 +166,25 @@ public class SubjectName implements ISubjectSubelement, IAuthorityAttributeGroup
 
     // --- <xs:attributeGroup name="authorityAttributeGroup"> - begin
     /**
+     * {@code
      * <xs:attribute name="authority" type="xs:string"/>
+     * }
      */
     @XmlAttribute(name = "authority")
     protected String authority;
 
     /**
+     * {@code
      * <xs:attribute name="authorityURI" type="xs:anyURI"/>
+     * }
      */
     @XmlAttribute(name = "authorityURI")
     protected String authorityURI;
 
     /**
+     * {@code
      * <xs:attribute name="valueURI" type="xs:anyURI"/>
+     * }
      */
     @XmlAttribute(name = "valueURI")
     protected String valueURI;

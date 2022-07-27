@@ -27,8 +27,9 @@ import org.mycore.libmeta.mods.model.subject.name.ISubjectNameSubelement;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
- * Mods Name Subelement <namePart>
+ * Mods Name Subelement {@literal <namePart>}
  * 
+ * {@code
  * <xs:complexType name="namePartDefinition">
  *		<xs:simpleContent>
  *			<xs:extension base="stringPlusLanguage">
@@ -45,6 +46,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *			</xs:extension>
  *		</xs:simpleContent>
  *	</xs:complexType>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

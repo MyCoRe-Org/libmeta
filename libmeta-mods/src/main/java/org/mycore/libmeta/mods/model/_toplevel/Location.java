@@ -38,6 +38,7 @@ import jakarta.xml.bind.annotation.XmlType;
 /**
  * MODS Top Level Element: Location
  * 
+ * {@code 
  * <xs:complexType name="locationDefinition">
  *   <xs:sequence>
  *     <xs:element ref="physicalLocation" minOccurs="0" maxOccurs="unbounded"/>
@@ -50,6 +51,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *   <xs:attribute name="displayLabel" type="xs:string"/>
  *   <xs:attribute name="altRepGroup" type="xs:string"/>
  * </xs:complexType>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6
@@ -60,31 +62,41 @@ import jakarta.xml.bind.annotation.XmlType;
 public class Location implements ITopLevelElement, ILanguageAttributeGroup {
 
     /**
+     * {@code
      * <xs:element ref="physicalLocation" minOccurs="0" maxOccurs="unbounded"/>
+     * }
      */
     @XmlElement(name = "physicalLocation", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected List<PhysicalLocation> physicalLocation = new Vector<>();
 
     /**
+     * {@code 
      * <xs:element ref="shelfLocator" minOccurs="0" maxOccurs="unbounded"/>
+     * }
      */
     @XmlElement(name = "shelfLocator", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected List<ShelfLocator> shelfLocator = new Vector<>();
 
     /**
+     * {@code 
      *<xs:element ref="url" minOccurs="0" maxOccurs="unbounded"/>
+     *}
      */
     @XmlElement(name = "url", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected List<Url> url = new Vector<>();
 
     /**
+     * {@code 
      * <xs:element ref="holdingSimple" minOccurs="0"/>
+     * }
      */
     @XmlElement(name = "holdingSimple", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected HoldingSimple holdingSimple;
 
     /**
+     * {@code 
      *<xs:element ref="holdingExternal" minOccurs="0"/>
+     *}
      */
     @XmlElement(name = "holdingExternal", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected HoldingExternal holdingExternal;

@@ -23,7 +23,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 /**
  * modsVersionAttributeDefinition
  * 
- * "version" attribute of <mods>
+ * "version" attribute of {@literal <mods>}
  * 
  * The version attribute, now, in 3.4, enumerates all 3.x versions. In earlier
  * versions only the current (latest) version was allowed. E.g. in version 3.3,

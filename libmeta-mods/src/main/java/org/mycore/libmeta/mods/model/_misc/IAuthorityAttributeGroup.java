@@ -18,14 +18,15 @@
 package org.mycore.libmeta.mods.model._misc;
 
 /**
- * 
+ * {@code
  *	<xs:attributeGroup name="authorityAttributeGroup">
  *		<!-- new in 3.4 -->
  *		<xs:attribute name="authority" type="xs:string"/>
  *		<xs:attribute name="authorityURI" type="xs:anyURI"/>
  *		<xs:attribute name="valueURI" type="xs:anyURI"/>
  *	</xs:attributeGroup>
- *	
+ *	}
+ *
  * @author Robert Stephan
  * @version MODS 3.6
  *

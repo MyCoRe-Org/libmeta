@@ -31,6 +31,8 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
  * MODSOriginInfo Subelement publisher
+ * 
+ * {@code
  * <xs:complexType  name="publisherDefinition">
  *     <xs:simpleContent>
  *         <xs:extension base="stringPlusLanguagePlusSupplied">
@@ -38,6 +40,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *         </xs:extension>
  *     </xs:simpleContent>
  * </xs:complexType>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

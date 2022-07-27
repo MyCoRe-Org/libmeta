@@ -23,8 +23,9 @@ import org.mycore.libmeta.mods.model._misc.builder.IHierarchicalPartBuilder;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
- * MODS HierachicalGeographic Subelement <region>
+ * MODS HierachicalGeographic Subelement {@literal <region>}
  * 
+ * {@code
  *  <xs:complexType name="regionDefinition">
  *      <xs:simpleContent>
  *          <xs:extension base="hierarchicalPart">
@@ -32,6 +33,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *          </xs:extension>
  *      </xs:simpleContent>
  *  </xs:complexType>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

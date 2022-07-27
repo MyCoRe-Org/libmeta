@@ -31,8 +31,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
- * Top Level Element <classification>
+ * Top Level Element &lt;classification&gt;
  * 
+ * {@code
  * <xs:complexType name="classificationDefinition">
  *        <xs:simpleContent>
  *           <xs:extension base="stringPlusLanguagePlusAuthority">
@@ -44,7 +45,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *            </xs:extension>
  *        </xs:simpleContent>
  *    </xs:complexType>
- *
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6
@@ -66,7 +67,10 @@ public class Classification extends StringPlusLanguagePlusAuthority implements I
     protected Usage usage;
 
     /**
+     * {@code
      * <xs:attribute name="generator" type="xs:string"/>
+     * }
+     * 
      * <!-- The following attribute, generator, is new in version 3.5-->
      * <!-- @generator may be used to indicate that the classification is automatically generated,
      *       and its value may indicate the nature of the generation, for example "lcc to ddc" -->

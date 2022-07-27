@@ -23,7 +23,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 /**
  * MODS PhysicalDescription Subelement: Form
  * 
+ * {@code
  * <xs:element ref="form"/>
+ * }
  *   <!-- same definition as is used in copyInformation -->
  *
  *    

@@ -33,8 +33,9 @@ import jakarta.xml.bind.annotation.XmlElements;
 
 /**
  * detailDefinition  
- *  <detail>  is a subelement of <part>
+ *  {@literal <detail>}  is a subelement of {@literal <part>}
  *  
+ *  {@code
  *  <xs:complexType name="detailDefinition">
  *    <xs:choice maxOccurs="unbounded">
  *      <xs:element ref="number"/>
@@ -44,6 +45,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *    <xs:attribute name="type" type="xs:string"/>
  *    <xs:attribute name="level" type="xs:positiveInteger"/>
  *  </xs:complexType>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

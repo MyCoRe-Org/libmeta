@@ -23,6 +23,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 /**
  *  MODS Location URL attribute: Access 
  *  
+ * {@code
  * <xs:attribute name="access">
  *   <xs:simpleType>
  *     <xs:restriction base="xs:string">
@@ -32,6 +33,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  *     </xs:restriction>
  *   </xs:simpleType>
  * </xs:attribute>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

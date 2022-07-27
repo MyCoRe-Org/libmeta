@@ -43,8 +43,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
 
 /**
- * MODS SubjectSubelement <hierarchicalGeographic>
+ * MODS SubjectSubelement {@literal <hierarchicalGeographic>}
  * 
+ * {@code
  * <xs:complexType name="hierarchicalGeographicDefinition">
  *		<xs:choice maxOccurs="unbounded">
  *			<xs:element ref="extraTerrestrialArea"/>
@@ -64,6 +65,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *		</xs:choice>
  *		<xs:attributeGroup ref="authorityAttributeGroup"/>
  *	</xs:complexType>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6
@@ -88,19 +90,25 @@ public class SubjectHierarchicalGeographic implements ISubjectSubelement, IAutho
 
     // --- <xs:attributeGroup name="authorityAttributeGroup"> - begin
     /**
+     * {@code
      * <xs:attribute name="authority" type="xs:string"/>
+     * }
      */
     @XmlAttribute(name = "authority")
     protected String authority;
 
     /**
+     * {@code
      * <xs:attribute name="authorityURI" type="xs:anyURI"/>
+     * }
      */
     @XmlAttribute(name = "authorityURI")
     protected String authorityURI;
 
     /**
+     * {@code
      * <xs:attribute name="valueURI" type="xs:anyURI"/>
+     * }
      */
     @XmlAttribute(name = "valueURI")
     protected String valueURI;

@@ -22,7 +22,9 @@ import org.mycore.libmeta.mods.model._misc.DateDefinition;
 import org.mycore.libmeta.mods.model._misc.builder.IDateDefinitionBuilder;
 
 /**
+ * {@code
  * <xs:element name="recordChangeDate" type="dateDefinition"/>
+ * }
  * 
  * @author Robert Stephan
  * @versio MODS 3.6

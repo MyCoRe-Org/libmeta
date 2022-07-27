@@ -30,6 +30,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
+ * {@code
  *  <xs:complexType name="extentDefinition">
  *    <xs:sequence>
  *      <xs:element ref="start" minOccurs="0"/>
@@ -39,6 +40,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *    </xs:sequence>
  *    <xs:attribute name="unit" type="xs:string"/>
  *  </xs:complexType>
+ *  }
  *    
  * @author Robert Stephan
  * @version MODS 3.6

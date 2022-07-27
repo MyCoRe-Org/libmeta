@@ -29,6 +29,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
+ * {@code
  * <xs:complexType name="scriptTermDefinition">
  *   <xs:simpleContent>
  *     <xs:extension base="stringPlusLanguagePlusAuthority">
@@ -36,7 +37,8 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *     </xs:extension>
  *   </xs:simpleContent>
  * </xs:complexType>
- *    
+ * }
+ * 
  * @author Robert Stephan
  * @version MODS 3.6
  *

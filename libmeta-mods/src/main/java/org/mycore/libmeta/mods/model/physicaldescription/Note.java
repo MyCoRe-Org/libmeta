@@ -33,6 +33,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 /**
  * MODS PhysicalDescription Subelement: Note
  * 
+ * {@code
  *  <xs:complexType name="physicalDescriptionNote">
  *       <xs:simpleContent>
  *           <xs:extension base="stringPlusLanguage">
@@ -44,7 +45,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *           </xs:extension>
  *       </xs:simpleContent>
  *   </xs:complexType>
- *
+ * }
  *
  * @author Robert Stephan
  * @version MODS 3.6

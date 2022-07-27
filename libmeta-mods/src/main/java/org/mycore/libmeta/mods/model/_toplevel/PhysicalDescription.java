@@ -37,8 +37,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
 
 /**
- * Top Level Element <physicalDescription>
+ * Top Level Element {@literal <physicalDescription>}
  * 
+ * {@code 
  * <xs:complexType name="physicalDescriptionDefinition">
  *        <xs:choice maxOccurs="unbounded">
  *           <xs:element ref="form"/>
@@ -53,7 +54,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *       <xs:attribute name="displayLabel" type="xs:string"/>
  *       <xs:attribute name="altRepGroup" type="xs:string"/>
  *   </xs:complexType>
- *
+ * }
  *  
  * @author Robert Stephan
  * @version MODS 3.6

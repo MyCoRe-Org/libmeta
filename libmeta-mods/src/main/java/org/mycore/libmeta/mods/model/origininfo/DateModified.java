@@ -27,7 +27,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 /**
  * MODS OriginInfo Subelement: DateModified
  * 
+ * {@code
  * <xs:element name="dateModified" type="dateDefinition"/>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

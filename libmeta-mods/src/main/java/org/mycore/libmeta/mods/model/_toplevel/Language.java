@@ -34,18 +34,19 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
- * Top Level Element <language>
+ * Top Level Element {@literal <language>}
  * 
- * <scriptTerm> is introduced into <language> in 3.4.
+ * {@literal <scriptTerm>} is introduced into {@literal <language>} in 3.4.
  * 
- * In 3.3 <language> consists solely of <languageTerm> so if <language> is
- * present then there must be at least one instance of <languageTerm> and there
+ * In 3.3 {@literal <language>} consists solely of {@literal <languageTerm>} so if {@literal <language>} is
+ * present then there must be at least one instance of {@literal <languageTerm>} and there
  * may be more than one.
  * 
- * Now, in 3.4, if <language> is present, still there must be at least one
- * <languageTerm> element, and there may be more than one; and there may be any
- * number of <scriptTerm> elements, including zero.
+ * Now, in 3.4, if {@literal <language>} is present, still there must be at least one
+ * {@literal <languageTerm>} element, and there may be more than one; and there may be any
+ * number of {@literal <scriptTerm>} elements, including zero.
  * 
+ * {@code
  * <xs:complexType name="languageDefinition">
  *       <xs:sequence>
  *           <xs:element ref="languageTerm" maxOccurs="unbounded"/>
@@ -57,6 +58,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *        <xs:attribute name="altRepGroup" type="xs:string"/>
  *        <xs:attribute name="usage" fixed="primary"/>
  *    </xs:complexType>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6
@@ -101,7 +103,7 @@ public class Language implements ITopLevelElement, ILanguageAttributeGroup {
     protected String altRepGroup;
 
     /**
-     * usage added to <language> in 3.4
+     * usage added to {@literal <language>} in 3.4
      */
     @XmlAttribute(name = "usage")
     protected Usage usage;

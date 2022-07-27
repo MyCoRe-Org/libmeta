@@ -23,6 +23,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 /**
  * MODS PhysicalDescription Subelement: ReformattingQuality
  * 
+ * {@code
  * <xs:simpleType name="reformattingQualityDefinition">
  *       <xs:restriction base="xs:string">
  *           <xs:enumeration value="access"/>
@@ -30,6 +31,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  *          <xs:enumeration value="replacement"/>
  *      </xs:restriction>
  *  </xs:simpleType>
+ * }
  *
  * @author Robert Stephan
  * @version MODS 3.6

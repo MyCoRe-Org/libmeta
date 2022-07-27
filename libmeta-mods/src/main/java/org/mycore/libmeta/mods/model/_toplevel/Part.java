@@ -36,8 +36,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
 
 /**
- * Top Level Element <part>
+ * Top Level Element {@literal <part>}
  * 
+ * {@code 
  * <xs:complexType name="partDefinition">
  *   <xs:choice minOccurs="0" maxOccurs="unbounded">
  *     <xs:element ref="detail"/>
@@ -52,6 +53,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *   <xs:attribute name="displayLabel" type="xs:string"/>
  *   <xs:attribute name="altRepGroup" type="xs:string"/>
  * </xs:complexType>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6
@@ -67,13 +69,17 @@ public class Part implements ITopLevelElement, ILanguageAttributeGroup {
     protected List<IPartSubelement> content = new Vector<>();
 
     /**
+     * {@code 
     * <xs:attribute name="ID" type="xs:ID"/>
+    * }
     */
     @XmlAttribute(name = "ID")
     protected String ID;
 
     /**
+     * {@code 
     * <xs:attribute name="type" type="xs:string"/>
+    * }
     */
     @XmlAttribute(name = "type")
     protected String type;

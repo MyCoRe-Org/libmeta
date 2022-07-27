@@ -24,7 +24,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 
 
 /**
+ * {@code
  *  <xs:element name="total" type="xs:positiveInteger"/>
+ * }
  * 
  * @author Robert Stephan
  *

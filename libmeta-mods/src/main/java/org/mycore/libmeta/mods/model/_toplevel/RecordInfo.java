@@ -40,6 +40,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
 
 /**
+ * {@code 
  * <xs:complexType name="recordInfoDefinition">
  *   <xs:choice maxOccurs="unbounded">
  *     <xs:element ref="recordContentSource"/>
@@ -57,7 +58,8 @@ import jakarta.xml.bind.annotation.XmlElements;
  *   <xs:attribute name="displayLabel" type="xs:string"/>
  *   <xs:attribute name="altRepGroup" type="xs:string"/>
  * </xs:complexType>   
- *  
+ * }
+ * 
  * @author Robert Stephan
  * @version MODS 3.6
  *

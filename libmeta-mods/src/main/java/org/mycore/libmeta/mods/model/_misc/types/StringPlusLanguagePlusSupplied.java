@@ -33,7 +33,9 @@ import jakarta.xml.bind.annotation.XmlTransient;
 public class StringPlusLanguagePlusSupplied extends StringPlusLanguage {
 	
 	/**
+	 * {@code
 	 * <xs:attribute name="supplied" fixed="yes"/>
+	 * }
 	 */
 	 @XmlAttribute(name="supplied", namespace="http://www.loc.gov/mods/v3", required=false)
 	 Supplied supplied;

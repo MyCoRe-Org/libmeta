@@ -23,6 +23,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 /**
  *  MODS PhysicialDescription Subelement: DigitalOrigin
  *  
+ *  {@code
  *  <xs:simpleType name="digitalOriginDefinition">
  *       <xs:restriction base="xs:string">
  *           <xs:enumeration value="born digital"/>
@@ -31,6 +32,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  *           <xs:enumeration value="digitized other analog"/>
  *       </xs:restriction>
  *   </xs:simpleType>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

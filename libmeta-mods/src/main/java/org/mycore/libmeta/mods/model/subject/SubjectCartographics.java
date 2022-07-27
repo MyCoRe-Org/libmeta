@@ -34,8 +34,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
- * MODS Subject Subelement <cartographics>
+ * MODS Subject Subelement {@literal <cartographics>}
  * 
+ * {@code
  * <xs:complexType name="cartographicsDefinition">
  *		<xs:sequence>
  *			<xs:element ref="scale" minOccurs="0"/>
@@ -47,6 +48,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *		</xs:sequence>
  *		<xs:attributeGroup ref="authorityAttributeGroup"/>
  *	</xs:complexType>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6
@@ -58,19 +60,25 @@ public class SubjectCartographics implements ISubjectSubelement, IAuthorityAttri
     // <xs:sequence>
     
     /**
+     * {@code
      * <xs:element ref="scale" minOccurs="0"/>
+     * }
      */
     @XmlElement(name = "scale", namespace = "http://www.loc.gov/mods/v3", required = false)
      protected Scale scale;
     
     /**
+     * {@code
      * <xs:element ref="projection" minOccurs="0"/>
+     * }
      */
     @XmlElement(name = "projection", namespace = "http://www.loc.gov/mods/v3", required = false)
      protected Projection projection;
     
     /**
+     * {@code
      * <xs:element ref="coordinates" minOccurs="0" maxOccurs="unbounded"/>>
+     * }
      */
     @XmlElement(name = "coordinates", namespace = "http://www.loc.gov/mods/v3", required = false)
      protected List<Coordinates> coordinates;
@@ -80,19 +88,25 @@ public class SubjectCartographics implements ISubjectSubelement, IAuthorityAttri
     
     // --- <xs:attributeGroup name="authorityAttributeGroup"> - begin
     /**
+     * {@code
      * <xs:attribute name="authority" type="xs:string"/>
+     * }
      */
     @XmlAttribute(name = "authority")
     protected String authority;
 
     /**
+     * {@code
      * <xs:attribute name="authorityURI" type="xs:anyURI"/>
+     * }
      */
     @XmlAttribute(name = "authorityURI")
     protected String authorityURI;
 
     /**
+     * {@code
      * <xs:attribute name="valueURI" type="xs:anyURI"/>
+     * }
      */
     @XmlAttribute(name = "valueURI")
     protected String valueURI;

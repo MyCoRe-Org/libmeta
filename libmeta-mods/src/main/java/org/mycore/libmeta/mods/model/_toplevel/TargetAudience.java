@@ -28,8 +28,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
- * Top Level Element <targetAudience> 
+ * Top Level Element {@literal <targetAudience>} 
  * 
+ * {@code 
  * <xs:complexType name="targetAudienceDefinition">
  *		<xs:simpleContent>
  *			<xs:extension base="stringPlusLanguagePlusAuthority">
@@ -38,6 +39,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *			</xs:extension>
  *		</xs:simpleContent>
  *	</xs:complexType>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6
@@ -46,13 +48,17 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 @XmlAccessorType(XmlAccessType.NONE)
 public class TargetAudience extends StringPlusLanguagePlusAuthority {
  	/**
+ 	 * {@code 
      * <xs:attribute name="displayLabel" type="xs:string"/>
+     * }
      */
     @XmlAttribute(name = "displayLabel")
     protected String displayLabel;
     
    /**
+     * {@code 
      * <xs:attribute name="altRepGroup" type="xs:string"/> 
+     * }
      * 
      * altRepGroup new in 3.4
      */

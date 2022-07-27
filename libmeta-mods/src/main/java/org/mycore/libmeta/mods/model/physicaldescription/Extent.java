@@ -30,6 +30,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 /**
  * MODS PhysicalDescription Subelement: Extent
  * 
+ * {@code
  *  <xs:element name="extent">
  *       <xs:complexType>
  *           <xs:simpleContent>
@@ -39,7 +40,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *               </xs:simpleContent>
  *       </xs:complexType>
  *  </xs:element>
- *
+ * }
  *    
  * @author Robert Stephan
  * @version MODS 3.6

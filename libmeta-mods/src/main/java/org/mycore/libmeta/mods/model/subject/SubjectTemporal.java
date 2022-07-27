@@ -26,6 +26,7 @@ import org.mycore.libmeta.mods.model._misc.builder.IDateDefinitionBuilder;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
+ * {@code
  *   <xs:complexType name="temporalDefinition">
  *       <xs:simpleContent>
  *           <xs:extension base="dateDefinition">
@@ -33,6 +34,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *           </xs:extension>
  *       </xs:simpleContent>
  *   </xs:complexType>
+ * }
  *
  * @author Robert Stephan
  * @version MODS 3.6

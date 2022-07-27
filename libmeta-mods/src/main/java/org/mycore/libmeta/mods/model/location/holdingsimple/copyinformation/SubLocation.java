@@ -28,7 +28,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 /**
  * MODS Location Subelement: SubLocation
  * 
+ * {@code
  * <xs:element name="subLocation" type="stringPlusLanguage"/>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

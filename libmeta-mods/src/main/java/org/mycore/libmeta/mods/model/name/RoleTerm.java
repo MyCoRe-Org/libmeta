@@ -29,8 +29,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
- * Mods Name Role Subelement <roleTerm>
+ * Mods Name Role Subelement {@literal <roleTerm>}
  * 
+ * {@code
  * <xs:complexType name="roleTermDefinition">
  *		<xs:simpleContent>
  *			<xs:extension base="stringPlusLanguagePlusAuthority">
@@ -38,6 +39,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *			</xs:extension>
  *		</xs:simpleContent>
  *	</xs:complexType>
+ * }
  *
  * @author Robert Stephan
  * @version MODS 3.6

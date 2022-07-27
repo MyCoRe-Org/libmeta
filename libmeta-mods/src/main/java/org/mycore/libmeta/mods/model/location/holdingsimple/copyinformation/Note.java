@@ -34,6 +34,7 @@ import jakarta.xml.bind.annotation.XmlType;
 /**
  * MODS CopyLocation Subelement: Note
  * 
+ * {@code
  * <xs:element name="note" minOccurs="0" maxOccurs="unbounded">
  *   <xs:complexType>
  *     <xs:simpleContent>
@@ -46,6 +47,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *     </xs:simpleContent>
  *   </xs:complexType>
  * </xs:element>
+ * }
  *
  *   @author Robert Stephan
  *   @version MODS 3.6

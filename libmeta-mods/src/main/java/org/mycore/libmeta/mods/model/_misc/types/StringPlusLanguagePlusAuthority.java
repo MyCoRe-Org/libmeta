@@ -33,19 +33,25 @@ import jakarta.xml.bind.annotation.XmlTransient;
 public class StringPlusLanguagePlusAuthority extends StringPlusLanguage implements IAuthorityAttributeGroup {
 
     /**
+     * {@code
      * <xs:attribute name="authority" type="xs:string"/>
+     * }
      */
     @XmlAttribute(name = "authority", required = false)
     String authority;
 
     /**
+     * {@code
      * <xs:attribute name="authorityURI" type="xs:anyURI"/>
+     * }
      */
     @XmlAttribute(name = "authorityURI", required = false)
     String authorityURI;
 
     /**
+     * {@code
      * <xs:attribute name="valueURI" type="xs:anyURI"/>
+     * }
      */
     @XmlAttribute(name = "valueURI", required = false)
     String valueURI;

@@ -23,14 +23,14 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 /**
  *  Usage 
  *  
- *  This definition is for the usage attribute as used by <url> (subelement of <location>)
+ *  This definition is for the usage attribute as used by{@literal <url>} (subelement of {@literal <location>})
  *  
- *  In earlier versions the usage attribute applied to element <url> (of <location>) only, and defined the single value "primary display".
- *  In this version, 3.4, the usage attribute applies additionally to elements <classification>, <genre>, <language>, <subject>, <name>,<titleInfo>,
- *  and <typeOfResource>.
+ *  In earlier versions the usage attribute applied to element {@literal <url>} (of {@literal <location>}) only, and defined the single value "primary display".
+ *  In this version, 3.4, the usage attribute applies additionally to elements {@literal <classification>}, {@literal <genre>}, {@literal <language>}, {@literal <subject>}, {@literal <name>},{@literal <titleInfo>},
+ *  and {@literal <typeOfResource>}.
  *  However the value "primary display" is generalized to "primary", for these latter elements.
- *  <url> retains the value "primary display" (for compatibility with earlier versions) although its use is depricated. So it has both values, "primary" and "primary display". For the other elements, only the value "primary" is valid.
- *  Therefore, two definitions are needed for the usage attribute, one for <url> ("urlUsageAttributeDefinition") and one for the other elements ("usageAttributeDefinition")
+ *  {@literal <url>} retains the value "primary display" (for compatibility with earlier versions) although its use is depricated. So it has both values, "primary" and "primary display". For the other elements, only the value "primary" is valid.
+ *  Therefore, two definitions are needed for the usage attribute, one for {@literal <url>} ("urlUsageAttributeDefinition") and one for the other elements ("usageAttributeDefinition")
 *  
  * 
  * @author Robert Stephan

@@ -20,14 +20,15 @@ package org.mycore.libmeta.mods.model._misc.builder;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
 
 /**
- * 
+ * {@code
  *	<xs:attributeGroup name="languageAttributeGroup">
  *		<xs:attribute name="lang" type="xs:string"/>
  *		<xs:attribute ref="xml:lang"/>
  *		<xs:attribute name="script" type="xs:string"/>
  *		<xs:attribute name="transliteration" type="xs:string"/>
  *	</xs:attributeGroup>
- *	
+ *	}
+ *
  * @author Robert Stephan
  * @version MODS 3.6
  *

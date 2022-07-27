@@ -27,7 +27,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
+ * {@code
  *  <xs:element ref="title"/>
+ * }
  *  
  * @author Robert Stephan
  * @version MODS 3.6

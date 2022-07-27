@@ -20,12 +20,13 @@ package org.mycore.libmeta.mods.model._misc.builder;
 import org.mycore.libmeta.mods.model._misc.IAltFormatAttributeGroup;
 
 /**
- * 
+ * {@code
  * <xs:attributeGroup name="altFormatAttributeGroup">
  *		<xs:attribute name="altFormat" type="xs:anyURI"/>
  *		<xs:attribute name="contentType" type="xs:string"/>
  *	</xs:attributeGroup>
- *	
+ *	}
+ *
  * @author Robert Stephan
  * @version MODS 3.6
  *

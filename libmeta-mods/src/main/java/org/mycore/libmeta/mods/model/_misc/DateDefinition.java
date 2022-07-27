@@ -25,41 +25,43 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
-    <xs:complexType name="dateDefinition">
-        <xs:simpleContent>
-            <xs:extension base="stringPlusLanguage">
-                <xs:attribute name="encoding">
-                    <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                            <xs:enumeration value="w3cdtf"/>
-                            <xs:enumeration value="iso8601"/>
-                            <xs:enumeration value="marc"/>
-                            <xs:enumeration value="temper"/>
-                            <xs:enumeration value="edtf"/>
-                        </xs:restriction>
-                    </xs:simpleType>
-                </xs:attribute>
-                <xs:attribute name="qualifier">
-                    <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                            <xs:enumeration value="approximate"/>
-                            <xs:enumeration value="inferred"/>
-                            <xs:enumeration value="questionable"/>
-                        </xs:restriction>
-                    </xs:simpleType>
-                </xs:attribute>
-                <xs:attribute name="point">
-                    <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                            <xs:enumeration value="start"/>
-                            <xs:enumeration value="end"/>
-                        </xs:restriction>
-                    </xs:simpleType>
-                </xs:attribute>
-                <xs:attribute name="keyDate" fixed="yes"/>
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
+ * {@code
+ *    <xs:complexType name="dateDefinition">
+ *        <xs:simpleContent>
+ *            <xs:extension base="stringPlusLanguage">
+ *                <xs:attribute name="encoding">
+ *                    <xs:simpleType>
+ *                        <xs:restriction base="xs:string">
+ *                            <xs:enumeration value="w3cdtf"/>
+ *                            <xs:enumeration value="iso8601"/>
+ *                            <xs:enumeration value="marc"/>
+ *                            <xs:enumeration value="temper"/>
+ *                            <xs:enumeration value="edtf"/>
+ *                        </xs:restriction>
+ *                    </xs:simpleType>
+ *                </xs:attribute>
+ *                <xs:attribute name="qualifier">
+ *                    <xs:simpleType>
+ *                        <xs:restriction base="xs:string">
+ *                            <xs:enumeration value="approximate"/>
+ *                            <xs:enumeration value="inferred"/>
+ *                            <xs:enumeration value="questionable"/>
+ *                        </xs:restriction>
+ *                    </xs:simpleType>
+ *                </xs:attribute>
+ *                <xs:attribute name="point">
+ *                    <xs:simpleType>
+ *                        <xs:restriction base="xs:string">
+ *                            <xs:enumeration value="start"/>
+ *                            <xs:enumeration value="end"/>
+ *                        </xs:restriction>
+ *                    </xs:simpleType>
+ *                </xs:attribute>
+ *                <xs:attribute name="keyDate" fixed="yes"/>
+ *            </xs:extension>
+ *        </xs:simpleContent>
+ *    </xs:complexType>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6
@@ -69,19 +71,25 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 public class DateDefinition extends StringPlusLanguage{
 
     /**
+     * {@code
      * <xs:attribute name="encoding" type="dateEncodingAttributeDefinition"/>
+     * }
      */
     @XmlAttribute(name = "encoding")
     protected DateEncoding encoding;
     
     /**
+     * {@code
      * <xs:attribute name="qualifier" type="dateQualifierAttributeDefinition"/>
+     * }
      */
     @XmlAttribute(name = "qualifier")
     protected DateQualifier qualifier;
     
     /**
+     * {@code
      * <xs:attribute name="point" type="datePointAttributeDefinition"/>
+     * }
      */
     @XmlAttribute(name = "point")
     protected DatePoint point;

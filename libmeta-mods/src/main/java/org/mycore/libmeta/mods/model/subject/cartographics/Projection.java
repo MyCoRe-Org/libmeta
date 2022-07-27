@@ -20,7 +20,7 @@ package org.mycore.libmeta.mods.model.subject.cartographics;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 
 /**
- * MODS Cartographics Subelement <Projection>
+ * MODS Cartographics Subelement {@literal <Projection>}
  * 
  * @author Robert Stephan
  * @version MODS 3.6

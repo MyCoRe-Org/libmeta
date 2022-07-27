@@ -28,7 +28,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 /**
  * MODS PhysicalDescription Subelement: InternetMediaType
  * 
+ * {@code
  * <xs:element name="internetMediaType" type="stringPlusLanguage"/>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

@@ -25,7 +25,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  *  
  *  used by various attributes whose only values may be "no":
  *  
- *  attribute "shareable" of <abstract>, <tableOfContents>
+ *  attribute "shareable" of {@literal <abstract>}, {@literal <tableOfContents>}
  *  
  * 
  * @author Robert Stephan

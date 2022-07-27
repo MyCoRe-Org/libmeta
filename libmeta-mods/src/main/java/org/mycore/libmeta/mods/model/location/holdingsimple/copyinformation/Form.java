@@ -31,6 +31,7 @@ import jakarta.xml.bind.annotation.XmlType;
 /**
  * MODS CopyInformation Subelement: Form
  * 
+ * {@code
  *  <xs:complexType name="formDefinition">
  *       <xs:simpleContent>
  *           <xs:extension base="stringPlusLanguagePlusAuthority">
@@ -38,7 +39,8 @@ import jakarta.xml.bind.annotation.XmlType;
  *           </xs:extension>
  *       </xs:simpleContent>
  *   </xs:complexType>
- *
+ * }
+ * 
  * @author Robert Stephanb
  * @version MODS 3.6
  * 

@@ -31,12 +31,13 @@ import jakarta.xml.bind.annotation.XmlType;
 /**
  * MODS Location Subelement: HoldingSimple
  * 
+ * {@code
  * <xs:complexType name="holdingSimpleDefinition">
  *   <xs:sequence>
  *     <xs:element ref="copyInformation" maxOccurs="unbounded"/>
  *   </xs:sequence>
  * </xs:complexType>
- *
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6
@@ -47,7 +48,9 @@ public class HoldingSimple implements ILocationSublement {
     // <xs:sequence>
 
     /**
+     * {@code
      * <xs:element ref="copyInformation" maxOccurs="unbounded"/>
+     * }
      */
     @XmlElement(name = "copyInformation", namespace = "http://www.loc.gov/mods/v3", required = true)
     protected List<CopyInformation> copyInformation = new Vector<>();

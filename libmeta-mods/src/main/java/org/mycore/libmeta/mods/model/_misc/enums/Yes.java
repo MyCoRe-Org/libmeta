@@ -25,17 +25,17 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  *  
  *  yesDefinition used by various attributes whose only values may be "yes":
  *  
- *  "invalid" for <identifier>
+ *  "invalid" for {@literal <identifier>}
  *  
- *  "supplied" for <titleInfo>
+ *  "supplied" for {@literal <titleInfo>}
  *  
- *  "collection" for <typeOfResource>
+ *  "collection" for {@literal <typeOfResource>}
  *  
- *  "manuscript" for <typeOfResource>
+ *  "manuscript" for {@literal <typeOfResource>}
  *  
- *  "keyDate" for <date>
+ *  "keyDate" for {@literal <date>}
  *  
- *  "supplied" for <place>, <edition>, <publisher>, <extent>
+ *  "supplied" for {@literal <place>}, {@literal <edition>}, {@literal <publisher>}, {@literal <extent>}
  *    
  * 
  * @author Robert Stephan

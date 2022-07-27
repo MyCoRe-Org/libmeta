@@ -34,8 +34,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
 
 /**
- * Top Level Element <relatedItem> 
+ * Top Level Element {@literal <relatedItem>}
  * 
+ * {@code 
  * <xs:complexType name="relatedItemDefinition">
  *        <xs:group ref="modsGroup" minOccurs="0" maxOccurs="unbounded"/>
  *         <xs:attribute name="type">
@@ -69,6 +70,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *        <xs:attributeGroup ref="xlink:simpleLink"/>
  *        
  *    </xs:complexType>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6
@@ -78,7 +80,9 @@ import jakarta.xml.bind.annotation.XmlElements;
 public class RelatedItem implements ITopLevelElement, IAttributeGroupXlinkSimpleLink {
 
     /**
+     * {@code 
      * 	<xs:group ref="modsGroup" minOccurs="0" maxOccurs="unbounded"/>
+     * }
      */
     @XmlElements({ @XmlElement(name = "abstract", namespace = "http://www.loc.gov/mods/v3", type = Abstract.class),
             @XmlElement(name = "accessCondition", namespace = "http://www.loc.gov/mods/v3", type = AccessCondition.class),
@@ -136,7 +140,9 @@ public class RelatedItem implements ITopLevelElement, IAttributeGroupXlinkSimple
     protected String displayLabel;
 
     /**
+     * {@code 
      * <xs:attribute name="ID" type="xs:ID"/>
+     * }
      */
     @XmlAttribute(name = "ID", required = false)
     protected String ID;
@@ -144,42 +150,56 @@ public class RelatedItem implements ITopLevelElement, IAttributeGroupXlinkSimple
     // attributeGroup xlink:simpleLink - begin
 
     /**
+     * {@code 
      * <attribute name="type" type="string" fixed="simple" form="qualified"/>
+     * }
      */
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
     protected String xlinkType;
     /**
+     * {@code 
      * <attribute ref="xlink:href" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkHref;
 
     /**
+     * {@code 
      * <attribute ref="xlink:role" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkRole;
 
     /**
+     * {@code 
      * <attribute ref="xlink:arcrole" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkArcrole;
 
     /**
+     * {@code 
      * <attribute ref="xlink:title" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkTitle;
 
     /**
+     * {@code 
      * <attribute ref="xlink:show" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkShow xlinkShow;
 
     /**
+     * {@code 
      * <attribute ref="xlink:actuate" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkActuate xlinkActuate;

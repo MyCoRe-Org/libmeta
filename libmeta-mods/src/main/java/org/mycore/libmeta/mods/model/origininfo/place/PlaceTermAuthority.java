@@ -23,11 +23,13 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 /**
  *  placeTermAuthorityAttributeDefinition
  *  
+ *  {@code
  *  <xs:restriction base="xs:string">
  *                            <xs:enumeration value="marcgac"/>
  *                           <xs:enumeration value="marccountry"/>
  *                           <xs:enumeration value="iso3166"/>
  *                       </xs:restriction>
+ * }
  *
  *  used by authority attribute for placeDefinition and geographic
  *  

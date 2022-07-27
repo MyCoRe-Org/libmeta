@@ -35,8 +35,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
 
 /**
- *   Subelement <alternativeName> of <name>
+ *   Subelement {@literal <alternativeName>} of {@literal <name>}
  *   
+ * {@code
  * <xs:complexType name="alternativeNameDefinition">
  *     <xs:choice minOccurs="0" maxOccurs="unbounded">
  *         <xs:element ref="namePart"/>
@@ -51,7 +52,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *     <xs:attribute name="displayLabel" type="xs:string"/>
  *     <xs:attribute name="altType" type="xs:string"/>
  * </xs:complexType>
- *
+ * }
  *   
  * @author Robert Stephan
  * @version MODS 3.7
@@ -80,37 +81,49 @@ public class AlternativeName
     //IXlinkSimpleLinkAttributeGroup - begin
 
     /**
+     * {@code
      * <attribute ref="xlink:href" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkHref;
 
     /**
+     * {@code
      * <attribute ref="xlink:role" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkRole;
 
     /**
+     * {@code
      * <attribute ref="xlink:arcrole" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkArcrole;
 
     /**
+     * {@code
      * <attribute ref="xlink:title" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkTitle;
 
     /**
+     * {@code
      * <attribute ref="xlink:show" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkShow xlinkShow;
 
     /**
+     * {@code
      * <attribute ref="xlink:actuate" use="optional"/>
+     * }
      */
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkActuate xlinkActuate;

@@ -23,7 +23,9 @@ import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 
 /**
+ * {@code
  *  <xs:element name="caption" type="stringPlusLanguage"/>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

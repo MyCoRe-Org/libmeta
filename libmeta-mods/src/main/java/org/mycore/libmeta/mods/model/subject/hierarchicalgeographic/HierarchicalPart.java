@@ -27,7 +27,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
- *  Abstract class for  <HierachricalPart>
+ *  Abstract class for {@literal <HierachricalPart>}
  * 
  * @author Robert Stephan
  * @version MODS 3.6
@@ -49,12 +49,16 @@ public class HierarchicalPart extends StringPlusLanguage
      protected String authority;
     
     /**
+     * {@code
      * <xs:attribute name="authorityURI" type="xs:anyURI"/>
+     * }
      */
      @XmlAttribute(name="authorityURI", required=false)
      protected String authorityURI;
      /**
+      * {@code
       * <xs:attribute name="valueURI" type="xs:anyURI"/>
+      * }
       */
      @XmlAttribute(name="valueURI", required=false)
      protected String valueURI;

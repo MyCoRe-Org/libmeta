@@ -20,9 +20,11 @@ package org.mycore.libmeta.mods.model.subject.hierarchicalgeographic;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 
 /**
- *  MODS HierarchicalGeographic Subelement <province>
+ *  MODS HierarchicalGeographic Subelement {@literal <province>}
  *  
+ *  {@code
  *  <xs:element name="province" type="stringPlusLanguage"/>
+ *  }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

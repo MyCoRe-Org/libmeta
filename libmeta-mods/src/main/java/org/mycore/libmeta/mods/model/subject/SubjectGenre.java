@@ -20,7 +20,10 @@ package org.mycore.libmeta.mods.model.subject;
 import org.mycore.libmeta.mods.model._toplevel.Genre;
 
 /**         
+ * {@code
  * <xs:element ref="genre"/>
+ * }
+ * 
  *      <!-- uses top-level genre definition -->
  *
  * @author Robert Stephan

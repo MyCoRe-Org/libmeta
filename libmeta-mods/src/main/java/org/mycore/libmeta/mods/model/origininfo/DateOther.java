@@ -26,6 +26,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
+ * {@code
  * <xs:complexType name="dateOtherDefinition">
  *   <xs:simpleContent>
  *     <xs:extension base="dateDefinition">
@@ -33,6 +34,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *     </xs:extension>
  *   </xs:simpleContent>
  * </xs:complexType>
+ * }
  *   
  * @author Robert Stephan
  * @version MODS 3.6

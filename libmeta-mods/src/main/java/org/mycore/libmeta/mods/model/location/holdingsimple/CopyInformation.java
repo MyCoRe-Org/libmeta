@@ -37,6 +37,7 @@ import jakarta.xml.bind.annotation.XmlType;
 /**
  * MODS Location Subelement CopyInformation
  * 
+ * {@code
  * <xs:complexType name="copyInformationDefinition">
  *   <xs:sequence>
  *     <xs:element ref="form" minOccurs="0"/>
@@ -53,7 +54,8 @@ import jakarta.xml.bind.annotation.XmlType;
  *     <xs:element ref="itemIdentifier" minOccurs="0" maxOccurs="unbounded"/>
  *       </xs:sequence>
  *   </xs:complexType>
- *
+ * }
+ * 
  * @author Robert Stephan
  * @version MODS 3.6
  * 
@@ -66,43 +68,57 @@ public class CopyInformation {
     // <xs:sequence>
 
     /**
+     * {@code
      * <xs:element ref="form" minOccurs="0"/>
+     * }
      */
     @XmlElement(name = "form", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected Form form;
 
     /**
+     * {@code
      * <xs:element ref="subLocation" minOccurs="0" maxOccurs="unbounded"/>
+     * }
      */
     @XmlElement(name = "subLocation", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected List<SubLocation> subLocation = new Vector<>();
 
     /**
+     * {@code
      * <xs:element ref="shelfLocator" minOccurs="0" maxOccurs="unbounded"/>
+     * }
      */
     @XmlElement(name = "shelfLocator", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected List<ShelfLocator> shelfLocator = new Vector<>();
 
     /**
+     * {@code
      * <xs:element ref="electronicLocator" minOccurs="0" maxOccurs="unbounded"/>
+     * }
      */
     @XmlElement(name = "electronicLocator", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected List<ElectronicLocator> electronicLocator = new Vector<>();
 
     /**
+     * {@code
      * <xs:element name="note" minOccurs="0" maxOccurs="unbounded">
+     * }
      */
     @XmlElement(name = "note", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected List<Note> note = new Vector<>();
 
     /**
+     * {@code
      * <xs:element ref="enumerationAndChronology" minOccurs="0" maxOccurs="unbounded"/>
+     * }
      */
     @XmlElement(name = "enumerationAndChronology", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected List<EnumerationAndChronology> enumerationAndChronology = new Vector<>();
 
     /**
+     * {@code
      * <xs:element ref="itemIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+     * }
      */
     @XmlElement(name = "itemIdentifier", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected List<ItemIdentifier> itemIdentifier = new Vector<>();

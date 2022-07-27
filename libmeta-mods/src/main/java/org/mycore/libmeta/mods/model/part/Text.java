@@ -29,6 +29,7 @@ import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
+ * {@code
  *  <xs:element name="text">
  *    <xs:complexType>
  *      <xs:simpleContent>
@@ -40,6 +41,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *      </xs:simpleContent>
  *    </xs:complexType>
  *  </xs:element>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

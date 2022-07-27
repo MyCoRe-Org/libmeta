@@ -18,9 +18,11 @@
 package org.mycore.libmeta.mods.model.subject.hierarchicalgeographic;
 
 /**
- *  MODS HierarchicalGeographic Subelement <extraTerrestrialArea>
+ *  MODS HierarchicalGeographic Subelement {@literal <extraTerrestrialArea>}
  *  
+ *  {@code
  *  <xs:element name="extraTerrestrialArea" type="hierarchicalPart"/>
+ *  }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

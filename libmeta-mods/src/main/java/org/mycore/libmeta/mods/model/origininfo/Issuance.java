@@ -24,6 +24,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 /**
  * MODS OriginInfo Subelement: issuance
  * 
+ * {@code
  * <xs:simpleType name="issuanceDefinition">
  *      <xs:restriction base="xs:string">
  *          <xs:enumeration value="continuing"/>
@@ -34,7 +35,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  *          <xs:enumeration value="integrating resource"/>
  *      </xs:restriction>
  *  </xs:simpleType>
- *
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

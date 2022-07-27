@@ -30,16 +30,18 @@ import jakarta.xml.bind.annotation.XmlAnyElement;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlMixed;
 /**
- *    Top Level Element <extension>
- *      
- *    	<xs:complexType name="extensionDefinition" mixed="true">
-		<xs:sequence>
-			<xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-		<xs:attribute name="displayLabel" type="xs:string"/>
-		<!-- displayLabel added  to <extension> in 3.4. -->
-	</xs:complexType>
- *
+ *    Top Level Element {@literal <extension>}
+ *    
+ * {@code
+ *  <xs:complexType name="extensionDefinition" mixed="true">
+ *	  <xs:sequence>
+ *	    <xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+ *	  </xs:sequence>
+ *	  <xs:attribute name="displayLabel" type="xs:string"/>
+ *	  <!-- displayLabel added  to extension in 3.4. -->
+ *	</xs:complexType>
+ * }
+ * 
  *   @author Robert Stephan
  *   @version MODS 3.6
  */
@@ -53,7 +55,9 @@ public class Extension implements ITopLevelElement {
     private List content = new Vector();
     
     /**
+     * {@code
      * <xs:attribute name="displayLabel" type="xs:string"/>
+     * }
      */
     @XmlAttribute(name="displayLabel")
     protected String displayLabel;

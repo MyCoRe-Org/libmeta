@@ -23,7 +23,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 /**
  *  enumerationAndChronologyUnitTypeAttributeDefinition 
  *  
- *  "unitType" attribute for <enumerationAndChronology>
+ *  "unitType" attribute for {@literal <enumerationAndChronology>}
  *  
  * 
  * @author Robert Stephan

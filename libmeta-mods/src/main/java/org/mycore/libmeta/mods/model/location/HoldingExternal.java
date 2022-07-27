@@ -24,7 +24,9 @@ import org.mycore.libmeta.mods.model._toplevel.Extension;
 /**
  * MODS CopyInformation Subelement: HoldingExternal
  * 
+ * {@code
  * <xs:element name="holdingExternal" type="extensionDefinition"/>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

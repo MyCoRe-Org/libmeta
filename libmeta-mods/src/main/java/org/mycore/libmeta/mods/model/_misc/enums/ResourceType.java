@@ -22,7 +22,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 
 /**
  * resourceTypeDefinition
- * 	referenced by typeOfResourceDefinition
+ * 	referenced by {@literal <typeOfResourceDefinition>}
  * 
  * @author Robert Stephan
  *@version MODS 3.6 (deprecated in MODS 3.7)

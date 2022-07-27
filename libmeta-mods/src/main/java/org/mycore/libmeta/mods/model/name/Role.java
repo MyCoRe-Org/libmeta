@@ -26,13 +26,16 @@ import org.mycore.libmeta.mods.model.subject.name.ISubjectNameSubelement;
 import jakarta.xml.bind.annotation.XmlElement;
 
 /**
- * MODS Name Subelement <role>
+ * MODS Name Subelement {@literal <role>}
+ * 
+ * {@code
  * 	<xs:complexType name="roleDefinition">
  *		<xs:sequence maxOccurs="unbounded">
  *			<xs:element ref="roleTerm"/>
  *		</xs:sequence>
  *	</xs:complexType>
- *
+ * }
+ * 
  * @author Robert Stephan
  * @version MODS 3.6
  *

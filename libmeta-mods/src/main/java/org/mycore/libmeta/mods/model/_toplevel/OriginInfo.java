@@ -44,8 +44,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
 
 /**
- *  Top Level Element <originInfo>  
+ *  Top Level Element {@literal <originInfo>}  
  * 
+ * {@code 
  * <xs:complexType name="originInfoDefinition">
  *       <xs:choice maxOccurs="unbounded">
  *           <xs:element ref="place"/>
@@ -66,6 +67,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *       <xs:attribute name="altRepGroup" type="xs:string"/>
  *       <xs:attribute name="eventType" type="xs:string"/>
  *   </xs:complexType>
+ * }
  *
  * @author Robert Stephan
  * @version MODS 3.6
@@ -135,9 +137,9 @@ public class OriginInfo implements ITopLevelElement, ILanguageAttributeGroup {
     * following attribute, @eventType, is new in version 3.5 -->
     * Recomended values are "production", "publication", "distribution", "manufacture"
     * So when eventType="production"
-    * 	- <publisher> is the producer
-    *   - <dateIssued> is the date of production
-    *   - <place> is the place of production
+    * 	- {@literal <publisher>} is the producer
+    *   - {@literal <dateIssued>} is the date of production
+    *   - {@literal <place>} is the place of production
     *   etc.
     *   Detailed usage rules are supplied in the guidelines. 
     *   

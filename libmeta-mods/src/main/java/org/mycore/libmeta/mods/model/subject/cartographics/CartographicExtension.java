@@ -20,7 +20,7 @@ package org.mycore.libmeta.mods.model.subject.cartographics;
 import org.mycore.libmeta.mods.model._toplevel.Extension;
 
 /**
- * MODS Cartographics Subelement <cartographicExtension>
+ * MODS Cartographics Subelement {@literal <cartographicExtension>}
  * 
  * @author Robert Stephan
  * @version MODS 3.6

@@ -104,7 +104,9 @@ public class Mods {
     protected List<ITopLevelElement> toplevel = new Vector<>();
 
     /**
+     * {@code
      * <xs:attribute name="ID" type="xs:ID"/>
+     * }
      */
     @XmlAttribute(name = "ID")
     protected String ID;

@@ -46,7 +46,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
 
 /**
- * Top Level Element <subject>
+ * Top Level Element {@literal <subject>}
  * 
  * @author Robert Stephan
  *
@@ -56,6 +56,7 @@ public class Subject
         implements ITopLevelElement, IAuthorityAttributeGroup, ILanguageAttributeGroup, IAttributeGroupXlinkSimpleLink {
     /**
      * 
+     * {@code 
      * <xs:complexType name="subjectDefinition">
      *   <xs:choice minOccurs="0" maxOccurs="unbounded">
      *       <xs:element ref="topic"/>
@@ -78,6 +79,7 @@ public class Subject
      *   <xs:attribute name="altRepGroup" type="xs:string"/>
      *   <xs:attribute name="usage" fixed="primary"/>
      * </xs:complexType>
+     * }
      */
     @XmlElements({ @XmlElement(name = "topic", namespace = "http://www.loc.gov/mods/v3", type = SubjectTopic.class),
             @XmlElement(name = "geographic", namespace = "http://www.loc.gov/mods/v3", type = SubjectGeographic.class),

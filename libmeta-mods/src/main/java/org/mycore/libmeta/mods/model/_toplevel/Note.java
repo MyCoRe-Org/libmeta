@@ -32,13 +32,14 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
- * <!--  Top Level Element <note>
+ * <!--  Top Level Element {@literal <note>}
  * 
  *          Definition revised in 3.4. Part of it split off to noteBaseDefinition.
- *          <note> as top-level element cannot have same defintion as <note> at lower levels
+ *          {@literal <note>} as top-level element cannot have same defintion as {@literal <note>} at lower levels
  *          because it must have attribute altRepGroup at top level which lower level elements
  *          may not have.
  *          
+ *  {@code 
  *  <xs:complexType name="noteDefinition">
  *        <xs:simpleContent>
  *            <xs:extension base="stringPlusLanguage">
@@ -50,7 +51,8 @@ import jakarta.xml.bind.annotation.XmlType;
  *                <xs:attribute name="altRepGroup" type="xs:string"/>
  *            </xs:extension>
  *        </xs:simpleContent>
- *    </xs:complexType>        
+ *    </xs:complexType>
+ *  }        
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name="noteDefinition")

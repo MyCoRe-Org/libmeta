@@ -29,7 +29,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 /**
  * MODS Location Subelement: ElectronicLocator
  * 
+ * {@code
  * <xs:element name="electronicLocator" type="stringPlusLanguage"/>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

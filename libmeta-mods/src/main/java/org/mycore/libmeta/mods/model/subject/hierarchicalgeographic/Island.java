@@ -18,9 +18,11 @@
 package org.mycore.libmeta.mods.model.subject.hierarchicalgeographic;
 
 /**
- *  MODS HierarchicalGeographic Subelement <island>
+ *  MODS HierarchicalGeographic Subelement {@literal <island>}
  *  
+ *  {@code
  *  <xs:element name="island" type="hierarchicalPart"/>
+ *  }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

@@ -26,8 +26,9 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
- *  Top Level Element <identifier>
+ *  Top Level Element {@literal <identifier>}
  *  
+ *  {@code
  *  <xs:complexType name="identifierDefinition">
  *		<xs:simpleContent>
  *			<xs:extension base="stringPlusLanguage">
@@ -39,6 +40,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *			</xs:extension>
  *		</xs:simpleContent>
  *	</xs:complexType>
+ *  }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

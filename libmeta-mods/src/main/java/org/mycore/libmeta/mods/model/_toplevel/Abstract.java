@@ -34,8 +34,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
- * Top Level Element <abstract>
+ * Top Level Element &lt;abstract&gt;
  * 
+ * {@code
  *      <xs:complexType name="abstractDefinition">
  *        <xs:simpleContent>
  *           <xs:extension base="stringPlusLanguage">
@@ -48,7 +49,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *           </xs:extension>
  *       </xs:simpleContent>
  *   </xs:complexType>
- *
+ * }
  * 
  * @author Robert Stephan
  *

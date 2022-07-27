@@ -26,7 +26,9 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 
 /**
+ * {@code
  * <xs:element name="end" type="stringPlusLanguage"/>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

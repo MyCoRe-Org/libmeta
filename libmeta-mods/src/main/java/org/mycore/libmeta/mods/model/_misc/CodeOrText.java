@@ -25,7 +25,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  *  
  *  used by type attribute  for elements that distinguish code from text:
  *  
- *  <languageTerm>, <placeTerm>, <roleTerm>, <scriptTerm>
+ *  {@literal <languageTerm>}, {@literal <placeTerm>}, {@literal <roleTerm>}, {@literal <scriptTerm>}
  * 
  * @author Robert Stephan
  * @version MODS 3.6

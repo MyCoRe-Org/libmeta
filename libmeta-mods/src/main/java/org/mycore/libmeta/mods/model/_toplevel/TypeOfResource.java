@@ -29,8 +29,9 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 
 /**
- * Top Level Element <typeOfResource>
+ * Top Level Element {@literal <typeOfResource>}
  * 
+ * {@code
  * 	<xs:complexType name="typeOfResourceDefinition">
  *       <xs:simpleContent>
  *           <xs:extension base="stringPlusLanguagePlusAuthority">
@@ -42,6 +43,8 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  *           </xs:extension>
  *      </xs:simpleContent>
  *  </xs:complexType>
+ * }
+ * 
  * @author Robert Stephan
  * @version MODS 3.6
  * @version MODS 3.7 (allow any string as content)
@@ -51,27 +54,37 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 public class TypeOfResource extends StringPlusLanguagePlusAuthority implements ITopLevelElement {
 
     /**
+     * {@code
      * <xs:attribute name="collection" fixed="yes"/>
+     * }
      */
     protected Yes collection;
     
     /**
+     * {@code
      * <xs:attribute name="manuscript" fixed="yes"/>
+     * }
      */
     protected Yes manuscript;
     
     /**
+     * {@code
      * <xs:attribute name="displayLabel" type="xs:string"/>
+     * }
      */
     protected String displayLabel;
     
     /**
+     * {@code
      * <xs:attribute name="altRepGroup" type="xs:string"/>
+     * }
      */
     protected String altRepGroup;
     
     /**
+     * {@code
      * <xs:attribute name="usage" fixed="primary"/>
+     * }
      */
     protected Usage usage;
 

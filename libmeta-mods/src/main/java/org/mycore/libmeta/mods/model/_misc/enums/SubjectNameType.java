@@ -22,7 +22,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 
 /**
  *  valid codes for subject name type attribute
- *  on /subject/name
+ *  on {@literal /subject/name}
  *  
  * @author Robert Stephan
  * @version MODS 3.6

@@ -20,7 +20,10 @@ package org.mycore.libmeta.mods.model.recordinfo;
 import org.mycore.libmeta.mods.model._toplevel.Note;
 
 /**
+ * {@code
  * <xs:element name="recordChangeDate" type="dateDefinition"/>
+ * }
+ * 
  * added in MODS 3.6
  * 
  * @author Robert Stephan

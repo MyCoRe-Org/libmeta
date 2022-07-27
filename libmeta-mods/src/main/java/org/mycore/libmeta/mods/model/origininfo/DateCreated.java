@@ -27,7 +27,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 /**
  * MODS OriginInfo Subelement: DateCreated
  * 
+ * {@code
  * <xs:element name="dateCreated" type="dateDefinition"/>
+ * }
  * 
  * @author Robert Stephan
  * @version MODS 3.6

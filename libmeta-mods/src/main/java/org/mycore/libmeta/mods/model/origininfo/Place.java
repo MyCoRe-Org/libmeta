@@ -32,13 +32,15 @@ import jakarta.xml.bind.annotation.XmlElement;
 /**
  * MODS OriginInfo Subelement: Place
  * 
+ * {@code
  * <xs:complexType name="placeDefinition">
  *       <xs:sequence>
  *          <xs:element ref="placeTerm" maxOccurs="unbounded"/>
  *       </xs:sequence>
  *       <xs:attribute name="supplied" fixed="yes"/>
  *   </xs:complexType>
- *
+ * }
+ * 
  * @author Robert Stephan
  * @version MODS 3.6
  *

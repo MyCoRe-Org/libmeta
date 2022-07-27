@@ -33,6 +33,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
+ * {@code
  * <xs:complexType name="accessConditionDefinition" mixed="true">
  *    <xs:complexContent mixed="true">
  *      <xs:extension base="extensionDefinition">
@@ -44,6 +45,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *      </xs:extension>
  *    </xs:complexContent>
  *  </xs:complexType> 
+ * }
  * 
  * @author Robert Stephan
  *
