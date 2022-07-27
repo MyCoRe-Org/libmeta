@@ -7,6 +7,7 @@
   <packaging>pom</packaging>
   <name>LibMeta (Java models and serializations for library metadata standards)</name>
   <description>Java API and models for common metadata standards in libraries.</description>
+  <url>https://github.com/MyCoRe-Org/libmeta</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -187,5 +188,29 @@
       </build>
     </profile>
   </profiles>
-
+  <developers>
+    <developer>
+      <id>mcrsteph</id>
+      <name>Robert Stephan</name>
+      <email>robert.stephan (at) uni-rostock.de</email>
+      <organization>University of Rostock, University Library</organization>
+      <organizationUrl>http://www.ub.uni-rostock.de/ub/</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
+  <licenses>
+    <license>
+      <name>GNU Lesser General Public License v3.0 or later</name>
+      <url>https://www.gnu.org/licenses/lgpl-3.0-standalone.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <connection>scm:git:https://github.com/MyCoRe-Org/libmeta.git</connection>
+    <developerConnection>scm:git:https://github.com/MyCoRe-Org/libmeta.git</developerConnection>
+    <url>https://github.com/MyCoRe-Org/libmeta</url>
+  </scm>
 </project>
