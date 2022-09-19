@@ -63,7 +63,10 @@ public class MycoreclassQuery {
 			}
 		} else {
 			for (Category cc : c.getCategories()) {
-				return findLabelText(cc, categoryID, xmlLang);
+			    String t = findLabelText(cc, categoryID, xmlLang);
+	            if(t != null) {
+	                return t;
+	            }
 			}	
 		}
 		return null;
