@@ -25,67 +25,67 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 
 @XmlAccessorType(XmlAccessType.NONE)
 public class Label {
-	
-	@XmlAttribute(name = "text")
-	protected String text;
-	
-	@XmlAttribute(name = "lang", namespace = "http://www.w3.org/XML/1998/namespace")
-	protected String xmlLang;
 
-	@XmlAttribute(name = "description")
-	protected String description;
+    @XmlAttribute(name = "text")
+    protected String text;
 
-	public String getText() {
-		return text;
-	}
+    @XmlAttribute(name = "lang", namespace = "http://www.w3.org/XML/1998/namespace")
+    protected String xmlLang;
 
-	public void setText(String text) {
-		this.text = text;
-	}
+    @XmlAttribute(name = "description")
+    protected String description;
 
-	public String getXmlLang() {
-		return xmlLang;
-	}
+    public String getText() {
+        return text;
+    }
 
-	public void setXmlLang(String xmlLang) {
-		this.xmlLang = xmlLang;
-	}
+    public void setText(String text) {
+        this.text = text;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getXmlLang() {
+        return xmlLang;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
-	 public static Builder builder() {
-	        return builder(new Label());
-	    }
+    public void setXmlLang(String xmlLang) {
+        this.xmlLang = xmlLang;
+    }
 
-	    public static Builder builder(Label label) {
-	        return new Builder(label);
-	    }
+    public String getDescription() {
+        return description;
+    }
 
-	    public static class Builder extends BuilderBase<Label, Builder> {
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	        protected Builder(Label label) {
-	            super(label);
-	        }
-			
-			public  Builder text(String text) {
-				_target().setText(text);
-				return _self();
-			}
-			
-			public  Builder xmlLang(String xmlLang) {
-				_target().setXmlLang(xmlLang);
-				return _self();
-			}
-			
-			public  Builder description(String description) {
-				_target().setDescription(description);
-				return _self();
-			}
-		}
+    public static Builder builder() {
+        return builder(new Label());
+    }
+
+    public static Builder builder(Label label) {
+        return new Builder(label);
+    }
+
+    public static class Builder extends BuilderBase<Label, Builder> {
+
+        protected Builder(Label label) {
+            super(label);
+        }
+
+        public Builder text(String text) {
+            _target().setText(text);
+            return _self();
+        }
+
+        public Builder xmlLang(String xmlLang) {
+            _target().setXmlLang(xmlLang);
+            return _self();
+        }
+
+        public Builder description(String description) {
+            _target().setDescription(description);
+            return _self();
+        }
+    }
 }

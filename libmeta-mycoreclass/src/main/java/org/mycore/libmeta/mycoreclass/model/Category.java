@@ -32,32 +32,32 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "id", "labels", "categories" })
 public class Category {
 
-	@XmlAttribute(name = "ID")
-	protected String id;
-	
-	@XmlElement(name = "category")
-	protected List<Category> categories = new ArrayList<>();
-	
-	@XmlElement(name = "label")
-	protected List<Label> labels = new ArrayList<>();
+    @XmlAttribute(name = "ID")
+    protected String id;
 
-	public String getID() {
-		return id;
-	}
+    @XmlElement(name = "category")
+    protected List<Category> categories = new ArrayList<>();
 
-	public void setID(String id) {
-		this.id = id;
-	}
+    @XmlElement(name = "label")
+    protected List<Label> labels = new ArrayList<>();
 
-	public List<Category> getCategories() {
-		return categories;
-	}
+    public String getID() {
+        return id;
+    }
 
-	public List<Label> getLabels() {
-		return labels;
-	}
-	
-	public static Builder builder() {
+    public void setID(String id) {
+        this.id = id;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public List<Label> getLabels() {
+        return labels;
+    }
+
+    public static Builder builder() {
         return builder(new Category());
     }
 
@@ -70,20 +70,20 @@ public class Category {
         protected Builder(Category category) {
             super(category);
         }
-		
-		public Builder addCategory(Category category) {
-			_target().getCategories().add(category);
-			return _self();
-		}
-		
-		public Builder addLabel(Label label) {
-			_target().getLabels().add(label);
-			return _self();
-		}
-		
-		public  Builder ID(String id) {
-			_target().setID(id);
-			return _self();
-		}
-	}
+
+        public Builder addCategory(Category category) {
+            _target().getCategories().add(category);
+            return _self();
+        }
+
+        public Builder addLabel(Label label) {
+            _target().getLabels().add(label);
+            return _self();
+        }
+
+        public Builder ID(String id) {
+            _target().setID(id);
+            return _self();
+        }
+    }
 }

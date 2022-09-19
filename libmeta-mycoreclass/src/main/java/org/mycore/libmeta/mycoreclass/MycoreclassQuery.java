@@ -25,50 +25,51 @@ import org.mycore.libmeta.mycoreclass.model.Label;
 import org.mycore.libmeta.mycoreclass.model.Mycoreclass;
 
 public class MycoreclassQuery {
-	public static Map<String, Label> findLabels(Mycoreclass m, String categoryID) {
-		Map<String, Label> labels = new HashMap<>();
-		for (Category cc : m.getCategories()) {
-			findLabels(cc, categoryID, labels);
-		}
-		return labels;
-	}
-	
-	private static void findLabels(Category c, String categoryID, Map<String, Label> labels) {
-		if (c.getID().equals(categoryID)) {
-			for (Label l : c.getLabels()) {
-				labels.put(l.getXmlLang(), l);
-			}
-		} else {
-			for (Category cc : c.getCategories()) {
-				findLabels(cc, categoryID, labels);
-			}	
-		}
-	}
-	public static String findLabelText(Mycoreclass m, String categoryID, String xmlLang) {
-		for (Category cc : m.getCategories()) {
-			String t = findLabelText(cc, categoryID, xmlLang);
-			if(t != null) {
-				return t;
-			}
-		}
-		return null;
-	}
-	
-	private static String findLabelText(Category c, String categoryID, String xmlLang) {
-		if (c.getID().equals(categoryID)) {
-			for (Label l : c.getLabels()) {
-				if(l.getXmlLang().equals(xmlLang)) {
-					return l.getText();
-				}
-			}
-		} else {
-			for (Category cc : c.getCategories()) {
-			    String t = findLabelText(cc, categoryID, xmlLang);
-	            if(t != null) {
-	                return t;
-	            }
-			}	
-		}
-		return null;
-	}
+    public static Map<String, Label> findLabels(Mycoreclass m, String categoryID) {
+        Map<String, Label> labels = new HashMap<>();
+        for (Category cc : m.getCategories()) {
+            findLabels(cc, categoryID, labels);
+        }
+        return labels;
+    }
+
+    private static void findLabels(Category c, String categoryID, Map<String, Label> labels) {
+        if (c.getID().equals(categoryID)) {
+            for (Label l : c.getLabels()) {
+                labels.put(l.getXmlLang(), l);
+            }
+        } else {
+            for (Category cc : c.getCategories()) {
+                findLabels(cc, categoryID, labels);
+            }
+        }
+    }
+
+    public static String findLabelText(Mycoreclass m, String categoryID, String xmlLang) {
+        for (Category cc : m.getCategories()) {
+            String t = findLabelText(cc, categoryID, xmlLang);
+            if (t != null) {
+                return t;
+            }
+        }
+        return null;
+    }
+
+    private static String findLabelText(Category c, String categoryID, String xmlLang) {
+        if (c.getID().equals(categoryID)) {
+            for (Label l : c.getLabels()) {
+                if (l.getXmlLang().equals(xmlLang)) {
+                    return l.getText();
+                }
+            }
+        } else {
+            for (Category cc : c.getCategories()) {
+                String t = findLabelText(cc, categoryID, xmlLang);
+                if (t != null) {
+                    return t;
+                }
+            }
+        }
+        return null;
+    }
 }

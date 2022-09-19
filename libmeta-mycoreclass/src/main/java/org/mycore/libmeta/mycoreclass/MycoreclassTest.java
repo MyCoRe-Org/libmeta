@@ -27,44 +27,48 @@ import org.mycore.libmeta.mycoreclass.model.Mycoreclass;
 
 public class MycoreclassTest {
 
-	public static void main(String[] args) {
-	    MycoreclassProcessor processor = MycoreclassProcessor.getInstance();
-	    try {
-			Mycoreclass m = processor.unmarshal(new URL("http://rosdok.uni-rostock.de/api/v1/classifications/accesscondition"));
-			System.out.println(MycoreclassQuery.findLabelText(m, "closedaccess", "de"));
-			for(Entry<String, Label> l : MycoreclassQuery.findLabels(m, "restrictedaccess").entrySet()) {
-				System.out.println(l.getKey() + l.getValue().getText());
-			}
-			Mycoreclass m2 = Mycoreclass.builder()
-					.ID("accesscondition")
-					.addLabel(Label.builder().xmlLang("x-openaire").text("info:eu-repo/semantics/openAccess").build())
-					.addLabel(Label.builder().xmlLang("de").text("Zugangsbedingung").build())
-					.addLabel(Label.builder().xmlLang("en").text("access condition").build())
-					.addCategory(Category.builder().ID("openaccess")
-							.addLabel(Label.builder().xmlLang("x-openaire").text("info:eu-repo/semantics/openAccess").build())	
-							.addLabel(Label.builder().xmlLang("de").text("frei zugänglich (Open Access)").build())
-							.addLabel(Label.builder().xmlLang("de").text("frei zugänglich").description("frei zugänglich (Open Access)").build())	
-							.build())
-					.addCategory(Category.builder().ID("restrictedaccess")
-							.addLabel(Label.builder().xmlLang("x-openaire").text("info:eu-repo/semantics/openAccess").build())
-							.addLabel(Label.builder().xmlLang("de").text("beschränkter Zugang").build())
-							.addLabel(Label.builder().xmlLang("de").text("beschränkter Zugang").build())
-							.addCategory(Category.builder().ID("restictedaccess.unirostock")
-									.addLabel(Label.builder().xmlLang("de").text("beschränkter Zugang: Universität Rostock").build())
-									.addLabel(Label.builder().xmlLang("en").text("restricted access: Rostock University").build())
-									.build())
-							.build())
-					.build();
-			
-            System.out.println(processor.marshalToString(m2));
-			
-			Mycoreclass m3 = processor.unmarshal(new URL("http://rosdok.uni-rostock.de/api/v1/classifications/collection"));
-			System.out.println(processor.marshalToString(m3));
-			processor.marshal(m3, Paths.get("C:\\Temp\\collection.xml"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+    public static void main(String[] args) {
+        MycoreclassProcessor processor = MycoreclassProcessor.getInstance();
+        try {
+            Mycoreclass m = processor
+                .unmarshal(new URL("http://rosdok.uni-rostock.de/api/v1/classifications/accesscondition"));
+            System.out.println(MycoreclassQuery.findLabelText(m, "closedaccess", "de"));
+            for (Entry<String, Label> l : MycoreclassQuery.findLabels(m, "restrictedaccess").entrySet()) {
+                System.out.println(l.getKey() + l.getValue().getText());
+            }
+            Mycoreclass m2 = Mycoreclass.builder()
+                .ID("accesscondition")
+                .addLabel(Label.builder().xmlLang("x-openaire").text("info:eu-repo/semantics/openAccess").build())
+                .addLabel(Label.builder().xmlLang("de").text("Zugangsbedingung").build())
+                .addLabel(Label.builder().xmlLang("en").text("access condition").build())
+                .addCategory(Category.builder().ID("openaccess")
+                    .addLabel(Label.builder().xmlLang("x-openaire").text("info:eu-repo/semantics/openAccess").build())
+                    .addLabel(Label.builder().xmlLang("de").text("frei zugänglich (Open Access)").build())
+                    .addLabel(Label.builder().xmlLang("de").text("frei zugänglich")
+                        .description("frei zugänglich (Open Access)").build())
+                    .build())
+                .addCategory(Category.builder().ID("restrictedaccess")
+                    .addLabel(Label.builder().xmlLang("x-openaire").text("info:eu-repo/semantics/openAccess").build())
+                    .addLabel(Label.builder().xmlLang("de").text("beschränkter Zugang").build())
+                    .addLabel(Label.builder().xmlLang("de").text("beschränkter Zugang").build())
+                    .addCategory(Category.builder().ID("restictedaccess.unirostock")
+                        .addLabel(
+                            Label.builder().xmlLang("de").text("beschränkter Zugang: Universität Rostock").build())
+                        .addLabel(Label.builder().xmlLang("en").text("restricted access: Rostock University").build())
+                        .build())
+                    .build())
+                .build();
 
-	}
+            System.out.println(processor.marshalToString(m2));
+
+            Mycoreclass m3 = processor
+                .unmarshal(new URL("http://rosdok.uni-rostock.de/api/v1/classifications/collection"));
+            System.out.println(processor.marshalToString(m3));
+            processor.marshal(m3, Paths.get("C:\\Temp\\collection.xml"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }
