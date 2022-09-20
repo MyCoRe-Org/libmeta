@@ -36,7 +36,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.mycore.libmeta.common.IXMLProcessor;
-import org.mycore.libmeta.picaxml.model.PicaObject;
+import org.mycore.libmeta.picaxml.model.PicaRecord;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -44,7 +44,7 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
 
-public class PicaXMLProcessor implements IXMLProcessor<PicaObject>{
+public class PicaXMLProcessor implements IXMLProcessor<PicaRecord>{
 
     private static final PicaXMLProcessor INSTANCE = new PicaXMLProcessor();
     
@@ -55,17 +55,17 @@ public class PicaXMLProcessor implements IXMLProcessor<PicaObject>{
         return INSTANCE;
     }
     
-    public Document marshalToDOM(PicaObject pica) throws Exception {
+    public Document marshalToDOM(PicaRecord pica) throws Exception {
         return marshalToDOM(pica, null);
     }
 
-    public Document marshalToDOM(PicaObject pica, String schemaLocations) throws Exception {
+    public Document marshalToDOM(PicaRecord pica, String schemaLocations) throws Exception {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(true);
         DocumentBuilder db = dbf.newDocumentBuilder();
         Document doc = db.newDocument();
 
-        JAXBContext jaxbContext = JAXBContext.newInstance(PicaObject.class);
+        JAXBContext jaxbContext = JAXBContext.newInstance(PicaRecord.class);
         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
         if (schemaLocations != null && schemaLocations.length() > 0) {
@@ -79,7 +79,7 @@ public class PicaXMLProcessor implements IXMLProcessor<PicaObject>{
         return doc;
     }
 
-    public void marshal(PicaObject pica, StreamResult streamResult, String schemaLocations) throws Exception {
+    public void marshal(PicaRecord pica, StreamResult streamResult, String schemaLocations) throws Exception {
         Document doc = marshalToDOM(pica, schemaLocations);
         doc.setXmlStandalone(true);
         
@@ -94,48 +94,48 @@ public class PicaXMLProcessor implements IXMLProcessor<PicaObject>{
         transformer.transform(new DOMSource(doc), streamResult);
     }
 
-    public void marshal(PicaObject pica, Path p, String schemaLocations) throws Exception {
+    public void marshal(PicaRecord pica, Path p, String schemaLocations) throws Exception {
         StreamResult stream = new StreamResult(p.toFile());
         marshal(pica, stream, schemaLocations);
     }
 
-    public void marshal(PicaObject pica, Path p) throws Exception {
+    public void marshal(PicaRecord pica, Path p) throws Exception {
         marshal(pica, p, null);
     }
 
-    public String marshalToString(PicaObject pica, String schemaLocations) throws Exception {
+    public String marshalToString(PicaRecord pica, String schemaLocations) throws Exception {
         StringWriter sw = new StringWriter();
         StreamResult stream = new StreamResult(sw);
         marshal(pica, stream, schemaLocations);
         return sw.toString().replaceAll("\\r\\n|\\r", "\n").trim();
     }
 
-    public String marshalToString(PicaObject pica) throws Exception {
+    public String marshalToString(PicaRecord pica) throws Exception {
         return marshalToString(pica, null);
     }
 
     private Unmarshaller createUnmarshaller() throws Exception {
-        JAXBContext jaxbContext = JAXBContext.newInstance(PicaObject.class);
+        JAXBContext jaxbContext = JAXBContext.newInstance(PicaRecord.class);
         return jaxbContext.createUnmarshaller();
     }
 
-    public PicaObject unmarshal(Node xml) throws Exception {
-        return (PicaObject) createUnmarshaller().unmarshal(xml);
+    public PicaRecord unmarshal(Node xml) throws Exception {
+        return (PicaRecord) createUnmarshaller().unmarshal(xml);
     }
 
-    public PicaObject unmarshal(String xml) throws Exception {
-        return (PicaObject) createUnmarshaller().unmarshal(new StringReader(xml));
+    public PicaRecord unmarshal(String xml) throws Exception {
+        return (PicaRecord) createUnmarshaller().unmarshal(new StringReader(xml));
     }
 
-    public PicaObject unmarshal(Path p) throws Exception {
-        return (PicaObject) createUnmarshaller().unmarshal(p.toFile());
+    public PicaRecord unmarshal(Path p) throws Exception {
+        return (PicaRecord) createUnmarshaller().unmarshal(p.toFile());
     }
 
-    public  PicaObject unmarshal(URL url) throws Exception {
-        return (PicaObject) createUnmarshaller().unmarshal(url);
+    public  PicaRecord unmarshal(URL url) throws Exception {
+        return (PicaRecord) createUnmarshaller().unmarshal(url);
     }
 
-    public PicaObject unmarshalFromSRU(URL url) throws Exception {
+    public PicaRecord unmarshalFromSRU(URL url) throws Exception {
         URLConnection urlConnection = url.openConnection();
         BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
 
@@ -143,6 +143,6 @@ public class PicaXMLProcessor implements IXMLProcessor<PicaObject>{
         XMLEventReader xmlEventReader = new FilterPicaXMLFromSRUReaderDelegate(
             inputFactory.createXMLEventReader(br));
 
-        return (PicaObject) createUnmarshaller().unmarshal(xmlEventReader);
+        return (PicaRecord) createUnmarshaller().unmarshal(xmlEventReader);
     }
 }

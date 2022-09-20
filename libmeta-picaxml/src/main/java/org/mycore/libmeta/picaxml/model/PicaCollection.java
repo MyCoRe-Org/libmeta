@@ -40,7 +40,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "collection", namespace = "info:srw/schema/5/picaXML-v1.0")
 @XmlAccessorType(XmlAccessType.NONE)
-public class PicaCollection extends PicaObject {
+public class PicaCollection implements PicaObject {
     /**
      * 
      */

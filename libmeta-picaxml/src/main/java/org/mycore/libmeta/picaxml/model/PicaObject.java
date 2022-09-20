@@ -17,15 +17,12 @@
  */
 package org.mycore.libmeta.picaxml.model;
 
-import jakarta.xml.bind.annotation.XmlSeeAlso;
-
 /**
- * an abstract class for a PicaXML object
+ * an interface for a PicaXML object
  * 
  * @author Robert Stephan
  *
  */
-@XmlSeeAlso({PicaCollection.class, PicaRecord.class})
-public abstract class PicaObject {
+public interface PicaObject {
 
 }

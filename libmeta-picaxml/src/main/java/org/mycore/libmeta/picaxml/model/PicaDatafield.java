@@ -41,7 +41,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "datafield", namespace = "info:srw/schema/5/picaXML-v1.0")
 @XmlAccessorType(XmlAccessType.NONE)
-public class PicaDatafield extends PicaObject {
+public class PicaDatafield implements PicaObject {
     /**
      * 
      */
