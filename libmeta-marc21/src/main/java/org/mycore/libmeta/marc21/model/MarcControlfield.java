@@ -58,7 +58,7 @@ import jakarta.xml.bind.annotation.XmlValue;
 
 @XmlRootElement(name = "controlfied", namespace = "http://www.loc.gov/MARC21/slim")
 @XmlAccessorType(XmlAccessType.NONE)
-public class MarcControlfield extends MarcObject {
+public class MarcControlfield implements MarcObject {
 
     @XmlValue
     protected String content;

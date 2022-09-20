@@ -49,8 +49,8 @@ import jakarta.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "record", namespace = "http://www.loc.gov/MARC21/slim")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = { "leader", "controlfied", "datafield" })
-public class MarcRecord extends MarcObject {
+@XmlType(propOrder = { "leader", "controlfields", "datafields" })
+public class MarcRecord implements MarcObject {
 
     @XmlElement(name = "leader", namespace = "http://www.loc.gov/MARC21/slim")
     protected MarcLeader leader = null;

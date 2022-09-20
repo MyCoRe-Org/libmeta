@@ -32,7 +32,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.mycore.libmeta.common.IXMLProcessor;
-import org.mycore.libmeta.marc21.model.MarcObject;
+import org.mycore.libmeta.marc21.model.MarcRecord;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -40,7 +40,7 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
 
-public class MarcXMLProcessor implements IXMLProcessor<MarcObject>{
+public class MarcXMLProcessor implements IXMLProcessor<MarcRecord>{
 
 private static final MarcXMLProcessor INSTANCE = new MarcXMLProcessor();
     
@@ -51,17 +51,17 @@ private static final MarcXMLProcessor INSTANCE = new MarcXMLProcessor();
         return INSTANCE;
     }
     
-    public Document marshalToDOM(MarcObject marc) throws Exception {
+    public Document marshalToDOM(MarcRecord marc) throws Exception {
         return marshalToDOM(marc, null);
     }
 
-    public Document marshalToDOM(MarcObject marc, String schemaLocations) throws Exception {
+    public Document marshalToDOM(MarcRecord marc, String schemaLocations) throws Exception {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             dbf.setNamespaceAware(true);
             DocumentBuilder db = dbf.newDocumentBuilder();
             Document doc = db.newDocument();
 
-            JAXBContext jaxbContext = JAXBContext.newInstance(MarcObject.class);
+            JAXBContext jaxbContext = JAXBContext.newInstance(MarcRecord.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
             if (schemaLocations != null && schemaLocations.length() > 0) {
@@ -75,7 +75,7 @@ private static final MarcXMLProcessor INSTANCE = new MarcXMLProcessor();
             return doc;
     }
 
-    public void marshal(MarcObject marc, StreamResult streamResult, String schemaLocations) throws Exception{
+    public void marshal(MarcRecord marc, StreamResult streamResult, String schemaLocations) throws Exception{
             Document doc = marshalToDOM(marc, schemaLocations);
 
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
@@ -88,44 +88,44 @@ private static final MarcXMLProcessor INSTANCE = new MarcXMLProcessor();
             transformer.transform(new DOMSource(doc), streamResult);
     }
 
-    public void marshal(MarcObject marc, Path p, String schemaLocations) throws Exception {
+    public void marshal(MarcRecord marc, Path p, String schemaLocations) throws Exception {
         StreamResult stream = new StreamResult(p.toFile());
         marshal(marc, stream, schemaLocations);
     }
 
-    public void marshal(MarcObject marc, Path p) throws Exception {
+    public void marshal(MarcRecord marc, Path p) throws Exception {
         marshal(marc, p, null);
     }
 
-    public String marshalToString(MarcObject marc, String schemaLocations) throws Exception {
+    public String marshalToString(MarcRecord marc, String schemaLocations) throws Exception {
         StringWriter sw = new StringWriter();
         StreamResult stream = new StreamResult(sw);
         marshal(marc, stream, schemaLocations);
         return sw.toString().replaceAll("\\r\\n|\\r", "\n").trim();
     }
 
-    public String marshalToString(MarcObject marc) throws Exception {
+    public String marshalToString(MarcRecord marc) throws Exception {
         return marshalToString(marc, null);
     }
 
     private Unmarshaller createUnmarshaller() throws Exception {
-        JAXBContext jaxbContext = JAXBContext.newInstance(MarcObject.class);
+        JAXBContext jaxbContext = JAXBContext.newInstance(MarcRecord.class);
         return jaxbContext.createUnmarshaller();
     }
 
-    public MarcObject unmarshal(Node xml) throws Exception {
-        return (MarcObject) createUnmarshaller().unmarshal(xml);
+    public MarcRecord unmarshal(Node xml) throws Exception {
+        return (MarcRecord) createUnmarshaller().unmarshal(xml);
     }
 
-    public MarcObject unmarshal(String xml) throws Exception {
-        return (MarcObject) createUnmarshaller().unmarshal(new StringReader(xml));
+    public MarcRecord unmarshal(String xml) throws Exception {
+        return (MarcRecord) createUnmarshaller().unmarshal(new StringReader(xml));
     }
 
-    public MarcObject unmarshal(Path p) throws Exception {
-        return (MarcObject) createUnmarshaller().unmarshal(p.toFile());
+    public MarcRecord unmarshal(Path p) throws Exception {
+        return (MarcRecord) createUnmarshaller().unmarshal(p.toFile());
     }
 
-    public MarcObject unmarshal(URL url) throws Exception {
-        return (MarcObject) createUnmarshaller().unmarshal(url);
+    public MarcRecord unmarshal(URL url) throws Exception {
+        return (MarcRecord) createUnmarshaller().unmarshal(url);
     }
 }

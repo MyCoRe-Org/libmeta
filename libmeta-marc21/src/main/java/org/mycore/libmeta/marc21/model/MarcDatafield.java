@@ -64,7 +64,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "datafield", namespace = "http://www.loc.gov/MARC21/slim")
 @XmlAccessorType(XmlAccessType.NONE)
-public class MarcDatafield extends MarcObject {
+public class MarcDatafield implements MarcObject {
     /**
      * 
      */

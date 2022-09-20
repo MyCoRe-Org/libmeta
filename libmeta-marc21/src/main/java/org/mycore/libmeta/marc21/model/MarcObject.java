@@ -17,15 +17,12 @@
  */
 package org.mycore.libmeta.marc21.model;
 
-import jakarta.xml.bind.annotation.XmlSeeAlso;
-
 /**
- * an abstract class for a MARC21 object
+ * an interface for a MARC21 object
  * 
  * @author Robert Stephan
  *
  */
-@XmlSeeAlso({ MarcCollection.class, MarcRecord.class })
-public abstract class MarcObject {
+public interface MarcObject {
 
 }
