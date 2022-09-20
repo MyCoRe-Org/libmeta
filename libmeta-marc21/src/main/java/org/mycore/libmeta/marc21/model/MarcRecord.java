@@ -55,7 +55,7 @@ public class MarcRecord extends MarcObject {
     @XmlElement(name = "leader", namespace = "http://www.loc.gov/MARC21/slim")
     protected MarcLeader leader = null;
 
-    @XmlElement(name = "controlfied", namespace = "http://www.loc.gov/MARC21/slim")
+    @XmlElement(name = "controlfield", namespace = "http://www.loc.gov/MARC21/slim")
     protected List<MarcControlfield> controlfields = new Vector<MarcControlfield>();
 
     @XmlElement(name = "datafield", namespace = "http://www.loc.gov/MARC21/slim")
