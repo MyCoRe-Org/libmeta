@@ -25,7 +25,7 @@ import org.mycore.libmeta.marc21.model.MarcRecord;
 import org.mycore.libmeta.marc21.model.MarcSubfield;
 
 
-public class MarcXMLQuery {
+public class MarcQuery {
 	public static List<MarcDatafield> findDatafields(MarcRecord r, String tag) {
 		Vector<MarcDatafield> v = new Vector<MarcDatafield>();
 		for (MarcDatafield d : r.getDatafields()) {
