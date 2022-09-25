@@ -28,15 +28,15 @@ import jakarta.json.stream.JsonGenerator;
 * 
 * @author Robert Stephan
 */
-public class MARCJSONProcessor {
+public class MarcJSONProcessor {
 
-    private static final MARCJSONProcessor INSTANCE = new MARCJSONProcessor();
+    private static final MarcJSONProcessor INSTANCE = new MarcJSONProcessor();
 
     //private constructor to avoid client applications to use constructor
-    private MARCJSONProcessor() {
+    private MarcJSONProcessor() {
     }
 
-    public static MARCJSONProcessor getInstance() {
+    public static MarcJSONProcessor getInstance() {
         return INSTANCE;
     }
 
@@ -153,7 +153,7 @@ public class MARCJSONProcessor {
             //URL url = new URL("https://unapi.k10plus.de/?&format=marcxml&id=k10plus:ppn:1667675745");
             URL url = new URL("https://lccn.loc.gov/09028059/marcxml");
             MarcRecord mr = (MarcRecord) MarcXMLProcessor.getInstance().unmarshal(url);
-            System.out.println(MARCJSONProcessor.getInstance().marshalToString(mr));
+            System.out.println(MarcJSONProcessor.getInstance().marshalToString(mr));
         } catch (Exception e) {
             e.printStackTrace();
         }
