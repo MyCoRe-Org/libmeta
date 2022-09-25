@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.picaxml;
+package org.mycore.libmeta.pica.text;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -27,18 +27,18 @@ import java.nio.file.Path;
 
 import javax.xml.stream.XMLStreamException;
 
-import org.mycore.libmeta.picaxml.model.PicaCollection;
-import org.mycore.libmeta.picaxml.model.PicaDatafield;
-import org.mycore.libmeta.picaxml.model.PicaRecord;
-import org.mycore.libmeta.picaxml.model.PicaSubfield;
+import org.mycore.libmeta.pica.model.PicaCollection;
+import org.mycore.libmeta.pica.model.PicaDatafield;
+import org.mycore.libmeta.pica.model.PicaRecord;
+import org.mycore.libmeta.pica.model.PicaSubfield;
 
-public class PicaTextProcessor {
-private static final PicaTextProcessor INSTANCE = new PicaTextProcessor();
+public class PicaPlusProcessor {
+private static final PicaPlusProcessor INSTANCE = new PicaPlusProcessor();
     
     //private constructor to avoid client applications to use constructor
-    private PicaTextProcessor() {}
+    private PicaPlusProcessor() {}
     
-    public static PicaTextProcessor getInstance() {
+    public static PicaPlusProcessor getInstance() {
         return INSTANCE;
     }
     
@@ -124,7 +124,7 @@ private static final PicaTextProcessor INSTANCE = new PicaTextProcessor();
 	        }
 	        w.append(" ");
 	        for(PicaSubfield sf : df.getSubfields()) {
-	            w.append("$").append(sf.getCode()).append(sf.getContent());
+	            w.append("ƒ").append(sf.getCode()).append(sf.getContent());
 	        }
 	        w.append("\n");
 	    }

@@ -27,9 +27,9 @@ import javax.xml.stream.XMLEventWriter;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLOutputFactory;
 
-import org.mycore.libmeta.picaxml.FilterPicaXMLFromSRUReaderDelegate;
-import org.mycore.libmeta.picaxml.PicaXMLProcessor;
-import org.mycore.libmeta.picaxml.model.PicaObject;
+import org.mycore.libmeta.pica.model.PicaRecord;
+import org.mycore.libmeta.pica.xml.FilterPicaXMLFromSRUReaderDelegate;
+import org.mycore.libmeta.pica.xml.PicaXMLProcessor;
 
 public class FilterTest {
     //public static String SRU_URL = "http://sru.gbv.de/gvk?version=1.1&operation=searchRetrieve&maximumRecords=1&recordSchema=picaxml&query=pica.ppn%3D340126604";
@@ -54,8 +54,8 @@ public class FilterTest {
 
         try {
             PicaXMLProcessor xmlProcessor = PicaXMLProcessor.getInstance();
-            PicaObject pica2 = xmlProcessor.unmarshalFromSRU(new URL(SRU_URL));
-            xmlProcessor.marshal(pica2, outFile);
+            PicaRecord pica = xmlProcessor.unmarshalFromSRU(new URL(SRU_URL));
+            xmlProcessor.marshal(pica, outFile);
             System.out.println();
             System.out.println("The result can be found here:" + outFile.toString());
         } catch (Exception e) {

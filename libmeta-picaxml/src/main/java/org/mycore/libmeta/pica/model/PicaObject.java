@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.picaxml.model;
+package org.mycore.libmeta.pica.model;
 
 /**
  * an interface for a PicaXML object

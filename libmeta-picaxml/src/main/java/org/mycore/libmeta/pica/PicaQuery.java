@@ -15,16 +15,16 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.picaxml;
+package org.mycore.libmeta.pica;
 
 import java.util.List;
 import java.util.Vector;
 
-import org.mycore.libmeta.picaxml.model.HasPicaDatafields;
-import org.mycore.libmeta.picaxml.model.PicaDatafield;
-import org.mycore.libmeta.picaxml.model.PicaSubfield;
+import org.mycore.libmeta.pica.model.HasPicaDatafields;
+import org.mycore.libmeta.pica.model.PicaDatafield;
+import org.mycore.libmeta.pica.model.PicaSubfield;
 
-public class PicaXMLQuery {
+public class PicaQuery {
 	public static List<PicaDatafield> findDatafields(HasPicaDatafields r, String tag) {
 		Vector<PicaDatafield> v = new Vector<PicaDatafield>();
 		for (PicaDatafield d : r.getDatafields()) {

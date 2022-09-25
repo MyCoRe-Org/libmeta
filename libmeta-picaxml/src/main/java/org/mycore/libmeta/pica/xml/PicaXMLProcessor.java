@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.picaxml;
+package org.mycore.libmeta.pica.xml;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -36,7 +36,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.mycore.libmeta.common.IXMLProcessor;
-import org.mycore.libmeta.picaxml.model.PicaRecord;
+import org.mycore.libmeta.pica.model.PicaRecord;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
