@@ -147,6 +147,7 @@
     <module>libmeta-alto</module>
     <module>libmeta-xlink</module>
     <module>libmeta-common</module>
+    <module>libmeta-dfgviewer</module>
   </modules>
   <profiles>
     <profile>

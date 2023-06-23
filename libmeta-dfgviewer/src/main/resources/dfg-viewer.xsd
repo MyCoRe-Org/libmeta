@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:dv="http://dfg-viewer.de/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://dfg-viewer.de/"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="rights">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="owner" type="xs:string" />
+        <xs:element name="ownerLogo" type="xs:string" />
+        <xs:element name="ownerSiteURL" type="xs:string" />
+        <xs:element name="ownerContact" type="xs:string" />
+        
+        <xs:element name="aggregator" type="xs:string" minOccurs="0" maxOccurs="1" />
+        <xs:element name="aggregatorLogo" type="xs:string" minOccurs="0" maxOccurs="1" />
+        <xs:element name="aggregatorSiteURL" type="xs:string" minOccurs="0" maxOccurs="1" />
+        
+        <xs:element name="sponsor" type="xs:string" minOccurs="0" maxOccurs="1" />
+        <xs:element name="sponsorLogo" type="xs:string" minOccurs="0" maxOccurs="1" />
+        <xs:element name="sponsorSiteURL" type="xs:string" minOccurs="0" maxOccurs="1" />
+        
+        <xs:element name="license" type="xs:string" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="links">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="unbounded" name="reference">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute name="linktext" type="xs:string" use="required" />
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="presentation" type="xs:string" minOccurs="0" maxOccurs="1" />
+        <xs:element name="sru" type="xs:string" minOccurs="0" maxOccurs="1" />
+        <xs:element name="iiif" type="xs:string" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
