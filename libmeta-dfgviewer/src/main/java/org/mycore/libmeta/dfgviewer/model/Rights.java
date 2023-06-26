@@ -301,5 +301,25 @@ public class Rights {
         protected Builder(Rights r) {
             super(r);
         }
+
+        public Builder owner(String owner) {
+            _target().setOwner(owner);
+            return _self();
+        }
+
+        public Builder ownerContact(String ownerContact) {
+            _target().setOwnerContact(ownerContact);
+            return _self();
+        }
+
+        public Builder ownerLogo(String ownerLogo) {
+            _target().setOwnerLogo(ownerLogo);
+            return _self();
+        }
+
+        public Builder ownerSiteUrl(String ownerSiteUrl) {
+            _target().setOwnerSiteURL(ownerSiteUrl);
+            return _self();
+        }
     }
 }
