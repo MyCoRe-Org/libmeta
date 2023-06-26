@@ -5,7 +5,6 @@
 // Generiert: 2023.06.23 um 12:38:43 PM CEST 
 //
 
-
 package org.mycore.libmeta.dfgviewer.model;
 
 import java.util.ArrayList;
@@ -17,7 +16,6 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
-
 
 /**
  * <p>Java-Klasse für anonymous complex type.
@@ -165,7 +163,6 @@ public class Links {
     public void setIiif(String value) {
         this.iiif = value;
     }
-
 
     /**
      * <p>Java-Klasse für anonymous complex type.

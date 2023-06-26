@@ -6,7 +6,8 @@
 //
 
 @XmlSchema(namespace = "http://dfg-viewer.de/DV/", xmlns = {
-    @XmlNs(namespaceURI = "http://dfg-viewer.de/DV/", prefix = "dv") }, elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
+    @XmlNs(namespaceURI = "http://dfg-viewer.de/DV/", prefix = "dv") },
+    elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package org.mycore.libmeta.dfgviewer.model;
 
 import jakarta.xml.bind.annotation.XmlNs;

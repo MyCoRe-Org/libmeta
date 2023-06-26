@@ -5,11 +5,9 @@
 // Generiert: 2023.06.23 um 12:38:43 PM CEST 
 //
 
-
 package org.mycore.libmeta.dfgviewer.model;
 
 import jakarta.xml.bind.annotation.XmlRegistry;
-
 
 /**
  * This object contains factory methods for each 
@@ -27,7 +25,6 @@ import jakarta.xml.bind.annotation.XmlRegistry;
  */
 @XmlRegistry
 public class ObjectFactory {
-
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.mycore.libmeta.dfgviewer.model
