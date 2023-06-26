@@ -11,8 +11,15 @@
 
   <artifactId>libmeta-dfgviewer</artifactId>
 
-  <name>LibMeta DFG</name>
+  <name>LibMeta DFG-Viewer</name>
   <description>Java API for DFG-Viewer metadata model.</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.mycore.libmeta</groupId>
+      <artifactId>libmeta-common</artifactId>
+    </dependency>
+  </dependencies>
 
   <profiles>
     <profile>
