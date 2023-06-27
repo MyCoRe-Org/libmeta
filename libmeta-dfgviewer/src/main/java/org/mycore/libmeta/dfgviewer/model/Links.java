@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.mycore.libmeta.common.BuilderBase;
-import org.mycore.libmeta.dfgviewer.model.Rights.Builder;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -244,6 +243,29 @@ public class Links {
             this.linktext = value;
         }
 
+        public static RefBuilder builder() {
+            return builder(new Reference());
+        }
+        
+        public static RefBuilder builder(Reference reference) {
+            return new RefBuilder(reference);
+        }
+        
+        public static class RefBuilder extends BuilderBase<Reference, RefBuilder> {
+            protected RefBuilder(Reference r) {
+                super(r);
+            }
+            
+            public RefBuilder linktext(String linktext) {
+                _target().setLinktext(linktext);
+                return _self();
+            }
+            
+            public RefBuilder value(String value) {
+                _target().setValue(value);
+                return _self();
+            }
+        }
     }
 
     public static Builder builder() {
@@ -259,6 +281,11 @@ public class Links {
             super(l);
         }
         
+        public Builder addReference(Reference reference) {
+            _target().getReference().add(reference);
+            return _self();
+        }
+
         public Builder iiif(String iiif) {
             _target().setIiif(iiif);
             return _self();

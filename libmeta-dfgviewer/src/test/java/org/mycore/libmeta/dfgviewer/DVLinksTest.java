@@ -5,6 +5,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.mycore.libmeta.dfgviewer.model.Links;
+import org.mycore.libmeta.dfgviewer.model.Links.Reference;
 
 public class DVLinksTest {
 
@@ -29,6 +30,39 @@ public class DVLinksTest {
 
             System.out.println("---");
             assertTrue("testLinks failed", expected.equals(actual));
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
+    
+    @Test
+    public void testLinksReferences() {
+        Reference referenceOpac = Reference.builder()
+            .linktext("OPAC")
+            .value("https://opacplus.bsb-muenchen.de/title/BV022758208")
+            .build();
+        Reference referenceMarcXml = Reference.builder()
+            .linktext("MARC-XML")
+            .value("https://opacplus.bsb-muenchen.de/title/BV022758208?format=marc")
+            .build();
+        
+        Links links = Links.builder()
+            .addReference(referenceOpac)
+            .addReference(referenceMarcXml)
+            .build();
+        try {
+            String actual = DVLinksXMLProcessor.getInstance().marshalToString(links);
+            System.out.println(actual);
+            
+            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
+                + "<dv:links xmlns:dv=\"http://dfg-viewer.de/DV/\">\n"
+                + "  <dv:reference linktext=\"OPAC\">https://opacplus.bsb-muenchen.de/title/BV022758208</dv:reference>\n"
+                + "  <dv:reference linktext=\"MARC-XML\">https://opacplus.bsb-muenchen.de/title/BV022758208?format=marc</dv:reference>\n"
+                + "</dv:links>";
+            System.out.println(expected);
+            
+            System.out.println("---");
+            assertTrue("testLinksReferences failed", expected.equals(actual));
         } catch (Exception e) {
             fail(e.getMessage());
         }
