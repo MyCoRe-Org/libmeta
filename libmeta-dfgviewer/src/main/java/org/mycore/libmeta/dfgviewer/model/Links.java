@@ -9,6 +9,9 @@ package org.mycore.libmeta.dfgviewer.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.mycore.libmeta.common.BuilderBase;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -173,7 +176,7 @@ public class Links {
      * &lt;complexType&gt;
      *   &lt;simpleContent&gt;
      *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-     *       &lt;attribute name="linktext" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+     *       &lt;attribute name="linktext" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
      *     &lt;/extension&gt;
      *   &lt;/simpleContent&gt;
      * &lt;/complexType&gt;
@@ -189,7 +192,7 @@ public class Links {
 
         @XmlValue
         protected String value;
-        @XmlAttribute(name = "linktext", required = true)
+        @XmlAttribute(name = "linktext")
         protected String linktext;
 
         /**
@@ -242,4 +245,18 @@ public class Links {
 
     }
 
+    public static Builder builder() {
+        return builder(new Links());
+    }
+
+    public static Builder builder(Links links) {
+        return new Builder(links);
+    }
+
+    public static class Builder extends BuilderBase<Links, Builder> {
+        protected Builder(Links l) {
+            super(l);
+        }
+    }
+    
 }

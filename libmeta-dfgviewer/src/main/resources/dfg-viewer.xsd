@@ -29,7 +29,7 @@
           <xs:complexType>
             <xs:simpleContent>
               <xs:extension base="xs:string">
-                <xs:attribute name="linktext" type="xs:string" use="required" />
+                <xs:attribute name="linktext" type="xs:string" />
               </xs:extension>
             </xs:simpleContent>
           </xs:complexType>
