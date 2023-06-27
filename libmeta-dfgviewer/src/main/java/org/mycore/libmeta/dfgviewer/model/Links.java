@@ -34,7 +34,7 @@ import jakarta.xml.bind.annotation.XmlValue;
  *           &lt;complexType&gt;
  *             &lt;simpleContent&gt;
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *                 &lt;attribute name="linktext" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *                 &lt;attribute name="linktext" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *               &lt;/extension&gt;
  *             &lt;/simpleContent&gt;
  *           &lt;/complexType&gt;
