@@ -32,7 +32,7 @@ public class DVRightsTest {
             .owner("SLUB Dresden")
             .ownerContact("mailto:sebastian.meyer@slub-dresden.de")
             .ownerLogo("http://digital.slub-dresden.de/logo.gif")
-            .ownerSiteUrl("http://digital.slub-dresden.de/")
+            .ownerSiteURL("http://digital.slub-dresden.de/")
             .build();
         try {
             String actual = DVRightsXMLProcessor.getInstance().marshalToString(rights);
@@ -49,6 +49,80 @@ public class DVRightsTest {
 
             System.out.println("---");
             assertTrue("testRightsOwner failed", expected.equals(actual));
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
+    
+    @Test
+    public void testRightsAggregator() {
+        Rights rights = Rights.builder()
+            .aggregator("Deutsche Digitale Bibliothek")
+            .aggregatorLogo("https://www.deutsche-digitale-bibliothek.de/assets/ddb-logo-lg-rgb-4b633e7f7a160aa54ced8b0b2c0609ac.svg")
+            .aggregatorSiteURL("https://www.deutsche-digitale-bibliothek.de/")
+            .build();
+        try {
+            String actual = DVRightsXMLProcessor.getInstance().marshalToString(rights);
+            System.out.println(actual);
+
+            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
+                + "<dv:rights xmlns:dv=\"http://dfg-viewer.de/DV/\">\n"
+                + "  <dv:aggregator>Deutsche Digitale Bibliothek</dv:aggregator>\n"
+                + "  <dv:aggregatorLogo>https://www.deutsche-digitale-bibliothek.de/assets/ddb-logo-lg-rgb-4b633e7f7a160aa54ced8b0b2c0609ac.svg</dv:aggregatorLogo>\n"
+                + "  <dv:aggregatorSiteURL>https://www.deutsche-digitale-bibliothek.de/</dv:aggregatorSiteURL>\n"
+                + "</dv:rights>";
+            System.out.println(expected);
+
+            System.out.println("---");
+            assertTrue("testRightsAggregator failed", expected.equals(actual));
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
+    
+    @Test
+    public void testRightsSponsor() {
+        Rights rights = Rights.builder()
+            .sponsor("Deutsche Forschungsgemeinschaft")
+            .sponsorLogo("https://www.dfg.de/zentralablage/bilder/service/logos_corporate_design/logo_blau_267.png")
+            .sponsorSiteURL("https://www.dfg.de/")
+            .build();
+        try {
+            String actual = DVRightsXMLProcessor.getInstance().marshalToString(rights);
+            System.out.println(actual);
+            
+            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
+                + "<dv:rights xmlns:dv=\"http://dfg-viewer.de/DV/\">\n"
+                + "  <dv:sponsor>Deutsche Forschungsgemeinschaft</dv:sponsor>\n"
+                + "  <dv:sponsorLogo>https://www.dfg.de/zentralablage/bilder/service/logos_corporate_design/logo_blau_267.png</dv:sponsorLogo>\n"
+                + "  <dv:sponsorSiteURL>https://www.dfg.de/</dv:sponsorSiteURL>\n"
+                + "</dv:rights>";
+            System.out.println(expected);
+            
+            System.out.println("---");
+            assertTrue("testRightsSponsor failed", expected.equals(actual));
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
+    
+    @Test
+    public void testRightsLicense() {
+        Rights rights = Rights.builder()
+            .license("pdm")
+            .build();
+        try {
+            String actual = DVRightsXMLProcessor.getInstance().marshalToString(rights);
+            System.out.println(actual);
+            
+            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
+                + "<dv:rights xmlns:dv=\"http://dfg-viewer.de/DV/\">\n"
+                + "  <dv:license>pdm</dv:license>\n"
+                + "</dv:rights>";
+            System.out.println(expected);
+            
+            System.out.println("---");
+            assertTrue("testRightsLicense failed", expected.equals(actual));
         } catch (Exception e) {
             fail(e.getMessage());
         }

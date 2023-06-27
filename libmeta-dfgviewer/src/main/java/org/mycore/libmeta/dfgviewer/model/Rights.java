@@ -302,6 +302,26 @@ public class Rights {
             super(r);
         }
 
+        public Builder aggregator(String aggregator) {
+            _target().setAggregator(aggregator);
+            return _self();
+        }
+        
+        public Builder aggregatorLogo(String aggregatorLogo) {
+            _target().setAggregatorLogo(aggregatorLogo);
+            return _self();
+        }
+        
+        public Builder aggregatorSiteURL(String aggregatorSiteURL) {
+            _target().setAggregatorSiteURL(aggregatorSiteURL);
+            return _self();
+        }
+        
+        public Builder license(String license) {
+            _target().setLicense(license);
+            return _self();
+        }
+        
         public Builder owner(String owner) {
             _target().setOwner(owner);
             return _self();
@@ -317,8 +337,23 @@ public class Rights {
             return _self();
         }
 
-        public Builder ownerSiteUrl(String ownerSiteUrl) {
-            _target().setOwnerSiteURL(ownerSiteUrl);
+        public Builder ownerSiteURL(String ownerSiteURL) {
+            _target().setOwnerSiteURL(ownerSiteURL);
+            return _self();
+        }
+        
+        public Builder sponsor(String sponsor) {
+            _target().setSponsor(sponsor);
+            return _self();
+        }
+        
+        public Builder sponsorLogo(String sponsorLogo) {
+            _target().setSponsorLogo(sponsorLogo);
+            return _self();
+        }
+        
+        public Builder sponsorSiteURL(String sponsorSiteURL) {
+            _target().setSponsorSiteURL(sponsorSiteURL);
             return _self();
         }
     }
