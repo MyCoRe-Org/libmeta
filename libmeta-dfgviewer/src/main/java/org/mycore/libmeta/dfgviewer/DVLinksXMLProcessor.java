@@ -65,6 +65,7 @@ public class DVLinksXMLProcessor implements IXMLProcessor<Links> {
     public Document marshalToDOM(Links links, String schemaLocations) throws Exception {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(true);
+        dbf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
         DocumentBuilder db = dbf.newDocumentBuilder();
         Document doc = db.newDocument();
 
