@@ -1,10 +1,20 @@
-//
-// Diese Datei wurde mit der Eclipse Implementation of JAXB, v3.0.0 generiert 
-// Siehe https://eclipse-ee4j.github.io/jaxb-ri 
-// Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2023.06.23 um 12:38:43 PM CEST 
-//
-
+/* 
+ * This file is part of *** MyCoRe LibMeta ***
+ * See https://github.com/MyCoRe-Org/libmeta/ for details.
+ * 
+ * MyCoRe LibMeta is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published 
+ * by the Free Software Foundation, either version 3 of the License, 
+ * or (at your option) any later version.
+ *
+ * MyCoRe LibMeta is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+ * See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package org.mycore.libmeta.dfgviewer.model;
 
 import java.util.ArrayList;
