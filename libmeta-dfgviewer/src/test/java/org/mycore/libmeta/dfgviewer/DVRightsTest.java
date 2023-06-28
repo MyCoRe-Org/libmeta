@@ -33,7 +33,7 @@ public class DVRightsTest {
             System.out.println(actual);
 
             String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<dv:rights xmlns:dv=\"http://dfg-viewer.de/DV/\"/>";
+                + "<dv:rights xmlns:dv=\"http://dfg-viewer.de/\"/>";
             System.out.println(expected);
 
             System.out.println("---");
@@ -56,7 +56,7 @@ public class DVRightsTest {
             System.out.println(actual);
 
             String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<dv:rights xmlns:dv=\"http://dfg-viewer.de/DV/\">\n"
+                + "<dv:rights xmlns:dv=\"http://dfg-viewer.de/\">\n"
                 + "  <dv:owner>SLUB Dresden</dv:owner>\n"
                 + "  <dv:ownerLogo>http://digital.slub-dresden.de/logo.gif</dv:ownerLogo>\n"
                 + "  <dv:ownerSiteURL>http://digital.slub-dresden.de/</dv:ownerSiteURL>\n"
@@ -83,7 +83,7 @@ public class DVRightsTest {
             System.out.println(actual);
 
             String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<dv:rights xmlns:dv=\"http://dfg-viewer.de/DV/\">\n"
+                + "<dv:rights xmlns:dv=\"http://dfg-viewer.de/\">\n"
                 + "  <dv:aggregator>Deutsche Digitale Bibliothek</dv:aggregator>\n"
                 + "  <dv:aggregatorLogo>https://www.deutsche-digitale-bibliothek.de/assets/ddb-logo-lg-rgb-4b633e7f7a160aa54ced8b0b2c0609ac.svg</dv:aggregatorLogo>\n"
                 + "  <dv:aggregatorSiteURL>https://www.deutsche-digitale-bibliothek.de/</dv:aggregatorSiteURL>\n"
@@ -109,7 +109,7 @@ public class DVRightsTest {
             System.out.println(actual);
             
             String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<dv:rights xmlns:dv=\"http://dfg-viewer.de/DV/\">\n"
+                + "<dv:rights xmlns:dv=\"http://dfg-viewer.de/\">\n"
                 + "  <dv:sponsor>Deutsche Forschungsgemeinschaft</dv:sponsor>\n"
                 + "  <dv:sponsorLogo>https://www.dfg.de/zentralablage/bilder/service/logos_corporate_design/logo_blau_267.png</dv:sponsorLogo>\n"
                 + "  <dv:sponsorSiteURL>https://www.dfg.de/</dv:sponsorSiteURL>\n"
@@ -133,7 +133,7 @@ public class DVRightsTest {
             System.out.println(actual);
             
             String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<dv:rights xmlns:dv=\"http://dfg-viewer.de/DV/\">\n"
+                + "<dv:rights xmlns:dv=\"http://dfg-viewer.de/\">\n"
                 + "  <dv:license>pdm</dv:license>\n"
                 + "</dv:rights>";
             System.out.println(expected);

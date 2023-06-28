@@ -15,8 +15,8 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-@XmlSchema(namespace = "http://dfg-viewer.de/DV/", xmlns = {
-    @XmlNs(namespaceURI = "http://dfg-viewer.de/DV/", prefix = "dv") },
+@XmlSchema(namespace = "http://dfg-viewer.de/", xmlns = {
+    @XmlNs(namespaceURI = "http://dfg-viewer.de/", prefix = "dv") },
     elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package org.mycore.libmeta.dfgviewer.model;
 
