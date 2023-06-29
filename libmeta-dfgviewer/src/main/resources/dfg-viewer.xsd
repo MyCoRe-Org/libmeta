@@ -18,6 +18,13 @@
 -->
 <xs:schema xmlns:dv="http://dfg-viewer.de/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://dfg-viewer.de/"
   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>
+      The schema was derived from the description in
+      'DFGViewer METS-Anwendungsprofil für digitalisierte Medien Version 2.3.1'
+      (https://dfg-viewer.de/fileadmin/groups/dfgviewer/METS-Anwendungsprofil_2.3.1.pdf)
+    </xs:documentation>
+  </xs:annotation>
   <xs:element name="rights">
     <xs:complexType>
       <xs:sequence>
