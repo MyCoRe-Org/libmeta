@@ -51,7 +51,7 @@ public class DVLinksTest {
             fail(e.getMessage());
         }
     }
-    
+
     @Test
     public void testLinksReferences() {
         Reference referenceOpac = Reference.builder()
@@ -62,7 +62,7 @@ public class DVLinksTest {
             .linktext("MARC-XML")
             .content("https://opacplus.bsb-muenchen.de/title/BV022758208?format=marc")
             .build();
-        
+
         Links links = Links.builder()
             .addReference(referenceOpac)
             .addReference(referenceMarcXml)
@@ -70,14 +70,14 @@ public class DVLinksTest {
         try {
             String actual = DVLinksXMLProcessor.getInstance().marshalToString(links);
             System.out.println(actual);
-            
+
             String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
                 + "<dv:links xmlns:dv=\"http://dfg-viewer.de/\">\n"
                 + "  <dv:reference linktext=\"OPAC\">https://opacplus.bsb-muenchen.de/title/BV022758208</dv:reference>\n"
                 + "  <dv:reference linktext=\"MARC-XML\">https://opacplus.bsb-muenchen.de/title/BV022758208?format=marc</dv:reference>\n"
                 + "</dv:links>";
             System.out.println(expected);
-            
+
             System.out.println("---");
             assertTrue("testLinksReferences failed", expected.equals(actual));
         } catch (Exception e) {

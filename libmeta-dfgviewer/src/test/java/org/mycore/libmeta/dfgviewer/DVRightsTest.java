@@ -42,7 +42,7 @@ public class DVRightsTest {
             fail(e.getMessage());
         }
     }
-    
+
     @Test
     public void testRightsOwner() {
         Rights rights = Rights.builder()
@@ -70,7 +70,7 @@ public class DVRightsTest {
             fail(e.getMessage());
         }
     }
-    
+
     @Test
     public void testRightsAggregator() {
         Rights rights = Rights.builder()
@@ -96,7 +96,7 @@ public class DVRightsTest {
             fail(e.getMessage());
         }
     }
-    
+
     @Test
     public void testRightsSponsor() {
         Rights rights = Rights.builder()
@@ -107,7 +107,7 @@ public class DVRightsTest {
         try {
             String actual = DVRightsXMLProcessor.getInstance().marshalToString(rights);
             System.out.println(actual);
-            
+
             String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
                 + "<dv:rights xmlns:dv=\"http://dfg-viewer.de/\">\n"
                 + "  <dv:sponsor>Deutsche Forschungsgemeinschaft</dv:sponsor>\n"
@@ -115,14 +115,14 @@ public class DVRightsTest {
                 + "  <dv:sponsorSiteURL>https://www.dfg.de/</dv:sponsorSiteURL>\n"
                 + "</dv:rights>";
             System.out.println(expected);
-            
+
             System.out.println("---");
             assertTrue("testRightsSponsor failed", expected.equals(actual));
         } catch (Exception e) {
             fail(e.getMessage());
         }
     }
-    
+
     @Test
     public void testRightsLicense() {
         Rights rights = Rights.builder()
@@ -131,13 +131,13 @@ public class DVRightsTest {
         try {
             String actual = DVRightsXMLProcessor.getInstance().marshalToString(rights);
             System.out.println(actual);
-            
+
             String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
                 + "<dv:rights xmlns:dv=\"http://dfg-viewer.de/\">\n"
                 + "  <dv:license>pdm</dv:license>\n"
                 + "</dv:rights>";
             System.out.println(expected);
-            
+
             System.out.println("---");
             assertTrue("testRightsLicense failed", expected.equals(actual));
         } catch (Exception e) {
