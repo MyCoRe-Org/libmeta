@@ -30,9 +30,9 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
- * <p>Java-Klasse für anonymous complex type.
+ * <p>This class implements a Java model for a DFGViewer links object.
  * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
+ * <p>The following schema describes the expected content:
  * 
  * <pre>
  * &lt;complexType&gt;
@@ -57,22 +57,22 @@ import jakarta.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  * 
- * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "reference",
-    "presentation",
-    "sru",
-    "iiif"
-})
+@XmlAccessorType(XmlAccessType.NONE)
+@XmlType(name = "", propOrder = { "reference", "presentation", "sru", "iiif" })
 @XmlRootElement(name = "links")
 public class Links {
 
     @XmlElement(required = true)
     protected List<Reference> reference;
+
+    @XmlElement
     protected String presentation;
+
+    @XmlElement
     protected String sru;
+
+    @XmlElement
     protected String iiif;
 
     /**

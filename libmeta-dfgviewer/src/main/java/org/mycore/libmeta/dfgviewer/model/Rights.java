@@ -26,12 +26,9 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
- * <p>
- * Java-Klasse für anonymous complex type.
+ * <p>This class implements a Java model for a DFGViewer rights object.
  * 
- * <p>
- * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
- * Klasse enthalten ist.
+ * <p>The following schema describes the expected content:
  * 
  * <pre>
  * &lt;complexType&gt;
@@ -55,9 +52,8 @@ import jakarta.xml.bind.annotation.XmlType;
  * &lt;/complexType&gt;
  * </pre>
  * 
- * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "", propOrder = { "owner", "ownerLogo", "ownerSiteURL", "ownerContact", "aggregator", "aggregatorLogo",
     "aggregatorSiteURL", "sponsor", "sponsorLogo", "sponsorSiteURL", "license" })
 @XmlRootElement(name = "rights")
@@ -65,18 +61,35 @@ public class Rights {
 
     @XmlElement(required = true)
     protected String owner;
+
     @XmlElement(required = true)
     protected String ownerLogo;
+
     @XmlElement(required = true)
     protected String ownerSiteURL;
+
     @XmlElement(required = true)
     protected String ownerContact;
+
+    @XmlElement
     protected String aggregator;
+
+    @XmlElement
     protected String aggregatorLogo;
+
+    @XmlElement
     protected String aggregatorSiteURL;
+
+    @XmlElement
     protected String sponsor;
+
+    @XmlElement
     protected String sponsorLogo;
+
+    @XmlElement
     protected String sponsorSiteURL;
+
+    @XmlElement
     protected String license;
 
     /**
