@@ -18,7 +18,10 @@
 package org.mycore.libmeta.mycoreclass.model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.mycore.libmeta.common.BuilderBase;
 
@@ -32,6 +35,8 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "id", "labels", "categories" })
 public class Category {
 
+    private static Comparator<Label> COMP_LABELS = Comparator.comparing(Label::getXmlLang);
+
     @XmlAttribute(name = "ID")
     protected String id;
 
@@ -39,7 +44,7 @@ public class Category {
     protected List<Category> categories = new ArrayList<>();
 
     @XmlElement(name = "label")
-    protected List<Label> labels = new ArrayList<>();
+    protected Set<Label> labels = new TreeSet<>(COMP_LABELS);
 
     public String getID() {
         return id;
@@ -53,7 +58,7 @@ public class Category {
         return categories;
     }
 
-    public List<Label> getLabels() {
+    public Set<Label> getLabels() {
         return labels;
     }
 
