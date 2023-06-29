@@ -21,14 +21,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.dfgviewer.model.links.Reference;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
-import jakarta.xml.bind.annotation.XmlValue;
 
 /**
  * <p>Java-Klasse für anonymous complex type.
@@ -71,7 +70,7 @@ import jakarta.xml.bind.annotation.XmlValue;
 public class Links {
 
     @XmlElement(required = true)
-    protected List<Links.Reference> reference;
+    protected List<Reference> reference;
     protected String presentation;
     protected String sru;
     protected String iiif;
@@ -98,9 +97,9 @@ public class Links {
      * 
      * 
      */
-    public List<Links.Reference> getReference() {
+    public List<Reference> getReference() {
         if (reference == null) {
-            reference = new ArrayList<Links.Reference>();
+            reference = new ArrayList<Reference>();
         }
         return this.reference;
     }
@@ -194,89 +193,6 @@ public class Links {
      * 
      * 
      */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "value"
-    })
-    public static class Reference {
-
-        @XmlValue
-        protected String value;
-        @XmlAttribute(name = "linktext")
-        protected String linktext;
-
-        /**
-         * Ruft den Wert der value-Eigenschaft ab.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getValue() {
-            return value;
-        }
-
-        /**
-         * Legt den Wert der value-Eigenschaft fest.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setValue(String value) {
-            this.value = value;
-        }
-
-        /**
-         * Ruft den Wert der linktext-Eigenschaft ab.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getLinktext() {
-            return linktext;
-        }
-
-        /**
-         * Legt den Wert der linktext-Eigenschaft fest.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setLinktext(String value) {
-            this.linktext = value;
-        }
-
-        public static RefBuilder builder() {
-            return builder(new Reference());
-        }
-        
-        public static RefBuilder builder(Reference reference) {
-            return new RefBuilder(reference);
-        }
-        
-        public static class RefBuilder extends BuilderBase<Reference, RefBuilder> {
-            protected RefBuilder(Reference r) {
-                super(r);
-            }
-            
-            public RefBuilder linktext(String linktext) {
-                _target().setLinktext(linktext);
-                return _self();
-            }
-            
-            public RefBuilder value(String value) {
-                _target().setValue(value);
-                return _self();
-            }
-        }
-    }
 
     public static Builder builder() {
         return builder(new Links());
@@ -290,7 +206,7 @@ public class Links {
         protected Builder(Links l) {
             super(l);
         }
-        
+
         public Builder addReference(Reference reference) {
             _target().getReference().add(reference);
             return _self();
@@ -300,16 +216,16 @@ public class Links {
             _target().setIiif(iiif);
             return _self();
         }
-        
+
         public Builder presentation(String presentation) {
             _target().setPresentation(presentation);
             return _self();
         }
-        
+
         public Builder sru(String sru) {
             _target().setSru(sru);
             return _self();
         }
     }
-    
+
 }

@@ -22,7 +22,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.mycore.libmeta.dfgviewer.model.Links;
-import org.mycore.libmeta.dfgviewer.model.Links.Reference;
+import org.mycore.libmeta.dfgviewer.model.links.Reference;
 
 public class DVLinksTest {
 

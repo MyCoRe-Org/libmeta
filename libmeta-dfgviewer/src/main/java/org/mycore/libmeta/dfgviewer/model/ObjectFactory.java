@@ -17,6 +17,8 @@
  */
 package org.mycore.libmeta.dfgviewer.model;
 
+import org.mycore.libmeta.dfgviewer.model.links.Reference;
+
 import jakarta.xml.bind.annotation.XmlRegistry;
 
 /**
@@ -60,11 +62,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Links.Reference }
+     * Create an instance of {@link Reference }
      * 
      */
-    public Links.Reference createLinksReference() {
-        return new Links.Reference();
+    public Reference createLinksReference() {
+        return new Reference();
     }
 
 }
