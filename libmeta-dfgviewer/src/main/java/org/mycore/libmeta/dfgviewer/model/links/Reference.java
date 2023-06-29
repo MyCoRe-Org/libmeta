@@ -26,7 +26,7 @@ import jakarta.xml.bind.annotation.XmlValue;
  * 
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(name = "", propOrder = {"value"})
+@XmlType(name = "", propOrder = {"content"})
 public class Reference {
 
     @XmlValue
