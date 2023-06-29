@@ -30,32 +30,33 @@ import jakarta.xml.bind.annotation.XmlValue;
 public class Reference {
 
     @XmlValue
-    protected String value;
+    protected String content;
+    
     @XmlAttribute(name = "linktext")
     protected String linktext;
 
     /**
-     * Ruft den Wert der value-Eigenschaft ab.
+     * Ruft den Wert der content-Eigenschaft ab.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getValue() {
-        return value;
+    public String getContent() {
+        return content;
     }
 
     /**
-     * Legt den Wert der value-Eigenschaft fest.
+     * Legt den Wert der content-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setValue(String value) {
-        this.value = value;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     /**
@@ -100,8 +101,8 @@ public class Reference {
             return _self();
         }
 
-        public ReferenceBuilder value(String value) {
-            _target().setValue(value);
+        public ReferenceBuilder content(String content) {
+            _target().setContent(content);
             return _self();
         }
     }

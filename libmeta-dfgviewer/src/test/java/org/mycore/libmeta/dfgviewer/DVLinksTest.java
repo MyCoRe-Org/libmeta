@@ -56,11 +56,11 @@ public class DVLinksTest {
     public void testLinksReferences() {
         Reference referenceOpac = Reference.builder()
             .linktext("OPAC")
-            .value("https://opacplus.bsb-muenchen.de/title/BV022758208")
+            .content("https://opacplus.bsb-muenchen.de/title/BV022758208")
             .build();
         Reference referenceMarcXml = Reference.builder()
             .linktext("MARC-XML")
-            .value("https://opacplus.bsb-muenchen.de/title/BV022758208?format=marc")
+            .content("https://opacplus.bsb-muenchen.de/title/BV022758208?format=marc")
             .build();
         
         Links links = Links.builder()
