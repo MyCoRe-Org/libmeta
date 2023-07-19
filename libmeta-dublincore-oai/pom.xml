@@ -9,15 +9,20 @@
     <version>0.8.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>libmeta-dublincore-simple</artifactId>
+  <artifactId>libmeta-dublincore-oai</artifactId>
   
-  <name>LibMeta Dublin Core Simple</name>
-  <description>Java API for Dublin Core Simple metadata model.</description>
+  <name>LibMeta Dublin Core OAI-DC</name>
+  <description>Java API for Dublin Core Simple in OAI 2 metadata model.</description>
   
   <dependencies>
     <dependency>
       <groupId>org.mycore.libmeta</groupId>
       <artifactId>libmeta-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mycore.libmeta</groupId>
+      <artifactId>libmeta-dublincore-simple</artifactId>
+      <version>0.8.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
   
@@ -47,10 +52,10 @@
             <xjbSource>src/main/resources/global.xjb</xjbSource>
           </xjbSources>-->
               <sources>
-                <source>src/main/resources/simpledc20021212.xsd</source>
+                <source>src/main/resources/openarchives.org_OAI_2.0_oai_dc.xsd</source>
               </sources>
               <!-- The package of your generated sources -->
-              <packageName>org.mycore.libmeta.dcsimple.model</packageName>
+              <packageName>org.mycore.libmeta.oaidc.model</packageName>
               <outputDirectory>${project.build.directory}/generated-sources/jaxb</outputDirectory>
               <!--<outputDirectory>${basedir}/src/main/java</outputDirectory>-->
               <clearOutputDir>true</clearOutputDir>
