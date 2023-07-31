@@ -2,8 +2,8 @@
 
 Java APIs and models for Dublin Core Simple metadata XML reading/creation.
 
-Homepage: <https://www.dublincore.org/>
-Specification (XSD): <https://www.dublincore.org/schemas/xmls/simpledc20021212.xsd>
+* Homepage: <https://www.dublincore.org/>
+* Specification (XSD): <https://www.dublincore.org/schemas/xmls/simpledc20021212.xsd>
 
 ## Usage
 
