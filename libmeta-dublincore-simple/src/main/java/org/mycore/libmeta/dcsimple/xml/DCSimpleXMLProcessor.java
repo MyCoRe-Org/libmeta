@@ -143,13 +143,5 @@ public class DCSimpleXMLProcessor implements IXMLProcessor<DCElement> {
     public DCElement unmarshal(URL url) throws Exception {
         return (DCElement) createUnmarshaller().unmarshal(url);
     }
-    
-    public static void main(String[] args) {
-        DCTitle dcTitle= DCTitle.builder().lang("de").value("Hello World!").build();
-        try {
-            System.out.println(DCSimpleXMLProcessor.getInstance().marshalToString(dcTitle));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
 }
