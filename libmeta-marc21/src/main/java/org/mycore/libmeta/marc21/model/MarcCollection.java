@@ -44,7 +44,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "collection", namespace = "http://www.loc.gov/MARC21/slim")
 @XmlAccessorType(XmlAccessType.NONE)
-public class MarcCollection extends MarcObject {
+public class MarcCollection implements MarcObject {
 	/**
 	 * 
 	 */

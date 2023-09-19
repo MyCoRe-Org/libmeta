@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.mycore.libmeta</groupId>
   <artifactId>libmeta-parent</artifactId>
-  <version>0.8.0</version>
+  <version>0.8.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>LibMeta (Java models and serializations for library metadata standards)</name>
   <description>Java API and models for common metadata standards in libraries.</description>
@@ -50,7 +50,7 @@
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-        <version>4.12</version>
+        <version>4.13.1</version>
         <scope>test</scope>
       </dependency>
     </dependencies>
@@ -147,6 +147,7 @@
     <module>libmeta-alto</module>
     <module>libmeta-xlink</module>
     <module>libmeta-common</module>
+    <module>libmeta-dfgviewer</module>
   </modules>
   <profiles>
     <profile>

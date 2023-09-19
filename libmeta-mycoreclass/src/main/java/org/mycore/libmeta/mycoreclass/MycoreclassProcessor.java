@@ -40,22 +40,20 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
 
-
-
-
-public class MycoreclassProcessor implements IXMLProcessor<Mycoreclass>{
+public class MycoreclassProcessor implements IXMLProcessor<Mycoreclass> {
 
     private static final MycoreclassProcessor INSTANCE = new MycoreclassProcessor();
-    
+
     //private constructor to avoid client applications to use constructor
-    private MycoreclassProcessor() {}
-    
+    private MycoreclassProcessor() {
+    }
+
     public static MycoreclassProcessor getInstance() {
         return INSTANCE;
     }
-    
+
     public Document marshalToDOM(Mycoreclass pica) throws Exception {
-        
+
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(true);
         DocumentBuilder db = dbf.newDocumentBuilder();
@@ -67,14 +65,14 @@ public class MycoreclassProcessor implements IXMLProcessor<Mycoreclass>{
         // output pretty printed
         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
         jaxbMarshaller.marshal(pica, doc);
-        
+
         return doc;
     }
 
     public void marshal(Mycoreclass pica, StreamResult streamResult) throws Exception {
         Document doc = marshalToDOM(pica);
         doc.setXmlStandalone(true);
-        
+
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         //transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
         transformer.setOutputProperty(OutputKeys.METHOD, "xml");
@@ -85,7 +83,6 @@ public class MycoreclassProcessor implements IXMLProcessor<Mycoreclass>{
 
         transformer.transform(new DOMSource(doc), streamResult);
     }
-
 
     public void marshal(Mycoreclass pica, Path p) throws Exception {
         StreamResult stream = new StreamResult(Files.newBufferedWriter(p));
@@ -133,7 +130,7 @@ public class MycoreclassProcessor implements IXMLProcessor<Mycoreclass>{
     @Override
     public void marshal(Mycoreclass mc, Path p, String schemaLocations) throws Exception {
         marshal(mc, p);
-        
+
     }
 
     @Override

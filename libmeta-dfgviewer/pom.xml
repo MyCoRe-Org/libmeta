@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.mycore.libmeta</groupId>
+    <artifactId>libmeta-parent</artifactId>
+    <version>0.8.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>libmeta-dfgviewer</artifactId>
+
+  <name>LibMeta DFG-Viewer</name>
+  <description>Java API for DFG-Viewer metadata model.</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.mycore.libmeta</groupId>
+      <artifactId>libmeta-common</artifactId>
+    </dependency>
+  </dependencies>
+
+  <profiles>
+    <profile>
+      <id>generate</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>jaxb2-maven-plugin</artifactId>
+            <version>3.1.0</version>
+            <executions>
+              <execution>
+                <id>xjc</id>
+                <goals>
+                  <goal>xjc</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <!--<xjbSources>
+            <xjbSource>src/main/resources/global.xjb</xjbSource>
+          </xjbSources>-->
+              <sources>
+                <source>src/main/resources/dfg-viewer.xsd</source>
+              </sources>
+              <!-- The package of your generated sources -->
+              <packageName>org.mycore.libmeta.dfgviewer.model</packageName>
+              <outputDirectory>${project.build.directory}/generated-sources/jaxb</outputDirectory>
+              <!--<outputDirectory>${basedir}/src/main/java</outputDirectory>-->
+              <clearOutputDir>true</clearOutputDir>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>

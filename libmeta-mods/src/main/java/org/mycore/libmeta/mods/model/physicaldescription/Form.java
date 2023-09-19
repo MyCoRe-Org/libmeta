@@ -17,6 +17,11 @@
  */
 package org.mycore.libmeta.mods.model.physicaldescription;
 
+import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 
@@ -34,7 +39,8 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Form extends org.mycore.libmeta.mods.model.location.holdingsimple.copyinformation.Form implements IPhysicalDescriptionSubelement {
+public class Form extends org.mycore.libmeta.mods.model.location.holdingsimple.copyinformation.Form
+    implements IPhysicalDescriptionSubelement {
 
     public static Builder builder() {
         return builder(new Form());
@@ -44,9 +50,16 @@ public class Form extends org.mycore.libmeta.mods.model.location.holdingsimple.c
         return new Builder(f);
     }
 
-    public static class Builder extends org.mycore.libmeta.mods.model.location.holdingsimple.copyinformation.Form.Builder {
-        protected Builder(Form f) {
-            super(f);
+    public static class Builder extends BuilderBase<Form, Builder> implements IXsStringBuilder<Form, Builder>,
+        ILanguageAttributeGroupBuilder<Form, Builder>, IAuthorityAttributeGroupBuilder<Form, Builder> {
+
+        protected Builder(Form form) {
+            super(form);
+        }
+
+        public Builder type(String type) {
+            _target().setType(type);
+            return _self();
         }
     }
 }

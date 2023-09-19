@@ -34,61 +34,61 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder = { "id", "labels", "categories" })
 public class Mycoreclass {
-	
-	@XmlAttribute(name = "ID")
-	protected String id;
-	
-	@XmlElementWrapper(name = "categories")
-	@XmlElement(name = "category")
-	protected List<Category> categories = new ArrayList<>();
 
-	@XmlElement(name = "label")
-	protected List<Label> labels = new ArrayList<>();
+    @XmlAttribute(name = "ID")
+    protected String id;
 
-	public String getID() {
-		return id;
-	}
+    @XmlElementWrapper(name = "categories")
+    @XmlElement(name = "category")
+    protected List<Category> categories = new ArrayList<>();
 
-	public void setID(String id) {
-		this.id = id;
-	}
+    @XmlElement(name = "label")
+    protected List<Label> labels = new ArrayList<>();
 
-	public List<Category> getCategories() {
-		return categories;
-	}
+    public String getID() {
+        return id;
+    }
 
-	public List<Label> getLabels() {
-		return labels;
-	}
-	
-	 public static Builder builder() {
-	        return builder(new Mycoreclass());
-	    }
+    public void setID(String id) {
+        this.id = id;
+    }
 
-	    public static Builder builder(Mycoreclass mycoreclass) {
-	        return new Builder(mycoreclass);
-	    }
+    public List<Category> getCategories() {
+        return categories;
+    }
 
-	    public static class Builder extends BuilderBase<Mycoreclass, Builder> {
+    public List<Label> getLabels() {
+        return labels;
+    }
 
-	        protected Builder(Mycoreclass mycoreclass) {
-	            super(mycoreclass);
-	        }
-			
-			public Builder addCategory(Category category) {
-				_target().getCategories().add(category);
-				return _self();
-			}
-			
-			public Builder addLabel(Label label) {
-				_target().getLabels().add(label);
-				return _self();
-			}
-			
-			public  Builder ID(String id) {
-				_target().setID(id);
-				return _self();
-			}
-		}
-	
+    public static Builder builder() {
+        return builder(new Mycoreclass());
+    }
+
+    public static Builder builder(Mycoreclass mycoreclass) {
+        return new Builder(mycoreclass);
+    }
+
+    public static class Builder extends BuilderBase<Mycoreclass, Builder> {
+
+        protected Builder(Mycoreclass mycoreclass) {
+            super(mycoreclass);
+        }
+
+        public Builder addCategory(Category category) {
+            _target().getCategories().add(category);
+            return _self();
+        }
+
+        public Builder addLabel(Label label) {
+            _target().getLabels().add(label);
+            return _self();
+        }
+
+        public Builder ID(String id) {
+            _target().setID(id);
+            return _self();
+        }
+    }
+
 }

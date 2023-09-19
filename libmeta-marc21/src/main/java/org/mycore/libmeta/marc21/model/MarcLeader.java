@@ -53,7 +53,7 @@ import jakarta.xml.bind.annotation.XmlValue;
 
 @XmlRootElement(name = "leader", namespace = "http://www.loc.gov/MARC21/slim")
 @XmlAccessorType(XmlAccessType.NONE)
-public class MarcLeader extends MarcObject {
+public class MarcLeader implements MarcObject {
 
     @XmlValue
     protected String content;

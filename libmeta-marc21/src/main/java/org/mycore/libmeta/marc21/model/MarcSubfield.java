@@ -53,9 +53,9 @@ import jakarta.xml.bind.annotation.XmlValue;
  * 
  */
 
-@XmlRootElement(name = "subfield", namespace = "info:srw/schema/5/picaXML-v1.0")
+@XmlRootElement(name = "subfield", namespace = "http://www.loc.gov/MARC21/slim")
 @XmlAccessorType(XmlAccessType.NONE)
-public class MarcSubfield extends MarcObject {
+public class MarcSubfield implements MarcObject {
 
     @XmlValue
     protected String content;

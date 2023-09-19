@@ -18,7 +18,10 @@
 package org.mycore.libmeta.mycoreclass.model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.mycore.libmeta.common.BuilderBase;
 
@@ -32,32 +35,34 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "id", "labels", "categories" })
 public class Category {
 
-	@XmlAttribute(name = "ID")
-	protected String id;
-	
-	@XmlElement(name = "category")
-	protected List<Category> categories = new ArrayList<>();
-	
-	@XmlElement(name = "label")
-	protected List<Label> labels = new ArrayList<>();
+    private static Comparator<Label> COMP_LABELS = Comparator.comparing(Label::getXmlLang);
 
-	public String getID() {
-		return id;
-	}
+    @XmlAttribute(name = "ID")
+    protected String id;
 
-	public void setID(String id) {
-		this.id = id;
-	}
+    @XmlElement(name = "category")
+    protected List<Category> categories = new ArrayList<>();
 
-	public List<Category> getCategories() {
-		return categories;
-	}
+    @XmlElement(name = "label")
+    protected Set<Label> labels = new TreeSet<>(COMP_LABELS);
 
-	public List<Label> getLabels() {
-		return labels;
-	}
-	
-	public static Builder builder() {
+    public String getID() {
+        return id;
+    }
+
+    public void setID(String id) {
+        this.id = id;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public Set<Label> getLabels() {
+        return labels;
+    }
+
+    public static Builder builder() {
         return builder(new Category());
     }
 
@@ -70,20 +75,20 @@ public class Category {
         protected Builder(Category category) {
             super(category);
         }
-		
-		public Builder addCategory(Category category) {
-			_target().getCategories().add(category);
-			return _self();
-		}
-		
-		public Builder addLabel(Label label) {
-			_target().getLabels().add(label);
-			return _self();
-		}
-		
-		public  Builder ID(String id) {
-			_target().setID(id);
-			return _self();
-		}
-	}
+
+        public Builder addCategory(Category category) {
+            _target().getCategories().add(category);
+            return _self();
+        }
+
+        public Builder addLabel(Label label) {
+            _target().getLabels().add(label);
+            return _self();
+        }
+
+        public Builder ID(String id) {
+            _target().setID(id);
+            return _self();
+        }
+    }
 }
