@@ -38,7 +38,7 @@ public class DCSimpleXMLProcessorTest {
             System.out.println(actual);
 
             System.out.println("---");
-            
+
             String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
                 + "<dc:contributor xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xml:lang=\"de\">Max Meier</dc:contributor>";
             System.out.println(expected);
@@ -62,6 +62,21 @@ public class DCSimpleXMLProcessorTest {
             assertEquals("dc:contributor", nodeName);
             assertEquals("de", lang);
             assertEquals("Max Meier", value);
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testUnMarshalFromString() {
+        String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
+            + "<dc:contributor xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xml:lang=\"de\">Max Meier</dc:contributor>";
+        try {
+            DCElement actual = DCSimpleXMLProcessor.getInstance().unmarshal(xml);
+            assertEquals(actual.getClass(), DCContributor.class);
+            DCContributor ctb = (DCContributor) actual;
+            assertEquals("de", ctb.getLang());
+            assertEquals("Max Meier", ctb.getValue());
         } catch (Exception e) {
             fail(e.getMessage());
         }
