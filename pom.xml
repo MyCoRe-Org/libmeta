@@ -148,6 +148,8 @@
     <module>libmeta-xlink</module>
     <module>libmeta-common</module>
     <module>libmeta-dfgviewer</module>
+    <module>libmeta-dublincore-simple</module>
+    <module>libmeta-dublincore-oai</module>
   </modules>
   <profiles>
     <profile>
