@@ -22,19 +22,17 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.mycore.libmeta.dcsimple.model.DCContributor;
+import org.mycore.libmeta.dcsimple.model.DCElement;
 import org.mycore.libmeta.dcsimple.model.DCTitle;
-import org.mycore.libmeta.dcsimple.model.ElementType;
 import org.mycore.libmeta.oaidc.model.OaiDc;
-
-import jakarta.xml.bind.JAXBElement;
+import org.mycore.libmeta.oaidc.xml.OaiDcXMLProcessor;
 
 public class OaiDcXMLProcessorTest {
 
     @Test
     public void testMarshalToString() {
-        JAXBElement<ElementType> title
-            = DCTitle.builder().value("Using Structural Metadata to Localize Experience of Digital Content").build();
-        JAXBElement<ElementType> contributor = DCContributor.builder().language("de").value("Max Meier").build();
+        DCElement title = DCTitle.builder().value("Using Structural Metadata to Localize Experience of Digital Content").build();
+        DCElement contributor = DCContributor.builder().lang("de").value("Max Meier").build();
 
         OaiDc oaiDc = OaiDc.builder()
             .add(title)

@@ -17,21 +17,25 @@
  */
 package org.mycore.libmeta.dcsimple.model;
 
-import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
-public class DCRelation {
+@XmlRootElement(name = "relation", namespace = "http://purl.org/dc/elements/1.1/")
+@XmlAccessorType(XmlAccessType.NONE)
+public class DCRelation extends DCElement {
 
-    public static DCRelationBuilder builder() {
-        return new DCRelationBuilder();
+    public static Builder builder() {
+        return builder(new DCRelation());
     }
 
-    public static class DCRelationBuilder extends DCElementBuilder<DCRelationBuilder> {
-        protected DCRelationBuilder() {
-            super();
-        }
+    public static Builder builder(DCRelation e) {
+        return new Builder(e);
+    }
 
-        public JAXBElement<ElementType> build() {
-            return dcObjectFactory.createRelation(ElementType.builder().language(language).value(value).build());
+    public static class Builder extends DCElement.Builder<DCRelation, Builder> {
+        protected Builder(DCRelation c) {
+            super(c);
         }
     }
 }

@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.dcsimple;
+package org.mycore.libmeta.dcsimple.xml;
 
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -32,12 +32,12 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.mycore.libmeta.common.IXMLProcessor;
-import org.mycore.libmeta.dcsimple.model.ElementType;
+import org.mycore.libmeta.dcsimple.model.DCElement;
+import org.mycore.libmeta.dcsimple.model.DCTitle;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
 
@@ -47,7 +47,7 @@ import jakarta.xml.bind.Unmarshaller;
  * 
  * therefore we use the XSLT-Transformer for output
  */
-public class DCSimpleXMLProcessor implements IXMLProcessor<JAXBElement<ElementType>> {
+public class DCSimpleXMLProcessor implements IXMLProcessor<DCElement> {
 
     private static final DCSimpleXMLProcessor INSTANCE = new DCSimpleXMLProcessor();
 
@@ -59,18 +59,18 @@ public class DCSimpleXMLProcessor implements IXMLProcessor<JAXBElement<ElementTy
         return INSTANCE;
     }
 
-    public Document marshalToDOM(JAXBElement<ElementType> element) throws Exception {
+    public Document marshalToDOM(DCElement element) throws Exception {
         return marshalToDOM(element, null);
     }
 
-    public Document marshalToDOM(JAXBElement<ElementType> element, String schemaLocations) throws Exception {
+    public Document marshalToDOM(DCElement element, String schemaLocations) throws Exception {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(true);
         dbf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
         DocumentBuilder db = dbf.newDocumentBuilder();
         Document doc = db.newDocument();
 
-        JAXBContext jaxbContext = JAXBContext.newInstance("org.mycore.libmeta.dcsimple.model");
+        JAXBContext jaxbContext = JAXBContext.newInstance(element.getClass());
         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
         if (schemaLocations != null && schemaLocations.length() > 0) {
@@ -83,7 +83,7 @@ public class DCSimpleXMLProcessor implements IXMLProcessor<JAXBElement<ElementTy
         return doc;
     }
 
-    public void marshal(JAXBElement<ElementType> element, StreamResult streamResult, String schemaLocations) throws Exception {
+    public void marshal(DCElement element, StreamResult streamResult, String schemaLocations) throws Exception {
         Document doc = marshalToDOM(element, schemaLocations);
         doc.setXmlStandalone(true);
 
@@ -103,44 +103,53 @@ public class DCSimpleXMLProcessor implements IXMLProcessor<JAXBElement<ElementTy
         transformer.transform(new DOMSource(doc), streamResult);
     }
 
-    public void marshal(JAXBElement<ElementType> element, Path p, String schemaLocations) throws Exception {
+    public void marshal(DCElement element, Path p, String schemaLocations) throws Exception {
         StreamResult stream = new StreamResult(p.toFile());
         marshal(element, stream, schemaLocations);
     }
 
-    public void marshal(JAXBElement<ElementType> element, Path p) throws Exception {
+    public void marshal(DCElement element, Path p) throws Exception {
         marshal(element, p, null);
     }
 
-    public String marshalToString(JAXBElement<ElementType> element, String schemaLocations) throws Exception {
+    public String marshalToString(DCElement element, String schemaLocations) throws Exception {
         StringWriter sw = new StringWriter();
         StreamResult stream = new StreamResult(sw);
         marshal(element, stream, schemaLocations);
         return sw.toString().replaceAll("\\r\\n|\\r", "\n").trim();
     }
 
-    public String marshalToString(JAXBElement<ElementType> element) throws Exception {
+    public String marshalToString(DCElement element) throws Exception {
         return marshalToString(element, null);
     }
 
     private Unmarshaller createUnmarshaller() throws Exception {
-        JAXBContext jaxbContext = JAXBContext.newInstance(JAXBElement.class);
+        JAXBContext jaxbContext = JAXBContext.newInstance("org.mycore.libmeta.dcsimple.model");
         return jaxbContext.createUnmarshaller();
     }
 
-    public JAXBElement<ElementType> unmarshal(Node xml) throws Exception {
-        return (JAXBElement<ElementType>) createUnmarshaller().unmarshal(xml);
+    public DCElement unmarshal(Node xml) throws Exception {
+        return (DCElement) createUnmarshaller().unmarshal(xml);
     }
 
-    public JAXBElement<ElementType> unmarshal(String xml) throws Exception {
-        return (JAXBElement<ElementType>) createUnmarshaller().unmarshal(new StringReader(xml));
+    public DCElement unmarshal(String xml) throws Exception {
+        return (DCElement) createUnmarshaller().unmarshal(new StringReader(xml));
     }
 
-    public JAXBElement<ElementType> unmarshal(Path p) throws Exception {
-        return (JAXBElement<ElementType>) createUnmarshaller().unmarshal(p.toFile());
+    public DCElement unmarshal(Path p) throws Exception {
+        return (DCElement) createUnmarshaller().unmarshal(p.toFile());
     }
 
-    public JAXBElement<ElementType> unmarshal(URL url) throws Exception {
-        return (JAXBElement<ElementType>) createUnmarshaller().unmarshal(url);
+    public DCElement unmarshal(URL url) throws Exception {
+        return (DCElement) createUnmarshaller().unmarshal(url);
+    }
+    
+    public static void main(String[] args) {
+        DCTitle dcTitle= DCTitle.builder().lang("de").value("Hello World!").build();
+        try {
+            System.out.println(DCSimpleXMLProcessor.getInstance().marshalToString(dcTitle));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.oaidc;
+package org.mycore.libmeta.oaidc.xml;
 
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -69,7 +69,7 @@ public class OaiDcXMLProcessor implements IXMLProcessor<OaiDc> {
         DocumentBuilder db = dbf.newDocumentBuilder();
         Document doc = db.newDocument();
 
-        JAXBContext jaxbContext = JAXBContext.newInstance("org.mycore.libmeta.oaidc.model:org.mycore.libmeta.dcsimple.model");
+        JAXBContext jaxbContext = JAXBContext.newInstance(OaiDc.class);
         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
         if (schemaLocations != null && schemaLocations.length() > 0) {

@@ -17,21 +17,25 @@
  */
 package org.mycore.libmeta.dcsimple.model;
 
-import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
-public class DCFormat {
+@XmlRootElement(name = "format", namespace = "http://purl.org/dc/elements/1.1/")
+@XmlAccessorType(XmlAccessType.NONE)
+public class DCFormat extends DCElement {
 
-    public static DCFormatBuilder builder() {
-        return new DCFormatBuilder();
+    public static Builder builder() {
+        return builder(new DCFormat());
     }
 
-    public static class DCFormatBuilder extends DCElementBuilder<DCFormatBuilder> {
-        protected DCFormatBuilder() {
-            super();
-        }
+    public static Builder builder(DCFormat e) {
+        return new Builder(e);
+    }
 
-        public JAXBElement<ElementType> build() {
-            return dcObjectFactory.createFormat(ElementType.builder().language(language).value(value).build());
+    public static class Builder extends DCElement.Builder<DCFormat, Builder> {
+        protected Builder(DCFormat c) {
+            super(c);
         }
     }
 }

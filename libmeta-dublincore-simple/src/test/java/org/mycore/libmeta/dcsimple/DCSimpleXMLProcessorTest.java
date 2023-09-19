@@ -23,18 +23,16 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.mycore.libmeta.dcsimple.model.DCContributor;
-import org.mycore.libmeta.dcsimple.model.ElementType;
-import org.mycore.libmeta.dcsimple.model.ObjectFactory;
+import org.mycore.libmeta.dcsimple.model.DCElement;
+import org.mycore.libmeta.dcsimple.xml.DCSimpleXMLProcessor;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-
-import jakarta.xml.bind.JAXBElement;
 
 public class DCSimpleXMLProcessorTest {
 
     @Test
     public void testMarshalToString() {
-        JAXBElement<ElementType> contributor = DCContributor.builder().language("de").value("Max Meier").build();
+        DCElement contributor = DCContributor.builder().lang("de").value("Max Meier").build();
         try {
             String actual = DCSimpleXMLProcessor.getInstance().marshalToString(contributor);
             System.out.println(actual);
@@ -53,8 +51,7 @@ public class DCSimpleXMLProcessorTest {
 
     @Test
     public void testMarshalToDom() {
-        ObjectFactory dcObjectFactory = new ObjectFactory();
-        JAXBElement<ElementType> contributor = dcObjectFactory.createContributor(ElementType.builder().language("de").value("Max Meier").build());
+        DCElement contributor = DCContributor.builder().lang("de").value("Max Meier").build();
         try {
             Document actual = DCSimpleXMLProcessor.getInstance().marshalToDOM(contributor);
             Element documentElement = actual.getDocumentElement();

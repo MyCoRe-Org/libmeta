@@ -17,21 +17,25 @@
  */
 package org.mycore.libmeta.dcsimple.model;
 
-import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
-public class DCCreator {
+@XmlRootElement(name = "creator", namespace = "http://purl.org/dc/elements/1.1/")
+@XmlAccessorType(XmlAccessType.NONE)
+public class DCCreator extends DCElement {
 
-    public static DCCreatorBuilder builder() {
-        return new DCCreatorBuilder();
+    public static Builder builder() {
+        return builder(new DCCreator());
     }
 
-    public static class DCCreatorBuilder extends DCElementBuilder<DCCreatorBuilder> {
-        protected DCCreatorBuilder() {
-            super();
-        }
+    public static Builder builder(DCCreator e) {
+        return new Builder(e);
+    }
 
-        public JAXBElement<ElementType> build() {
-            return dcObjectFactory.createCreator(ElementType.builder().language(language).value(value).build());
+    public static class Builder extends DCElement.Builder<DCCreator, Builder> {
+        protected Builder(DCCreator c) {
+            super(c);
         }
     }
 }

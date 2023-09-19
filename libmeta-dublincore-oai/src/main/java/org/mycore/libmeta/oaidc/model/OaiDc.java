@@ -17,18 +17,32 @@
  */
 package org.mycore.libmeta.oaidc.model;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Vector;
 
-import org.mycore.libmeta.dcsimple.model.ElementType;
+import org.mycore.libmeta.dcsimple.model.DCContributor;
+import org.mycore.libmeta.dcsimple.model.DCCoverage;
+import org.mycore.libmeta.dcsimple.model.DCCreator;
+import org.mycore.libmeta.dcsimple.model.DCDate;
+import org.mycore.libmeta.dcsimple.model.DCDescription;
+import org.mycore.libmeta.dcsimple.model.DCElement;
+import org.mycore.libmeta.dcsimple.model.DCFormat;
+import org.mycore.libmeta.dcsimple.model.DCIdentifier;
+import org.mycore.libmeta.dcsimple.model.DCLanguage;
+import org.mycore.libmeta.dcsimple.model.DCPublisher;
+import org.mycore.libmeta.dcsimple.model.DCRelation;
+import org.mycore.libmeta.dcsimple.model.DCRights;
+import org.mycore.libmeta.dcsimple.model.DCSource;
+import org.mycore.libmeta.dcsimple.model.DCSubject;
+import org.mycore.libmeta.dcsimple.model.DCTitle;
+import org.mycore.libmeta.dcsimple.model.DCType;
 
-import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlElementRef;
-import jakarta.xml.bind.annotation.XmlElementRefs;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlElements;
 import jakarta.xml.bind.annotation.XmlRootElement;
-import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java-Klasse für oai_dcType complex type.
@@ -64,45 +78,42 @@ import jakarta.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "oai_dcType", namespace = "http://www.openarchives.org/OAI/2.0/oai_dc/", propOrder = {
-    "elements"
-})
 @XmlRootElement(name = "dc")
 public class OaiDc {
 
-    @XmlElementRefs({
-        @XmlElementRef(name = "title", namespace = "http://purl.org/dc/elements/1.1/", type = JAXBElement.class,
+    @XmlElements({
+        @XmlElement(name = "title", namespace = "http://purl.org/dc/elements/1.1/", type = DCTitle.class,
             required = false),
-        @XmlElementRef(name = "creator", namespace = "http://purl.org/dc/elements/1.1/", type = JAXBElement.class,
+        @XmlElement(name = "creator", namespace = "http://purl.org/dc/elements/1.1/", type = DCCreator.class,
             required = false),
-        @XmlElementRef(name = "subject", namespace = "http://purl.org/dc/elements/1.1/", type = JAXBElement.class,
+        @XmlElement(name = "subject", namespace = "http://purl.org/dc/elements/1.1/", type = DCSubject.class,
             required = false),
-        @XmlElementRef(name = "description", namespace = "http://purl.org/dc/elements/1.1/", type = JAXBElement.class,
+        @XmlElement(name = "description", namespace = "http://purl.org/dc/elements/1.1/", type = DCDescription.class,
             required = false),
-        @XmlElementRef(name = "publisher", namespace = "http://purl.org/dc/elements/1.1/", type = JAXBElement.class,
+        @XmlElement(name = "publisher", namespace = "http://purl.org/dc/elements/1.1/", type = DCPublisher.class,
             required = false),
-        @XmlElementRef(name = "contributor", namespace = "http://purl.org/dc/elements/1.1/", type = JAXBElement.class,
+        @XmlElement(name = "contributor", namespace = "http://purl.org/dc/elements/1.1/", type = DCContributor.class,
             required = false),
-        @XmlElementRef(name = "date", namespace = "http://purl.org/dc/elements/1.1/", type = JAXBElement.class,
+        @XmlElement(name = "date", namespace = "http://purl.org/dc/elements/1.1/", type = DCDate.class,
             required = false),
-        @XmlElementRef(name = "type", namespace = "http://purl.org/dc/elements/1.1/", type = JAXBElement.class,
+        @XmlElement(name = "type", namespace = "http://purl.org/dc/elements/1.1/", type = DCType.class,
             required = false),
-        @XmlElementRef(name = "format", namespace = "http://purl.org/dc/elements/1.1/", type = JAXBElement.class,
+        @XmlElement(name = "format", namespace = "http://purl.org/dc/elements/1.1/", type = DCFormat.class,
             required = false),
-        @XmlElementRef(name = "identifier", namespace = "http://purl.org/dc/elements/1.1/", type = JAXBElement.class,
+        @XmlElement(name = "identifier", namespace = "http://purl.org/dc/elements/1.1/", type = DCIdentifier.class,
             required = false),
-        @XmlElementRef(name = "source", namespace = "http://purl.org/dc/elements/1.1/", type = JAXBElement.class,
+        @XmlElement(name = "source", namespace = "http://purl.org/dc/elements/1.1/", type = DCSource.class,
             required = false),
-        @XmlElementRef(name = "language", namespace = "http://purl.org/dc/elements/1.1/", type = JAXBElement.class,
+        @XmlElement(name = "language", namespace = "http://purl.org/dc/elements/1.1/", type = DCLanguage.class,
             required = false),
-        @XmlElementRef(name = "relation", namespace = "http://purl.org/dc/elements/1.1/", type = JAXBElement.class,
+        @XmlElement(name = "relation", namespace = "http://purl.org/dc/elements/1.1/", type = DCRelation.class,
             required = false),
-        @XmlElementRef(name = "coverage", namespace = "http://purl.org/dc/elements/1.1/", type = JAXBElement.class,
+        @XmlElement(name = "coverage", namespace = "http://purl.org/dc/elements/1.1/", type = DCCoverage.class,
             required = false),
-        @XmlElementRef(name = "rights", namespace = "http://purl.org/dc/elements/1.1/", type = JAXBElement.class,
+        @XmlElement(name = "rights", namespace = "http://purl.org/dc/elements/1.1/", type = DCRights.class,
             required = false)
     })
-    protected List<JAXBElement<ElementType>> elements;
+    protected List<DCElement> elements = new Vector<>();
 
     /**
      * Gets the value of the elements property.
@@ -119,30 +130,31 @@ public class OaiDc {
      *    getElements().add(newItem);
      * </pre>
      */
-    public List<JAXBElement<ElementType>> getElements() {
-        if (elements == null) {
-            elements = new ArrayList<JAXBElement<ElementType>>();
-        }
-        return this.elements;
+    public List<DCElement> getElements() {
+        return elements;
     }
 
-    public static OaiDcBuilder builder() {
-        return new OaiDcBuilder();
+    public static Builder builder() {
+        return builder(new OaiDc());
     }
 
-    public static class OaiDcBuilder {
+    public static Builder builder(OaiDc dc) {
+        return new Builder(dc);
+    }
+
+    public static class Builder {
         private OaiDc oaiDc;
 
-        protected OaiDcBuilder() {
-            this.oaiDc = new OaiDc();
+        protected Builder(OaiDc dc) {
+            this.oaiDc = dc;
         }
 
-        public OaiDcBuilder add(JAXBElement<ElementType> element) {
+        public Builder add(DCElement element) {
             oaiDc.getElements().add(element);
             return this;
         }
 
-        public OaiDcBuilder addAll(List<JAXBElement<ElementType>> elements) {
+        public Builder addAll(Collection<DCElement> elements) {
             oaiDc.getElements().addAll(elements);
             return this;
         }

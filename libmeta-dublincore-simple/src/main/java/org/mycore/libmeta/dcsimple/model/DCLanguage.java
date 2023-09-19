@@ -17,21 +17,25 @@
  */
 package org.mycore.libmeta.dcsimple.model;
 
-import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
-public class DCLanguage {
+@XmlRootElement(name = "language", namespace = "http://purl.org/dc/elements/1.1/")
+@XmlAccessorType(XmlAccessType.NONE)
+public class DCLanguage extends DCElement {
 
-    public static DCLanguageBuilder builder() {
-        return new DCLanguageBuilder();
+    public static Builder builder() {
+        return builder(new DCLanguage());
     }
 
-    public static class DCLanguageBuilder extends DCElementBuilder<DCLanguageBuilder> {
-        protected DCLanguageBuilder() {
-            super();
-        }
+    public static Builder builder(DCLanguage e) {
+        return new Builder(e);
+    }
 
-        public JAXBElement<ElementType> build() {
-            return dcObjectFactory.createLanguage(ElementType.builder().language(language).value(value).build());
+    public static class Builder extends DCElement.Builder<DCLanguage, Builder> {
+        protected Builder(DCLanguage c) {
+            super(c);
         }
     }
 }
