@@ -23,7 +23,6 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
-import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -47,10 +46,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "elementType", propOrder = {
-    "value"
-})
-public class ElementType {
+public abstract class DCElement {
 
     @XmlValue
     protected String value;
@@ -107,25 +103,17 @@ public class ElementType {
         this.lang = value;
     }
 
-    public static Builder builder() {
-        return builder(new ElementType());
-    }
-    
-    public static Builder builder(ElementType elementType) {
-        return new Builder(elementType);
-    }
-    
-    public static class Builder extends BuilderBase<ElementType, Builder> {
-        protected Builder(ElementType et) {
-            super(et);
+    public static class Builder<E extends DCElement, B> extends BuilderBase<E, B> {
+        protected Builder(E e) {
+            super(e);
         }
         
-        public Builder language(String language) {
+        public B lang(String language) {
             _target().setLang(language);
             return _self();
         }
         
-        public Builder value(String value) {
+        public B value(String value) {
             _target().setValue(value);
             return _self();
         }

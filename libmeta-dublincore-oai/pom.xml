@@ -7,6 +7,7 @@
     <groupId>org.mycore.libmeta</groupId>
     <artifactId>libmeta-parent</artifactId>
     <version>0.8.1-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
 
   <artifactId>libmeta-dublincore-oai</artifactId>
@@ -22,47 +23,21 @@
     <dependency>
       <groupId>org.mycore.libmeta</groupId>
       <artifactId>libmeta-dublincore-simple</artifactId>
-      <version>0.8.1-SNAPSHOT</version>
+      <version>${project.version}</version>
     </dependency>
   </dependencies>
   
-  <profiles>
-    <profile>
-      <!-- mvn generate-sources -Pgenerate -->
-      <id>generate</id>
-      <activation>
-        <activeByDefault>false</activeByDefault>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>jaxb2-maven-plugin</artifactId>
-            <version>3.1.0</version>
-            <executions>
-              <execution>
-                <id>xjc</id>
-                <goals>
-                  <goal>xjc</goal>
-                </goals>
-              </execution>
-            </executions>
-            <configuration>
-              <!--<xjbSources>
-            <xjbSource>src/main/resources/global.xjb</xjbSource>
-          </xjbSources>-->
-              <sources>
-                <source>src/main/resources/openarchives.org_OAI_2.0_oai_dc.xsd</source>
-              </sources>
-              <!-- The package of your generated sources -->
-              <packageName>org.mycore.libmeta.oaidc.model</packageName>
-              <outputDirectory>${project.build.directory}/generated-sources/jaxb</outputDirectory>
-              <!--<outputDirectory>${basedir}/src/main/java</outputDirectory>-->
-              <clearOutputDir>true</clearOutputDir>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>pl.project13.maven</groupId>
+        <artifactId>git-commit-id-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+  
 </project>

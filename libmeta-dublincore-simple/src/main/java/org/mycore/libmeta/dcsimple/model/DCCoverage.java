@@ -17,21 +17,25 @@
  */
 package org.mycore.libmeta.dcsimple.model;
 
-import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
-public class DCCoverage {
+@XmlRootElement(name = "coverage", namespace = "http://purl.org/dc/elements/1.1/")
+@XmlAccessorType(XmlAccessType.NONE)
+public class DCCoverage extends DCElement {
 
-    public static DCCoverageBuilder builder() {
-        return new DCCoverageBuilder();
+    public static Builder builder() {
+        return builder(new DCCoverage());
     }
 
-    public static class DCCoverageBuilder extends DCElementBuilder<DCCoverageBuilder> {
-        protected DCCoverageBuilder() {
-            super();
-        }
+    public static Builder builder(DCCoverage e) {
+        return new Builder(e);
+    }
 
-        public JAXBElement<ElementType> build() {
-            return dcObjectFactory.createCoverage(ElementType.builder().language(language).value(value).build());
+    public static class Builder extends DCElement.Builder<DCCoverage, Builder> {
+        protected Builder(DCCoverage c) {
+            super(c);
         }
     }
 }

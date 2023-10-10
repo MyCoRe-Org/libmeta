@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.dcsimple;
+package org.mycore.libmeta.oaidc.xml;
 
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -32,12 +32,11 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.mycore.libmeta.common.IXMLProcessor;
-import org.mycore.libmeta.dcsimple.model.ElementType;
+import org.mycore.libmeta.oaidc.model.OaiDc;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
 
@@ -47,30 +46,30 @@ import jakarta.xml.bind.Unmarshaller;
  * 
  * therefore we use the XSLT-Transformer for output
  */
-public class DCSimpleXMLProcessor implements IXMLProcessor<JAXBElement<ElementType>> {
+public class OaiDcXMLProcessor implements IXMLProcessor<OaiDc> {
 
-    private static final DCSimpleXMLProcessor INSTANCE = new DCSimpleXMLProcessor();
+    private static final OaiDcXMLProcessor INSTANCE = new OaiDcXMLProcessor();
 
     //private constructor to avoid client applications to use constructor
-    private DCSimpleXMLProcessor() {
+    private OaiDcXMLProcessor() {
     }
 
-    public static DCSimpleXMLProcessor getInstance() {
+    public static OaiDcXMLProcessor getInstance() {
         return INSTANCE;
     }
 
-    public Document marshalToDOM(JAXBElement<ElementType> element) throws Exception {
+    public Document marshalToDOM(OaiDc element) throws Exception {
         return marshalToDOM(element, null);
     }
 
-    public Document marshalToDOM(JAXBElement<ElementType> element, String schemaLocations) throws Exception {
+    public Document marshalToDOM(OaiDc element, String schemaLocations) throws Exception {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(true);
         dbf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
         DocumentBuilder db = dbf.newDocumentBuilder();
         Document doc = db.newDocument();
 
-        JAXBContext jaxbContext = JAXBContext.newInstance("org.mycore.libmeta.dcsimple.model");
+        JAXBContext jaxbContext = JAXBContext.newInstance(OaiDc.class);
         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
         if (schemaLocations != null && schemaLocations.length() > 0) {
@@ -83,7 +82,7 @@ public class DCSimpleXMLProcessor implements IXMLProcessor<JAXBElement<ElementTy
         return doc;
     }
 
-    public void marshal(JAXBElement<ElementType> element, StreamResult streamResult, String schemaLocations) throws Exception {
+    public void marshal(OaiDc element, StreamResult streamResult, String schemaLocations) throws Exception {
         Document doc = marshalToDOM(element, schemaLocations);
         doc.setXmlStandalone(true);
 
@@ -103,44 +102,44 @@ public class DCSimpleXMLProcessor implements IXMLProcessor<JAXBElement<ElementTy
         transformer.transform(new DOMSource(doc), streamResult);
     }
 
-    public void marshal(JAXBElement<ElementType> element, Path p, String schemaLocations) throws Exception {
+    public void marshal(OaiDc element, Path p, String schemaLocations) throws Exception {
         StreamResult stream = new StreamResult(p.toFile());
         marshal(element, stream, schemaLocations);
     }
 
-    public void marshal(JAXBElement<ElementType> element, Path p) throws Exception {
+    public void marshal(OaiDc element, Path p) throws Exception {
         marshal(element, p, null);
     }
 
-    public String marshalToString(JAXBElement<ElementType> element, String schemaLocations) throws Exception {
+    public String marshalToString(OaiDc element, String schemaLocations) throws Exception {
         StringWriter sw = new StringWriter();
         StreamResult stream = new StreamResult(sw);
         marshal(element, stream, schemaLocations);
         return sw.toString().replaceAll("\\r\\n|\\r", "\n").trim();
     }
 
-    public String marshalToString(JAXBElement<ElementType> element) throws Exception {
+    public String marshalToString(OaiDc element) throws Exception {
         return marshalToString(element, null);
     }
 
     private Unmarshaller createUnmarshaller() throws Exception {
-        JAXBContext jaxbContext = JAXBContext.newInstance(JAXBElement.class);
+        JAXBContext jaxbContext = JAXBContext.newInstance(OaiDc.class);
         return jaxbContext.createUnmarshaller();
     }
 
-    public JAXBElement<ElementType> unmarshal(Node xml) throws Exception {
-        return (JAXBElement<ElementType>) createUnmarshaller().unmarshal(xml);
+    public OaiDc unmarshal(Node xml) throws Exception {
+        return (OaiDc) createUnmarshaller().unmarshal(xml);
     }
 
-    public JAXBElement<ElementType> unmarshal(String xml) throws Exception {
-        return (JAXBElement<ElementType>) createUnmarshaller().unmarshal(new StringReader(xml));
+    public OaiDc unmarshal(String xml) throws Exception {
+        return (OaiDc) createUnmarshaller().unmarshal(new StringReader(xml));
     }
 
-    public JAXBElement<ElementType> unmarshal(Path p) throws Exception {
-        return (JAXBElement<ElementType>) createUnmarshaller().unmarshal(p.toFile());
+    public OaiDc unmarshal(Path p) throws Exception {
+        return (OaiDc) createUnmarshaller().unmarshal(p.toFile());
     }
 
-    public JAXBElement<ElementType> unmarshal(URL url) throws Exception {
-        return (JAXBElement<ElementType>) createUnmarshaller().unmarshal(url);
+    public OaiDc unmarshal(URL url) throws Exception {
+        return (OaiDc) createUnmarshaller().unmarshal(url);
     }
 }

@@ -17,21 +17,25 @@
  */
 package org.mycore.libmeta.dcsimple.model;
 
-import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
-public class DCRights {
+@XmlRootElement(name = "rights", namespace = "http://purl.org/dc/elements/1.1/")
+@XmlAccessorType(XmlAccessType.NONE)
+public class DCRights extends DCElement {
 
-    public static DCRightsBuilder builder() {
-        return new DCRightsBuilder();
+    public static Builder builder() {
+        return builder(new DCRights());
     }
 
-    public static class DCRightsBuilder extends DCElementBuilder<DCRightsBuilder> {
-        protected DCRightsBuilder() {
-            super();
-        }
+    public static Builder builder(DCRights e) {
+        return new Builder(e);
+    }
 
-        public JAXBElement<ElementType> build() {
-            return dcObjectFactory.createRights(ElementType.builder().language(language).value(value).build());
+    public static class Builder extends DCElement.Builder<DCRights, Builder> {
+        protected Builder(DCRights c) {
+            super(c);
         }
     }
 }
