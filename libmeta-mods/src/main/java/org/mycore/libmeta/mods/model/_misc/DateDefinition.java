@@ -17,8 +17,6 @@
  */
 package org.mycore.libmeta.mods.model._misc;
 
-import org.mycore.libmeta.common.BuilderBase;
-import org.mycore.libmeta.mods.model._misc.builder.IDateDefinitionBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.Yes;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 
@@ -139,11 +137,5 @@ public class DateDefinition extends StringPlusLanguage{
 
     public void setCalendar(String calendar) {
         this.calendar = calendar;
-    }
-    
-   public static class Builder extends BuilderBase<DateDefinition, Builder> implements IDateDefinitionBuilder<DateDefinition, Builder>{
-        protected Builder(DateDefinition d) {
-            super(d);
-        }
     }
 }
