@@ -32,26 +32,27 @@ import org.mycore.libmeta.mods.model._misc.IOtherTypeAttributeGroup;
  *
  */
 public interface IOtherTypeAttributeGroupBuilder<T extends IOtherTypeAttributeGroup, B> {
-	public T _target();
-	public B _self();
-	
-	public default B otherType(String otherType) {
-		_target().setOtherType(otherType);
-		return _self();
-	}
-	
-	public default B otherTypeURI(String otherTypeURI) {
+    public T _target();
+
+    public B _self();
+
+    public default B otherType(String otherType) {
+        _target().setOtherType(otherType);
+        return _self();
+    }
+
+    public default B otherTypeURI(String otherTypeURI) {
         _target().setOtherTypeURI(otherTypeURI);
         return _self();
     }
-	
-	public default B otherTypeAuth(String otherTypeAuth) {
-		_target().setOtherTypeAuth(otherTypeAuth);
-		return _self();
-	}
-	
-	public default B otherTypeAuthURI(String otherTypeAuthURI) {
+
+    public default B otherTypeAuth(String otherTypeAuth) {
+        _target().setOtherTypeAuth(otherTypeAuth);
+        return _self();
+    }
+
+    public default B otherTypeAuthURI(String otherTypeAuthURI) {
         _target().setOtherTypeAuthURI(otherTypeAuthURI);
-		return _self();
-	}
+        return _self();
+    }
 }

@@ -23,14 +23,20 @@ package org.mycore.libmeta.mods.model._misc;
  *
  */
 public interface IOtherTypeAttributeGroup {
-	public String getOtherType();
-	public String getOtherTypeURI();
-	public String getOtherTypeAuth();
-	public String getOtherTypeAuthURI();
-	
-	public void setOtherType(String otherType);
-	public void setOtherTypeURI(String otherTypeURI);
-	public void setOtherTypeAuth(String otherTypeAuth);
-	public void setOtherTypeAuthURI(String otherTypeAuthURI);
-	
+    public String getOtherType();
+
+    public String getOtherTypeURI();
+
+    public String getOtherTypeAuth();
+
+    public String getOtherTypeAuthURI();
+
+    public void setOtherType(String otherType);
+
+    public void setOtherTypeURI(String otherTypeURI);
+
+    public void setOtherTypeAuth(String otherTypeAuth);
+
+    public void setOtherTypeAuthURI(String otherTypeAuthURI);
+
 }
