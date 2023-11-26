@@ -46,6 +46,12 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 @XmlAccessorType(XmlAccessType.NONE)
 public class PlaceTerm extends StringPlusLanguagePlusAuthority {
     
+    public static final String AUTHORITY__MARCGAC = "marcgac";
+    
+    public static final String AUTHORITY__MARCCOUNTRY = "marccountry";
+    
+    public static final String AUTHORITY__ISO3166 = "iso3166";
+    
     @XmlAttribute(name="type", required=false)
     CodeOrText type;
 

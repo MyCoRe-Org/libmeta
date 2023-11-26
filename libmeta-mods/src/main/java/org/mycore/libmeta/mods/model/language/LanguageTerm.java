@@ -45,6 +45,16 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class LanguageTerm extends StringPlusLanguagePlusAuthority implements ILanguageSubelement {
+    
+    public static final String AUTHORITY__RFC3066 = "rfc3066";
+    
+    public static final String AUTHORITY__ISO639_2B = "iso639-2b";
+    
+    public static final String AUTHORITY__ISO639_3 = "iso639-3";
+    
+    public static final String AUTHORITY__VALUE_RFC4646 = "rfc4646";
+    
+    public static final String AUTHORITY__RFC5646 = "rfc5646";
 
     @XmlAttribute(name="type", required=false)
     CodeOrText type;

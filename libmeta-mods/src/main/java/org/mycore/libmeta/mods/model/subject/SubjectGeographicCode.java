@@ -45,6 +45,12 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class SubjectGeographicCode extends StringPlusLanguagePlusAuthority {
+    
+    public static final String AUTHORITY__MARCGAC = "marcgac";
+    
+    public static final String AUTHORITY__MARCCOUNTRY = "marccountry";
+    
+    public static final String AUTHORITY__ISO3166 = "iso3166";
 
 	public static Builder builder() {
 		return new Builder(new SubjectGeographicCode());
