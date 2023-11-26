@@ -19,8 +19,10 @@ package org.mycore.libmeta.mods.model._toplevel;
 
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.IAltFormatAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.IAuthorityAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAltFormatAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IExtensionBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
@@ -53,7 +55,8 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 
 @XmlAccessorType(XmlAccessType.NONE)
 public class AccessCondition extends Extension
-    implements ITopLevelElement, IAttributeGroupXlinkSimpleLink, IAltFormatAttributeGroup, ILanguageAttributeGroup {
+    implements ITopLevelElement, IAttributeGroupXlinkSimpleLink, IAltFormatAttributeGroup, ILanguageAttributeGroup,
+    IAuthorityAttributeGroup {
 
     // attributeGroup xlink:simpleLink - begin
 
@@ -109,6 +112,21 @@ public class AccessCondition extends Extension
 
     @XmlAttribute(name = "contentType")
     protected String contentType;
+    
+    // end: altFormatAttributeGroup
+    
+    // IAuthorityAttributeGroup - begin
+
+    @XmlAttribute(name = "authority")
+    protected String authority;
+
+    @XmlAttribute(name = "authorityURI")
+    protected String authorityURI;
+
+    @XmlAttribute(name = "valueURI")
+    protected String valueURI;
+
+    //IAuthorityAttributeGroup - end
 
     public String getXlinkType() {
         return xlinkType;
@@ -231,6 +249,30 @@ public class AccessCondition extends Extension
     }
 
     // end: altFormatAttributeGroup
+    
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
+    }
+
+    public String getAuthorityURI() {
+        return authorityURI;
+    }
+
+    public void setAuthorityURI(String authorityURI) {
+        this.authorityURI = authorityURI;
+    }
+
+    public String getValueURI() {
+        return valueURI;
+    }
+
+    public void setValueURI(String valueURI) {
+        this.valueURI = valueURI;
+    }
 
     //TODO: Better to use Builder builder() -> same as in Extension - create ExtensionBase class?
     public static Builder builderForAccessCondition() {
@@ -241,8 +283,12 @@ public class AccessCondition extends Extension
         return new Builder(ac);
     }
 
-    public static class Builder extends BuilderBase<AccessCondition, Builder> implements
-        IExtensionBuilder<AccessCondition, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<AccessCondition, Builder>, IAltFormatAttributeGroupBuilder<AccessCondition, Builder>, ILanguageAttributeGroupBuilder<AccessCondition, Builder> {
+    public static class Builder extends BuilderBase<AccessCondition, Builder> 
+        implements IExtensionBuilder<AccessCondition, Builder>, 
+        IAttributeGroupXlinkSimpleLinkBuilder<AccessCondition, Builder>,
+        IAltFormatAttributeGroupBuilder<AccessCondition, Builder>,
+        ILanguageAttributeGroupBuilder<AccessCondition, Builder>,
+        IAuthorityAttributeGroupBuilder<AccessCondition, Builder> {
 
         protected Builder(AccessCondition spl) {
             super(spl);
