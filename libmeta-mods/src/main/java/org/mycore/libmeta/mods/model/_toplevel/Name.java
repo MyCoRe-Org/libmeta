@@ -18,6 +18,7 @@
 package org.mycore.libmeta.mods.model._toplevel;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.INameSubelement;
 import org.mycore.libmeta.mods.model._misc.NameDefinition;
 import org.mycore.libmeta.mods.model._misc.builder.INameDefinitionBuilder;
 
@@ -101,7 +102,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Name extends NameDefinition implements ITopLevelElement {
+public class Name extends NameDefinition<INameSubelement> implements ITopLevelElement {
 
     public static Builder builder() {
         return builder(new Name());
@@ -112,7 +113,7 @@ public class Name extends NameDefinition implements ITopLevelElement {
     }
 
     public static class Builder extends BuilderBase<Name, Builder>
-        implements INameDefinitionBuilder<Name, Builder> {
+        implements INameDefinitionBuilder<INameSubelement, Name, Builder> {
 
         protected Builder(Name name) {
             super(name);

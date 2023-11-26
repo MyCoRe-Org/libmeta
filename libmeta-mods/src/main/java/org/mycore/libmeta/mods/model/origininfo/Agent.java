@@ -18,6 +18,7 @@
 package org.mycore.libmeta.mods.model.origininfo;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IAgentSubelement;
 import org.mycore.libmeta.mods.model._misc.NameDefinition;
 import org.mycore.libmeta.mods.model._misc.builder.INameDefinitionBuilder;
 
@@ -36,7 +37,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Agent extends NameDefinition implements IOriginInfoSubelement {
+public class Agent extends NameDefinition<IAgentSubelement> implements IOriginInfoSubelement {
 
     public static Builder builder() {
         return Agent.builder(new Agent());
@@ -47,7 +48,7 @@ public class Agent extends NameDefinition implements IOriginInfoSubelement {
     }
 
     public static class Builder extends BuilderBase<Agent, Builder>
-        implements INameDefinitionBuilder<Agent, Builder> {
+        implements INameDefinitionBuilder<IAgentSubelement, Agent, Builder> {
 
         protected Builder(Agent agent) {
             super(agent);

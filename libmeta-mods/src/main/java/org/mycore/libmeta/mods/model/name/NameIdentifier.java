@@ -18,15 +18,17 @@
 package org.mycore.libmeta.mods.model.name;
 
 import org.mycore.libmeta.common.BuilderBase;
-import org.mycore.libmeta.mods.model._misc.INameDefinitionSubelement;
+import org.mycore.libmeta.mods.model._misc.IAlternativeNameSubelement;
+import org.mycore.libmeta.mods.model._misc.INameSubelement;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.Yes;
 import org.mycore.libmeta.mods.model._toplevel.Identifier;
 import org.mycore.libmeta.mods.model.subject.name.ISubjectNameSubelement;
 
-public class NameIdentifier extends Identifier implements INameDefinitionSubelement, ISubjectNameSubelement {
-    
+public class NameIdentifier extends Identifier
+    implements INameSubelement, IAlternativeNameSubelement, ISubjectNameSubelement {
+
     public static Builder builder() {
         return builder(new NameIdentifier());
     }
@@ -40,11 +42,12 @@ public class NameIdentifier extends Identifier implements INameDefinitionSubelem
      *
      * @see Identifier.Builder for implementation details
      */
-    public static class Builder extends BuilderBase<NameIdentifier, Builder> implements IXsStringBuilder<NameIdentifier, Builder>,  ILanguageAttributeGroupBuilder<NameIdentifier, Builder> {
+    public static class Builder extends BuilderBase<NameIdentifier, Builder>
+        implements IXsStringBuilder<NameIdentifier, Builder>, ILanguageAttributeGroupBuilder<NameIdentifier, Builder> {
         protected Builder(NameIdentifier spl) {
             super(spl);
         }
-        
+
         public Builder displayLabel(String displayLabel) {
             _target().setDisplayLabel(displayLabel);
             return _self();

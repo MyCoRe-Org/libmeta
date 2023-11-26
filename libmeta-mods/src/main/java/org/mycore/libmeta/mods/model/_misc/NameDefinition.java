@@ -117,7 +117,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public abstract class NameDefinition
+public abstract class NameDefinition<S extends INameDefinitionSubelement>
     implements IAuthorityAttributeGroup, IAttributeGroupXlinkSimpleLink, ILanguageAttributeGroup {
 
     @XmlElements({ @XmlElement(name = "namePart", namespace = "http://www.loc.gov/mods/v3", type = NamePart.class),
@@ -130,7 +130,7 @@ public abstract class NameDefinition
         
         /** @version MODS 3.7 */
          @XmlElement(name = "alternativeName", namespace = "http://www.loc.gov/mods/v3", type = AlternativeName.class) })
-    protected List<INameDefinitionSubelement> content = new Vector<>();
+    protected List<S> content = new Vector<>();
 
     @XmlAttribute(name = "ID")
     protected String ID;
@@ -231,7 +231,7 @@ public abstract class NameDefinition
     @XmlAttribute(name = "type")
     protected NameType type;
 
-    public List<INameDefinitionSubelement> getContent() {
+    public List<S> getContent() {
         return content;
     }
 
