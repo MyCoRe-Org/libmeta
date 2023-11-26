@@ -24,8 +24,12 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  *  valid codes for authority attribute
  *  on /subject/geographicCode
  *  
+ *  The restriction was lifted in MODS 3.8
+ *  
  * @author Robert Stephan
- * @version MODS 3.6
+ * @version MODS 3.6 - MODS 3.7
+ * 
+ *  
  * 
  */
 @XmlEnum
@@ -33,4 +37,8 @@ public enum GeographicCodeAuthority {
 	@XmlEnumValue("marcgac") MARC_GAC, 
 	@XmlEnumValue("marccountry") MARC_COUNTRY,
 	@XmlEnumValue("iso3166") ISO_3166;
+
+    public static final String VALUE_MARCGAC = "marcgac";
+    public static final String VALUE_MARCCOUNTRY = "marccountry";
+    public static final String VALUE_ISO3166 = "iso3166";
 }

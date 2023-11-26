@@ -34,9 +34,11 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  *   </xs:simpleType>
  * </xs:attribute>
  * }
+ * 
+ * The restriction was lifted in MODS 3.8
  *   
  * @author Robert Stephan
- * @version MODS 3.6
+ * @version MODS 3.6 - MODS 3.7
  * 
  */
 @XmlEnum
@@ -46,4 +48,10 @@ public enum LanguageTermAuthority {
 	@XmlEnumValue("iso639-3") ISO639_3,
 	@XmlEnumValue("rfc4646") RFC4646,
 	@XmlEnumValue("rfc5646") RFC5646;
+	
+	public static final String VALUE_RFC3066 = "rfc3066";
+	public static final String VALUE_ISO639_2B = "iso639-2b";
+	public static final String VALUE_ISO639_3 = "iso639-3";
+	public static final String VALUE_RFC4646 = "rfc4646";
+	public static final String VALUE_RFC5646 = "rfc5646";
 }

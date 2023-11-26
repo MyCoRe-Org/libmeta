@@ -33,14 +33,19 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  *
  *  used by authority attribute for placeDefinition and geographic
  *  
+ * The restriction was lifted in MODS 3.8
  * 
  * @author Robert Stephan
- * @version MODS 3.6
+ * @version MODS 3.6 - MODS 3.7
  * 
  */
 @XmlEnum
 public enum PlaceTermAuthority {
-	@XmlEnumValue("marcgac") MARCGAC,
-	@XmlEnumValue("marccountry") MARCCOUNTRY,
-	@XmlEnumValue("iso3166") ISO3166;
+    @XmlEnumValue("marcgac") MARCGAC,
+    @XmlEnumValue("marccountry") MARCCOUNTRY,
+    @XmlEnumValue("iso3166") ISO3166;
+
+    public static final String VALUE_MARCGAC = "marcgac";
+    public static final String VALUE_MARCCOUNTRY = "marccountry";
+    public static final String VALUE_ISO3166 = "iso3166";
 }
