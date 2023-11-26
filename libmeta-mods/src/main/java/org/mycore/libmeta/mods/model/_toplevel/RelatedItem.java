@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IOtherTypeAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IOtherTypeAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.RelatedItemType;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
@@ -77,7 +79,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class RelatedItem implements ITopLevelElement, IAttributeGroupXlinkSimpleLink {
+public class RelatedItem implements ITopLevelElement, IOtherTypeAttributeGroup, IAttributeGroupXlinkSimpleLink {
 
     /**
      * {@code 
@@ -334,7 +336,9 @@ public class RelatedItem implements ITopLevelElement, IAttributeGroupXlinkSimple
         return new Builder(relItem);
     }
 
-    public static class Builder extends BuilderBase<RelatedItem, Builder> implements IAttributeGroupXlinkSimpleLinkBuilder<RelatedItem, Builder> {
+    public static class Builder extends BuilderBase<RelatedItem, Builder> 
+        implements IAttributeGroupXlinkSimpleLinkBuilder<RelatedItem, Builder>,
+        IOtherTypeAttributeGroupBuilder<IOtherTypeAttributeGroup, Builder> {
         protected Builder(RelatedItem relItem) {
             super(relItem);
         }
@@ -346,26 +350,6 @@ public class RelatedItem implements ITopLevelElement, IAttributeGroupXlinkSimple
         
         public Builder xlinkType(String xlinkType) {
             _target().setXlinkType(xlinkType);
-            return this;
-        }
-
-        public Builder otherType(String otherType) {
-            _target().setOtherType(otherType);
-            return this;
-        }
-
-        public Builder otherTypeAuth(String authorityURI) {
-            _target().setOtherTypeAuth(authorityURI);
-            return this;
-        }
-
-        public Builder otherTypeAuthURI(String otherTypeAuthURI) {
-            _target().setOtherTypeAuthURI(otherTypeAuthURI);
-            return this;
-        }
-
-        public Builder otherTypeURI(String otherTypeURI) {
-            _target().setOtherTypeURI(otherTypeURI);
             return this;
         }
 
