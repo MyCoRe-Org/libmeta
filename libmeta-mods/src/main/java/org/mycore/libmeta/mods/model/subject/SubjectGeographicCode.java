@@ -18,14 +18,13 @@
 package org.mycore.libmeta.mods.model.subject;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
-import org.mycore.libmeta.mods.model._misc.enums.GeographicCodeAuthority;
-import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
+import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguagePlusAuthority;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
  *  MODS Subject Subelement {@literal <geographicCode>}
@@ -33,63 +32,26 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *  {@code
  *  <xs:complexType name="geographicCodeDefinition">
  *		<xs:simpleContent>
- *			<xs:extension base="stringPlusLanguage">
- *				<xs:attribute name="authorityURI" type="xs:anyURI"/>
- *				<xs:attribute name="valueURI" type="xs:anyURI"/>
- *				<xs:attribute name="authority">
- *					<xs:simpleType>
- *						<xs:restriction base="xs:string">
- *							<xs:enumeration value="marcgac"/>
- *							<xs:enumeration value="marccountry"/>
- *							<xs:enumeration value="iso3166"/>
- *						</xs:restriction>
- *					</xs:simpleType>
- *				</xs:attribute>
- *			</xs:extension>
+ *			<xs:extension base="stringPlusLanguagePlusAuthority">
+ *              <xs:attribute name="type" type="codeOrText"/>
+ *          </xs:extension>
  *		</xs:simpleContent>
  *	</xs:complexType>
  *  }
  * 
  * @author Robert Stephan
- * @version MODS 3.6
+ * @version MODS 3.6 / modified in MODS 3.8
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class SubjectGeographicCode extends StringPlusLanguage {
+public class SubjectGeographicCode extends StringPlusLanguagePlusAuthority {
+    
+    public static final String AUTHORITY__MARCGAC = "marcgac";
+    
+    public static final String AUTHORITY__MARCCOUNTRY = "marccountry";
+    
+    public static final String AUTHORITY__ISO3166 = "iso3166";
 
-	 @XmlAttribute(name="authority", required=false)
-	 protected GeographicCodeAuthority authority;
-	
-	 @XmlAttribute(name="authorityURI", required=false)
-	 protected String authorityURI;
-
-	 @XmlAttribute(name="valueURI", required=false)
-	 protected String valueURI;
-	 
-	public GeographicCodeAuthority getAuthority() {
-		return authority;
-	}
-
-	public void setAuthority(GeographicCodeAuthority authority) {
-		this.authority = authority;
-	}
-
-	public String getAuthorityURI() {
-		return authorityURI;
-	}
-
-	public void setAuthorityURI(String authorityURI) {
-		this.authorityURI = authorityURI;
-	}
-
-	public String getValueURI() {
-		return valueURI;
-	}
-
-	public void setValueURI(String valueURI) {
-		this.valueURI = valueURI;
-	}
-	
 	public static Builder builder() {
 		return new Builder(new SubjectGeographicCode());
 	}
@@ -98,24 +60,13 @@ public class SubjectGeographicCode extends StringPlusLanguage {
 		return new Builder(sgc);
 	}
 	
-	public static class Builder extends BuilderBase<SubjectGeographicCode, Builder> implements IXsStringBuilder<SubjectGeographicCode, Builder>, ILanguageAttributeGroupBuilder<SubjectGeographicCode, Builder> {
-		 protected Builder(SubjectGeographicCode sgc) {
+	public static class Builder extends BuilderBase<SubjectGeographicCode, Builder> 
+	    implements IXsStringBuilder<SubjectGeographicCode, Builder>,
+	    ILanguageAttributeGroupBuilder<SubjectGeographicCode, Builder>,
+	    IAuthorityAttributeGroupBuilder<SubjectGeographicCode, Builder> {
+		
+	    protected Builder(SubjectGeographicCode sgc) {
 			super(sgc);
 		}
-
-		 public Builder authority(GeographicCodeAuthority authority) {
-	    	_target().setAuthority(authority);
-	    	return _self();
-	    }
-	    
-	    public Builder authorityURI(String authorityURI) {
-	    	_target().setAuthorityURI(authorityURI);
-	    	return _self();
-	    }
-	    
-	    public Builder valueURI(String valueURI) {
-	    	_target().setValueURI(valueURI);
-	    	return _self();
-	    }
 	}
 }
