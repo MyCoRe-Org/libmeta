@@ -18,6 +18,7 @@
 package org.mycore.libmeta.mods.model.name;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.INameSubelement;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;

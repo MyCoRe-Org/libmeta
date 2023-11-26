@@ -18,12 +18,15 @@
 package org.mycore.libmeta.mods.model.name;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IAlternativeNameSubelement;
+import org.mycore.libmeta.mods.model._misc.INameSubelement;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 import org.mycore.libmeta.mods.model.subject.name.ISubjectNameSubelement;
 
-public class DisplayForm extends StringPlusLanguage implements INameSubelement, ISubjectNameSubelement {
+public class DisplayForm extends StringPlusLanguage
+    implements INameSubelement, IAlternativeNameSubelement, ISubjectNameSubelement {
 
     public static Builder builder() {
         return builder(new DisplayForm());
@@ -33,7 +36,8 @@ public class DisplayForm extends StringPlusLanguage implements INameSubelement, 
         return new Builder(d);
     }
 
-    public static class Builder extends BuilderBase<DisplayForm, Builder> implements IXsStringBuilder<DisplayForm, Builder>, ILanguageAttributeGroupBuilder<DisplayForm, Builder> {
+    public static class Builder extends BuilderBase<DisplayForm, Builder>
+        implements IXsStringBuilder<DisplayForm, Builder>, ILanguageAttributeGroupBuilder<DisplayForm, Builder> {
 
         protected Builder(DisplayForm d) {
             super(d);
