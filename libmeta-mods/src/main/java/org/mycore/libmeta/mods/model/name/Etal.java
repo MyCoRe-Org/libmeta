@@ -18,6 +18,7 @@
 package org.mycore.libmeta.mods.model.name;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.INameDefinitionSubelement;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
@@ -32,7 +33,7 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
  * @author stephan
  *
  */
-public class Etal extends StringPlusLanguage implements INameSubelement {
+public class Etal extends StringPlusLanguage implements INameDefinitionSubelement {
     
     public static Builder builder() {
         return builder(new Etal());

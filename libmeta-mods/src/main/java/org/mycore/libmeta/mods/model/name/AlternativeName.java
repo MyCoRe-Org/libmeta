@@ -22,6 +22,7 @@ import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.INameDefinitionSubelement;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
@@ -60,7 +61,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class AlternativeName
-    implements IAttributeGroupXlinkSimpleLink, ILanguageAttributeGroup {
+    implements INameDefinitionSubelement, IAttributeGroupXlinkSimpleLink, ILanguageAttributeGroup {
 
     //well-known values for altType attribute
     public static final String ALT_TYPE_FORMAL_NAME="formal name";
@@ -76,7 +77,7 @@ public class AlternativeName
         @XmlElement(name = "role", namespace = "http://www.loc.gov/mods/v3", type = Role.class),
         @XmlElement(name = "description", namespace = "http://www.loc.gov/mods/v3", type = Description.class),
         @XmlElement(name = "nameIdentifier", namespace = "http://www.loc.gov/mods/v3", type = NameIdentifier.class) })
-    protected List<INameSubelement> content = new Vector<>();
+    protected List<INameDefinitionSubelement> content = new Vector<>();
   
     //IXlinkSimpleLinkAttributeGroup - begin
 
@@ -152,7 +153,7 @@ public class AlternativeName
     @XmlAttribute(name = "altType")
     protected String altType;
 
-    public List<INameSubelement> getContent() {
+    public List<INameDefinitionSubelement> getContent() {
         return content;
     }
 
@@ -267,7 +268,7 @@ public class AlternativeName
             super(name);
         }
 
-        public Builder addContent(INameSubelement content) {
+        public Builder addContent(INameDefinitionSubelement content) {
             _target().getContent().add(content);
             return _self();
         }

@@ -18,13 +18,14 @@
 package org.mycore.libmeta.mods.model.name;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.INameDefinitionSubelement;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.Yes;
 import org.mycore.libmeta.mods.model._toplevel.Identifier;
 import org.mycore.libmeta.mods.model.subject.name.ISubjectNameSubelement;
 
-public class NameIdentifier extends Identifier implements INameSubelement, ISubjectNameSubelement {
+public class NameIdentifier extends Identifier implements INameDefinitionSubelement, ISubjectNameSubelement {
     
     public static Builder builder() {
         return builder(new NameIdentifier());
