@@ -117,7 +117,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class NameDefinition
+public abstract class NameDefinition
     implements IAuthorityAttributeGroup, IAttributeGroupXlinkSimpleLink, ILanguageAttributeGroup {
 
     @XmlElements({ @XmlElement(name = "namePart", namespace = "http://www.loc.gov/mods/v3", type = NamePart.class),

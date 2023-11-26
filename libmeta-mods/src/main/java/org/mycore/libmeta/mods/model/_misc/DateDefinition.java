@@ -66,7 +66,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  * @version MODS 3.7 (calendar attribute added)
  *
  */
-public class DateDefinition extends StringPlusLanguage{
+public abstract class DateDefinition extends StringPlusLanguage{
 
     /**
      * {@code
