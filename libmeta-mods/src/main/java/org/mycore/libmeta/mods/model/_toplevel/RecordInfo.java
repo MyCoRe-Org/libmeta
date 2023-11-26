@@ -23,6 +23,7 @@ import java.util.Vector;
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.enums.Usage;
 import org.mycore.libmeta.mods.model.recordinfo.DescriptionStandard;
 import org.mycore.libmeta.mods.model.recordinfo.IRecordInfoSubelement;
 import org.mycore.libmeta.mods.model.recordinfo.LanguageOfCataloging;
@@ -94,6 +95,9 @@ public class RecordInfo implements ITopLevelElement, ILanguageAttributeGroup {
 
     @XmlAttribute(name = "altRepGroup")
     protected String altRepGroup;
+    
+    @XmlAttribute(name = "usage")
+    protected Usage usage;
 
     public List<IRecordInfoSubelement> getContent() {
         return recordInfoElement;
@@ -159,6 +163,14 @@ public class RecordInfo implements ITopLevelElement, ILanguageAttributeGroup {
         return new Builder(spl);
     }
     
+    public Usage getUsage() {
+        return usage;
+    }
+
+    public void setUsage(Usage usage) {
+        this.usage = usage;
+    }
+    
     public static class Builder extends BuilderBase<RecordInfo, Builder> implements ILanguageAttributeGroupBuilder<RecordInfo, Builder>{
             
         protected Builder(RecordInfo ri) {
@@ -177,6 +189,11 @@ public class RecordInfo implements ITopLevelElement, ILanguageAttributeGroup {
         
         public Builder altRepGroup(String altRepGroup) {
             _target().setAltRepGroup(altRepGroup);
+            return _self();
+        }
+        
+        public Builder usage(Usage usage) {
+            _target().setUsage(usage);
             return _self();
         }
     }
