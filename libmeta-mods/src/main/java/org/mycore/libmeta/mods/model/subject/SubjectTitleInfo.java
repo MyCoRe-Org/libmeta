@@ -26,7 +26,7 @@ import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
-import org.mycore.libmeta.mods.model._misc.enums.SubjectTitleInfoType;
+import org.mycore.libmeta.mods.model._misc.enums.TitleInfoType;
 import org.mycore.libmeta.mods.model.subject.titleInfo.ISubjectTitleInfoSubelement;
 import org.mycore.libmeta.mods.model.titleInfo.NonSort;
 import org.mycore.libmeta.mods.model.titleInfo.PartName;
@@ -88,7 +88,7 @@ public class SubjectTitleInfo implements ISubjectSubelement, IIDAttributeGroup, 
     protected List<ISubjectTitleInfoSubelement> content = new Vector<>();
 
     @XmlAttribute(name = "type", required = false)
-    protected SubjectTitleInfoType type;
+    protected TitleInfoType type;
 
     @XmlAttribute(name = "displayLabel", required = false)
     protected String displayLabel;
@@ -171,11 +171,11 @@ public class SubjectTitleInfo implements ISubjectSubelement, IIDAttributeGroup, 
         this.content = content;
     }
 
-    public SubjectTitleInfoType getType() {
+    public TitleInfoType getType() {
         return type;
     }
 
-    public void setType(SubjectTitleInfoType type) {
+    public void setType(TitleInfoType type) {
         this.type = type;
     }
 
@@ -326,7 +326,7 @@ public class SubjectTitleInfo implements ISubjectSubelement, IIDAttributeGroup, 
             return _self();
         }
 
-        public Builder type(SubjectTitleInfoType type) {
+        public Builder type(TitleInfoType type) {
             _target().setType(type);
             return _self();
         }
