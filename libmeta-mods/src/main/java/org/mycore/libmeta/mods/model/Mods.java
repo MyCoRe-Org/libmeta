@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._toplevel.Abstract;
 import org.mycore.libmeta.mods.model._toplevel.AccessCondition;
 import org.mycore.libmeta.mods.model._toplevel.Classification;
@@ -78,7 +80,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name = "mods", namespace = "http://www.loc.gov/mods/v3")
 @XmlAccessorType(XmlAccessType.NONE)
-public class Mods {
+public class Mods implements IIDAttributeGroup {
     @XmlElements({
         @XmlElement(name = "abstract", namespace = "http://www.loc.gov/mods/v3", type = Abstract.class),
         @XmlElement(name = "accessCondition", namespace = "http://www.loc.gov/mods/v3", type = AccessCondition.class),
@@ -103,13 +105,11 @@ public class Mods {
 
     protected List<ITopLevelElement> toplevel = new Vector<>();
 
-    /**
-     * {@code
-     * <xs:attribute name="ID" type="xs:ID"/>
-     * }
-     */
     @XmlAttribute(name = "ID")
     protected String ID;
+    
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
     @XmlAttribute(name = "version")
     protected ModsVersion version;
@@ -126,6 +126,14 @@ public class Mods {
         ID = iD;
     }
 
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
+    }
+    
     public ModsVersion getVersion() {
         return version;
     }
@@ -142,7 +150,8 @@ public class Mods {
         return new Builder(spl);
     }
 
-    public static class Builder extends BuilderBase<Mods, Builder> {
+    public static class Builder extends BuilderBase<Mods, Builder>
+     implements IIDAttributeGroupBuilder<Mods, Builder>{
 
         protected Builder(Mods m) {
             super(m);
@@ -158,10 +167,6 @@ public class Mods {
             return _self();
         }
 
-        public Builder ID(String id) {
-            _target().setID(id);
-            return _self();
-        }
     }
 
     public static void main(String... args) {

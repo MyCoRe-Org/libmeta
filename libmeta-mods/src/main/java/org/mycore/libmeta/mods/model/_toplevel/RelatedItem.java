@@ -21,7 +21,9 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.IOtherTypeAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IOtherTypeAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.RelatedItemType;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
@@ -79,7 +81,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class RelatedItem implements ITopLevelElement, IOtherTypeAttributeGroup, IAttributeGroupXlinkSimpleLink {
+public class RelatedItem implements ITopLevelElement, IIDAttributeGroup, IOtherTypeAttributeGroup, IAttributeGroupXlinkSimpleLink {
 
     /**
      * {@code 
@@ -148,6 +150,9 @@ public class RelatedItem implements ITopLevelElement, IOtherTypeAttributeGroup, 
      */
     @XmlAttribute(name = "ID", required = false)
     protected String ID;
+    
+    @XmlAttribute(name = "IDREF", required = false)
+    protected String IDREF;
 
     // attributeGroup xlink:simpleLink - begin
 
@@ -269,6 +274,14 @@ public class RelatedItem implements ITopLevelElement, IOtherTypeAttributeGroup, 
     public void setID(String iD) {
         ID = iD;
     }
+    
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
+    }
 
     public String getXlinkType() {
         return xlinkType;
@@ -337,7 +350,8 @@ public class RelatedItem implements ITopLevelElement, IOtherTypeAttributeGroup, 
     }
 
     public static class Builder extends BuilderBase<RelatedItem, Builder> 
-        implements IAttributeGroupXlinkSimpleLinkBuilder<RelatedItem, Builder>,
+        implements IIDAttributeGroupBuilder<RelatedItem, Builder>,
+        IAttributeGroupXlinkSimpleLinkBuilder<RelatedItem, Builder>,
         IOtherTypeAttributeGroupBuilder<IOtherTypeAttributeGroup, Builder> {
         protected Builder(RelatedItem relItem) {
             super(relItem);
@@ -358,10 +372,6 @@ public class RelatedItem implements ITopLevelElement, IOtherTypeAttributeGroup, 
             return this;
         }
 
-        public Builder ID(String id) {
-            _target().setID(id);
-            return this;
-        }
         public Builder type(RelatedItemType type) {
             _target().setType(type);
             return this;

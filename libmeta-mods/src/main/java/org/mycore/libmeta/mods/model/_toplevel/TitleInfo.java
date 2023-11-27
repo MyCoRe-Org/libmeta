@@ -23,10 +23,12 @@ import java.util.Vector;
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.IAltFormatAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.IAuthorityAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.IOtherTypeAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAltFormatAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IOtherTypeAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.TitleInfoType;
@@ -92,7 +94,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class TitleInfo implements ITopLevelElement, IAltFormatAttributeGroup, IAuthorityAttributeGroup,
+public class TitleInfo implements ITopLevelElement, IIDAttributeGroup, IAltFormatAttributeGroup, IAuthorityAttributeGroup,
     IOtherTypeAttributeGroup, IAttributeGroupXlinkSimpleLink, ILanguageAttributeGroup {
 
     @XmlElements({
@@ -152,6 +154,9 @@ public class TitleInfo implements ITopLevelElement, IAltFormatAttributeGroup, IA
 
     @XmlAttribute(name = "ID")
     protected String ID;
+    
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
     //IAuthorityAttributeGroup - begin
 
@@ -340,6 +345,14 @@ public class TitleInfo implements ITopLevelElement, IAltFormatAttributeGroup, IA
     public void setID(String iD) {
         ID = iD;
     }
+    
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
+    }
 
     public String getAuthority() {
         return authority;
@@ -462,7 +475,8 @@ public class TitleInfo implements ITopLevelElement, IAltFormatAttributeGroup, IA
     }
     
     public static class Builder extends BuilderBase<TitleInfo, Builder>
-        implements IAltFormatAttributeGroupBuilder<TitleInfo, Builder>, 
+        implements IIDAttributeGroupBuilder<TitleInfo, Builder>, 
+        IAltFormatAttributeGroupBuilder<TitleInfo, Builder>, 
         IAuthorityAttributeGroupBuilder<TitleInfo, Builder>,
         ILanguageAttributeGroupBuilder<TitleInfo, Builder>,
         IOtherTypeAttributeGroupBuilder<TitleInfo, Builder>,
@@ -499,11 +513,6 @@ public class TitleInfo implements ITopLevelElement, IAltFormatAttributeGroup, IA
 
         public Builder usage(Usage usage) {
             _target().setUsage(usage);
-            return _self();
-        }
-
-        public Builder ID(String id) {
-            _target().setID(id);
             return _self();
         }
 

@@ -21,7 +21,9 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model.part.Date;
 import org.mycore.libmeta.mods.model.part.Detail;
@@ -61,7 +63,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  */
 
 @XmlAccessorType(XmlAccessType.NONE)
-public class Part implements ITopLevelElement, ILanguageAttributeGroup {
+public class Part implements ITopLevelElement, IIDAttributeGroup, ILanguageAttributeGroup {
     @XmlElements({ @XmlElement(name = "detail", namespace = "http://www.loc.gov/mods/v3", type = Detail.class),
             @XmlElement(name = "extend", namespace = "http://www.loc.gov/mods/v3", type = Extent.class),
             @XmlElement(name = "date", namespace = "http://www.loc.gov/mods/v3", type = Date.class),
@@ -75,6 +77,9 @@ public class Part implements ITopLevelElement, ILanguageAttributeGroup {
     */
     @XmlAttribute(name = "ID")
     protected String ID;
+    
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
     /**
      * {@code 
@@ -123,6 +128,14 @@ public class Part implements ITopLevelElement, ILanguageAttributeGroup {
 
     public void setID(String iD) {
         ID = iD;
+    }
+    
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
     }
 
     public String getType() {
@@ -197,18 +210,13 @@ public class Part implements ITopLevelElement, ILanguageAttributeGroup {
         return new Builder(p);
     }
 
-    public static class Builder extends BuilderBase<Part, Builder> implements ILanguageAttributeGroupBuilder<Part, Builder>{
+    public static class Builder extends BuilderBase<Part, Builder> implements IIDAttributeGroupBuilder<Part, Builder>, ILanguageAttributeGroupBuilder<Part, Builder>{
         protected Builder(Part p) {
            super(p);
         }
 
         public Builder addContent(IPartSubelement ps) {
             _target().getContent().add(ps);
-            return _self();
-        }
-
-        public Builder ID(String iD) {
-            _target().setID(iD);
             return _self();
         }
 

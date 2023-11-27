@@ -21,7 +21,9 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model.origininfo.CopyrightDate;
 import org.mycore.libmeta.mods.model.origininfo.DateCaptured;
@@ -74,7 +76,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class OriginInfo implements ITopLevelElement, ILanguageAttributeGroup {
+public class OriginInfo implements ITopLevelElement, IIDAttributeGroup, ILanguageAttributeGroup {
     
     /**
      * recommended value for eventType
@@ -110,6 +112,12 @@ public class OriginInfo implements ITopLevelElement, ILanguageAttributeGroup {
         @XmlElement(name = "issuance", namespace = "http://www.loc.gov/mods/v3", type = Issuance.class),
         @XmlElement(name = "frequency", namespace = "http://www.loc.gov/mods/v3", type = Frequency.class) })
     protected List<IOriginInfoSubelement> originInfoElement = new Vector<>();
+
+    @XmlAttribute(name = "ID")
+    protected String ID;
+    
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
     //ILanguageAttributeGroup - begin
 
@@ -150,6 +158,22 @@ public class OriginInfo implements ITopLevelElement, ILanguageAttributeGroup {
 
     public List<IOriginInfoSubelement> getContent() {
         return originInfoElement;
+    }
+    
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
     }
 
     public String getLang() {
@@ -216,7 +240,7 @@ public class OriginInfo implements ITopLevelElement, ILanguageAttributeGroup {
         return new Builder(oi);
     }
 
-    public static class Builder extends BuilderBase<OriginInfo, Builder> implements ILanguageAttributeGroupBuilder<OriginInfo, Builder> {
+    public static class Builder extends BuilderBase<OriginInfo, Builder> implements IIDAttributeGroupBuilder<OriginInfo, Builder>, ILanguageAttributeGroupBuilder<OriginInfo, Builder> {
         protected Builder(OriginInfo oi) {
             super(oi);
         }

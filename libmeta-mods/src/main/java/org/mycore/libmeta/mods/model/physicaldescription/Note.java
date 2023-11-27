@@ -18,6 +18,8 @@
 package org.mycore.libmeta.mods.model.physicaldescription;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
@@ -52,7 +54,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Note extends StringPlusLanguage implements IPhysicalDescriptionSubelement, IAttributeGroupXlinkSimpleLink {
+public class Note extends StringPlusLanguage implements IPhysicalDescriptionSubelement, IIDAttributeGroup, IAttributeGroupXlinkSimpleLink {
 
     @XmlAttribute(name = "displayLabel", required = false)
     protected String displayLabel;
@@ -87,6 +89,9 @@ public class Note extends StringPlusLanguage implements IPhysicalDescriptionSube
 
     @XmlAttribute(name = "ID", required = false)
     protected String ID;
+    
+    @XmlAttribute(name = "IDREF", required = false)
+    protected String IDREF;
 
     public String getDisplayLabel() {
         return displayLabel;
@@ -167,6 +172,14 @@ public class Note extends StringPlusLanguage implements IPhysicalDescriptionSube
     public void setID(String iD) {
         ID = iD;
     }
+    
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
+    }
 
     public static Builder builder() {
         return builder(new Note());
@@ -176,7 +189,7 @@ public class Note extends StringPlusLanguage implements IPhysicalDescriptionSube
         return new Builder(txt);
     }
 
-    public static class Builder  extends BuilderBase<Note, Builder> implements IXsStringBuilder<Note, Builder>, ILanguageAttributeGroupBuilder<Note, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Note, Builder> {
+    public static class Builder  extends BuilderBase<Note, Builder> implements IXsStringBuilder<Note, Builder>, IIDAttributeGroupBuilder<Note, Builder>, ILanguageAttributeGroupBuilder<Note, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Note, Builder> {
         protected Builder(Note n) {
             super(n);
         }
@@ -195,12 +208,7 @@ public class Note extends StringPlusLanguage implements IPhysicalDescriptionSube
             _target().setTypeURI(typeURI);
             return _self();
         }
-
-        
-        public Builder ID(String id) {
-            _target().setID(id);
-            return _self();
-        }
+      
     }
 
 }

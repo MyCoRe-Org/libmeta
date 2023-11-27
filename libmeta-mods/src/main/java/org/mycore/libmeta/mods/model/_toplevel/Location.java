@@ -21,7 +21,9 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model.location.HoldingExternal;
 import org.mycore.libmeta.mods.model.location.HoldingSimple;
@@ -59,7 +61,7 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder = { "physicalLocation", "shelfLocator", "url", "holdingSimple", "holdingExternal" })
-public class Location implements ITopLevelElement, ILanguageAttributeGroup {
+public class Location implements ITopLevelElement, IIDAttributeGroup, ILanguageAttributeGroup {
 
     /**
      * {@code
@@ -100,6 +102,12 @@ public class Location implements ITopLevelElement, ILanguageAttributeGroup {
      */
     @XmlElement(name = "holdingExternal", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected HoldingExternal holdingExternal;
+    
+    @XmlAttribute(name = "ID")
+    protected String ID;
+    
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
     // <xs:attributeGroup ref="languagePlusDisplayLabelAttributeGroup"/> - begin
 
@@ -122,6 +130,22 @@ public class Location implements ITopLevelElement, ILanguageAttributeGroup {
 
     @XmlAttribute(name = "altRepGroup")
     protected String altRepGroup;
+    
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
+    }
 
     public String getLang() {
         return lang;
@@ -207,7 +231,7 @@ public class Location implements ITopLevelElement, ILanguageAttributeGroup {
         return new Builder(l);
     }
 
-    public static class Builder extends BuilderBase<Location, Builder> implements ILanguageAttributeGroupBuilder<Location, Builder> {
+    public static class Builder extends BuilderBase<Location, Builder> implements IIDAttributeGroupBuilder<Location, Builder>, ILanguageAttributeGroupBuilder<Location, Builder> {
 
         protected Builder(Location object) {
             super(object);

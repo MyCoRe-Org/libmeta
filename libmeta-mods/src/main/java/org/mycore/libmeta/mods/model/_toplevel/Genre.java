@@ -18,7 +18,9 @@
 package org.mycore.libmeta.mods.model._toplevel;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.Usage;
@@ -49,7 +51,13 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Genre extends StringPlusLanguagePlusAuthority implements ITopLevelElement {
+public class Genre extends StringPlusLanguagePlusAuthority implements ITopLevelElement, IIDAttributeGroup {
+    
+    @XmlAttribute(name = "ID")
+    protected String ID;
+    
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
     @XmlAttribute(name = "type")
     protected String type;
@@ -62,6 +70,22 @@ public class Genre extends StringPlusLanguagePlusAuthority implements ITopLevelE
 
     @XmlAttribute(name = "usage")
     protected Usage usage;
+    
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
+    }
 
     public String getType() {
         return type;
@@ -103,7 +127,7 @@ public class Genre extends StringPlusLanguagePlusAuthority implements ITopLevelE
         return new Builder(genre);
     }
 
-    public static class Builder extends BuilderBase<Genre, Builder> implements IXsStringBuilder<Genre, Builder>,  ILanguageAttributeGroupBuilder<Genre, Builder>, IAuthorityAttributeGroupBuilder<Genre, Builder> {
+    public static class Builder extends BuilderBase<Genre, Builder> implements IXsStringBuilder<Genre, Builder>,  ILanguageAttributeGroupBuilder<Genre, Builder>, IIDAttributeGroupBuilder<Genre, Builder>, IAuthorityAttributeGroupBuilder<Genre, Builder> {
         protected Builder(Genre genre) {
             super(genre);
         }
