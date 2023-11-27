@@ -158,6 +158,10 @@ public class OriginInfo implements ITopLevelElement, IIDAttributeGroup, ILanguag
     */
     @XmlAttribute(name = "eventType")
     protected String eventType;
+    
+    //<xs:attribute name="eventTypeURI" type="xs:anyURI"/>
+    @XmlAttribute(name = "eventTypeURI")
+    protected String eventTypeURI;
 
     public List<IOriginInfoSubelement> getContent() {
         return originInfoElement;
@@ -234,6 +238,14 @@ public class OriginInfo implements ITopLevelElement, IIDAttributeGroup, ILanguag
     public void setEventType(String eventType) {
         this.eventType = eventType;
     }
+    
+    public String getEventTypeURI() {
+        return eventTypeURI;
+    }
+
+    public void setEventTypeURI(String eventTypeURI) {
+        this.eventTypeURI = eventTypeURI;
+    }
 
     public static Builder builderForOriginInfo() {
         return builder(new OriginInfo());
@@ -265,6 +277,11 @@ public class OriginInfo implements ITopLevelElement, IIDAttributeGroup, ILanguag
 
         public Builder eventType(String e) {
             _target().setEventType(e);
+            return _self();
+        }
+        
+        public Builder eventTypeURI(String uri) {
+            _target().setEventTypeURI(uri);
             return _self();
         }
     }
