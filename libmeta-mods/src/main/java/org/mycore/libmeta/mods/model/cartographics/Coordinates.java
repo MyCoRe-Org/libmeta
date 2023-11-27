@@ -26,6 +26,6 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
  * @version MODS 3.6
  *
  */
-public class Coordinates extends StringPlusLanguage implements ISubjectCartographicsSubelement {
+public class Coordinates extends StringPlusLanguage implements ICartographicsSubelement {
 
 }

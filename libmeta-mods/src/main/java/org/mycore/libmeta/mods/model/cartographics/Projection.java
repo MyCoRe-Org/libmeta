@@ -26,6 +26,6 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
  * @version MODS 3.6
  *
  */
-public class Projection extends StringPlusLanguage implements ISubjectCartographicsSubelement {
+public class Projection extends StringPlusLanguage implements ICartographicsSubelement {
 
 }

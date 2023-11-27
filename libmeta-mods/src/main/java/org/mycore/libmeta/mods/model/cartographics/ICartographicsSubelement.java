@@ -17,6 +17,6 @@
  */
 package org.mycore.libmeta.mods.model.cartographics;
 
-public interface ISubjectCartographicsSubelement {
+public interface ICartographicsSubelement {
 
 }
