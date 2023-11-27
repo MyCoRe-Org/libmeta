@@ -32,6 +32,7 @@ import org.mycore.libmeta.mods.model.origininfo.DateIssued;
 import org.mycore.libmeta.mods.model.origininfo.DateModified;
 import org.mycore.libmeta.mods.model.origininfo.DateOther;
 import org.mycore.libmeta.mods.model.origininfo.DateValid;
+import org.mycore.libmeta.mods.model.origininfo.DisplayDate;
 import org.mycore.libmeta.mods.model.origininfo.Edition;
 import org.mycore.libmeta.mods.model.origininfo.Frequency;
 import org.mycore.libmeta.mods.model.origininfo.IOriginInfoSubelement;
@@ -60,6 +61,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *           <xs:element ref="dateModified"/>
  *           <xs:element ref="copyrightDate"/>
  *           <xs:element ref="dateOther"/>
+ *           <xs:element name="displayDate" type="xs:string"/>
  *           <xs:element ref="edition"/>
  *           <xs:element ref="issuance"/>
  *           <xs:element ref="frequency"/>
@@ -108,6 +110,7 @@ public class OriginInfo implements ITopLevelElement, IIDAttributeGroup, ILanguag
         @XmlElement(name = "dateModified", namespace = "http://www.loc.gov/mods/v3", type = DateModified.class),
         @XmlElement(name = "copyrightDate", namespace = "http://www.loc.gov/mods/v3", type = CopyrightDate.class),
         @XmlElement(name = "dateOther", namespace = "http://www.loc.gov/mods/v3", type = DateOther.class),
+        @XmlElement(name = "displayDate", namespace = "http://www.loc.gov/mods/v3", type = DisplayDate.class),
         @XmlElement(name = "edition", namespace = "http://www.loc.gov/mods/v3", type = Edition.class),
         @XmlElement(name = "issuance", namespace = "http://www.loc.gov/mods/v3", type = Issuance.class),
         @XmlElement(name = "frequency", namespace = "http://www.loc.gov/mods/v3", type = Frequency.class) })
