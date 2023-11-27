@@ -22,6 +22,7 @@ import java.util.Vector;
 
 import org.mycore.libmeta.mods.model._misc.enums.NameType;
 import org.mycore.libmeta.mods.model._misc.enums.Usage;
+import org.mycore.libmeta.mods.model._misc.enums.Yes;
 import org.mycore.libmeta.mods.model.name.Affiliation;
 import org.mycore.libmeta.mods.model.name.AlternativeName;
 import org.mycore.libmeta.mods.model.name.Description;
@@ -233,6 +234,9 @@ public abstract class NameDefinition<S extends INameDefinitionSubelement>
 
     @XmlAttribute(name = "type")
     protected NameType type;
+    
+    @XmlAttribute(name = "supplied")
+    protected Yes supplied;
 
     public List<S> getContent() {
         return content;
@@ -396,5 +400,13 @@ public abstract class NameDefinition<S extends INameDefinitionSubelement>
 
     public void setType(NameType type) {
         this.type = type;
+    }
+    
+    public Yes getSupplied() {
+        return supplied;
+    }
+
+    public void setSupplied(Yes supplied) {
+        this.supplied = supplied;
     }
 }

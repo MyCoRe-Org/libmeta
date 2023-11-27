@@ -21,6 +21,7 @@ import org.mycore.libmeta.mods.model._misc.INameDefinitionSubelement;
 import org.mycore.libmeta.mods.model._misc.NameDefinition;
 import org.mycore.libmeta.mods.model._misc.enums.NameType;
 import org.mycore.libmeta.mods.model._misc.enums.Usage;
+import org.mycore.libmeta.mods.model._misc.enums.Yes;
 import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBuilder;
 
 /**
@@ -67,6 +68,11 @@ public interface INameDefinitionBuilder<S extends INameDefinitionSubelement , T 
     public default B type(NameType type) {
         _target().setType(type);
         return _self();
-    }    
+    }
+    
+    public default B supplied(Yes supplied) {
+        _target().setSupplied(supplied);
+        return _self();
+    }
 
 }
