@@ -80,7 +80,7 @@ public class Subject
      *   <xs:attributeGroup ref="xlink:simpleLink"/>
      *   <xs:attribute name="displayLabel" type="xs:string"/>
      *   <xs:attribute name="altRepGroup" type="xs:string"/>
-     *   <xs:attribute name="usage" fixed="primary"/>
+     *   <xs:attribute name="usage" type="primary"/>
      * </xs:complexType>
      * }
      */

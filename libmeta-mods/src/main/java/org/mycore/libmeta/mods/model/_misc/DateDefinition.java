@@ -55,7 +55,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *                        </xs:restriction>
  *                    </xs:simpleType>
  *                </xs:attribute>
- *                <xs:attribute name="keyDate" fixed="yes"/>
+ *                <xs:attribute name="keyDate" type="yes"/>
  *            </xs:extension>
  *        </xs:simpleContent>
  *    </xs:complexType>

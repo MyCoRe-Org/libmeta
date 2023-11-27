@@ -34,7 +34,7 @@ public class StringPlusLanguagePlusSupplied extends StringPlusLanguage {
 	
 	/**
 	 * {@code
-	 * <xs:attribute name="supplied" fixed="yes"/>
+	 * <xs:attribute name="supplied" type="yes"/>
 	 * }
 	 */
 	 @XmlAttribute(name="supplied", namespace="http://www.loc.gov/mods/v3", required=false)

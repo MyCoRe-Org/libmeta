@@ -31,7 +31,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 public class NonSort extends StringPlusLanguage implements ITitleInfoSubelement, ISubjectTitleInfoSubelement {
     /**
      * {@code
-     * <xs:attribute name="supplied" fixed="yes"/>
+     * <xs:attribute name="supplied" type="yes"/>
      * }
      */
     @XmlAttribute(name = "space", namespace = "http://www.w3.org/XML/1998/namespace", required = false)

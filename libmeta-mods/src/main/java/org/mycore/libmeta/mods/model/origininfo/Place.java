@@ -43,7 +43,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *        <xs:element ref="placeIdentifier"/>
  *        <xs:element ref="cartographics"/>
  *      </xs:choice>
- *      <xs:attribute name="supplied" fixed="yes"/>
+ *      <xs:attribute name="supplied" type="yes"/>
  *   </xs:complexType>
  * }
  * 

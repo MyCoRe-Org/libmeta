@@ -75,11 +75,11 @@ import jakarta.xml.bind.annotation.XmlElements;
  *		</xs:attribute> 
  *
  *		<xs:attribute name="otherType"/>
- *		<xs:attribute name="supplied" fixed="yes"/>
+ *		<xs:attribute name="supplied" type="yes"/>
  *		<xs:attribute name="altRepGroup" type="xs:string"/>
  *		<xs:attributeGroup ref="altFormatAttributeGroup"/>
  *		<xs:attribute name="nameTitleGroup" type="xs:string"/>
- *		<xs:attribute name="usage" fixed="primary"/>
+ *		<xs:attribute name="usage" type="primary"/>
  *		<xs:attribute name="ID" type="xs:ID"/>
  *		<xs:attributeGroup ref="authorityAttributeGroup"/>
  *		<xs:attributeGroup ref="xlink:simpleLink"/>

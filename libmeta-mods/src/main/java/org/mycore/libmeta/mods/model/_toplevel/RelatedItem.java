@@ -158,7 +158,7 @@ public class RelatedItem implements ITopLevelElement, IIDAttributeGroup, IOtherT
 
     /**
      * {@code 
-     * <attribute name="type" type="string" fixed="simple" form="qualified"/>
+     * <attribute name="type" type="string" type="simple" form="qualified"/>
      * }
      */
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
