@@ -22,40 +22,49 @@ import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.enums.Yes;
+import org.mycore.libmeta.mods.model.cartographics.Cartographics;
+import org.mycore.libmeta.mods.model.origininfo.place.IPlaceSubelement;
 import org.mycore.libmeta.mods.model.origininfo.place.PlaceTerm;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlElements;
 
 /**
  * MODS OriginInfo Subelement: Place
  * 
  * {@code
  * <xs:complexType name="placeDefinition">
- *       <xs:sequence>
- *          <xs:element ref="placeTerm" maxOccurs="unbounded"/>
- *       </xs:sequence>
- *       <xs:attribute name="supplied" fixed="yes"/>
+ *      <xs:choice minOccurs="1" maxOccurs="unbounded">
+ *        <xs:element ref="placeTerm"/>
+ *        <xs:element ref="placeIdentifier"/>
+ *        <xs:element ref="cartographics"/>
+ *      </xs:choice>
+ *      <xs:attribute name="supplied" fixed="yes"/>
  *   </xs:complexType>
  * }
  * 
  * @author Robert Stephan
- * @version MODS 3.6
+ * @version MODS 3.8
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Place implements IOriginInfoSubelement{
+public class Place implements IOriginInfoSubelement {
 
     @XmlElement(name = "placeTerm", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected List<PlaceTerm> placeTerm = new Vector<>();
-    
+
+    @XmlElements({ @XmlElement(name = "placeTerm", namespace = "http://www.loc.gov/mods/v3", type = PlaceTerm.class),
+        @XmlElement(name = "cartographics", namespace = "http://www.loc.gov/mods/v3", type = Cartographics.class) })
+    protected List<IPlaceSubelement> content = new Vector<>();
+
     @XmlAttribute(name = "supplied")
     protected Yes supplied;
 
-    public List<PlaceTerm> getContent() {
-        return placeTerm;
+    public List<IPlaceSubelement> getContent() {
+        return content;
     }
 
     public Yes getSupplied() {
@@ -65,7 +74,7 @@ public class Place implements IOriginInfoSubelement{
     public void setSupplied(Yes supplied) {
         this.supplied = supplied;
     }
-    
+
     public static Builder builderForPlace() {
         return builder(new Place());
     }
@@ -79,7 +88,7 @@ public class Place implements IOriginInfoSubelement{
             super(place);
         }
 
-        public Builder addContent(PlaceTerm content) {
+        public Builder addContent(IPlaceSubelement content) {
             _target().getContent().add(content);
             return _self();
         }

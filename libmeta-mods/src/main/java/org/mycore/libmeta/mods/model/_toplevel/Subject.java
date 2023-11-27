@@ -28,8 +28,8 @@ import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuild
 import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.Usage;
+import org.mycore.libmeta.mods.model.cartographics.Cartographics;
 import org.mycore.libmeta.mods.model.subject.ISubjectSubelement;
-import org.mycore.libmeta.mods.model.subject.SubjectCartographics;
 import org.mycore.libmeta.mods.model.subject.SubjectGeographic;
 import org.mycore.libmeta.mods.model.subject.SubjectGeographicCode;
 import org.mycore.libmeta.mods.model.subject.SubjectHierarchicalGeographic;
@@ -91,7 +91,7 @@ public class Subject
             @XmlElement(name = "name", namespace = "http://www.loc.gov/mods/v3", type = Name.class),
             @XmlElement(name = "geographicCode", namespace = "http://www.loc.gov/mods/v3", type = SubjectGeographicCode.class),
             @XmlElement(name = "hierarchicalGeographic", namespace = "http://www.loc.gov/mods/v3", type = SubjectHierarchicalGeographic.class),
-            @XmlElement(name = "cartographics", namespace = "http://www.loc.gov/mods/v3", type = SubjectCartographics.class),
+            @XmlElement(name = "cartographics", namespace = "http://www.loc.gov/mods/v3", type = Cartographics.class),
             @XmlElement(name = "occupation", namespace = "http://www.loc.gov/mods/v3", type = SubjectOccupation.class),
             @XmlElement(name = "genre", namespace = "http://www.loc.gov/mods/v3", type = Genre.class) })
     protected List<ISubjectSubelement> content = new Vector<>();

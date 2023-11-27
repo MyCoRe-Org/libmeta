@@ -15,17 +15,17 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.mods.model.subject.cartographics;
+package org.mycore.libmeta.mods.model.cartographics;
 
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 
 /**
- * MODS Cartographics Subelement {@literal <Scale>}
+ * MODS Cartographics Subelement {@literal <Coordinates>}
  * 
  * @author Robert Stephan
  * @version MODS 3.6
  *
  */
-public class Scale extends StringPlusLanguage implements ISubjectCartographicsSubelement{
+public class Coordinates extends StringPlusLanguage implements ISubjectCartographicsSubelement {
 
 }
