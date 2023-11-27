@@ -17,17 +17,38 @@
  */
 package org.mycore.libmeta.mods.model.subject.hierarchicalgeographic;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
+
 /**
  *  MODS HierarchicalGeographic Subelement {@literal <state>}
  *  
  *  {@code
- *  <xs:element name="state" type="hierarchicalPart"/>
+ *  <xs:complexType name="stateDefinition">
+ *    <xs:simpleContent>
+ *      <xs:extension base="hierarchicalPart">
+ *        <xs:attribute name="stateType"/>
+ *      </xs:extension>
+ *    </xs:simpleContent>
+ *  </xs:complexType>
  *  }
  * 
  * @author Robert Stephan
  * @version MODS 3.6
  *
  */
+@XmlAccessorType(XmlAccessType.NONE)
 public class State extends HierarchicalPart implements IHierarchicalGeographicSubelement {
+    @XmlAttribute(name = "stateType", required = false)
+    protected String stateType;
+
+    public String getStateType() {
+        return stateType;
+    }
+
+    public void setStateType(String stateType) {
+        this.stateType = stateType;
+    }
 
 }
