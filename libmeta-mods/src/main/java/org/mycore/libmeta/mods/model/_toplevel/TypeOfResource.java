@@ -18,7 +18,9 @@
 package org.mycore.libmeta.mods.model._toplevel;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.Usage;
@@ -27,6 +29,7 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguagePlusAuthority
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
  * Top Level Element {@literal <typeOfResource>}
@@ -51,8 +54,14 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class TypeOfResource extends StringPlusLanguagePlusAuthority implements ITopLevelElement {
+public class TypeOfResource extends StringPlusLanguagePlusAuthority implements ITopLevelElement, IIDAttributeGroup {
 
+    @XmlAttribute(name = "ID")
+    protected String ID;
+    
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
+    
     /**
      * {@code
      * <xs:attribute name="collection" fixed="yes"/>
@@ -88,6 +97,21 @@ public class TypeOfResource extends StringPlusLanguagePlusAuthority implements I
      */
     protected Usage usage;
 
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
+    }
 
 	public Yes getCollection() {
 		return collection;
@@ -137,7 +161,7 @@ public class TypeOfResource extends StringPlusLanguagePlusAuthority implements I
 		return new Builder(tor);
 	}
 	
-	public static class Builder extends BuilderBase<TypeOfResource, Builder> implements IXsStringBuilder<TypeOfResource, Builder>, ILanguageAttributeGroupBuilder<TypeOfResource, Builder>, IAuthorityAttributeGroupBuilder<TypeOfResource, Builder>{
+	public static class Builder extends BuilderBase<TypeOfResource, Builder> implements IXsStringBuilder<TypeOfResource, Builder>, IIDAttributeGroupBuilder<TypeOfResource, Builder>, ILanguageAttributeGroupBuilder<TypeOfResource, Builder>, IAuthorityAttributeGroupBuilder<TypeOfResource, Builder>{
 			    
 	    protected Builder(TypeOfResource tor) {
 			super(tor);

@@ -22,7 +22,9 @@ import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.IAuthorityAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.SubjectNameType;
 import org.mycore.libmeta.mods.model.name.Affiliation;
 import org.mycore.libmeta.mods.model.name.Description;
@@ -77,7 +79,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  * @version MODS 3.6
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class SubjectName implements ISubjectSubelement, IAuthorityAttributeGroup, ILanguageAttributeGroup,
+public class SubjectName implements ISubjectSubelement, IIDAttributeGroup, IAuthorityAttributeGroup, ILanguageAttributeGroup,
         IAttributeGroupXlinkSimpleLink {
 
     @XmlElements({ @XmlElement(name = "namePart", namespace = "http://www.loc.gov/mods/v3", type = NamePart.class),
@@ -111,6 +113,9 @@ public class SubjectName implements ISubjectSubelement, IAuthorityAttributeGroup
      */
     @XmlAttribute(name = "ID", required = false)
     protected String ID;
+    
+    @XmlAttribute(name = "IDREF", required = false)
+    protected String IDREF;
 
     // IXlinkSimpleLinkAttributeGroup - begin
 
@@ -213,7 +218,7 @@ public class SubjectName implements ISubjectSubelement, IAuthorityAttributeGroup
     public void setContent(List<ISubjectNameSubelement> content) {
         this.content = content;
     }
-
+    
     public SubjectNameType getType() {
         return type;
     }
@@ -234,8 +239,16 @@ public class SubjectName implements ISubjectSubelement, IAuthorityAttributeGroup
         return ID;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setID(String iD) {
+        this.ID = iD;
+    }
+    
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        this.IDREF = iDREF;
     }
 
     public String getXlinkHref() {
@@ -350,7 +363,7 @@ public class SubjectName implements ISubjectSubelement, IAuthorityAttributeGroup
         return new Builder(s);
     }
 
-    public static class Builder extends BuilderBase<SubjectName, Builder> implements IAttributeGroupXlinkSimpleLinkBuilder<SubjectName, Builder>{
+    public static class Builder extends BuilderBase<SubjectName, Builder> implements IIDAttributeGroupBuilder<SubjectName, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<SubjectName, Builder>{
 
         protected Builder(SubjectName subjectName) {
             super(subjectName);
@@ -368,11 +381,6 @@ public class SubjectName implements ISubjectSubelement, IAuthorityAttributeGroup
 
         public Builder displayLabel(String s) {
             _target().setAttrDisplayLabel(s);
-            return _self();
-        }
-
-        public Builder ID(String s) {
-            _target().setID(s);
             return _self();
         }
 

@@ -31,7 +31,8 @@ import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBui
  *
  */
 public interface INameDefinitionBuilder<S extends INameDefinitionSubelement , T extends NameDefinition<S>, B>
-    extends  IAuthorityAttributeGroupBuilder<T, B>,
+    extends IIDAttributeGroupBuilder<T, B>, 
+    IAuthorityAttributeGroupBuilder<T, B>,
     IAttributeGroupXlinkSimpleLinkBuilder<T, B>, 
     ILanguageAttributeGroupBuilder<T, B> {
     
@@ -40,11 +41,6 @@ public interface INameDefinitionBuilder<S extends INameDefinitionSubelement , T 
     
     public default B addContent(S content) {
         _target().getContent().add(content);
-        return _self();
-    }
-
-    public default B ID(String id) {
-        _target().setID(id);
         return _self();
     }
 

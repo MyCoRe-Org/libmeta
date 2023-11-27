@@ -118,7 +118,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public abstract class NameDefinition<S extends INameDefinitionSubelement>
-    implements IAuthorityAttributeGroup, IAttributeGroupXlinkSimpleLink, ILanguageAttributeGroup {
+    implements IIDAttributeGroup, IAuthorityAttributeGroup, IAttributeGroupXlinkSimpleLink, ILanguageAttributeGroup {
 
     @XmlElements({ @XmlElement(name = "namePart", namespace = "http://www.loc.gov/mods/v3", type = NamePart.class),
         @XmlElement(name = "displayForm", namespace = "http://www.loc.gov/mods/v3", type = DisplayForm.class),
@@ -134,6 +134,9 @@ public abstract class NameDefinition<S extends INameDefinitionSubelement>
 
     @XmlAttribute(name = "ID")
     protected String ID;
+    
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
     // IAuthorityAttributeGroup - begin
 
@@ -241,6 +244,14 @@ public abstract class NameDefinition<S extends INameDefinitionSubelement>
 
     public void setID(String iD) {
         ID = iD;
+    }
+    
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
     }
 
     public String getAuthority() {

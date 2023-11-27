@@ -21,7 +21,9 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.Usage;
 import org.mycore.libmeta.mods.model.language.LanguageTerm;
@@ -66,13 +68,19 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder = { "languageTerm", "scriptTerm" })
-public class Language implements ITopLevelElement, ILanguageAttributeGroup {
+public class Language implements ITopLevelElement, IIDAttributeGroup, ILanguageAttributeGroup {
 
     @XmlElement(name = "languageTerm", namespace = "http://www.loc.gov/mods/v3", required = true)
     protected List<LanguageTerm> languageTerm = new Vector<>();
 
     @XmlElement(name = "scriptTerm", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected List<ScriptTerm> scriptTerm = new Vector<>();
+    
+    @XmlAttribute(name = "ID")
+    protected String ID;
+    
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
     @XmlAttribute(name = "objectPart")
     protected String objectPart;
@@ -122,6 +130,22 @@ public class Language implements ITopLevelElement, ILanguageAttributeGroup {
 
     public void setScriptTerm(List<ScriptTerm> scriptTerm) {
         this.scriptTerm = scriptTerm;
+    }
+    
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
     }
 
     public String getObjectPart() {
@@ -196,7 +220,7 @@ public class Language implements ITopLevelElement, ILanguageAttributeGroup {
         return new Builder(l);
     }
     
-    public static class Builder extends BuilderBase<Language, Builder> implements ILanguageAttributeGroupBuilder<Language, Builder>{
+    public static class Builder extends BuilderBase<Language, Builder> implements IIDAttributeGroupBuilder<Language, Builder>, ILanguageAttributeGroupBuilder<Language, Builder>{
         protected Builder(Language spl) {
             super(spl);
         }

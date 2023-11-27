@@ -22,8 +22,10 @@ import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.IAuthorityAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.Usage;
 import org.mycore.libmeta.mods.model.subject.ISubjectSubelement;
@@ -33,6 +35,7 @@ import org.mycore.libmeta.mods.model.subject.SubjectGeographicCode;
 import org.mycore.libmeta.mods.model.subject.SubjectHierarchicalGeographic;
 import org.mycore.libmeta.mods.model.subject.SubjectOccupation;
 import org.mycore.libmeta.mods.model.subject.SubjectTemporal;
+import org.mycore.libmeta.mods.model.subject.SubjectTitleInfo;
 import org.mycore.libmeta.mods.model.subject.SubjectTopic;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
@@ -53,7 +56,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class Subject
-        implements ITopLevelElement, IAuthorityAttributeGroup, ILanguageAttributeGroup, IAttributeGroupXlinkSimpleLink {
+        implements ITopLevelElement, IIDAttributeGroup, IAuthorityAttributeGroup, ILanguageAttributeGroup, IAttributeGroupXlinkSimpleLink {
     /**
      * 
      * {@code 
@@ -84,7 +87,7 @@ public class Subject
     @XmlElements({ @XmlElement(name = "topic", namespace = "http://www.loc.gov/mods/v3", type = SubjectTopic.class),
             @XmlElement(name = "geographic", namespace = "http://www.loc.gov/mods/v3", type = SubjectGeographic.class),
             @XmlElement(name = "temporal", namespace = "http://www.loc.gov/mods/v3", type = SubjectTemporal.class),
-            @XmlElement(name = "titleInfo", namespace = "http://www.loc.gov/mods/v3", type = TitleInfo.class),
+            @XmlElement(name = "titleInfo", namespace = "http://www.loc.gov/mods/v3", type = SubjectTitleInfo.class),
             @XmlElement(name = "name", namespace = "http://www.loc.gov/mods/v3", type = Name.class),
             @XmlElement(name = "geographicCode", namespace = "http://www.loc.gov/mods/v3", type = SubjectGeographicCode.class),
             @XmlElement(name = "hierarchicalGeographic", namespace = "http://www.loc.gov/mods/v3", type = SubjectHierarchicalGeographic.class),
@@ -95,7 +98,10 @@ public class Subject
 
     @XmlAttribute(name = "ID")
     protected String ID;
-
+    
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
+    
     //IAuthorityAttributeGroup - begin
 
     @XmlAttribute(name = "authority")
@@ -173,6 +179,14 @@ public class Subject
 
     public void setID(String iD) {
         ID = iD;
+    }
+    
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
     }
 
     public String getAuthority() {
@@ -319,18 +333,13 @@ public class Subject
         return new Builder(subject);
     }
 
-    public static class Builder extends BuilderBase<Subject, Builder> implements IAuthorityAttributeGroupBuilder<Subject, Builder>, ILanguageAttributeGroupBuilder<Subject, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Subject, Builder>{
+    public static class Builder extends BuilderBase<Subject, Builder> implements IIDAttributeGroupBuilder<Subject, Builder>, IAuthorityAttributeGroupBuilder<Subject, Builder>, ILanguageAttributeGroupBuilder<Subject, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Subject, Builder>{
         protected Builder(Subject subject) {
             super(subject);
         }
 
         public Builder addContent(ISubjectSubelement content) {
             _target().getContent().add(content);
-            return _self();
-        }
-
-        public Builder ID(String id) {
-            _target().setID(id);
             return _self();
         }
 

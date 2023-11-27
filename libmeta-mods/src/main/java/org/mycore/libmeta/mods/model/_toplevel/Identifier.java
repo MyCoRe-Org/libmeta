@@ -18,6 +18,8 @@
 package org.mycore.libmeta.mods.model._toplevel;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.Yes;
@@ -46,7 +48,13 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  * @version MODS 3.6
  *
  */
-public class Identifier extends StringPlusLanguage implements ITopLevelElement {
+public class Identifier extends StringPlusLanguage implements ITopLevelElement, IIDAttributeGroup {
+    
+    @XmlAttribute(name = "ID")
+    protected String ID;
+    
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
 	@XmlAttribute(name = "displayLabel")
 	protected String displayLabel;
@@ -63,6 +71,22 @@ public class Identifier extends StringPlusLanguage implements ITopLevelElement {
 	@XmlAttribute(name = "altRepGroup")
 	protected String altRepGroup;
 
+	public String getID() {
+        return ID;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
+    }
+    
 	public String getDisplayLabel() {
 		return displayLabel;
 	}
@@ -111,7 +135,7 @@ public class Identifier extends StringPlusLanguage implements ITopLevelElement {
 		return new Builder(toc);
 	}
 
-	public static class Builder extends BuilderBase<Identifier, Builder> implements IXsStringBuilder<Identifier, Builder>,  ILanguageAttributeGroupBuilder<Identifier, Builder> {
+	public static class Builder extends BuilderBase<Identifier, Builder> implements IXsStringBuilder<Identifier, Builder>,  IIDAttributeGroupBuilder<Identifier, Builder>, ILanguageAttributeGroupBuilder<Identifier, Builder> {
 		protected Builder(Identifier spl) {
             super(spl);
         }
