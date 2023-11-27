@@ -41,6 +41,7 @@ import jakarta.xml.bind.annotation.XmlMixed;
  *	  </xs:sequence>
  *	  <xs:attribute name="displayLabel" type="xs:string"/>
  *	  <!-- displayLabel added  to extension in 3.4. -->
+ *    <xs:attribute name="type" type="xs:string"/>
  *	</xs:complexType>
  * }
  * 
@@ -70,6 +71,9 @@ public class Extension implements ITopLevelElement, IIDAttributeGroup {
     @XmlAttribute(name="displayLabel")
     protected String displayLabel;
     
+    @XmlAttribute(name = "type")
+    protected String type;
+
     public String getID() {
         return ID;
     }
@@ -84,6 +88,14 @@ public class Extension implements ITopLevelElement, IIDAttributeGroup {
 
     public void setIDREF(String iDREF) {
         IDREF = iDREF;
+    }
+    
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
      @SuppressWarnings("rawtypes")
@@ -113,8 +125,13 @@ public class Extension implements ITopLevelElement, IIDAttributeGroup {
 	
 	public static class Builder extends BuilderBase<Extension, Builder> implements IExtensionBuilder<Extension, Builder>, IIDAttributeGroupBuilder<Extension, Builder>{
 
-	    protected Builder(Extension spl) {
-			super(spl);
+	    protected Builder(Extension ext) {
+			super(ext);
 		}
+	    
+        public Builder type(String type) {
+            _target().setType(type);
+            return this;
+        }
 	}
 }
