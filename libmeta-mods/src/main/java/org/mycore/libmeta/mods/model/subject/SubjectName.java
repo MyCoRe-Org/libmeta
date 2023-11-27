@@ -25,7 +25,7 @@ import org.mycore.libmeta.mods.model._misc.IAuthorityAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
-import org.mycore.libmeta.mods.model._misc.enums.SubjectNameType;
+import org.mycore.libmeta.mods.model._misc.enums.NameType;
 import org.mycore.libmeta.mods.model.name.Affiliation;
 import org.mycore.libmeta.mods.model.name.Description;
 import org.mycore.libmeta.mods.model.name.DisplayForm;
@@ -96,7 +96,7 @@ public class SubjectName implements ISubjectSubelement, IIDAttributeGroup, IAuth
      * }
      */
     @XmlAttribute(name = "type", required = false)
-    protected SubjectNameType type;
+    protected NameType type;
 
     /**
      * {@code
@@ -219,11 +219,11 @@ public class SubjectName implements ISubjectSubelement, IIDAttributeGroup, IAuth
         this.content = content;
     }
     
-    public SubjectNameType getType() {
+    public NameType getType() {
         return type;
     }
 
-    public void setType(SubjectNameType type) {
+    public void setType(NameType type) {
         this.type = type;
     }
 
@@ -374,7 +374,7 @@ public class SubjectName implements ISubjectSubelement, IIDAttributeGroup, IAuth
             return _self();
         }
 
-        public Builder type(SubjectNameType type) {
+        public Builder type(NameType type) {
             _target().setType(type);
             return _self();
         }
