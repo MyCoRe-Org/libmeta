@@ -38,11 +38,11 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  * 	<xs:complexType name="typeOfResourceDefinition">
  *       <xs:simpleContent>
  *           <xs:extension base="stringPlusLanguagePlusAuthority">
- *               <xs:attribute name="collection" fixed="yes"/>
- *               <xs:attribute name="manuscript" fixed="yes"/>
+ *               <xs:attribute name="collection" type="yes"/>
+ *               <xs:attribute name="manuscript" type="yes"/>
  *               <xs:attribute name="displayLabel" type="xs:string"/>
  *               <xs:attribute name="altRepGroup" type="xs:string"/>
- *               <xs:attribute name="usage" fixed="primary"/>
+ *               <xs:attribute name="usage" type="primary"/>
  *           </xs:extension>
  *      </xs:simpleContent>
  *  </xs:complexType>
@@ -64,14 +64,14 @@ public class TypeOfResource extends StringPlusLanguagePlusAuthority implements I
     
     /**
      * {@code
-     * <xs:attribute name="collection" fixed="yes"/>
+     * <xs:attribute name="collection" type="yes"/>
      * }
      */
     protected Yes collection;
     
     /**
      * {@code
-     * <xs:attribute name="manuscript" fixed="yes"/>
+     * <xs:attribute name="manuscript" type="yes"/>
      * }
      */
     protected Yes manuscript;
@@ -92,7 +92,7 @@ public class TypeOfResource extends StringPlusLanguagePlusAuthority implements I
     
     /**
      * {@code
-     * <xs:attribute name="usage" fixed="primary"/>
+     * <xs:attribute name="usage" type="primary"/>
      * }
      */
     protected Usage usage;

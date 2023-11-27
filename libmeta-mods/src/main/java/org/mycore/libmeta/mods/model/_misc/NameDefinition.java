@@ -99,7 +99,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *		<xs:attribute name="displayLabel" type="xs:string"/>
  *		<xs:attribute name="altRepGroup" type="xs:string"/>
  *		<xs:attribute name="nameTitleGroup" type="xs:string"/>
- *		<xs:attribute name="usage" fixed="primary"/>
+ *		<xs:attribute name="usage" type="primary"/>
  *		<xs:attribute name="type">
  *			<xs:simpleType>
  *				<xs:restriction base="xs:string">

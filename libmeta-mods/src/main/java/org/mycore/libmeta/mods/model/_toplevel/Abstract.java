@@ -45,7 +45,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *               <xs:attribute name="displayLabel" type="xs:string"/>
  *               <xs:attribute name="type" type="xs:string"/>
  *               <xs:attributeGroup ref="xlink:simpleLink"/>
- *               <xs:attribute name="shareable" fixed="no"/>
+ *               <xs:attribute name="shareable" type="no"/>
  *               <xs:attribute name="altRepGroup" type="xs:string"/>
  *               <xs:attributeGroup ref="altFormatAttributeGroup"/>
  *           </xs:extension>

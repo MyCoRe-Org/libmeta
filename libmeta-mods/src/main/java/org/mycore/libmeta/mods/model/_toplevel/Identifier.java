@@ -37,7 +37,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *				<xs:attribute name="displayLabel" type="xs:string"/>
  *				<xs:attribute name="type" type="xs:string"/>
  *				<xs:attribute name="typeURI" type="xs:anyURI"/>
- *				<xs:attribute name="invalid" fixed="yes"/>
+ *				<xs:attribute name="invalid" type="yes"/>
  *				<xs:attribute name="altRepGroup" type="xs:string"/>
  *			</xs:extension>
  *		</xs:simpleContent>

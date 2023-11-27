@@ -40,7 +40,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *        <xs:attribute name="type" type="xs:string"/>
  *        <xs:attribute name="displayLabel" type="xs:string"/>
  *        <xs:attribute name="altRepGroup" type="xs:string"/>
- *        <xs:attribute name="usage" fixed="primary"/>
+ *        <xs:attribute name="usage" type="primary"/>
  *      </xs:extension>
  *   </xs:simpleContent>
  * </xs:complexType>

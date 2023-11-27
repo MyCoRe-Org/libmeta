@@ -42,7 +42,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *                <xs:attribute name="edition" type="xs:string"/>
  *               <xs:attribute name="displayLabel" type="xs:string"/>
  *                <xs:attribute name="altRepGroup" type="xs:string"/>
- *                <xs:attribute name="usage" fixed="primary"/>
+ *                <xs:attribute name="usage" type="primary"/>
  *                <xs:attribute name="generator" type="xs:string"/>
  *            </xs:extension>
  *        </xs:simpleContent>
