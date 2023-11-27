@@ -44,7 +44,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class PlaceTerm extends StringPlusLanguagePlusAuthority {
+public class PlaceTerm extends StringPlusLanguagePlusAuthority implements IPlaceSubelement{
     
     public static final String AUTHORITY__MARCGAC = "marcgac";
     
