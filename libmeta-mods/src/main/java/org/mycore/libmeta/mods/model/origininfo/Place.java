@@ -24,6 +24,7 @@ import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.enums.Yes;
 import org.mycore.libmeta.mods.model.cartographics.Cartographics;
 import org.mycore.libmeta.mods.model.origininfo.place.IPlaceSubelement;
+import org.mycore.libmeta.mods.model.origininfo.place.PlaceIdentifier;
 import org.mycore.libmeta.mods.model.origininfo.place.PlaceTerm;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -57,6 +58,7 @@ public class Place implements IOriginInfoSubelement {
     protected List<PlaceTerm> placeTerm = new Vector<>();
 
     @XmlElements({ @XmlElement(name = "placeTerm", namespace = "http://www.loc.gov/mods/v3", type = PlaceTerm.class),
+        @XmlElement(name = "placeIdentifier", namespace = "http://www.loc.gov/mods/v3", type = PlaceIdentifier.class),
         @XmlElement(name = "cartographics", namespace = "http://www.loc.gov/mods/v3", type = Cartographics.class) })
     protected List<IPlaceSubelement> content = new Vector<>();
 
