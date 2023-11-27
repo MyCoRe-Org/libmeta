@@ -67,11 +67,11 @@ public class AlternativeName extends NameDefinition<IAlternativeNameSubelement>
     implements INameSubelement, IAttributeGroupXlinkSimpleLink, ILanguageAttributeGroup {
 
     //well-known values for altType attribute
-    public static final String ALT_TYPE_FORMAL_NAME = "formal name";
-    public static final String ALT_TYPE_PREFERRED_NAME = "preferred name";
-    public static final String ALT_TYPE_ACRONYM = "acronym";
-    public static final String ALT_TYPE_NICKNAME = "nickname";
-    public static final String ALT_TYPE_NO_SPECIFIC_TYPE = "no specific type";
+    public static final String ALT_TYPE__FORMAL_NAME = "formal name";
+    public static final String ALT_TYPE__PREFERRED_NAME = "preferred name";
+    public static final String ALT_TYPE__ACRONYM = "acronym";
+    public static final String ALT_TYPE__NICKNAME = "nickname";
+    public static final String ALT_TYPE__NO_SPECIFIC_TYPE = "no specific type";
 
     @XmlElements({
         @XmlElement(name = "namePart", namespace = "http://www.loc.gov/mods/v3", type = NamePart.class),
