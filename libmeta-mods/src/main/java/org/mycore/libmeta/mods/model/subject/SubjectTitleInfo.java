@@ -76,14 +76,15 @@ import jakarta.xml.bind.annotation.XmlElements;
  * @version MODS 3.6
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class SubjectTitleInfo implements ISubjectSubelement, IIDAttributeGroup, IAuthorityAttributeGroup, ILanguageAttributeGroup,
-        IAttributeGroupXlinkSimpleLink {
+public class SubjectTitleInfo
+    implements ISubjectSubelement, IIDAttributeGroup, IAuthorityAttributeGroup, ILanguageAttributeGroup,
+    IAttributeGroupXlinkSimpleLink {
 
     @XmlElements({ @XmlElement(name = "title", namespace = "http://www.loc.gov/mods/v3", type = Title.class),
-            @XmlElement(name = "subTitle", namespace = "http://www.loc.gov/mods/v3", type = SubTitle.class),
-            @XmlElement(name = "partNumber", namespace = "http://www.loc.gov/mods/v3", type = PartNumber.class),
-            @XmlElement(name = "partName", namespace = "http://www.loc.gov/mods/v3", type = PartName.class),
-            @XmlElement(name = "nonSort", namespace = "http://www.loc.gov/mods/v3", type = NonSort.class) })
+        @XmlElement(name = "subTitle", namespace = "http://www.loc.gov/mods/v3", type = SubTitle.class),
+        @XmlElement(name = "partNumber", namespace = "http://www.loc.gov/mods/v3", type = PartNumber.class),
+        @XmlElement(name = "partName", namespace = "http://www.loc.gov/mods/v3", type = PartName.class),
+        @XmlElement(name = "nonSort", namespace = "http://www.loc.gov/mods/v3", type = NonSort.class) })
 
     protected List<ISubjectTitleInfoSubelement> content = new Vector<>();
 
@@ -95,7 +96,7 @@ public class SubjectTitleInfo implements ISubjectSubelement, IIDAttributeGroup, 
 
     @XmlAttribute(name = "ID", required = false)
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF", required = false)
     protected String IDREF;
 
@@ -194,7 +195,7 @@ public class SubjectTitleInfo implements ISubjectSubelement, IIDAttributeGroup, 
     public void setID(String iD) {
         this.ID = iD;
     }
-    
+
     public String getIDREF() {
         return IDREF;
     }
@@ -315,7 +316,9 @@ public class SubjectTitleInfo implements ISubjectSubelement, IIDAttributeGroup, 
         return new Builder(s);
     }
 
-    public static class Builder extends BuilderBase<SubjectTitleInfo, Builder>  implements IIDAttributeGroupBuilder<SubjectTitleInfo, Builder>, IAuthorityAttributeGroupBuilder<SubjectTitleInfo, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<SubjectTitleInfo, Builder>{
+    public static class Builder extends BuilderBase<SubjectTitleInfo, Builder> implements
+        IIDAttributeGroupBuilder<SubjectTitleInfo, Builder>, IAuthorityAttributeGroupBuilder<SubjectTitleInfo, Builder>,
+        IAttributeGroupXlinkSimpleLinkBuilder<SubjectTitleInfo, Builder> {
 
         protected Builder(SubjectTitleInfo subjectTitleInfo) {
             super(subjectTitleInfo);

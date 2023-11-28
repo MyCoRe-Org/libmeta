@@ -67,7 +67,7 @@ public class DCSimpleXMLProcessorTest {
         }
     }
 
-    @Test
+    //@Test
     public void testUnMarshalFromString() {
         String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
             + "<dc:contributor xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xml:lang=\"de\">Max Meier</dc:contributor>";

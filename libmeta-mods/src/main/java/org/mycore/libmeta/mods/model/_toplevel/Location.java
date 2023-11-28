@@ -102,10 +102,10 @@ public class Location implements ITopLevelElement, IIDAttributeGroup, ILanguageA
      */
     @XmlElement(name = "holdingExternal", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected HoldingExternal holdingExternal;
-    
+
     @XmlAttribute(name = "ID")
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF")
     protected String IDREF;
 
@@ -130,7 +130,7 @@ public class Location implements ITopLevelElement, IIDAttributeGroup, ILanguageA
 
     @XmlAttribute(name = "altRepGroup")
     protected String altRepGroup;
-    
+
     public String getID() {
         return ID;
     }
@@ -231,7 +231,8 @@ public class Location implements ITopLevelElement, IIDAttributeGroup, ILanguageA
         return new Builder(l);
     }
 
-    public static class Builder extends BuilderBase<Location, Builder> implements IIDAttributeGroupBuilder<Location, Builder>, ILanguageAttributeGroupBuilder<Location, Builder> {
+    public static class Builder extends BuilderBase<Location, Builder>
+        implements IIDAttributeGroupBuilder<Location, Builder>, ILanguageAttributeGroupBuilder<Location, Builder> {
 
         protected Builder(Location object) {
             super(object);

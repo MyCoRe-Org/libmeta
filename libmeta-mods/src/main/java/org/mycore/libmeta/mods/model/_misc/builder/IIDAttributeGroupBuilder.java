@@ -31,16 +31,18 @@ import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
  * @version MODS 3.8
  *
  */
-public interface IIDAttributeGroupBuilder<T extends IIDAttributeGroup, B>{
+public interface IIDAttributeGroupBuilder<T extends IIDAttributeGroup, B> {
     public T _target();
+
     public B _self();
-    
-	public default B ID(String iD){
-		_target().setID(iD);
-		return _self();
-	}
-	public default B IDREF(String iDREF){
-		_target().setIDREF(iDREF);
-		return _self();
-	}
+
+    public default B ID(String iD) {
+        _target().setID(iD);
+        return _self();
+    }
+
+    public default B IDREF(String iDREF) {
+        _target().setIDREF(iDREF);
+        return _self();
+    }
 }

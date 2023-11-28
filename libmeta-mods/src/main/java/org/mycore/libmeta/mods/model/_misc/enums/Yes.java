@@ -44,5 +44,6 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum Yes {
-	@XmlEnumValue("yes") YES;
+    @XmlEnumValue("yes")
+    YES;
 }

@@ -53,7 +53,8 @@ public class NonSort extends StringPlusLanguage implements ITitleInfoSubelement,
         return new Builder(ns);
     }
 
-    public static class Builder extends BuilderBase<NonSort, Builder> implements IXsStringBuilder<NonSort, Builder>, ILanguageAttributeGroupBuilder<NonSort, Builder> {
+    public static class Builder extends BuilderBase<NonSort, Builder>
+        implements IXsStringBuilder<NonSort, Builder>, ILanguageAttributeGroupBuilder<NonSort, Builder> {
 
         protected Builder(NonSort nonSort) {
             super(nonSort);

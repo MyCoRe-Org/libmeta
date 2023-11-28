@@ -58,38 +58,38 @@ public class TypeOfResource extends StringPlusLanguagePlusAuthority implements I
 
     @XmlAttribute(name = "ID")
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF")
     protected String IDREF;
-    
+
     /**
      * {@code
      * <xs:attribute name="collection" type="yes"/>
      * }
      */
     protected Yes collection;
-    
+
     /**
      * {@code
      * <xs:attribute name="manuscript" type="yes"/>
      * }
      */
     protected Yes manuscript;
-    
+
     /**
      * {@code
      * <xs:attribute name="displayLabel" type="xs:string"/>
      * }
      */
     protected String displayLabel;
-    
+
     /**
      * {@code
      * <xs:attribute name="altRepGroup" type="xs:string"/>
      * }
      */
     protected String altRepGroup;
-    
+
     /**
      * {@code
      * <xs:attribute name="usage" type="primary"/>
@@ -113,83 +113,86 @@ public class TypeOfResource extends StringPlusLanguagePlusAuthority implements I
         IDREF = iDREF;
     }
 
-	public Yes getCollection() {
-		return collection;
-	}
+    public Yes getCollection() {
+        return collection;
+    }
 
-	public void setCollection(Yes collection) {
-		this.collection = collection;
-	}
+    public void setCollection(Yes collection) {
+        this.collection = collection;
+    }
 
-	public Yes getManuscript() {
-		return manuscript;
-	}
+    public Yes getManuscript() {
+        return manuscript;
+    }
 
-	public void setManuscript(Yes manuscript) {
-		this.manuscript = manuscript;
-	}
+    public void setManuscript(Yes manuscript) {
+        this.manuscript = manuscript;
+    }
 
-	public String getDisplayLabel() {
-		return displayLabel;
-	}
+    public String getDisplayLabel() {
+        return displayLabel;
+    }
 
-	public void setDisplayLabel(String displayLabel) {
-		this.displayLabel = displayLabel;
-	}
+    public void setDisplayLabel(String displayLabel) {
+        this.displayLabel = displayLabel;
+    }
 
-	public String getAltRepGroup() {
-		return altRepGroup;
-	}
+    public String getAltRepGroup() {
+        return altRepGroup;
+    }
 
-	public void setAltRepGroup(String altRepGroup) {
-		this.altRepGroup = altRepGroup;
-	}
+    public void setAltRepGroup(String altRepGroup) {
+        this.altRepGroup = altRepGroup;
+    }
 
-	public Usage getUsage() {
-		return usage;
-	}
+    public Usage getUsage() {
+        return usage;
+    }
 
-	public void setUsage(Usage usage) {
-		this.usage = usage;
-	}
+    public void setUsage(Usage usage) {
+        this.usage = usage;
+    }
 
-	public static Builder builderForTypeOfResource() {
-		return builder(new TypeOfResource());
-	}
-	
-	public static Builder builder(TypeOfResource tor) {
-		return new Builder(tor);
-	}
-	
-	public static class Builder extends BuilderBase<TypeOfResource, Builder> implements IXsStringBuilder<TypeOfResource, Builder>, IIDAttributeGroupBuilder<TypeOfResource, Builder>, ILanguageAttributeGroupBuilder<TypeOfResource, Builder>, IAuthorityAttributeGroupBuilder<TypeOfResource, Builder>{
-			    
-	    protected Builder(TypeOfResource tor) {
-			super(tor);
-		}
-	    
-	    public Builder collection(Yes collection) {
-			_target().setCollection(collection);
-			return _self();
-		}
-	    
-	    public Builder manuscript(Yes manuscript) {
-			_target().setManuscript(manuscript);
-			return _self();
-		}
-	    
-	    public Builder displayLabel(String displayLabel) {
-			_target().setDisplayLabel(displayLabel);
-			return _self();
-		}
-	    
-	    public Builder altRepGroup(String altRepGroup) {
-	    	_target().setAltRepGroup(altRepGroup);
-	    	return _self();
-	    }
-	    
-	    public Builder usage(Usage usage) {
-	    	_target().setUsage(usage);
-	    	return _self();
-	    }
-	}
+    public static Builder builderForTypeOfResource() {
+        return builder(new TypeOfResource());
+    }
+
+    public static Builder builder(TypeOfResource tor) {
+        return new Builder(tor);
+    }
+
+    public static class Builder extends BuilderBase<TypeOfResource, Builder>
+        implements IXsStringBuilder<TypeOfResource, Builder>, IIDAttributeGroupBuilder<TypeOfResource, Builder>,
+        ILanguageAttributeGroupBuilder<TypeOfResource, Builder>,
+        IAuthorityAttributeGroupBuilder<TypeOfResource, Builder> {
+
+        protected Builder(TypeOfResource tor) {
+            super(tor);
+        }
+
+        public Builder collection(Yes collection) {
+            _target().setCollection(collection);
+            return _self();
+        }
+
+        public Builder manuscript(Yes manuscript) {
+            _target().setManuscript(manuscript);
+            return _self();
+        }
+
+        public Builder displayLabel(String displayLabel) {
+            _target().setDisplayLabel(displayLabel);
+            return _self();
+        }
+
+        public Builder altRepGroup(String altRepGroup) {
+            _target().setAltRepGroup(altRepGroup);
+            return _self();
+        }
+
+        public Builder usage(Usage usage) {
+            _target().setUsage(usage);
+            return _self();
+        }
+    }
 }

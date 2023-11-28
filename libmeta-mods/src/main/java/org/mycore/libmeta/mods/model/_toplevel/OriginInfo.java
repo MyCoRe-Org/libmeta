@@ -79,7 +79,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class OriginInfo implements ITopLevelElement, IIDAttributeGroup, ILanguageAttributeGroup {
-    
+
     /**
      * recommended value for eventType
      */
@@ -118,7 +118,7 @@ public class OriginInfo implements ITopLevelElement, IIDAttributeGroup, ILanguag
 
     @XmlAttribute(name = "ID")
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF")
     protected String IDREF;
 
@@ -158,7 +158,7 @@ public class OriginInfo implements ITopLevelElement, IIDAttributeGroup, ILanguag
     */
     @XmlAttribute(name = "eventType")
     protected String eventType;
-    
+
     //<xs:attribute name="eventTypeURI" type="xs:anyURI"/>
     @XmlAttribute(name = "eventTypeURI")
     protected String eventTypeURI;
@@ -166,7 +166,7 @@ public class OriginInfo implements ITopLevelElement, IIDAttributeGroup, ILanguag
     public List<IOriginInfoSubelement> getContent() {
         return originInfoElement;
     }
-    
+
     public String getID() {
         return ID;
     }
@@ -238,7 +238,7 @@ public class OriginInfo implements ITopLevelElement, IIDAttributeGroup, ILanguag
     public void setEventType(String eventType) {
         this.eventType = eventType;
     }
-    
+
     public String getEventTypeURI() {
         return eventTypeURI;
     }
@@ -255,7 +255,8 @@ public class OriginInfo implements ITopLevelElement, IIDAttributeGroup, ILanguag
         return new Builder(oi);
     }
 
-    public static class Builder extends BuilderBase<OriginInfo, Builder> implements IIDAttributeGroupBuilder<OriginInfo, Builder>, ILanguageAttributeGroupBuilder<OriginInfo, Builder> {
+    public static class Builder extends BuilderBase<OriginInfo, Builder>
+        implements IIDAttributeGroupBuilder<OriginInfo, Builder>, ILanguageAttributeGroupBuilder<OriginInfo, Builder> {
         protected Builder(OriginInfo oi) {
             super(oi);
         }
@@ -279,7 +280,7 @@ public class OriginInfo implements ITopLevelElement, IIDAttributeGroup, ILanguag
             _target().setEventType(e);
             return _self();
         }
-        
+
         public Builder eventTypeURI(String uri) {
             _target().setEventTypeURI(uri);
             return _self();

@@ -31,15 +31,16 @@ import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBui
  * @version MODS 3.6
  *
  */
-public interface INameDefinitionBuilder<S extends INameDefinitionSubelement , T extends NameDefinition<S>, B>
-    extends IIDAttributeGroupBuilder<T, B>, 
+public interface INameDefinitionBuilder<S extends INameDefinitionSubelement, T extends NameDefinition<S>, B>
+    extends IIDAttributeGroupBuilder<T, B>,
     IAuthorityAttributeGroupBuilder<T, B>,
-    IAttributeGroupXlinkSimpleLinkBuilder<T, B>, 
+    IAttributeGroupXlinkSimpleLinkBuilder<T, B>,
     ILanguageAttributeGroupBuilder<T, B> {
-    
+
     public T _target();
+
     public B _self();
-    
+
     public default B addContent(S content) {
         _target().getContent().add(content);
         return _self();
@@ -69,7 +70,7 @@ public interface INameDefinitionBuilder<S extends INameDefinitionSubelement , T 
         _target().setType(type);
         return _self();
     }
-    
+
     public default B supplied(Yes supplied) {
         _target().setSupplied(supplied);
         return _self();

@@ -33,7 +33,7 @@ import jakarta.xml.bind.annotation.XmlValue;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlTransient
-public class XsPositiveInteger{
+public class XsPositiveInteger {
     @XmlValue
     protected Integer content;
 
@@ -44,16 +44,16 @@ public class XsPositiveInteger{
     public void setContent(Integer content) {
         this.content = content;
     }
-    
-	 public static class Builder<T extends XsPositiveInteger> extends BuilderBase<T, Builder<T>> {
 
-	        protected Builder(T object) {
-	            super(object);
-	        }
+    public static class Builder<T extends XsPositiveInteger> extends BuilderBase<T, Builder<T>> {
 
-	        public Builder<T> content(Integer content) {
-	            _target().setContent(content);
-	            return _self();
-	        }
-	    }
+        protected Builder(T object) {
+            super(object);
+        }
+
+        public Builder<T> content(Integer content) {
+            _target().setContent(content);
+            return _self();
+        }
+    }
 }

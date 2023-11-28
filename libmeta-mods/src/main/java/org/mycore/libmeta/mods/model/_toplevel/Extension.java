@@ -31,6 +31,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAnyElement;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlMixed;
+
 /**
  *    Top Level Element {@literal <extension>}
  *    
@@ -51,26 +52,26 @@ import jakarta.xml.bind.annotation.XmlMixed;
 
 @XmlAccessorType(XmlAccessType.NONE)
 public class Extension implements ITopLevelElement, IIDAttributeGroup {
-    
+
     @SuppressWarnings("rawtypes")
-	@XmlAnyElement(lax = true)
+    @XmlAnyElement(lax = true)
     @XmlMixed
     private List content = new Vector();
-    
+
     @XmlAttribute(name = "ID")
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF")
     protected String IDREF;
-    
+
     /**
      * {@code
      * <xs:attribute name="displayLabel" type="xs:string"/>
      * }
      */
-    @XmlAttribute(name="displayLabel")
+    @XmlAttribute(name = "displayLabel")
     protected String displayLabel;
-    
+
     @XmlAttribute(name = "type")
     protected String type;
 
@@ -89,7 +90,7 @@ public class Extension implements ITopLevelElement, IIDAttributeGroup {
     public void setIDREF(String iDREF) {
         IDREF = iDREF;
     }
-    
+
     public String getType() {
         return type;
     }
@@ -98,8 +99,8 @@ public class Extension implements ITopLevelElement, IIDAttributeGroup {
         this.type = type;
     }
 
-     @SuppressWarnings("rawtypes")
-	public List getContent() {
+    @SuppressWarnings("rawtypes")
+    public List getContent() {
         return content;
     }
 
@@ -114,24 +115,25 @@ public class Extension implements ITopLevelElement, IIDAttributeGroup {
     public void setDisplayLabel(String displayLabel) {
         this.displayLabel = displayLabel;
     }
-    
-	public static Builder builder() {
-		return builder(new Extension());
-	}
-	
-	public static Builder builder(Extension spl) {
-		return new Builder(spl);
-	}
-	
-	public static class Builder extends BuilderBase<Extension, Builder> implements IExtensionBuilder<Extension, Builder>, IIDAttributeGroupBuilder<Extension, Builder>{
 
-	    protected Builder(Extension ext) {
-			super(ext);
-		}
-	    
+    public static Builder builder() {
+        return builder(new Extension());
+    }
+
+    public static Builder builder(Extension spl) {
+        return new Builder(spl);
+    }
+
+    public static class Builder extends BuilderBase<Extension, Builder>
+        implements IExtensionBuilder<Extension, Builder>, IIDAttributeGroupBuilder<Extension, Builder> {
+
+        protected Builder(Extension ext) {
+            super(ext);
+        }
+
         public Builder type(String type) {
             _target().setType(type);
             return this;
         }
-	}
+    }
 }

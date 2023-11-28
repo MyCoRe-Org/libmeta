@@ -20,7 +20,6 @@ package org.mycore.libmeta.mods.model.origininfo;
 import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 
-
 /**
  * MODS OriginInfo Subelement: issuance
  * 
@@ -42,12 +41,18 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  *
  */
 @XmlEnum
-public enum Issuance implements IOriginInfoSubelement{
-	@XmlEnumValue("continuing") CONTINUING,
-	@XmlEnumValue("monographic") MONOGRAPHIC,
-	@XmlEnumValue("single unit") SINGLE_UNIT,
-	@XmlEnumValue("multipart monograph") MULTIPART_MONOGRAPH,
-	@XmlEnumValue("serial") SERIAL,
-	@XmlEnumValue("integrating resource") INTEGRATING_RESOURCE;
+public enum Issuance implements IOriginInfoSubelement {
+    @XmlEnumValue("continuing")
+    CONTINUING,
+    @XmlEnumValue("monographic")
+    MONOGRAPHIC,
+    @XmlEnumValue("single unit")
+    SINGLE_UNIT,
+    @XmlEnumValue("multipart monograph")
+    MULTIPART_MONOGRAPH,
+    @XmlEnumValue("serial")
+    SERIAL,
+    @XmlEnumValue("integrating resource")
+    INTEGRATING_RESOURCE;
 
 }

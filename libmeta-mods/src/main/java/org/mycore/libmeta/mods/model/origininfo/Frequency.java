@@ -38,17 +38,18 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Frequency extends StringPlusLanguagePlusAuthority implements IOriginInfoSubelement{
+public class Frequency extends StringPlusLanguagePlusAuthority implements IOriginInfoSubelement {
 
     public static Builder builderForFreqency() {
         return builder(new Frequency());
     }
-    
+
     public static Builder builder(Frequency f) {
         return new Builder(f);
     }
-    
-    public static class Builder extends BuilderBase<Frequency, Builder> implements IXsStringBuilder<Frequency, Builder>, ILanguageAttributeGroupBuilder<Frequency, Builder>, IAuthorityAttributeGroupBuilder<Frequency, Builder> {
+
+    public static class Builder extends BuilderBase<Frequency, Builder> implements IXsStringBuilder<Frequency, Builder>,
+        ILanguageAttributeGroupBuilder<Frequency, Builder>, IAuthorityAttributeGroupBuilder<Frequency, Builder> {
         protected Builder(Frequency f) {
             super(f);
         }

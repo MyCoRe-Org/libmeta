@@ -94,7 +94,8 @@ public class Mods implements IIDAttributeGroup {
         @XmlElement(name = "note", namespace = "http://www.loc.gov/mods/v3", type = Note.class),
         @XmlElement(name = "originInfo", namespace = "http://www.loc.gov/mods/v3", type = OriginInfo.class),
         @XmlElement(name = "part", namespace = "http://www.loc.gov/mods/v3", type = Part.class),
-        @XmlElement(name = "physicalDescription", namespace = "http://www.loc.gov/mods/v3", type = PhysicalDescription.class),
+        @XmlElement(name = "physicalDescription", namespace = "http://www.loc.gov/mods/v3",
+            type = PhysicalDescription.class),
         @XmlElement(name = "recordInfo", namespace = "http://www.loc.gov/mods/v3", type = RecordInfo.class),
         @XmlElement(name = "relatedItem", namespace = "http://www.loc.gov/mods/v3", type = RelatedItem.class),
         @XmlElement(name = "subject", namespace = "http://www.loc.gov/mods/v3", type = Subject.class),
@@ -107,7 +108,7 @@ public class Mods implements IIDAttributeGroup {
 
     @XmlAttribute(name = "ID")
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF")
     protected String IDREF;
 
@@ -133,7 +134,7 @@ public class Mods implements IIDAttributeGroup {
     public void setIDREF(String iDREF) {
         IDREF = iDREF;
     }
-    
+
     public ModsVersion getVersion() {
         return version;
     }
@@ -151,7 +152,7 @@ public class Mods implements IIDAttributeGroup {
     }
 
     public static class Builder extends BuilderBase<Mods, Builder>
-     implements IIDAttributeGroupBuilder<Mods, Builder>{
+        implements IIDAttributeGroupBuilder<Mods, Builder> {
 
         protected Builder(Mods m) {
             super(m);
@@ -170,7 +171,7 @@ public class Mods implements IIDAttributeGroup {
     }
 
     public static void main(String... args) {
-      //  Mods.builder()
-      //      .addContent(Name.builder().addContent(NamePart.builder().content("Robert Stephan").build()).build());
+        //  Mods.builder()
+        //      .addContent(Name.builder().addContent(NamePart.builder().content("Robert Stephan").build()).build());
     }
 }

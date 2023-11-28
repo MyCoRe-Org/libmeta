@@ -31,30 +31,31 @@ import org.w3c.dom.Node;
  */
 public interface IExtensionBuilder<T extends Extension, B> {
     public T _target();
+
     public B _self();
-    
+
     @SuppressWarnings("unchecked")
-	public default B addContent(Node content) {
-    	_target().getContent().add(content);
-    	return _self();
-    	
+    public default B addContent(Node content) {
+        _target().getContent().add(content);
+        return _self();
+
     }
-    
+
     @SuppressWarnings("unchecked")
-    public  default B addContent(List<Node> content) {
-    	_target().getContent().addAll(content);
-    	return _self();
+    public default B addContent(List<Node> content) {
+        _target().getContent().addAll(content);
+        return _self();
     }
-    
+
     @SuppressWarnings("unchecked")
-    public  default B content(String content) {
-    	_target().getContent().clear();
-    	_target().getContent().add(content);
-    	return _self();
+    public default B content(String content) {
+        _target().getContent().clear();
+        _target().getContent().add(content);
+        return _self();
     }
-    	    
-    public  default B displayLabel(String displayLabel) {
-    	_target().setDisplayLabel(displayLabel);
-    	return _self();
+
+    public default B displayLabel(String displayLabel) {
+        _target().setDisplayLabel(displayLabel);
+        return _self();
     }
 }

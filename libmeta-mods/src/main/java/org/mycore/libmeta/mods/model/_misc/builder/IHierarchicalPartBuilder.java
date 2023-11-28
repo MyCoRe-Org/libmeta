@@ -27,32 +27,33 @@ import org.mycore.libmeta.mods.model.subject.hierarchicalgeographic.Hierarchical
  *
  */
 public interface IHierarchicalPartBuilder<T extends HierarchicalPart, B>
-		extends IXsStringBuilder<HierarchicalPart, B>, ILanguageAttributeGroupBuilder<HierarchicalPart, B> {
-	public T _target();
-	public B _self();
+    extends IXsStringBuilder<HierarchicalPart, B>, ILanguageAttributeGroupBuilder<HierarchicalPart, B> {
+    public T _target();
 
-	public default B level(String level) {
-		_target().setLevel(level);
-		return _self();
-	}
+    public B _self();
 
-	public default B period(String period) {
-		_target().setPeriod(period);
-		return _self();
-	}
+    public default B level(String level) {
+        _target().setLevel(level);
+        return _self();
+    }
 
-	public default B authority(String authority) {
-		_target().setAuthority(authority);
-		return _self();
-	}
+    public default B period(String period) {
+        _target().setPeriod(period);
+        return _self();
+    }
 
-	public default B authorityURI(String authorityURI) {
-		_target().setAuthorityURI(authorityURI);
-		return _self();
-	}
+    public default B authority(String authority) {
+        _target().setAuthority(authority);
+        return _self();
+    }
 
-	public default B valueURI(String valueURI) {
-		_target().setValueURI(valueURI);
-		return _self();
-	}
+    public default B authorityURI(String authorityURI) {
+        _target().setAuthorityURI(authorityURI);
+        return _self();
+    }
+
+    public default B valueURI(String valueURI) {
+        _target().setValueURI(valueURI);
+        return _self();
+    }
 }

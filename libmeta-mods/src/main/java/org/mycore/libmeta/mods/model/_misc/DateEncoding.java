@@ -42,11 +42,16 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum DateEncoding {
-	@XmlEnumValue("w3cdtf") W3CDTF,
-	@XmlEnumValue("iso8601") ISO8601,
-	@XmlEnumValue("marc") MARC,
-    
+    @XmlEnumValue("w3cdtf")
+    W3CDTF,
+    @XmlEnumValue("iso8601")
+    ISO8601,
+    @XmlEnumValue("marc")
+    MARC,
+
     // following two, "temper" and "edft", new in 3.4 -->
-	@XmlEnumValue("temper") TEMPER,
-	@XmlEnumValue("edtf") EDTF;
+    @XmlEnumValue("temper")
+    TEMPER,
+    @XmlEnumValue("edtf")
+    EDTF;
 }

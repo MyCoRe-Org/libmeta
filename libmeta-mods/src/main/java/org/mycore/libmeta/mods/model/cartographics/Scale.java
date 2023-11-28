@@ -26,6 +26,6 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
  * @version MODS 3.6
  *
  */
-public class Scale extends StringPlusLanguage implements ICartographicsSubelement{
+public class Scale extends StringPlusLanguage implements ICartographicsSubelement {
 
 }

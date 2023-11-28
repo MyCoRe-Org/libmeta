@@ -39,8 +39,11 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum DateQualifier {
-	@XmlEnumValue("approximate") APPROXIMATE,
-	@XmlEnumValue("inferred") INFERRED,
-	@XmlEnumValue("questionable") QUESTIONABLE;
+    @XmlEnumValue("approximate")
+    APPROXIMATE,
+    @XmlEnumValue("inferred")
+    INFERRED,
+    @XmlEnumValue("questionable")
+    QUESTIONABLE;
 
 }

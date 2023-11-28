@@ -41,14 +41,15 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 public class ElectronicLocator extends StringPlusLanguage implements ILocationSublement {
 
     public static Builder builderForElectronicLocator() {
-       return builder(new ElectronicLocator());
+        return builder(new ElectronicLocator());
     }
-    
+
     public static Builder builder(ElectronicLocator uac) {
         return new Builder(uac);
     }
 
-    public static class Builder extends BuilderBase<ElectronicLocator, Builder> implements IXsStringBuilder<ElectronicLocator, Builder>, ILanguageAttributeGroupBuilder<ElectronicLocator, Builder> {
+    public static class Builder extends BuilderBase<ElectronicLocator, Builder> implements
+        IXsStringBuilder<ElectronicLocator, Builder>, ILanguageAttributeGroupBuilder<ElectronicLocator, Builder> {
         protected Builder(ElectronicLocator eac) {
             super(eac);
         }

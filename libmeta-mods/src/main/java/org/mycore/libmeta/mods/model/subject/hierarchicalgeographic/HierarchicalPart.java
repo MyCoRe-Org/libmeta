@@ -35,36 +35,35 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class HierarchicalPart extends StringPlusLanguage
-        implements IAuthorityAttributeGroup {
+    implements IAuthorityAttributeGroup {
 
-    @XmlAttribute(name = "level", required=false)
+    @XmlAttribute(name = "level", required = false)
     protected String level;
 
-    @XmlAttribute(name = "period", required=false)
+    @XmlAttribute(name = "period", required = false)
     protected String period;
 
     // IAuthorityAttributeGroup - begin
 
-     @XmlAttribute(name="authority", required=false)
-     protected String authority;
-    
+    @XmlAttribute(name = "authority", required = false)
+    protected String authority;
+
     /**
      * {@code
      * <xs:attribute name="authorityURI" type="xs:anyURI"/>
      * }
      */
-     @XmlAttribute(name="authorityURI", required=false)
-     protected String authorityURI;
-     /**
-      * {@code
-      * <xs:attribute name="valueURI" type="xs:anyURI"/>
-      * }
-      */
-     @XmlAttribute(name="valueURI", required=false)
-     protected String valueURI;
-     
-    // IAuthorityAttributeGroup - end
+    @XmlAttribute(name = "authorityURI", required = false)
+    protected String authorityURI;
+    /**
+     * {@code
+     * <xs:attribute name="valueURI" type="xs:anyURI"/>
+     * }
+     */
+    @XmlAttribute(name = "valueURI", required = false)
+    protected String valueURI;
 
+    // IAuthorityAttributeGroup - end
 
     public String getLevel() {
         return level;
@@ -106,9 +105,10 @@ public class HierarchicalPart extends StringPlusLanguage
         this.valueURI = valueURI;
     }
 
-    public static class Builder extends BuilderBase<HierarchicalPart, Builder> implements IHierarchicalPartBuilder<HierarchicalPart, Builder> {
-        
-    	protected Builder(HierarchicalPart hp) {
+    public static class Builder extends BuilderBase<HierarchicalPart, Builder>
+        implements IHierarchicalPartBuilder<HierarchicalPart, Builder> {
+
+        protected Builder(HierarchicalPart hp) {
             super(hp);
         }
     }

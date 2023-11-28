@@ -53,16 +53,16 @@ import jakarta.xml.bind.annotation.XmlType;
  *   @version MODS 3.6
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(name="copyinformation_note")
+@XmlType(name = "copyinformation_note")
 public class Note extends StringPlusLanguage implements ICopyInformationSubelement, IAttributeGroupXlinkSimpleLink {
-     
-    @XmlAttribute(name="displayLabel")
+
+    @XmlAttribute(name = "displayLabel")
     protected String displayLabel;
-    
-    @XmlAttribute(name="type")
+
+    @XmlAttribute(name = "type")
     protected String type;
-     
- // attributeGroup xlink:simpleLink - begin
+
+    // attributeGroup xlink:simpleLink - begin
 
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
     protected String xlinkType;
@@ -86,8 +86,8 @@ public class Note extends StringPlusLanguage implements ICopyInformationSubeleme
     protected XlinkActuate xlinkActuate;
 
     // attributeGroup xlink:simpleLink - end
-    
-    @XmlAttribute(name="ID")
+
+    @XmlAttribute(name = "ID")
     protected String ID;
 
     public String getDisplayLabel() {
@@ -177,27 +177,28 @@ public class Note extends StringPlusLanguage implements ICopyInformationSubeleme
     public static Builder builder(Note n) {
         return new Builder(n);
     }
-    
-    public static class Builder extends BuilderBase<Note, Builder> implements IXsStringBuilder<Note, Builder>, ILanguageAttributeGroupBuilder<Note, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Note, Builder> {
+
+    public static class Builder extends BuilderBase<Note, Builder> implements IXsStringBuilder<Note, Builder>,
+        ILanguageAttributeGroupBuilder<Note, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Note, Builder> {
         protected Builder(Note n) {
             super(n);
         }
-        
+
         public Builder displayLabel(String displayLabel) {
             _target().setDisplayLabel(displayLabel);
             return _self();
         }
-        
+
         public Builder type(String type) {
             _target().setType(type);
             return _self();
         }
-        
+
         public Builder xlinkType(String xlinkType) {
             _target().setXlinkType(xlinkType);
             return _self();
         }
-        
+
         public Builder ID(String id) {
             _target().setID(id);
             return _self();

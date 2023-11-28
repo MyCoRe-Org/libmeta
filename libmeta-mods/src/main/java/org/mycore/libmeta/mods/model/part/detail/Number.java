@@ -31,17 +31,18 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
  * @version MODS 3.6
  *
  */
-public class Number extends StringPlusLanguage implements IPartDetailSubelement{
+public class Number extends StringPlusLanguage implements IPartDetailSubelement {
 
     public static Builder builder() {
         return builder(new Number());
     }
-    
+
     public static Builder builder(Number num) {
         return new Builder(num);
     }
-    
-    public static class Builder extends BuilderBase<Number, Builder> implements IXsStringBuilder<Number, Builder>, ILanguageAttributeGroupBuilder<Number, Builder> {
+
+    public static class Builder extends BuilderBase<Number, Builder>
+        implements IXsStringBuilder<Number, Builder>, ILanguageAttributeGroupBuilder<Number, Builder> {
         protected Builder(Number num) {
             super(num);
         }

@@ -34,15 +34,17 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class PlaceIdentifier extends XsAnyURI implements IPlaceSubelement{
+public class PlaceIdentifier extends XsAnyURI implements IPlaceSubelement {
     public static Builder builder() {
         return builder(new PlaceIdentifier());
     }
+
     public static Builder builder(PlaceIdentifier placeId) {
         return new Builder(placeId);
     }
-    
-    public static class Builder extends BuilderBase<PlaceIdentifier, Builder> implements IXsAnyURIBuilder<PlaceIdentifier, Builder>{
+
+    public static class Builder extends BuilderBase<PlaceIdentifier, Builder>
+        implements IXsAnyURIBuilder<PlaceIdentifier, Builder> {
         protected Builder(PlaceIdentifier placeId) {
             super(placeId);
         }

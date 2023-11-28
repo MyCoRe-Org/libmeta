@@ -40,7 +40,8 @@ public class RecordOrigin extends StringPlusLanguage implements IRecordInfoSubel
         return new Builder(ro);
     }
 
-    public static class Builder extends BuilderBase<RecordOrigin, Builder> implements IXsStringBuilder<RecordOrigin, Builder>, ILanguageAttributeGroupBuilder<RecordOrigin, Builder> {
+    public static class Builder extends BuilderBase<RecordOrigin, Builder>
+        implements IXsStringBuilder<RecordOrigin, Builder>, ILanguageAttributeGroupBuilder<RecordOrigin, Builder> {
         protected Builder(RecordOrigin ro) {
             super(ro);
         }

@@ -45,18 +45,18 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class LanguageTerm extends StringPlusLanguagePlusAuthority implements ILanguageSubelement {
-    
+
     public static final String AUTHORITY__RFC3066 = "rfc3066";
-    
+
     public static final String AUTHORITY__ISO639_2B = "iso639-2b";
-    
+
     public static final String AUTHORITY__ISO639_3 = "iso639-3";
-    
+
     public static final String AUTHORITY__VALUE_RFC4646 = "rfc4646";
-    
+
     public static final String AUTHORITY__RFC5646 = "rfc5646";
 
-    @XmlAttribute(name="type", required=false)
+    @XmlAttribute(name = "type", required = false)
     CodeOrText type;
 
     public CodeOrText getType() {
@@ -66,28 +66,28 @@ public class LanguageTerm extends StringPlusLanguagePlusAuthority implements ILa
     public void setType(CodeOrText type) {
         this.type = type;
     }
-    
+
     public static Builder builderForLanguageTerm() {
         return builder(new LanguageTerm());
     }
-    
+
     public static Builder builder(LanguageTerm nlt) {
         return new Builder(nlt);
     }
-    
+
     public static class Builder extends BuilderBase<LanguageTerm, Builder>
         implements IXsStringBuilder<LanguageTerm, Builder>,
         IAuthorityAttributeGroupBuilder<LanguageTerm, Builder>,
-        ILanguageAttributeGroupBuilder<LanguageTerm, Builder>{
-                
+        ILanguageAttributeGroupBuilder<LanguageTerm, Builder> {
+
         protected Builder(LanguageTerm lt) {
             super(lt);
         }
-        
+
         public Builder type(CodeOrText type) {
             _target().setType(type);
             return _self();
         }
     }
-   
+
 }

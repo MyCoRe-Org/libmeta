@@ -39,5 +39,6 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum Usage {
-	@XmlEnumValue("primary") PRIMARY;
+    @XmlEnumValue("primary")
+    PRIMARY;
 }

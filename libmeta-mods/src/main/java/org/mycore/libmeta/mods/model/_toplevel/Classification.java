@@ -54,11 +54,12 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Classification extends StringPlusLanguagePlusAuthority implements ITopLevelElement, IIDAttributeGroup, ILanguageAttributeGroup, IAuthorityAttributeGroup {
-    
+public class Classification extends StringPlusLanguagePlusAuthority
+    implements ITopLevelElement, IIDAttributeGroup, ILanguageAttributeGroup, IAuthorityAttributeGroup {
+
     @XmlAttribute(name = "ID")
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF")
     protected String IDREF;
 
@@ -85,7 +86,7 @@ public class Classification extends StringPlusLanguagePlusAuthority implements I
      */
     @XmlAttribute(name = "generator")
     protected String generator;
-    
+
     public String getID() {
         return ID;
     }
@@ -150,7 +151,10 @@ public class Classification extends StringPlusLanguagePlusAuthority implements I
         return new Builder(div);
     }
 
-    public static class Builder extends BuilderBase<Classification, Builder> implements IXsStringBuilder<Classification, Builder>,  IIDAttributeGroupBuilder<Classification, Builder>, ILanguageAttributeGroupBuilder<Classification, Builder>, IAuthorityAttributeGroupBuilder<Classification, Builder> {
+    public static class Builder extends BuilderBase<Classification, Builder>
+        implements IXsStringBuilder<Classification, Builder>, IIDAttributeGroupBuilder<Classification, Builder>,
+        ILanguageAttributeGroupBuilder<Classification, Builder>,
+        IAuthorityAttributeGroupBuilder<Classification, Builder> {
         protected Builder(Classification spl) {
             super(spl);
         }

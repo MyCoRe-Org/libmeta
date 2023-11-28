@@ -49,6 +49,8 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum UrlUsage {
-	@XmlEnumValue("primary display") PRIMARY_DISPLAY__DEPRECATED,
-	@XmlEnumValue("primary") PRIMARY;
+    @XmlEnumValue("primary display")
+    PRIMARY_DISPLAY__DEPRECATED,
+    @XmlEnumValue("primary")
+    PRIMARY;
 }

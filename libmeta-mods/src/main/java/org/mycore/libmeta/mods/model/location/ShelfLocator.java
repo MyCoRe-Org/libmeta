@@ -43,11 +43,13 @@ public class ShelfLocator extends StringPlusLanguage implements ILocationSubleme
     public static Builder builderForShelfLocator() {
         return builder(new ShelfLocator());
     }
+
     public static Builder builder(ShelfLocator uac) {
         return new Builder(uac);
     }
 
-    public static class Builder extends BuilderBase<ShelfLocator, Builder> implements IXsStringBuilder<ShelfLocator, Builder>, ILanguageAttributeGroupBuilder<ShelfLocator, Builder>{
+    public static class Builder extends BuilderBase<ShelfLocator, Builder>
+        implements IXsStringBuilder<ShelfLocator, Builder>, ILanguageAttributeGroupBuilder<ShelfLocator, Builder> {
         protected Builder(ShelfLocator sc) {
             super(sc);
         }

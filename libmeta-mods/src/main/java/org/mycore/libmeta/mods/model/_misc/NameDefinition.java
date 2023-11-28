@@ -128,14 +128,14 @@ public abstract class NameDefinition<S extends INameDefinitionSubelement>
         @XmlElement(name = "description", namespace = "http://www.loc.gov/mods/v3", type = Description.class),
         @XmlElement(name = "nameIdentifier", namespace = "http://www.loc.gov/mods/v3", type = NameIdentifier.class),
         @XmlElement(name = "etal", namespace = "http://www.loc.gov/mods/v3", type = Etal.class),
-        
+
         /** @version MODS 3.7 */
-         @XmlElement(name = "alternativeName", namespace = "http://www.loc.gov/mods/v3", type = AlternativeName.class) })
+        @XmlElement(name = "alternativeName", namespace = "http://www.loc.gov/mods/v3", type = AlternativeName.class) })
     protected List<S> content = new Vector<>();
 
     @XmlAttribute(name = "ID")
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF")
     protected String IDREF;
 
@@ -234,7 +234,7 @@ public abstract class NameDefinition<S extends INameDefinitionSubelement>
 
     @XmlAttribute(name = "type")
     protected NameType type;
-    
+
     @XmlAttribute(name = "supplied")
     protected Yes supplied;
 
@@ -249,7 +249,7 @@ public abstract class NameDefinition<S extends INameDefinitionSubelement>
     public void setID(String iD) {
         ID = iD;
     }
-    
+
     public String getIDREF() {
         return IDREF;
     }
@@ -401,7 +401,7 @@ public abstract class NameDefinition<S extends INameDefinitionSubelement>
     public void setType(NameType type) {
         this.type = type;
     }
-    
+
     public Yes getSupplied() {
         return supplied;
     }

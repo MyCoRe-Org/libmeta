@@ -65,9 +65,9 @@ import jakarta.xml.bind.annotation.XmlElements;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Part implements ITopLevelElement, IIDAttributeGroup, ILanguageAttributeGroup {
     @XmlElements({ @XmlElement(name = "detail", namespace = "http://www.loc.gov/mods/v3", type = Detail.class),
-            @XmlElement(name = "extend", namespace = "http://www.loc.gov/mods/v3", type = Extent.class),
-            @XmlElement(name = "date", namespace = "http://www.loc.gov/mods/v3", type = Date.class),
-            @XmlElement(name = "text", namespace = "http://www.loc.gov/mods/v3", type = Text.class) })
+        @XmlElement(name = "extend", namespace = "http://www.loc.gov/mods/v3", type = Extent.class),
+        @XmlElement(name = "date", namespace = "http://www.loc.gov/mods/v3", type = Date.class),
+        @XmlElement(name = "text", namespace = "http://www.loc.gov/mods/v3", type = Text.class) })
     protected List<IPartSubelement> content = new Vector<>();
 
     /**
@@ -77,7 +77,7 @@ public class Part implements ITopLevelElement, IIDAttributeGroup, ILanguageAttri
     */
     @XmlAttribute(name = "ID")
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF")
     protected String IDREF;
 
@@ -129,7 +129,7 @@ public class Part implements ITopLevelElement, IIDAttributeGroup, ILanguageAttri
     public void setID(String iD) {
         ID = iD;
     }
-    
+
     public String getIDREF() {
         return IDREF;
     }
@@ -210,9 +210,10 @@ public class Part implements ITopLevelElement, IIDAttributeGroup, ILanguageAttri
         return new Builder(p);
     }
 
-    public static class Builder extends BuilderBase<Part, Builder> implements IIDAttributeGroupBuilder<Part, Builder>, ILanguageAttributeGroupBuilder<Part, Builder>{
+    public static class Builder extends BuilderBase<Part, Builder>
+        implements IIDAttributeGroupBuilder<Part, Builder>, ILanguageAttributeGroupBuilder<Part, Builder> {
         protected Builder(Part p) {
-           super(p);
+            super(p);
         }
 
         public Builder addContent(IPartSubelement ps) {

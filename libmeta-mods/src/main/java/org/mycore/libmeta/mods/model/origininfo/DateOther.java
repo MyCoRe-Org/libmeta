@@ -42,7 +42,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class DateOther extends DateDefinition implements IOriginInfoSubelement {
-   
+
     @XmlAttribute(name = "type")
     protected String type;
 
@@ -57,20 +57,21 @@ public class DateOther extends DateDefinition implements IOriginInfoSubelement {
     public static Builder builderForDateOther() {
         return builder(new DateOther());
     }
-    
+
     public static Builder builder(DateOther dateOther) {
         return new Builder(dateOther);
     }
-    
-    public static class Builder extends BuilderBase<DateOther, Builder> implements IDateDefinitionBuilder<DateOther, Builder>{
+
+    public static class Builder extends BuilderBase<DateOther, Builder>
+        implements IDateDefinitionBuilder<DateOther, Builder> {
         protected Builder(DateOther d) {
             super(d);
         }
-        
+
         public Builder type(String type) {
             _target().setType(type);
             return this;
         }
-        
+
     }
 }

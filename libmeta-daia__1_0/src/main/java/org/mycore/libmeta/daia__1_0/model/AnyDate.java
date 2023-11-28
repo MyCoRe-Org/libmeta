@@ -42,19 +42,21 @@ public class AnyDate {
     //},
 
     private ZonedDateTime date;
-    
+
     private Unknown unknown;
-    
-    public enum Unknown{unknown;}
+
+    public enum Unknown {
+        unknown;
+    }
 
     public AnyDate(ZonedDateTime date) {
         this.date = date;
         unknown = null;
     }
-    
+
     public AnyDate(Unknown unknown) {
         this.unknown = unknown;
-        if(unknown == null) {
+        if (unknown == null) {
             date = ZonedDateTime.now();
         }
     }
@@ -71,10 +73,10 @@ public class AnyDate {
 
         @Override
         public JsonString adaptToJson(AnyDate d) throws Exception {
-            if(d== null) {
+            if (d == null) {
                 return null;
             }
-            if(d.getUnknown()!=null) {
+            if (d.getUnknown() != null) {
                 return Json.createValue("unknown");
             }
             return Json.createValue(d.getDate().toString());
@@ -82,10 +84,10 @@ public class AnyDate {
 
         @Override
         public AnyDate adaptFromJson(JsonString s) throws Exception {
-            if(s == null) {
+            if (s == null) {
                 return null;
             }
-            if(s.getString().equals("unknown")) {
+            if (s.getString().equals("unknown")) {
                 return new AnyDate(Unknown.unknown);
             }
             return new AnyDate(ZonedDateTime.parse(s.getString()));

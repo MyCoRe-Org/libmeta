@@ -75,16 +75,16 @@ public class Language implements ITopLevelElement, IIDAttributeGroup, ILanguageA
 
     @XmlElement(name = "scriptTerm", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected List<ScriptTerm> scriptTerm = new Vector<>();
-    
+
     @XmlAttribute(name = "ID")
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF")
     protected String IDREF;
 
     @XmlAttribute(name = "objectPart")
     protected String objectPart;
-    
+
     // <xs:attributeGroup ref="languagePlusDisplayLabelAttributeGroup"/> - begin
 
     @XmlAttribute(name = "lang")
@@ -92,7 +92,7 @@ public class Language implements ITopLevelElement, IIDAttributeGroup, ILanguageA
 
     @XmlAttribute(name = "lang", namespace = "http://www.w3.org/XML/1998/namespace")
     protected String xmlLang;
-    
+
     @XmlAttribute(name = "script")
     protected String script;
 
@@ -103,7 +103,7 @@ public class Language implements ITopLevelElement, IIDAttributeGroup, ILanguageA
 
     @XmlAttribute(name = "displayLabel")
     protected String displayLabel;
-    
+
     /**
      * altRepGroup new in 3.4
      */
@@ -131,7 +131,7 @@ public class Language implements ITopLevelElement, IIDAttributeGroup, ILanguageA
     public void setScriptTerm(List<ScriptTerm> scriptTerm) {
         this.scriptTerm = scriptTerm;
     }
-    
+
     public String getID() {
         return ID;
     }
@@ -211,16 +211,17 @@ public class Language implements ITopLevelElement, IIDAttributeGroup, ILanguageA
     public void setUsage(Usage usage) {
         this.usage = usage;
     }
-    
+
     public static Builder builderForLanguage() {
-        return builder (new Language());
+        return builder(new Language());
     }
-    
+
     public static Builder builder(Language l) {
         return new Builder(l);
     }
-    
-    public static class Builder extends BuilderBase<Language, Builder> implements IIDAttributeGroupBuilder<Language, Builder>, ILanguageAttributeGroupBuilder<Language, Builder>{
+
+    public static class Builder extends BuilderBase<Language, Builder>
+        implements IIDAttributeGroupBuilder<Language, Builder>, ILanguageAttributeGroupBuilder<Language, Builder> {
         protected Builder(Language spl) {
             super(spl);
         }
@@ -229,27 +230,27 @@ public class Language implements ITopLevelElement, IIDAttributeGroup, ILanguageA
             _target().getLanguageTerm().add(languageTerm);
             return _self();
         }
-        
+
         public Builder addScriptTerm(ScriptTerm scriptTerm) {
             _target().getScriptTerm().add(scriptTerm);
             return _self();
         }
-        
+
         public Builder objectPart(String objectPart) {
             _target().setObjectPart(objectPart);
             return _self();
         }
-        
+
         public Builder displayLabel(String displayLabel) {
             _target().setDisplayLabel(displayLabel);
             return _self();
         }
-        
+
         public Builder altRepGroup(String s) {
             _target().setAltRepGroup(s);
             return _self();
         }
-        
+
         public Builder usage(Usage usage) {
             _target().setUsage(usage);
             return _self();

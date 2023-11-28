@@ -43,7 +43,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *   @version MODS 3.6
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(name="copyinformation_shelflocator")
+@XmlType(name = "copyinformation_shelflocator")
 public class ShelfLocator extends org.mycore.libmeta.mods.model.location.ShelfLocator
     implements ICopyInformationSubelement {
 

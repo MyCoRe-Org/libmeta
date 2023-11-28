@@ -66,7 +66,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  * @version MODS 3.7 (calendar attribute added)
  *
  */
-public abstract class DateDefinition extends StringPlusLanguage{
+public abstract class DateDefinition extends StringPlusLanguage {
 
     /**
      * {@code
@@ -75,7 +75,7 @@ public abstract class DateDefinition extends StringPlusLanguage{
      */
     @XmlAttribute(name = "encoding")
     protected DateEncoding encoding;
-    
+
     /**
      * {@code
      * <xs:attribute name="qualifier" type="dateQualifierAttributeDefinition"/>
@@ -83,7 +83,7 @@ public abstract class DateDefinition extends StringPlusLanguage{
      */
     @XmlAttribute(name = "qualifier")
     protected DateQualifier qualifier;
-    
+
     /**
      * {@code
      * <xs:attribute name="point" type="datePointAttributeDefinition"/>
@@ -91,13 +91,12 @@ public abstract class DateDefinition extends StringPlusLanguage{
      */
     @XmlAttribute(name = "point")
     protected DatePoint point;
-    
-    @XmlAttribute(name="keyDate")
+
+    @XmlAttribute(name = "keyDate")
     protected Yes keyDate;
-    
+
     @XmlAttribute(name = "calendar")
     protected String calendar;
-    
 
     public DateEncoding getEncoding() {
         return encoding;
@@ -130,7 +129,7 @@ public abstract class DateDefinition extends StringPlusLanguage{
     public void setKeyDate(Yes keyDate) {
         this.keyDate = keyDate;
     }
-    
+
     public String getCalendar() {
         return calendar;
     }

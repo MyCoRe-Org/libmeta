@@ -31,8 +31,12 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum NamePartType {
-	@XmlEnumValue("date") DATE,
-	@XmlEnumValue("family") FAMILY,
-	@XmlEnumValue("given") GIVEN,
-	@XmlEnumValue("termsOfAddress") TERMSOFADDRESS;
+    @XmlEnumValue("date")
+    DATE,
+    @XmlEnumValue("family")
+    FAMILY,
+    @XmlEnumValue("given")
+    GIVEN,
+    @XmlEnumValue("termsOfAddress")
+    TERMSOFADDRESS;
 }

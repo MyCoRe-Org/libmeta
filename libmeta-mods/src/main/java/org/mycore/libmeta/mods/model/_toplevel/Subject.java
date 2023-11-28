@@ -56,7 +56,8 @@ import jakarta.xml.bind.annotation.XmlElements;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class Subject
-        implements ITopLevelElement, IIDAttributeGroup, IAuthorityAttributeGroup, ILanguageAttributeGroup, IAttributeGroupXlinkSimpleLink {
+    implements ITopLevelElement, IIDAttributeGroup, IAuthorityAttributeGroup, ILanguageAttributeGroup,
+    IAttributeGroupXlinkSimpleLink {
     /**
      * 
      * {@code 
@@ -85,23 +86,25 @@ public class Subject
      * }
      */
     @XmlElements({ @XmlElement(name = "topic", namespace = "http://www.loc.gov/mods/v3", type = SubjectTopic.class),
-            @XmlElement(name = "geographic", namespace = "http://www.loc.gov/mods/v3", type = SubjectGeographic.class),
-            @XmlElement(name = "temporal", namespace = "http://www.loc.gov/mods/v3", type = SubjectTemporal.class),
-            @XmlElement(name = "titleInfo", namespace = "http://www.loc.gov/mods/v3", type = SubjectTitleInfo.class),
-            @XmlElement(name = "name", namespace = "http://www.loc.gov/mods/v3", type = Name.class),
-            @XmlElement(name = "geographicCode", namespace = "http://www.loc.gov/mods/v3", type = SubjectGeographicCode.class),
-            @XmlElement(name = "hierarchicalGeographic", namespace = "http://www.loc.gov/mods/v3", type = SubjectHierarchicalGeographic.class),
-            @XmlElement(name = "cartographics", namespace = "http://www.loc.gov/mods/v3", type = Cartographics.class),
-            @XmlElement(name = "occupation", namespace = "http://www.loc.gov/mods/v3", type = SubjectOccupation.class),
-            @XmlElement(name = "genre", namespace = "http://www.loc.gov/mods/v3", type = Genre.class) })
+        @XmlElement(name = "geographic", namespace = "http://www.loc.gov/mods/v3", type = SubjectGeographic.class),
+        @XmlElement(name = "temporal", namespace = "http://www.loc.gov/mods/v3", type = SubjectTemporal.class),
+        @XmlElement(name = "titleInfo", namespace = "http://www.loc.gov/mods/v3", type = SubjectTitleInfo.class),
+        @XmlElement(name = "name", namespace = "http://www.loc.gov/mods/v3", type = Name.class),
+        @XmlElement(name = "geographicCode", namespace = "http://www.loc.gov/mods/v3",
+            type = SubjectGeographicCode.class),
+        @XmlElement(name = "hierarchicalGeographic", namespace = "http://www.loc.gov/mods/v3",
+            type = SubjectHierarchicalGeographic.class),
+        @XmlElement(name = "cartographics", namespace = "http://www.loc.gov/mods/v3", type = Cartographics.class),
+        @XmlElement(name = "occupation", namespace = "http://www.loc.gov/mods/v3", type = SubjectOccupation.class),
+        @XmlElement(name = "genre", namespace = "http://www.loc.gov/mods/v3", type = Genre.class) })
     protected List<ISubjectSubelement> content = new Vector<>();
 
     @XmlAttribute(name = "ID")
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF")
     protected String IDREF;
-    
+
     //IAuthorityAttributeGroup - begin
 
     @XmlAttribute(name = "authority")
@@ -180,7 +183,7 @@ public class Subject
     public void setID(String iD) {
         ID = iD;
     }
-    
+
     public String getIDREF() {
         return IDREF;
     }
@@ -333,7 +336,9 @@ public class Subject
         return new Builder(subject);
     }
 
-    public static class Builder extends BuilderBase<Subject, Builder> implements IIDAttributeGroupBuilder<Subject, Builder>, IAuthorityAttributeGroupBuilder<Subject, Builder>, ILanguageAttributeGroupBuilder<Subject, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Subject, Builder>{
+    public static class Builder extends BuilderBase<Subject, Builder>
+        implements IIDAttributeGroupBuilder<Subject, Builder>, IAuthorityAttributeGroupBuilder<Subject, Builder>,
+        ILanguageAttributeGroupBuilder<Subject, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Subject, Builder> {
         protected Builder(Subject subject) {
             super(subject);
         }

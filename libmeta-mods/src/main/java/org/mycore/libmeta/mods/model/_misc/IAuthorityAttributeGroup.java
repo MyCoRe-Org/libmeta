@@ -32,10 +32,15 @@ package org.mycore.libmeta.mods.model._misc;
  *
  */
 public interface IAuthorityAttributeGroup {
-	public String getAuthority();
-	public String getAuthorityURI();
-	public String getValueURI();
-	public void setAuthority(String authority);
-	public void setAuthorityURI(String authorityURI);
-	public void setValueURI(String valueURI);
+    public String getAuthority();
+
+    public String getAuthorityURI();
+
+    public String getValueURI();
+
+    public void setAuthority(String authority);
+
+    public void setAuthorityURI(String authorityURI);
+
+    public void setValueURI(String valueURI);
 }

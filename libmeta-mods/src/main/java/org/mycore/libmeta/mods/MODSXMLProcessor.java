@@ -48,50 +48,51 @@ import jakarta.xml.bind.Unmarshaller;
 public class MODSXMLProcessor implements IXMLProcessor<Mods> {
 
     private static final MODSXMLProcessor INSTANCE = new MODSXMLProcessor();
-    
+
     //private constructor to avoid client applications to use constructor
-    private MODSXMLProcessor() {}
-    
+    private MODSXMLProcessor() {
+    }
+
     public static MODSXMLProcessor getInstance() {
         return INSTANCE;
     }
-    
+
     public Document marshalToDOM(Mods mods) throws Exception {
         return marshalToDOM(mods, null);
     }
 
     public Document marshalToDOM(Mods mods, String schemaLocations) throws Exception {
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            dbf.setNamespaceAware(true);
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.newDocument();
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        dbf.setNamespaceAware(true);
+        DocumentBuilder db = dbf.newDocumentBuilder();
+        Document doc = db.newDocument();
 
-            JAXBContext jaxbContext = JAXBContext.newInstance(Mods.class);
-            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+        JAXBContext jaxbContext = JAXBContext.newInstance(Mods.class);
+        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
-            if (schemaLocations != null && schemaLocations.length() > 0) {
-                jaxbMarshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, schemaLocations);
-            }
+        if (schemaLocations != null && schemaLocations.length() > 0) {
+            jaxbMarshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, schemaLocations);
+        }
 
-            // output pretty printed
-            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
-            jaxbMarshaller.marshal(mods, doc);
-            return doc;
+        // output pretty printed
+        jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
+        jaxbMarshaller.marshal(mods, doc);
+        return doc;
     }
 
-    public void marshal(Mods mods, StreamResult streamResult, String schemaLocations) throws Exception{
-            Document doc = marshalToDOM(mods, schemaLocations);
-            doc.setXmlStandalone(true);
+    public void marshal(Mods mods, StreamResult streamResult, String schemaLocations) throws Exception {
+        Document doc = marshalToDOM(mods, schemaLocations);
+        doc.setXmlStandalone(true);
 
-            Transformer transformer = TransformerFactory.newInstance().newTransformer();
-            //transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-            transformer.setOutputProperty(OutputKeys.METHOD, "xml");
-            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
-            transformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
-            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
-            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        Transformer transformer = TransformerFactory.newInstance().newTransformer();
+        //transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+        transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+        transformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
+        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 
-            transformer.transform(new DOMSource(doc), streamResult);
+        transformer.transform(new DOMSource(doc), streamResult);
     }
 
     public void marshal(Mods mods, Path p, String schemaLocations) throws Exception {

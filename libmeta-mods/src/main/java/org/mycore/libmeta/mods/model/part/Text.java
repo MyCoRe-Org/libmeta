@@ -74,7 +74,7 @@ public class Text extends StringPlusLanguage implements IPartSubelement, IAttrib
 
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkActuate xlinkActuate;
-    
+
     // IXlinkSimpleLinkAttributeGroup - end
 
     public String getDisplayLabel() {
@@ -149,9 +149,10 @@ public class Text extends StringPlusLanguage implements IPartSubelement, IAttrib
         return new Builder(txt);
     }
 
-    public static class Builder extends BuilderBase<Text, Builder> implements IXsStringBuilder<Text, Builder>, ILanguageAttributeGroupBuilder<Text, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Text, Builder> {
-    
-    	protected Builder(Text txt) {
+    public static class Builder extends BuilderBase<Text, Builder> implements IXsStringBuilder<Text, Builder>,
+        ILanguageAttributeGroupBuilder<Text, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Text, Builder> {
+
+        protected Builder(Text txt) {
             super(txt);
         }
 

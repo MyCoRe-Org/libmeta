@@ -33,24 +33,28 @@ import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
  * @version MODS 3.6
  *
  */
-public interface ILanguageAttributeGroupBuilder<T extends ILanguageAttributeGroup, B>{
+public interface ILanguageAttributeGroupBuilder<T extends ILanguageAttributeGroup, B> {
     public T _target();
+
     public B _self();
-    
-	public default B lang(String lang){
-		_target().setLang(lang);
-		return _self();
-	}
-	public default B xmlLang(String xmlLang){
-		_target().setXmlLang(xmlLang);
-		return _self();
-	}
-	public default B script(String script){
-		_target().setScript(script);
-		return _self();
-	}
-	public default B transliteration(String transliteration){
-		_target().setTransliteration(transliteration);
-		return _self();
-	}
+
+    public default B lang(String lang) {
+        _target().setLang(lang);
+        return _self();
+    }
+
+    public default B xmlLang(String xmlLang) {
+        _target().setXmlLang(xmlLang);
+        return _self();
+    }
+
+    public default B script(String script) {
+        _target().setScript(script);
+        return _self();
+    }
+
+    public default B transliteration(String transliteration) {
+        _target().setTransliteration(transliteration);
+        return _self();
+    }
 }

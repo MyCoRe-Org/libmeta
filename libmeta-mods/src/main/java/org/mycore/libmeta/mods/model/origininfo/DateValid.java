@@ -36,17 +36,18 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class DateValid extends DateDefinition implements IOriginInfoSubelement{
+public class DateValid extends DateDefinition implements IOriginInfoSubelement {
 
     public static Builder builderForDateValid() {
         return builder(new DateValid());
     }
-    
+
     public static Builder builder(DateValid d) {
         return new Builder(d);
     }
-    
-    public static class Builder extends BuilderBase<DateValid, Builder> implements IDateDefinitionBuilder<DateValid, Builder>{
+
+    public static class Builder extends BuilderBase<DateValid, Builder>
+        implements IDateDefinitionBuilder<DateValid, Builder> {
         protected Builder(DateValid d) {
             super(d);
         }

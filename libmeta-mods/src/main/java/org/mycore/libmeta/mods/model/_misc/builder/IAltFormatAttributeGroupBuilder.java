@@ -31,16 +31,18 @@ import org.mycore.libmeta.mods.model._misc.IAltFormatAttributeGroup;
  * @version MODS 3.6
  *
  */
-public interface IAltFormatAttributeGroupBuilder<T extends IAltFormatAttributeGroup, B>{
+public interface IAltFormatAttributeGroupBuilder<T extends IAltFormatAttributeGroup, B> {
     public T _target();
+
     public B _self();
-    
-	public default B altFormat(String altFormat){
-		_target().setAltFormat(altFormat);
-		return _self();
-	}
-	public default B contentType(String contentType){
-		_target().setContentType(contentType);
-		return _self();
-	}
+
+    public default B altFormat(String altFormat) {
+        _target().setAltFormat(altFormat);
+        return _self();
+    }
+
+    public default B contentType(String contentType) {
+        _target().setContentType(contentType);
+        return _self();
+    }
 }
