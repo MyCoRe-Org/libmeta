@@ -27,7 +27,6 @@ import jakarta.xml.bind.annotation.XmlValue;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-
 /**
  * <p>Java-Klasse für elementType complex type.
  * 
@@ -45,11 +44,12 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 public abstract class DCElement {
 
     @XmlValue
     protected String value;
+
     @XmlAttribute(name = "lang", namespace = "http://www.w3.org/XML/1998/namespace")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "language")
@@ -107,12 +107,12 @@ public abstract class DCElement {
         protected Builder(E e) {
             super(e);
         }
-        
+
         public B lang(String language) {
             _target().setLang(language);
             return _self();
         }
-        
+
         public B value(String value) {
             _target().setValue(value);
             return _self();
