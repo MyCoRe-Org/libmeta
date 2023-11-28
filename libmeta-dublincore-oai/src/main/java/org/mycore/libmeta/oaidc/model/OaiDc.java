@@ -77,7 +77,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
  * 
  * 
  */
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlRootElement(name = "dc", namespace = "http://www.openarchives.org/OAI/2.0/oai_dc/")
 public class OaiDc {
 
