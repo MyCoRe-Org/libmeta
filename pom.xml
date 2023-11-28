@@ -139,6 +139,7 @@
   <modules>
     <module>libmeta-picaxml</module>
     <module>libmeta-daia</module>
+    <module>libmeta-daia__1_0</module>
     <module>libmeta-marc21</module>
     <module>libmeta-mets</module>
     <module>libmeta-mix</module>
