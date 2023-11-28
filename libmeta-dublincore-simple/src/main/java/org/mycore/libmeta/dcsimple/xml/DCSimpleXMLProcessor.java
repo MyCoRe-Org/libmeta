@@ -33,7 +33,6 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.mycore.libmeta.common.IXMLProcessor;
 import org.mycore.libmeta.dcsimple.model.DCElement;
-import org.mycore.libmeta.dcsimple.model.DCTitle;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 

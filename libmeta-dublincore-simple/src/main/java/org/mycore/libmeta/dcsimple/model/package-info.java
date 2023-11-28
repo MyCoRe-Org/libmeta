@@ -15,9 +15,10 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://purl.org/dc/elements/1.1/", xmlns = {
+@XmlSchema(namespace = "http://purl.org/dc/elements/1.1/", xmlns = {
     @XmlNs(namespaceURI = "http://purl.org/dc/elements/1.1/", prefix = "dc") },
     elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package org.mycore.libmeta.dcsimple.model;
 
 import jakarta.xml.bind.annotation.XmlNs;
+import jakarta.xml.bind.annotation.XmlSchema;
