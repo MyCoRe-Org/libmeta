@@ -15,9 +15,10 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://www.openarchives.org/OAI/2.0/oai_dc/",
+@XmlSchema(namespace = "http://www.openarchives.org/OAI/2.0/oai_dc/",
     xmlns = { @XmlNs(namespaceURI = "http://www.openarchives.org/OAI/2.0/oai_dc/", prefix = "oai_dc") },
     elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package org.mycore.libmeta.oaidc.model;
 
 import jakarta.xml.bind.annotation.XmlNs;
+import jakarta.xml.bind.annotation.XmlSchema;
