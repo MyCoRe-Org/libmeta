@@ -15,31 +15,40 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.mods.model.name;
+package org.mycore.libmeta.mods.model.origininfo;
 
 import org.mycore.libmeta.common.BuilderBase;
-import org.mycore.libmeta.mods.model._misc.IAlternativeNameSubelement;
-import org.mycore.libmeta.mods.model._misc.INameSubelement;
-import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
-import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
-import org.mycore.libmeta.mods.model.subject.name.ISubjectNameSubelement;
+import org.mycore.libmeta.mods.model._misc.types.XsString;
 
-public class Description extends StringPlusLanguage implements INameSubelement, IAlternativeNameSubelement, ISubjectNameSubelement {
-    
-    public static Builder builder() {
-        return builder(new Description());
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+
+/**
+ * MODS OriginInfo Subelement: displayDate
+ * 
+ * {@code
+ * <xs:element name="displayDate" type="xs:string"/>
+ * }
+ * 
+ * @author Robert Stephan
+ * @version MODS 3.8
+ *
+ */
+@XmlAccessorType(XmlAccessType.NONE)
+public class DisplayDate extends XsString implements IOriginInfoSubelement{
+
+    public static Builder builderForFreqency() {
+        return builder(new DisplayDate());
     }
-
-    public static Builder builder(Description d) {
+    
+    public static Builder builder(DisplayDate d) {
         return new Builder(d);
     }
-
-    public static class Builder extends BuilderBase<Description, Builder> implements IXsStringBuilder<Description, Builder>, ILanguageAttributeGroupBuilder<Description, Builder> {
-
-        protected Builder(Description d) {
+    
+    public static class Builder extends BuilderBase<DisplayDate, Builder> implements IXsStringBuilder<DisplayDate, Builder> {
+        protected Builder(DisplayDate d) {
             super(d);
         }
     }
-
 }

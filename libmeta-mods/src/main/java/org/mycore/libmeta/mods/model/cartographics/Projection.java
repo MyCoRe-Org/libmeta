@@ -15,23 +15,17 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.mods.model._misc.enums;
+package org.mycore.libmeta.mods.model.cartographics;
 
-import jakarta.xml.bind.annotation.XmlEnum;
-import jakarta.xml.bind.annotation.XmlEnumValue;
+import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 
 /**
- *  valid codes for subject name type attribute
- *  on {@literal /subject/name}
- *  
+ * MODS Cartographics Subelement {@literal <Projection>}
+ * 
  * @author Robert Stephan
  * @version MODS 3.6
- * 
+ *
  */
-@XmlEnum
-public enum SubjectTitleInfoType {
-    @XmlEnumValue("abbreviated") ABBREVIATED, 
-    @XmlEnumValue("translated") TRANSLATED, 
-    @XmlEnumValue("alternative") ALTERNATIVE, 
-    @XmlEnumValue("uniform") UNIFORM;
+public class Projection extends StringPlusLanguage implements ICartographicsSubelement {
+
 }

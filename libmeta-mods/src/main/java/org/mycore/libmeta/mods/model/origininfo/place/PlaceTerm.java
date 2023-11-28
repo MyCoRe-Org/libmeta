@@ -19,9 +19,10 @@ package org.mycore.libmeta.mods.model.origininfo.place;
 
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.CodeOrText;
+import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
-import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
+import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguagePlusAuthority;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -31,18 +32,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  * {@code
  * <xs:complexType name="placeTermDefinition">
  *       <xs:simpleContent>
- *           <xs:extension base="stringPlusLanguage">
- *               <xs:attribute name="authorityURI" type="xs:anyURI"/>
- *               <xs:attribute name="valueURI" type="xs:anyURI"/>
- *               <xs:attribute name="authority">
- *                   <xs:simpleType>
- *                       <xs:restriction base="xs:string">
- *                           <xs:enumeration value="marcgac"/>
- *                           <xs:enumeration value="marccountry"/>
- *                           <xs:enumeration value="iso3166"/>
- *                       </xs:restriction>
- *                   </xs:simpleType>
- *               </xs:attribute>
+ *           <xs:extension base=stringPlusLanguagePlusAuthority">
  *               <xs:attribute name="type" type="codeOrText"/>
  *           </xs:extension>
  *       </xs:simpleContent>
@@ -50,47 +40,20 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  * }
  *    
  * @author Robert Stephan
- * @version MODS 3.6
+ * @version MODS 3.6 / modified in MODS 3.8
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class PlaceTerm extends StringPlusLanguage {
-
-    @XmlAttribute(name="authorityURI", required=false)
-    String authorityURI;
-
-    @XmlAttribute(name="valueURI", required=false)
-    String valueURI;
+public class PlaceTerm extends StringPlusLanguagePlusAuthority implements IPlaceSubelement{
     
-    @XmlAttribute(name="authority", required=false)
-    PlaceTermAuthority authority;
+    public static final String AUTHORITY__MARCGAC = "marcgac";
+    
+    public static final String AUTHORITY__MARCCOUNTRY = "marccountry";
+    
+    public static final String AUTHORITY__ISO3166 = "iso3166";
     
     @XmlAttribute(name="type", required=false)
     CodeOrText type;
-
-    public String getAuthorityURI() {
-        return authorityURI;
-    }
-
-    public void setAuthorityURI(String authorityURI) {
-        this.authorityURI = authorityURI;
-    }
-
-    public String getValueURI() {
-        return valueURI;
-    }
-
-    public void setValueURI(String valueURI) {
-        this.valueURI = valueURI;
-    }
-
-    public PlaceTermAuthority getAuthority() {
-        return authority;
-    }
-
-    public void setAuthority(PlaceTermAuthority authority) {
-        this.authority = authority;
-    }
 
     public CodeOrText getType() {
         return type;
@@ -109,24 +72,12 @@ public class PlaceTerm extends StringPlusLanguage {
         return new Builder(pt);
     }
     
-    public static class Builder extends BuilderBase<PlaceTerm, Builder> implements IXsStringBuilder<PlaceTerm, Builder>, ILanguageAttributeGroupBuilder<PlaceTerm, Builder> {
+    public static class Builder extends BuilderBase<PlaceTerm, Builder>
+        implements IXsStringBuilder<PlaceTerm, Builder>,
+        ILanguageAttributeGroupBuilder<PlaceTerm, Builder>,
+        IAuthorityAttributeGroupBuilder<PlaceTerm, Builder>{
         protected Builder(PlaceTerm pt) {
             super(pt);
-        }
-        
-        public Builder authorityURI(String authorityURI) {
-            _target().setAuthorityURI(authorityURI);
-            return _self();
-        }
-        
-        public Builder valueURI(String valueURI) {
-            _target().setValueURI(valueURI);
-            return _self();
-        }
-        
-        public Builder authority(PlaceTermAuthority authority) {
-            _target().setAuthority(authority);
-            return _self();
         }
         
         public Builder type(CodeOrText type) {

@@ -18,6 +18,8 @@
 package org.mycore.libmeta.mods.model.name;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IAlternativeNameSubelement;
+import org.mycore.libmeta.mods.model._misc.INameSubelement;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.NamePartType;
@@ -52,7 +54,8 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  * @version MODS 3.6
  *
  */
-public class NamePart extends StringPlusLanguage implements INameSubelement, ISubjectNameSubelement {
+public class NamePart extends StringPlusLanguage
+    implements INameSubelement, IAlternativeNameSubelement, ISubjectNameSubelement {
 
     @XmlAttribute(name = "type", required = false)
     protected NamePartType type;
@@ -73,7 +76,8 @@ public class NamePart extends StringPlusLanguage implements INameSubelement, ISu
         return new Builder(toc);
     }
 
-    public static class Builder extends BuilderBase<NamePart, Builder> implements IXsStringBuilder<NamePart, Builder>, ILanguageAttributeGroupBuilder<NamePart, Builder> {
+    public static class Builder extends BuilderBase<NamePart, Builder>
+        implements IXsStringBuilder<NamePart, Builder>, ILanguageAttributeGroupBuilder<NamePart, Builder> {
 
         protected Builder(NamePart namePart) {
             super(namePart);

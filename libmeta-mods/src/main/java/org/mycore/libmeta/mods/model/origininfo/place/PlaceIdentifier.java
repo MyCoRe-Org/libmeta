@@ -15,40 +15,36 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.mods.model.subject.hierarchicalgeographic;
+package org.mycore.libmeta.mods.model.origininfo.place;
+
+import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.builder.IXsAnyURIBuilder;
+import org.mycore.libmeta.mods.model._misc.types.XsAnyURI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
- *  MODS HierarchicalGeographic Subelement {@literal <state>}
- *  
- *  {@code
- *  <xs:complexType name="stateDefinition">
- *    <xs:simpleContent>
- *      <xs:extension base="hierarchicalPart">
- *        <xs:attribute name="stateType"/>
- *      </xs:extension>
- *    </xs:simpleContent>
- *  </xs:complexType>
- *  }
- * 
+ * {@code
+ *   <xs:element name="placeIdentifier" type="xs:anyURI"/>
+ * }
+ *    
  * @author Robert Stephan
- * @version MODS 3.6
+ * @version MODS 3.8
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class State extends HierarchicalPart implements IHierarchicalGeographicSubelement {
-    @XmlAttribute(name = "stateType", required = false)
-    protected String stateType;
-
-    public String getStateType() {
-        return stateType;
+public class PlaceIdentifier extends XsAnyURI implements IPlaceSubelement{
+    public static Builder builder() {
+        return builder(new PlaceIdentifier());
     }
-
-    public void setStateType(String stateType) {
-        this.stateType = stateType;
+    public static Builder builder(PlaceIdentifier placeId) {
+        return new Builder(placeId);
     }
-
+    
+    public static class Builder extends BuilderBase<PlaceIdentifier, Builder> implements IXsAnyURIBuilder<PlaceIdentifier, Builder>{
+        protected Builder(PlaceIdentifier placeId) {
+            super(placeId);
+        }
+    }
 }

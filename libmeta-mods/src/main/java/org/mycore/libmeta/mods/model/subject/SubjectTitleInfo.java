@@ -22,8 +22,11 @@ import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.IAuthorityAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
-import org.mycore.libmeta.mods.model._misc.enums.SubjectTitleInfoType;
+import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.enums.TitleInfoType;
 import org.mycore.libmeta.mods.model.subject.titleInfo.ISubjectTitleInfoSubelement;
 import org.mycore.libmeta.mods.model.titleInfo.NonSort;
 import org.mycore.libmeta.mods.model.titleInfo.PartName;
@@ -73,7 +76,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  * @version MODS 3.6
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class SubjectTitleInfo implements ISubjectSubelement, IAuthorityAttributeGroup, ILanguageAttributeGroup,
+public class SubjectTitleInfo implements ISubjectSubelement, IIDAttributeGroup, IAuthorityAttributeGroup, ILanguageAttributeGroup,
         IAttributeGroupXlinkSimpleLink {
 
     @XmlElements({ @XmlElement(name = "title", namespace = "http://www.loc.gov/mods/v3", type = Title.class),
@@ -85,13 +88,16 @@ public class SubjectTitleInfo implements ISubjectSubelement, IAuthorityAttribute
     protected List<ISubjectTitleInfoSubelement> content = new Vector<>();
 
     @XmlAttribute(name = "type", required = false)
-    protected SubjectTitleInfoType type;
+    protected TitleInfoType type;
 
     @XmlAttribute(name = "displayLabel", required = false)
     protected String displayLabel;
 
     @XmlAttribute(name = "ID", required = false)
     protected String ID;
+    
+    @XmlAttribute(name = "IDREF", required = false)
+    protected String IDREF;
 
     // IXlinkSimpleLinkAttributeGroup - begin
 
@@ -165,11 +171,11 @@ public class SubjectTitleInfo implements ISubjectSubelement, IAuthorityAttribute
         this.content = content;
     }
 
-    public SubjectTitleInfoType getType() {
+    public TitleInfoType getType() {
         return type;
     }
 
-    public void setType(SubjectTitleInfoType type) {
+    public void setType(TitleInfoType type) {
         this.type = type;
     }
 
@@ -185,8 +191,16 @@ public class SubjectTitleInfo implements ISubjectSubelement, IAuthorityAttribute
         return ID;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setID(String iD) {
+        this.ID = iD;
+    }
+    
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        this.IDREF = iDREF;
     }
 
     public String getXlinkHref() {
@@ -301,7 +315,7 @@ public class SubjectTitleInfo implements ISubjectSubelement, IAuthorityAttribute
         return new Builder(s);
     }
 
-    public static class Builder extends BuilderBase<SubjectTitleInfo, Builder>  implements IAttributeGroupXlinkSimpleLinkBuilder<SubjectTitleInfo, Builder>{
+    public static class Builder extends BuilderBase<SubjectTitleInfo, Builder>  implements IIDAttributeGroupBuilder<SubjectTitleInfo, Builder>, IAuthorityAttributeGroupBuilder<SubjectTitleInfo, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<SubjectTitleInfo, Builder>{
 
         protected Builder(SubjectTitleInfo subjectTitleInfo) {
             super(subjectTitleInfo);
@@ -312,33 +326,13 @@ public class SubjectTitleInfo implements ISubjectSubelement, IAuthorityAttribute
             return _self();
         }
 
-        public Builder type(SubjectTitleInfoType type) {
+        public Builder type(TitleInfoType type) {
             _target().setType(type);
             return _self();
         }
 
         public Builder displayLabel(String s) {
             _target().setAttrDisplayLabel(s);
-            return _self();
-        }
-
-        public Builder ID(String s) {
-            _target().setID(s);
-            return _self();
-        }
-
-        public Builder authority(String s) {
-            _target().setAuthority(s);
-            return _self();
-        }
-
-        public Builder authorityURI(String s) {
-            _target().setAuthorityURI(s);
-            return _self();
-        }
-
-        public Builder valueURI(String s) {
-            _target().setValueURI(s);
             return _self();
         }
 

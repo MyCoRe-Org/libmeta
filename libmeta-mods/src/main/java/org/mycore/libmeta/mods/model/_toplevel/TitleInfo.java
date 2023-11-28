@@ -23,10 +23,14 @@ import java.util.Vector;
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.IAltFormatAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.IAuthorityAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.IOtherTypeAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAltFormatAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IOtherTypeAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.TitleInfoType;
 import org.mycore.libmeta.mods.model._misc.enums.Usage;
 import org.mycore.libmeta.mods.model._misc.enums.Yes;
@@ -71,11 +75,11 @@ import jakarta.xml.bind.annotation.XmlElements;
  *		</xs:attribute> 
  *
  *		<xs:attribute name="otherType"/>
- *		<xs:attribute name="supplied" fixed="yes"/>
+ *		<xs:attribute name="supplied" type="yes"/>
  *		<xs:attribute name="altRepGroup" type="xs:string"/>
  *		<xs:attributeGroup ref="altFormatAttributeGroup"/>
  *		<xs:attribute name="nameTitleGroup" type="xs:string"/>
- *		<xs:attribute name="usage" fixed="primary"/>
+ *		<xs:attribute name="usage" type="primary"/>
  *		<xs:attribute name="ID" type="xs:ID"/>
  *		<xs:attributeGroup ref="authorityAttributeGroup"/>
  *		<xs:attributeGroup ref="xlink:simpleLink"/>
@@ -90,8 +94,8 @@ import jakarta.xml.bind.annotation.XmlElements;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class TitleInfo implements ITopLevelElement, IAltFormatAttributeGroup, IAuthorityAttributeGroup,
-    IAttributeGroupXlinkSimpleLink, ILanguageAttributeGroup {
+public class TitleInfo implements ITopLevelElement, IIDAttributeGroup, IAltFormatAttributeGroup, IAuthorityAttributeGroup,
+    IOtherTypeAttributeGroup, IAttributeGroupXlinkSimpleLink, ILanguageAttributeGroup {
 
     @XmlElements({
         @XmlElement(name = "title", namespace = "http://www.loc.gov/mods/v3", type = Title.class),
@@ -106,6 +110,24 @@ public class TitleInfo implements ITopLevelElement, IAltFormatAttributeGroup, IA
 
     @XmlAttribute(name = "otherType")
     protected String otherType;
+    
+    /**
+     * @version MODS 3.8
+     */
+    @XmlAttribute(name = "otherTypeAuth", required = false)
+    protected String otherTypeAuth;
+
+    /**
+     * @version MODS 3.8
+     */
+    @XmlAttribute(name = "otherTypeAuthURI", required = false)
+    protected String otherTypeAuthURI;
+
+    /**
+     * @version MODS 3.8
+     */
+    @XmlAttribute(name = "otherTypeURI", required = false)
+    protected String otherTypeURI;
 
     @XmlAttribute(name = "supplied")
     protected Yes supplied;
@@ -132,6 +154,9 @@ public class TitleInfo implements ITopLevelElement, IAltFormatAttributeGroup, IA
 
     @XmlAttribute(name = "ID")
     protected String ID;
+    
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
     //IAuthorityAttributeGroup - begin
 
@@ -240,6 +265,30 @@ public class TitleInfo implements ITopLevelElement, IAltFormatAttributeGroup, IA
     public void setOtherType(String otherType) {
         this.otherType = otherType;
     }
+    
+    public String getOtherTypeAuth() {
+        return otherTypeAuth;
+    }
+
+    public void setOtherTypeAuth(String otherTypeAuth) {
+        this.otherTypeAuth = otherTypeAuth;
+    }
+
+    public String getOtherTypeAuthURI() {
+        return otherTypeAuthURI;
+    }
+
+    public void setOtherTypeAuthURI(String otherTypeAuthURI) {
+        this.otherTypeAuthURI = otherTypeAuthURI;
+    }
+
+    public String getOtherTypeURI() {
+        return otherTypeURI;
+    }
+
+    public void setOtherTypeURI(String otherTypeURI) {
+        this.otherTypeURI = otherTypeURI;
+    }
 
     public Yes getSupplied() {
         return supplied;
@@ -295,6 +344,14 @@ public class TitleInfo implements ITopLevelElement, IAltFormatAttributeGroup, IA
 
     public void setID(String iD) {
         ID = iD;
+    }
+    
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
     }
 
     public String getAuthority() {
@@ -418,8 +475,12 @@ public class TitleInfo implements ITopLevelElement, IAltFormatAttributeGroup, IA
     }
     
     public static class Builder extends BuilderBase<TitleInfo, Builder>
-        implements IAltFormatAttributeGroupBuilder<TitleInfo, Builder>, IAuthorityAttributeGroupBuilder<TitleInfo, Builder>,
-        IAttributeGroupXlinkSimpleLinkBuilder<TitleInfo, Builder>, ILanguageAttributeGroupBuilder<TitleInfo, Builder> {
+        implements IIDAttributeGroupBuilder<TitleInfo, Builder>, 
+        IAltFormatAttributeGroupBuilder<TitleInfo, Builder>, 
+        IAuthorityAttributeGroupBuilder<TitleInfo, Builder>,
+        ILanguageAttributeGroupBuilder<TitleInfo, Builder>,
+        IOtherTypeAttributeGroupBuilder<TitleInfo, Builder>,
+        IAttributeGroupXlinkSimpleLinkBuilder<TitleInfo, Builder> {
       
         protected Builder(TitleInfo ti) {
             super(ti);
@@ -432,11 +493,6 @@ public class TitleInfo implements ITopLevelElement, IAltFormatAttributeGroup, IA
 
         public Builder type(TitleInfoType type) {
             _target().setType(type);
-            return _self();
-        }
-
-        public Builder otherType(String otherType) {
-            _target().setOtherType(otherType);
             return _self();
         }
 
@@ -457,11 +513,6 @@ public class TitleInfo implements ITopLevelElement, IAltFormatAttributeGroup, IA
 
         public Builder usage(Usage usage) {
             _target().setUsage(usage);
-            return _self();
-        }
-
-        public Builder ID(String id) {
-            _target().setID(id);
             return _self();
         }
 

@@ -15,32 +15,8 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.mods.model.origininfo.place;
+package org.mycore.libmeta.mods.model._misc;
 
-import jakarta.xml.bind.annotation.XmlEnum;
-import jakarta.xml.bind.annotation.XmlEnumValue;
+public interface IAlternativeNameSubelement extends INameDefinitionSubelement {
 
-/**
- *  placeTermAuthorityAttributeDefinition
- *  
- *  {@code
- *  <xs:restriction base="xs:string">
- *                            <xs:enumeration value="marcgac"/>
- *                           <xs:enumeration value="marccountry"/>
- *                           <xs:enumeration value="iso3166"/>
- *                       </xs:restriction>
- * }
- *
- *  used by authority attribute for placeDefinition and geographic
- *  
- * 
- * @author Robert Stephan
- * @version MODS 3.6
- * 
- */
-@XmlEnum
-public enum PlaceTermAuthority {
-	@XmlEnumValue("marcgac") MARCGAC,
-	@XmlEnumValue("marccountry") MARCCOUNTRY,
-	@XmlEnumValue("iso3166") ISO3166;
 }

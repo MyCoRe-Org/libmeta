@@ -15,35 +15,17 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.mods.model._misc.enums;
+package org.mycore.libmeta.mods.model.cartographics;
 
-import jakarta.xml.bind.annotation.XmlEnum;
-import jakarta.xml.bind.annotation.XmlEnumValue;
+import org.mycore.libmeta.mods.model._toplevel.Extension;
 
 /**
- * {@code
- * <xs:attribute name="authority">
- *   <xs:simpleType>
- *     <xs:restriction base="xs:string">
- *       <xs:enumeration value="rfc3066"/>
- *       <xs:enumeration value="iso639-2b"/>
- *       <xs:enumeration value="iso639-3"/>
- *       <xs:enumeration value="rfc4646"/>
- *       <xs:enumeration value="rfc5646"/>
- *     </xs:restriction>
- *   </xs:simpleType>
- * </xs:attribute>
- * }
- *   
+ * MODS Cartographics Subelement {@literal <cartographicExtension>}
+ * 
  * @author Robert Stephan
  * @version MODS 3.6
- * 
+ *
  */
-@XmlEnum
-public enum LanguageTermAuthority {
-	@XmlEnumValue("rfc3066") RFC3066,
-	@XmlEnumValue("iso639-2b") ISO639_2B,
-	@XmlEnumValue("iso639-3") ISO639_3,
-	@XmlEnumValue("rfc4646") RFC4646,
-	@XmlEnumValue("rfc5646") RFC5646;
+public class CartographicExtension extends Extension implements ICartographicsSubelement{
+
 }

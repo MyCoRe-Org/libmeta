@@ -15,40 +15,44 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.mods.model.subject.hierarchicalgeographic;
+package org.mycore.libmeta.mods.model.origininfo;
+
+import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IAgentSubelement;
+import org.mycore.libmeta.mods.model._misc.NameDefinition;
+import org.mycore.libmeta.mods.model._misc.builder.INameDefinitionBuilder;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
- *  MODS HierarchicalGeographic Subelement {@literal <state>}
- *  
- *  {@code
- *  <xs:complexType name="stateDefinition">
- *    <xs:simpleContent>
- *      <xs:extension base="hierarchicalPart">
- *        <xs:attribute name="stateType"/>
- *      </xs:extension>
- *    </xs:simpleContent>
- *  </xs:complexType>
- *  }
+ * MODSOriginInfo Subelement agent
+ * 
+ * {@code
+ * <xs:element name="agent" type="nameDefinition"/>
+ * }
  * 
  * @author Robert Stephan
- * @version MODS 3.6
+ * @version MODS 3.8
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class State extends HierarchicalPart implements IHierarchicalGeographicSubelement {
-    @XmlAttribute(name = "stateType", required = false)
-    protected String stateType;
+public class Agent extends NameDefinition<IAgentSubelement> implements IOriginInfoSubelement {
 
-    public String getStateType() {
-        return stateType;
+    public static Builder builder() {
+        return Agent.builder(new Agent());
     }
 
-    public void setStateType(String stateType) {
-        this.stateType = stateType;
+    public static Builder builder(Agent agent) {
+        return new Builder(agent);
+    }
+
+    public static class Builder extends BuilderBase<Agent, Builder>
+        implements INameDefinitionBuilder<IAgentSubelement, Agent, Builder> {
+
+        protected Builder(Agent agent) {
+            super(agent);
+        }
     }
 
 }

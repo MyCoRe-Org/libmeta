@@ -15,17 +15,26 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.mods.model.subject.cartographics;
-
-import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
+package org.mycore.libmeta.mods.model._misc;
 
 /**
- * MODS Cartographics Subelement {@literal <Coordinates>}
- * 
+ * {@code
+ * <xs:attributeGroup name="IDAttributeGroup">
+ *   <xs:attribute name="ID" type="xs:ID"/>
+ *   <xs:attribute name="IDREF" type="xs:IDREF"/>
+ * </xs:attributeGroup>
+ * }	
+ *
  * @author Robert Stephan
- * @version MODS 3.6
+ * @version MODS 3.8
  *
  */
-public class Coordinates extends StringPlusLanguage implements ISubjectCartographicsSubelement {
+public interface IIDAttributeGroup {
+    public String getID();
 
+    public String getIDREF();
+
+    public void setID(String iD);
+
+    public void setIDREF(String iDREF);
 }

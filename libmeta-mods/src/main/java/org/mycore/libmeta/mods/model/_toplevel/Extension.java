@@ -21,7 +21,9 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IExtensionBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.w3c.dom.Node;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -39,6 +41,7 @@ import jakarta.xml.bind.annotation.XmlMixed;
  *	  </xs:sequence>
  *	  <xs:attribute name="displayLabel" type="xs:string"/>
  *	  <!-- displayLabel added  to extension in 3.4. -->
+ *    <xs:attribute name="type" type="xs:string"/>
  *	</xs:complexType>
  * }
  * 
@@ -47,12 +50,18 @@ import jakarta.xml.bind.annotation.XmlMixed;
  */
 
 @XmlAccessorType(XmlAccessType.NONE)
-public class Extension implements ITopLevelElement {
+public class Extension implements ITopLevelElement, IIDAttributeGroup {
     
     @SuppressWarnings("rawtypes")
 	@XmlAnyElement(lax = true)
     @XmlMixed
     private List content = new Vector();
+    
+    @XmlAttribute(name = "ID")
+    protected String ID;
+    
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
     
     /**
      * {@code
@@ -61,6 +70,33 @@ public class Extension implements ITopLevelElement {
      */
     @XmlAttribute(name="displayLabel")
     protected String displayLabel;
+    
+    @XmlAttribute(name = "type")
+    protected String type;
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
+    }
+    
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
      @SuppressWarnings("rawtypes")
 	public List getContent() {
@@ -87,10 +123,15 @@ public class Extension implements ITopLevelElement {
 		return new Builder(spl);
 	}
 	
-	public static class Builder extends BuilderBase<Extension, Builder> implements IExtensionBuilder<Extension, Builder>{
+	public static class Builder extends BuilderBase<Extension, Builder> implements IExtensionBuilder<Extension, Builder>, IIDAttributeGroupBuilder<Extension, Builder>{
 
-	    protected Builder(Extension spl) {
-			super(spl);
+	    protected Builder(Extension ext) {
+			super(ext);
 		}
+	    
+        public Builder type(String type) {
+            _target().setType(type);
+            return this;
+        }
 	}
 }

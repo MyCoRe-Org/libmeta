@@ -18,6 +18,8 @@
 package org.mycore.libmeta.mods.model._toplevel;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
@@ -56,7 +58,7 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name="noteDefinition")
-public class Note extends StringPlusLanguage implements ITopLevelElement, IAttributeGroupXlinkSimpleLink {
+public class Note extends StringPlusLanguage implements ITopLevelElement, IIDAttributeGroup, IAttributeGroupXlinkSimpleLink {
      
     @XmlAttribute(name="displayLabel")
     protected String displayLabel;
@@ -94,6 +96,9 @@ public class Note extends StringPlusLanguage implements ITopLevelElement, IAttri
     
     @XmlAttribute(name="ID")
     protected String ID;
+    
+    @XmlAttribute(name="IDREF")
+    protected String IDREF;
 
      @XmlAttribute(name = "altRepGroup")
      protected String altRepGroup;
@@ -182,8 +187,16 @@ public class Note extends StringPlusLanguage implements ITopLevelElement, IAttri
         return ID;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setID(String iD) {
+        this.ID = iD;
+    }
+    
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        this.IDREF = iDREF;
     }
 
     public String getAltRepGroup() {
@@ -202,7 +215,7 @@ public class Note extends StringPlusLanguage implements ITopLevelElement, IAttri
         return new Builder(n);
     }
     
-    public static class Builder extends BuilderBase<Note, Builder> implements IXsStringBuilder<Note, Builder>, ILanguageAttributeGroupBuilder<Note, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Note, Builder>{
+    public static class Builder extends BuilderBase<Note, Builder> implements IXsStringBuilder<Note, Builder>, IIDAttributeGroupBuilder<Note, Builder>, ILanguageAttributeGroupBuilder<Note, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Note, Builder>{
                 
         protected Builder(Note n) {
             super(n);
@@ -225,11 +238,6 @@ public class Note extends StringPlusLanguage implements ITopLevelElement, IAttri
         
         public Builder xlinkType(String xlinkType) {
             _target().setXlinkType(xlinkType);
-            return _self();
-        }
-        
-        public Builder ID(String id) {
-            _target().setID(id);
             return _self();
         }
         

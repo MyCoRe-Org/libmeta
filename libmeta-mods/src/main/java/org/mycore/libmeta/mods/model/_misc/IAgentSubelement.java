@@ -15,8 +15,8 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.mods.model.subject.cartographics;
+package org.mycore.libmeta.mods.model._misc;
 
-public interface ISubjectCartographicsSubelement {
+public interface IAgentSubelement extends INameSubelement {
 
 }

@@ -17,35 +17,13 @@
  */
 package org.mycore.libmeta.mods.model._toplevel;
 
-import java.util.List;
-import java.util.Vector;
-
 import org.mycore.libmeta.common.BuilderBase;
-import org.mycore.libmeta.mods.model._misc.IAuthorityAttributeGroup;
-import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
-import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
-import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
-import org.mycore.libmeta.mods.model._misc.enums.NameType;
-import org.mycore.libmeta.mods.model._misc.enums.Usage;
-import org.mycore.libmeta.mods.model.name.Affiliation;
-import org.mycore.libmeta.mods.model.name.AlternativeName;
-import org.mycore.libmeta.mods.model.name.Description;
-import org.mycore.libmeta.mods.model.name.DisplayForm;
-import org.mycore.libmeta.mods.model.name.Etal;
-import org.mycore.libmeta.mods.model.name.INameSubelement;
-import org.mycore.libmeta.mods.model.name.NameIdentifier;
-import org.mycore.libmeta.mods.model.name.NamePart;
-import org.mycore.libmeta.mods.model.name.Role;
-import org.mycore.libmeta.xlink.model.XlinkActuate;
-import org.mycore.libmeta.xlink.model.XlinkShow;
-import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBuilder;
-import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink;
+import org.mycore.libmeta.mods.model._misc.INameSubelement;
+import org.mycore.libmeta.mods.model._misc.NameDefinition;
+import org.mycore.libmeta.mods.model._misc.builder.INameDefinitionBuilder;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlElements;
 
 /**
  *   Top Level Element {@literal {@literal <name>}}
@@ -105,7 +83,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *		<xs:attribute name="displayLabel" type="xs:string"/>
  *		<xs:attribute name="altRepGroup" type="xs:string"/>
  *		<xs:attribute name="nameTitleGroup" type="xs:string"/>
- *		<xs:attribute name="usage" fixed="primary"/>
+ *		<xs:attribute name="usage" type="primary"/>
  *		<xs:attribute name="type">
  *			<xs:simpleType>
  *				<xs:restriction base="xs:string">
@@ -124,275 +102,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Name
-    implements ITopLevelElement, IAuthorityAttributeGroup, IAttributeGroupXlinkSimpleLink, ILanguageAttributeGroup {
-
-    @XmlElements({ @XmlElement(name = "namePart", namespace = "http://www.loc.gov/mods/v3", type = NamePart.class),
-        @XmlElement(name = "displayForm", namespace = "http://www.loc.gov/mods/v3", type = DisplayForm.class),
-        @XmlElement(name = "affiliation", namespace = "http://www.loc.gov/mods/v3", type = Affiliation.class),
-        @XmlElement(name = "role", namespace = "http://www.loc.gov/mods/v3", type = Role.class),
-        @XmlElement(name = "description", namespace = "http://www.loc.gov/mods/v3", type = Description.class),
-        @XmlElement(name = "nameIdentifier", namespace = "http://www.loc.gov/mods/v3", type = NameIdentifier.class),
-        @XmlElement(name = "etal", namespace = "http://www.loc.gov/mods/v3", type = Etal.class),
-        
-        /** @version MODS 3.7 */
-         @XmlElement(name = "alternativeName", namespace = "http://www.loc.gov/mods/v3", type = AlternativeName.class) })
-    protected List<INameSubelement> content = new Vector<>();
-
-    @XmlAttribute(name = "ID")
-    protected String ID;
-
-    // IAuthorityAttributeGroup - begin
-
-    @XmlAttribute(name = "authority")
-    protected String authority;
-
-    @XmlAttribute(name = "authorityURI")
-    protected String authorityURI;
-
-    @XmlAttribute(name = "valueURI")
-    protected String valueURI;
-
-    //IAuthorityAttributeGroup - end
-
-    //IXlinkSimpleLinkAttributeGroup - begin
-
-    /**
-     * {@code 
-     * <attribute ref="xlink:href" use="optional"/>
-     * }
-     */
-    @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
-    protected String xlinkHref;
-
-    /**
-     * {@code 
-     * <attribute ref="xlink:role" use="optional"/>
-     * }
-     */
-    @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink", required = false)
-    protected String xlinkRole;
-
-    /**
-     * {@code 
-     * <attribute ref="xlink:arcrole" use="optional"/>
-     * }
-     */
-    @XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink", required = false)
-    protected String xlinkArcrole;
-
-    /**
-     * {@code 
-     * <attribute ref="xlink:title" use="optional"/>
-     * }
-     */
-    @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink", required = false)
-    protected String xlinkTitle;
-
-    /**
-     * {@code 
-     * <attribute ref="xlink:show" use="optional"/>
-     * }
-     */
-    @XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink", required = false)
-    protected XlinkShow xlinkShow;
-
-    /**
-     * {@code 
-     * <attribute ref="xlink:actuate" use="optional"/>
-     * }
-     */
-    @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink", required = false)
-    protected XlinkActuate xlinkActuate;
-
-    //IXlinkSimpleLinkAttributeGroup - end
-
-    //ILanguageAttributeGroup - begin
-
-    @XmlAttribute(name = "lang")
-    protected String lang;
-
-    @XmlAttribute(name = "lang", namespace = "http://www.w3.org/XML/1998/namespace", required = false)
-    protected String xmlLang;
-
-    @XmlAttribute(name = "script")
-    protected String script;
-
-    @XmlAttribute(name = "transliteration")
-    protected String transliteration;
-
-    //ILanguageAttributeGroup - end
-
-    @XmlAttribute(name = "displayLabel")
-    protected String displayLabel;
-
-    @XmlAttribute(name = "altRepGroup")
-    protected String altRepGroup;
-
-    @XmlAttribute(name = "nameTitleGroup")
-    protected String nameTitleGroup;
-
-    @XmlAttribute(name = "usage")
-    protected Usage usage;
-
-    @XmlAttribute(name = "type")
-    protected NameType type;
-
-    public List<INameSubelement> getContent() {
-        return content;
-    }
-
-    public String getID() {
-        return ID;
-    }
-
-    public void setID(String iD) {
-        ID = iD;
-    }
-
-    public String getAuthority() {
-        return authority;
-    }
-
-    public void setAuthority(String authority) {
-        this.authority = authority;
-    }
-
-    public String getAuthorityURI() {
-        return authorityURI;
-    }
-
-    public void setAuthorityURI(String authorityURI) {
-        this.authorityURI = authorityURI;
-    }
-
-    public String getValueURI() {
-        return valueURI;
-    }
-
-    public void setValueURI(String valueURI) {
-        this.valueURI = valueURI;
-    }
-
-    public String getXlinkHref() {
-        return xlinkHref;
-    }
-
-    public void setXlinkHref(String xlinkHref) {
-        this.xlinkHref = xlinkHref;
-    }
-
-    public String getXlinkRole() {
-        return xlinkRole;
-    }
-
-    public void setXlinkRole(String xlinkRole) {
-        this.xlinkRole = xlinkRole;
-    }
-
-    public String getXlinkArcrole() {
-        return xlinkArcrole;
-    }
-
-    public void setXlinkArcrole(String xlinkArcrole) {
-        this.xlinkArcrole = xlinkArcrole;
-    }
-
-    public String getXlinkTitle() {
-        return xlinkTitle;
-    }
-
-    public void setXlinkTitle(String xlinkTitle) {
-        this.xlinkTitle = xlinkTitle;
-    }
-
-    public XlinkShow getXlinkShow() {
-        return xlinkShow;
-    }
-
-    public void setXlinkShow(XlinkShow xlinkShow) {
-        this.xlinkShow = xlinkShow;
-    }
-
-    public XlinkActuate getXlinkActuate() {
-        return xlinkActuate;
-    }
-
-    public void setXlinkActuate(XlinkActuate xlinkActuate) {
-        this.xlinkActuate = xlinkActuate;
-    }
-
-    public String getLang() {
-        return lang;
-    }
-
-    public void setLang(String lang) {
-        this.lang = lang;
-    }
-
-    public String getXmlLang() {
-        return xmlLang;
-    }
-
-    public void setXmlLang(String xmlLang) {
-        this.xmlLang = xmlLang;
-    }
-
-    public String getScript() {
-        return script;
-    }
-
-    public void setScript(String script) {
-        this.script = script;
-    }
-
-    public String getTransliteration() {
-        return transliteration;
-    }
-
-    public void setTransliteration(String transliteration) {
-        this.transliteration = transliteration;
-    }
-
-    public String getDisplayLabel() {
-        return displayLabel;
-    }
-
-    public void setDisplayLabel(String displayLabel) {
-        this.displayLabel = displayLabel;
-    }
-
-    public String getAltRepGroup() {
-        return altRepGroup;
-    }
-
-    public void setAltRepGroup(String altRepGroup) {
-        this.altRepGroup = altRepGroup;
-    }
-
-    public String getNameTitleGroup() {
-        return nameTitleGroup;
-    }
-
-    public void setNameTitleGroup(String nameTitleGroup) {
-        this.nameTitleGroup = nameTitleGroup;
-    }
-
-    public Usage getUsage() {
-        return usage;
-    }
-
-    public void setUsage(Usage usage) {
-        this.usage = usage;
-    }
-
-    public NameType getType() {
-        return type;
-    }
-
-    public void setType(NameType type) {
-        this.type = type;
-    }
+public class Name extends NameDefinition<INameSubelement> implements ITopLevelElement {
 
     public static Builder builder() {
         return builder(new Name());
@@ -402,46 +112,12 @@ public class Name
         return new Builder(name);
     }
 
-    public static class Builder extends BuilderBase<Name, Builder> implements IAuthorityAttributeGroupBuilder<Name, Builder>,
-        IAttributeGroupXlinkSimpleLinkBuilder<Name, Builder>, ILanguageAttributeGroupBuilder<Name, Builder> {
+    public static class Builder extends BuilderBase<Name, Builder>
+        implements INameDefinitionBuilder<INameSubelement, Name, Builder> {
 
         protected Builder(Name name) {
             super(name);
         }
-
-        public Builder addContent(INameSubelement content) {
-            _target().getContent().add(content);
-            return _self();
-        }
-
-        public Builder ID(String id) {
-            _target().setID(id);
-            return _self();
-        }
-
-        public Builder displayLabel(String displayLabel) {
-            _target().setDisplayLabel(displayLabel);
-            return _self();
-        }
-
-        public Builder altRepGroup(String s) {
-            _target().setAltRepGroup(s);
-            return _self();
-        }
-
-        public Builder nameTitleGroup(String s) {
-            _target().setNameTitleGroup(s);
-            return _self();
-        }
-
-        public Builder usage(Usage usage) {
-            _target().setUsage(usage);
-            return _self();
-        }
-
-        public Builder type(NameType type) {
-            _target().setType(type);
-            return _self();
-        }
     }
+
 }

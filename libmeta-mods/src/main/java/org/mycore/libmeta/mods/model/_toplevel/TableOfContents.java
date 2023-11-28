@@ -19,7 +19,9 @@ package org.mycore.libmeta.mods.model._toplevel;
 
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.IAltFormatAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAltFormatAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.No;
@@ -42,7 +44,13 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class TableOfContents extends StringPlusLanguage
-		implements IAltFormatAttributeGroup, IAttributeGroupXlinkSimpleLink {
+		implements IIDAttributeGroup, IAltFormatAttributeGroup, IAttributeGroupXlinkSimpleLink {
+    
+    @XmlAttribute(name = "ID")
+    protected String ID;
+    
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
 	@XmlAttribute(name = "displayLabel")
 	protected String displayLabel;
@@ -116,6 +124,22 @@ public class TableOfContents extends StringPlusLanguage
 	protected String contentType;
 
 	// IAltFormatAttributeGroup - end
+	
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
+    }
 
 	public String getDisplayLabel() {
 		return displayLabel;
@@ -221,7 +245,7 @@ public class TableOfContents extends StringPlusLanguage
 		return new Builder(toc);
 	}
 	
-	public static class Builder extends BuilderBase<TableOfContents, Builder> implements IXsStringBuilder<TableOfContents, Builder>, ILanguageAttributeGroupBuilder<TableOfContents, Builder>, IAltFormatAttributeGroupBuilder<TableOfContents, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<TableOfContents, Builder>{
+	public static class Builder extends BuilderBase<TableOfContents, Builder> implements IXsStringBuilder<TableOfContents, Builder>, IIDAttributeGroupBuilder<TableOfContents, Builder>, ILanguageAttributeGroupBuilder<TableOfContents, Builder>, IAltFormatAttributeGroupBuilder<TableOfContents, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<TableOfContents, Builder>{
 		protected Builder(TableOfContents toc) {
 			super(toc);
 		}

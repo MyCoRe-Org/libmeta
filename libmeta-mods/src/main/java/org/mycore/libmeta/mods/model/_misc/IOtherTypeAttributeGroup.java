@@ -15,8 +15,28 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.mods.model.name;
+package org.mycore.libmeta.mods.model._misc;
 
-public interface INameSubelement {
+/**
+ * @author Robert Stephan
+ * @version MODS 3.8
+ *
+ */
+public interface IOtherTypeAttributeGroup {
+    public String getOtherType();
+
+    public String getOtherTypeURI();
+
+    public String getOtherTypeAuth();
+
+    public String getOtherTypeAuthURI();
+
+    public void setOtherType(String otherType);
+
+    public void setOtherTypeURI(String otherTypeURI);
+
+    public void setOtherTypeAuth(String otherTypeAuth);
+
+    public void setOtherTypeAuthURI(String otherTypeAuthURI);
 
 }

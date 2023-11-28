@@ -15,17 +15,15 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.mods.model.subject;
+package org.mycore.libmeta.mods.model.cartographics;
 
 import java.util.List;
 
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.IAuthorityAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
-import org.mycore.libmeta.mods.model.subject.cartographics.CartographicExtension;
-import org.mycore.libmeta.mods.model.subject.cartographics.Coordinates;
-import org.mycore.libmeta.mods.model.subject.cartographics.Projection;
-import org.mycore.libmeta.mods.model.subject.cartographics.Scale;
+import org.mycore.libmeta.mods.model.origininfo.place.IPlaceSubelement;
+import org.mycore.libmeta.mods.model.subject.ISubjectSubelement;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -56,7 +54,7 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder= {"scale", "projection", "coordinates", "cartographicExtension"})
-public class SubjectCartographics implements ISubjectSubelement, IAuthorityAttributeGroup {
+public class Cartographics implements ISubjectSubelement, IPlaceSubelement, IAuthorityAttributeGroup {
     // <xs:sequence>
     
     /**
@@ -171,16 +169,16 @@ public class SubjectCartographics implements ISubjectSubelement, IAuthorityAttri
 	}
 	
 	public static Builder builder() {
-		return new Builder(new SubjectCartographics());
+		return new Builder(new Cartographics());
 	}
 	
-	public static Builder builder(SubjectCartographics c) {
+	public static Builder builder(Cartographics c) {
 		return new Builder(c);
 	}
 	
-	public static class Builder extends BuilderBase<SubjectCartographics, Builder> implements IAuthorityAttributeGroupBuilder<SubjectCartographics, Builder>{
+	public static class Builder extends BuilderBase<Cartographics, Builder> implements IAuthorityAttributeGroupBuilder<Cartographics, Builder>{
 
-		protected Builder(SubjectCartographics spl) {
+		protected Builder(Cartographics spl) {
 			super(spl);
 		}
 	    

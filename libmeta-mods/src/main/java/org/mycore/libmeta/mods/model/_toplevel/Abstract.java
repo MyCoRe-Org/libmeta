@@ -19,7 +19,9 @@ package org.mycore.libmeta.mods.model._toplevel;
 
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.IAltFormatAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAltFormatAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.No;
@@ -43,7 +45,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *               <xs:attribute name="displayLabel" type="xs:string"/>
  *               <xs:attribute name="type" type="xs:string"/>
  *               <xs:attributeGroup ref="xlink:simpleLink"/>
- *               <xs:attribute name="shareable" fixed="no"/>
+ *               <xs:attribute name="shareable" type="no"/>
  *               <xs:attribute name="altRepGroup" type="xs:string"/>
  *               <xs:attributeGroup ref="altFormatAttributeGroup"/>
  *           </xs:extension>
@@ -56,7 +58,13 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class Abstract extends StringPlusLanguage
-    implements ITopLevelElement, IAttributeGroupXlinkSimpleLink, IAltFormatAttributeGroup {
+    implements ITopLevelElement, IIDAttributeGroup, IAttributeGroupXlinkSimpleLink, IAltFormatAttributeGroup {
+    
+    @XmlAttribute(name = "ID")
+    protected String ID;
+    
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
     
     @XmlAttribute(name = "displayLabel")
     protected String displayLabel;
@@ -103,6 +111,22 @@ public class Abstract extends StringPlusLanguage
     protected String contentType;
 
     // IAltFormatAttributeGroup - end
+    
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
+    }
 
     public String getDisplayLabel() {
         return displayLabel;
@@ -217,7 +241,7 @@ public class Abstract extends StringPlusLanguage
     }
 
     public static class Builder extends BuilderBase<Abstract, Builder>
-        implements IAttributeGroupXlinkSimpleLinkBuilder<Abstract, Builder>, IAltFormatAttributeGroupBuilder<Abstract, Builder>, ILanguageAttributeGroupBuilder<Abstract, Builder>, IXsStringBuilder<Abstract, Builder> {
+        implements IIDAttributeGroupBuilder<Abstract, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Abstract, Builder>, IAltFormatAttributeGroupBuilder<Abstract, Builder>, ILanguageAttributeGroupBuilder<Abstract, Builder>, IXsStringBuilder<Abstract, Builder> {
 
         protected Builder(Abstract spl) {
             super(spl);

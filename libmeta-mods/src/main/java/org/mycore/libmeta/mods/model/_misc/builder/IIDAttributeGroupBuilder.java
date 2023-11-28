@@ -15,22 +15,32 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.mods.model._misc.enums;
+package org.mycore.libmeta.mods.model._misc.builder;
 
-import jakarta.xml.bind.annotation.XmlEnum;
-import jakarta.xml.bind.annotation.XmlEnumValue;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 
 /**
- *  valid codes for authority attribute
- *  on /subject/geographicCode
- *  
+ * {@code
+ * <xs:attributeGroup name="IDAttributeGroup">
+ *   <xs:attribute name="ID" type="xs:ID"/>
+ *   <xs:attribute name="IDREF" type="xs:IDREF"/>
+ * </xs:attributeGroup>
+ * }
+ *
  * @author Robert Stephan
- * @version MODS 3.6
- * 
+ * @version MODS 3.8
+ *
  */
-@XmlEnum
-public enum GeographicCodeAuthority {
-	@XmlEnumValue("marcgac") MARC_GAC, 
-	@XmlEnumValue("marccountry") MARC_COUNTRY,
-	@XmlEnumValue("iso3166") ISO_3166;
+public interface IIDAttributeGroupBuilder<T extends IIDAttributeGroup, B>{
+    public T _target();
+    public B _self();
+    
+	public default B ID(String iD){
+		_target().setID(iD);
+		return _self();
+	}
+	public default B IDREF(String iDREF){
+		_target().setIDREF(iDREF);
+		return _self();
+	}
 }

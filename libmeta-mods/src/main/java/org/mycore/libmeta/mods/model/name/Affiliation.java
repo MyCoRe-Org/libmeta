@@ -18,12 +18,15 @@
 package org.mycore.libmeta.mods.model.name;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IAlternativeNameSubelement;
+import org.mycore.libmeta.mods.model._misc.INameSubelement;
+import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
-import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
+import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguagePlusAuthority;
 import org.mycore.libmeta.mods.model.subject.name.ISubjectNameSubelement;
 
-public class Affiliation extends StringPlusLanguage implements INameSubelement, ISubjectNameSubelement {
+public class Affiliation extends StringPlusLanguagePlusAuthority implements INameSubelement, IAlternativeNameSubelement, ISubjectNameSubelement {
 
     public static Builder builder() {
         return builder(new Affiliation());
@@ -33,7 +36,10 @@ public class Affiliation extends StringPlusLanguage implements INameSubelement, 
         return new Builder(aff);
     }
 
-    public static class Builder extends BuilderBase<Affiliation, Builder> implements IXsStringBuilder<Affiliation, Builder>, ILanguageAttributeGroupBuilder<Affiliation, Builder> {
+    public static class Builder extends BuilderBase<Affiliation, Builder>
+        implements IXsStringBuilder<Affiliation, Builder>,
+        ILanguageAttributeGroupBuilder<Affiliation, Builder>,
+        IAuthorityAttributeGroupBuilder<Affiliation, Builder> {
 
         protected Builder(Affiliation aff) {
             super(aff);
