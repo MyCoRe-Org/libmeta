@@ -31,7 +31,7 @@ public class MycoreclassTest {
 
     @Test
     public void test1() {
-        MycoreclassProcessor processor = MycoreclassProcessor.getInstance();
+        MycoreclassXMLProcessor processor = MycoreclassXMLProcessor.getInstance();
         try {
             Mycoreclass m = processor
                 .unmarshal(new URL("https://rosdok.uni-rostock.de/api/v1/classifications/accesscondition"));
@@ -47,7 +47,7 @@ public class MycoreclassTest {
 
     @Test
     public void test2() {
-        MycoreclassProcessor processor = MycoreclassProcessor.getInstance();
+        MycoreclassXMLProcessor processor = MycoreclassXMLProcessor.getInstance();
         Mycoreclass m2 = Mycoreclass.builder()
             .ID("accesscondition")
             .addLabel(Label.builder().xmlLang("x-openaire").text("info:eu-repo/semantics/openAccess").build())
@@ -80,7 +80,7 @@ public class MycoreclassTest {
 
     @Test
     public void test3() {
-        MycoreclassProcessor processor = MycoreclassProcessor.getInstance();
+        MycoreclassXMLProcessor processor = MycoreclassXMLProcessor.getInstance();
         try {
             Mycoreclass m3 = processor
                 .unmarshal(new URL("https://rosdok.uni-rostock.de/api/v1/classifications/collection"));
@@ -94,7 +94,7 @@ public class MycoreclassTest {
 
     @Test
     public void test4() {
-        MycoreclassProcessor processor = MycoreclassProcessor.getInstance();
+        MycoreclassXMLProcessor processor = MycoreclassXMLProcessor.getInstance();
         try {
             Mycoreclass m4 = processor
                 .unmarshal(new URL("https://rosdok.uni-rostock.de/api/v1/classifications/doctype"));
