@@ -15,22 +15,21 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.mods;
+package org.mycore.libmeta.mycoreclass;
 
 import org.mycore.libmeta.common.DefaultXMLProcessor;
-import org.mycore.libmeta.mods.model.Mods;
+import org.mycore.libmeta.mycoreclass.model.Mycoreclass;
 
-public class MODSXMLProcessor extends DefaultXMLProcessor<Mods> {
+public class MycoreclassXMLProcessor extends DefaultXMLProcessor<Mycoreclass> {
 
-    private static final MODSXMLProcessor INSTANCE = new MODSXMLProcessor();
+    private static final MycoreclassXMLProcessor INSTANCE = new MycoreclassXMLProcessor();
 
     //private constructor to avoid client applications to use constructor
-    private MODSXMLProcessor() {
-        super(Mods.class);
+    private MycoreclassXMLProcessor() {
+        super(Mycoreclass.class);
     }
 
-    public static MODSXMLProcessor getInstance() {
+    public static MycoreclassXMLProcessor getInstance() {
         return INSTANCE;
     }
-
 }
