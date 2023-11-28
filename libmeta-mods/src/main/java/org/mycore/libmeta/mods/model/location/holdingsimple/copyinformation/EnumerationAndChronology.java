@@ -27,7 +27,6 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
-
 /**
  * MODS Location Subelement: EnumerationAndChronology
  * 
@@ -75,7 +74,9 @@ public class EnumerationAndChronology extends StringPlusLanguage implements ILoc
         return new Builder(uac);
     }
 
-    public static class Builder extends BuilderBase<EnumerationAndChronology, Builder> implements IXsStringBuilder<EnumerationAndChronology, Builder>, ILanguageAttributeGroupBuilder<EnumerationAndChronology, Builder> {
+    public static class Builder extends BuilderBase<EnumerationAndChronology, Builder>
+        implements IXsStringBuilder<EnumerationAndChronology, Builder>,
+        ILanguageAttributeGroupBuilder<EnumerationAndChronology, Builder> {
         protected Builder(EnumerationAndChronology eac) {
             super(eac);
         }

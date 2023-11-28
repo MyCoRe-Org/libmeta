@@ -54,7 +54,7 @@ public class Item {
     private URI id;
 
     private String label;
-    
+
     private Part part;
 
     private Storage storage;
@@ -75,7 +75,7 @@ public class Item {
     }
 
     public void setAvailables(List<Available> availables) {
-        this.availables= availables;
+        this.availables = availables;
     }
 
     public Chronology getChronology() {
@@ -117,7 +117,7 @@ public class Item {
     public void setLabel(String label) {
         this.label = label;
     }
-    
+
     public Part getPart() {
         return part;
     }
@@ -139,7 +139,7 @@ public class Item {
     }
 
     public void setUnavailables(List<Unavailable> unavailables) {
-        this.unavailables=unavailables;
+        this.unavailables = unavailables;
     }
 
 }

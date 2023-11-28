@@ -26,22 +26,22 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 @XmlAccessorType(XmlAccessType.NONE)
-public class Url extends XsAnyURI implements ILocationSublement{
+public class Url extends XsAnyURI implements ILocationSublement {
     @XmlAttribute(name = "dateLastAccessed", required = false)
     protected String dateLastAccessed;
-    
+
     @XmlAttribute(name = "displayLabel", required = false)
     protected String displayLabel;
-    
+
     @XmlAttribute(name = "note", required = false)
     protected String note;
-    
+
     @XmlAttribute(name = "access", required = false)
     protected UrlAccess access;
-    
+
     @XmlAttribute(name = "usage", required = false)
     protected UrlUsage usage;
-    
+
     public String getDateLastAccessed() {
         return dateLastAccessed;
     }
@@ -81,39 +81,40 @@ public class Url extends XsAnyURI implements ILocationSublement{
     public void setUsage(UrlUsage usage) {
         this.usage = usage;
     }
-    
+
     public static Builder builderForUrl() {
         return builder(new Url());
     }
+
     public static Builder builder(Url url) {
         return new Builder(url);
     }
-    
-    public static class Builder extends BuilderBase<Url, Builder> implements IXsAnyURIBuilder<Url, Builder>{
+
+    public static class Builder extends BuilderBase<Url, Builder> implements IXsAnyURIBuilder<Url, Builder> {
         protected Builder(Url url) {
             super(url);
         }
-        
+
         public Builder dateLastAccessed(String d) {
             _target().setDateLastAccessed(d);
             return _self();
         }
-        
+
         public Builder displayLabel(String displayLabel) {
             _target().setDisplayLabel(displayLabel);
             return _self();
         }
-        
+
         public Builder note(String note) {
             _target().setNote(note);
             return _self();
         }
-        
+
         public Builder access(UrlAccess access) {
             _target().setAccess(access);
             return _self();
         }
-        
+
         public Builder usage(UrlUsage usage) {
             _target().setUsage(usage);
             return _self();

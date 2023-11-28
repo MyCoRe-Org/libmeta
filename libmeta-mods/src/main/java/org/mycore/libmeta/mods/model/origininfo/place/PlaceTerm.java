@@ -44,15 +44,15 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class PlaceTerm extends StringPlusLanguagePlusAuthority implements IPlaceSubelement{
-    
+public class PlaceTerm extends StringPlusLanguagePlusAuthority implements IPlaceSubelement {
+
     public static final String AUTHORITY__MARCGAC = "marcgac";
-    
+
     public static final String AUTHORITY__MARCCOUNTRY = "marccountry";
-    
+
     public static final String AUTHORITY__ISO3166 = "iso3166";
-    
-    @XmlAttribute(name="type", required=false)
+
+    @XmlAttribute(name = "type", required = false)
     CodeOrText type;
 
     public CodeOrText getType() {
@@ -62,24 +62,23 @@ public class PlaceTerm extends StringPlusLanguagePlusAuthority implements IPlace
     public void setType(CodeOrText type) {
         this.type = type;
     }
-    
-    
+
     public static Builder builderForPlaceTerm() {
         return builder(new PlaceTerm());
     }
-    
+
     public static Builder builder(PlaceTerm pt) {
         return new Builder(pt);
     }
-    
+
     public static class Builder extends BuilderBase<PlaceTerm, Builder>
         implements IXsStringBuilder<PlaceTerm, Builder>,
         ILanguageAttributeGroupBuilder<PlaceTerm, Builder>,
-        IAuthorityAttributeGroupBuilder<PlaceTerm, Builder>{
+        IAuthorityAttributeGroupBuilder<PlaceTerm, Builder> {
         protected Builder(PlaceTerm pt) {
             super(pt);
         }
-        
+
         public Builder type(CodeOrText type) {
             _target().setType(type);
             return _self();

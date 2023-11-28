@@ -38,10 +38,10 @@ public class SubjectGenre extends Genre implements ISubjectSubelement {
     public static Builder builder(SubjectGenre sg) {
         return new Builder(sg);
     }
-    public static class Builder extends Genre.Builder{
+
+    public static class Builder extends Genre.Builder {
         protected Builder(SubjectGenre sg) {
             super(sg);
         }
     }
 }
-    

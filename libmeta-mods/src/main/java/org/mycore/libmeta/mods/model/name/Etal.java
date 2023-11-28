@@ -34,7 +34,7 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
  *
  */
 public class Etal extends StringPlusLanguage implements INameSubelement {
-    
+
     public static Builder builder() {
         return builder(new Etal());
     }
@@ -43,7 +43,8 @@ public class Etal extends StringPlusLanguage implements INameSubelement {
         return new Builder(e);
     }
 
-    public static class Builder extends BuilderBase<Etal, Builder> implements IXsStringBuilder<Etal, Builder>, ILanguageAttributeGroupBuilder<Etal, Builder> {
+    public static class Builder extends BuilderBase<Etal, Builder>
+        implements IXsStringBuilder<Etal, Builder>, ILanguageAttributeGroupBuilder<Etal, Builder> {
 
         protected Builder(Etal e) {
             super(e);

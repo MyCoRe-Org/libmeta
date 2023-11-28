@@ -41,9 +41,9 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  */
 public class Region extends HierarchicalPart implements IHierarchicalGeographicSubelement {
 
-    @XmlAttribute(name = "regionType", required=false)
+    @XmlAttribute(name = "regionType", required = false)
     protected String regionType;
-    
+
     public String getRegionType() {
         return regionType;
     }
@@ -55,16 +55,17 @@ public class Region extends HierarchicalPart implements IHierarchicalGeographicS
     public static Builder builder() {
         return builder(new Region());
     }
-    
+
     public static Builder builder(Region toc) {
         return new Builder(toc);
     }
-    
-    public static class Builder extends BuilderBase<Region, Builder> implements IHierarchicalPartBuilder<Region, Builder>{
+
+    public static class Builder extends BuilderBase<Region, Builder>
+        implements IHierarchicalPartBuilder<Region, Builder> {
         protected Builder(Region r) {
             super(r);
         }
-        
+
         public Builder regionType(String regionType) {
             _target().setRegionType(regionType);
             return _self();

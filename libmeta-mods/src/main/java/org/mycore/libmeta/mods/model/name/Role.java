@@ -59,9 +59,9 @@ public class Role implements INameSubelement, IAlternativeNameSubelement, ISubje
         return new Builder(role);
     }
 
-    public static class Builder extends BuilderBase<Role, Builder>{
+    public static class Builder extends BuilderBase<Role, Builder> {
         protected Builder(Role role) {
-           super(role);
+            super(role);
         }
 
         public Builder addRoleTerm(RoleTerm roleTerm) {

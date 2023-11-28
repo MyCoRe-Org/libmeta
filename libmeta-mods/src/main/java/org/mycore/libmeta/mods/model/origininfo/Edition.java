@@ -27,17 +27,18 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 
 @XmlAccessorType(XmlAccessType.NONE)
-public class Edition  extends StringPlusLanguagePlusSupplied implements IOriginInfoSubelement {
+public class Edition extends StringPlusLanguagePlusSupplied implements IOriginInfoSubelement {
 
     public static Builder builderForEdition() {
         return builder(new Edition());
     }
-    
+
     public static Builder builder(Edition e) {
         return new Builder(e);
     }
-    
-    public static class Builder extends BuilderBase<Edition, Builder> implements IXsStringBuilder<Edition, Builder>, ILanguageAttributeGroupBuilder<Edition, Builder>, ISuppliedAttributeBuilder<Edition, Builder> {
+
+    public static class Builder extends BuilderBase<Edition, Builder> implements IXsStringBuilder<Edition, Builder>,
+        ILanguageAttributeGroupBuilder<Edition, Builder>, ISuppliedAttributeBuilder<Edition, Builder> {
         protected Builder(Edition e) {
             super(e);
         }

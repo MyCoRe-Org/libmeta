@@ -29,10 +29,11 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguagePlusSupplied;
  */
 public interface ISuppliedAttributeBuilder<T extends StringPlusLanguagePlusSupplied, B> {
     public T _target();
+
     public B _self();
-    
-	public default B supplied(Supplied supplied){
-    	_target().setSupplied(supplied);
-    	return _self();
+
+    public default B supplied(Supplied supplied) {
+        _target().setSupplied(supplied);
+        return _self();
     }
 }

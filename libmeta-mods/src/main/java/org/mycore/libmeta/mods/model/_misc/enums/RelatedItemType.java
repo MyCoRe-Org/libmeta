@@ -47,17 +47,28 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum RelatedItemType {
-	@XmlEnumValue("preceding") PRECEDING,
-	@XmlEnumValue("succeeding") SUCCEEDING,
-	@XmlEnumValue("original") ORIGINAL,
-	@XmlEnumValue("host") HOST,
-	@XmlEnumValue("constituent") CONSTITUENT,
-	@XmlEnumValue("series") SERIES,
-	@XmlEnumValue("otherVersion") OTHER_VERSION,
-	@XmlEnumValue("otherFormat") OTHER_FORMAT,
-	@XmlEnumValue("isReferencedBy") IS_REFERENCED_BY,
-	
-	// following two new in 3.4.
-	@XmlEnumValue("references") REFERENCES,
-	@XmlEnumValue("reviewOf") REVIEW_OF;
+    @XmlEnumValue("preceding")
+    PRECEDING,
+    @XmlEnumValue("succeeding")
+    SUCCEEDING,
+    @XmlEnumValue("original")
+    ORIGINAL,
+    @XmlEnumValue("host")
+    HOST,
+    @XmlEnumValue("constituent")
+    CONSTITUENT,
+    @XmlEnumValue("series")
+    SERIES,
+    @XmlEnumValue("otherVersion")
+    OTHER_VERSION,
+    @XmlEnumValue("otherFormat")
+    OTHER_FORMAT,
+    @XmlEnumValue("isReferencedBy")
+    IS_REFERENCED_BY,
+
+    // following two new in 3.4.
+    @XmlEnumValue("references")
+    REFERENCES,
+    @XmlEnumValue("reviewOf")
+    REVIEW_OF;
 }

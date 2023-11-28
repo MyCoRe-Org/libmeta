@@ -62,10 +62,11 @@ public class ItemIdentifier extends StringPlusLanguage implements ICopyInformati
         return new Builder(toc);
     }
 
-    public static class Builder extends BuilderBase<ItemIdentifier, Builder> implements IXsStringBuilder<ItemIdentifier, Builder>, ILanguageAttributeGroupBuilder<ItemIdentifier, Builder> {
+    public static class Builder extends BuilderBase<ItemIdentifier, Builder>
+        implements IXsStringBuilder<ItemIdentifier, Builder>, ILanguageAttributeGroupBuilder<ItemIdentifier, Builder> {
 
-    	protected Builder(ItemIdentifier ii) {
-           super(ii);
+        protected Builder(ItemIdentifier ii) {
+            super(ii);
         }
 
         public Builder type(String type) {

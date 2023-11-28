@@ -29,17 +29,29 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum ResourceType {
-	@XmlEnumValue("text") TEXT,
-	@XmlEnumValue("cartographic") CARTOGRAPHIC,
-	@XmlEnumValue("notated music") NOTATED_MUSIC,
-	@XmlEnumValue("sound recording-musical") SOUND_RECORDING_MUSICAL,
-	@XmlEnumValue("sound recording-nonmusical") SOUND_RECORDING_NONMUSICAL,
-	@XmlEnumValue("sound recording") SOUND_RECORDING,
-	@XmlEnumValue("still image") STILL_IMAGE,
-	@XmlEnumValue("moving image") MOVING_IMAGE,
-	@XmlEnumValue("three dimensional object") THREE_DIMENSIONAL_OBJECT,
-	@XmlEnumValue("software, multimedia") SOFTWARE_MULTIMEDIA,
-	@XmlEnumValue("mixed material") MIXED_MATERIAL,
-	@XmlEnumValue("") UNDEFINIED;
+    @XmlEnumValue("text")
+    TEXT,
+    @XmlEnumValue("cartographic")
+    CARTOGRAPHIC,
+    @XmlEnumValue("notated music")
+    NOTATED_MUSIC,
+    @XmlEnumValue("sound recording-musical")
+    SOUND_RECORDING_MUSICAL,
+    @XmlEnumValue("sound recording-nonmusical")
+    SOUND_RECORDING_NONMUSICAL,
+    @XmlEnumValue("sound recording")
+    SOUND_RECORDING,
+    @XmlEnumValue("still image")
+    STILL_IMAGE,
+    @XmlEnumValue("moving image")
+    MOVING_IMAGE,
+    @XmlEnumValue("three dimensional object")
+    THREE_DIMENSIONAL_OBJECT,
+    @XmlEnumValue("software, multimedia")
+    SOFTWARE_MULTIMEDIA,
+    @XmlEnumValue("mixed material")
+    MIXED_MATERIAL,
+    @XmlEnumValue("")
+    UNDEFINIED;
 
 }

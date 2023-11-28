@@ -53,37 +53,37 @@ import jakarta.xml.bind.annotation.XmlType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder= {"scale", "projection", "coordinates", "cartographicExtension"})
+@XmlType(propOrder = { "scale", "projection", "coordinates", "cartographicExtension" })
 public class Cartographics implements ISubjectSubelement, IPlaceSubelement, IAuthorityAttributeGroup {
     // <xs:sequence>
-    
+
     /**
      * {@code
      * <xs:element ref="scale" minOccurs="0"/>
      * }
      */
     @XmlElement(name = "scale", namespace = "http://www.loc.gov/mods/v3", required = false)
-     protected Scale scale;
-    
+    protected Scale scale;
+
     /**
      * {@code
      * <xs:element ref="projection" minOccurs="0"/>
      * }
      */
     @XmlElement(name = "projection", namespace = "http://www.loc.gov/mods/v3", required = false)
-     protected Projection projection;
-    
+    protected Projection projection;
+
     /**
      * {@code
      * <xs:element ref="coordinates" minOccurs="0" maxOccurs="unbounded"/>>
      * }
      */
     @XmlElement(name = "coordinates", namespace = "http://www.loc.gov/mods/v3", required = false)
-     protected List<Coordinates> coordinates;
-    
+    protected List<Coordinates> coordinates;
+
     @XmlElement(name = "cartographicExtension", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected List<CartographicExtension> cartographicExtension;
-    
+
     // --- <xs:attributeGroup name="authorityAttributeGroup"> - begin
     /**
      * {@code
@@ -108,99 +108,99 @@ public class Cartographics implements ISubjectSubelement, IPlaceSubelement, IAut
      */
     @XmlAttribute(name = "valueURI")
     protected String valueURI;
-    
+
     // --- <xs:attributeGroup name="authorityAttributeGroup"> - end
-  
 
-	public Scale getScale() {
-		return scale;
-	}
+    public Scale getScale() {
+        return scale;
+    }
 
-	public void setScale(Scale scale) {
-		this.scale = scale;
-	}
+    public void setScale(Scale scale) {
+        this.scale = scale;
+    }
 
-	public Projection getProjection() {
-		return projection;
-	}
+    public Projection getProjection() {
+        return projection;
+    }
 
-	public void setProjection(Projection projection) {
-		this.projection = projection;
-	}
+    public void setProjection(Projection projection) {
+        this.projection = projection;
+    }
 
-	public List<Coordinates> getCoordinates() {
-		return coordinates;
-	}
+    public List<Coordinates> getCoordinates() {
+        return coordinates;
+    }
 
-	public void setCoordinates(List<Coordinates> coordinates) {
-		this.coordinates = coordinates;
-	}
+    public void setCoordinates(List<Coordinates> coordinates) {
+        this.coordinates = coordinates;
+    }
 
-	public List<CartographicExtension> getCartographicExtension() {
-		return cartographicExtension;
-	}
+    public List<CartographicExtension> getCartographicExtension() {
+        return cartographicExtension;
+    }
 
-	public void setCartographicExtension(List<CartographicExtension> cartographicExtension) {
-		this.cartographicExtension = cartographicExtension;
-	}
+    public void setCartographicExtension(List<CartographicExtension> cartographicExtension) {
+        this.cartographicExtension = cartographicExtension;
+    }
 
-	public String getAuthority() {
-		return authority;
-	}
+    public String getAuthority() {
+        return authority;
+    }
 
-	public void setAuthority(String authority) {
-		this.authority = authority;
-	}
+    public void setAuthority(String authority) {
+        this.authority = authority;
+    }
 
-	public String getAuthorityURI() {
-		return authorityURI;
-	}
+    public String getAuthorityURI() {
+        return authorityURI;
+    }
 
-	public void setAuthorityURI(String authorityURI) {
-		this.authorityURI = authorityURI;
-	}
+    public void setAuthorityURI(String authorityURI) {
+        this.authorityURI = authorityURI;
+    }
 
-	public String getValueURI() {
-		return valueURI;
-	}
+    public String getValueURI() {
+        return valueURI;
+    }
 
-	public void setValueURI(String valueURI) {
-		this.valueURI = valueURI;
-	}
-	
-	public static Builder builder() {
-		return new Builder(new Cartographics());
-	}
-	
-	public static Builder builder(Cartographics c) {
-		return new Builder(c);
-	}
-	
-	public static class Builder extends BuilderBase<Cartographics, Builder> implements IAuthorityAttributeGroupBuilder<Cartographics, Builder>{
+    public void setValueURI(String valueURI) {
+        this.valueURI = valueURI;
+    }
 
-		protected Builder(Cartographics spl) {
-			super(spl);
-		}
-	    
-	    public Builder scale(Scale scale) {
-	    	_target().setScale(scale);
-	    	return _self();
-	    }
-	    
-	    public Builder projectiont(Projection projection) {
-	    	_target().setProjection(projection);
-	    	return _self();
-	    }
-	    
-	    public Builder addCoordinates(Coordinates coordinates) {
-	    	_target().getCoordinates().add(coordinates);
-	    	return _self();
-	    }
-	    
-	    public Builder addCartographicExtension(CartographicExtension cartEx) {
-	    	_target().getCartographicExtension().add(cartEx);
-	    	return _self();
-	    }
-	    
-	}
+    public static Builder builder() {
+        return new Builder(new Cartographics());
+    }
+
+    public static Builder builder(Cartographics c) {
+        return new Builder(c);
+    }
+
+    public static class Builder extends BuilderBase<Cartographics, Builder>
+        implements IAuthorityAttributeGroupBuilder<Cartographics, Builder> {
+
+        protected Builder(Cartographics spl) {
+            super(spl);
+        }
+
+        public Builder scale(Scale scale) {
+            _target().setScale(scale);
+            return _self();
+        }
+
+        public Builder projectiont(Projection projection) {
+            _target().setProjection(projection);
+            return _self();
+        }
+
+        public Builder addCoordinates(Coordinates coordinates) {
+            _target().getCoordinates().add(coordinates);
+            return _self();
+        }
+
+        public Builder addCartographicExtension(CartographicExtension cartEx) {
+            _target().getCartographicExtension().add(cartEx);
+            return _self();
+        }
+
+    }
 }

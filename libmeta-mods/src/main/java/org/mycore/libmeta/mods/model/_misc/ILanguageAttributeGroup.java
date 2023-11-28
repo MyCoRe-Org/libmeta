@@ -32,13 +32,19 @@ package org.mycore.libmeta.mods.model._misc;
  *
  */
 public interface ILanguageAttributeGroup {
-	public String getLang();
-	public String getXmlLang();
-	public String getScript();
-	public String getTransliteration();
-	
-	public void setLang(String lang);
-	public void setXmlLang(String xmlLang);
-	public void setScript(String script);
-	public void setTransliteration(String transliteration);
+    public String getLang();
+
+    public String getXmlLang();
+
+    public String getScript();
+
+    public String getTransliteration();
+
+    public void setLang(String lang);
+
+    public void setXmlLang(String xmlLang);
+
+    public void setScript(String script);
+
+    public void setTransliteration(String transliteration);
 }

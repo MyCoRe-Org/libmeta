@@ -16,7 +16,8 @@
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
 package org.mycore.libmeta.daia__1_0.model;
-public class Chronology{
+
+public class Chronology {
     // "chronology": {
     // "additionalProperties": true,
     // "properties": {
@@ -26,7 +27,7 @@ public class Chronology{
     // },
     // "type": "object"
     //},
-    
+
     private String about;
 
     public String getAbout() {

@@ -26,7 +26,8 @@ import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguagePlusAuthority;
 import org.mycore.libmeta.mods.model.subject.name.ISubjectNameSubelement;
 
-public class Affiliation extends StringPlusLanguagePlusAuthority implements INameSubelement, IAlternativeNameSubelement, ISubjectNameSubelement {
+public class Affiliation extends StringPlusLanguagePlusAuthority
+    implements INameSubelement, IAlternativeNameSubelement, ISubjectNameSubelement {
 
     public static Builder builder() {
         return builder(new Affiliation());

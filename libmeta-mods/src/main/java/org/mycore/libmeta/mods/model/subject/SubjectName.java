@@ -79,15 +79,16 @@ import jakarta.xml.bind.annotation.XmlElements;
  * @version MODS 3.6
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class SubjectName implements ISubjectSubelement, IIDAttributeGroup, IAuthorityAttributeGroup, ILanguageAttributeGroup,
-        IAttributeGroupXlinkSimpleLink {
+public class SubjectName
+    implements ISubjectSubelement, IIDAttributeGroup, IAuthorityAttributeGroup, ILanguageAttributeGroup,
+    IAttributeGroupXlinkSimpleLink {
 
     @XmlElements({ @XmlElement(name = "namePart", namespace = "http://www.loc.gov/mods/v3", type = NamePart.class),
-            @XmlElement(name = "displayForm", namespace = "http://www.loc.gov/mods/v3", type = DisplayForm.class),
-            @XmlElement(name = "affilitation", namespace = "http://www.loc.gov/mods/v3", type = Affiliation.class),
-            @XmlElement(name = "role", namespace = "http://www.loc.gov/mods/v3", type = Role.class),
-            @XmlElement(name = "description", namespace = "http://www.loc.gov/mods/v3", type = Description.class),
-            @XmlElement(name = "nameIdentifier", namespace = "http://www.loc.gov/mods/v3", type = NameIdentifier.class) })
+        @XmlElement(name = "displayForm", namespace = "http://www.loc.gov/mods/v3", type = DisplayForm.class),
+        @XmlElement(name = "affilitation", namespace = "http://www.loc.gov/mods/v3", type = Affiliation.class),
+        @XmlElement(name = "role", namespace = "http://www.loc.gov/mods/v3", type = Role.class),
+        @XmlElement(name = "description", namespace = "http://www.loc.gov/mods/v3", type = Description.class),
+        @XmlElement(name = "nameIdentifier", namespace = "http://www.loc.gov/mods/v3", type = NameIdentifier.class) })
     protected List<ISubjectNameSubelement> content = new Vector<>();
 
     /**
@@ -113,7 +114,7 @@ public class SubjectName implements ISubjectSubelement, IIDAttributeGroup, IAuth
      */
     @XmlAttribute(name = "ID", required = false)
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF", required = false)
     protected String IDREF;
 
@@ -218,7 +219,7 @@ public class SubjectName implements ISubjectSubelement, IIDAttributeGroup, IAuth
     public void setContent(List<ISubjectNameSubelement> content) {
         this.content = content;
     }
-    
+
     public NameType getType() {
         return type;
     }
@@ -242,7 +243,7 @@ public class SubjectName implements ISubjectSubelement, IIDAttributeGroup, IAuth
     public void setID(String iD) {
         this.ID = iD;
     }
-    
+
     public String getIDREF() {
         return IDREF;
     }
@@ -363,7 +364,8 @@ public class SubjectName implements ISubjectSubelement, IIDAttributeGroup, IAuth
         return new Builder(s);
     }
 
-    public static class Builder extends BuilderBase<SubjectName, Builder> implements IIDAttributeGroupBuilder<SubjectName, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<SubjectName, Builder>{
+    public static class Builder extends BuilderBase<SubjectName, Builder> implements
+        IIDAttributeGroupBuilder<SubjectName, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<SubjectName, Builder> {
 
         protected Builder(SubjectName subjectName) {
             super(subjectName);

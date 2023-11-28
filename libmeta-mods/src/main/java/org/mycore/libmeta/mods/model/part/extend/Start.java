@@ -35,19 +35,20 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Start extends StringPlusLanguage implements IPartExtendSubelement{
+public class Start extends StringPlusLanguage implements IPartExtendSubelement {
 
     public static Builder builder() {
         return builder(new Start());
     }
-    
+
     public static Builder builder(Start s) {
         return new Builder(s);
     }
-    
-    public static class Builder  extends BuilderBase<Start, Builder> implements IXsStringBuilder<Start, Builder>, ILanguageAttributeGroupBuilder<Start, Builder> {
+
+    public static class Builder extends BuilderBase<Start, Builder>
+        implements IXsStringBuilder<Start, Builder>, ILanguageAttributeGroupBuilder<Start, Builder> {
         protected Builder(Start s) {
             super(s);
         }
-   }
+    }
 }

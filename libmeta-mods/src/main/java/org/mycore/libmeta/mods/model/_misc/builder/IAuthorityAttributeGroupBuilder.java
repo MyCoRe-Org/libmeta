@@ -34,19 +34,22 @@ import org.mycore.libmeta.mods.model._misc.IAuthorityAttributeGroup;
  *
  */
 public interface IAuthorityAttributeGroupBuilder<T extends IAuthorityAttributeGroup, B> {
-	public T _target();
-	public B _self();
-	
-	public default B authority(String authority) {
-		_target().setAuthority(authority);
-		return _self();
-	}
-	public default B authorityURI(String authorityURI) {
-		_target().setAuthorityURI(authorityURI);
-		return _self();
-	}
-	public default B valueURI(String valueURI) {
-		_target().setValueURI(valueURI);
-		return _self();
-	}
+    public T _target();
+
+    public B _self();
+
+    public default B authority(String authority) {
+        _target().setAuthority(authority);
+        return _self();
+    }
+
+    public default B authorityURI(String authorityURI) {
+        _target().setAuthorityURI(authorityURI);
+        return _self();
+    }
+
+    public default B valueURI(String valueURI) {
+        _target().setValueURI(valueURI);
+        return _self();
+    }
 }

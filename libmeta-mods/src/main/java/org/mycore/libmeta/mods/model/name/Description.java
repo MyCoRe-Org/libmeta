@@ -25,8 +25,9 @@ import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 import org.mycore.libmeta.mods.model.subject.name.ISubjectNameSubelement;
 
-public class Description extends StringPlusLanguage implements INameSubelement, IAlternativeNameSubelement, ISubjectNameSubelement {
-    
+public class Description extends StringPlusLanguage
+    implements INameSubelement, IAlternativeNameSubelement, ISubjectNameSubelement {
+
     public static Builder builder() {
         return builder(new Description());
     }
@@ -35,7 +36,8 @@ public class Description extends StringPlusLanguage implements INameSubelement, 
         return new Builder(d);
     }
 
-    public static class Builder extends BuilderBase<Description, Builder> implements IXsStringBuilder<Description, Builder>, ILanguageAttributeGroupBuilder<Description, Builder> {
+    public static class Builder extends BuilderBase<Description, Builder>
+        implements IXsStringBuilder<Description, Builder>, ILanguageAttributeGroupBuilder<Description, Builder> {
 
         protected Builder(Description d) {
             super(d);

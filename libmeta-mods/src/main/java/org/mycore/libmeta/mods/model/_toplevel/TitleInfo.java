@@ -94,7 +94,8 @@ import jakarta.xml.bind.annotation.XmlElements;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class TitleInfo implements ITopLevelElement, IIDAttributeGroup, IAltFormatAttributeGroup, IAuthorityAttributeGroup,
+public class TitleInfo
+    implements ITopLevelElement, IIDAttributeGroup, IAltFormatAttributeGroup, IAuthorityAttributeGroup,
     IOtherTypeAttributeGroup, IAttributeGroupXlinkSimpleLink, ILanguageAttributeGroup {
 
     @XmlElements({
@@ -110,7 +111,7 @@ public class TitleInfo implements ITopLevelElement, IIDAttributeGroup, IAltForma
 
     @XmlAttribute(name = "otherType")
     protected String otherType;
-    
+
     /**
      * @version MODS 3.8
      */
@@ -154,7 +155,7 @@ public class TitleInfo implements ITopLevelElement, IIDAttributeGroup, IAltForma
 
     @XmlAttribute(name = "ID")
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF")
     protected String IDREF;
 
@@ -265,7 +266,7 @@ public class TitleInfo implements ITopLevelElement, IIDAttributeGroup, IAltForma
     public void setOtherType(String otherType) {
         this.otherType = otherType;
     }
-    
+
     public String getOtherTypeAuth() {
         return otherTypeAuth;
     }
@@ -345,7 +346,7 @@ public class TitleInfo implements ITopLevelElement, IIDAttributeGroup, IAltForma
     public void setID(String iD) {
         ID = iD;
     }
-    
+
     public String getIDREF() {
         return IDREF;
     }
@@ -473,15 +474,15 @@ public class TitleInfo implements ITopLevelElement, IIDAttributeGroup, IAltForma
     public static Builder builder(TitleInfo ti) {
         return new Builder(ti);
     }
-    
+
     public static class Builder extends BuilderBase<TitleInfo, Builder>
-        implements IIDAttributeGroupBuilder<TitleInfo, Builder>, 
-        IAltFormatAttributeGroupBuilder<TitleInfo, Builder>, 
+        implements IIDAttributeGroupBuilder<TitleInfo, Builder>,
+        IAltFormatAttributeGroupBuilder<TitleInfo, Builder>,
         IAuthorityAttributeGroupBuilder<TitleInfo, Builder>,
         ILanguageAttributeGroupBuilder<TitleInfo, Builder>,
         IOtherTypeAttributeGroupBuilder<TitleInfo, Builder>,
         IAttributeGroupXlinkSimpleLinkBuilder<TitleInfo, Builder> {
-      
+
         protected Builder(TitleInfo ti) {
             super(ti);
         }

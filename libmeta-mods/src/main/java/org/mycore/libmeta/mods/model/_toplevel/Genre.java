@@ -52,10 +52,10 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class Genre extends StringPlusLanguagePlusAuthority implements ITopLevelElement, IIDAttributeGroup {
-    
+
     @XmlAttribute(name = "ID")
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF")
     protected String IDREF;
 
@@ -70,7 +70,7 @@ public class Genre extends StringPlusLanguagePlusAuthority implements ITopLevelE
 
     @XmlAttribute(name = "usage")
     protected Usage usage;
-    
+
     public String getID() {
         return ID;
     }
@@ -127,7 +127,9 @@ public class Genre extends StringPlusLanguagePlusAuthority implements ITopLevelE
         return new Builder(genre);
     }
 
-    public static class Builder extends BuilderBase<Genre, Builder> implements IXsStringBuilder<Genre, Builder>,  ILanguageAttributeGroupBuilder<Genre, Builder>, IIDAttributeGroupBuilder<Genre, Builder>, IAuthorityAttributeGroupBuilder<Genre, Builder> {
+    public static class Builder extends BuilderBase<Genre, Builder>
+        implements IXsStringBuilder<Genre, Builder>, ILanguageAttributeGroupBuilder<Genre, Builder>,
+        IIDAttributeGroupBuilder<Genre, Builder>, IAuthorityAttributeGroupBuilder<Genre, Builder> {
         protected Builder(Genre genre) {
             super(genre);
         }

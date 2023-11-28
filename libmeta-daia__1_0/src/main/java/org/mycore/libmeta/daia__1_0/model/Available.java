@@ -31,44 +31,44 @@ import jakarta.json.bind.annotation.JsonbPropertyOrder;
  */
 @JsonbPropertyOrder("service")
 public class Available {
-//    JSON schema exerpt:
-//      "available": {
-//        "additionalProperties": false,
-//        "properties": {
-//          "delay": {
-//            "$ref": "#/types/duration"
-//          },
-//          "href": {
-//            "$ref": "#/types/URL"
-//          },
-//          "limitation": {
-//            "items": {
-//              "$ref": "#/types/entity"
-//            },
-//            "type": "array"
-//          },
-//          "service": {
-//            "$ref": "#/types/service"
-//          },
-//          "title": {
-//            "type": "string"
-//          }
-//        },
-//        "required": [
-//          "service"
-//        ],
-//        "type": "object"
-//      },
-        
+    //    JSON schema exerpt:
+    //      "available": {
+    //        "additionalProperties": false,
+    //        "properties": {
+    //          "delay": {
+    //            "$ref": "#/types/duration"
+    //          },
+    //          "href": {
+    //            "$ref": "#/types/URL"
+    //          },
+    //          "limitation": {
+    //            "items": {
+    //              "$ref": "#/types/entity"
+    //            },
+    //            "type": "array"
+    //          },
+    //          "service": {
+    //            "$ref": "#/types/service"
+    //          },
+    //          "title": {
+    //            "type": "string"
+    //          }
+    //        },
+    //        "required": [
+    //          "service"
+    //        ],
+    //        "type": "object"
+    //      },
+
     private Duration delay;
-    
+
     private URL href;
-    
+
     @JsonbProperty("limitation")
     private List<Limitation> limitations;
-    
+
     private Service service;
-    
+
     private String title;
 
     public Duration getDelay() {
@@ -90,8 +90,7 @@ public class Available {
     public List<Limitation> getLimitations() {
         return limitations;
     }
-    
-    
+
     public void setLimitations(List<Limitation> limitations) {
         this.limitations = limitations;
     }
@@ -111,6 +110,5 @@ public class Available {
     public void setTitle(String title) {
         this.title = title;
     }
-    
-    
+
 }

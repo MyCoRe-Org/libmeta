@@ -51,7 +51,8 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class PhysicalLocation extends StringPlusLanguagePlusAuthority implements ILocationSublement, IAttributeGroupXlinkSimpleLink {
+public class PhysicalLocation extends StringPlusLanguagePlusAuthority
+    implements ILocationSublement, IAttributeGroupXlinkSimpleLink {
 
     @XmlAttribute(name = "displayLabel", required = false)
     protected String displayLabel;
@@ -78,7 +79,7 @@ public class PhysicalLocation extends StringPlusLanguagePlusAuthority implements
 
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkActuate xlinkActuate;
-    
+
     // IXlinkSimpleLinkAttributeGroup - end
 
     public String getDisplayLabel() {
@@ -153,7 +154,10 @@ public class PhysicalLocation extends StringPlusLanguagePlusAuthority implements
         return new Builder(p);
     }
 
-    public static class Builder extends BuilderBase<PhysicalLocation, Builder> implements IXsStringBuilder<PhysicalLocation, Builder>, ILanguageAttributeGroupBuilder<PhysicalLocation, Builder>, IAuthorityAttributeGroupBuilder<PhysicalLocation, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<PhysicalLocation, Builder> {
+    public static class Builder extends BuilderBase<PhysicalLocation, Builder> implements
+        IXsStringBuilder<PhysicalLocation, Builder>, ILanguageAttributeGroupBuilder<PhysicalLocation, Builder>,
+        IAuthorityAttributeGroupBuilder<PhysicalLocation, Builder>,
+        IAttributeGroupXlinkSimpleLinkBuilder<PhysicalLocation, Builder> {
         protected Builder(PhysicalLocation ph) {
             super(ph);
         }

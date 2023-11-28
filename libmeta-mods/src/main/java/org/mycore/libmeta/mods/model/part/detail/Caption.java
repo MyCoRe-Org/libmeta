@@ -30,19 +30,20 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
  * @author Robert Stephan
  * @version MODS 3.6
  */
-public class Caption extends StringPlusLanguage implements IPartDetailSubelement{
+public class Caption extends StringPlusLanguage implements IPartDetailSubelement {
 
     public static Builder builder() {
         return builder(new Caption());
     }
-    
+
     public static Builder builder(Caption cap) {
         return new Builder(cap);
     }
-    
-    public static class Builder extends BuilderBase<Caption, Builder> implements IXsStringBuilder<Caption, Builder>, ILanguageAttributeGroupBuilder<Caption, Builder> {
+
+    public static class Builder extends BuilderBase<Caption, Builder>
+        implements IXsStringBuilder<Caption, Builder>, ILanguageAttributeGroupBuilder<Caption, Builder> {
         protected Builder(Caption cap) {
             super(cap);
         }
-     }
+    }
 }

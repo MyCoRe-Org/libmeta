@@ -81,7 +81,8 @@ import jakarta.xml.bind.annotation.XmlElements;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class RelatedItem implements ITopLevelElement, IIDAttributeGroup, IOtherTypeAttributeGroup, IAttributeGroupXlinkSimpleLink {
+public class RelatedItem
+    implements ITopLevelElement, IIDAttributeGroup, IOtherTypeAttributeGroup, IAttributeGroupXlinkSimpleLink {
 
     /**
      * {@code 
@@ -89,25 +90,26 @@ public class RelatedItem implements ITopLevelElement, IIDAttributeGroup, IOtherT
      * }
      */
     @XmlElements({ @XmlElement(name = "abstract", namespace = "http://www.loc.gov/mods/v3", type = Abstract.class),
-            @XmlElement(name = "accessCondition", namespace = "http://www.loc.gov/mods/v3", type = AccessCondition.class),
-            @XmlElement(name = "classification", namespace = "http://www.loc.gov/mods/v3", type = Classification.class),
-            @XmlElement(name = "extension", namespace = "http://www.loc.gov/mods/v3", type = Extension.class),
-            @XmlElement(name = "genre", namespace = "http://www.loc.gov/mods/v3", type = Genre.class),
-            @XmlElement(name = "identifier", namespace = "http://www.loc.gov/mods/v3", type = Identifier.class),
-            @XmlElement(name = "language", namespace = "http://www.loc.gov/mods/v3", type = Language.class),
-            @XmlElement(name = "location", namespace = "http://www.loc.gov/mods/v3", type = Location.class),
-            @XmlElement(name = "name", namespace = "http://www.loc.gov/mods/v3", type = Name.class),
-            @XmlElement(name = "note", namespace = "http://www.loc.gov/mods/v3", type = Note.class),
-            @XmlElement(name = "originInfo", namespace = "http://www.loc.gov/mods/v3", type = OriginInfo.class),
-            @XmlElement(name = "part", namespace = "http://www.loc.gov/mods/v3", type = Part.class),
-            @XmlElement(name = "physicalDescription", namespace = "http://www.loc.gov/mods/v3", type = PhysicalDescription.class),
-            @XmlElement(name = "recordInfo", namespace = "http://www.loc.gov/mods/v3", type = RecordInfo.class),
-            @XmlElement(name = "relatedItem", namespace = "http://www.loc.gov/mods/v3", type = RelatedItem.class),
-            @XmlElement(name = "subject", namespace = "http://www.loc.gov/mods/v3", type = Subject.class),
-            @XmlElement(name = "tableOfContents", namespace = "http://www.loc.gov/mods/v3", type = TableOfContents.class),
-            @XmlElement(name = "targetAudience", namespace = "http://www.loc.gov/mods/v3", type = TargetAudience.class),
-            @XmlElement(name = "titleInfo", namespace = "http://www.loc.gov/mods/v3", type = TitleInfo.class),
-            @XmlElement(name = "typeOfResource", namespace = "http://www.loc.gov/mods/v3", type = TypeOfResource.class) })
+        @XmlElement(name = "accessCondition", namespace = "http://www.loc.gov/mods/v3", type = AccessCondition.class),
+        @XmlElement(name = "classification", namespace = "http://www.loc.gov/mods/v3", type = Classification.class),
+        @XmlElement(name = "extension", namespace = "http://www.loc.gov/mods/v3", type = Extension.class),
+        @XmlElement(name = "genre", namespace = "http://www.loc.gov/mods/v3", type = Genre.class),
+        @XmlElement(name = "identifier", namespace = "http://www.loc.gov/mods/v3", type = Identifier.class),
+        @XmlElement(name = "language", namespace = "http://www.loc.gov/mods/v3", type = Language.class),
+        @XmlElement(name = "location", namespace = "http://www.loc.gov/mods/v3", type = Location.class),
+        @XmlElement(name = "name", namespace = "http://www.loc.gov/mods/v3", type = Name.class),
+        @XmlElement(name = "note", namespace = "http://www.loc.gov/mods/v3", type = Note.class),
+        @XmlElement(name = "originInfo", namespace = "http://www.loc.gov/mods/v3", type = OriginInfo.class),
+        @XmlElement(name = "part", namespace = "http://www.loc.gov/mods/v3", type = Part.class),
+        @XmlElement(name = "physicalDescription", namespace = "http://www.loc.gov/mods/v3",
+            type = PhysicalDescription.class),
+        @XmlElement(name = "recordInfo", namespace = "http://www.loc.gov/mods/v3", type = RecordInfo.class),
+        @XmlElement(name = "relatedItem", namespace = "http://www.loc.gov/mods/v3", type = RelatedItem.class),
+        @XmlElement(name = "subject", namespace = "http://www.loc.gov/mods/v3", type = Subject.class),
+        @XmlElement(name = "tableOfContents", namespace = "http://www.loc.gov/mods/v3", type = TableOfContents.class),
+        @XmlElement(name = "targetAudience", namespace = "http://www.loc.gov/mods/v3", type = TargetAudience.class),
+        @XmlElement(name = "titleInfo", namespace = "http://www.loc.gov/mods/v3", type = TitleInfo.class),
+        @XmlElement(name = "typeOfResource", namespace = "http://www.loc.gov/mods/v3", type = TypeOfResource.class) })
     protected List<ITopLevelElement> content = new Vector<>();
 
     @XmlAttribute(name = "type", required = false)
@@ -150,7 +152,7 @@ public class RelatedItem implements ITopLevelElement, IIDAttributeGroup, IOtherT
      */
     @XmlAttribute(name = "ID", required = false)
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF", required = false)
     protected String IDREF;
 
@@ -274,7 +276,7 @@ public class RelatedItem implements ITopLevelElement, IIDAttributeGroup, IOtherT
     public void setID(String iD) {
         ID = iD;
     }
-    
+
     public String getIDREF() {
         return IDREF;
     }
@@ -349,7 +351,7 @@ public class RelatedItem implements ITopLevelElement, IIDAttributeGroup, IOtherT
         return new Builder(relItem);
     }
 
-    public static class Builder extends BuilderBase<RelatedItem, Builder> 
+    public static class Builder extends BuilderBase<RelatedItem, Builder>
         implements IIDAttributeGroupBuilder<RelatedItem, Builder>,
         IAttributeGroupXlinkSimpleLinkBuilder<RelatedItem, Builder>,
         IOtherTypeAttributeGroupBuilder<IOtherTypeAttributeGroup, Builder> {
@@ -361,7 +363,7 @@ public class RelatedItem implements ITopLevelElement, IIDAttributeGroup, IOtherT
             _target().getContent().add(content);
             return this;
         }
-        
+
         public Builder xlinkType(String xlinkType) {
             _target().setXlinkType(xlinkType);
             return this;

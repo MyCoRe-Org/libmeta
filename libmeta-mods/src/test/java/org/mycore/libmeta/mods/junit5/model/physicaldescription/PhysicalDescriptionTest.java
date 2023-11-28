@@ -43,7 +43,7 @@ public class PhysicalDescriptionTest {
     public void test1() {
         Mods mods = Mods.builder()
             .addContent(PhysicalDescription.builderForPhysicalDescription()
-                .addContent((Form)Form.builder().authority("marcform").content("electronic").build())
+                .addContent((Form) Form.builder().authority("marcform").content("electronic").build())
                 .addContent(InternetMediaType.builder().content("image/jpeg").build())
                 .addContent(InternetMediaType.builder().content("text/html").build())
                 .addContent(Extent.builder().content("5 digital files").build())
@@ -55,12 +55,12 @@ public class PhysicalDescriptionTest {
             System.out.println(s);
             String r = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"
                 + "\n<mods:mods xmlns:mods=\"http://www.loc.gov/mods/v3\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">"
-                + "\n  <mods:physicalDescription>"  
-                + "\n    <mods:form authority=\"marcform\">electronic</mods:form>"  
-                + "\n    <mods:internetMediaType>image/jpeg</mods:internetMediaType>"  
-                + "\n    <mods:internetMediaType>text/html</mods:internetMediaType>"  
+                + "\n  <mods:physicalDescription>"
+                + "\n    <mods:form authority=\"marcform\">electronic</mods:form>"
+                + "\n    <mods:internetMediaType>image/jpeg</mods:internetMediaType>"
+                + "\n    <mods:internetMediaType>text/html</mods:internetMediaType>"
                 + "\n    <mods:extent>5 digital files</mods:extent>"
-                + "\n    <mods:digitalOrigin>born digital</mods:digitalOrigin>"  
+                + "\n    <mods:digitalOrigin>born digital</mods:digitalOrigin>"
                 + "\n  </mods:physicalDescription>"
                 + "\n</mods:mods>";
             System.out.println(r);

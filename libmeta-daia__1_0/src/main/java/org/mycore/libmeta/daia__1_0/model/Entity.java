@@ -27,7 +27,7 @@ import jakarta.json.bind.annotation.JsonbPropertyOrder;
  * @author Robert Stephan
  * 
  */
-@JsonbPropertyOrder({"id", "content", "href"})
+@JsonbPropertyOrder({ "id", "content", "href" })
 public abstract class Entity {
     // JSON schema excerpt:
     //  "entity": {

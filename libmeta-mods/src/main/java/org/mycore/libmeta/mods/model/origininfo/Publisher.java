@@ -48,7 +48,8 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Publisher extends StringPlusLanguagePlusSupplied implements IOriginInfoSubelement, IAuthorityAttributeGroup {
+public class Publisher extends StringPlusLanguagePlusSupplied
+    implements IOriginInfoSubelement, IAuthorityAttributeGroup {
 
     // IAuthorityAttributeGroup - begin
 
@@ -69,8 +70,7 @@ public class Publisher extends StringPlusLanguagePlusSupplied implements IOrigin
      */
     @XmlAttribute(name = "valueURI")
     protected String valueURI;
-    
-    
+
     public String getAuthority() {
         return authority;
     }
@@ -96,17 +96,19 @@ public class Publisher extends StringPlusLanguagePlusSupplied implements IOrigin
     }
 
     //IAuthorityAttributeGroup - end
-        public static Builder builderForPublisher() {
-            return builder(new Publisher());
-        }
-        
-        public static Builder builder(Publisher e) {
-            return new Builder(e);
-        }
-        
-        public static class Builder extends BuilderBase<Publisher, Builder> implements IXsStringBuilder<Publisher, Builder>, ILanguageAttributeGroupBuilder<Publisher, Builder>, ISuppliedAttributeBuilder<Publisher, Builder>, IAuthorityAttributeGroupBuilder<Publisher, Builder>{
-            protected Builder(Publisher p) {
-                super(p);
-            }
-       }
+    public static Builder builderForPublisher() {
+        return builder(new Publisher());
     }
+
+    public static Builder builder(Publisher e) {
+        return new Builder(e);
+    }
+
+    public static class Builder extends BuilderBase<Publisher, Builder>
+        implements IXsStringBuilder<Publisher, Builder>, ILanguageAttributeGroupBuilder<Publisher, Builder>,
+        ISuppliedAttributeBuilder<Publisher, Builder>, IAuthorityAttributeGroupBuilder<Publisher, Builder> {
+        protected Builder(Publisher p) {
+            super(p);
+        }
+    }
+}

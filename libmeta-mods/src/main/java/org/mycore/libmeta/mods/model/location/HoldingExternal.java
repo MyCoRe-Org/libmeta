@@ -42,7 +42,8 @@ public class HoldingExternal extends Extension implements ILocationSublement {
         return new Builder(h);
     }
 
-    public static class Builder extends BuilderBase<HoldingExternal, Builder> implements IExtensionBuilder<HoldingExternal, Builder> {
+    public static class Builder extends BuilderBase<HoldingExternal, Builder>
+        implements IExtensionBuilder<HoldingExternal, Builder> {
         protected Builder(HoldingExternal he) {
             super(he);
         }

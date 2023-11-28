@@ -36,17 +36,18 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class DisplayDate extends XsString implements IOriginInfoSubelement{
+public class DisplayDate extends XsString implements IOriginInfoSubelement {
 
     public static Builder builderForFreqency() {
         return builder(new DisplayDate());
     }
-    
+
     public static Builder builder(DisplayDate d) {
         return new Builder(d);
     }
-    
-    public static class Builder extends BuilderBase<DisplayDate, Builder> implements IXsStringBuilder<DisplayDate, Builder> {
+
+    public static class Builder extends BuilderBase<DisplayDate, Builder>
+        implements IXsStringBuilder<DisplayDate, Builder> {
         protected Builder(DisplayDate d) {
             super(d);
         }

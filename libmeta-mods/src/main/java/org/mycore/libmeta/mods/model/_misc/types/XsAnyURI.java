@@ -46,7 +46,7 @@ public class XsAnyURI {
         this.content = content;
     }
 
-    public static class Builder extends BuilderBase<XsAnyURI, Builder> implements IXsAnyURIBuilder<XsAnyURI, Builder>  {
+    public static class Builder extends BuilderBase<XsAnyURI, Builder> implements IXsAnyURIBuilder<XsAnyURI, Builder> {
         protected Builder(XsAnyURI xsAnyURI) {
             super(xsAnyURI);
         }

@@ -23,48 +23,48 @@ import java.util.List;
 import jakarta.json.bind.annotation.JsonbProperty;
 
 public class Unavailable {
-// JSON schema excerpt:
-//    "unavailable": {
-//        "additionalProperties": false,
-//        "properties": {
-//          "expected": {
-//            "$ref": "#/types/anydate"
-//          },
-//          "href": {
-//            "$ref": "#/types/URL"
-//          },
-//          "limitation": {
-//            "items": {
-//              "$ref": "#/types/entity"
-//            },
-//            "type": "array"
-//          },
-//          "queue": {
-//            "$ref": "#/types/count"
-//          },
-//          "service": {
-//            "$ref": "#/types/service"
-//          },
-//          "title": {
-//            "type": "string"
-//          }
-//        },
-//        "required": [
-//          "service"
-//        ],
-//        "type": "object"
-//      }
-    
+    // JSON schema excerpt:
+    //    "unavailable": {
+    //        "additionalProperties": false,
+    //        "properties": {
+    //          "expected": {
+    //            "$ref": "#/types/anydate"
+    //          },
+    //          "href": {
+    //            "$ref": "#/types/URL"
+    //          },
+    //          "limitation": {
+    //            "items": {
+    //              "$ref": "#/types/entity"
+    //            },
+    //            "type": "array"
+    //          },
+    //          "queue": {
+    //            "$ref": "#/types/count"
+    //          },
+    //          "service": {
+    //            "$ref": "#/types/service"
+    //          },
+    //          "title": {
+    //            "type": "string"
+    //          }
+    //        },
+    //        "required": [
+    //          "service"
+    //        ],
+    //        "type": "object"
+    //      }
+
     private AnyDate expected;
     private URL href;
-    
+
     @JsonbProperty("limitation")
     private List<Limitation> limitiations;
-    
+
     private Integer queue;
-    
+
     private Service service;
-    
+
     private String title;
 
     public AnyDate getExpected() {
@@ -96,8 +96,8 @@ public class Unavailable {
     }
 
     public void setQueue(Integer queue) {
-        if(queue<1) {
-           throw new NumberFormatException("the queue value must be greater than 0");
+        if (queue < 1) {
+            throw new NumberFormatException("the queue value must be greater than 0");
         }
         this.queue = queue;
     }

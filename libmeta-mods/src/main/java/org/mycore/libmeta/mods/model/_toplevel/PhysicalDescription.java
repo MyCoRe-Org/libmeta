@@ -66,19 +66,22 @@ import jakarta.xml.bind.annotation.XmlElements;
 public class PhysicalDescription implements ITopLevelElement, IIDAttributeGroup, ILanguageAttributeGroup {
     @XmlElements({
         @XmlElement(name = "form", namespace = "http://www.loc.gov/mods/v3", type = Form.class),
-        @XmlElement(name = "reformattingQuality", namespace = "http://www.loc.gov/mods/v3", type = ReformattingQuality.class),
-        @XmlElement(name = "internetMediaType", namespace = "http://www.loc.gov/mods/v3", type = InternetMediaType.class),
+        @XmlElement(name = "reformattingQuality", namespace = "http://www.loc.gov/mods/v3",
+            type = ReformattingQuality.class),
+        @XmlElement(name = "internetMediaType", namespace = "http://www.loc.gov/mods/v3",
+            type = InternetMediaType.class),
         @XmlElement(name = "extent", namespace = "http://www.loc.gov/mods/v3", type = Extent.class),
         @XmlElement(name = "digitalOrigin", namespace = "http://www.loc.gov/mods/v3", type = DigitalOrigin.class),
-        @XmlElement(name = "note", namespace = "http://www.loc.gov/mods/v3", type = org.mycore.libmeta.mods.model.physicaldescription.Note.class) })
+        @XmlElement(name = "note", namespace = "http://www.loc.gov/mods/v3",
+            type = org.mycore.libmeta.mods.model.physicaldescription.Note.class) })
     protected List<IPhysicalDescriptionSubelement> content = new Vector<>();
 
     @XmlAttribute(name = "ID")
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF")
     protected String IDREF;
-    
+
     //begin languageAttributeGroup
 
     @XmlAttribute(name = "lang", namespace = "http://www.loc.gov/mods/v3", required = false)
@@ -104,7 +107,7 @@ public class PhysicalDescription implements ITopLevelElement, IIDAttributeGroup,
     public List<IPhysicalDescriptionSubelement> getContent() {
         return content;
     }
-    
+
     public String getID() {
         return ID;
     }
@@ -177,7 +180,9 @@ public class PhysicalDescription implements ITopLevelElement, IIDAttributeGroup,
         return new Builder(p);
     }
 
-    public static class Builder extends BuilderBase<PhysicalDescription, Builder> implements IIDAttributeGroupBuilder<PhysicalDescription, Builder>, ILanguageAttributeGroupBuilder<PhysicalDescription, Builder> {
+    public static class Builder extends BuilderBase<PhysicalDescription, Builder>
+        implements IIDAttributeGroupBuilder<PhysicalDescription, Builder>,
+        ILanguageAttributeGroupBuilder<PhysicalDescription, Builder> {
         protected Builder(PhysicalDescription p) {
             super(p);
         }

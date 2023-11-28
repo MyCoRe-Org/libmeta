@@ -59,13 +59,13 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Abstract extends StringPlusLanguage
     implements ITopLevelElement, IIDAttributeGroup, IAttributeGroupXlinkSimpleLink, IAltFormatAttributeGroup {
-    
+
     @XmlAttribute(name = "ID")
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF")
     protected String IDREF;
-    
+
     @XmlAttribute(name = "displayLabel")
     protected String displayLabel;
 
@@ -111,7 +111,7 @@ public class Abstract extends StringPlusLanguage
     protected String contentType;
 
     // IAltFormatAttributeGroup - end
-    
+
     public String getID() {
         return ID;
     }
@@ -241,7 +241,9 @@ public class Abstract extends StringPlusLanguage
     }
 
     public static class Builder extends BuilderBase<Abstract, Builder>
-        implements IIDAttributeGroupBuilder<Abstract, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Abstract, Builder>, IAltFormatAttributeGroupBuilder<Abstract, Builder>, ILanguageAttributeGroupBuilder<Abstract, Builder>, IXsStringBuilder<Abstract, Builder> {
+        implements IIDAttributeGroupBuilder<Abstract, Builder>,
+        IAttributeGroupXlinkSimpleLinkBuilder<Abstract, Builder>, IAltFormatAttributeGroupBuilder<Abstract, Builder>,
+        ILanguageAttributeGroupBuilder<Abstract, Builder>, IXsStringBuilder<Abstract, Builder> {
 
         protected Builder(Abstract spl) {
             super(spl);

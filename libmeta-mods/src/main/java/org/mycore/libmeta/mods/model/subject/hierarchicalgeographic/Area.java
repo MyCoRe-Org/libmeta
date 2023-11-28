@@ -41,9 +41,9 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  */
 public class Area extends HierarchicalPart implements IHierarchicalGeographicSubelement {
 
-    @XmlAttribute(name = "areaType", required=false)
+    @XmlAttribute(name = "areaType", required = false)
     protected String areaType;
-    
+
     public String getAreaType() {
         return areaType;
     }
@@ -55,12 +55,12 @@ public class Area extends HierarchicalPart implements IHierarchicalGeographicSub
     public static Builder builder() {
         return builder(new Area());
     }
-    
+
     public static Builder builder(Area ar) {
         return new Builder(ar);
     }
-    
-    public static class Builder extends BuilderBase<Area, Builder> implements IHierarchicalPartBuilder<Area, Builder>{
+
+    public static class Builder extends BuilderBase<Area, Builder> implements IHierarchicalPartBuilder<Area, Builder> {
         protected Builder(Area ar) {
             super(ar);
         }

@@ -36,23 +36,24 @@ import jakarta.xml.bind.annotation.XmlType;
  * @see org.mycore.libmeta.mods.model.titleInfo.Title
  *
  */
-    @XmlAccessorType(XmlAccessType.NONE)
-    @XmlType(name = "partDetailTitle")
-    public class Title extends StringPlusLanguage implements IPartDetailSubelement {
+@XmlAccessorType(XmlAccessType.NONE)
+@XmlType(name = "partDetailTitle")
+public class Title extends StringPlusLanguage implements IPartDetailSubelement {
 
-        public static Builder builder() {
-            return builder(new Title());
-        }
-
-        public static Builder builder(Title title) {
-            return new Builder(title);
-        }
-
-        public static class Builder  extends BuilderBase<Title, Builder> implements IXsStringBuilder<Title, Builder>, ILanguageAttributeGroupBuilder<Title, Builder> {
-
-            protected Builder(Title title) {
-                super(title);
-            }
-
-        }
+    public static Builder builder() {
+        return builder(new Title());
     }
+
+    public static Builder builder(Title title) {
+        return new Builder(title);
+    }
+
+    public static class Builder extends BuilderBase<Title, Builder>
+        implements IXsStringBuilder<Title, Builder>, ILanguageAttributeGroupBuilder<Title, Builder> {
+
+        protected Builder(Title title) {
+            super(title);
+        }
+
+    }
+}

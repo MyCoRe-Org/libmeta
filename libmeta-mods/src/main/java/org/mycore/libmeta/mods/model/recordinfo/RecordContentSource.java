@@ -37,12 +37,14 @@ public class RecordContentSource extends StringPlusLanguagePlusAuthority impleme
     public static Builder builder() {
         return builder(new RecordContentSource());
     }
-    
+
     public static Builder builder(RecordContentSource rcs) {
         return new Builder(rcs);
     }
-    
-    public static class Builder extends BuilderBase<RecordContentSource, Builder> implements IXsStringBuilder<RecordContentSource, Builder>, ILanguageAttributeGroupBuilder<RecordContentSource, Builder>, IAuthorityAttributeGroupBuilder<RecordContentSource, Builder> {
+
+    public static class Builder extends BuilderBase<RecordContentSource, Builder> implements
+        IXsStringBuilder<RecordContentSource, Builder>, ILanguageAttributeGroupBuilder<RecordContentSource, Builder>,
+        IAuthorityAttributeGroupBuilder<RecordContentSource, Builder> {
         protected Builder(RecordContentSource rcs) {
             super(rcs);
         }

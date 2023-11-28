@@ -34,17 +34,18 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  * @version MODS 3.6
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class List extends StringPlusLanguage implements IPartExtendSubelement{
+public class List extends StringPlusLanguage implements IPartExtendSubelement {
 
     public static Builder builder() {
         return builder(new List());
     }
-    
+
     public static Builder builder(List list) {
         return new Builder(list);
     }
-    
-    public static class Builder  extends BuilderBase<List, Builder> implements IXsStringBuilder<List, Builder>, ILanguageAttributeGroupBuilder<List, Builder> {
+
+    public static class Builder extends BuilderBase<List, Builder>
+        implements IXsStringBuilder<List, Builder>, ILanguageAttributeGroupBuilder<List, Builder> {
         protected Builder(List lst) {
             super(lst);
         }

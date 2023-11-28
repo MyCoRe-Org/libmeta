@@ -39,7 +39,8 @@ public class RecordCreationDate extends DateDefinition implements IRecordInfoSub
         return new Builder(recordCreationDate);
     }
 
-    public static class Builder extends BuilderBase<RecordCreationDate, Builder> implements IDateDefinitionBuilder<RecordCreationDate, Builder> {
+    public static class Builder extends BuilderBase<RecordCreationDate, Builder>
+        implements IDateDefinitionBuilder<RecordCreationDate, Builder> {
 
         protected Builder(RecordCreationDate recordCreationDate) {
             super(recordCreationDate);

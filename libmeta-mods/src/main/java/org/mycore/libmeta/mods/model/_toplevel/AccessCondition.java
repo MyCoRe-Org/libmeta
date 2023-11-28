@@ -57,12 +57,13 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 
 @XmlAccessorType(XmlAccessType.NONE)
 public class AccessCondition extends Extension
-    implements ITopLevelElement, IIDAttributeGroup, IAttributeGroupXlinkSimpleLink, IAltFormatAttributeGroup, ILanguageAttributeGroup,
+    implements ITopLevelElement, IIDAttributeGroup, IAttributeGroupXlinkSimpleLink, IAltFormatAttributeGroup,
+    ILanguageAttributeGroup,
     IAuthorityAttributeGroup {
-    
+
     @XmlAttribute(name = "ID")
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF")
     protected String IDREF;
     // attributeGroup xlink:simpleLink - begin
@@ -119,9 +120,9 @@ public class AccessCondition extends Extension
 
     @XmlAttribute(name = "contentType")
     protected String contentType;
-    
+
     // end: altFormatAttributeGroup
-    
+
     // IAuthorityAttributeGroup - begin
 
     @XmlAttribute(name = "authority")
@@ -134,7 +135,7 @@ public class AccessCondition extends Extension
     protected String valueURI;
 
     //IAuthorityAttributeGroup - end
-    
+
     public String getID() {
         return ID;
     }
@@ -272,7 +273,7 @@ public class AccessCondition extends Extension
     }
 
     // end: altFormatAttributeGroup
-    
+
     public String getAuthority() {
         return authority;
     }
@@ -306,8 +307,8 @@ public class AccessCondition extends Extension
         return new Builder(ac);
     }
 
-    public static class Builder extends BuilderBase<AccessCondition, Builder> 
-        implements IExtensionBuilder<AccessCondition, Builder>, 
+    public static class Builder extends BuilderBase<AccessCondition, Builder>
+        implements IExtensionBuilder<AccessCondition, Builder>,
         IIDAttributeGroupBuilder<AccessCondition, Builder>,
         IAttributeGroupXlinkSimpleLinkBuilder<AccessCondition, Builder>,
         IAltFormatAttributeGroupBuilder<AccessCondition, Builder>,

@@ -28,10 +28,11 @@ import org.mycore.libmeta.mods.model._misc.types.XsAnyURI;
  */
 public interface IXsAnyURIBuilder<T extends XsAnyURI, B> {
     public T _target();
+
     public B _self();
-    
-	public default B content(String content){
-    	_target().setContent(content);
-    	return _self();
+
+    public default B content(String content) {
+        _target().setContent(content);
+        return _self();
     }
 }

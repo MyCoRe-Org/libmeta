@@ -26,6 +26,6 @@ import org.mycore.libmeta.mods.model._toplevel.Extension;
  * @version MODS 3.6
  *
  */
-public class CartographicExtension extends Extension implements ICartographicsSubelement{
+public class CartographicExtension extends Extension implements ICartographicsSubelement {
 
 }

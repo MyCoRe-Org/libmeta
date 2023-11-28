@@ -54,7 +54,8 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Note extends StringPlusLanguage implements IPhysicalDescriptionSubelement, IIDAttributeGroup, IAttributeGroupXlinkSimpleLink {
+public class Note extends StringPlusLanguage
+    implements IPhysicalDescriptionSubelement, IIDAttributeGroup, IAttributeGroupXlinkSimpleLink {
 
     @XmlAttribute(name = "displayLabel", required = false)
     protected String displayLabel;
@@ -89,7 +90,7 @@ public class Note extends StringPlusLanguage implements IPhysicalDescriptionSube
 
     @XmlAttribute(name = "ID", required = false)
     protected String ID;
-    
+
     @XmlAttribute(name = "IDREF", required = false)
     protected String IDREF;
 
@@ -172,7 +173,7 @@ public class Note extends StringPlusLanguage implements IPhysicalDescriptionSube
     public void setID(String iD) {
         ID = iD;
     }
-    
+
     public String getIDREF() {
         return IDREF;
     }
@@ -189,11 +190,13 @@ public class Note extends StringPlusLanguage implements IPhysicalDescriptionSube
         return new Builder(txt);
     }
 
-    public static class Builder  extends BuilderBase<Note, Builder> implements IXsStringBuilder<Note, Builder>, IIDAttributeGroupBuilder<Note, Builder>, ILanguageAttributeGroupBuilder<Note, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Note, Builder> {
+    public static class Builder extends BuilderBase<Note, Builder>
+        implements IXsStringBuilder<Note, Builder>, IIDAttributeGroupBuilder<Note, Builder>,
+        ILanguageAttributeGroupBuilder<Note, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Note, Builder> {
         protected Builder(Note n) {
             super(n);
         }
-        
+
         public Builder displayLabel(String s) {
             _target().setDisplayLabel(s);
             return _self();
@@ -208,7 +211,7 @@ public class Note extends StringPlusLanguage implements IPhysicalDescriptionSube
             _target().setTypeURI(typeURI);
             return _self();
         }
-      
+
     }
 
 }

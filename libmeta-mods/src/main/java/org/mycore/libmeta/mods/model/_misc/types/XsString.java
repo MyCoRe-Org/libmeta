@@ -46,13 +46,11 @@ public class XsString {
         this.content = content;
     }
 
-
     public static class Builder extends BuilderBase<XsString, Builder> implements IXsStringBuilder<XsString, Builder> {
 
-		protected Builder(XsString object) {
-			super(object);
-		}
-
+        protected Builder(XsString object) {
+            super(object);
+        }
 
     }
 }

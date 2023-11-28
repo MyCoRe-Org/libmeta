@@ -38,9 +38,8 @@ import jakarta.json.bind.JsonbConfig;
 public class DAIAJSONProcessor {
 
     private static final DAIAJSONProcessor INSTANCE = new DAIAJSONProcessor();
-    
+
     private JsonbConfig cfg = new JsonbConfig().withFormatting(true);
-    
 
     //private constructor to avoid client applications to use constructor
     private DAIAJSONProcessor() {
@@ -51,7 +50,7 @@ public class DAIAJSONProcessor {
     }
 
     public void marshal(DAIA daia, Path p) throws Exception {
-        try (BufferedWriter bw = Files.newBufferedWriter(p)){
+        try (BufferedWriter bw = Files.newBufferedWriter(p)) {
             Jsonb jsonb = JsonbBuilder.create(cfg);
             jsonb.toJson(daia, bw);
         }
@@ -70,18 +69,17 @@ public class DAIAJSONProcessor {
     }
 
     public DAIA unmarshal(Path p) throws Exception {
-        try (BufferedReader br = Files.newBufferedReader(p)){
+        try (BufferedReader br = Files.newBufferedReader(p)) {
             Jsonb jsonb = JsonbBuilder.create(cfg);
             return jsonb.fromJson(br, DAIA.class);
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             //do nothing
         }
         return null;
     }
 
     public DAIA unmarshal(URL url) throws Exception {
-        try (InputStream is = url.openStream()){
+        try (InputStream is = url.openStream()) {
             Jsonb jsonb = JsonbBuilder.create(cfg);
             return jsonb.fromJson(is, DAIA.class);
         }
