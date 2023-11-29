@@ -14,7 +14,6 @@ import org.mycore.libmeta.marc21.model.MarcDatafield;
 import org.mycore.libmeta.marc21.model.MarcLeader;
 import org.mycore.libmeta.marc21.model.MarcRecord;
 import org.mycore.libmeta.marc21.model.MarcSubfield;
-import org.mycore.libmeta.marc21.xml.MarcXMLProcessor;
 
 import jakarta.json.Json;
 import jakarta.json.JsonArray;
@@ -146,17 +145,6 @@ public class MarcJSONProcessor {
             }
         }
         return mr;
-    }
-
-    public static void main(String[] args) {
-        try {
-            //URL url = new URL("https://unapi.k10plus.de/?&format=marcxml&id=k10plus:ppn:1667675745");
-            URL url = new URL("https://lccn.loc.gov/09028059/marcxml");
-            MarcRecord mr = (MarcRecord) MarcXMLProcessor.getInstance().unmarshal(url);
-            System.out.println(MarcJSONProcessor.getInstance().marshalToString(mr));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 }

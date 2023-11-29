@@ -31,7 +31,6 @@ import org.mycore.libmeta.marc21.model.MarcDatafield;
 import org.mycore.libmeta.marc21.model.MarcLeader;
 import org.mycore.libmeta.marc21.model.MarcRecord;
 import org.mycore.libmeta.marc21.model.MarcSubfield;
-import org.mycore.libmeta.marc21.xml.MarcXMLProcessor;
 
 import jakarta.json.Json;
 import jakarta.json.JsonArray;
@@ -163,19 +162,6 @@ public class MarcInJSONProcessor {
             });
         }
         return marc;
-    }
-
-    public static void main(String[] args) {
-        try {
-            URL url = new URL("https://lccn.loc.gov/09028059/marcxml");
-            MarcRecord mr = (MarcRecord) MarcXMLProcessor.getInstance().unmarshal(url);
-            String json = MarcInJSONProcessor.getInstance().marshalToString(mr);
-            System.out.println(json);
-            MarcRecord mr2 = MarcInJSONProcessor.getInstance().unmarshal(json);
-            System.out.println(MarcXMLProcessor.getInstance().marshalToString(mr2));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 }
