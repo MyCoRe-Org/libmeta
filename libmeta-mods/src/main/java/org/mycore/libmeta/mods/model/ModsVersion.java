@@ -37,6 +37,8 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum ModsVersion {
+    @XmlEnumValue("3.8")
+    VERSION_3_8,
     @XmlEnumValue("3.7")
     VERSION_3_7,
     @XmlEnumValue("3.6")
