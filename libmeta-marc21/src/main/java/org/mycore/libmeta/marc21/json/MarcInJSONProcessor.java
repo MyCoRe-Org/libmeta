@@ -154,7 +154,7 @@ public class MarcInJSONProcessor {
                             df.getSubfields().add(
                                 MarcSubfield.builder()
                                     .code(k)
-                                    .content(v.toString())
+                                    .content(((JsonString) v).getString())
                                     .build());
                         });
                     });

@@ -58,14 +58,12 @@ public class MarcTest {
         }
     }
     
-    //@Test
+    @Test
     public void testMarcInJSONProcessor() {
         try {
             String json = "{\"leader\":\"01017cam a22002891  4500\",\"fields\":[{\"001\":\"7284460\"},{\"005\":\"20110712103730.0\"},{\"008\":\"750117s1909    nyu           000 0 eng  \"},{\"035\":{\"ind1\":\" \",\"ind2\":\" \",\"subfields\":[{\"9\":\"(DLC)   09028059\"}]}},{\"050\":{\"ind1\":\"0\",\"ind2\":\"0\",\"subfields\":[{\"a\":\"QH365\"},{\"b\":\".O2 1909\"}]}},{\"051\":{\"ind1\":\" \",\"ind2\":\" \",\"subfields\":[{\"a\":\"AC1\"},{\"b\":\".A4 vol. 11\"}]}},{\"100\":{\"ind1\":\"1\",\"ind2\":\" \",\"subfields\":[{\"a\":\"Darwin, Charles,\"},{\"d\":\"1809-1882\"}]}},{\"240\":{\"ind1\":\"1\",\"ind2\":\"0\",\"subfields\":[{\"a\":\"On the origin of species\"}]}},{\"245\":{\"ind1\":\"1\",\"ind2\":\"4\",\"subfields\":[{\"a\":\"The origin of species,\"},{\"c\":\"by Charles Darwin, with introductions, notes and illustrations.\"}]}},{\"260\":{\"ind1\":\" \",\"ind2\":\" \",\"subfields\":[{\"a\":\"New York,\"},{\"b\":\"P.F. Collier & son\"},{\"c\":\"[c1909]\"}]}}]}";
-            System.out.println(json);
             MarcRecord mr2 = MarcInJSONProcessor.getInstance().unmarshal(json);
             String json2 = MarcInJSONProcessor.getInstance().marshalToString(mr2);
-            System.out.println(json2);
             assertEquals("Transformation failed", json, json2);
         } catch (Exception e) {
             fail(e.getMessage());
