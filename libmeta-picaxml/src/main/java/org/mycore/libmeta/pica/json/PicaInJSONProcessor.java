@@ -37,6 +37,7 @@ import jakarta.json.JsonArrayBuilder;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonObjectBuilder;
 import jakarta.json.JsonReader;
+import jakarta.json.JsonString;
 import jakarta.json.JsonWriter;
 
 /**
@@ -134,7 +135,7 @@ public class PicaInJSONProcessor {
                         df.getSubfields().add(
                             PicaSubfield.builder()
                                 .code(k)
-                                .content(v.toString())
+                                .content(((JsonString) v).getString())
                                 .build());
                     });
                 });
