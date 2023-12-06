@@ -66,11 +66,13 @@ public class PicaPlus2PicaXMLConverter {
     }
 
     public void processStreams(InputStream inS, OutputStream outS) {
+        XMLOutputFactory factory = XMLOutputFactory.newInstance();
+        
         try {
-            XMLOutputFactory factory = XMLOutputFactory.newInstance();
             XMLStreamWriter xmlWriter = factory.createXMLStreamWriter(outS, "UTF-8");
-            BufferedReader br = new BufferedReader(new InputStreamReader(inS, "UTF-8"));
-            process(br, xmlWriter);
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(inS, "UTF-8"))) {
+              process(br, xmlWriter);
+            }
         } catch (Exception e) {
             LOGGER.error("Process streams error", e);
         }
@@ -125,7 +127,6 @@ public class PicaPlus2PicaXMLConverter {
                 writeFields(s, writer);
 
             }
-            br.close();
             writer.writeCharacters("\n\t");
             writer.writeEndElement(); // </record>
 
@@ -133,7 +134,6 @@ public class PicaPlus2PicaXMLConverter {
             writer.writeEndElement(); // </collection>
 
             writer.writeEndDocument();
-            writer.close();
         } catch (Exception e) {
             LOGGER.error("Process error", e);
         }
