@@ -21,6 +21,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
+import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.mods.MODSXMLProcessor;
 import org.mycore.libmeta.mods.model.Mods;
 import org.mycore.libmeta.mods.model._misc.CodeOrText;
@@ -67,7 +68,7 @@ public class TitleInfoTest {
                 + "\n  </mods:titleInfo>"
                 + "\n</mods:mods>";
             assertTrue("Test 1 failed", r.equals(s));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -91,7 +92,7 @@ public class TitleInfoTest {
                 + "\n  </mods:titleInfo>"
                 + "\n</mods:mods>";
             assertTrue("Test 2 failed", r.equals(s));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -116,7 +117,7 @@ public class TitleInfoTest {
                 + "\n  </mods:titleInfo>"
                 + "\n</mods:mods>";
             assertTrue("Test 3 failed", r.equals(s));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -140,7 +141,7 @@ public class TitleInfoTest {
                 + "\n  </mods:titleInfo>"
                 + "\n</mods:mods>";
             assertTrue("Test 4 failed", r.equals(s));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -169,7 +170,7 @@ public class TitleInfoTest {
                 + "\n  </mods:titleInfo>"
                 + "\n</mods:mods>";
             assertTrue("Test 5 failed", r.equals(s));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -199,7 +200,7 @@ public class TitleInfoTest {
                 + "\n  </mods:titleInfo>"
                 + "\n</mods:mods>";
             assertTrue("Test 6 failed", r.equals(s));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -221,7 +222,7 @@ public class TitleInfoTest {
                 + "\n  </mods:titleInfo>"
                 + "\n</mods:mods>";
             assertTrue("Test 7 failed", r.equals(s));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -244,7 +245,7 @@ public class TitleInfoTest {
                 + "\n  </mods:titleInfo>"
                 + "\n</mods:mods>";
             assertTrue("Test 8 failed", r.equals(s));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -297,7 +298,7 @@ public class TitleInfoTest {
                 + "\n  </mods:name>"
                 + "\n</mods:mods>";
             assertTrue("Test 9 failed", r.equals(s));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }

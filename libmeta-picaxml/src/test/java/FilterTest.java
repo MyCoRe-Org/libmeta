@@ -27,6 +27,7 @@ import javax.xml.stream.XMLEventWriter;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLOutputFactory;
 
+import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.pica.model.PicaRecord;
 import org.mycore.libmeta.pica.xml.FilterPicaXMLFromSRUReaderDelegate;
 import org.mycore.libmeta.pica.xml.PicaXMLProcessor;
@@ -60,7 +61,7 @@ public class FilterTest {
             PicaXMLProcessor xmlProcessor = PicaXMLProcessor.getInstance();
             PicaRecord pica = xmlProcessor.unmarshalFromSRU(new URL(SRU_URL));
             xmlProcessor.marshal(pica, outFile);
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             LOGGER.error("Filter test error", e);
         }
     }

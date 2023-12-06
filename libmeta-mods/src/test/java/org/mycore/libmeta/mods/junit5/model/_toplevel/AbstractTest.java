@@ -21,6 +21,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
+import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.mods.MODSXMLProcessor;
 import org.mycore.libmeta.mods.model.Mods;
 import org.mycore.libmeta.mods.model._misc.enums.No;
@@ -47,7 +48,7 @@ public class AbstractTest {
                 + "\n  <mods:abstract displayLabel=\"Content description\">Broadside advertising ... Academy Hall</mods:abstract>"
                 + "\n</mods:mods>";
             assertTrue("Test 1 failed", r.equals(s));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -63,7 +64,7 @@ public class AbstractTest {
                 + "\n  <mods:abstract shareable=\"no\">Describes the results of an ongoing evaluation ...</mods:abstract>"
                 + "\n</mods:mods>";
             assertTrue("Test 2 failed", r.equals(s));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -82,7 +83,7 @@ public class AbstractTest {
                 + "\n  <mods:abstract type=\"summary\" xlink:href=\"http://www.allocine.fr/film/fichefilm_gen_cfilm=808.html\" xml:lang=\"fr\">A la fin du XIXème siècle, Rudyard Kipling, ...</mods:abstract>"
                 + "\n</mods:mods>";
             assertTrue("Test 3 failed", r.equals(s));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -101,7 +102,7 @@ public class AbstractTest {
                 + "\n  <mods:abstract displayLabel=\"Review\" xlink:href=\"http://sunsite.berkeley.edu/CurrentCites/2003/cc03.14.3.html\">Written in a rather whimsical style ...</mods:abstract>"
                 + "\n</mods:mods>";
             assertTrue("Test 4 failed", r.equals(s));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }

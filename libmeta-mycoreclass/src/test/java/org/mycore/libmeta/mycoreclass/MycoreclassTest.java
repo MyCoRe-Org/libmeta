@@ -17,11 +17,14 @@
  */
 package org.mycore.libmeta.mycoreclass;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.mycoreclass.model.Category;
 import org.mycore.libmeta.mycoreclass.model.Label;
 import org.mycore.libmeta.mycoreclass.model.Mycoreclass;
@@ -35,7 +38,7 @@ public class MycoreclassTest {
             Mycoreclass m = processor
                 .unmarshal(new URL("https://rosdok.uni-rostock.de/api/v1/classifications/accesscondition"));
             Assert.assertEquals("nicht zugänglich", MycoreclassQuery.findLabelText(m, "closedaccess", "de"));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException | MalformedURLException e) {
             Assert.fail(e.getMessage());
         }
     }
@@ -67,7 +70,7 @@ public class MycoreclassTest {
             .build();
         try {
             processor.marshal(m2, Files.createTempFile("collection", ".xml"));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException | IOException e) {
             Assert.fail(e.getMessage());
         }
     }
@@ -94,7 +97,7 @@ public class MycoreclassTest {
             Assert.assertEquals("Musikhandschrift",
                 MycoreclassQuery.findLabelText(m4, "histbest.musicalsource.manuscript", "de"));
 
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException | MalformedURLException e) {
             Assert.fail(e.getMessage());
         }
 

@@ -21,6 +21,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
+import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.dfgviewer.model.Links;
 import org.mycore.libmeta.dfgviewer.model.links.Reference;
 
@@ -42,7 +43,7 @@ public class DVLinksTest {
                 + "  <dv:iiif>https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb10128295/manifest</dv:iiif>\n"
                 + "</dv:links>";
             assertTrue("testLinks failed", expected.equals(actual));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -70,7 +71,7 @@ public class DVLinksTest {
                 + "  <dv:reference linktext=\"MARC-XML\">https://opacplus.bsb-muenchen.de/title/BV022758208?format=marc</dv:reference>\n"
                 + "</dv:links>";
             assertTrue("testLinksReferences failed", expected.equals(actual));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }

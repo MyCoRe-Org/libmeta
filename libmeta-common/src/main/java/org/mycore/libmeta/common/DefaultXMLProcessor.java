@@ -86,12 +86,12 @@ public abstract class DefaultXMLProcessor<T> {
         return sw.toString().replaceAll("\\r\\n|\\r", "\n").trim();
     }
 
-    public void marshal(T t, Path p, String schemaLocations) throws Exception {
+    public void marshal(T t, Path p, String schemaLocations) throws LibmetaProcessorException {
         StreamResult stream = new StreamResult(p.toFile());
         marshal(t, stream, schemaLocations);
     }
 
-    public void marshal(T t, Path p) throws Exception {
+    public void marshal(T t, Path p) throws LibmetaProcessorException {
         marshal(t, p, null);
     }
 

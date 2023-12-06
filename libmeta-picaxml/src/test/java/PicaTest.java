@@ -85,7 +85,7 @@ public class PicaTest {
             PicaRecord pr2 = PicaInJSONProcessor.getInstance().unmarshal(json);
             String xml = PicaXMLProcessor.getInstance().marshalToString(pr2);
             assertEquals("Transformation failed", actual, xml);
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }

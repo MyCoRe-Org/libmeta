@@ -21,6 +21,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
+import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.mods.MODSXMLProcessor;
 import org.mycore.libmeta.mods.model.Mods;
 import org.mycore.libmeta.mods.model._toplevel.PhysicalDescription;
@@ -63,7 +64,7 @@ public class PhysicalDescriptionTest {
                 + "\n  </mods:physicalDescription>"
                 + "\n</mods:mods>";
             assertTrue("Test 3 failed", r.equals(s));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }

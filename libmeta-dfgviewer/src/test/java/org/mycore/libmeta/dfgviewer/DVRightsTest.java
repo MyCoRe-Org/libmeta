@@ -21,6 +21,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
+import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.dfgviewer.model.Rights;
 
 public class DVRightsTest {
@@ -33,7 +34,7 @@ public class DVRightsTest {
             String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
                 + "<dv:rights xmlns:dv=\"http://dfg-viewer.de/\"/>";
             assertTrue("testRights failed", expected.equals(actual));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -56,7 +57,7 @@ public class DVRightsTest {
                 + "  <dv:ownerContact>mailto:sebastian.meyer@slub-dresden.de</dv:ownerContact>\n"
                 + "</dv:rights>";
             assertTrue("testRightsOwner failed", expected.equals(actual));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -77,7 +78,7 @@ public class DVRightsTest {
                 + "  <dv:aggregatorSiteURL>https://www.deutsche-digitale-bibliothek.de/</dv:aggregatorSiteURL>\n"
                 + "</dv:rights>";
             assertTrue("testRightsAggregator failed", expected.equals(actual));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -98,7 +99,7 @@ public class DVRightsTest {
                 + "  <dv:sponsorSiteURL>https://www.dfg.de/</dv:sponsorSiteURL>\n"
                 + "</dv:rights>";
             assertTrue("testRightsSponsor failed", expected.equals(actual));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -115,7 +116,7 @@ public class DVRightsTest {
                 + "  <dv:license>pdm</dv:license>\n"
                 + "</dv:rights>";
             assertTrue("testRightsLicense failed", expected.equals(actual));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }

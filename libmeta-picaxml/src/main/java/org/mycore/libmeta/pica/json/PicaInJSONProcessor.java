@@ -19,6 +19,7 @@ package org.mycore.libmeta.pica.json;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -26,6 +27,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.pica.model.PicaDatafield;
 import org.mycore.libmeta.pica.model.PicaRecord;
 import org.mycore.libmeta.pica.model.PicaSubfield;
@@ -58,14 +60,16 @@ public class PicaInJSONProcessor {
         return INSTANCE;
     }
 
-    public void marshal(PicaRecord pica, Path p) throws Exception {
+    public void marshal(PicaRecord pica, Path p) throws LibmetaProcessorException {
         try (BufferedWriter bw = Files.newBufferedWriter(p);
             JsonWriter jw = Json.createWriter(bw)) {
             marshal(pica, jw);
+        } catch (IOException e) {
+            throw new LibmetaProcessorException(e);
         }
     }
 
-    public String marshalToString(PicaRecord pica) throws Exception {
+    public String marshalToString(PicaRecord pica) {
         StringWriter sw = new StringWriter();
         try (JsonWriter jw = Json.createWriter(sw)) {
             marshal(pica, jw);
@@ -73,17 +77,19 @@ public class PicaInJSONProcessor {
         return sw.toString();
     }
 
-    public PicaRecord unmarshal(String s) throws Exception {
+    public PicaRecord unmarshal(String s) {
         try (JsonReader jr = Json.createReader(new StringReader(s))) {
             return unmarshal(jr);
         }
 
     }
 
-    public PicaRecord unmarshal(Path p) throws Exception {
+    public PicaRecord unmarshal(Path p) throws LibmetaProcessorException {
         try (BufferedReader br = Files.newBufferedReader(p);
             JsonReader jr = Json.createReader(br)) {
             return unmarshal(jr);
+        } catch (IOException e) {
+            throw new LibmetaProcessorException(e);
         }
     }
 
