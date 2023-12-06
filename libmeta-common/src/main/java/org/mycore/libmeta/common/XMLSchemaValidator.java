@@ -65,12 +65,22 @@ public class XMLSchemaValidator {
 
     private String errorMsg = "";
 
-    public XMLSchemaValidator(String SchemaLocations) {
+    public XMLSchemaValidator() {
+        init(null);
+    }
+
+    public XMLSchemaValidator(String schemaLocations) {
+        init(schemaLocations);
+    }
+
+    private void init(String schemaLocations) {
         List<String> schemas = new ArrayList<>();
-        for (String s : SchemaLocations.split("\\s")) {
-            s = s.trim();
-            if (s.toLowerCase().endsWith(".xsd")) {
-                schemas.add(s);
+        if (schemaLocations != null) {
+            for (String s : schemaLocations.split("\\s")) {
+                s = s.trim();
+                if (s.toLowerCase().endsWith(".xsd")) {
+                    schemas.add(s);
+                }
             }
         }
 
@@ -79,7 +89,9 @@ public class XMLSchemaValidator {
 
         try {
             DOC_BUILDER_FACTORY.setAttribute(JAXP_SCHEMA_LANGUAGE, W3C_XML_SCHEMA);
-            // DOC_BUILDER_FACTORY.setAttribute(JAXP_SCHEMA_SOURCE, schemas.toArray(new String[]{}));
+            if (schemas.size() > 0) {
+                DOC_BUILDER_FACTORY.setAttribute(JAXP_SCHEMA_SOURCE, schemas.toArray(new String[] {}));
+            }
 
         } catch (IllegalArgumentException x) {
             LOGGER.error("Error in constructor", x);
