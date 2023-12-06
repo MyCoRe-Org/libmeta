@@ -158,37 +158,5 @@ public class XMLSchemaValidator {
     public String getErrorMsg() {
         return errorMsg;
     }
-    
-    public static void main(String[] args){
-    	System.out.println("START");
-    	Path pTest = Paths.get("E:\\temp\\s3test\\rosdok_ppn862159598.lza.mets.xml");
-    	XMLSchemaValidator xsv = new XMLSchemaValidator(DEFAULT_METS_SCHEMA_LOCATIONS);
-    	System.out.println("Ergebnis: "+ xsv.validate(pTest));
-    	
-    	
-    	
-    	try(FileOutputStream fos = new FileOutputStream("E:\\temp\\s3test\\mets.xsd")){
-    		URL website = new URL("http://www.loc.gov/standards/mets/mets.xsd");
-    		URLConnection con = website.openConnection();
-    		// con.setRequestProperty("User-Agent",  "Hello LOC");
-    		
-    		ReadableByteChannel rbc = Channels.newChannel(con.getInputStream());
-    	
-    		fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-    		    	}
-    	catch(IOException e){
-    		e.printStackTrace();
-    	}
-    	
-    	try(FileOutputStream fos = new FileOutputStream("E:\\temp\\s3test\\mets_rosdok.xsd")){
-    		URL website = new URL("https://rosdok.uni-rostock.de/data/standards/mets.xsd");
-    		ReadableByteChannel rbc = Channels.newChannel(website.openStream());
-    	
-    		fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-    	}
-    	catch(IOException e){
-    		e.printStackTrace();
-    	}
-    	
-    }
+
 }
