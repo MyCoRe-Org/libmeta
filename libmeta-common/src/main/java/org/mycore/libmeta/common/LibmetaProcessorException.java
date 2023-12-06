@@ -19,32 +19,32 @@ package org.mycore.libmeta.common;
 
 /**
  * This class wraps JAXBExceptions, TransformerExceptions and other
- * exceptions that occur during processing or creating of the XML documents.
+ * exceptions that occur during processing or creating of the XML or JSON documents.
  * 
  * @author Robert Stephan
  *
  */
-public class LibmetaXMLProcessorException extends Exception {
+public class LibmetaProcessorException extends Exception {
     private static final long serialVersionUID = 1L;
 
-    public LibmetaXMLProcessorException() {
+    public LibmetaProcessorException() {
         super();
     }
 
-    public LibmetaXMLProcessorException(String message, Throwable cause, boolean enableSuppression,
+    public LibmetaProcessorException(String message, Throwable cause, boolean enableSuppression,
         boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 
-    public LibmetaXMLProcessorException(String message, Throwable cause) {
+    public LibmetaProcessorException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public LibmetaXMLProcessorException(String message) {
+    public LibmetaProcessorException(String message) {
         super(message);
     }
 
-    public LibmetaXMLProcessorException(Throwable cause) {
+    public LibmetaProcessorException(Throwable cause) {
         super(cause);
     }
 

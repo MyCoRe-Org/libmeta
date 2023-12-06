@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 import org.junit.Test;
-import org.mycore.libmeta.common.LibmetaXMLProcessorException;
+import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.daia.model.Availability;
 import org.mycore.libmeta.daia.model.DAIA;
 
@@ -32,7 +32,7 @@ public class DAIAXMLProcessorTest {
             assertEquals("timestamp failed", "2023-11-29T10:59:08Z", daia.getTimestamp());
             assertEquals("url failed", "http://rosdok.uni-rostock.de/resolve?urn=urn:nbn:de:gbv:28-diss2008-0004-4&pdf",
                 daia.getDocument().get(0).getItem().get(0).getAvailable().get(0).getHref());
-        } catch (LibmetaXMLProcessorException e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
 
@@ -65,7 +65,7 @@ public class DAIAXMLProcessorTest {
                     Availability.Service.INTERLOAN),
                 daia.getDocument().get(0).getItem().get(0).getAvailable().stream().map(x -> x.getService())
                     .collect(Collectors.toList()));
-        } catch (LibmetaXMLProcessorException e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
 

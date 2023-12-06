@@ -50,7 +50,7 @@ public abstract class DefaultXMLProcessor<T> {
         return marshalToDOM(t, null);
     }
 
-    public Document marshalToDOM(T t, String schemaLocations) throws LibmetaXMLProcessorException {
+    public Document marshalToDOM(T t, String schemaLocations) throws LibmetaProcessorException {
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             dbf.setNamespaceAware(true);
@@ -72,15 +72,15 @@ public abstract class DefaultXMLProcessor<T> {
 
             return doc;
         } catch (Exception e) {
-            throw new LibmetaXMLProcessorException(e);
+            throw new LibmetaProcessorException(e);
         }
     }
 
-    public String marshalToString(T t) throws LibmetaXMLProcessorException {
+    public String marshalToString(T t) throws LibmetaProcessorException {
         return marshalToString(t, null);
     }
 
-    public String marshalToString(T t, String schemaLocations) throws LibmetaXMLProcessorException {
+    public String marshalToString(T t, String schemaLocations) throws LibmetaProcessorException {
         StringWriter sw = new StringWriter();
         marshal(t, new StreamResult(sw), schemaLocations);
         return sw.toString().replaceAll("\\r\\n|\\r", "\n").trim();
@@ -102,7 +102,7 @@ public abstract class DefaultXMLProcessor<T> {
      * 
      * therefore we use the XSLT-Transformer for output
      */
-    public void marshal(T t, StreamResult streamResult, String schemaLocations) throws LibmetaXMLProcessorException {
+    public void marshal(T t, StreamResult streamResult, String schemaLocations) throws LibmetaProcessorException {
         try {
             Document doc = marshalToDOM(t, schemaLocations);
             doc.setXmlStandalone(true);
@@ -122,7 +122,7 @@ public abstract class DefaultXMLProcessor<T> {
 
             transformer.transform(new DOMSource(doc), streamResult);
         } catch (Exception e) {
-            throw new LibmetaXMLProcessorException(e);
+            throw new LibmetaProcessorException(e);
         }
     }
 
@@ -131,38 +131,38 @@ public abstract class DefaultXMLProcessor<T> {
     }
 
     @SuppressWarnings("unchecked")
-    public T unmarshal(Node xml) throws LibmetaXMLProcessorException {
+    public T unmarshal(Node xml) throws LibmetaProcessorException {
         try {
             return (T) createJAXBContext().createUnmarshaller().unmarshal(xml);
         } catch (JAXBException e) {
-            throw new LibmetaXMLProcessorException(e);
+            throw new LibmetaProcessorException(e);
         }
     }
 
     @SuppressWarnings("unchecked")
-    public T unmarshal(String xml) throws LibmetaXMLProcessorException {
+    public T unmarshal(String xml) throws LibmetaProcessorException {
         try {
             return (T) createJAXBContext().createUnmarshaller().unmarshal(new StringReader(xml));
         } catch (JAXBException e) {
-            throw new LibmetaXMLProcessorException(e);
+            throw new LibmetaProcessorException(e);
         }
     }
 
     @SuppressWarnings("unchecked")
-    public T unmarshal(Path p) throws LibmetaXMLProcessorException {
+    public T unmarshal(Path p) throws LibmetaProcessorException {
         try {
             return (T) createJAXBContext().createUnmarshaller().unmarshal(p.toFile());
         } catch (JAXBException e) {
-            throw new LibmetaXMLProcessorException(e);
+            throw new LibmetaProcessorException(e);
         }
     }
 
     @SuppressWarnings("unchecked")
-    public T unmarshal(URL url) throws LibmetaXMLProcessorException {
+    public T unmarshal(URL url) throws LibmetaProcessorException {
         try {
             return (T) createJAXBContext().createUnmarshaller().unmarshal(url);
         } catch (JAXBException e) {
-            throw new LibmetaXMLProcessorException(e);
+            throw new LibmetaProcessorException(e);
         }
     }
 }

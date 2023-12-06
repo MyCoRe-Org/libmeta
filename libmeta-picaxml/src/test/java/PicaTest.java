@@ -2,7 +2,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
-import org.mycore.libmeta.common.LibmetaXMLProcessorException;
+import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.pica.json.PicaInJSONProcessor;
 import org.mycore.libmeta.pica.model.PicaRecord;
 import org.mycore.libmeta.pica.xml.PicaXMLProcessor;
@@ -41,7 +41,7 @@ public class PicaTest {
             PicaRecord mr = PicaXMLProcessor.getInstance().unmarshal(xml);
             String xml2 = PicaXMLProcessor.getInstance().marshalToString(mr);
             assertEquals("Transformation failed", xml, xml2);
-        } catch (LibmetaXMLProcessorException e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
         
