@@ -170,8 +170,4 @@ public class Mods implements IIDAttributeGroup {
 
     }
 
-    public static void main(String... args) {
-        //  Mods.builder()
-        //      .addContent(Name.builder().addContent(NamePart.builder().content("Robert Stephan").build()).build());
-    }
 }

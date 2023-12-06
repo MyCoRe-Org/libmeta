@@ -17,16 +17,8 @@
  */
 package org.mycore.libmeta.pica.xml;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -46,8 +38,6 @@ import javax.xml.stream.util.EventReaderDelegate;
  * 
  * Die Klasse basiert auf der Java StAX API und kann als XMLEventReader benutzt
  * werden.
- * 
- * Die main() Methode enthält Beispielcode für die Verwendung.
  * 
  * @author Robert Stephan
  * 
@@ -147,30 +137,4 @@ public class FilterPicaXMLFromSRUReaderDelegate extends EventReaderDelegate {
         xmlEventWriter.close();
     }
 
-    /**
-     * Main Funktion mit Beispiel-Code zur Demonstration.
-     * 
-     * @param args - the default input parameters (empty)
-     * @throws Exception - if anything goes wrong
-     */
-    public static void main(String[] args) throws Exception {
-        // 574683887
-        // String SOURCE_URL =
-        // "http://sru.gbv.de/vd17?version=1.1&operation=searchRetrieve&maximumRecords=1&recordSchema=picaxml&query=pica.ppn%3D006901972";
-        // File OUTPUT_FILE = new File("C:\\temp\\ppn_006901972_local.xml");
-
-        //String SOURCE_URL = "http://sru.gbv.de/gvk?version=1.1&operation=searchRetrieve&maximumRecords=1&recordSchema=picaxml&query=pica.ppn%3D340126604";
-        String SOURCE_URL = "http://sru.gbv.de/gvk?version=1.1&operation=searchRetrieve&maximumRecords=1&recordSchema=picaxml&query=pica.url%3Dpurl.uni-rostock.de*";
-        File OUTPUT_FILE = new File(
-            "F:\\workspaces\\vaadin\\projects\\metadata\\target\\output\\picaxml\\ppn_340126604_local.xml");
-        OUTPUT_FILE.getParentFile().mkdirs();
-
-        URL url = new URL(SOURCE_URL);
-        URLConnection urlConnection = url.openConnection();
-        BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(OUTPUT_FILE), "UTF-8"));
-        //BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out, "UTF-8"));
-
-        filterPicaXML(br, bw);
-    }
 }
