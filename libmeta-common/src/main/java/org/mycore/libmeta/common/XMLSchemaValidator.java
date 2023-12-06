@@ -61,7 +61,7 @@ public class XMLSchemaValidator {
 
     private DocumentBuilderFactory DOC_BUILDER_FACTORY = DocumentBuilderFactory.newInstance();
 
-    private boolean isValid = true;
+    private boolean valid = true;
 
     private String errorMsg = "";
 
@@ -95,7 +95,6 @@ public class XMLSchemaValidator {
 
         } catch (IllegalArgumentException x) {
             LOGGER.error("Error in constructor", x);
-            // Happens if the parser does not support JAXP 1.2
         }
 
     }
@@ -106,8 +105,10 @@ public class XMLSchemaValidator {
             return validate(reader, p.getFileName().toString());
         } catch (IOException e) {
             LOGGER.debug("Validation error", e);
+            errorMsg += "\n" + e.getMessage();
+            valid = false;
         }
-        return false;
+        return valid;
     }
 
     public boolean validate(Reader reader, String resourceName) {
@@ -133,9 +134,9 @@ public class XMLSchemaValidator {
                 private void outputError(SAXParseException exception) throws SAXException {
                     String msg = resourceName + ": Line: " + exception.getLineNumber() + ", Column: "
                         + exception.getColumnNumber() + " - " + exception.getMessage();
-                    errorMsg += "\n" + msg;
                     LOGGER.error(msg);
-                    isValid = false;
+                    errorMsg += "\n" + msg;
+                    valid = false;
                 }
             });
 
@@ -160,14 +161,19 @@ public class XMLSchemaValidator {
             docBuilder.parse(new InputSource(reader));
         } catch (Exception e) {
             LOGGER.error("Validation error", e);
+            errorMsg +="\n"+e.getMessage();
+            valid = false;
         }
-
-        return isValid;
+        return valid;
 
     }
 
     public String getErrorMsg() {
         return errorMsg;
+    }
+    
+    public boolean isValid() {
+        return valid;
     }
 
 }
