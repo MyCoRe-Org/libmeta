@@ -30,8 +30,12 @@ import javax.xml.stream.XMLOutputFactory;
 import org.mycore.libmeta.pica.model.PicaRecord;
 import org.mycore.libmeta.pica.xml.FilterPicaXMLFromSRUReaderDelegate;
 import org.mycore.libmeta.pica.xml.PicaXMLProcessor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class FilterTest {
+    private static final Logger LOGGER = LoggerFactory.getLogger(FilterTest.class);
+    
     //public static String SRU_URL = "http://sru.gbv.de/gvk?version=1.1&operation=searchRetrieve&maximumRecords=1&recordSchema=picaxml&query=pica.ppn%3D340126604";
     public static String SRU_URL = "http://sru.gbv.de/opac-de-28?version=1.1&operation=searchRetrieve&maximumRecords=10&recordSchema=picaxml&query=pica.url%3Dpurl.uni-rostock.de*&startRecord=31";
 
@@ -56,10 +60,8 @@ public class FilterTest {
             PicaXMLProcessor xmlProcessor = PicaXMLProcessor.getInstance();
             PicaRecord pica = xmlProcessor.unmarshalFromSRU(new URL(SRU_URL));
             xmlProcessor.marshal(pica, outFile);
-            System.out.println();
-            System.out.println("The result can be found here:" + outFile.toString());
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Filter test error", e);
         }
     }
 }

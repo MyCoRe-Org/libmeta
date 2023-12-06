@@ -19,7 +19,6 @@ package org.mycore.libmeta.mycoreclass;
 
 import java.net.URL;
 import java.nio.file.Files;
-import java.util.Map.Entry;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -35,11 +34,7 @@ public class MycoreclassTest {
         try {
             Mycoreclass m = processor
                 .unmarshal(new URL("https://rosdok.uni-rostock.de/api/v1/classifications/accesscondition"));
-            for (Entry<String, Label> l : MycoreclassQuery.findLabels(m, "restrictedaccess").entrySet()) {
-                System.out.println(l.getKey() + l.getValue().getText());
-            }
             Assert.assertEquals("nicht zugänglich", MycoreclassQuery.findLabelText(m, "closedaccess", "de"));
-
         } catch (Exception e) {
             Assert.fail(e.getMessage());
         }
@@ -70,9 +65,8 @@ public class MycoreclassTest {
                     .build())
                 .build())
             .build();
-
         try {
-            System.out.println(processor.marshalToString(m2));
+            processor.marshal(m2, Files.createTempFile("collection", ".xml"));
         } catch (Exception e) {
             Assert.fail(e.getMessage());
         }
@@ -84,9 +78,7 @@ public class MycoreclassTest {
         try {
             Mycoreclass m3 = processor
                 .unmarshal(new URL("https://rosdok.uni-rostock.de/api/v1/classifications/collection"));
-            System.out.println(processor.marshalToString(m3));
             processor.marshal(m3, Files.createTempFile("collection", ".xml"));
-
         } catch (Exception e) {
             Assert.fail(e.getMessage());
         }

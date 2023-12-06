@@ -52,7 +52,6 @@ public class PhysicalDescriptionTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            System.out.println(s);
             String r = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"
                 + "\n<mods:mods xmlns:mods=\"http://www.loc.gov/mods/v3\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">"
                 + "\n  <mods:physicalDescription>"
@@ -63,8 +62,6 @@ public class PhysicalDescriptionTest {
                 + "\n    <mods:digitalOrigin>born digital</mods:digitalOrigin>"
                 + "\n  </mods:physicalDescription>"
                 + "\n</mods:mods>";
-            System.out.println(r);
-            System.out.println("---");
             assertTrue("Test 3 failed", r.equals(s));
         } catch (Exception e) {
             fail(e.getMessage());

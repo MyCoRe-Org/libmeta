@@ -29,6 +29,9 @@ import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * This tool converts a Pica+ Download file into a PicaXML file
  * The download has to be UTF-8 encoded.
@@ -41,6 +44,8 @@ import javax.xml.stream.XMLStreamWriter;
  *
  */
 public class PicaPlus2PicaXMLConverter {
+    private static final Logger LOGGER = LoggerFactory.getLogger(PicaPlus2PicaXMLConverter.class);
+    
     String lastTag = null;
 
     String ppn = null;
@@ -56,7 +61,7 @@ public class PicaPlus2PicaXMLConverter {
             OutputStream isOut = Files.newOutputStream(fOut)) {
             processStreams(isIn, isOut);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Process file error", e);
         }
     }
 
@@ -67,7 +72,7 @@ public class PicaPlus2PicaXMLConverter {
             BufferedReader br = new BufferedReader(new InputStreamReader(inS, "UTF-8"));
             process(br, xmlWriter);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Process streams error", e);
         }
     }
 
@@ -130,7 +135,7 @@ public class PicaPlus2PicaXMLConverter {
             writer.writeEndDocument();
             writer.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Process error", e);
         }
     }
 

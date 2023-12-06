@@ -39,17 +39,11 @@ public class OaiDcXMLProcessorTest {
             .build();
         try {
             String actual = OaiDcXMLProcessor.getInstance().marshalToString(oaiDc);
-            System.out.println(actual);
-
-            System.out.println("---");
-
             String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
                 + "<oai_dc:dc xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:oai_dc=\"http://www.openarchives.org/OAI/2.0/oai_dc/\">\n"
                 + "  <dc:title>Using Structural Metadata to Localize Experience of Digital Content</dc:title>\n"
                 + "  <dc:contributor xml:lang=\"de\">Max Meier</dc:contributor>\n"
                 + "</oai_dc:dc>";
-            System.out.println(expected);
-
             assertTrue("testMarshalToString failed", expected.equals(actual));
         } catch (Exception e) {
             fail(e.getMessage());

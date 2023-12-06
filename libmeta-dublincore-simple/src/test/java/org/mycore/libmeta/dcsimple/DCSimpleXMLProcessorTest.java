@@ -35,14 +35,8 @@ public class DCSimpleXMLProcessorTest {
         DCElement contributor = DCContributor.builder().lang("de").value("Max Meier").build();
         try {
             String actual = DCSimpleXMLProcessor.getInstance().marshalToString(contributor);
-            System.out.println(actual);
-
-            System.out.println("---");
-
             String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
                 + "<dc:contributor xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xml:lang=\"de\">Max Meier</dc:contributor>";
-            System.out.println(expected);
-
             assertTrue("testMarshalToString failed", expected.equals(actual));
         } catch (Exception e) {
             fail(e.getMessage());

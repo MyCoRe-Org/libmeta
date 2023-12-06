@@ -34,11 +34,15 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class XMLFormatter {
+    private static final Logger LOGGER = LoggerFactory.getLogger(XMLFormatter.class);
+    
     private static XPathFactory XPATH_FACTORY = XPathFactory.newInstance();
 
     private static DocumentBuilderFactory DB_FACTORY = DocumentBuilderFactory.newInstance();
@@ -53,7 +57,7 @@ public class XMLFormatter {
             doc = builder.parse(XMLFormatter.class.getResourceAsStream(resource));
             doc.setXmlStandalone(true);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Parse from resource error", e);
         }
         return doc;
 
@@ -77,7 +81,7 @@ public class XMLFormatter {
             cleanEmptyTextNodes(doc);
             prettyPrintXML(doc, p);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Pretty print xml error", e);
         }
     }
 
@@ -99,7 +103,7 @@ public class XMLFormatter {
 
             tf.transform(new DOMSource(doc), new StreamResult(os));
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Pretty print xml error", e);
         }
     }
 
@@ -118,7 +122,7 @@ public class XMLFormatter {
                 node.getParentNode().removeChild(node);
             }
         } catch (XPathExpressionException e) {
-            e.printStackTrace();
+            LOGGER.error("Clean empty text nodes error", e);
         }
     }
 }

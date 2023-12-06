@@ -27,6 +27,7 @@ import java.nio.file.Path;
 
 import javax.xml.stream.XMLStreamException;
 
+import org.mycore.libmeta.common.LibmetaXMLProcessorException;
 import org.mycore.libmeta.pica.model.PicaCollection;
 import org.mycore.libmeta.pica.model.PicaDatafield;
 import org.mycore.libmeta.pica.model.PicaRecord;
@@ -69,7 +70,7 @@ private static final PicaPlusProcessor INSTANCE = new PicaPlusProcessor();
 		}
 	}
 
-	public PicaCollection unmarshalFromWinIBWDownlad(Path p) {
+	public PicaCollection unmarshalFromWinIBWDownlad(Path p) throws LibmetaXMLProcessorException {
 		PicaCollection col = new PicaCollection();
 		try(BufferedReader br = Files.newBufferedReader(p)) {
 			PicaRecord record = null;
@@ -99,7 +100,7 @@ private static final PicaPlusProcessor INSTANCE = new PicaPlusProcessor();
 				createFields(s, record);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new LibmetaXMLProcessorException(e);
 		}
 		return col;
 	}

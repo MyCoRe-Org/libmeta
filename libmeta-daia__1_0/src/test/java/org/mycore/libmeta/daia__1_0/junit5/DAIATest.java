@@ -44,9 +44,7 @@ public class DAIATest {
             daia.setSchema(new URL("http://gbv.github.io/daia/daia.schema.json"));
             daia.setContext(url);
             String json = DAIAJSONProcessor.getInstance().marshalToString(daia);
-            System.out.println(json);
-            DAIA daia2 = DAIAJSONProcessor.getInstance().unmarshal(json);
-            System.out.println(DAIAJSONProcessor.getInstance().marshalToString(daia2));
+            DAIAJSONProcessor.getInstance().unmarshal(json);
             assertTrue(true);
         } catch (Exception e) {
             fail(e.getMessage());

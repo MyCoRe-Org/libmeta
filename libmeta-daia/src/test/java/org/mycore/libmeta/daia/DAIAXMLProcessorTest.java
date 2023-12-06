@@ -29,8 +29,6 @@ public class DAIAXMLProcessorTest {
 
         try {
             DAIA daia = DAIAXMLProcessor.getInstance().unmarshal(daiaTest);
-            System.out.println(daia.getTimestamp());
-            System.out.println(daia.getDocument().get(0).getItem().get(0).getAvailable().get(0).getHref());
             assertEquals("timestamp failed", "2023-11-29T10:59:08Z", daia.getTimestamp());
             assertEquals("url failed", "http://rosdok.uni-rostock.de/resolve?urn=urn:nbn:de:gbv:28-diss2008-0004-4&pdf",
                 daia.getDocument().get(0).getItem().get(0).getAvailable().get(0).getHref());
