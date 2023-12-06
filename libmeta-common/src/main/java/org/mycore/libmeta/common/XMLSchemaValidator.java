@@ -17,37 +17,34 @@
  */
 package org.mycore.libmeta.common;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
+import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-
-
 public class XMLSchemaValidator {
-	static final String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
-	static final String JAXP_SCHEMA_SOURCE ="http://java.sun.com/xml/jaxp/properties/schemaSource";
+    private static final Logger LOGGER = LoggerFactory.getLogger(XMLSchemaValidator.class);
+    static final String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
+    static final String JAXP_SCHEMA_SOURCE = "http://java.sun.com/xml/jaxp/properties/schemaSource";
 
     static final String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";
-    
-    static final String DEFAULT_METS_SCHEMA_LOCATIONS = "http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd"
+
+    static final String DEFAULT_METS_SCHEMA_LOCATIONS
+        = "http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd"
             + " http://www.w3.org/1999/xlink http://www.loc.gov/standards/xlink/xlink.xsd"
             + " http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods.xsd"
             + " http://www.loc.gov/mix/v20 http://www.loc.gov/standards/mix/mix20/mix20.xsd"
@@ -55,48 +52,54 @@ public class XMLSchemaValidator {
             + " http://purl.uni-rostock.de/ub/standards/mets-extended-v1.1 http://purl.uni-rostock.de/ub/standards/mets-extended-v1.1.xsd"
             + " http://dfg-viewer.de/ http://purl.uni-rostock.de/ub/standards/dfg-viewer.xsd"
             + " info:srw/schema/5/picaXML-v1.0 http://www.loc.gov/standards/sru/recordSchemas/pica-xml-v1-0.xsd";
-    
-    static final String SCHEMA_LOCATIONS_METS_MODS_MIX = "http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd"
+
+    static final String SCHEMA_LOCATIONS_METS_MODS_MIX
+        = "http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd"
             + " http://www.w3.org/1999/xlink http://www.loc.gov/standards/xlink/xlink.xsd"
             + " http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods.xsd"
             + " http://www.loc.gov/mix/v20 http://www.loc.gov/standards/mix/mix20/mix20.xsd";
-            
-    
+
     private DocumentBuilderFactory DOC_BUILDER_FACTORY = DocumentBuilderFactory.newInstance();
 
     private boolean isValid = true;
 
     private String errorMsg = "";
 
-    
-
     public XMLSchemaValidator(String SchemaLocations) {
-    	List<String> schemas = new ArrayList<>();
-    	for(String s: SchemaLocations.split("\\s")){
-    		s = s.trim();
-    		if(s.toLowerCase().endsWith(".xsd")){
-    			schemas.add(s);
-    		}
-    	}
-    	
+        List<String> schemas = new ArrayList<>();
+        for (String s : SchemaLocations.split("\\s")) {
+            s = s.trim();
+            if (s.toLowerCase().endsWith(".xsd")) {
+                schemas.add(s);
+            }
+        }
+
         DOC_BUILDER_FACTORY.setNamespaceAware(true);
         DOC_BUILDER_FACTORY.setValidating(true);
 
         try {
             DOC_BUILDER_FACTORY.setAttribute(JAXP_SCHEMA_LANGUAGE, W3C_XML_SCHEMA);
-           // DOC_BUILDER_FACTORY.setAttribute(JAXP_SCHEMA_SOURCE, schemas.toArray(new String[]{}));
-            
+            // DOC_BUILDER_FACTORY.setAttribute(JAXP_SCHEMA_SOURCE, schemas.toArray(new String[]{}));
+
         } catch (IllegalArgumentException x) {
+            LOGGER.error("Error in constructor", x);
             // Happens if the parser does not support JAXP 1.2
         }
-        
+
     }
 
     public boolean validate(Path path) {
-    	final Path p = path;
+        final Path p = path;
+        try (Reader reader = Files.newBufferedReader(p)) {
+            return validate(reader, p.getFileName().toString());
+        } catch (IOException e) {
+            LOGGER.debug("Validation error", e);
+        }
+        return false;
+    }
+
+    public boolean validate(Reader reader, String resourceName) {
         try {
-           
-            InputStream is = Files.newInputStream(p);
             DocumentBuilder docBuilder = DOC_BUILDER_FACTORY.newDocumentBuilder();
             docBuilder.setErrorHandler(new ErrorHandler() {
 
@@ -116,39 +119,34 @@ public class XMLSchemaValidator {
                 }
 
                 private void outputError(SAXParseException exception) throws SAXException {
-                    String msg = "File: " + p.getFileName().toString() + " Line: " + exception.getLineNumber() + ", Column: "
+                    String msg = resourceName + ": Line: " + exception.getLineNumber() + ", Column: "
                         + exception.getColumnNumber() + " - " + exception.getMessage();
                     errorMsg += "\n" + msg;
-                    System.err.println(msg);
+                    LOGGER.error(msg);
                     isValid = false;
                 }
             });
-            
+
             docBuilder.setEntityResolver(new EntityResolver() {
-				
-				@Override
-				public InputSource resolveEntity(String publicId, String systemId) throws SAXException, IOException {
-					try {
-						InputStream is = getClass().getResourceAsStream("/xml_schemas/"+ systemId.substring(systemId.lastIndexOf("/")+1));
-						if(is!=null) {
-						return new InputSource(is);
-						}
-					}
-					catch(Exception e) {
-						System.err.println("Error resolving entity: " + e.getMessage());
-						e.printStackTrace();
-					}
-					return null;
-				}
-			});
 
-            docBuilder.parse(is);
+                @Override
+                public InputSource resolveEntity(String publicId, String systemId) throws SAXException, IOException {
+                    try {
+                        InputStream is = getClass()
+                            .getResourceAsStream("/xml_schemas/" + systemId.substring(systemId.lastIndexOf("/") + 1));
+                        if (is != null) {
+                            return new InputSource(is);
+                        }
+                    } catch (Exception e) {
+                        LOGGER.error("Error resolving entity", e);
+                    }
+                    return null;
+                }
+            });
+
+            docBuilder.parse(new InputSource(reader));
         } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        if (isValid) {
-            System.out.println("METS file " + p.getFileName().toString() + " is valid.");
+            LOGGER.error("Validation error", e);
         }
 
         return isValid;
