@@ -17,6 +17,7 @@
  */
 package org.mycore.libmeta.mods.junit5.model._toplevel;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -302,4 +303,31 @@ public class TitleInfoTest {
             fail(e.getMessage());
         }
     }
+    
+    @Test
+    public void test10() {
+        String expected =
+              "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
+              + "<mods:mods xmlns:mods=\"http://www.loc.gov/mods/v3\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n"
+              + "  <mods:titleInfo otherType=\"transcribed\" otherTypeAuthURI=\"https://w3id.org/arm/core/vocabularies/origin/0.1/transcribed\">\n"
+              + "    <mods:title>110th St. Elevator Station, New York</mods:title>\n"
+              + "  </mods:titleInfo>\n"
+              + "</mods:mods>";
+        Mods mods = Mods.builder()
+            .addContent(TitleInfo.builder()
+                .otherType("transcribed")
+                .otherTypeAuthURI("https://w3id.org/arm/core/vocabularies/origin/0.1/transcribed")
+                .addContent(Title.builder()
+                    .content("110th St. Elevator Station, New York")
+                    .build())
+                .build())
+            .build();
+        try {
+            String s = MODSXMLProcessor.getInstance().marshalToString(mods);
+            assertEquals("Test 10 failed", expected, s);
+        } catch (LibmetaProcessorException e) {
+            fail(e.getMessage());
+        }
+    }
+    
 }
