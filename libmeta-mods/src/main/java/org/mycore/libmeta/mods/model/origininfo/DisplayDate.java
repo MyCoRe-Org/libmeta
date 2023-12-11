@@ -38,7 +38,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.NONE)
 public class DisplayDate extends XsString implements IOriginInfoSubelement {
 
-    public static Builder builderForFreqency() {
+    public static Builder builder() {
         return builder(new DisplayDate());
     }
 

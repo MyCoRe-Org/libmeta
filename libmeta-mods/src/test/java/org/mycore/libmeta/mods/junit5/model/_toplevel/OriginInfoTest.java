@@ -53,7 +53,7 @@ public class OriginInfoTest {
                     .encoding(DateEncoding.EDTF)
                     .content("1910")
                     .build())
-                .addContent(DisplayDate.builderForDisplayDate()
+                .addContent(DisplayDate.builder()
                     .content("Postmark date: 1910")
                     .build())
                 .build())
