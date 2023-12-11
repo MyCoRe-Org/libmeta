@@ -25,6 +25,7 @@ import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model.origininfo.Agent;
 import org.mycore.libmeta.mods.model.origininfo.CopyrightDate;
 import org.mycore.libmeta.mods.model.origininfo.DateCaptured;
 import org.mycore.libmeta.mods.model.origininfo.DateCreated;
@@ -103,6 +104,7 @@ public class OriginInfo implements ITopLevelElement, IIDAttributeGroup, ILanguag
     @XmlElements({
         @XmlElement(name = "place", namespace = "http://www.loc.gov/mods/v3", type = Place.class),
         @XmlElement(name = "publisher", namespace = "http://www.loc.gov/mods/v3", type = Publisher.class),
+        @XmlElement(name = "agent", namespace = "http://www.loc.gov/mods/v3", type = Agent.class),
         @XmlElement(name = "dateIssued", namespace = "http://www.loc.gov/mods/v3", type = DateIssued.class),
         @XmlElement(name = "dateCreated", namespace = "http://www.loc.gov/mods/v3", type = DateCreated.class),
         @XmlElement(name = "dateCaptured", namespace = "http://www.loc.gov/mods/v3", type = DateCaptured.class),

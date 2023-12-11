@@ -18,6 +18,7 @@
 package org.mycore.libmeta.mods.model.name;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IAgentSubelement;
 import org.mycore.libmeta.mods.model._misc.IAlternativeNameSubelement;
 import org.mycore.libmeta.mods.model._misc.INameSubelement;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
@@ -55,7 +56,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *
  */
 public class NamePart extends StringPlusLanguage
-    implements INameSubelement, IAlternativeNameSubelement, ISubjectNameSubelement {
+    implements INameSubelement, IAlternativeNameSubelement, ISubjectNameSubelement, IAgentSubelement {
 
     @XmlAttribute(name = "type", required = false)
     protected NamePartType type;

@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IAgentSubelement;
 import org.mycore.libmeta.mods.model._misc.IAlternativeNameSubelement;
 import org.mycore.libmeta.mods.model._misc.INameSubelement;
 import org.mycore.libmeta.mods.model.subject.name.ISubjectNameSubelement;
@@ -42,7 +43,7 @@ import jakarta.xml.bind.annotation.XmlElement;
  * @version MODS 3.6
  *
  */
-public class Role implements INameSubelement, IAlternativeNameSubelement, ISubjectNameSubelement {
+public class Role implements INameSubelement, IAlternativeNameSubelement, ISubjectNameSubelement, IAgentSubelement {
 
     @XmlElement(name = "roleTerm", namespace = "http://www.loc.gov/mods/v3")
     protected List<RoleTerm> roleTerm = new Vector<>();
