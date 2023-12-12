@@ -330,4 +330,32 @@ public class TitleInfoTest {
         }
     }
     
+    @Test
+    public void test11() {
+        Mods mods = Mods.builder()
+            .addContent(TitleInfo.builder()
+                .otherType("test")
+                .otherTypeURI("http://example.org/title_types/test")
+                .otherTypeAuth("example.org")
+                .otherTypeAuthURI("http://example.org/title_types")
+                .addContent(Title.builder()
+                    .content("The Test Example")
+                    .build())
+                .build())
+            .build();
+        try {
+            String s = MODSXMLProcessor.getInstance().marshalToString(mods);
+            String expected =
+                  "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
+                  + "<mods:mods xmlns:mods=\"http://www.loc.gov/mods/v3\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n"
+                  + "  <mods:titleInfo otherType=\"test\" otherTypeAuth=\"example.org\" otherTypeAuthURI=\"http://example.org/title_types\" otherTypeURI=\"http://example.org/title_types/test\">\n"
+                  + "    <mods:title>The Test Example</mods:title>\n"
+                  + "  </mods:titleInfo>\n"
+                  + "</mods:mods>";
+            assertEquals("Test 11 failed", expected, s);
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
+    
 }
