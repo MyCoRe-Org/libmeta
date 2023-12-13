@@ -17,6 +17,9 @@
  */
 package org.mycore.libmeta.mods.model.cartographics;
 
+import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 
 /**
@@ -28,4 +31,19 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
  */
 public class Coordinates extends StringPlusLanguage implements ICartographicsSubelement {
 
+    public static Builder builder() {
+        return builder(new Coordinates());
+    }
+
+    public static Builder builder(Coordinates c) {
+        return new Builder(c);
+    }
+
+    public static class Builder extends BuilderBase<Coordinates, Builder>
+        implements IXsStringBuilder<Coordinates, Builder>,
+        ILanguageAttributeGroupBuilder<Coordinates, Builder> {
+        protected Builder(Coordinates c) {
+            super(c);
+        }
+    }
 }
