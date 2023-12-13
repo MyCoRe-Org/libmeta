@@ -18,6 +18,7 @@
 package org.mycore.libmeta.mods.model.cartographics;
 
 import java.util.List;
+import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.IAuthorityAttributeGroup;
@@ -79,10 +80,10 @@ public class Cartographics implements ISubjectSubelement, IPlaceSubelement, IAut
      * }
      */
     @XmlElement(name = "coordinates", namespace = "http://www.loc.gov/mods/v3", required = false)
-    protected List<Coordinates> coordinates;
+    protected List<Coordinates> coordinates = new Vector<>();
 
     @XmlElement(name = "cartographicExtension", namespace = "http://www.loc.gov/mods/v3", required = false)
-    protected List<CartographicExtension> cartographicExtension;
+    protected List<CartographicExtension> cartographicExtension = new Vector<>();
 
     // --- <xs:attributeGroup name="authorityAttributeGroup"> - begin
     /**
