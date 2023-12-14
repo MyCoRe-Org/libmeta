@@ -50,7 +50,7 @@ public class Reference {
     /**
      * Legt den Wert der content-Eigenschaft fest.
      * 
-     * @param value
+     * @param content
      *     allowed object is
      *     {@link String }
      *     
