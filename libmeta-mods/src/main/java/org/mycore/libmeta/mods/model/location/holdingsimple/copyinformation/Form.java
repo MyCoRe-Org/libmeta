@@ -46,7 +46,7 @@ import jakarta.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(name="copyinformation_form")
+@XmlType(name = "copyinformation_form")
 public class Form extends StringPlusLanguagePlusAuthority implements ICopyInformationSubelement {
 
     @XmlAttribute(name = "type", required = false)
@@ -68,7 +68,8 @@ public class Form extends StringPlusLanguagePlusAuthority implements ICopyInform
         return new Builder(form);
     }
 
-    public static class Builder extends BuilderBase<Form, Builder> implements IXsStringBuilder<Form, Builder>, ILanguageAttributeGroupBuilder<Form, Builder>, IAuthorityAttributeGroupBuilder<Form, Builder> {
+    public static class Builder extends BuilderBase<Form, Builder> implements IXsStringBuilder<Form, Builder>,
+        ILanguageAttributeGroupBuilder<Form, Builder>, IAuthorityAttributeGroupBuilder<Form, Builder> {
 
         protected Builder(Form form) {
             super(form);

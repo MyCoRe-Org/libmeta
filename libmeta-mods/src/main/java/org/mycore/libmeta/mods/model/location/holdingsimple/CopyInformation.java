@@ -163,8 +163,8 @@ public class CopyInformation {
         return new Builder(ci);
     }
 
-    public static class Builder extends BuilderBase<CopyInformation, Builder>{
-        
+    public static class Builder extends BuilderBase<CopyInformation, Builder> {
+
         protected Builder(CopyInformation ci) {
             super(ci);
         }

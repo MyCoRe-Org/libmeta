@@ -19,8 +19,10 @@ package org.mycore.libmeta.mods.model._toplevel;
 
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.IAuthorityAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.Usage;
@@ -40,7 +42,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *                <xs:attribute name="edition" type="xs:string"/>
  *               <xs:attribute name="displayLabel" type="xs:string"/>
  *                <xs:attribute name="altRepGroup" type="xs:string"/>
- *                <xs:attribute name="usage" fixed="primary"/>
+ *                <xs:attribute name="usage" type="primary"/>
  *                <xs:attribute name="generator" type="xs:string"/>
  *            </xs:extension>
  *        </xs:simpleContent>
@@ -52,7 +54,14 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Classification extends StringPlusLanguagePlusAuthority implements ITopLevelElement, ILanguageAttributeGroup, IAuthorityAttributeGroup {
+public class Classification extends StringPlusLanguagePlusAuthority
+    implements ITopLevelElement, IIDAttributeGroup, ILanguageAttributeGroup, IAuthorityAttributeGroup {
+
+    @XmlAttribute(name = "ID")
+    protected String ID;
+
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
     @XmlAttribute(name = "edition")
     protected String edition;
@@ -77,6 +86,22 @@ public class Classification extends StringPlusLanguagePlusAuthority implements I
      */
     @XmlAttribute(name = "generator")
     protected String generator;
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
+    }
 
     public String getEdition() {
         return edition;
@@ -126,7 +151,10 @@ public class Classification extends StringPlusLanguagePlusAuthority implements I
         return new Builder(div);
     }
 
-    public static class Builder extends BuilderBase<Classification, Builder> implements IXsStringBuilder<Classification, Builder>,  ILanguageAttributeGroupBuilder<Classification, Builder>, IAuthorityAttributeGroupBuilder<Classification, Builder> {
+    public static class Builder extends BuilderBase<Classification, Builder>
+        implements IXsStringBuilder<Classification, Builder>, IIDAttributeGroupBuilder<Classification, Builder>,
+        ILanguageAttributeGroupBuilder<Classification, Builder>,
+        IAuthorityAttributeGroupBuilder<Classification, Builder> {
         protected Builder(Classification spl) {
             super(spl);
         }

@@ -17,8 +17,6 @@
  */
 package org.mycore.libmeta.mods.model._misc;
 
-import org.mycore.libmeta.common.BuilderBase;
-import org.mycore.libmeta.mods.model._misc.builder.IDateDefinitionBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.Yes;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 
@@ -57,7 +55,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *                        </xs:restriction>
  *                    </xs:simpleType>
  *                </xs:attribute>
- *                <xs:attribute name="keyDate" fixed="yes"/>
+ *                <xs:attribute name="keyDate" type="yes"/>
  *            </xs:extension>
  *        </xs:simpleContent>
  *    </xs:complexType>
@@ -68,7 +66,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  * @version MODS 3.7 (calendar attribute added)
  *
  */
-public class DateDefinition extends StringPlusLanguage{
+public abstract class DateDefinition extends StringPlusLanguage {
 
     /**
      * {@code
@@ -77,7 +75,7 @@ public class DateDefinition extends StringPlusLanguage{
      */
     @XmlAttribute(name = "encoding")
     protected DateEncoding encoding;
-    
+
     /**
      * {@code
      * <xs:attribute name="qualifier" type="dateQualifierAttributeDefinition"/>
@@ -85,7 +83,7 @@ public class DateDefinition extends StringPlusLanguage{
      */
     @XmlAttribute(name = "qualifier")
     protected DateQualifier qualifier;
-    
+
     /**
      * {@code
      * <xs:attribute name="point" type="datePointAttributeDefinition"/>
@@ -93,13 +91,12 @@ public class DateDefinition extends StringPlusLanguage{
      */
     @XmlAttribute(name = "point")
     protected DatePoint point;
-    
-    @XmlAttribute(name="keyDate")
+
+    @XmlAttribute(name = "keyDate")
     protected Yes keyDate;
-    
+
     @XmlAttribute(name = "calendar")
     protected String calendar;
-    
 
     public DateEncoding getEncoding() {
         return encoding;
@@ -132,18 +129,12 @@ public class DateDefinition extends StringPlusLanguage{
     public void setKeyDate(Yes keyDate) {
         this.keyDate = keyDate;
     }
-    
+
     public String getCalendar() {
         return calendar;
     }
 
     public void setCalendar(String calendar) {
         this.calendar = calendar;
-    }
-    
-   public static class Builder extends BuilderBase<DateDefinition, Builder> implements IDateDefinitionBuilder<DateDefinition, Builder>{
-        protected Builder(DateDefinition d) {
-            super(d);
-        }
     }
 }

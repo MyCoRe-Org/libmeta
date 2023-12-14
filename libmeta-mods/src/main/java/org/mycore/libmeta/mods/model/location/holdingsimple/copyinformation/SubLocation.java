@@ -42,11 +42,13 @@ public class SubLocation extends StringPlusLanguage implements ICopyInformationS
     public static Builder builderForSubLocation() {
         return builder(new SubLocation());
     }
+
     public static Builder builder(SubLocation uac) {
         return new Builder(uac);
     }
 
-    public static class Builder extends BuilderBase<SubLocation, Builder> implements IXsStringBuilder<SubLocation, Builder>, ILanguageAttributeGroupBuilder<SubLocation, Builder> {
+    public static class Builder extends BuilderBase<SubLocation, Builder>
+        implements IXsStringBuilder<SubLocation, Builder>, ILanguageAttributeGroupBuilder<SubLocation, Builder> {
         protected Builder(SubLocation eac) {
             super(eac);
         }

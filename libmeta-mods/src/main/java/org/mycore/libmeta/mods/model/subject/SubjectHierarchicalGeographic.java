@@ -74,18 +74,19 @@ import jakarta.xml.bind.annotation.XmlElements;
 @XmlAccessorType(XmlAccessType.NONE)
 public class SubjectHierarchicalGeographic implements ISubjectSubelement, IAuthorityAttributeGroup {
     @XmlElements({
-            @XmlElement(name = "extraterrestrialArea", namespace = "http://www.loc.gov/mods/v3", type = ExtraTerrestrialArea.class),
-            @XmlElement(name = "continent", namespace = "http://www.loc.gov/mods/v3", type = Continent.class),
-            @XmlElement(name = "country", namespace = "http://www.loc.gov/mods/v3", type = Country.class),
-            @XmlElement(name = "province", namespace = "http://www.loc.gov/mods/v3", type = Province.class),
-            @XmlElement(name = "region", namespace = "http://www.loc.gov/mods/v3", type = Region.class),
-            @XmlElement(name = "state", namespace = "http://www.loc.gov/mods/v3", type = State.class),
-            @XmlElement(name = "territory", namespace = "http://www.loc.gov/mods/v3", type = Territory.class),
-            @XmlElement(name = "county", namespace = "http://www.loc.gov/mods/v3", type = County.class),
-            @XmlElement(name = "city", namespace = "http://www.loc.gov/mods/v3", type = City.class),
-            @XmlElement(name = "citySection", namespace = "http://www.loc.gov/mods/v3", type = CitySection.class),
-            @XmlElement(name = "island", namespace = "http://www.loc.gov/mods/v3", type = Island.class),
-            @XmlElement(name = "area", namespace = "http://www.loc.gov/mods/v3", type = Area.class) })
+        @XmlElement(name = "extraterrestrialArea", namespace = "http://www.loc.gov/mods/v3",
+            type = ExtraTerrestrialArea.class),
+        @XmlElement(name = "continent", namespace = "http://www.loc.gov/mods/v3", type = Continent.class),
+        @XmlElement(name = "country", namespace = "http://www.loc.gov/mods/v3", type = Country.class),
+        @XmlElement(name = "province", namespace = "http://www.loc.gov/mods/v3", type = Province.class),
+        @XmlElement(name = "region", namespace = "http://www.loc.gov/mods/v3", type = Region.class),
+        @XmlElement(name = "state", namespace = "http://www.loc.gov/mods/v3", type = State.class),
+        @XmlElement(name = "territory", namespace = "http://www.loc.gov/mods/v3", type = Territory.class),
+        @XmlElement(name = "county", namespace = "http://www.loc.gov/mods/v3", type = County.class),
+        @XmlElement(name = "city", namespace = "http://www.loc.gov/mods/v3", type = City.class),
+        @XmlElement(name = "citySection", namespace = "http://www.loc.gov/mods/v3", type = CitySection.class),
+        @XmlElement(name = "island", namespace = "http://www.loc.gov/mods/v3", type = Island.class),
+        @XmlElement(name = "area", namespace = "http://www.loc.gov/mods/v3", type = Area.class) })
     protected List<IHierarchicalGeographicSubelement> content = new Vector<>();
 
     // --- <xs:attributeGroup name="authorityAttributeGroup"> - begin
@@ -154,7 +155,7 @@ public class SubjectHierarchicalGeographic implements ISubjectSubelement, IAutho
         return new Builder(toc);
     }
 
-    public static class Builder extends BuilderBase<SubjectHierarchicalGeographic, Builder>{
+    public static class Builder extends BuilderBase<SubjectHierarchicalGeographic, Builder> {
 
         protected Builder(SubjectHierarchicalGeographic toc) {
             super(toc);

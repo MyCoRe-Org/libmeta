@@ -28,10 +28,11 @@ import org.mycore.libmeta.mods.model._misc.types.XsString;
  */
 public interface IXsStringBuilder<T extends XsString, B> {
     public T _target();
+
     public B _self();
-    
-	public default B content(String content){
-    	_target().setContent(content);
-    	return _self();
+
+    public default B content(String content) {
+        _target().setContent(content);
+        return _self();
     }
 }

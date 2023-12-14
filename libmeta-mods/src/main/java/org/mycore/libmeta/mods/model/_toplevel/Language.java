@@ -21,7 +21,9 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.Usage;
 import org.mycore.libmeta.mods.model.language.LanguageTerm;
@@ -56,7 +58,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *        <xs:attributeGroup ref="languageAttributeGroup"/>
  *        <xs:attribute name="displayLabel" type="xs:string"/>
  *        <xs:attribute name="altRepGroup" type="xs:string"/>
- *        <xs:attribute name="usage" fixed="primary"/>
+ *        <xs:attribute name="usage" type="primary"/>
  *    </xs:complexType>
  * }
  * 
@@ -66,7 +68,7 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder = { "languageTerm", "scriptTerm" })
-public class Language implements ITopLevelElement, ILanguageAttributeGroup {
+public class Language implements ITopLevelElement, IIDAttributeGroup, ILanguageAttributeGroup {
 
     @XmlElement(name = "languageTerm", namespace = "http://www.loc.gov/mods/v3", required = true)
     protected List<LanguageTerm> languageTerm = new Vector<>();
@@ -74,9 +76,15 @@ public class Language implements ITopLevelElement, ILanguageAttributeGroup {
     @XmlElement(name = "scriptTerm", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected List<ScriptTerm> scriptTerm = new Vector<>();
 
+    @XmlAttribute(name = "ID")
+    protected String ID;
+
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
+
     @XmlAttribute(name = "objectPart")
     protected String objectPart;
-    
+
     // <xs:attributeGroup ref="languagePlusDisplayLabelAttributeGroup"/> - begin
 
     @XmlAttribute(name = "lang")
@@ -84,7 +92,7 @@ public class Language implements ITopLevelElement, ILanguageAttributeGroup {
 
     @XmlAttribute(name = "lang", namespace = "http://www.w3.org/XML/1998/namespace")
     protected String xmlLang;
-    
+
     @XmlAttribute(name = "script")
     protected String script;
 
@@ -95,7 +103,7 @@ public class Language implements ITopLevelElement, ILanguageAttributeGroup {
 
     @XmlAttribute(name = "displayLabel")
     protected String displayLabel;
-    
+
     /**
      * altRepGroup new in 3.4
      */
@@ -122,6 +130,22 @@ public class Language implements ITopLevelElement, ILanguageAttributeGroup {
 
     public void setScriptTerm(List<ScriptTerm> scriptTerm) {
         this.scriptTerm = scriptTerm;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
     }
 
     public String getObjectPart() {
@@ -187,16 +211,17 @@ public class Language implements ITopLevelElement, ILanguageAttributeGroup {
     public void setUsage(Usage usage) {
         this.usage = usage;
     }
-    
+
     public static Builder builderForLanguage() {
-        return builder (new Language());
+        return builder(new Language());
     }
-    
+
     public static Builder builder(Language l) {
         return new Builder(l);
     }
-    
-    public static class Builder extends BuilderBase<Language, Builder> implements ILanguageAttributeGroupBuilder<Language, Builder>{
+
+    public static class Builder extends BuilderBase<Language, Builder>
+        implements IIDAttributeGroupBuilder<Language, Builder>, ILanguageAttributeGroupBuilder<Language, Builder> {
         protected Builder(Language spl) {
             super(spl);
         }
@@ -205,27 +230,27 @@ public class Language implements ITopLevelElement, ILanguageAttributeGroup {
             _target().getLanguageTerm().add(languageTerm);
             return _self();
         }
-        
+
         public Builder addScriptTerm(ScriptTerm scriptTerm) {
             _target().getScriptTerm().add(scriptTerm);
             return _self();
         }
-        
+
         public Builder objectPart(String objectPart) {
             _target().setObjectPart(objectPart);
             return _self();
         }
-        
+
         public Builder displayLabel(String displayLabel) {
             _target().setDisplayLabel(displayLabel);
             return _self();
         }
-        
+
         public Builder altRepGroup(String s) {
             _target().setAltRepGroup(s);
             return _self();
         }
-        
+
         public Builder usage(Usage usage) {
             _target().setUsage(usage);
             return _self();

@@ -19,7 +19,9 @@ package org.mycore.libmeta.mods.model._toplevel;
 
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.IAltFormatAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAltFormatAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.No;
@@ -42,208 +44,234 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class TableOfContents extends StringPlusLanguage
-		implements IAltFormatAttributeGroup, IAttributeGroupXlinkSimpleLink {
+    implements IIDAttributeGroup, IAltFormatAttributeGroup, IAttributeGroupXlinkSimpleLink {
 
-	@XmlAttribute(name = "displayLabel")
-	protected String displayLabel;
+    @XmlAttribute(name = "ID")
+    protected String ID;
 
-	@XmlAttribute(name = "type")
-	protected String type;
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
-	// IXlinkSimpleLinkAttributeGroup - begin
+    @XmlAttribute(name = "displayLabel")
+    protected String displayLabel;
 
-	/**
-	 * {@code 
-	 * <attribute ref="xlink:href" use="optional"/>
-	 * }
-	 */
-	@XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
-	protected String xlinkHref;
+    @XmlAttribute(name = "type")
+    protected String type;
 
-	/**
-	 * {@code 
-	 * <attribute ref="xlink:role" use="optional"/>
-	 * }
-	 */
-	@XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink", required = false)
-	protected String xlinkRole;
+    // IXlinkSimpleLinkAttributeGroup - begin
 
-	/**
-	 * {@code 
-	 * <attribute ref="xlink:arcrole" use="optional"/>
-	 * }
-	 */
-	@XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink", required = false)
-	protected String xlinkArcrole;
+    /**
+     * {@code 
+     * <attribute ref="xlink:href" use="optional"/>
+     * }
+     */
+    @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
+    protected String xlinkHref;
 
-	/**
-	 * {@code 
-	 * <attribute ref="xlink:title" use="optional"/>
-	 * }
-	 */
-	@XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink", required = false)
-	protected String xlinkTitle;
+    /**
+     * {@code 
+     * <attribute ref="xlink:role" use="optional"/>
+     * }
+     */
+    @XmlAttribute(name = "role", namespace = "http://www.w3.org/1999/xlink", required = false)
+    protected String xlinkRole;
 
-	/**
-	 * {@code 
-	 * <attribute ref="xlink:show" use="optional"/>
-	 * }
-	 */
-	@XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink", required = false)
-	protected XlinkShow xlinkShow;
+    /**
+     * {@code 
+     * <attribute ref="xlink:arcrole" use="optional"/>
+     * }
+     */
+    @XmlAttribute(name = "arcrole", namespace = "http://www.w3.org/1999/xlink", required = false)
+    protected String xlinkArcrole;
 
-	/**
-	 * {@code 
-	 * <attribute ref="xlink:actuate" use="optional"/>
-	 * }
-	 */
-	@XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink", required = false)
-	protected XlinkActuate xlinkActuate;
+    /**
+     * {@code 
+     * <attribute ref="xlink:title" use="optional"/>
+     * }
+     */
+    @XmlAttribute(name = "title", namespace = "http://www.w3.org/1999/xlink", required = false)
+    protected String xlinkTitle;
 
-	// IXlinkSimpleLinkAttributeGroup - end
+    /**
+     * {@code 
+     * <attribute ref="xlink:show" use="optional"/>
+     * }
+     */
+    @XmlAttribute(name = "show", namespace = "http://www.w3.org/1999/xlink", required = false)
+    protected XlinkShow xlinkShow;
 
-	@XmlAttribute(name = "shareable")
-	protected No shareable;
+    /**
+     * {@code 
+     * <attribute ref="xlink:actuate" use="optional"/>
+     * }
+     */
+    @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink", required = false)
+    protected XlinkActuate xlinkActuate;
 
-	@XmlAttribute(name = "altRepGroup")
-	protected String altRepGroup;
+    // IXlinkSimpleLinkAttributeGroup - end
 
-	// IAltFormatAttributeGroup - begin
-	@XmlAttribute(name = "altFormat")
-	protected String altFormat;
+    @XmlAttribute(name = "shareable")
+    protected No shareable;
 
-	@XmlAttribute(name = "contentType")
-	protected String contentType;
+    @XmlAttribute(name = "altRepGroup")
+    protected String altRepGroup;
 
-	// IAltFormatAttributeGroup - end
+    // IAltFormatAttributeGroup - begin
+    @XmlAttribute(name = "altFormat")
+    protected String altFormat;
 
-	public String getDisplayLabel() {
-		return displayLabel;
-	}
+    @XmlAttribute(name = "contentType")
+    protected String contentType;
 
-	public void setDisplayLabel(String displayLabel) {
-		this.displayLabel = displayLabel;
-	}
+    // IAltFormatAttributeGroup - end
 
-	public String getType() {
-		return type;
-	}
+    public String getID() {
+        return ID;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public void setID(String iD) {
+        ID = iD;
+    }
 
-	public String getXlinkHref() {
-		return xlinkHref;
-	}
+    public String getIDREF() {
+        return IDREF;
+    }
 
-	public void setXlinkHref(String xlinkHref) {
-		this.xlinkHref = xlinkHref;
-	}
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
+    }
 
-	public String getXlinkRole() {
-		return xlinkRole;
-	}
+    public String getDisplayLabel() {
+        return displayLabel;
+    }
 
-	public void setXlinkRole(String xlinkRole) {
-		this.xlinkRole = xlinkRole;
-	}
+    public void setDisplayLabel(String displayLabel) {
+        this.displayLabel = displayLabel;
+    }
 
-	public String getXlinkArcrole() {
-		return xlinkArcrole;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public void setXlinkArcrole(String xlinkArcrole) {
-		this.xlinkArcrole = xlinkArcrole;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public String getXlinkTitle() {
-		return xlinkTitle;
-	}
+    public String getXlinkHref() {
+        return xlinkHref;
+    }
 
-	public void setXlinkTitle(String xlinkTitle) {
-		this.xlinkTitle = xlinkTitle;
-	}
+    public void setXlinkHref(String xlinkHref) {
+        this.xlinkHref = xlinkHref;
+    }
 
-	public XlinkShow getXlinkShow() {
-		return xlinkShow;
-	}
+    public String getXlinkRole() {
+        return xlinkRole;
+    }
 
-	public void setXlinkShow(XlinkShow xlinkShow) {
-		this.xlinkShow = xlinkShow;
-	}
+    public void setXlinkRole(String xlinkRole) {
+        this.xlinkRole = xlinkRole;
+    }
 
-	public XlinkActuate getXlinkActuate() {
-		return xlinkActuate;
-	}
+    public String getXlinkArcrole() {
+        return xlinkArcrole;
+    }
 
-	public void setXlinkActuate(XlinkActuate xlinkActuate) {
-		this.xlinkActuate = xlinkActuate;
-	}
+    public void setXlinkArcrole(String xlinkArcrole) {
+        this.xlinkArcrole = xlinkArcrole;
+    }
 
-	public No getShareable() {
-		return shareable;
-	}
+    public String getXlinkTitle() {
+        return xlinkTitle;
+    }
 
-	public void setShareable(No shareable) {
-		this.shareable = shareable;
-	}
+    public void setXlinkTitle(String xlinkTitle) {
+        this.xlinkTitle = xlinkTitle;
+    }
 
-	public String getAltRepGroup() {
-		return altRepGroup;
-	}
+    public XlinkShow getXlinkShow() {
+        return xlinkShow;
+    }
 
-	public void setAltRepGroup(String altRepGroup) {
-		this.altRepGroup = altRepGroup;
-	}
+    public void setXlinkShow(XlinkShow xlinkShow) {
+        this.xlinkShow = xlinkShow;
+    }
 
-	public String getAltFormat() {
-		return altFormat;
-	}
+    public XlinkActuate getXlinkActuate() {
+        return xlinkActuate;
+    }
 
-	public void setAltFormat(String altFormat) {
-		this.altFormat = altFormat;
-	}
+    public void setXlinkActuate(XlinkActuate xlinkActuate) {
+        this.xlinkActuate = xlinkActuate;
+    }
 
-	public String getContentType() {
-		return contentType;
-	}
+    public No getShareable() {
+        return shareable;
+    }
 
-	public void setContentType(String contentType) {
-		this.contentType = contentType;
-	}
+    public void setShareable(No shareable) {
+        this.shareable = shareable;
+    }
 
-	public static Builder builder() {
-		return new Builder(new TableOfContents());
-	}
-	
-	public static Builder builder(TableOfContents toc) {
-		return new Builder(toc);
-	}
-	
-	public static class Builder extends BuilderBase<TableOfContents, Builder> implements IXsStringBuilder<TableOfContents, Builder>, ILanguageAttributeGroupBuilder<TableOfContents, Builder>, IAltFormatAttributeGroupBuilder<TableOfContents, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<TableOfContents, Builder>{
-		protected Builder(TableOfContents toc) {
-			super(toc);
-		}
-	    
-	    public Builder displayLabel(String displayLabel) {
-	    	_target().setDisplayLabel(displayLabel);
-	    	return _self();
-	    }
-	    
-	    public Builder type(String type) {
-	    	_target().setType(type);
-	    	return _self();
-	    }
-	    
-	    public Builder shareable(No shareable) {
-	    	_target().setShareable(shareable);
-	    	return _self();
-	    }
-	    
-	    public Builder altRepGroup(String s) {
-	    	_target().setAltRepGroup(s);
-	    	return _self();
-	    }
-	}
+    public String getAltRepGroup() {
+        return altRepGroup;
+    }
+
+    public void setAltRepGroup(String altRepGroup) {
+        this.altRepGroup = altRepGroup;
+    }
+
+    public String getAltFormat() {
+        return altFormat;
+    }
+
+    public void setAltFormat(String altFormat) {
+        this.altFormat = altFormat;
+    }
+
+    public String getContentType() {
+        return contentType;
+    }
+
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
+
+    public static Builder builder() {
+        return new Builder(new TableOfContents());
+    }
+
+    public static Builder builder(TableOfContents toc) {
+        return new Builder(toc);
+    }
+
+    public static class Builder extends BuilderBase<TableOfContents, Builder>
+        implements IXsStringBuilder<TableOfContents, Builder>, IIDAttributeGroupBuilder<TableOfContents, Builder>,
+        ILanguageAttributeGroupBuilder<TableOfContents, Builder>,
+        IAltFormatAttributeGroupBuilder<TableOfContents, Builder>,
+        IAttributeGroupXlinkSimpleLinkBuilder<TableOfContents, Builder> {
+        protected Builder(TableOfContents toc) {
+            super(toc);
+        }
+
+        public Builder displayLabel(String displayLabel) {
+            _target().setDisplayLabel(displayLabel);
+            return _self();
+        }
+
+        public Builder type(String type) {
+            _target().setType(type);
+            return _self();
+        }
+
+        public Builder shareable(No shareable) {
+            _target().setShareable(shareable);
+            return _self();
+        }
+
+        public Builder altRepGroup(String s) {
+            _target().setAltRepGroup(s);
+            return _self();
+        }
+    }
 }

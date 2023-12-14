@@ -31,7 +31,10 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum EnumerationAndChronologyUnitType {
-	@XmlEnumValue("1") VALUE_1,
-	@XmlEnumValue("2") VALUE_2,
-	@XmlEnumValue("3") VALUE_3;
+    @XmlEnumValue("1")
+    VALUE_1,
+    @XmlEnumValue("2")
+    VALUE_2,
+    @XmlEnumValue("3")
+    VALUE_3;
 }

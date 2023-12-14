@@ -38,7 +38,9 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum DatePoint {
-	@XmlEnumValue("start") START,
-	@XmlEnumValue("end")END;
+    @XmlEnumValue("start")
+    START,
+    @XmlEnumValue("end")
+    END;
 
 }

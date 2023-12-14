@@ -31,7 +31,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 public class NonSort extends StringPlusLanguage implements ITitleInfoSubelement, ISubjectTitleInfoSubelement {
     /**
      * {@code
-     * <xs:attribute name="supplied" fixed="yes"/>
+     * <xs:attribute name="supplied" type="yes"/>
      * }
      */
     @XmlAttribute(name = "space", namespace = "http://www.w3.org/XML/1998/namespace", required = false)
@@ -53,7 +53,8 @@ public class NonSort extends StringPlusLanguage implements ITitleInfoSubelement,
         return new Builder(ns);
     }
 
-    public static class Builder extends BuilderBase<NonSort, Builder> implements IXsStringBuilder<NonSort, Builder>, ILanguageAttributeGroupBuilder<NonSort, Builder> {
+    public static class Builder extends BuilderBase<NonSort, Builder>
+        implements IXsStringBuilder<NonSort, Builder>, ILanguageAttributeGroupBuilder<NonSort, Builder> {
 
         protected Builder(NonSort nonSort) {
             super(nonSort);

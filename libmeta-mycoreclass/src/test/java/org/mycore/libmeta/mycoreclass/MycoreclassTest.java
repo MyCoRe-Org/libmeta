@@ -17,12 +17,14 @@
  */
 package org.mycore.libmeta.mycoreclass;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
-import java.util.Map.Entry;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.mycoreclass.model.Category;
 import org.mycore.libmeta.mycoreclass.model.Label;
 import org.mycore.libmeta.mycoreclass.model.Mycoreclass;
@@ -31,23 +33,19 @@ public class MycoreclassTest {
 
     @Test
     public void test1() {
-        MycoreclassProcessor processor = MycoreclassProcessor.getInstance();
+        MycoreclassXMLProcessor processor = MycoreclassXMLProcessor.getInstance();
         try {
             Mycoreclass m = processor
                 .unmarshal(new URL("https://rosdok.uni-rostock.de/api/v1/classifications/accesscondition"));
-            for (Entry<String, Label> l : MycoreclassQuery.findLabels(m, "restrictedaccess").entrySet()) {
-                System.out.println(l.getKey() + l.getValue().getText());
-            }
             Assert.assertEquals("nicht zugänglich", MycoreclassQuery.findLabelText(m, "closedaccess", "de"));
-
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException | MalformedURLException e) {
             Assert.fail(e.getMessage());
         }
     }
 
     @Test
     public void test2() {
-        MycoreclassProcessor processor = MycoreclassProcessor.getInstance();
+        MycoreclassXMLProcessor processor = MycoreclassXMLProcessor.getInstance();
         Mycoreclass m2 = Mycoreclass.builder()
             .ID("accesscondition")
             .addLabel(Label.builder().xmlLang("x-openaire").text("info:eu-repo/semantics/openAccess").build())
@@ -70,23 +68,20 @@ public class MycoreclassTest {
                     .build())
                 .build())
             .build();
-
         try {
-            System.out.println(processor.marshalToString(m2));
-        } catch (Exception e) {
+            processor.marshal(m2, Files.createTempFile("collection", ".xml"));
+        } catch (LibmetaProcessorException | IOException e) {
             Assert.fail(e.getMessage());
         }
     }
 
     @Test
     public void test3() {
-        MycoreclassProcessor processor = MycoreclassProcessor.getInstance();
+        MycoreclassXMLProcessor processor = MycoreclassXMLProcessor.getInstance();
         try {
             Mycoreclass m3 = processor
                 .unmarshal(new URL("https://rosdok.uni-rostock.de/api/v1/classifications/collection"));
-            System.out.println(processor.marshalToString(m3));
             processor.marshal(m3, Files.createTempFile("collection", ".xml"));
-
         } catch (Exception e) {
             Assert.fail(e.getMessage());
         }
@@ -94,7 +89,7 @@ public class MycoreclassTest {
 
     @Test
     public void test4() {
-        MycoreclassProcessor processor = MycoreclassProcessor.getInstance();
+        MycoreclassXMLProcessor processor = MycoreclassXMLProcessor.getInstance();
         try {
             Mycoreclass m4 = processor
                 .unmarshal(new URL("https://rosdok.uni-rostock.de/api/v1/classifications/doctype"));
@@ -102,7 +97,7 @@ public class MycoreclassTest {
             Assert.assertEquals("Musikhandschrift",
                 MycoreclassQuery.findLabelText(m4, "histbest.musicalsource.manuscript", "de"));
 
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException | MalformedURLException e) {
             Assert.fail(e.getMessage());
         }
 

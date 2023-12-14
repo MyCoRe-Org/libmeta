@@ -19,6 +19,7 @@ package org.mycore.libmeta.marc21.json;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -26,12 +27,12 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.marc21.model.MarcControlfield;
 import org.mycore.libmeta.marc21.model.MarcDatafield;
 import org.mycore.libmeta.marc21.model.MarcLeader;
 import org.mycore.libmeta.marc21.model.MarcRecord;
 import org.mycore.libmeta.marc21.model.MarcSubfield;
-import org.mycore.libmeta.marc21.xml.MarcXMLProcessor;
 
 import jakarta.json.Json;
 import jakarta.json.JsonArray;
@@ -62,14 +63,17 @@ public class MarcInJSONProcessor {
         return INSTANCE;
     }
 
-    public void marshal(MarcRecord marc, Path p) throws Exception {
+    public void marshal(MarcRecord marc, Path p) throws LibmetaProcessorException {
         try (BufferedWriter bw = Files.newBufferedWriter(p);
             JsonWriter jw = Json.createWriter(bw)) {
             marshal(marc, jw);
         }
+        catch(IOException e) {
+            throw new LibmetaProcessorException(e);
+        }
     }
 
-    public String marshalToString(MarcRecord marc) throws Exception {
+    public String marshalToString(MarcRecord marc) {
         StringWriter sw = new StringWriter();
         try (JsonWriter jw = Json.createWriter(sw)) {
             marshal(marc, jw);
@@ -77,24 +81,30 @@ public class MarcInJSONProcessor {
         return sw.toString();
     }
 
-    public MarcRecord unmarshal(String s) throws Exception {
+    public MarcRecord unmarshal(String s) {
         try (JsonReader jr = Json.createReader(new StringReader(s))) {
             return unmarshal(jr);
         }
 
     }
 
-    public MarcRecord unmarshal(Path p) throws Exception {
+    public MarcRecord unmarshal(Path p) throws LibmetaProcessorException {
         try (BufferedReader br = Files.newBufferedReader(p);
             JsonReader jr = Json.createReader(br)) {
             return unmarshal(jr);
         }
+        catch(IOException e) {
+            throw new LibmetaProcessorException(e);
+        }
     }
 
-    public MarcRecord unmarshal(URL url) throws Exception {
+    public MarcRecord unmarshal(URL url) throws LibmetaProcessorException {
         try (InputStream is = url.openStream();
             JsonReader jr = Json.createReader(is)) {
             return unmarshal(jr);
+        }
+        catch(IOException e) {
+            throw new LibmetaProcessorException(e);
         }
     }
 
@@ -155,7 +165,7 @@ public class MarcInJSONProcessor {
                             df.getSubfields().add(
                                 MarcSubfield.builder()
                                     .code(k)
-                                    .content(v.toString())
+                                    .content(((JsonString) v).getString())
                                     .build());
                         });
                     });
@@ -163,19 +173,6 @@ public class MarcInJSONProcessor {
             });
         }
         return marc;
-    }
-
-    public static void main(String[] args) {
-        try {
-            URL url = new URL("https://lccn.loc.gov/09028059/marcxml");
-            MarcRecord mr = (MarcRecord) MarcXMLProcessor.getInstance().unmarshal(url);
-            String json = MarcInJSONProcessor.getInstance().marshalToString(mr);
-            System.out.println(json);
-            MarcRecord mr2 = MarcInJSONProcessor.getInstance().unmarshal(json);
-            System.out.println(MarcXMLProcessor.getInstance().marshalToString(mr2));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 }

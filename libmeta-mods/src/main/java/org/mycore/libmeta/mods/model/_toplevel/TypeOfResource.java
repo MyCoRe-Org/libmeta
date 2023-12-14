@@ -18,7 +18,9 @@
 package org.mycore.libmeta.mods.model._toplevel;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.Usage;
@@ -27,6 +29,7 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguagePlusAuthority
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
  * Top Level Element {@literal <typeOfResource>}
@@ -35,11 +38,11 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  * 	<xs:complexType name="typeOfResourceDefinition">
  *       <xs:simpleContent>
  *           <xs:extension base="stringPlusLanguagePlusAuthority">
- *               <xs:attribute name="collection" fixed="yes"/>
- *               <xs:attribute name="manuscript" fixed="yes"/>
+ *               <xs:attribute name="collection" type="yes"/>
+ *               <xs:attribute name="manuscript" type="yes"/>
  *               <xs:attribute name="displayLabel" type="xs:string"/>
  *               <xs:attribute name="altRepGroup" type="xs:string"/>
- *               <xs:attribute name="usage" fixed="primary"/>
+ *               <xs:attribute name="usage" type="primary"/>
  *           </xs:extension>
  *      </xs:simpleContent>
  *  </xs:complexType>
@@ -51,121 +54,145 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class TypeOfResource extends StringPlusLanguagePlusAuthority implements ITopLevelElement {
+public class TypeOfResource extends StringPlusLanguagePlusAuthority implements ITopLevelElement, IIDAttributeGroup {
+
+    @XmlAttribute(name = "ID")
+    protected String ID;
+
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
     /**
      * {@code
-     * <xs:attribute name="collection" fixed="yes"/>
+     * <xs:attribute name="collection" type="yes"/>
      * }
      */
     protected Yes collection;
-    
+
     /**
      * {@code
-     * <xs:attribute name="manuscript" fixed="yes"/>
+     * <xs:attribute name="manuscript" type="yes"/>
      * }
      */
     protected Yes manuscript;
-    
+
     /**
      * {@code
      * <xs:attribute name="displayLabel" type="xs:string"/>
      * }
      */
     protected String displayLabel;
-    
+
     /**
      * {@code
      * <xs:attribute name="altRepGroup" type="xs:string"/>
      * }
      */
     protected String altRepGroup;
-    
+
     /**
      * {@code
-     * <xs:attribute name="usage" fixed="primary"/>
+     * <xs:attribute name="usage" type="primary"/>
      * }
      */
     protected Usage usage;
 
+    public String getID() {
+        return ID;
+    }
 
-	public Yes getCollection() {
-		return collection;
-	}
+    public void setID(String iD) {
+        ID = iD;
+    }
 
-	public void setCollection(Yes collection) {
-		this.collection = collection;
-	}
+    public String getIDREF() {
+        return IDREF;
+    }
 
-	public Yes getManuscript() {
-		return manuscript;
-	}
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
+    }
 
-	public void setManuscript(Yes manuscript) {
-		this.manuscript = manuscript;
-	}
+    public Yes getCollection() {
+        return collection;
+    }
 
-	public String getDisplayLabel() {
-		return displayLabel;
-	}
+    public void setCollection(Yes collection) {
+        this.collection = collection;
+    }
 
-	public void setDisplayLabel(String displayLabel) {
-		this.displayLabel = displayLabel;
-	}
+    public Yes getManuscript() {
+        return manuscript;
+    }
 
-	public String getAltRepGroup() {
-		return altRepGroup;
-	}
+    public void setManuscript(Yes manuscript) {
+        this.manuscript = manuscript;
+    }
 
-	public void setAltRepGroup(String altRepGroup) {
-		this.altRepGroup = altRepGroup;
-	}
+    public String getDisplayLabel() {
+        return displayLabel;
+    }
 
-	public Usage getUsage() {
-		return usage;
-	}
+    public void setDisplayLabel(String displayLabel) {
+        this.displayLabel = displayLabel;
+    }
 
-	public void setUsage(Usage usage) {
-		this.usage = usage;
-	}
+    public String getAltRepGroup() {
+        return altRepGroup;
+    }
 
-	public static Builder builderForTypeOfResource() {
-		return builder(new TypeOfResource());
-	}
-	
-	public static Builder builder(TypeOfResource tor) {
-		return new Builder(tor);
-	}
-	
-	public static class Builder extends BuilderBase<TypeOfResource, Builder> implements IXsStringBuilder<TypeOfResource, Builder>, ILanguageAttributeGroupBuilder<TypeOfResource, Builder>, IAuthorityAttributeGroupBuilder<TypeOfResource, Builder>{
-			    
-	    protected Builder(TypeOfResource tor) {
-			super(tor);
-		}
-	    
-	    public Builder collection(Yes collection) {
-			_target().setCollection(collection);
-			return _self();
-		}
-	    
-	    public Builder manuscript(Yes manuscript) {
-			_target().setManuscript(manuscript);
-			return _self();
-		}
-	    
-	    public Builder displayLabel(String displayLabel) {
-			_target().setDisplayLabel(displayLabel);
-			return _self();
-		}
-	    
-	    public Builder altRepGroup(String altRepGroup) {
-	    	_target().setAltRepGroup(altRepGroup);
-	    	return _self();
-	    }
-	    
-	    public Builder usage(Usage usage) {
-	    	_target().setUsage(usage);
-	    	return _self();
-	    }
-	}
+    public void setAltRepGroup(String altRepGroup) {
+        this.altRepGroup = altRepGroup;
+    }
+
+    public Usage getUsage() {
+        return usage;
+    }
+
+    public void setUsage(Usage usage) {
+        this.usage = usage;
+    }
+
+    public static Builder builderForTypeOfResource() {
+        return builder(new TypeOfResource());
+    }
+
+    public static Builder builder(TypeOfResource tor) {
+        return new Builder(tor);
+    }
+
+    public static class Builder extends BuilderBase<TypeOfResource, Builder>
+        implements IXsStringBuilder<TypeOfResource, Builder>, IIDAttributeGroupBuilder<TypeOfResource, Builder>,
+        ILanguageAttributeGroupBuilder<TypeOfResource, Builder>,
+        IAuthorityAttributeGroupBuilder<TypeOfResource, Builder> {
+
+        protected Builder(TypeOfResource tor) {
+            super(tor);
+        }
+
+        public Builder collection(Yes collection) {
+            _target().setCollection(collection);
+            return _self();
+        }
+
+        public Builder manuscript(Yes manuscript) {
+            _target().setManuscript(manuscript);
+            return _self();
+        }
+
+        public Builder displayLabel(String displayLabel) {
+            _target().setDisplayLabel(displayLabel);
+            return _self();
+        }
+
+        public Builder altRepGroup(String altRepGroup) {
+            _target().setAltRepGroup(altRepGroup);
+            return _self();
+        }
+
+        public Builder usage(Usage usage) {
+            _target().setUsage(usage);
+            return _self();
+        }
+    }
 }

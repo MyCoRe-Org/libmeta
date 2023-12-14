@@ -17,11 +17,20 @@
  */
 package org.mycore.libmeta.mods.model.location;
 
+import org.mycore.libmeta.mods.model._misc.enums.Usage;
+
 import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 
 /**
  *  MODS Location URL attribute: Usage 
+ *
+ * This value,"primary display”, is deprecated in version 3.8;
+ *  “primary” is the only value that should be used in 3.8 and beyond.
+ *  ("primary display” remains a legal value in the schema, 
+ *  for compatibility with earlier versions.)
+ *  
+ *  The enum can be replaces with {@link Usage} in MODS >= 4.0
  *  
  * {@code
  * <xs:attribute name="usage">
@@ -35,11 +44,13 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  * }
  * 
  * @author Robert Stephan
- * @version MODS 3.6
+ * @version MODS 3.6 / MODS 3.8
  * 
  */
 @XmlEnum
 public enum UrlUsage {
-	@XmlEnumValue("primary display") PRIMARY_DISPLAY,
-	@XmlEnumValue("primary") PRIMARY;
+    @XmlEnumValue("primary display")
+    PRIMARY_DISPLAY__DEPRECATED,
+    @XmlEnumValue("primary")
+    PRIMARY;
 }

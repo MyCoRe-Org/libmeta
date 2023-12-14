@@ -37,12 +37,22 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum ModsVersion {
-    @XmlEnumValue("3.7") VERSION_3_7,
-    @XmlEnumValue("3.6") VERSION_3_6,
-    @XmlEnumValue("3.5") VERSION_3_5,
-    @XmlEnumValue("3.4") VERSION_3_4, 
-	@XmlEnumValue("3.3") VERSION_3_3, 
-	@XmlEnumValue("3.2") VERSION_3_2, 
-	@XmlEnumValue("3.1") VERSION_3_1,
-	@XmlEnumValue("3.0") VERSION_3_0;
+    @XmlEnumValue("3.8")
+    VERSION_3_8,
+    @XmlEnumValue("3.7")
+    VERSION_3_7,
+    @XmlEnumValue("3.6")
+    VERSION_3_6,
+    @XmlEnumValue("3.5")
+    VERSION_3_5,
+    @XmlEnumValue("3.4")
+    VERSION_3_4,
+    @XmlEnumValue("3.3")
+    VERSION_3_3,
+    @XmlEnumValue("3.2")
+    VERSION_3_2,
+    @XmlEnumValue("3.1")
+    VERSION_3_1,
+    @XmlEnumValue("3.0")
+    VERSION_3_0;
 }

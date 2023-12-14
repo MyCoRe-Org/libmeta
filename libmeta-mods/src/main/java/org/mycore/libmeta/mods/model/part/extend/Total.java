@@ -22,7 +22,6 @@ import org.mycore.libmeta.mods.model._misc.types.XsPositiveInteger;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 
-
 /**
  * {@code
  *  <xs:element name="total" type="xs:positiveInteger"/>
@@ -36,13 +35,13 @@ public class Total extends XsPositiveInteger implements IPartExtendSubelement {
     public static Builder builder() {
         return builder(new Total());
     }
-    
+
     public static Builder builder(Total t) {
         return new Builder(t);
     }
-    
-    public static class Builder extends XsPositiveInteger.Builder<Total>{
-         protected Builder(Total t) {
+
+    public static class Builder extends XsPositiveInteger.Builder<Total> {
+        protected Builder(Total t) {
             super(t);
         }
     }

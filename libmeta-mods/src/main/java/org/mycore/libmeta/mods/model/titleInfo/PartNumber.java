@@ -28,7 +28,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 
 @XmlAccessorType(XmlAccessType.NONE)
 public class PartNumber extends StringPlusLanguage implements ITitleInfoSubelement, ISubjectTitleInfoSubelement {
-    
+
     public static Builder builder() {
         return builder(new PartNumber());
     }
@@ -37,7 +37,8 @@ public class PartNumber extends StringPlusLanguage implements ITitleInfoSubeleme
         return new Builder(partNumber);
     }
 
-    public static class Builder  extends BuilderBase<PartNumber, Builder> implements IXsStringBuilder<PartNumber, Builder>, ILanguageAttributeGroupBuilder<PartNumber, Builder> {
+    public static class Builder extends BuilderBase<PartNumber, Builder>
+        implements IXsStringBuilder<PartNumber, Builder>, ILanguageAttributeGroupBuilder<PartNumber, Builder> {
 
         protected Builder(PartNumber partNumber) {
             super(partNumber);

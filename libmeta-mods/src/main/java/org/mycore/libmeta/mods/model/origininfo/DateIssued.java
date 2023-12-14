@@ -36,17 +36,18 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class DateIssued extends DateDefinition implements IOriginInfoSubelement{
+public class DateIssued extends DateDefinition implements IOriginInfoSubelement {
 
     public static Builder builderForDateIssued() {
         return builder(new DateIssued());
     }
-    
+
     public static Builder builder(DateIssued d) {
         return new Builder(d);
     }
-    
-    public static class Builder extends BuilderBase<DateIssued, Builder> implements IDateDefinitionBuilder<DateIssued, Builder>{
+
+    public static class Builder extends BuilderBase<DateIssued, Builder>
+        implements IDateDefinitionBuilder<DateIssued, Builder> {
         protected Builder(DateIssued d) {
             super(d);
         }

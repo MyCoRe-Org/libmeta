@@ -21,6 +21,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
+import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.dfgviewer.model.Links;
 import org.mycore.libmeta.dfgviewer.model.links.Reference;
 
@@ -35,19 +36,14 @@ public class DVLinksTest {
             .build();
         try {
             String actual = DVLinksXMLProcessor.getInstance().marshalToString(links);
-            System.out.println(actual);
-
             String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
                 + "<dv:links xmlns:dv=\"http://dfg-viewer.de/\">\n"
                 + "  <dv:presentation>https://mdz-nbn-resolving.de/urn:nbn:de:bvb:12-bsb10128295-4</dv:presentation>\n"
                 + "  <dv:sru>https://api.digitale-sammlungen.de/sru/bsb10128295</dv:sru>\n"
                 + "  <dv:iiif>https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb10128295/manifest</dv:iiif>\n"
                 + "</dv:links>";
-            System.out.println(expected);
-
-            System.out.println("---");
             assertTrue("testLinks failed", expected.equals(actual));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
@@ -69,18 +65,13 @@ public class DVLinksTest {
             .build();
         try {
             String actual = DVLinksXMLProcessor.getInstance().marshalToString(links);
-            System.out.println(actual);
-
             String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
                 + "<dv:links xmlns:dv=\"http://dfg-viewer.de/\">\n"
                 + "  <dv:reference linktext=\"OPAC\">https://opacplus.bsb-muenchen.de/title/BV022758208</dv:reference>\n"
                 + "  <dv:reference linktext=\"MARC-XML\">https://opacplus.bsb-muenchen.de/title/BV022758208?format=marc</dv:reference>\n"
                 + "</dv:links>";
-            System.out.println(expected);
-
-            System.out.println("---");
             assertTrue("testLinksReferences failed", expected.equals(actual));
-        } catch (Exception e) {
+        } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }

@@ -30,30 +30,32 @@ import org.mycore.libmeta.mods.model._misc.enums.Yes;
  * @version MODS 3.6
  *
  */
-public interface IDateDefinitionBuilder<T extends DateDefinition, B> extends IXsStringBuilder<DateDefinition, B>, ILanguageAttributeGroupBuilder<DateDefinition, B> {
+public interface IDateDefinitionBuilder<T extends DateDefinition, B>
+    extends IXsStringBuilder<DateDefinition, B>, ILanguageAttributeGroupBuilder<DateDefinition, B> {
     public T _target();
+
     public B _self();
-    
+
     public default B encoding(DateEncoding encoding) {
         _target().setEncoding(encoding);
         return _self();
     }
-    
+
     public default B qualifier(DateQualifier qualifier) {
         _target().setQualifier(qualifier);
         return _self();
     }
-    
+
     public default B point(DatePoint point) {
         _target().setPoint(point);
         return _self();
     }
-    
+
     public default B keyDate(Yes keyDate) {
         _target().setKeyDate(keyDate);
         return _self();
     }
-    
+
     public default B calendar(String calendar) {
         _target().setCalendar(calendar);
         return _self();

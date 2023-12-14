@@ -48,33 +48,34 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 @XmlAccessorType(XmlAccessType.NONE)
 public class RoleTerm extends StringPlusLanguagePlusAuthority {
 
-	@XmlAttribute(name = "type", required=false)
-	protected CodeOrText type;
+    @XmlAttribute(name = "type", required = false)
+    protected CodeOrText type;
 
-	public CodeOrText getType() {
-		return type;
-	}
+    public CodeOrText getType() {
+        return type;
+    }
 
-	public void setType(CodeOrText type) {
-		this.type = type;
-	}
+    public void setType(CodeOrText type) {
+        this.type = type;
+    }
 
-	public static Builder builder() {
-		return builder(new RoleTerm());
-	}
-	
-	public static Builder builder(RoleTerm roleTerm) {
-		return new Builder(roleTerm);
-	}
-	
-	public static class Builder extends BuilderBase<RoleTerm, Builder> implements IXsStringBuilder<RoleTerm, Builder>, ILanguageAttributeGroupBuilder<RoleTerm, Builder>, IAuthorityAttributeGroupBuilder<RoleTerm, Builder> {
-		protected Builder(RoleTerm role) {
-			super(role);
-		}
-	    
-	    public Builder type(CodeOrText type) {
-	    	_target().setType(type);
-	    	return _self();
-	    }
-	}
+    public static Builder builder() {
+        return builder(new RoleTerm());
+    }
+
+    public static Builder builder(RoleTerm roleTerm) {
+        return new Builder(roleTerm);
+    }
+
+    public static class Builder extends BuilderBase<RoleTerm, Builder> implements IXsStringBuilder<RoleTerm, Builder>,
+        ILanguageAttributeGroupBuilder<RoleTerm, Builder>, IAuthorityAttributeGroupBuilder<RoleTerm, Builder> {
+        protected Builder(RoleTerm role) {
+            super(role);
+        }
+
+        public Builder type(CodeOrText type) {
+            _target().setType(type);
+            return _self();
+        }
+    }
 }

@@ -18,5 +18,5 @@
 package org.mycore.libmeta.mods.model.physicaldescription;
 
 public interface IPhysicalDescriptionSubelement {
- 
+
 }

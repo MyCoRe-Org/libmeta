@@ -47,7 +47,8 @@ public class InternetMediaType extends StringPlusLanguage implements IPhysicalDe
         return new Builder(imt);
     }
 
-    public static class Builder extends BuilderBase<InternetMediaType, Builder> implements IXsStringBuilder<InternetMediaType, Builder>, ILanguageAttributeGroupBuilder<InternetMediaType, Builder> {
+    public static class Builder extends BuilderBase<InternetMediaType, Builder> implements
+        IXsStringBuilder<InternetMediaType, Builder>, ILanguageAttributeGroupBuilder<InternetMediaType, Builder> {
         protected Builder(InternetMediaType imt) {
             super(imt);
         }

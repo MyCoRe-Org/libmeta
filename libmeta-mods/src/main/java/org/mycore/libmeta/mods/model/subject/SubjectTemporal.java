@@ -87,7 +87,8 @@ public class SubjectTemporal extends DateDefinition implements ISubjectSubelemen
         return new Builder(subjectTemporal);
     }
 
-    public static class Builder extends BuilderBase<SubjectTemporal, Builder> implements IDateDefinitionBuilder<SubjectTemporal, Builder>, IAuthorityAttributeGroupBuilder<SubjectTemporal, Builder> {
+    public static class Builder extends BuilderBase<SubjectTemporal, Builder> implements
+        IDateDefinitionBuilder<SubjectTemporal, Builder>, IAuthorityAttributeGroupBuilder<SubjectTemporal, Builder> {
 
         protected Builder(SubjectTemporal subjectTemporal) {
             super(subjectTemporal);

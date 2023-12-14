@@ -31,29 +31,31 @@ import jakarta.xml.bind.annotation.XmlTransient;
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlTransient
 public class StringPlusLanguagePlusSupplied extends StringPlusLanguage {
-	
-	/**
-	 * {@code
-	 * <xs:attribute name="supplied" fixed="yes"/>
-	 * }
-	 */
-	 @XmlAttribute(name="supplied", namespace="http://www.loc.gov/mods/v3", required=false)
-	 Supplied supplied;
 
-	public Supplied getSupplied() {
-		return supplied;
-	}
+    /**
+     * {@code
+     * <xs:attribute name="supplied" type="yes"/>
+     * }
+     */
+    @XmlAttribute(name = "supplied", namespace = "http://www.loc.gov/mods/v3", required = false)
+    Supplied supplied;
 
-	public void setSupplied(Supplied supplied) {
-		this.supplied = supplied;
-	}
+    public Supplied getSupplied() {
+        return supplied;
+    }
 
-	
-	public static class Builder extends BuilderBase<StringPlusLanguagePlusSupplied, Builder> implements IXsStringBuilder<StringPlusLanguagePlusSupplied, Builder>, ILanguageAttributeGroupBuilder<StringPlusLanguagePlusSupplied, Builder>, ISuppliedAttributeBuilder<StringPlusLanguagePlusSupplied, Builder>{
-		    
-	    protected Builder(StringPlusLanguagePlusSupplied spl) {
-			super(spl);
-		}
+    public void setSupplied(Supplied supplied) {
+        this.supplied = supplied;
+    }
 
-	}
+    public static class Builder extends BuilderBase<StringPlusLanguagePlusSupplied, Builder>
+        implements IXsStringBuilder<StringPlusLanguagePlusSupplied, Builder>,
+        ILanguageAttributeGroupBuilder<StringPlusLanguagePlusSupplied, Builder>,
+        ISuppliedAttributeBuilder<StringPlusLanguagePlusSupplied, Builder> {
+
+        protected Builder(StringPlusLanguagePlusSupplied spl) {
+            super(spl);
+        }
+
+    }
 }

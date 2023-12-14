@@ -21,8 +21,12 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IAlternativeNameSubelement;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.INameSubelement;
+import org.mycore.libmeta.mods.model._misc.NameDefinition;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.INameDefinitionBuilder;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
 import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBuilder;
@@ -59,25 +63,25 @@ import jakarta.xml.bind.annotation.XmlElements;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class AlternativeName
-    implements IAttributeGroupXlinkSimpleLink, ILanguageAttributeGroup {
+public class AlternativeName extends NameDefinition<IAlternativeNameSubelement>
+    implements INameSubelement, IAttributeGroupXlinkSimpleLink, ILanguageAttributeGroup {
 
     //well-known values for altType attribute
-    public static final String ALT_TYPE_FORMAL_NAME="formal name";
-    public static final String ALT_TYPE_PREFERRED_NAME = "preferred name";
-    public static final String ALT_TYPE_ACRONYM = "acronym";
-    public static final String ALT_TYPE_NICKNAME = "nickname";
-    public static final String ALT_TYPE_NO_SPECIFIC_TYPE = "no specific type"; 
-    
-    @XmlElements({ 
+    public static final String ALT_TYPE__FORMAL_NAME = "formal name";
+    public static final String ALT_TYPE__PREFERRED_NAME = "preferred name";
+    public static final String ALT_TYPE__ACRONYM = "acronym";
+    public static final String ALT_TYPE__NICKNAME = "nickname";
+    public static final String ALT_TYPE__NO_SPECIFIC_TYPE = "no specific type";
+
+    @XmlElements({
         @XmlElement(name = "namePart", namespace = "http://www.loc.gov/mods/v3", type = NamePart.class),
         @XmlElement(name = "displayForm", namespace = "http://www.loc.gov/mods/v3", type = DisplayForm.class),
         @XmlElement(name = "affiliation", namespace = "http://www.loc.gov/mods/v3", type = Affiliation.class),
         @XmlElement(name = "role", namespace = "http://www.loc.gov/mods/v3", type = Role.class),
         @XmlElement(name = "description", namespace = "http://www.loc.gov/mods/v3", type = Description.class),
         @XmlElement(name = "nameIdentifier", namespace = "http://www.loc.gov/mods/v3", type = NameIdentifier.class) })
-    protected List<INameSubelement> content = new Vector<>();
-  
+    protected List<IAlternativeNameSubelement> content = new Vector<>();
+
     //IXlinkSimpleLinkAttributeGroup - begin
 
     /**
@@ -152,98 +156,6 @@ public class AlternativeName
     @XmlAttribute(name = "altType")
     protected String altType;
 
-    public List<INameSubelement> getContent() {
-        return content;
-    }
-
-   public String getXlinkHref() {
-        return xlinkHref;
-    }
-
-    public void setXlinkHref(String xlinkHref) {
-        this.xlinkHref = xlinkHref;
-    }
-
-    public String getXlinkRole() {
-        return xlinkRole;
-    }
-
-    public void setXlinkRole(String xlinkRole) {
-        this.xlinkRole = xlinkRole;
-    }
-
-    public String getXlinkArcrole() {
-        return xlinkArcrole;
-    }
-
-    public void setXlinkArcrole(String xlinkArcrole) {
-        this.xlinkArcrole = xlinkArcrole;
-    }
-
-    public String getXlinkTitle() {
-        return xlinkTitle;
-    }
-
-    public void setXlinkTitle(String xlinkTitle) {
-        this.xlinkTitle = xlinkTitle;
-    }
-
-    public XlinkShow getXlinkShow() {
-        return xlinkShow;
-    }
-
-    public void setXlinkShow(XlinkShow xlinkShow) {
-        this.xlinkShow = xlinkShow;
-    }
-
-    public XlinkActuate getXlinkActuate() {
-        return xlinkActuate;
-    }
-
-    public void setXlinkActuate(XlinkActuate xlinkActuate) {
-        this.xlinkActuate = xlinkActuate;
-    }
-
-    public String getLang() {
-        return lang;
-    }
-
-    public void setLang(String lang) {
-        this.lang = lang;
-    }
-
-    public String getXmlLang() {
-        return xmlLang;
-    }
-
-    public void setXmlLang(String xmlLang) {
-        this.xmlLang = xmlLang;
-    }
-
-    public String getScript() {
-        return script;
-    }
-
-    public void setScript(String script) {
-        this.script = script;
-    }
-
-    public String getTransliteration() {
-        return transliteration;
-    }
-
-    public void setTransliteration(String transliteration) {
-        this.transliteration = transliteration;
-    }
-
-    public String getDisplayLabel() {
-        return displayLabel;
-    }
-
-    public void setDisplayLabel(String displayLabel) {
-        this.displayLabel = displayLabel;
-    }
-
     public String getAltType() {
         return altType;
     }
@@ -260,21 +172,13 @@ public class AlternativeName
         return new Builder(name);
     }
 
-    public static class Builder extends BuilderBase<AlternativeName, Builder> implements
-        IAttributeGroupXlinkSimpleLinkBuilder<AlternativeName, Builder>, ILanguageAttributeGroupBuilder<AlternativeName, Builder> {
+    public static class Builder extends BuilderBase<AlternativeName, Builder>
+        implements INameDefinitionBuilder<IAlternativeNameSubelement, AlternativeName, Builder>,
+        IAttributeGroupXlinkSimpleLinkBuilder<AlternativeName, Builder>,
+        ILanguageAttributeGroupBuilder<AlternativeName, Builder> {
 
         protected Builder(AlternativeName name) {
             super(name);
-        }
-
-        public Builder addContent(INameSubelement content) {
-            _target().getContent().add(content);
-            return _self();
-        }
-
-        public Builder displayLabel(String displayLabel) {
-            _target().setDisplayLabel(displayLabel);
-            return _self();
         }
 
         public Builder altType(String altType) {

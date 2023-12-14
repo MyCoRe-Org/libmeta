@@ -53,10 +53,11 @@ import jakarta.xml.bind.annotation.XmlElements;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class Detail implements IPartSubelement {
-    
+
     // <xs:choice maxOccurs="unbounded">
     @XmlElements({
-        @XmlElement(name = "number", namespace = "http://www.loc.gov/mods/v3", type = org.mycore.libmeta.mods.model.part.detail.Number.class),
+        @XmlElement(name = "number", namespace = "http://www.loc.gov/mods/v3",
+            type = org.mycore.libmeta.mods.model.part.detail.Number.class),
         @XmlElement(name = "caption", namespace = "http://www.loc.gov/mods/v3", type = Caption.class),
         @XmlElement(name = "title", namespace = "http://www.loc.gov/mods/v3", type = Title.class) })
 
@@ -91,31 +92,31 @@ public class Detail implements IPartSubelement {
     public void setLevel(Integer level) {
         this.level = level;
     }
-    
+
     public static Builder builder() {
         return new Builder(new Detail());
     }
-    
+
     public static Builder builder(Detail d) {
         return new Builder(d);
     }
-    
+
     public static class Builder extends BuilderBase<Detail, Builder> {
-        
+
         protected Builder(Detail d) {
             super(d);
         }
-        
+
         public Builder addContent(IPartDetailSubelement e) {
             _target().getContent().add(e);
             return _self();
         }
-        
+
         public Builder type(String type) {
             _target().setType(type);
             return _self();
         }
-        
+
         public Builder level(Integer level) {
             _target().setLevel(level);
             return _self();

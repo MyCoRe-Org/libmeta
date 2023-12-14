@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.mycore.libmeta</groupId>
+    <artifactId>libmeta-parent</artifactId>
+    <version>0.8.1-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>libmeta-dublincore-oai</artifactId>
+  
+  <name>LibMeta Dublin Core OAI-DC</name>
+  <description>Java API for Dublin Core Simple in OAI 2 metadata model.</description>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.mycore.libmeta</groupId>
+      <artifactId>libmeta-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mycore.libmeta</groupId>
+      <artifactId>libmeta-dublincore-simple</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>pl.project13.maven</groupId>
+        <artifactId>git-commit-id-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+  
+</project>

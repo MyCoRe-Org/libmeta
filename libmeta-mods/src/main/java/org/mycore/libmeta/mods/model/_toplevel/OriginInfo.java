@@ -21,8 +21,11 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model.origininfo.Agent;
 import org.mycore.libmeta.mods.model.origininfo.CopyrightDate;
 import org.mycore.libmeta.mods.model.origininfo.DateCaptured;
 import org.mycore.libmeta.mods.model.origininfo.DateCreated;
@@ -30,6 +33,7 @@ import org.mycore.libmeta.mods.model.origininfo.DateIssued;
 import org.mycore.libmeta.mods.model.origininfo.DateModified;
 import org.mycore.libmeta.mods.model.origininfo.DateOther;
 import org.mycore.libmeta.mods.model.origininfo.DateValid;
+import org.mycore.libmeta.mods.model.origininfo.DisplayDate;
 import org.mycore.libmeta.mods.model.origininfo.Edition;
 import org.mycore.libmeta.mods.model.origininfo.Frequency;
 import org.mycore.libmeta.mods.model.origininfo.IOriginInfoSubelement;
@@ -58,6 +62,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  *           <xs:element ref="dateModified"/>
  *           <xs:element ref="copyrightDate"/>
  *           <xs:element ref="dateOther"/>
+ *           <xs:element name="displayDate" type="xs:string"/>
  *           <xs:element ref="edition"/>
  *           <xs:element ref="issuance"/>
  *           <xs:element ref="frequency"/>
@@ -74,8 +79,8 @@ import jakarta.xml.bind.annotation.XmlElements;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class OriginInfo implements ITopLevelElement, ILanguageAttributeGroup {
-    
+public class OriginInfo implements ITopLevelElement, IIDAttributeGroup, ILanguageAttributeGroup {
+
     /**
      * recommended value for eventType
      */
@@ -99,6 +104,7 @@ public class OriginInfo implements ITopLevelElement, ILanguageAttributeGroup {
     @XmlElements({
         @XmlElement(name = "place", namespace = "http://www.loc.gov/mods/v3", type = Place.class),
         @XmlElement(name = "publisher", namespace = "http://www.loc.gov/mods/v3", type = Publisher.class),
+        @XmlElement(name = "agent", namespace = "http://www.loc.gov/mods/v3", type = Agent.class),
         @XmlElement(name = "dateIssued", namespace = "http://www.loc.gov/mods/v3", type = DateIssued.class),
         @XmlElement(name = "dateCreated", namespace = "http://www.loc.gov/mods/v3", type = DateCreated.class),
         @XmlElement(name = "dateCaptured", namespace = "http://www.loc.gov/mods/v3", type = DateCaptured.class),
@@ -106,10 +112,17 @@ public class OriginInfo implements ITopLevelElement, ILanguageAttributeGroup {
         @XmlElement(name = "dateModified", namespace = "http://www.loc.gov/mods/v3", type = DateModified.class),
         @XmlElement(name = "copyrightDate", namespace = "http://www.loc.gov/mods/v3", type = CopyrightDate.class),
         @XmlElement(name = "dateOther", namespace = "http://www.loc.gov/mods/v3", type = DateOther.class),
+        @XmlElement(name = "displayDate", namespace = "http://www.loc.gov/mods/v3", type = DisplayDate.class),
         @XmlElement(name = "edition", namespace = "http://www.loc.gov/mods/v3", type = Edition.class),
         @XmlElement(name = "issuance", namespace = "http://www.loc.gov/mods/v3", type = Issuance.class),
         @XmlElement(name = "frequency", namespace = "http://www.loc.gov/mods/v3", type = Frequency.class) })
     protected List<IOriginInfoSubelement> originInfoElement = new Vector<>();
+
+    @XmlAttribute(name = "ID")
+    protected String ID;
+
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
     //ILanguageAttributeGroup - begin
 
@@ -148,8 +161,28 @@ public class OriginInfo implements ITopLevelElement, ILanguageAttributeGroup {
     @XmlAttribute(name = "eventType")
     protected String eventType;
 
+    //<xs:attribute name="eventTypeURI" type="xs:anyURI"/>
+    @XmlAttribute(name = "eventTypeURI")
+    protected String eventTypeURI;
+
     public List<IOriginInfoSubelement> getContent() {
         return originInfoElement;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
     }
 
     public String getLang() {
@@ -208,6 +241,14 @@ public class OriginInfo implements ITopLevelElement, ILanguageAttributeGroup {
         this.eventType = eventType;
     }
 
+    public String getEventTypeURI() {
+        return eventTypeURI;
+    }
+
+    public void setEventTypeURI(String eventTypeURI) {
+        this.eventTypeURI = eventTypeURI;
+    }
+
     public static Builder builderForOriginInfo() {
         return builder(new OriginInfo());
     }
@@ -216,7 +257,8 @@ public class OriginInfo implements ITopLevelElement, ILanguageAttributeGroup {
         return new Builder(oi);
     }
 
-    public static class Builder extends BuilderBase<OriginInfo, Builder> implements ILanguageAttributeGroupBuilder<OriginInfo, Builder> {
+    public static class Builder extends BuilderBase<OriginInfo, Builder>
+        implements IIDAttributeGroupBuilder<OriginInfo, Builder>, ILanguageAttributeGroupBuilder<OriginInfo, Builder> {
         protected Builder(OriginInfo oi) {
             super(oi);
         }
@@ -238,6 +280,11 @@ public class OriginInfo implements ITopLevelElement, ILanguageAttributeGroup {
 
         public Builder eventType(String e) {
             _target().setEventType(e);
+            return _self();
+        }
+
+        public Builder eventTypeURI(String uri) {
+            _target().setEventTypeURI(uri);
             return _self();
         }
     }

@@ -18,15 +18,15 @@
 
 //does not work under Java 6
 
-@XmlSchema(namespace = "http://www.loc.gov/mods/v3",  
-        xmlns = {   
-            @XmlNs(namespaceURI = "http://www.loc.gov/mods/v3", prefix = "mods"),  
-            @XmlNs(namespaceURI = "http://www.w3.org/1999/xlink", prefix = "xlink"),
-            @XmlNs(namespaceURI = "http://www.w3.org/2001/XMLSchema-instance", prefix = "xsi")
-        },  
-        elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)  
-      
-    package org.mycore.libmeta.mods.model; 
-      
-    import jakarta.xml.bind.annotation.XmlNs;
-import jakarta.xml.bind.annotation.XmlSchema;  
+@XmlSchema(namespace = "http://www.loc.gov/mods/v3",
+    xmlns = {
+        @XmlNs(namespaceURI = "http://www.loc.gov/mods/v3", prefix = "mods"),
+        @XmlNs(namespaceURI = "http://www.w3.org/1999/xlink", prefix = "xlink"),
+        @XmlNs(namespaceURI = "http://www.w3.org/2001/XMLSchema-instance", prefix = "xsi")
+    },
+    elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
+
+package org.mycore.libmeta.mods.model;
+
+import jakarta.xml.bind.annotation.XmlNs;
+import jakarta.xml.bind.annotation.XmlSchema;

@@ -41,7 +41,10 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum UrlAccess {
-	@XmlEnumValue("preview") PREVIEW,
-	@XmlEnumValue("raw object") RAW_OBJECT,
-	@XmlEnumValue("object in context") OBJECT_IN_CONTEXT;
+    @XmlEnumValue("preview")
+    PREVIEW,
+    @XmlEnumValue("raw object")
+    RAW_OBJECT,
+    @XmlEnumValue("object in context")
+    OBJECT_IN_CONTEXT;
 }

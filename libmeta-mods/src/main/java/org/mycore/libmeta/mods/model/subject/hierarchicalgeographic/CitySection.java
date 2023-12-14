@@ -41,9 +41,9 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  */
 public class CitySection extends HierarchicalPart implements IHierarchicalGeographicSubelement {
 
-    @XmlAttribute(name = "citySectionType", required=false)
+    @XmlAttribute(name = "citySectionType", required = false)
     protected String citySectionType;
-    
+
     public String getCitySectionType() {
         return citySectionType;
     }
@@ -55,16 +55,17 @@ public class CitySection extends HierarchicalPart implements IHierarchicalGeogra
     public static Builder builder() {
         return builder(new CitySection());
     }
-    
+
     public static Builder builder(CitySection toc) {
         return new Builder(toc);
     }
-    
-    public static class Builder extends BuilderBase<CitySection, Builder> implements IHierarchicalPartBuilder<CitySection, Builder>{
+
+    public static class Builder extends BuilderBase<CitySection, Builder>
+        implements IHierarchicalPartBuilder<CitySection, Builder> {
         protected Builder(CitySection cs) {
             super(cs);
         }
-        
+
         public Builder citySectionType(String citySectionType) {
             _target().setCitySectionType(citySectionType);
             return _self();

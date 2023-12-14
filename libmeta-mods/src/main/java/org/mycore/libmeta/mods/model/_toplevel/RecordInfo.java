@@ -21,8 +21,11 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.enums.Usage;
 import org.mycore.libmeta.mods.model.recordinfo.DescriptionStandard;
 import org.mycore.libmeta.mods.model.recordinfo.IRecordInfoSubelement;
 import org.mycore.libmeta.mods.model.recordinfo.LanguageOfCataloging;
@@ -65,17 +68,27 @@ import jakarta.xml.bind.annotation.XmlElements;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class RecordInfo implements ITopLevelElement, ILanguageAttributeGroup {
+public class RecordInfo implements ITopLevelElement, IIDAttributeGroup, ILanguageAttributeGroup {
     @XmlElements({
-            @XmlElement(name = "recordContentSource", namespace = "http://www.loc.gov/mods/v3", type = RecordContentSource.class),
-            @XmlElement(name = "recordCreationDate", namespace = "http://www.loc.gov/mods/v3", type = RecordCreationDate.class),
-            @XmlElement(name = "recordChangeDate", namespace = "http://www.loc.gov/mods/v3", type = RecordChangeDate.class),
-            @XmlElement(name = "recordIdentifier", namespace = "http://www.loc.gov/mods/v3", type = RecordIdentifier.class),
-            @XmlElement(name = "languageOfCataloging", namespace = "http://www.loc.gov/mods/v3", type = LanguageOfCataloging.class),
-            @XmlElement(name = "recordOrigin", namespace = "http://www.loc.gov/mods/v3", type = RecordOrigin.class),
-            @XmlElement(name = "descriptionStandard", namespace = "http://www.loc.gov/mods/v3", type = DescriptionStandard.class),
-            @XmlElement(name = "recordInfoNote", namespace = "http://www.loc.gov/mods/v3", type = RecordInfoNote.class) })
+        @XmlElement(name = "recordContentSource", namespace = "http://www.loc.gov/mods/v3",
+            type = RecordContentSource.class),
+        @XmlElement(name = "recordCreationDate", namespace = "http://www.loc.gov/mods/v3",
+            type = RecordCreationDate.class),
+        @XmlElement(name = "recordChangeDate", namespace = "http://www.loc.gov/mods/v3", type = RecordChangeDate.class),
+        @XmlElement(name = "recordIdentifier", namespace = "http://www.loc.gov/mods/v3", type = RecordIdentifier.class),
+        @XmlElement(name = "languageOfCataloging", namespace = "http://www.loc.gov/mods/v3",
+            type = LanguageOfCataloging.class),
+        @XmlElement(name = "recordOrigin", namespace = "http://www.loc.gov/mods/v3", type = RecordOrigin.class),
+        @XmlElement(name = "descriptionStandard", namespace = "http://www.loc.gov/mods/v3",
+            type = DescriptionStandard.class),
+        @XmlElement(name = "recordInfoNote", namespace = "http://www.loc.gov/mods/v3", type = RecordInfoNote.class) })
     protected List<IRecordInfoSubelement> recordInfoElement = new Vector<>();
+
+    @XmlAttribute(name = "ID")
+    protected String ID;
+
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
     @XmlAttribute(name = "lang", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected String lang;
@@ -95,12 +108,31 @@ public class RecordInfo implements ITopLevelElement, ILanguageAttributeGroup {
     @XmlAttribute(name = "altRepGroup")
     protected String altRepGroup;
 
+    @XmlAttribute(name = "usage")
+    protected Usage usage;
+
     public List<IRecordInfoSubelement> getContent() {
         return recordInfoElement;
     }
 
     public void setContent(List<IRecordInfoSubelement> recordInfoElement) {
         this.recordInfoElement = recordInfoElement;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
     }
 
     public String getLang() {
@@ -150,21 +182,30 @@ public class RecordInfo implements ITopLevelElement, ILanguageAttributeGroup {
     public void setAltRepGroup(String altRepGroup) {
         this.altRepGroup = altRepGroup;
     }
-    
+
     public static Builder builderForRecordInfo() {
         return builder(new RecordInfo());
     }
-    
+
     public static Builder builder(RecordInfo spl) {
         return new Builder(spl);
     }
-    
-    public static class Builder extends BuilderBase<RecordInfo, Builder> implements ILanguageAttributeGroupBuilder<RecordInfo, Builder>{
-            
+
+    public Usage getUsage() {
+        return usage;
+    }
+
+    public void setUsage(Usage usage) {
+        this.usage = usage;
+    }
+
+    public static class Builder extends BuilderBase<RecordInfo, Builder>
+        implements IIDAttributeGroupBuilder<RecordInfo, Builder>, ILanguageAttributeGroupBuilder<RecordInfo, Builder> {
+
         protected Builder(RecordInfo ri) {
             super(ri);
         }
-        
+
         public Builder addContent(IRecordInfoSubelement content) {
             _target().getContent().add(content);
             return _self();
@@ -174,9 +215,14 @@ public class RecordInfo implements ITopLevelElement, ILanguageAttributeGroup {
             _target().setDisplayLabel(displayLabel);
             return _self();
         }
-        
+
         public Builder altRepGroup(String altRepGroup) {
             _target().setAltRepGroup(altRepGroup);
+            return _self();
+        }
+
+        public Builder usage(Usage usage) {
+            _target().setUsage(usage);
             return _self();
         }
     }

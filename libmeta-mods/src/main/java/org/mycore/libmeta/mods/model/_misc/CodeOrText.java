@@ -33,6 +33,8 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum CodeOrText {
-	@XmlEnumValue("code") CODE, 
-	@XmlEnumValue("text") TEXT;
+    @XmlEnumValue("code")
+    CODE,
+    @XmlEnumValue("text")
+    TEXT;
 }

@@ -40,8 +40,12 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum DigitalOrigin implements IPhysicalDescriptionSubelement {
-	@XmlEnumValue("born digital") BORN_DIGITAL,
-	@XmlEnumValue("reformatted digital") REFORMATTED_DIGITAL,
-	@XmlEnumValue("digitized microfilm") DIGITIZED_MICROFILM ,
-	@XmlEnumValue("digitized other analog") DIGITIZED_OTHER_ANALOG;
+    @XmlEnumValue("born digital")
+    BORN_DIGITAL,
+    @XmlEnumValue("reformatted digital")
+    REFORMATTED_DIGITAL,
+    @XmlEnumValue("digitized microfilm")
+    DIGITIZED_MICROFILM,
+    @XmlEnumValue("digitized other analog")
+    DIGITIZED_OTHER_ANALOG;
 }

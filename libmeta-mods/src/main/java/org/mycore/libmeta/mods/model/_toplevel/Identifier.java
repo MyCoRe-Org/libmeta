@@ -18,6 +18,8 @@
 package org.mycore.libmeta.mods.model._toplevel;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.enums.Yes;
@@ -35,7 +37,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *				<xs:attribute name="displayLabel" type="xs:string"/>
  *				<xs:attribute name="type" type="xs:string"/>
  *				<xs:attribute name="typeURI" type="xs:anyURI"/>
- *				<xs:attribute name="invalid" fixed="yes"/>
+ *				<xs:attribute name="invalid" type="yes"/>
  *				<xs:attribute name="altRepGroup" type="xs:string"/>
  *			</xs:extension>
  *		</xs:simpleContent>
@@ -46,100 +48,124 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  * @version MODS 3.6
  *
  */
-public class Identifier extends StringPlusLanguage implements ITopLevelElement {
+public class Identifier extends StringPlusLanguage implements ITopLevelElement, IIDAttributeGroup {
 
-	@XmlAttribute(name = "displayLabel")
-	protected String displayLabel;
+    @XmlAttribute(name = "ID")
+    protected String ID;
 
-	@XmlAttribute(name = "type")
-	protected String type;
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
-	@XmlAttribute(name = "typeURI")
-	protected String typeURI;
+    @XmlAttribute(name = "displayLabel")
+    protected String displayLabel;
 
-	@XmlAttribute(name = "invalid")
-	protected Yes invalid;
+    @XmlAttribute(name = "type")
+    protected String type;
 
-	@XmlAttribute(name = "altRepGroup")
-	protected String altRepGroup;
+    @XmlAttribute(name = "typeURI")
+    protected String typeURI;
 
-	public String getDisplayLabel() {
-		return displayLabel;
-	}
+    @XmlAttribute(name = "invalid")
+    protected Yes invalid;
 
-	public void setDisplayLabel(String displayLabel) {
-		this.displayLabel = displayLabel;
-	}
+    @XmlAttribute(name = "altRepGroup")
+    protected String altRepGroup;
 
-	public String getType() {
-		return type;
-	}
+    public String getID() {
+        return ID;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public void setID(String iD) {
+        ID = iD;
+    }
 
-	public String getTypeURI() {
-		return typeURI;
-	}
+    public String getIDREF() {
+        return IDREF;
+    }
 
-	public void setTypeURI(String typeURI) {
-		this.typeURI = typeURI;
-	}
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
+    }
 
-	public Yes getInvalid() {
-		return invalid;
-	}
+    public String getDisplayLabel() {
+        return displayLabel;
+    }
 
-	public void setInvalid(Yes invalid) {
-		this.invalid = invalid;
-	}
+    public void setDisplayLabel(String displayLabel) {
+        this.displayLabel = displayLabel;
+    }
 
-	public String getAltRepGroup() {
-		return altRepGroup;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public void setAltRepGroup(String altRepGroup) {
-		this.altRepGroup = altRepGroup;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public static Builder builderForIdentifier() {
-		return builder(new Identifier());
-	}
+    public String getTypeURI() {
+        return typeURI;
+    }
 
-	public static Builder builder(Identifier toc) {
-		return new Builder(toc);
-	}
+    public void setTypeURI(String typeURI) {
+        this.typeURI = typeURI;
+    }
 
-	public static class Builder extends BuilderBase<Identifier, Builder> implements IXsStringBuilder<Identifier, Builder>,  ILanguageAttributeGroupBuilder<Identifier, Builder> {
-		protected Builder(Identifier spl) {
+    public Yes getInvalid() {
+        return invalid;
+    }
+
+    public void setInvalid(Yes invalid) {
+        this.invalid = invalid;
+    }
+
+    public String getAltRepGroup() {
+        return altRepGroup;
+    }
+
+    public void setAltRepGroup(String altRepGroup) {
+        this.altRepGroup = altRepGroup;
+    }
+
+    public static Builder builderForIdentifier() {
+        return builder(new Identifier());
+    }
+
+    public static Builder builder(Identifier toc) {
+        return new Builder(toc);
+    }
+
+    public static class Builder extends BuilderBase<Identifier, Builder>
+        implements IXsStringBuilder<Identifier, Builder>, IIDAttributeGroupBuilder<Identifier, Builder>,
+        ILanguageAttributeGroupBuilder<Identifier, Builder> {
+        protected Builder(Identifier spl) {
             super(spl);
         }
-		
+
         public Builder displayLabel(String displayLabel) {
-			_target().setDisplayLabel(displayLabel);
-			return _self();
-		}
+            _target().setDisplayLabel(displayLabel);
+            return _self();
+        }
 
-		public Builder type(String type) {
-			_target().setType(type);
-			return _self();
-		}
+        public Builder type(String type) {
+            _target().setType(type);
+            return _self();
+        }
 
-		public Builder typeURI(String typeURI) {
-			_target().setTypeURI(typeURI);
-			return _self();
-		}
+        public Builder typeURI(String typeURI) {
+            _target().setTypeURI(typeURI);
+            return _self();
+        }
 
-		public Builder invalid(Yes invalid) {
-			_target().setInvalid(invalid);
-			return _self();
-		}
+        public Builder invalid(Yes invalid) {
+            _target().setInvalid(invalid);
+            return _self();
+        }
 
-		public Builder altRepGroup(String altRepGroup) {
-			_target().setAltRepGroup(altRepGroup);
-			return _self();
-		}
-	}
+        public Builder altRepGroup(String altRepGroup) {
+            _target().setAltRepGroup(altRepGroup);
+            return _self();
+        }
+    }
 
 }

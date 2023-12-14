@@ -39,7 +39,10 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum ReformattingQuality {
-    @XmlEnumValue("access") ACCESS,
-    @XmlEnumValue("preservation") PRESERVATION,
-    @XmlEnumValue("replacement") REPLACEMENT;
+    @XmlEnumValue("access")
+    ACCESS,
+    @XmlEnumValue("preservation")
+    PRESERVATION,
+    @XmlEnumValue("replacement")
+    REPLACEMENT;
 }

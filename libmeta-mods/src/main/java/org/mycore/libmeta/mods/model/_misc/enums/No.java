@@ -33,5 +33,6 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum No {
-	@XmlEnumValue("no") NO;
+    @XmlEnumValue("no")
+    NO;
 }

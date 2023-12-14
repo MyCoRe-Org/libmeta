@@ -47,24 +47,24 @@ import jakarta.xml.bind.annotation.XmlType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(name="extentDefinition", propOrder = { "start", "end", "total", "list" })
+@XmlType(name = "extentDefinition", propOrder = { "start", "end", "total", "list" })
 
 public class Extent implements IPartSubelement {
-    
+
     //sequence
-    @XmlElement(name = "start", namespace = "http://www.loc.gov/mods/v3", required = false)    
+    @XmlElement(name = "start", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected Start start;
-    
+
     @XmlElement(name = "end", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected End end;
-    
+
     @XmlElement(name = "total", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected Total total;
-    
+
     @XmlElement(name = "list", namespace = "http://www.loc.gov/mods/v3", required = false)
     protected List list;
-    
-    @XmlAttribute(name="unit")
+
+    @XmlAttribute(name = "unit")
     protected String unit;
 
     public Start getStart() {
@@ -106,41 +106,41 @@ public class Extent implements IPartSubelement {
     public void setUnit(String unit) {
         this.unit = unit;
     }
-    
+
     public static Builder builder() {
         return new Builder(new Extent());
     }
-    
+
     public static Builder builder(Extent e) {
         return new Builder(e);
     }
-    
+
     public static class Builder extends BuilderBase<Extent, Builder> {
-                
+
         protected Builder(Extent lst) {
             super(lst);
         }
-        
+
         public Builder start(Start start) {
             _target().setStart(start);
             return _self();
         }
-        
+
         public Builder end(End end) {
             _target().setEnd(end);
             return _self();
         }
-        
+
         public Builder total(Total total) {
             _target().setTotal(total);
             return _self();
         }
-        
+
         public Builder list(List list) {
             _target().setList(list);
             return _self();
         }
-        
+
         public Builder unit(String unit) {
             _target().setUnit(unit);
             return _self();

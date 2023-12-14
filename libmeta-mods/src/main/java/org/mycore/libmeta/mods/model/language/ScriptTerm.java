@@ -46,13 +46,13 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 @XmlAccessorType(XmlAccessType.NONE)
 public class ScriptTerm extends StringPlusLanguagePlusAuthority implements ILanguageSubelement {
 
-    @XmlAttribute(name="type", required=false)
+    @XmlAttribute(name = "type", required = false)
     CodeOrText type;
 
     public CodeOrText getType() {
         return type;
     }
-    
+
     public void setType(CodeOrText type) {
         this.type = type;
     }
@@ -60,17 +60,19 @@ public class ScriptTerm extends StringPlusLanguagePlusAuthority implements ILang
     public static Builder builderForScriptTerm() {
         return builder(new ScriptTerm());
     }
-    
+
     public static Builder builder(ScriptTerm st) {
         return new Builder(st);
     }
-    
-    public static class Builder extends BuilderBase<ScriptTerm, Builder> implements IXsStringBuilder<ScriptTerm, Builder>, ILanguageAttributeGroupBuilder<ScriptTerm, Builder>, IAuthorityAttributeGroupBuilder<ScriptTerm, Builder>{
-                
+
+    public static class Builder extends BuilderBase<ScriptTerm, Builder>
+        implements IXsStringBuilder<ScriptTerm, Builder>, ILanguageAttributeGroupBuilder<ScriptTerm, Builder>,
+        IAuthorityAttributeGroupBuilder<ScriptTerm, Builder> {
+
         protected Builder(ScriptTerm st) {
             super(st);
         }
-        
+
         public Builder type(CodeOrText type) {
             _target().setType(type);
             return _self();

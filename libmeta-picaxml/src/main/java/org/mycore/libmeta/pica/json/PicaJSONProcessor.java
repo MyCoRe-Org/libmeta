@@ -12,7 +12,6 @@ import java.nio.file.Path;
 import org.mycore.libmeta.pica.model.PicaDatafield;
 import org.mycore.libmeta.pica.model.PicaRecord;
 import org.mycore.libmeta.pica.model.PicaSubfield;
-import org.mycore.libmeta.pica.xml.PicaXMLProcessor;
 
 import jakarta.json.Json;
 import jakarta.json.JsonArray;
@@ -120,15 +119,4 @@ public class PicaJSONProcessor {
         return pr;
     }
 
-    public static void main(String[] args) {
-        try {
-            //URL url = new URL("https://unapi.k10plus.de/?&format=marcxml&id=k10plus:ppn:1667675745");
-
-            URL url = new URL("https://unapi.k10plus.de/?&format=picaxml&id=k10plus:ppn:1667675745");
-            PicaRecord pr = (PicaRecord) PicaXMLProcessor.getInstance().unmarshal(url);
-            System.out.println(PicaJSONProcessor.getInstance().marshalToString(pr));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

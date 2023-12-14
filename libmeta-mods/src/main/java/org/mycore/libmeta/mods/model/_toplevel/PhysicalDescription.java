@@ -21,7 +21,9 @@ import java.util.List;
 import java.util.Vector;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model.physicaldescription.DigitalOrigin;
 import org.mycore.libmeta.mods.model.physicaldescription.Extent;
@@ -61,15 +63,24 @@ import jakarta.xml.bind.annotation.XmlElements;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class PhysicalDescription implements ITopLevelElement, ILanguageAttributeGroup {
+public class PhysicalDescription implements ITopLevelElement, IIDAttributeGroup, ILanguageAttributeGroup {
     @XmlElements({
         @XmlElement(name = "form", namespace = "http://www.loc.gov/mods/v3", type = Form.class),
-        @XmlElement(name = "reformattingQuality", namespace = "http://www.loc.gov/mods/v3", type = ReformattingQuality.class),
-        @XmlElement(name = "internetMediaType", namespace = "http://www.loc.gov/mods/v3", type = InternetMediaType.class),
+        @XmlElement(name = "reformattingQuality", namespace = "http://www.loc.gov/mods/v3",
+            type = ReformattingQuality.class),
+        @XmlElement(name = "internetMediaType", namespace = "http://www.loc.gov/mods/v3",
+            type = InternetMediaType.class),
         @XmlElement(name = "extent", namespace = "http://www.loc.gov/mods/v3", type = Extent.class),
         @XmlElement(name = "digitalOrigin", namespace = "http://www.loc.gov/mods/v3", type = DigitalOrigin.class),
-        @XmlElement(name = "note", namespace = "http://www.loc.gov/mods/v3", type = org.mycore.libmeta.mods.model.physicaldescription.Note.class) })
+        @XmlElement(name = "note", namespace = "http://www.loc.gov/mods/v3",
+            type = org.mycore.libmeta.mods.model.physicaldescription.Note.class) })
     protected List<IPhysicalDescriptionSubelement> content = new Vector<>();
+
+    @XmlAttribute(name = "ID")
+    protected String ID;
+
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
 
     //begin languageAttributeGroup
 
@@ -95,6 +106,22 @@ public class PhysicalDescription implements ITopLevelElement, ILanguageAttribute
 
     public List<IPhysicalDescriptionSubelement> getContent() {
         return content;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
     }
 
     public String getLang() {
@@ -153,7 +180,9 @@ public class PhysicalDescription implements ITopLevelElement, ILanguageAttribute
         return new Builder(p);
     }
 
-    public static class Builder extends BuilderBase<PhysicalDescription, Builder> implements ILanguageAttributeGroupBuilder<PhysicalDescription, Builder> {
+    public static class Builder extends BuilderBase<PhysicalDescription, Builder>
+        implements IIDAttributeGroupBuilder<PhysicalDescription, Builder>,
+        ILanguageAttributeGroupBuilder<PhysicalDescription, Builder> {
         protected Builder(PhysicalDescription p) {
             super(p);
         }

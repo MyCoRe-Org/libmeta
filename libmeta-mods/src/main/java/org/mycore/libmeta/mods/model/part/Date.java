@@ -35,12 +35,12 @@ public class Date extends DateDefinition implements IPartSubelement {
     public static Builder builderForDate() {
         return builder(new Date());
     }
-    
+
     public static Builder builder(Date date) {
         return new Builder(date);
     }
-    
-    public static class Builder extends BuilderBase<Date, Builder> implements IDateDefinitionBuilder<Date, Builder>{
+
+    public static class Builder extends BuilderBase<Date, Builder> implements IDateDefinitionBuilder<Date, Builder> {
         protected Builder(Date d) {
             super(d);
         }

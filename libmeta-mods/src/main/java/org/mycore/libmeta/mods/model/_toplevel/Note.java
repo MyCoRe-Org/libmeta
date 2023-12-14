@@ -18,6 +18,8 @@
 package org.mycore.libmeta.mods.model._toplevel;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
@@ -55,23 +57,24 @@ import jakarta.xml.bind.annotation.XmlType;
  *  }        
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(name="noteDefinition")
-public class Note extends StringPlusLanguage implements ITopLevelElement, IAttributeGroupXlinkSimpleLink {
-     
-    @XmlAttribute(name="displayLabel")
+@XmlType(name = "noteDefinition")
+public class Note extends StringPlusLanguage
+    implements ITopLevelElement, IIDAttributeGroup, IAttributeGroupXlinkSimpleLink {
+
+    @XmlAttribute(name = "displayLabel")
     protected String displayLabel;
-    
-    @XmlAttribute(name="type")
+
+    @XmlAttribute(name = "type")
     protected String type;
-    
-    @XmlAttribute(name="typeURI")
+
+    @XmlAttribute(name = "typeURI")
     protected String typeURI;
-     
+
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
     protected String xlinkType;
 
     // attributeGroup xlink:simpleLink - begin
-    
+
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkHref;
 
@@ -91,12 +94,15 @@ public class Note extends StringPlusLanguage implements ITopLevelElement, IAttri
     protected XlinkActuate xlinkActuate;
 
     // attributeGroup xlink:simpleLink - end
-    
-    @XmlAttribute(name="ID")
+
+    @XmlAttribute(name = "ID")
     protected String ID;
 
-     @XmlAttribute(name = "altRepGroup")
-     protected String altRepGroup;
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
+
+    @XmlAttribute(name = "altRepGroup")
+    protected String altRepGroup;
 
     public String getDisplayLabel() {
         return displayLabel;
@@ -182,8 +188,16 @@ public class Note extends StringPlusLanguage implements ITopLevelElement, IAttri
         return ID;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setID(String iD) {
+        this.ID = iD;
+    }
+
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        this.IDREF = iDREF;
     }
 
     public String getAltRepGroup() {
@@ -201,9 +215,11 @@ public class Note extends StringPlusLanguage implements ITopLevelElement, IAttri
     public static Builder builder(Note n) {
         return new Builder(n);
     }
-    
-    public static class Builder extends BuilderBase<Note, Builder> implements IXsStringBuilder<Note, Builder>, ILanguageAttributeGroupBuilder<Note, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Note, Builder>{
-                
+
+    public static class Builder extends BuilderBase<Note, Builder>
+        implements IXsStringBuilder<Note, Builder>, IIDAttributeGroupBuilder<Note, Builder>,
+        ILanguageAttributeGroupBuilder<Note, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Note, Builder> {
+
         protected Builder(Note n) {
             super(n);
         }
@@ -212,27 +228,22 @@ public class Note extends StringPlusLanguage implements ITopLevelElement, IAttri
             _target().setDisplayLabel(displayLabel);
             return _self();
         }
-        
+
         public Builder type(String type) {
             _target().setType(type);
             return _self();
         }
-        
+
         public Builder typeURI(String typeURI) {
             _target().setTypeURI(typeURI);
             return _self();
         }
-        
+
         public Builder xlinkType(String xlinkType) {
             _target().setXlinkType(xlinkType);
             return _self();
         }
-        
-        public Builder ID(String id) {
-            _target().setID(id);
-            return _self();
-        }
-        
+
         public Builder altRepGroup(String altRepGroup) {
             _target().setAltRepGroup(altRepGroup);
             return _self();

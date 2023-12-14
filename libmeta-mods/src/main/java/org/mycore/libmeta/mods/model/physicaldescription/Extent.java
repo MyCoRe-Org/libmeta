@@ -61,14 +61,15 @@ public class Extent extends StringPlusLanguagePlusSupplied implements IPhysicalD
     }
 
     public static Builder builder() {
-        return  builder(new Extent());
+        return builder(new Extent());
     }
 
     public static Builder builder(Extent e) {
         return new Builder(e);
     }
 
-    public static class Builder  extends BuilderBase<Extent, Builder> implements IXsStringBuilder<Extent, Builder>, ILanguageAttributeGroupBuilder<Extent, Builder>,  ISuppliedAttributeBuilder<Extent, Builder> {
+    public static class Builder extends BuilderBase<Extent, Builder> implements IXsStringBuilder<Extent, Builder>,
+        ILanguageAttributeGroupBuilder<Extent, Builder>, ISuppliedAttributeBuilder<Extent, Builder> {
         protected Builder(Extent ext) {
             super(ext);
         }

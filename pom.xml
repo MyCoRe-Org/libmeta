@@ -32,10 +32,31 @@
         <artifactId>jakarta.xml.bind-api</artifactId>
         <version>3.0.1</version>
       </dependency>
+    <dependency>
+      <groupId>jakarta.json</groupId>
+      <artifactId>jakarta.json-api</artifactId>
+      <version>2.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.json.bind</groupId>
+      <artifactId>jakarta.json.bind-api</artifactId>
+      <version>2.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse</groupId>
+      <artifactId>yasson</artifactId>
+      <version>2.0.4</version>
+      <scope>test</scope>
+    </dependency>
       <dependency>
         <groupId>org.glassfish.jaxb</groupId>
         <artifactId>jaxb-runtime</artifactId>
         <version>3.0.2</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>2.0.6</version>
       </dependency>
       <dependency>
         <groupId>org.mycore.libmeta</groupId>
@@ -139,6 +160,7 @@
   <modules>
     <module>libmeta-picaxml</module>
     <module>libmeta-daia</module>
+    <module>libmeta-daia__1_0</module>
     <module>libmeta-marc21</module>
     <module>libmeta-mets</module>
     <module>libmeta-mix</module>
@@ -148,6 +170,8 @@
     <module>libmeta-xlink</module>
     <module>libmeta-common</module>
     <module>libmeta-dfgviewer</module>
+    <module>libmeta-dublincore-simple</module>
+    <module>libmeta-dublincore-oai</module>
   </modules>
   <profiles>
     <profile>

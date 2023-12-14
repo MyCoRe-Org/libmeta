@@ -18,7 +18,9 @@
 package org.mycore.libmeta.mods.model._toplevel;
 
 import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguagePlusAuthority;
@@ -46,16 +48,23 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class TargetAudience extends StringPlusLanguagePlusAuthority {
- 	/**
- 	 * {@code 
+public class TargetAudience extends StringPlusLanguagePlusAuthority implements IIDAttributeGroup {
+
+    @XmlAttribute(name = "ID")
+    protected String ID;
+
+    @XmlAttribute(name = "IDREF")
+    protected String IDREF;
+
+    /**
+     * {@code 
      * <xs:attribute name="displayLabel" type="xs:string"/>
      * }
      */
     @XmlAttribute(name = "displayLabel")
     protected String displayLabel;
-    
-   /**
+
+    /**
      * {@code 
      * <xs:attribute name="altRepGroup" type="xs:string"/> 
      * }
@@ -64,44 +73,63 @@ public class TargetAudience extends StringPlusLanguagePlusAuthority {
      */
     @XmlAttribute(name = "altRepGroup")
     protected String altRepGroup;
-    
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String iD) {
+        ID = iD;
+    }
+
+    public String getIDREF() {
+        return IDREF;
+    }
+
+    public void setIDREF(String iDREF) {
+        IDREF = iDREF;
+    }
+
     public String getDisplayLabel() {
- 		return displayLabel;
- 	}
+        return displayLabel;
+    }
 
- 	public void setDisplayLabel(String displayLabel) {
- 		this.displayLabel = displayLabel;
- 	}
+    public void setDisplayLabel(String displayLabel) {
+        this.displayLabel = displayLabel;
+    }
 
- 	public String getAltRepGroup() {
- 		return altRepGroup;
- 	}
+    public String getAltRepGroup() {
+        return altRepGroup;
+    }
 
- 	public void setAltRepGroup(String altRepGroup) {
- 		this.altRepGroup = altRepGroup;
- 	}
- 	
-	public static Builder builderForTargetAudience() {
-		return builder(new TargetAudience());
-	}
-	
-	public static Builder builder(TargetAudience spl) {
-		return new Builder(spl);
-	}
-	
-	public static class Builder extends BuilderBase<TargetAudience, Builder> implements IXsStringBuilder<TargetAudience, Builder>, ILanguageAttributeGroupBuilder<TargetAudience, Builder>, IAuthorityAttributeGroupBuilder<TargetAudience, Builder>{
-	    protected Builder(TargetAudience spl) {
-			super(spl);
-		}
-	    
-		public Builder displayLabel(String displayLabel) {
-			_target().setDisplayLabel(displayLabel);
-			return _self();
-		}
-		
-		public Builder altRepGroup(String altRepGroup) {
-			_target().setAltRepGroup(altRepGroup);
-			return _self();
-		}
-	}
+    public void setAltRepGroup(String altRepGroup) {
+        this.altRepGroup = altRepGroup;
+    }
+
+    public static Builder builderForTargetAudience() {
+        return builder(new TargetAudience());
+    }
+
+    public static Builder builder(TargetAudience spl) {
+        return new Builder(spl);
+    }
+
+    public static class Builder extends BuilderBase<TargetAudience, Builder>
+        implements IXsStringBuilder<TargetAudience, Builder>, IIDAttributeGroupBuilder<TargetAudience, Builder>,
+        ILanguageAttributeGroupBuilder<TargetAudience, Builder>,
+        IAuthorityAttributeGroupBuilder<TargetAudience, Builder> {
+        protected Builder(TargetAudience spl) {
+            super(spl);
+        }
+
+        public Builder displayLabel(String displayLabel) {
+            _target().setDisplayLabel(displayLabel);
+            return _self();
+        }
+
+        public Builder altRepGroup(String altRepGroup) {
+            _target().setAltRepGroup(altRepGroup);
+            return _self();
+        }
+    }
 }

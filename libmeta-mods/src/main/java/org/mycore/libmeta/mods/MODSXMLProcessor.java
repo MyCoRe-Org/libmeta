@@ -17,121 +17,20 @@
  */
 package org.mycore.libmeta.mods;
 
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.net.URL;
-import java.nio.file.Path;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-
-import org.mycore.libmeta.common.IXMLProcessor;
+import org.mycore.libmeta.common.DefaultXMLProcessor;
 import org.mycore.libmeta.mods.model.Mods;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.Marshaller;
-import jakarta.xml.bind.Unmarshaller;
-
-/**
- * JAXB Marshaller allows only indentation up to 8th level and starts then on the first column again
- * bug report: https://java.net/jira/browse/JAXB-970
- * 
- * therefore we use the XSLT-Transformer for output
- */
-public class MODSXMLProcessor implements IXMLProcessor<Mods> {
+public class MODSXMLProcessor extends DefaultXMLProcessor<Mods> {
 
     private static final MODSXMLProcessor INSTANCE = new MODSXMLProcessor();
-    
+
     //private constructor to avoid client applications to use constructor
-    private MODSXMLProcessor() {}
-    
+    private MODSXMLProcessor() {
+        super(Mods.class);
+    }
+
     public static MODSXMLProcessor getInstance() {
         return INSTANCE;
     }
-    
-    public Document marshalToDOM(Mods mods) throws Exception {
-        return marshalToDOM(mods, null);
-    }
 
-    public Document marshalToDOM(Mods mods, String schemaLocations) throws Exception {
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            dbf.setNamespaceAware(true);
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.newDocument();
-
-            JAXBContext jaxbContext = JAXBContext.newInstance(Mods.class);
-            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-
-            if (schemaLocations != null && schemaLocations.length() > 0) {
-                jaxbMarshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, schemaLocations);
-            }
-
-            // output pretty printed
-            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
-            jaxbMarshaller.marshal(mods, doc);
-            return doc;
-    }
-
-    public void marshal(Mods mods, StreamResult streamResult, String schemaLocations) throws Exception{
-            Document doc = marshalToDOM(mods, schemaLocations);
-            doc.setXmlStandalone(true);
-
-            Transformer transformer = TransformerFactory.newInstance().newTransformer();
-            //transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-            transformer.setOutputProperty(OutputKeys.METHOD, "xml");
-            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
-            transformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
-            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
-            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-
-            transformer.transform(new DOMSource(doc), streamResult);
-    }
-
-    public void marshal(Mods mods, Path p, String schemaLocations) throws Exception {
-        StreamResult stream = new StreamResult(p.toFile());
-        marshal(mods, stream, schemaLocations);
-    }
-
-    public void marshal(Mods mods, Path p) throws Exception {
-        marshal(mods, p, null);
-    }
-
-    public String marshalToString(Mods mods, String schemaLocations) throws Exception {
-        StringWriter sw = new StringWriter();
-        StreamResult stream = new StreamResult(sw);
-        marshal(mods, stream, schemaLocations);
-        return sw.toString().replaceAll("\\r\\n|\\r", "\n").trim();
-    }
-
-    public String marshalToString(Mods mods) throws Exception {
-        return marshalToString(mods, null);
-    }
-
-    private Unmarshaller createUnmarshaller() throws Exception {
-        JAXBContext jaxbContext = JAXBContext.newInstance(Mods.class);
-        return jaxbContext.createUnmarshaller();
-    }
-
-    public Mods unmarshal(Node xml) throws Exception {
-        return (Mods) createUnmarshaller().unmarshal(xml);
-    }
-
-    public Mods unmarshal(String xml) throws Exception {
-        return (Mods) createUnmarshaller().unmarshal(new StringReader(xml));
-    }
-
-    public Mods unmarshal(Path p) throws Exception {
-        return (Mods) createUnmarshaller().unmarshal(p.toFile());
-    }
-
-    public Mods unmarshal(URL url) throws Exception {
-        return (Mods) createUnmarshaller().unmarshal(url);
-    }
 }

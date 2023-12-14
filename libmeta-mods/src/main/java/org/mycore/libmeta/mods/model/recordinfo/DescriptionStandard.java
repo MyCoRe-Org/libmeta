@@ -41,7 +41,9 @@ public class DescriptionStandard extends StringPlusLanguagePlusAuthority impleme
         return new Builder(ds);
     }
 
-    public static class Builder extends BuilderBase<DescriptionStandard, Builder> implements IXsStringBuilder<DescriptionStandard, Builder>, ILanguageAttributeGroupBuilder<DescriptionStandard, Builder>, IAuthorityAttributeGroupBuilder<DescriptionStandard, Builder> {
+    public static class Builder extends BuilderBase<DescriptionStandard, Builder> implements
+        IXsStringBuilder<DescriptionStandard, Builder>, ILanguageAttributeGroupBuilder<DescriptionStandard, Builder>,
+        IAuthorityAttributeGroupBuilder<DescriptionStandard, Builder> {
         protected Builder(DescriptionStandard ds) {
             super(ds);
         }

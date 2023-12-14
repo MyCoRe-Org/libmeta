@@ -30,8 +30,12 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum TitleInfoType {
-	@XmlEnumValue("abbreviated") ABBREVIATED,
-	@XmlEnumValue("translated") TRANSLATED,
-	@XmlEnumValue("alternative") ALTERNATIVE,
-	@XmlEnumValue("uniform") UNIFORM;
+    @XmlEnumValue("abbreviated")
+    ABBREVIATED,
+    @XmlEnumValue("translated")
+    TRANSLATED,
+    @XmlEnumValue("alternative")
+    ALTERNATIVE,
+    @XmlEnumValue("uniform")
+    UNIFORM;
 }

@@ -37,7 +37,8 @@ public class SubTitle extends StringPlusLanguage implements ITitleInfoSubelement
         return new Builder(subTitle);
     }
 
-    public static class Builder extends BuilderBase<SubTitle, Builder> implements IXsStringBuilder<SubTitle, Builder>, ILanguageAttributeGroupBuilder<SubTitle, Builder> {
+    public static class Builder extends BuilderBase<SubTitle, Builder>
+        implements IXsStringBuilder<SubTitle, Builder>, ILanguageAttributeGroupBuilder<SubTitle, Builder> {
 
         protected Builder(SubTitle subTitle) {
             super(subTitle);

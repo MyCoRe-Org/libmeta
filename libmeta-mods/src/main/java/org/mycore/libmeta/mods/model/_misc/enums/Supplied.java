@@ -28,5 +28,6 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum Supplied {
-	@XmlEnumValue("supplied") SUPPLIED;
+    @XmlEnumValue("supplied")
+    SUPPLIED;
 }

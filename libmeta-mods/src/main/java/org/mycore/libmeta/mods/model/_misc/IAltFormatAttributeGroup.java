@@ -30,8 +30,11 @@ package org.mycore.libmeta.mods.model._misc;
  *
  */
 public interface IAltFormatAttributeGroup {
-	public String getAltFormat();
-	public String getContentType();
-	public void setAltFormat(String altFormat);
-	public void setContentType(String contentType);
+    public String getAltFormat();
+
+    public String getContentType();
+
+    public void setAltFormat(String altFormat);
+
+    public void setContentType(String contentType);
 }

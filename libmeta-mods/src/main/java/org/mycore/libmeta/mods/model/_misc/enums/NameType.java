@@ -31,8 +31,12 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum NameType {
-	@XmlEnumValue("personal") PERSONAL,
-	@XmlEnumValue("corporate") CORPORATE,
-	@XmlEnumValue("conference") CONFERENCE,
-	@XmlEnumValue("family") FAMILY;
+    @XmlEnumValue("personal")
+    PERSONAL,
+    @XmlEnumValue("corporate")
+    CORPORATE,
+    @XmlEnumValue("conference")
+    CONFERENCE,
+    @XmlEnumValue("family")
+    FAMILY;
 }

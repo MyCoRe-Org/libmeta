@@ -44,7 +44,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 @XmlAccessorType(XmlAccessType.NONE)
 public class RecordIdentifier extends StringPlusLanguage implements IRecordInfoSubelement {
 
-    @XmlAttribute(name = "source", required=false)
+    @XmlAttribute(name = "source", required = false)
     protected String source;
 
     public String getSource() {
@@ -54,7 +54,7 @@ public class RecordIdentifier extends StringPlusLanguage implements IRecordInfoS
     public void setSource(String source) {
         this.source = source;
     }
-    
+
     public static Builder builderForRecordIdentifier() {
         return builder(new RecordIdentifier());
     }
@@ -62,8 +62,9 @@ public class RecordIdentifier extends StringPlusLanguage implements IRecordInfoS
     public static Builder builder(RecordIdentifier ri) {
         return new Builder(ri);
     }
-    
-    public static class Builder extends BuilderBase<RecordIdentifier, Builder> implements IXsStringBuilder<RecordIdentifier, Builder>, ILanguageAttributeGroupBuilder<RecordIdentifier, Builder> {
+
+    public static class Builder extends BuilderBase<RecordIdentifier, Builder> implements
+        IXsStringBuilder<RecordIdentifier, Builder>, ILanguageAttributeGroupBuilder<RecordIdentifier, Builder> {
         protected Builder(RecordIdentifier r) {
             super(r);
         }
