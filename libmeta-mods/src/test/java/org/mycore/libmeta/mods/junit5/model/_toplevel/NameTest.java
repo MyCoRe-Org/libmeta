@@ -8,6 +8,7 @@ import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.mods.MODSXMLProcessor;
 import org.mycore.libmeta.mods.model.Mods;
 import org.mycore.libmeta.mods.model._misc.CodeOrText;
+import org.mycore.libmeta.mods.model._misc.enums.NamePartType;
 import org.mycore.libmeta.mods.model._misc.enums.NameType;
 import org.mycore.libmeta.mods.model._toplevel.AccessCondition;
 import org.mycore.libmeta.mods.model._toplevel.Name;
@@ -114,6 +115,46 @@ public class NameTest {
                 + "  </mods:name>\n"
                 + "</mods:mods>";
             assertEquals("Test 3 failed", expected, s);
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
+    
+    @Test
+    public void test4() {
+        Mods mods = Mods.builder()
+            .addContent(Name.builder()
+                .type(NameType.PERSONAL)
+                .addContent(NamePart.builder()
+                    .type(NamePartType.GIVEN)
+                    .content("John Paul")
+                    .build())
+                .addContent(NamePart.builder()
+                    .type(NamePartType.TERMSOFADDRESS)
+                    .content("II")
+                    .build())
+                .addContent(NamePart.builder()
+                    .type(NamePartType.TERMSOFADDRESS)
+                    .content("Pope")
+                    .build())
+                .addContent(NamePart.builder()
+                    .type(NamePartType.DATE)
+                    .content("1905-1995")
+                    .build())
+                .build())
+            .build();
+        try {
+            String s = MODSXMLProcessor.getInstance().marshalToString(mods);
+            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
+                + "<mods:mods xmlns:mods=\"http://www.loc.gov/mods/v3\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n"
+                + "  <mods:name type=\"personal\">\n"
+                + "    <mods:namePart type=\"given\">John Paul</mods:namePart>\n"
+                + "    <mods:namePart type=\"termsOfAddress\">II</mods:namePart>\n"
+                + "    <mods:namePart type=\"termsOfAddress\">Pope</mods:namePart>\n"
+                + "    <mods:namePart type=\"date\">1905-1995</mods:namePart>\n"
+                + "  </mods:name>\n"
+                + "</mods:mods>";
+            assertEquals("Test 4 failed", expected, s);
         } catch (Exception e) {
             fail(e.getMessage());
         }
