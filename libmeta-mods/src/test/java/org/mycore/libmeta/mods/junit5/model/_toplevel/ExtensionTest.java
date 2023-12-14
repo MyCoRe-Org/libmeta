@@ -63,4 +63,46 @@ public class ExtensionTest {
         }
     }
 
+    @Test
+    public void test2() {
+        String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
+            + "<mods:mods xmlns:mods=\"http://www.loc.gov/mods/v3\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n"
+            + "  <mods:extension>\n"
+            + "    <vra xml:ns=\"http://www.vraweb.org/vracore4.htm\" xsi:schemaLocation=\"http://www.vraweb.org/vracore4.htm http://www.loc.gov/standards/vracore/vra-strict.xsd\">\n"
+            + "      <image>\n"
+            + "        <techniqueSet>\n"
+            + "          <technique>digital imaging</technique>\n"
+            + "        </techniqueSet>\n"
+            + "      </image>\n"
+            + "    </vra>\n"
+            + "  </mods:extension>\n"
+            + "</mods:mods>";
+        String vraXML
+            = "<vra xml:ns=\"http://www.vraweb.org/vracore4.htm\" xsi:schemaLocation=\"http://www.vraweb.org/vracore4.htm http://www.loc.gov/standards/vracore/vra-strict.xsd\" "
+                + "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">"
+                + "<image>"
+                + "<techniqueSet>"
+                + "<technique>digital imaging</technique>"
+                + "</techniqueSet>"
+                + "</image>"
+                + "</vra>";
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document document = builder.parse(new InputSource(new StringReader(vraXML)));
+            document.getDocumentElement().normalize();
+            Element root = document.getDocumentElement();
+            Mods mods = Mods.builder()
+                .addContent(Extension.builder()
+                    .addContent(root)
+                    .build())
+                .build();
+            String s = MODSXMLProcessor.getInstance().marshalToString(mods);
+            System.out.println(s);
+            assertEquals("Test 2 failed", expected, s);
+        } catch (ParserConfigurationException | SAXException | IOException | LibmetaProcessorException e) {
+            fail(e.getMessage());
+        }
+    }
+
 }
