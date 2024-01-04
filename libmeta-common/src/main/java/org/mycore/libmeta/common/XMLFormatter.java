@@ -19,6 +19,7 @@ package org.mycore.libmeta.common;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.StringReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -39,6 +40,7 @@ import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 
 public class XMLFormatter {
     private static final Logger LOGGER = LoggerFactory.getLogger(XMLFormatter.class);
@@ -55,6 +57,21 @@ public class XMLFormatter {
         try {
             DocumentBuilder builder = DB_FACTORY.newDocumentBuilder();
             doc = builder.parse(XMLFormatter.class.getResourceAsStream(resource));
+            doc.getDocumentElement().normalize();
+            doc.setXmlStandalone(true);
+        } catch (Exception e) {
+            LOGGER.error("Parse from resource error", e);
+        }
+        return doc;
+
+    }
+    
+    public static Document parseFromString(String xml) {
+        Document doc = null;
+        try {
+            DocumentBuilder builder = DB_FACTORY.newDocumentBuilder();
+            doc = builder.parse(new InputSource(new StringReader(xml)));
+            doc.getDocumentElement().normalize();
             doc.setXmlStandalone(true);
         } catch (Exception e) {
             LOGGER.error("Parse from resource error", e);
