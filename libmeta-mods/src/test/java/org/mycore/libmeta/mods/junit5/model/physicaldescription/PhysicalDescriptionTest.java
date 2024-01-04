@@ -53,16 +53,17 @@ public class PhysicalDescriptionTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String r = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"
-                + "\n<mods:mods xmlns:mods=\"http://www.loc.gov/mods/v3\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">"
-                + "\n  <mods:physicalDescription>"
-                + "\n    <mods:form authority=\"marcform\">electronic</mods:form>"
-                + "\n    <mods:internetMediaType>image/jpeg</mods:internetMediaType>"
-                + "\n    <mods:internetMediaType>text/html</mods:internetMediaType>"
-                + "\n    <mods:extent>5 digital files</mods:extent>"
-                + "\n    <mods:digitalOrigin>born digital</mods:digitalOrigin>"
-                + "\n  </mods:physicalDescription>"
-                + "\n</mods:mods>";
+            String r = """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <mods:physicalDescription>
+                    <mods:form authority="marcform">electronic</mods:form>
+                    <mods:internetMediaType>image/jpeg</mods:internetMediaType>
+                    <mods:internetMediaType>text/html</mods:internetMediaType>
+                    <mods:extent>5 digital files</mods:extent>
+                    <mods:digitalOrigin>born digital</mods:digitalOrigin>
+                  </mods:physicalDescription>
+                </mods:mods>""";
             assertTrue("Test 3 failed", r.equals(s));
         } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
