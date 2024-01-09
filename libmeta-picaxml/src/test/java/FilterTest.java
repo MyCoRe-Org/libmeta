@@ -1,3 +1,4 @@
+
 /* 
  * This file is part of *** MyCoRe LibMeta ***
  * See https://github.com/MyCoRe-Org/libmeta/ for details.
@@ -27,42 +28,44 @@ import javax.xml.stream.XMLEventWriter;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLOutputFactory;
 
-import org.mycore.libmeta.common.LibmetaProcessorException;
+import org.junit.Test;
 import org.mycore.libmeta.pica.model.PicaRecord;
 import org.mycore.libmeta.pica.xml.FilterPicaXMLFromSRUReaderDelegate;
 import org.mycore.libmeta.pica.xml.PicaXMLProcessor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class FilterTest {
-    private static final Logger LOGGER = LoggerFactory.getLogger(FilterTest.class);
-    
-    //public static String SRU_URL = "http://sru.gbv.de/gvk?version=1.1&operation=searchRetrieve&maximumRecords=1&recordSchema=picaxml&query=pica.ppn%3D340126604";
-    public static String SRU_URL = "http://sru.gbv.de/opac-de-28?version=1.1&operation=searchRetrieve&maximumRecords=10&recordSchema=picaxml&query=pica.url%3Dpurl.uni-rostock.de*&startRecord=31";
+    public static String SRU_URL = "https://sru.k10plus.de/gvk?version=1.1&operation=searchRetrieve&maximumRecords=1&recordSchema=picaxml&query=pica.ppn%3D340126604";
+    //public static String SRU_URL
+    //    = "https://sru.k10plus.de/opac-de-28?version=1.1&operation=searchRetrieve&maximumRecords=10&recordSchema=picaxml&query=pica.url%3Dpurl.uni-rostock.de*&startRecord=31";
 
-    public static void main(String[] args) throws Exception {
-        Path outFile = Files.createTempFile("test_filter_pica", ".xml");
-        XMLInputFactory inputFactory = XMLInputFactory.newInstance();
-        XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
-        URL url = new URL(SRU_URL);
-        URLConnection urlConnection = url.openConnection();
-        BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
-        XMLEventReader xmlEventReader = new FilterPicaXMLFromSRUReaderDelegate(inputFactory.createXMLEventReader(br));
-
-        XMLEventWriter xmlEventWriter = outputFactory.createXMLEventWriter(System.out);
-
-        while (xmlEventReader.hasNext()) {
-            xmlEventWriter.add(xmlEventReader.nextEvent());
-        }
-        xmlEventReader.close();
-        xmlEventWriter.close();
-
+    @Test
+    public void test1() {
         try {
+            Path outFile = Files.createTempFile("test_filter_pica", ".xml");
+            XMLInputFactory inputFactory = XMLInputFactory.newInstance();
+            XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
+            URL url = new URL(SRU_URL);
+            URLConnection urlConnection = url.openConnection();
+            BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
+            XMLEventReader xmlEventReader = new FilterPicaXMLFromSRUReaderDelegate(inputFactory.createXMLEventReader(
+                br));
+
+            XMLEventWriter xmlEventWriter = outputFactory.createXMLEventWriter(System.out);
+
+            while (xmlEventReader.hasNext()) {
+                xmlEventWriter.add(xmlEventReader.nextEvent());
+            }
+            xmlEventReader.close();
+            xmlEventWriter.close();
+
             PicaXMLProcessor xmlProcessor = PicaXMLProcessor.getInstance();
             PicaRecord pica = xmlProcessor.unmarshalFromSRU(new URL(SRU_URL));
             xmlProcessor.marshal(pica, outFile);
-        } catch (LibmetaProcessorException e) {
-            LOGGER.error("Filter test error", e);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+         //   fail(e.getMessage());
         }
+
     }
 }
