@@ -120,7 +120,30 @@ public class XMLFormatter {
 
             tf.transform(new DOMSource(doc), new StreamResult(os));
         } catch (Exception e) {
-            LOGGER.error("Pretty print xml error", e);
+            throw new LibmetaProcessorException(e);
+        }
+    }
+
+    /**
+     * formats the given XML document and return it as a string,
+     * removes empty text nodes
+     * 
+     * @param doc the XML document
+     * @return string
+     */
+    public static String prettyPrintXMLAsString(Document doc) throws LibmetaProcessorException {
+        //output with indent
+        try {
+            StringWriter result = new StringWriter();
+            Transformer tf = TransformerFactory.newInstance().newTransformer();
+            tf.setOutputProperty(OutputKeys.INDENT, "yes");
+            tf.setOutputProperty(OutputKeys.STANDALONE, "yes");
+            tf.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+
+            tf.transform(new DOMSource(doc), new StreamResult(result));
+            return result.toString().replaceAll("\\r\\n|\\r", "\n").trim();
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
         }
     }
 
