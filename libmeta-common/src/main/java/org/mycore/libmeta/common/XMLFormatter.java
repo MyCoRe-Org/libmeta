@@ -19,6 +19,8 @@ package org.mycore.libmeta.common;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -34,15 +36,12 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 
 public class XMLFormatter {
-    private static final Logger LOGGER = LoggerFactory.getLogger(XMLFormatter.class);
-    
     private static XPathFactory XPATH_FACTORY = XPathFactory.newInstance();
 
     private static DocumentBuilderFactory DB_FACTORY = DocumentBuilderFactory.newInstance();
@@ -50,14 +49,29 @@ public class XMLFormatter {
         DB_FACTORY.setNamespaceAware(true);
     }
 
-    public static Document parseFromResource(String resource) {
+    public static Document parseFromResource(String resource) throws LibmetaProcessorException {
         Document doc = null;
         try {
             DocumentBuilder builder = DB_FACTORY.newDocumentBuilder();
             doc = builder.parse(XMLFormatter.class.getResourceAsStream(resource));
+            doc.getDocumentElement().normalize();
             doc.setXmlStandalone(true);
         } catch (Exception e) {
-            LOGGER.error("Parse from resource error", e);
+            throw new LibmetaProcessorException(e);
+        }
+        return doc;
+
+    }
+
+    public static Document parseFromString(String xml) throws LibmetaProcessorException {
+        Document doc = null;
+        try {
+            DocumentBuilder builder = DB_FACTORY.newDocumentBuilder();
+            doc = builder.parse(new InputSource(new StringReader(xml)));
+            doc.getDocumentElement().normalize();
+            doc.setXmlStandalone(true);
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
         }
         return doc;
 
@@ -70,7 +84,7 @@ public class XMLFormatter {
      * 
      * @param p the XML file to be formatted
      */
-    public static void prettyPrintXML(Path p) {
+    public static void prettyPrintXML(Path p) throws LibmetaProcessorException {
         try {
             DocumentBuilder builder = DB_FACTORY.newDocumentBuilder();
             Document doc = null;
@@ -81,7 +95,7 @@ public class XMLFormatter {
             cleanEmptyTextNodes(doc);
             prettyPrintXML(doc, p);
         } catch (Exception e) {
-            LOGGER.error("Pretty print xml error", e);
+            throw new LibmetaProcessorException(e);
         }
     }
 
@@ -93,7 +107,7 @@ public class XMLFormatter {
      * @param doc the XML document
      * @param p the XML file for output
      */
-    public static void prettyPrintXML(Document doc, Path p) {
+    public static void prettyPrintXML(Document doc, Path p) throws LibmetaProcessorException {
         //output with indent
         try (OutputStream os = Files.newOutputStream(p)) {
             Transformer tf = TransformerFactory.newInstance().newTransformer();
@@ -103,7 +117,30 @@ public class XMLFormatter {
 
             tf.transform(new DOMSource(doc), new StreamResult(os));
         } catch (Exception e) {
-            LOGGER.error("Pretty print xml error", e);
+            throw new LibmetaProcessorException(e);
+        }
+    }
+
+    /**
+     * formats the given XML document and return it as a string,
+     * removes empty text nodes
+     * 
+     * @param doc the XML document
+     * @return string
+     */
+    public static String prettyPrintXMLAsString(Document doc) throws LibmetaProcessorException {
+        //output with indent
+        try {
+            StringWriter result = new StringWriter();
+            Transformer tf = TransformerFactory.newInstance().newTransformer();
+            tf.setOutputProperty(OutputKeys.INDENT, "yes");
+            tf.setOutputProperty(OutputKeys.STANDALONE, "yes");
+            tf.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+
+            tf.transform(new DOMSource(doc), new StreamResult(result));
+            return result.toString().replaceAll("\\r\\n|\\r", "\n").trim();
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
         }
     }
 
@@ -111,7 +148,7 @@ public class XMLFormatter {
      * identify "empty" text nodes and remove them 
      * @param doc the XML document
      */
-    public static void cleanEmptyTextNodes(Document doc) {
+    public static void cleanEmptyTextNodes(Document doc) throws LibmetaProcessorException {
         try {
             XPath xpath = XPATH_FACTORY.newXPath();
 
@@ -122,7 +159,7 @@ public class XMLFormatter {
                 node.getParentNode().removeChild(node);
             }
         } catch (XPathExpressionException e) {
-            LOGGER.error("Clean empty text nodes error", e);
+            throw new LibmetaProcessorException(e);
         }
     }
 }
