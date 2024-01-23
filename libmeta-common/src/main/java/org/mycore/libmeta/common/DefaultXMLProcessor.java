@@ -46,7 +46,7 @@ public abstract class DefaultXMLProcessor<T> {
         this.objectClass = objectClass;
     }
 
-    public Document marshalToDOM(T t) throws Exception {
+    public Document marshalToDOM(T t) throws LibmetaProcessorException {
         return marshalToDOM(t, null);
     }
 
