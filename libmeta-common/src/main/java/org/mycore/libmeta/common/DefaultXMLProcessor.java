@@ -26,6 +26,7 @@ import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -132,6 +133,15 @@ public abstract class DefaultXMLProcessor<T> {
 
     @SuppressWarnings("unchecked")
     public T unmarshal(Node xml) throws LibmetaProcessorException {
+        try {
+            return (T) createJAXBContext().createUnmarshaller().unmarshal(xml);
+        } catch (JAXBException e) {
+            throw new LibmetaProcessorException(e);
+        }
+    }
+    
+    @SuppressWarnings("unchecked")
+    public T unmarshal(Source xml) throws LibmetaProcessorException {
         try {
             return (T) createJAXBContext().createUnmarshaller().unmarshal(xml);
         } catch (JAXBException e) {
