@@ -132,6 +132,10 @@ public class FileSec {
 		return otherAttributes;
 	}
 
+    public String getOtherAttribute(QName qname) {
+        return otherAttributes.get(qname);
+    }
+
 	public static Builder builder() {
         return builder(new FileSec());
     }

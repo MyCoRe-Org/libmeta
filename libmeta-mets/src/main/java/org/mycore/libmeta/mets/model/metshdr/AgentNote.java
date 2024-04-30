@@ -40,7 +40,7 @@ public class AgentNote {
 
     @XmlValue
     protected String content;
-    
+
     /**
      * {@code
      * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
@@ -48,19 +48,23 @@ public class AgentNote {
      */
     @XmlAnyAttribute
     protected Map<QName, String> otherAttributes = new HashMap<QName, String>();
-    
+
     public String getContent() {
         return content;
     }
-    
+
     public void setContent(String content) {
         this.content = content;
     }
-    
+
     public Map<QName, String> getOtherAttributes() {
         return otherAttributes;
     }
-    
+
+    public String getOtherAttribute(QName qname) {
+        return otherAttributes.get(qname);
+    }
+
     public static Builder builder() {
         return builder(new AgentNote());
     }
