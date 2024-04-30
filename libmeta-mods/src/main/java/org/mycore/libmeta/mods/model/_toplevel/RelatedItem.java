@@ -343,6 +343,16 @@ public class RelatedItem
 
     // attributeGroup xlink:simpleLink - end
 
+    /**
+     * returns a filtered List of TopLevel elements
+     * @param <T> the type of the toplevelElement
+     * @param type the class to filter and cast elements for
+     * @return an object stream of MODS toplevel elements
+     */
+    public <T extends ITopLevelElement> List<T> filterContentContent(Class<T> type) {
+        return content.stream().filter(type::isInstance).map(type::cast).toList();
+    }
+
     public static Builder builderForRelatedItem() {
         return builder(new RelatedItem());
     }
