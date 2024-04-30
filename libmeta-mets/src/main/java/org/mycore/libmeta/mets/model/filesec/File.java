@@ -507,6 +507,10 @@ public class File implements IAttributeGroupFILECORE {
         return otherAttributes;
     }
 
+    public String getOtherAttribute(QName qname) {
+        return otherAttributes.get(qname);
+    }
+
     public static Builder builder() {
         return builder(new File());
     }
@@ -515,7 +519,8 @@ public class File implements IAttributeGroupFILECORE {
         return new Builder(f);
     }
 
-    public static class Builder extends BuilderBase<File, Builder> implements IAttributeGroupFILECOREBuilder<File, Builder> {
+    public static class Builder extends BuilderBase<File, Builder>
+        implements IAttributeGroupFILECOREBuilder<File, Builder> {
 
         protected Builder(File f) {
             super(f);

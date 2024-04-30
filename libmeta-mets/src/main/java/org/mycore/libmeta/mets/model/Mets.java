@@ -382,6 +382,10 @@ public class Mets {
         return otherAttributes;
     }
 
+    public String getOtherAttribute(QName qname) {
+        return otherAttributes.get(qname);
+    }
+
     public String getXsiSchemaLocation() {
         return xsiSchemaLocation;
     }

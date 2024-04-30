@@ -220,6 +220,10 @@ public class SmLinkGrp extends SmLinkOrSmLinkGrp implements IAttributeGroupXlink
         return otherAttributes;
     }
 
+    public String getOtherAttribute(QName qname) {
+        return otherAttributes.get(qname);
+    }
+
     public static Builder builder() {
         return builder(new SmLinkGrp());
     }
@@ -228,7 +232,8 @@ public class SmLinkGrp extends SmLinkOrSmLinkGrp implements IAttributeGroupXlink
         return new Builder(slg);
     }
 
-    public static class Builder extends BuilderBase<SmLinkGrp, Builder> implements IAttributeGroupXlinkExtendedLinkBuilder<SmLinkGrp, Builder> {
+    public static class Builder extends BuilderBase<SmLinkGrp, Builder>
+        implements IAttributeGroupXlinkExtendedLinkBuilder<SmLinkGrp, Builder> {
 
         protected Builder(SmLinkGrp slg) {
             super(slg);

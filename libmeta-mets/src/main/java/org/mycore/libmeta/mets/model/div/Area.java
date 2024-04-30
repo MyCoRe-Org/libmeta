@@ -425,6 +425,10 @@ public class Area extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS{
 		return otherAttributes;
 	}
 
+    public String getOtherAttribute(QName qname) {
+        return otherAttributes.get(qname);
+    }
+
 	public void setOtherAttributes(Map<QName, String> otherAttributes) {
 		this.otherAttributes = otherAttributes;
 	}

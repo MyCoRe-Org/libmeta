@@ -169,6 +169,10 @@ public class FileGrp {
 		return otherAttributes;
 	}
 
+    public String getOtherAttribute(QName qname) {
+        return otherAttributes.get(qname);
+    }
+
 	public String getID() {
 		return ID;
 	}
