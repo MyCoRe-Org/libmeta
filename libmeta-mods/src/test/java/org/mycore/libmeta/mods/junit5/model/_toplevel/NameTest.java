@@ -40,13 +40,14 @@ public class NameTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<mods:mods xmlns:mods=\"http://www.loc.gov/mods/v3\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n"
-                + "  <mods:name authority=\"naf\" authorityURI=\"http://id.loc.gov/authorities/names\" type=\"personal\" valueURI=\"http://id.loc.gov/authorities/names/n79022889\">\n"
-                + "    <mods:namePart>Einstein, Albert, 1879-1955</mods:namePart>\n"
-                + "    <mods:affiliation authority=\"ROR\" authorityURI=\"https://ror.org\" valueURI=\"https://ror.org/00f809463\">Institute for Advance Study</mods:affiliation>\n"
-                + "  </mods:name>\n"
-                + "</mods:mods>";
+            String expected = """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes\"?>
+                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <mods:name authority="naf" authorityURI="http://id.loc.gov/authorities/names" type="personal" valueURI="http://id.loc.gov/authorities/names/n79022889">
+                    <mods:namePart>Einstein, Albert, 1879-1955</mods:namePart>
+                    <mods:affiliation authority="ROR" authorityURI="https://ror.org" valueURI="https://ror.org/00f809463">Institute for Advance Study</mods:affiliation>
+                  </mods:name>
+                </mods:mods>""";
             assertEquals("Test 1 failed", expected, s);
         } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
@@ -68,11 +69,11 @@ public class NameTest {
             
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
             System.out.println(s);
-            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<mods:mods xmlns:mods=\"http://www.loc.gov/mods/v3\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n"
-                + "  <mods:accessCondition authority=\"rightsstatements\" authorityURI=\"http://rightsstatements.org/vocab\" type=\"use and reproduction\" "
-                + "valueURI=\"http://rightsstatements.org/vocab/NoC-US/1.0/\">NO COPYRIGHT - UNITED STATES</mods:accessCondition>\n"
-                + "</mods:mods>";
+            String expected = """ 
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <mods:accessCondition authority="rightsstatements" authorityURI="http://rightsstatements.org/vocab" type="use and reproduction" valueURI="http://rightsstatements.org/vocab/NoC-US/1.0/">NO COPYRIGHT - UNITED STATES</mods:accessCondition>
+                </mods:mods>""";
             assertEquals("Test 2 failed", expected, s);
         } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
@@ -104,16 +105,17 @@ public class NameTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<mods:mods xmlns:mods=\"http://www.loc.gov/mods/v3\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n"
-                + "  <mods:name authority=\"naf\" type=\"personal\">\n"
-                + "    <mods:namePart>Evans, Walker, 1903-1975</mods:namePart>\n"
-                + "    <mods:role>\n"
-                + "      <mods:roleTerm authority=\"marcrelator\" type=\"code\">pht</mods:roleTerm>\n"
-                + "      <mods:roleTerm authority=\"marcrelator\" type=\"text\">Photographer</mods:roleTerm>\n"
-                + "    </mods:role>\n"
-                + "  </mods:name>\n"
-                + "</mods:mods>";
+            String expected = """ 
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <mods:name authority="naf" type="personal">
+                    <mods:namePart>Evans, Walker, 1903-1975</mods:namePart>
+                    <mods:role>
+                      <mods:roleTerm authority="marcrelator" type="code">pht</mods:roleTerm>
+                      <mods:roleTerm authority="marcrelator" type="text">Photographer</mods:roleTerm>
+                    </mods:role>
+                  </mods:name>
+                </mods:mods>""";
             assertEquals("Test 3 failed", expected, s);
         } catch (Exception e) {
             fail(e.getMessage());
@@ -145,15 +147,16 @@ public class NameTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<mods:mods xmlns:mods=\"http://www.loc.gov/mods/v3\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n"
-                + "  <mods:name type=\"personal\">\n"
-                + "    <mods:namePart type=\"given\">John Paul</mods:namePart>\n"
-                + "    <mods:namePart type=\"termsOfAddress\">II</mods:namePart>\n"
-                + "    <mods:namePart type=\"termsOfAddress\">Pope</mods:namePart>\n"
-                + "    <mods:namePart type=\"date\">1905-1995</mods:namePart>\n"
-                + "  </mods:name>\n"
-                + "</mods:mods>";
+            String expected = """ 
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <mods:name type="personal">
+                    <mods:namePart type="given">John Paul</mods:namePart>
+                    <mods:namePart type="termsOfAddress">II</mods:namePart>
+                    <mods:namePart type="termsOfAddress">Pope</mods:namePart>
+                    <mods:namePart type="date">1905-1995</mods:namePart>
+                  </mods:name>
+                </mods:mods>""";
             assertEquals("Test 4 failed", expected, s);
         } catch (Exception e) {
             fail(e.getMessage());

@@ -17,17 +17,17 @@ public class RecordInfoTest {
 
     @Test
     public void test1() {
-        String expected = 
-              "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-            + "<mods:mods xmlns:mods=\"http://www.loc.gov/mods/v3\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n"
-            + "  <mods:recordInfo usage=\"primary\">\n"
-            + "    <mods:recordContentSource authority=\"marcorg\">MH</mods:recordContentSource>\n"
-            + "    <mods:recordContentSource authority=\"marcorg\">830804</mods:recordContentSource>\n"
-            + "    <mods:recordContentSource authority=\"marcorg\">20080122</mods:recordContentSource>\n"
-            + "    <mods:recordIdentifier source=\"ALMA\">990000035150203941_FHCL.HOUGH:37522572</mods:recordIdentifier>\n"
-            + "    <mods:recordOrigin>Converted from MARCXML to MODS version 3.8</mods:recordOrigin>\n"
-            + "  </mods:recordInfo>\n"
-            + "</mods:mods>";
+        String expected = """
+              <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+              <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <mods:recordInfo usage="primary">
+                  <mods:recordContentSource authority="marcorg">MH</mods:recordContentSource>
+                  <mods:recordContentSource authority="marcorg">830804</mods:recordContentSource>
+                  <mods:recordContentSource authority="marcorg">20080122</mods:recordContentSource>
+                  <mods:recordIdentifier source="ALMA">990000035150203941_FHCL.HOUGH:37522572</mods:recordIdentifier>
+                  <mods:recordOrigin>Converted from MARCXML to MODS version 3.8</mods:recordOrigin>
+                </mods:recordInfo>
+              </mods:mods>""";
         Mods mods = Mods.builder()
             .addContent(RecordInfo.builderForRecordInfo()
                 .usage(Usage.PRIMARY)
