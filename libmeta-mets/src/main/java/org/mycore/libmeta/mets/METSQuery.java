@@ -17,6 +17,8 @@
  */
 package org.mycore.libmeta.mets;
 
+import java.util.stream.Stream;
+
 import org.mycore.libmeta.mets.model.Mets;
 import org.mycore.libmeta.mets.model._enums.LOCTYPE;
 import org.mycore.libmeta.mets.model.filesec.File;
@@ -149,5 +151,16 @@ public class METSQuery {
             }
         }
         return null;
+    }
+    
+    /**
+     * This method create a stream of divs of a hierarchical structure of div elements in a structMap.
+     * (The traversal order is depth first search.)
+     * 
+     * @param div - the root div element
+     * @return a stream of child div elements
+     */
+    public static Stream<Div> treeTraversalStreamOfDivs(Div div) {
+        return Stream.concat(Stream.of(div), div.getDiv().stream().flatMap(x -> treeTraversalStreamOfDivs(x)));
     }
 }
