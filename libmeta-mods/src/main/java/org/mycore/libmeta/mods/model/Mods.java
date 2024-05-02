@@ -143,16 +143,6 @@ public class Mods implements IIDAttributeGroup {
         this.version = version;
     }
 
-    /**
-     * returns a filtered List of TopLevel elements
-     * @param <T> the type of the toplevelElement
-     * @param type the class to filter and cast elements for
-     * @return an object stream of MODS toplevel elements
-     */
-    public <T extends ITopLevelElement> List<T> filterContent(Class<T> type) {
-        return toplevel.stream().filter(type::isInstance).map(type::cast).toList();
-    }
-
     public static Builder builder() {
         return builder(new Mods());
     }
