@@ -15,11 +15,15 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.mods.model._misc;
+package org.mycore.libmeta.mods.model._misc.definitions;
 
 import java.util.List;
 import java.util.Vector;
 
+import org.mycore.libmeta.mods.model._misc.IAuthorityAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
+import org.mycore.libmeta.mods.model._misc.INameDefinitionSubelement;
 import org.mycore.libmeta.mods.model._misc.enums.NameType;
 import org.mycore.libmeta.mods.model._misc.enums.Usage;
 import org.mycore.libmeta.mods.model._misc.enums.Yes;

@@ -18,7 +18,7 @@
 package org.mycore.libmeta.mods.model._misc.builder;
 
 import org.mycore.libmeta.mods.model._misc.INameDefinitionSubelement;
-import org.mycore.libmeta.mods.model._misc.NameDefinition;
+import org.mycore.libmeta.mods.model._misc.definitions.NameDefinition;
 import org.mycore.libmeta.mods.model._misc.enums.NameType;
 import org.mycore.libmeta.mods.model._misc.enums.Usage;
 import org.mycore.libmeta.mods.model._misc.enums.Yes;

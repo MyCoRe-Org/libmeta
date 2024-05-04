@@ -17,10 +17,10 @@
  */
 package org.mycore.libmeta.mods.model._misc.builder;
 
-import org.mycore.libmeta.mods.model._misc.DateDefinition;
 import org.mycore.libmeta.mods.model._misc.DateEncoding;
 import org.mycore.libmeta.mods.model._misc.DatePoint;
 import org.mycore.libmeta.mods.model._misc.DateQualifier;
+import org.mycore.libmeta.mods.model._misc.definitions.DateDefinition;
 import org.mycore.libmeta.mods.model._misc.enums.Yes;
 
 /**

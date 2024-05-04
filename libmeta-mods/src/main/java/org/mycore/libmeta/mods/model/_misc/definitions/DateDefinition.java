@@ -15,8 +15,11 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.mods.model._misc;
+package org.mycore.libmeta.mods.model._misc.definitions;
 
+import org.mycore.libmeta.mods.model._misc.DateEncoding;
+import org.mycore.libmeta.mods.model._misc.DatePoint;
+import org.mycore.libmeta.mods.model._misc.DateQualifier;
 import org.mycore.libmeta.mods.model._misc.enums.Yes;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 

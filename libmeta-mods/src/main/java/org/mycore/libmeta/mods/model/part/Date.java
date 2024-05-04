@@ -18,8 +18,8 @@
 package org.mycore.libmeta.mods.model.part;
 
 import org.mycore.libmeta.common.BuilderBase;
-import org.mycore.libmeta.mods.model._misc.DateDefinition;
 import org.mycore.libmeta.mods.model._misc.builder.IDateDefinitionBuilder;
+import org.mycore.libmeta.mods.model._misc.definitions.DateDefinition;
 
 /**
  * {@code

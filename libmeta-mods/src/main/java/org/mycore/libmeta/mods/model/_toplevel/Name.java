@@ -19,8 +19,8 @@ package org.mycore.libmeta.mods.model._toplevel;
 
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.INameSubelement;
-import org.mycore.libmeta.mods.model._misc.NameDefinition;
 import org.mycore.libmeta.mods.model._misc.builder.INameDefinitionBuilder;
+import org.mycore.libmeta.mods.model._misc.definitions.NameDefinition;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
