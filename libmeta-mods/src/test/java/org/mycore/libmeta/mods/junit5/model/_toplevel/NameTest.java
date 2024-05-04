@@ -57,7 +57,7 @@ public class NameTest {
     @Test
     public void test2() {
         Mods mods = Mods.builder()
-            .addContent(AccessCondition.builderForAccessCondition()
+            .addContent(AccessCondition.builder()
                 .type("use and reproduction")
                 .authority("rightsstatements")
                 .authorityURI("http://rightsstatements.org/vocab")
