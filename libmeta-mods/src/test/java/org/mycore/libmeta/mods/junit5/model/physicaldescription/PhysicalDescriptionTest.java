@@ -44,7 +44,7 @@ public class PhysicalDescriptionTest {
     public void test1() {
         Mods mods = Mods.builder()
             .addContent(PhysicalDescription.builder()
-                .addContent((Form) Form.builder().authority("marcform").content("electronic").build())
+                .addContent((Form) Form.builderForForm().authority("marcform").content("electronic").build())
                 .addContent(InternetMediaType.builder().content("image/jpeg").build())
                 .addContent(InternetMediaType.builder().content("text/html").build())
                 .addContent(Extent.builder().content("5 digital files").build())
