@@ -42,7 +42,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 public class Form extends org.mycore.libmeta.mods.model.location.holdingsimple.copyinformation.Form
     implements IPhysicalDescriptionSubelement {
 
-    public static Builder builder() {
+    public static Builder builderForForm() {
         return builder(new Form());
     }
 

@@ -29,7 +29,7 @@ import org.mycore.libmeta.mods.model.subject.name.ISubjectNameSubelement;
 public class NameIdentifier extends Identifier
     implements INameSubelement, IAlternativeNameSubelement, ISubjectNameSubelement {
 
-    public static Builder builder() {
+    public static Builder builderForNameIdentifier() {
         return builder(new NameIdentifier());
     }
 
