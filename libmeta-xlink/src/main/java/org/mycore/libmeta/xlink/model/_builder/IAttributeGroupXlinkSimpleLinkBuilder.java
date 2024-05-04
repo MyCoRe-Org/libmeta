@@ -19,6 +19,7 @@ package org.mycore.libmeta.xlink.model._builder;
 
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
+import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
 import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink;
 
 /**
@@ -34,7 +35,11 @@ public interface IAttributeGroupXlinkSimpleLinkBuilder<T extends IAttributeGroup
 	T _target();
 
 	public B _self();
-
+    
+	public default B xlinkType(XlinkTypeSimple xlinkType) {
+        _target().setXlinkType(xlinkType);
+        return _self();
+    }
 	public default B xlinkHref(String xlinkHref) {
 		_target().setXlinkHref(xlinkHref);
 		return _self();

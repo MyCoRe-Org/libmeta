@@ -19,6 +19,7 @@ package org.mycore.libmeta.xlink.model._interfaces;
 
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
+import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
 
 /**
  * Interface for elements that should contain XlinkSimpleLink attributes
@@ -26,6 +27,10 @@ import org.mycore.libmeta.xlink.model.XlinkShow;
  * @author Robert Stephan
  */
 public interface IAttributeGroupXlinkSimpleLink {
+    
+    public XlinkTypeSimple getXlinkType();
+    
+    public void setXlinkType(XlinkTypeSimple xlinkType);
 
 	public String getXlinkHref();
 
