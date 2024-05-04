@@ -26,5 +26,17 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguagePlusAuthority
  *
  */
 public class SubjectTopic extends StringPlusLanguagePlusAuthority implements ISubjectSubelement {
+    public static Builder builder() {
+        return builder(new SubjectTopic());
+    }
 
+    public static Builder builder(SubjectTopic st) {
+        return new Builder(st);
+    }
+
+    public static class Builder extends StringPlusLanguagePlusAuthority.Builder<SubjectTopic> {
+        protected Builder(SubjectTopic st) {
+            super(st);
+        }
+    }
 }

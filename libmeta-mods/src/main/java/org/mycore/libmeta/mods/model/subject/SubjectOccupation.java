@@ -28,4 +28,18 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguagePlusAuthority
  */
 public class SubjectOccupation extends StringPlusLanguagePlusAuthority implements ISubjectSubelement {
 
+    public static Builder builder() {
+        return new Builder(new SubjectOccupation());
+    }
+
+    public static Builder builder(SubjectOccupation so) {
+        return new Builder(so);
+    }
+
+    public static class Builder extends StringPlusLanguagePlusAuthority.Builder<SubjectOccupation> {
+        protected Builder(SubjectOccupation so) {
+            super(so);
+        }
+    }
+
 }

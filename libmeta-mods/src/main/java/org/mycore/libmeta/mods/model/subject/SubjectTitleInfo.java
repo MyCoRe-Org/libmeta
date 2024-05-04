@@ -317,7 +317,8 @@ public class SubjectTitleInfo
     }
 
     public static class Builder extends BuilderBase<SubjectTitleInfo, Builder> implements
-        IIDAttributeGroupBuilder<SubjectTitleInfo, Builder>, IAuthorityAttributeGroupBuilder<SubjectTitleInfo, Builder>,
+        IIDAttributeGroupBuilder<SubjectTitleInfo, Builder>,
+        IAuthorityAttributeGroupBuilder<SubjectTitleInfo, Builder>,
         IAttributeGroupXlinkSimpleLinkBuilder<SubjectTitleInfo, Builder> {
 
         protected Builder(SubjectTitleInfo subjectTitleInfo) {

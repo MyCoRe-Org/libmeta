@@ -26,5 +26,17 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguagePlusAuthority
  *
  */
 public class SubjectGeographic extends StringPlusLanguagePlusAuthority implements ISubjectSubelement {
+    public static Builder builder() {
+        return builder(new SubjectGeographic());
+    }
 
+    public static Builder builder(SubjectGeographic sg) {
+        return new Builder(sg);
+    }
+
+    public static class Builder extends StringPlusLanguagePlusAuthority.Builder<SubjectGeographic> {
+        protected Builder(SubjectGeographic sg) {
+            super(sg);
+        }
+    }
 }
