@@ -25,6 +25,7 @@ import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
+import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
 import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBuilder;
 import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink;
 
@@ -70,10 +71,10 @@ public class Note extends StringPlusLanguage
     @XmlAttribute(name = "typeURI")
     protected String typeURI;
 
-    @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
-    protected String xlinkType;
-
     // attributeGroup xlink:simpleLink - begin
+    
+    @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
+    protected XlinkTypeSimple xlinkType;
 
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkHref;
@@ -128,11 +129,11 @@ public class Note extends StringPlusLanguage
         this.typeURI = typeURI;
     }
 
-    public String getXlinkType() {
+    public XlinkTypeSimple getXlinkType() {
         return xlinkType;
     }
 
-    public void setXlinkType(String xlinkType) {
+    public void setXlinkType(XlinkTypeSimple xlinkType) {
         this.xlinkType = xlinkType;
     }
 
@@ -236,11 +237,6 @@ public class Note extends StringPlusLanguage
 
         public Builder typeURI(String typeURI) {
             _target().setTypeURI(typeURI);
-            return _self();
-        }
-
-        public Builder xlinkType(String xlinkType) {
-            _target().setXlinkType(xlinkType);
             return _self();
         }
 

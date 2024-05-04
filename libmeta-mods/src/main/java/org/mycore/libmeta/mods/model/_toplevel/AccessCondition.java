@@ -25,11 +25,11 @@ import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAltFormatAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IExtensionDefinitionBuilder;
-import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.definitions.ExtensionDefinition;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
+import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
 import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBuilder;
 import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink;
 
@@ -64,7 +64,7 @@ public class AccessCondition extends ExtensionDefinition
     // attributeGroup xlink:simpleLink - begin
 
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
-    protected String xlinkType;
+    protected XlinkTypeSimple xlinkType;
 
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkHref;
@@ -128,11 +128,11 @@ public class AccessCondition extends ExtensionDefinition
 
     //IAuthorityAttributeGroup - end
 
-    public String getXlinkType() {
+    public XlinkTypeSimple getXlinkType() {
         return xlinkType;
     }
 
-    public void setXlinkType(String xlinkType) {
+    public void setXlinkType(XlinkTypeSimple xlinkType) {
         this.xlinkType = xlinkType;
     }
 

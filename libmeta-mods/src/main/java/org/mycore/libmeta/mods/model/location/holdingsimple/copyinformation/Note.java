@@ -23,6 +23,7 @@ import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
+import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
 import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBuilder;
 import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink;
 
@@ -65,7 +66,7 @@ public class Note extends StringPlusLanguage implements ICopyInformationSubeleme
     // attributeGroup xlink:simpleLink - begin
 
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
-    protected String xlinkType;
+    protected XlinkTypeSimple xlinkType;
 
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkHref;
@@ -106,11 +107,11 @@ public class Note extends StringPlusLanguage implements ICopyInformationSubeleme
         this.type = type;
     }
 
-    public String getXlinkType() {
+    public XlinkTypeSimple getXlinkType() {
         return xlinkType;
     }
 
-    public void setXlinkType(String xlinkType) {
+    public void setXlinkType(XlinkTypeSimple xlinkType) {
         this.xlinkType = xlinkType;
     }
 
@@ -191,11 +192,6 @@ public class Note extends StringPlusLanguage implements ICopyInformationSubeleme
 
         public Builder type(String type) {
             _target().setType(type);
-            return _self();
-        }
-
-        public Builder xlinkType(String xlinkType) {
-            _target().setXlinkType(xlinkType);
             return _self();
         }
 

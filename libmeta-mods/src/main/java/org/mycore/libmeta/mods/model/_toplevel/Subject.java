@@ -39,6 +39,7 @@ import org.mycore.libmeta.mods.model.subject.SubjectTitleInfo;
 import org.mycore.libmeta.mods.model.subject.SubjectTopic;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
+import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
 import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBuilder;
 import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink;
 
@@ -135,6 +136,9 @@ public class Subject
     //ILanguageAttributeGroup - end
 
     //IXlinkSimpleLinkAttributeGroup - begin
+
+    @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = false)
+    protected XlinkTypeSimple xlinkType;
 
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkHref;
@@ -246,6 +250,14 @@ public class Subject
 
     public void setTransliteration(String transliteration) {
         this.transliteration = transliteration;
+    }
+
+    public XlinkTypeSimple getXlinkType() {
+        return xlinkType;
+    }
+
+    public void setXlinkType(XlinkTypeSimple xlinkType) {
+        this.xlinkType = xlinkType;
     }
 
     public String getXlinkHref() {

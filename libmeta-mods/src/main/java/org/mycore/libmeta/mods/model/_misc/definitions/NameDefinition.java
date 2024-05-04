@@ -37,6 +37,7 @@ import org.mycore.libmeta.mods.model.name.NamePart;
 import org.mycore.libmeta.mods.model.name.Role;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
+import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
 import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -157,6 +158,9 @@ public abstract class NameDefinition<S extends INameDefinitionSubelement>
     //IAuthorityAttributeGroup - end
 
     //IXlinkSimpleLinkAttributeGroup - begin
+
+    @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = false)
+    protected XlinkTypeSimple xlinkType;
 
     /**
      * {@code 
@@ -284,6 +288,14 @@ public abstract class NameDefinition<S extends INameDefinitionSubelement>
 
     public void setValueURI(String valueURI) {
         this.valueURI = valueURI;
+    }
+
+    public XlinkTypeSimple getXlinkType() {
+        return xlinkType;
+    }
+
+    public void setXlinkType(XlinkTypeSimple xlinkType) {
+        this.xlinkType = xlinkType;
     }
 
     public String getXlinkHref() {
