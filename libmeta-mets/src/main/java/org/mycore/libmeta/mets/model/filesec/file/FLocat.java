@@ -23,6 +23,7 @@ import org.mycore.libmeta.mets.model._enums.LOCTYPE;
 import org.mycore.libmeta.mets.model._interfaces.IAttributeGroupLOCATION;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
+import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
 import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBuilder;
 import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink;
 
@@ -116,7 +117,7 @@ public class FLocat implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimp
      * }
      */
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
-    protected String xlinkType;
+    protected XlinkTypeSimple xlinkType;
 
     /**
      * {@code
@@ -198,11 +199,11 @@ public class FLocat implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimp
         USE = use;
     }
 
-    public String getXlinkType() {
+    public XlinkTypeSimple getXlinkType() {
         return xlinkType;
     }
 
-    public void setXlinkType(String xlinkType) {
+    public void setXlinkType(XlinkTypeSimple xlinkType) {
         this.xlinkType = xlinkType;
     }
 
@@ -263,7 +264,8 @@ public class FLocat implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimp
     }
 
     public static class Builder extends BuilderBase<FLocat, Builder>
-        implements IAttributeGroupLOCATIONBuilder<FLocat, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<FLocat, Builder> {
+        implements IAttributeGroupLOCATIONBuilder<FLocat, Builder>,
+        IAttributeGroupXlinkSimpleLinkBuilder<FLocat, Builder> {
 
         protected Builder(FLocat f) {
             super(f);
@@ -276,11 +278,6 @@ public class FLocat implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimp
 
         public Builder USE(String use) {
             _target().setUSE(use);
-            return _self();
-        }
-
-        public Builder xlinkType(String xlinkType) {
-            _target().setXlinkType(xlinkType);
             return _self();
         }
     }

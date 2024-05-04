@@ -29,6 +29,7 @@ import org.mycore.libmeta.mets.model._interfaces.IAttributeGroupLOCATION;
 import org.mycore.libmeta.mets.model._interfaces.IAttributeGroupMETADATA;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
+import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
 import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBuilder;
 import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink;
 
@@ -105,7 +106,7 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
      * }
      */
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
-    protected String xlinkType;
+    protected XlinkTypeSimple xlinkType;
 
     /**
      * {@code
@@ -300,11 +301,11 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
         OTHERLOCTYPE = oTHERLOCTYPE;
     }
 
-    public String getXlinkType() {
+    public XlinkTypeSimple getXlinkType() {
         return xlinkType;
     }
 
-    public void setXlinkType(String xlinkType) {
+    public void setXlinkType(XlinkTypeSimple xlinkType) {
         this.xlinkType = xlinkType;
     }
 
@@ -444,8 +445,10 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
         return new Builder(mr);
     }
 
-    public static class Builder extends BuilderBase<MdRef, Builder> implements IAttributeGroupLOCATIONBuilder<MdRef, Builder>,
-        IAttributeGroupMETADATABuilder<MdRef, Builder>, IAttributeGroupFILECOREBuilder<MdRef, Builder>,
+    public static class Builder extends BuilderBase<MdRef, Builder>
+        implements IAttributeGroupLOCATIONBuilder<MdRef, Builder>,
+        IAttributeGroupMETADATABuilder<MdRef, Builder>,
+        IAttributeGroupFILECOREBuilder<MdRef, Builder>,
         IAttributeGroupXlinkSimpleLinkBuilder<MdRef, Builder> {
 
         protected Builder(MdRef mr) {
@@ -454,11 +457,6 @@ public class MdRef implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpl
 
         public Builder ID(String id) {
             _target().setID(id);
-            return _self();
-        }
-
-        public Builder xlinkType(String xlinkType) {
-            _target().setXlinkType(xlinkType);
             return _self();
         }
 

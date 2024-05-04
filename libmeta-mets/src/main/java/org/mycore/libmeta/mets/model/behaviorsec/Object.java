@@ -23,6 +23,7 @@ import org.mycore.libmeta.mets.model._enums.LOCTYPE;
 import org.mycore.libmeta.mets.model._interfaces.IAttributeGroupLOCATION;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
+import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
 import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBuilder;
 import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink;
 
@@ -49,7 +50,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class Object implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimpleLink {
-    
+
     /**
      * {@code
      * <xsd:attribute name="ID" type="xsd:ID" use="optional">
@@ -108,7 +109,7 @@ public class Object implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimp
      * }
      */
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
-    protected String xlinkType;
+    protected XlinkTypeSimple xlinkType;
     /**
      * {@code
      * <attribute ref="xlink:href" use="optional"/>
@@ -157,123 +158,119 @@ public class Object implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimp
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkActuate xlinkActuate;
 
-	public String getID() {
-		return ID;
-	}
+    public String getID() {
+        return ID;
+    }
 
-	public void setID(String id) {
-		ID = id;
-	}
+    public void setID(String id) {
+        ID = id;
+    }
 
-	public String getLABEL() {
-		return LABEL;
-	}
+    public String getLABEL() {
+        return LABEL;
+    }
 
-	public void setLABEL(String label) {
-		LABEL = label;
-	}
+    public void setLABEL(String label) {
+        LABEL = label;
+    }
 
-	public LOCTYPE getLOCTYPE() {
-		return LOCTYPE;
-	}
+    public LOCTYPE getLOCTYPE() {
+        return LOCTYPE;
+    }
 
-	public void setLOCTYPE(LOCTYPE locType) {
-		LOCTYPE = locType;
-	}
+    public void setLOCTYPE(LOCTYPE locType) {
+        LOCTYPE = locType;
+    }
 
-	public String getOTHERLOCTYPE() {
-		return OTHERLOCTYPE;
-	}
+    public String getOTHERLOCTYPE() {
+        return OTHERLOCTYPE;
+    }
 
-	public void setOTHERLOCTYPE(String otherLocType) {
-		OTHERLOCTYPE = otherLocType;
-	}
+    public void setOTHERLOCTYPE(String otherLocType) {
+        OTHERLOCTYPE = otherLocType;
+    }
 
-	public String getXlinkType() {
-		return xlinkType;
-	}
+    public XlinkTypeSimple getXlinkType() {
+        return xlinkType;
+    }
 
-	public void setXlinkType(String xlinkType) {
-		this.xlinkType = xlinkType;
-	}
+    public void setXlinkType(XlinkTypeSimple xlinkType) {
+        this.xlinkType = xlinkType;
+    }
 
-	public String getXlinkHref() {
-		return xlinkHref;
-	}
+    public String getXlinkHref() {
+        return xlinkHref;
+    }
 
-	public void setXlinkHref(String xlinkHref) {
-		this.xlinkHref = xlinkHref;
-	}
+    public void setXlinkHref(String xlinkHref) {
+        this.xlinkHref = xlinkHref;
+    }
 
-	public String getXlinkRole() {
-		return xlinkRole;
-	}
+    public String getXlinkRole() {
+        return xlinkRole;
+    }
 
-	public void setXlinkRole(String xlinkRole) {
-		this.xlinkRole = xlinkRole;
-	}
+    public void setXlinkRole(String xlinkRole) {
+        this.xlinkRole = xlinkRole;
+    }
 
-	public String getXlinkArcrole() {
-		return xlinkArcrole;
-	}
+    public String getXlinkArcrole() {
+        return xlinkArcrole;
+    }
 
-	public void setXlinkArcrole(String xlinkArcrole) {
-		this.xlinkArcrole = xlinkArcrole;
-	}
+    public void setXlinkArcrole(String xlinkArcrole) {
+        this.xlinkArcrole = xlinkArcrole;
+    }
 
-	public String getXlinkTitle() {
-		return xlinkTitle;
-	}
+    public String getXlinkTitle() {
+        return xlinkTitle;
+    }
 
-	public void setXlinkTitle(String xlinkTitle) {
-		this.xlinkTitle = xlinkTitle;
-	}
+    public void setXlinkTitle(String xlinkTitle) {
+        this.xlinkTitle = xlinkTitle;
+    }
 
-	public XlinkShow getXlinkShow() {
-		return xlinkShow;
-	}
+    public XlinkShow getXlinkShow() {
+        return xlinkShow;
+    }
 
-	public void setXlinkShow(XlinkShow xlinkShow) {
-		this.xlinkShow = xlinkShow;
-	}
+    public void setXlinkShow(XlinkShow xlinkShow) {
+        this.xlinkShow = xlinkShow;
+    }
 
-	public XlinkActuate getXlinkActuate() {
-		return xlinkActuate;
-	}
+    public XlinkActuate getXlinkActuate() {
+        return xlinkActuate;
+    }
 
-	public void setXlinkActuate(XlinkActuate xlinkActuate) {
-		this.xlinkActuate = xlinkActuate;
-	}
+    public void setXlinkActuate(XlinkActuate xlinkActuate) {
+        this.xlinkActuate = xlinkActuate;
+    }
 
     // attributeGroup xlink:simpleLink - end
 
-	 public static Builder builder() {
-	        return builder(new Object());
-	    }
+    public static Builder builder() {
+        return builder(new Object());
+    }
 
-	    public static Builder builder(Object o) {
-	        return new Builder(o);
-	    }
+    public static Builder builder(Object o) {
+        return new Builder(o);
+    }
 
-	    public static class Builder extends BuilderBase<Object, Builder>  implements IAttributeGroupLOCATIONBuilder<Object, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Object, Builder>{
+    public static class Builder extends BuilderBase<Object, Builder> implements
+        IAttributeGroupLOCATIONBuilder<Object, Builder>, IAttributeGroupXlinkSimpleLinkBuilder<Object, Builder> {
 
-	        public Builder(Object o) {
-	            super(o);
-	        }
-		
-		public Builder ID(String id) {
-			_target().setID(id);
-			return _self();
-		}
-		
-		public Builder LABEL(String label) {
-			_target().setLABEL(label);
-			return _self();
-		}
-		
-		public Builder xlinkType(String xlinkType) {
-		    _target().setXlinkType(xlinkType);
-			return _self();
-		}
-	}
+        public Builder(Object o) {
+            super(o);
+        }
+
+        public Builder ID(String id) {
+            _target().setID(id);
+            return _self();
+        }
+
+        public Builder LABEL(String label) {
+            _target().setLABEL(label);
+            return _self();
+        }
+    }
 }

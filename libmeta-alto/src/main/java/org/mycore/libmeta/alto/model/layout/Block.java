@@ -21,6 +21,7 @@ import org.mycore.libmeta.alto._misc.FloatAdapter;
 import org.mycore.libmeta.alto._misc.IBoundingBoxHolder;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
+import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
 import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -94,7 +95,7 @@ public class Block implements IAttributeGroupXlinkSimpleLink, IBoundingBoxHolder
      * }
      */
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
-    protected String xlinkType;
+    protected XlinkTypeSimple xlinkType;
 
     /**
      * {@code
@@ -232,11 +233,11 @@ public class Block implements IAttributeGroupXlinkSimpleLink, IBoundingBoxHolder
 		CS = cS;
 	}
 
-	public String getXlinkType() {
+	public XlinkTypeSimple getXlinkType() {
 		return xlinkType;
 	}
 
-	public void setXlinkType(String xlinkType) {
+	public void setXlinkType(XlinkTypeSimple xlinkType) {
 		this.xlinkType = xlinkType;
 	}
 
