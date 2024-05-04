@@ -24,9 +24,10 @@ import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.ILanguageAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAltFormatAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
-import org.mycore.libmeta.mods.model._misc.builder.IExtensionBuilder;
+import org.mycore.libmeta.mods.model._misc.builder.IExtensionDefinitionBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
+import org.mycore.libmeta.mods.model._misc.definitions.ExtensionDefinition;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
 import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBuilder;
@@ -56,16 +57,10 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  */
 
 @XmlAccessorType(XmlAccessType.NONE)
-public class AccessCondition extends Extension
+public class AccessCondition extends ExtensionDefinition
     implements ITopLevelElement, IIDAttributeGroup, IAttributeGroupXlinkSimpleLink, IAltFormatAttributeGroup,
-    ILanguageAttributeGroup,
-    IAuthorityAttributeGroup {
+    ILanguageAttributeGroup, IAuthorityAttributeGroup {
 
-    @XmlAttribute(name = "ID")
-    protected String ID;
-
-    @XmlAttribute(name = "IDREF")
-    protected String IDREF;
     // attributeGroup xlink:simpleLink - begin
 
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
@@ -107,9 +102,6 @@ public class AccessCondition extends Extension
 
     // <xs:attributeGroup name="languageAttributeGroup"> - end
 
-    @XmlAttribute(name = "type")
-    protected String type;
-
     @XmlAttribute(name = "altRepGroup")
     protected String altRepGroup;
 
@@ -135,22 +127,6 @@ public class AccessCondition extends Extension
     protected String valueURI;
 
     //IAuthorityAttributeGroup - end
-
-    public String getID() {
-        return ID;
-    }
-
-    public void setID(String iD) {
-        ID = iD;
-    }
-
-    public String getIDREF() {
-        return IDREF;
-    }
-
-    public void setIDREF(String iDREF) {
-        IDREF = iDREF;
-    }
 
     public String getXlinkType() {
         return xlinkType;
@@ -240,14 +216,6 @@ public class AccessCondition extends Extension
         this.transliteration = transliteration;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getAltRepGroup() {
         return altRepGroup;
     }
@@ -298,8 +266,7 @@ public class AccessCondition extends Extension
         this.valueURI = valueURI;
     }
 
-    //TODO: Better to use Builder builder() -> same as in Extension - create ExtensionBase class?
-    public static Builder builderForAccessCondition() {
+    public static Builder builder() {
         return builder(new AccessCondition());
     }
 
@@ -308,8 +275,7 @@ public class AccessCondition extends Extension
     }
 
     public static class Builder extends BuilderBase<AccessCondition, Builder>
-        implements IExtensionBuilder<AccessCondition, Builder>,
-        IIDAttributeGroupBuilder<AccessCondition, Builder>,
+        implements IExtensionDefinitionBuilder<AccessCondition, Builder>,
         IAttributeGroupXlinkSimpleLinkBuilder<AccessCondition, Builder>,
         IAltFormatAttributeGroupBuilder<AccessCondition, Builder>,
         ILanguageAttributeGroupBuilder<AccessCondition, Builder>,
@@ -317,11 +283,6 @@ public class AccessCondition extends Extension
 
         protected Builder(AccessCondition spl) {
             super(spl);
-        }
-
-        public Builder type(String type) {
-            _target().setType(type);
-            return _self();
         }
 
         public Builder altRepGroup(String s) {

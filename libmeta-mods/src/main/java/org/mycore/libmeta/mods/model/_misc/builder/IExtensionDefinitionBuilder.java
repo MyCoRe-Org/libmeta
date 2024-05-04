@@ -19,7 +19,7 @@ package org.mycore.libmeta.mods.model._misc.builder;
 
 import java.util.List;
 
-import org.mycore.libmeta.mods.model._toplevel.Extension;
+import org.mycore.libmeta.mods.model._misc.definitions.ExtensionDefinition;
 import org.w3c.dom.Node;
 
 /**
@@ -29,7 +29,7 @@ import org.w3c.dom.Node;
  * @version MODS 3.6
  *
  */
-public interface IExtensionBuilder<T extends Extension, B> {
+public interface IExtensionDefinitionBuilder<T extends ExtensionDefinition, B> extends IIDAttributeGroupBuilder<T, B>{
     public T _target();
 
     public B _self();
@@ -58,4 +58,10 @@ public interface IExtensionBuilder<T extends Extension, B> {
         _target().setDisplayLabel(displayLabel);
         return _self();
     }
+    
+    public default B type(String type) {
+        _target().setType(type);
+        return _self();
+    }
+
 }
