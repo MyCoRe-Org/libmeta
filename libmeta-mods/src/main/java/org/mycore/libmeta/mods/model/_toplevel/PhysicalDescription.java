@@ -172,7 +172,7 @@ public class PhysicalDescription implements ITopLevelElement, IIDAttributeGroup,
         this.altRepGroup = altRepGroup;
     }
 
-    public static Builder builderForPhysicalDescription() {
+    public static Builder builder() {
         return builder(new PhysicalDescription());
     }
 

@@ -38,7 +38,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.NONE)
 public class DateValid extends DateDefinition implements IOriginInfoSubelement {
 
-    public static Builder builderForDateValid() {
+    public static Builder builder() {
         return builder(new DateValid());
     }
 

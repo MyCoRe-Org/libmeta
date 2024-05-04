@@ -39,7 +39,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.NONE)
 public class SubLocation extends StringPlusLanguage implements ICopyInformationSubelement {
 
-    public static Builder builderForSubLocation() {
+    public static Builder builder() {
         return builder(new SubLocation());
     }
 

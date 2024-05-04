@@ -127,7 +127,7 @@ public class Identifier extends StringPlusLanguage implements ITopLevelElement, 
         this.altRepGroup = altRepGroup;
     }
 
-    public static Builder builderForIdentifier() {
+    public static Builder builder() {
         return builder(new Identifier());
     }
 

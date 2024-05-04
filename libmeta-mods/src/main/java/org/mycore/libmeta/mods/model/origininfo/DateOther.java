@@ -54,7 +54,7 @@ public class DateOther extends DateDefinition implements IOriginInfoSubelement {
         this.type = type;
     }
 
-    public static Builder builderForDateOther() {
+    public static Builder builder() {
         return builder(new DateOther());
     }
 

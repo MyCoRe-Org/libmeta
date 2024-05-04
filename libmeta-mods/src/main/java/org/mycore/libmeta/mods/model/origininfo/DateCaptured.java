@@ -38,7 +38,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.NONE)
 public class DateCaptured extends DateDefinition implements IOriginInfoSubelement {
 
-    public static Builder builderForDateCaptured() {
+    public static Builder builder() {
         return builder(new DateCaptured());
     }
 

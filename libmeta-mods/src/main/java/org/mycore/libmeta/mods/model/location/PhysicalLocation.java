@@ -146,7 +146,7 @@ public class PhysicalLocation extends StringPlusLanguagePlusAuthority
         this.xlinkActuate = xlinkActuate;
     }
 
-    public static Builder builderForPhysicalLocation() {
+    public static Builder builder() {
         return builder(new PhysicalLocation());
     }
 

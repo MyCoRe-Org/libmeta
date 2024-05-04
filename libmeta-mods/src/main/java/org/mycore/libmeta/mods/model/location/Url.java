@@ -82,7 +82,7 @@ public class Url extends XsAnyURI implements ILocationSublement {
         this.usage = usage;
     }
 
-    public static Builder builderForUrl() {
+    public static Builder builder() {
         return builder(new Url());
     }
 

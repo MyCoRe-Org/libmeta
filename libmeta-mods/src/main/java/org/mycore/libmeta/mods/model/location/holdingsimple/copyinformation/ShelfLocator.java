@@ -47,7 +47,7 @@ import jakarta.xml.bind.annotation.XmlType;
 public class ShelfLocator extends org.mycore.libmeta.mods.model.location.ShelfLocator
     implements ICopyInformationSubelement {
 
-    public static Builder builderForShelfLocator() {
+    public static Builder builder() {
         return builder(new ShelfLocator());
     }
 

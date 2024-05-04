@@ -353,7 +353,7 @@ public class RelatedItem
         return content.stream().filter(type::isInstance).map(type::cast).toList();
     }
 
-    public static Builder builderForRelatedItem() {
+    public static Builder builder() {
         return builder(new RelatedItem());
     }
 

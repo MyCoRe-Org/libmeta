@@ -79,7 +79,7 @@ public class SubjectTemporal extends DateDefinition implements ISubjectSubelemen
 
     // IAuthorityAttributeGroup - end
 
-    public static Builder builderForSubjectTemporal() {
+    public static Builder builder() {
         return builder(new SubjectTemporal());
     }
 

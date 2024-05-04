@@ -29,7 +29,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Edition extends StringPlusLanguagePlusSupplied implements IOriginInfoSubelement {
 
-    public static Builder builderForEdition() {
+    public static Builder builder() {
         return builder(new Edition());
     }
 

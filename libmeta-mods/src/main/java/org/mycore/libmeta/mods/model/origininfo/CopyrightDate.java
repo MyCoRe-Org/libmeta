@@ -38,7 +38,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.NONE)
 public class CopyrightDate extends DateDefinition implements IOriginInfoSubelement {
 
-    public static Builder builderForCopyrightDate() {
+    public static Builder builder() {
         return builder(new CopyrightDate());
     }
 

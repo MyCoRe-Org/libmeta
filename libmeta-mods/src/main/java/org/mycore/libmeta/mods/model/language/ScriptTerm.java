@@ -57,7 +57,7 @@ public class ScriptTerm extends StringPlusLanguagePlusAuthority implements ILang
         this.type = type;
     }
 
-    public static Builder builderForScriptTerm() {
+    public static Builder builder() {
         return builder(new ScriptTerm());
     }
 

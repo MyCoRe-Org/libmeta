@@ -202,7 +202,7 @@ public class Part implements ITopLevelElement, IIDAttributeGroup, ILanguageAttri
         this.altRepGroup = altRepGroup;
     }
 
-    public static Builder builderForPart() {
+    public static Builder builder() {
         return builder(new Part());
     }
 

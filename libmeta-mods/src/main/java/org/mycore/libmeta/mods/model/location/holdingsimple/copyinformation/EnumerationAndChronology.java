@@ -66,7 +66,7 @@ public class EnumerationAndChronology extends StringPlusLanguage implements ILoc
         this.unitType = unitType;
     }
 
-    public static Builder builderForEnumerationAndChronology() {
+    public static Builder builder() {
         return builder(new EnumerationAndChronology());
     }
 

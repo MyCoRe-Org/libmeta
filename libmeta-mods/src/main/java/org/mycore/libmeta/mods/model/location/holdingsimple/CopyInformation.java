@@ -155,7 +155,7 @@ public class CopyInformation {
         return itemIdentifier;
     }
 
-    public static Builder builderForCopyInformation() {
+    public static Builder builder() {
         return builder(new CopyInformation());
     }
 

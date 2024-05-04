@@ -208,7 +208,7 @@ public class Note extends StringPlusLanguage
         this.altRepGroup = altRepGroup;
     }
 
-    public static Builder builderForNote() {
+    public static Builder builder() {
         return new Builder(new Note());
     }
 

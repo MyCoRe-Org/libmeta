@@ -38,7 +38,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.NONE)
 public class DateModified extends DateDefinition implements IOriginInfoSubelement {
 
-    public static Builder builderForDateModified() {
+    public static Builder builder() {
         return builder(new DateModified());
     }
 

@@ -40,7 +40,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Frequency extends StringPlusLanguagePlusAuthority implements IOriginInfoSubelement {
 
-    public static Builder builderForFreqency() {
+    public static Builder builder() {
         return builder(new Frequency());
     }
 

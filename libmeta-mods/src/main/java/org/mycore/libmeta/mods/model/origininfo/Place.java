@@ -77,7 +77,7 @@ public class Place implements IOriginInfoSubelement {
         this.supplied = supplied;
     }
 
-    public static Builder builderForPlace() {
+    public static Builder builder() {
         return builder(new Place());
     }
 

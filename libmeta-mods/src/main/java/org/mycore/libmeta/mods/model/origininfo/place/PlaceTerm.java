@@ -63,7 +63,7 @@ public class PlaceTerm extends StringPlusLanguagePlusAuthority implements IPlace
         this.type = type;
     }
 
-    public static Builder builderForPlaceTerm() {
+    public static Builder builder() {
         return builder(new PlaceTerm());
     }
 

@@ -328,7 +328,7 @@ public class Subject
         this.usage = usage;
     }
 
-    public static Builder builderForSubject() {
+    public static Builder builder() {
         return builder(new Subject());
     }
 

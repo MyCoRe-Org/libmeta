@@ -170,7 +170,7 @@ public class Note extends StringPlusLanguage implements ICopyInformationSubeleme
         this.ID = ID;
     }
 
-    public static Builder builderForNote() {
+    public static Builder builder() {
         return builder(new Note());
     }
 

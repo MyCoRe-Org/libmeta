@@ -249,7 +249,7 @@ public class OriginInfo implements ITopLevelElement, IIDAttributeGroup, ILanguag
         this.eventTypeURI = eventTypeURI;
     }
 
-    public static Builder builderForOriginInfo() {
+    public static Builder builder() {
         return builder(new OriginInfo());
     }
 
