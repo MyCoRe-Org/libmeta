@@ -29,7 +29,7 @@ public class RecordInfoTest {
                 </mods:recordInfo>
               </mods:mods>""";
         Mods mods = Mods.builder()
-            .addContent(RecordInfo.builderForRecordInfo()
+            .addContent(RecordInfo.builder()
                 .usage(Usage.PRIMARY)
                 .addContent(RecordContentSource.builder()
                     .authority("marcorg")
@@ -43,7 +43,7 @@ public class RecordInfoTest {
                     .authority("marcorg")
                     .content("20080122")
                     .build())
-                .addContent(RecordIdentifier.builderForRecordIdentifier()
+                .addContent(RecordIdentifier.builder()
                     .source("ALMA")
                     .content("990000035150203941_FHCL.HOUGH:37522572")
                     .build())

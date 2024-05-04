@@ -24,7 +24,7 @@ public class SubjectTest {
         City city = new City();
         city.setContent("Rostock");
         Mods mods = Mods.builder()
-            .addContent(Subject.builderForSubject()
+            .addContent(Subject.builder()
                 .addContent(SubjectHierarchicalGeographic.builder()
                     .addContent(c)
                     .addContent(state)

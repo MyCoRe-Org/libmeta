@@ -43,7 +43,7 @@ public class PhysicalDescriptionTest {
     @Test
     public void test1() {
         Mods mods = Mods.builder()
-            .addContent(PhysicalDescription.builderForPhysicalDescription()
+            .addContent(PhysicalDescription.builder()
                 .addContent((Form) Form.builder().authority("marcform").content("electronic").build())
                 .addContent(InternetMediaType.builder().content("image/jpeg").build())
                 .addContent(InternetMediaType.builder().content("text/html").build())
