@@ -15,22 +15,36 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.mix;
+package org.mycore.libmeta.dcsimple;
 
 import org.mycore.libmeta.common.DefaultXMLProcessor;
-import org.mycore.libmeta.mix.model.Mix;
+import org.mycore.libmeta.dcsimple.model.DCElement;
 
-public class MIXProcessor extends DefaultXMLProcessor<Mix> {
-    
-    private static final MIXProcessor INSTANCE = new MIXProcessor();
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+
+/**
+ * JAXB Marshaller allows only indentation up to 8th level and starts then on the first column again
+ * bug report: https://java.net/jira/browse/JAXB-970
+ * 
+ * therefore we use the XSLT-Transformer for output
+ */
+public class DCSimpleXMLProcessor extends DefaultXMLProcessor<DCElement> {
+
+    private static final DCSimpleXMLProcessor INSTANCE = new DCSimpleXMLProcessor();
 
     //private constructor to avoid client applications to use constructor
-    private MIXProcessor() {
-        super(Mix.class);
+    private DCSimpleXMLProcessor() {
+        super(DCElement.class);
     }
 
-    public static MIXProcessor getInstance() {
+    public static DCSimpleXMLProcessor getInstance() {
         return INSTANCE;
+    }
+
+    @Override
+    public JAXBContext createJAXBContext() throws JAXBException{
+        return JAXBContext.newInstance("org.mycore.libmeta.dcsimple.model");
     }
 
 }

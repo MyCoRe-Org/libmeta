@@ -24,7 +24,6 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 import org.mycore.libmeta.dcsimple.model.DCContributor;
 import org.mycore.libmeta.dcsimple.model.DCElement;
-import org.mycore.libmeta.dcsimple.xml.DCSimpleXMLProcessor;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 

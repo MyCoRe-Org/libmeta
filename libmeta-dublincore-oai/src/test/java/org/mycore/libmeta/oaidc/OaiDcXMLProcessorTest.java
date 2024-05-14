@@ -27,7 +27,6 @@ import org.mycore.libmeta.dcsimple.DCQuery;
 import org.mycore.libmeta.dcsimple.model.DCContributor;
 import org.mycore.libmeta.dcsimple.model.DCTitle;
 import org.mycore.libmeta.oaidc.model.OaiDc;
-import org.mycore.libmeta.oaidc.xml.OaiDcXMLProcessor;
 
 public class OaiDcXMLProcessorTest {
 
