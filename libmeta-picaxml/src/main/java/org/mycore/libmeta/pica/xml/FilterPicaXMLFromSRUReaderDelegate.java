@@ -54,6 +54,8 @@ public class FilterPicaXMLFromSRUReaderDelegate extends EventReaderDelegate {
     private static QName qnSubfield = new QName("info:srw/schema/5/picaXML-v1.0", "subfield");
 
     private static QName qnZSRecords = new QName("http://www.loc.gov/zing/srw/", "records");
+    
+    private static QName qnZSearchRetrieveResponse = new QName("http://www.loc.gov/zing/srw/", "searchRetrieveResponse");
 
     private Queue<XMLEvent> queueOfNewEvents = new LinkedList<XMLEvent>();
 
@@ -93,6 +95,7 @@ public class FilterPicaXMLFromSRUReaderDelegate extends EventReaderDelegate {
             if (xmlEvent.isStartElement()) {
                 if (xmlEvent.asStartElement().getName().equals(qnZSRecords)) {
                     if (rootElement == RootElement.COLLECTION) {
+                        queueOfNewEvents.add(eventFactory.createCharacters("\n"));
                         queueOfNewEvents.add(eventFactory.createStartElement(qnCollection, null, null));
                         queueOfNewEvents.add(eventFactory.createNamespace("info:srw/schema/5/picaXML-v1.0"));
                         queueOfNewEvents.add(eventFactory.createCharacters("\n"));
@@ -131,6 +134,26 @@ public class FilterPicaXMLFromSRUReaderDelegate extends EventReaderDelegate {
                         continue;
                     }
                 }
+                
+                if (xmlEvent.asEndElement().getName().equals(qnZSearchRetrieveResponse)) {
+                    //handle empty SRU responses ...
+                    if (rootElement == RootElement.COLLECTION && isFirstRecord) {
+                        queueOfNewEvents.add(eventFactory.createCharacters("\n"));
+                        queueOfNewEvents.add(eventFactory.createStartElement(qnCollection, null, null));
+                        queueOfNewEvents.add(eventFactory.createNamespace("info:srw/schema/5/picaXML-v1.0"));
+                        queueOfNewEvents.add(eventFactory.createEndElement(qnCollection, null));
+                        continue;
+                    }
+                    
+                    if (rootElement == RootElement.RECORD && isFirstRecord) {
+                        queueOfNewEvents.add(eventFactory.createCharacters("\n"));
+                        queueOfNewEvents.add(eventFactory.createStartElement(qnRecord, null, null));
+                        queueOfNewEvents.add(eventFactory.createNamespace("info:srw/schema/5/picaXML-v1.0"));
+                        queueOfNewEvents.add(eventFactory.createEndElement(qnRecord, null));
+                        continue;
+                    }
+                }
+                
                 if (!xmlEvent.asEndElement().getName().getNamespaceURI().equals("info:srw/schema/5/picaXML-v1.0")) {
                     continue;
                 }

@@ -38,9 +38,34 @@ public class FilterTest {
         = "https://sru.k10plus.de/gvk?version=1.1&operation=searchRetrieve&maximumRecords=1&recordSchema=picaxml&query=pica.ppn%3D340126604";
     public static String SRU_URL_COLLECTION
         = "https://sru.k10plus.de/opac-de-28?version=1.1&operation=searchRetrieve&maximumRecords=10&recordSchema=picaxml&query=pica.url%3Dpurl.uni-rostock.de*&startRecord=31";
+    public static String SRU_URL_EMPTY
+        = "https://sru.k10plus.de/opac-de-28?version=1.1&operation=searchRetrieve&maximumRecords=10&recordSchema=picaxml&query=pica.url%3Dxxxx.uni-rostock.de*&startRecord=31";
 
     @Test
     public void testRecord() {
+        try {
+            URL url = new URL(SRU_URL_RECORD);
+            StringWriter sw = new StringWriter();
+            try (
+                BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+                BufferedWriter bw = new BufferedWriter(sw)) {
+                FilterPicaXMLFromSRUReaderDelegate.filterPicaRecordXML(br, bw);
+            }
+            System.out.println(sw);
+
+            Path outFile = Files.createTempFile("test_filter_pica", ".xml");
+            PicaXMLProcessor xmlProcessor = PicaXMLProcessor.getInstance();
+            PicaRecord pica = xmlProcessor.unmarshalFromSRU(new URL(SRU_URL_RECORD));
+            xmlProcessor.marshal(pica, outFile);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testFirstRecordFromCollection() {
         try {
             URL url = new URL(SRU_URL_COLLECTION);
             StringWriter sw = new StringWriter();
@@ -55,6 +80,29 @@ public class FilterTest {
             PicaXMLProcessor xmlProcessor = PicaXMLProcessor.getInstance();
             PicaRecord pica = xmlProcessor.unmarshalFromSRU(new URL(SRU_URL_RECORD));
             xmlProcessor.marshal(pica, outFile);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testEmptyRecord() {
+        try {
+            URL url = new URL(SRU_URL_EMPTY);
+            StringWriter sw = new StringWriter();
+            try (
+                BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+                BufferedWriter bw = new BufferedWriter(sw)) {
+                FilterPicaXMLFromSRUReaderDelegate.filterPicaRecordXML(br, bw);
+            }
+            System.out.println(sw);
+
+            Path outFile = Files.createTempFile("test_filter_pica", ".xml");
+            PicaXMLProcessor xmlProcessor = PicaXMLProcessor.getInstance();
+            PicaRecord picaRecord = xmlProcessor.unmarshalFromSRU(new URL(SRU_URL_EMPTY));
+            xmlProcessor.marshal(picaRecord, outFile);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -84,5 +132,28 @@ public class FilterTest {
             fail(e.getMessage());
         }
 
+    }
+
+    @Test
+    public void testEmptyCollection() {
+        try {
+            URL url = new URL(SRU_URL_EMPTY);
+            StringWriter sw = new StringWriter();
+            try (
+                BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+                BufferedWriter bw = new BufferedWriter(sw)) {
+                FilterPicaXMLFromSRUReaderDelegate.filterPicaCollectionXML(br, bw);
+            }
+            System.out.println(sw);
+
+            Path outFile = Files.createTempFile("test_filter_pica", ".xml");
+            PicaCollectionXMLProcessor xmlProcessor = PicaCollectionXMLProcessor.getInstance();
+            PicaCollection picaColl = xmlProcessor.unmarshalFromSRU(new URL(SRU_URL_EMPTY));
+            xmlProcessor.marshal(picaColl, outFile);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail(e.getMessage());
+        }
     }
 }
