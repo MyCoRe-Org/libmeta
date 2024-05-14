@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.pica.xml;
+package org.mycore.libmeta.pica;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -27,6 +27,7 @@ import javax.xml.stream.XMLInputFactory;
 
 import org.mycore.libmeta.common.DefaultXMLProcessor;
 import org.mycore.libmeta.pica.model.PicaRecord;
+import org.mycore.libmeta.pica.xml.FilterPicaXMLFromSRUReaderDelegate;
 
 public class PicaXMLProcessor extends DefaultXMLProcessor<PicaRecord>{
 

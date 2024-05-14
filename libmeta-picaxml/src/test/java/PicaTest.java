@@ -3,9 +3,9 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.mycore.libmeta.common.LibmetaProcessorException;
+import org.mycore.libmeta.pica.PicaXMLProcessor;
 import org.mycore.libmeta.pica.json.PicaInJSONProcessor;
 import org.mycore.libmeta.pica.model.PicaRecord;
-import org.mycore.libmeta.pica.xml.PicaXMLProcessor;
 
 public class PicaTest {
 

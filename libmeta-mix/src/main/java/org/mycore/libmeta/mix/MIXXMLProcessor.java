@@ -20,16 +20,16 @@ package org.mycore.libmeta.mix;
 import org.mycore.libmeta.common.DefaultXMLProcessor;
 import org.mycore.libmeta.mix.model.Mix;
 
-public class MIXProcessor extends DefaultXMLProcessor<Mix> {
+public class MIXXMLProcessor extends DefaultXMLProcessor<Mix> {
     
-    private static final MIXProcessor INSTANCE = new MIXProcessor();
+    private static final MIXXMLProcessor INSTANCE = new MIXXMLProcessor();
 
     //private constructor to avoid client applications to use constructor
-    private MIXProcessor() {
+    private MIXXMLProcessor() {
         super(Mix.class);
     }
 
-    public static MIXProcessor getInstance() {
+    public static MIXXMLProcessor getInstance() {
         return INSTANCE;
     }
 

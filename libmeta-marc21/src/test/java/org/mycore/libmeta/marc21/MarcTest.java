@@ -12,7 +12,6 @@ import org.mycore.libmeta.common.XMLSchemaValidator;
 import org.mycore.libmeta.marc21.json.MarcInJSONProcessor;
 import org.mycore.libmeta.marc21.json.MarcJSONProcessor;
 import org.mycore.libmeta.marc21.model.MarcRecord;
-import org.mycore.libmeta.marc21.xml.MarcXMLProcessor;
 
 public class MarcTest {
 

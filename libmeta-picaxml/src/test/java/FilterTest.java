@@ -29,9 +29,9 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLOutputFactory;
 
 import org.junit.Test;
+import org.mycore.libmeta.pica.PicaXMLProcessor;
 import org.mycore.libmeta.pica.model.PicaRecord;
 import org.mycore.libmeta.pica.xml.FilterPicaXMLFromSRUReaderDelegate;
-import org.mycore.libmeta.pica.xml.PicaXMLProcessor;
 
 public class FilterTest {
     public static String SRU_URL = "https://sru.k10plus.de/gvk?version=1.1&operation=searchRetrieve&maximumRecords=1&recordSchema=picaxml&query=pica.ppn%3D340126604";
