@@ -28,6 +28,7 @@ import javax.xml.stream.XMLInputFactory;
 import org.mycore.libmeta.common.DefaultXMLProcessor;
 import org.mycore.libmeta.pica.model.PicaRecord;
 import org.mycore.libmeta.pica.xml.FilterPicaXMLFromSRUReaderDelegate;
+import org.mycore.libmeta.pica.xml.FilterPicaXMLFromSRUReaderDelegate.RootElement;
 
 public class PicaXMLProcessor extends DefaultXMLProcessor<PicaRecord> {
 
@@ -48,7 +49,7 @@ public class PicaXMLProcessor extends DefaultXMLProcessor<PicaRecord> {
 
         XMLInputFactory inputFactory = XMLInputFactory.newInstance();
         XMLEventReader xmlEventReader = new FilterPicaXMLFromSRUReaderDelegate(
-            inputFactory.createXMLEventReader(br));
+            inputFactory.createXMLEventReader(br), RootElement.RECORD);
 
         return (PicaRecord) createJAXBContext().createUnmarshaller().unmarshal(xmlEventReader);
     }
