@@ -17,10 +17,13 @@
  */
 package org.mycore.libmeta.oaidc;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
+import org.mycore.libmeta.common.LibmetaProcessorException;
+import org.mycore.libmeta.dcsimple.DCQuery;
 import org.mycore.libmeta.dcsimple.model.DCContributor;
 import org.mycore.libmeta.dcsimple.model.DCTitle;
 import org.mycore.libmeta.oaidc.model.OaiDc;
@@ -51,4 +54,27 @@ public class OaiDcXMLProcessorTest {
         }
     }
 
+    @Test
+    public void test2() {
+        String expected
+            = """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
+                  <dc:title>Using Structural Metadata to Localize Experience of Digital Content</dc:title>
+                  <dc:contributor xml:lang="de">Max Meier</dc:contributor>
+                </oai_dc:dc>""";
+        try {
+            OaiDc odaDC = OaiDcXMLProcessor.getInstance().unmarshal(expected);
+            DCContributor dcContributor = DCQuery.streamFilteredContent(odaDC, DCContributor.class).findFirst().get();
+            assertEquals("Test 2 failed for DCContributor", dcContributor.getValue(), "Max Meier");
+            
+            DCTitle dcTitle = DCQuery.listFilteredContent(odaDC, DCTitle.class).get(0);
+            assertEquals("Test 2 failed for DCTitle", dcTitle.getValue(),
+                "Using Structural Metadata to Localize Experience of Digital Content");
+
+        } catch (LibmetaProcessorException e) {
+            fail(e.getMessage());
+        }
+    }
+    
 }

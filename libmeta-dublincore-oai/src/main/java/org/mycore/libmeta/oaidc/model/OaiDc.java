@@ -27,6 +27,7 @@ import org.mycore.libmeta.dcsimple.model.DCCreator;
 import org.mycore.libmeta.dcsimple.model.DCDate;
 import org.mycore.libmeta.dcsimple.model.DCDescription;
 import org.mycore.libmeta.dcsimple.model.DCElement;
+import org.mycore.libmeta.dcsimple.model.DCElementRoot;
 import org.mycore.libmeta.dcsimple.model.DCFormat;
 import org.mycore.libmeta.dcsimple.model.DCIdentifier;
 import org.mycore.libmeta.dcsimple.model.DCLanguage;
@@ -79,7 +80,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlRootElement(name = "dc", namespace = "http://www.openarchives.org/OAI/2.0/oai_dc/")
-public class OaiDc {
+public class OaiDc implements DCElementRoot {
 
     @XmlElements({
         @XmlElement(name = "title", namespace = "http://purl.org/dc/elements/1.1/", type = DCTitle.class,
