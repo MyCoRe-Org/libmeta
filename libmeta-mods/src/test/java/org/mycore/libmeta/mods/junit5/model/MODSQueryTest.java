@@ -24,19 +24,20 @@ public class MODSQueryTest {
 
     @Test
     public void test1() {
-        String expected = """
-            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-              <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <mods:extension type="degree">
-                  <edtms>
-                    <name>Ph.D.</name>
-                    <level>2</level>
-                    <discipline>Comparitive and International Education</discipline>
-                    <grantor>Coumbia University</grantor>
-                  </edtms>
-                </mods:extension>
-              </mods:mods>
-            """;
+        String expected
+            = """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                  <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mods:extension type="degree">
+                      <edtms>
+                        <name>Ph.D.</name>
+                        <level>2</level>
+                        <discipline>Comparitive and International Education</discipline>
+                        <grantor>Coumbia University</grantor>
+                      </edtms>
+                    </mods:extension>
+                  </mods:mods>
+                """;
 
         Mods mods;
         try {
@@ -63,7 +64,7 @@ public class MODSQueryTest {
         */
 
         Mods mods = Mods.builder()
-            .addContent(RecordInfo.builderForRecordInfo()
+            .addContent(RecordInfo.builder()
                 .usage(Usage.PRIMARY)
                 .addContent(RecordContentSource.builder()
                     .authority("marcorg")
@@ -77,7 +78,7 @@ public class MODSQueryTest {
                     .authority("marcorg")
                     .content("20080122")
                     .build())
-                .addContent(RecordIdentifier.builderForRecordIdentifier()
+                .addContent(RecordIdentifier.builder()
                     .source("ALMA")
                     .content("990000035150203941_FHCL.HOUGH:37522572")
                     .build())
@@ -93,14 +94,15 @@ public class MODSQueryTest {
 
     @Test
     public void test3() {
-        String r = """
-            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-              <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <mods:titleInfo>
-                  <mods:title>Bush Cheney</mods:title>
-                </mods:titleInfo>
-              </mods:mods>
-            """;
+        String r
+            = """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                  <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mods:titleInfo>
+                      <mods:title>Bush Cheney</mods:title>
+                    </mods:titleInfo>
+                  </mods:mods>
+                """;
 
         Mods mods;
         try {
@@ -116,15 +118,16 @@ public class MODSQueryTest {
 
     @Test
     public void test4() {
-        String expected = """
-            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-              <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <mods:name authority="naf" authorityURI="http://id.loc.gov/authorities/names" type="personal" valueURI="http://id.loc.gov/authorities/names/n79022889">
-                <mods:namePart>Einstein, Albert, 1879-1955</mods:namePart>
-                <mods:affiliation authority="ROR" authorityURI="https://ror.org" valueURI="https://ror.org/00f809463">Institute for Advance Study</mods:affiliation>
-              </mods:name>
-            </mods:mods>
-            """;
+        String expected
+            = """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                  <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <mods:name authority="naf" authorityURI="http://id.loc.gov/authorities/names" type="personal" valueURI="http://id.loc.gov/authorities/names/n79022889">
+                    <mods:namePart>Einstein, Albert, 1879-1955</mods:namePart>
+                    <mods:affiliation authority="ROR" authorityURI="https://ror.org" valueURI="https://ror.org/00f809463">Institute for Advance Study</mods:affiliation>
+                  </mods:name>
+                </mods:mods>
+                """;
         try {
             Mods mods = MODSXMLProcessor.getInstance().unmarshal(expected);
             Name name = MODSQuery.streamFilteredContent(mods, Name.class).findFirst().get();
