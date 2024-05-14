@@ -33,11 +33,10 @@ import javax.xml.stream.events.XMLEvent;
 import javax.xml.stream.util.EventReaderDelegate;
 
 /**
- * FilterPicaXMLReaderDelegate kann benutzt werden um PicaPlus XML Dokumente
- * aus SRU-Response Dokumenten zu extrahieren
+ * FilterPicaXMLReaderDelegate can be used to extract PicaPlusXML Documents
+ * from SRU responses.
  * 
- * Die Klasse basiert auf der Java StAX API und kann als XMLEventReader benutzt
- * werden.
+ * The implementation is based on the Java StAX API and can be used as XMLEventReader.
  * 
  * @author Robert Stephan
  * 
@@ -56,17 +55,21 @@ public class FilterPicaXMLFromSRUReaderDelegate extends EventReaderDelegate {
 
     private static QName qnZSRecords = new QName("http://www.loc.gov/zing/srw/", "records");
 
+    private static QName qnZSNumberOfRecords = new QName("http://www.loc.gov/zing/srw/", "numberOfRecords");
+
     private Queue<XMLEvent> queueOfNewEvents = new LinkedList<XMLEvent>();
 
     private XMLEventFactory eventFactory = XMLEventFactory.newInstance();
 
     private boolean showText = false;
 
+    private boolean isCollection = false;
+
     /**
-     * Constructor
-     * 
-     * @param parentXMLEventReader - the parent XML event reader
-     */
+    * Constructor
+    * 
+    * @param parentXMLEventReader - the parent XML event reader
+    */
     public FilterPicaXMLFromSRUReaderDelegate(XMLEventReader parentXMLEventReader) {
         super(parentXMLEventReader);
     }
@@ -82,11 +85,23 @@ public class FilterPicaXMLFromSRUReaderDelegate extends EventReaderDelegate {
             return null;
         }
         if (xmlEvent.isStartElement()) {
+            if (xmlEvent.asStartElement().getName().equals(qnZSNumberOfRecords)) {
+                XMLEvent evtCharacters = super.nextEvent();
+                if (evtCharacters.isCharacters()) {
+                    String content = evtCharacters.asCharacters().getData();
+                    long num = Long.parseLong(content);
+                    isCollection = num > 1;
+                }
+            }
+
             if (xmlEvent.asStartElement().getName().equals(qnZSRecords)) {
-                queueOfNewEvents.add(eventFactory.createStartElement(qnCollection, null, null));
-                queueOfNewEvents.add(eventFactory.createNamespace("info:srw/schema/5/picaXML-v1.0"));
+                if (isCollection) {
+                    queueOfNewEvents.add(eventFactory.createStartElement(qnCollection, null, null));
+                    queueOfNewEvents.add(eventFactory.createNamespace("info:srw/schema/5/picaXML-v1.0"));
+                }
                 return nextEvent();
             }
+
             if (xmlEvent.asStartElement().getName().equals(qnRecord)) {
                 showText = true;
             }
@@ -99,7 +114,9 @@ public class FilterPicaXMLFromSRUReaderDelegate extends EventReaderDelegate {
 
         if (xmlEvent.isEndElement()) {
             if (xmlEvent.asEndElement().getName().equals(qnZSRecords)) {
-                return eventFactory.createEndElement(qnCollection, null);
+                if (isCollection) {
+                    return eventFactory.createEndElement(qnCollection, null);
+                }
             }
             if (xmlEvent.asEndElement().getName().equals(qnRecord)) {
                 showText = false;
