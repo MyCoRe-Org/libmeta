@@ -19,16 +19,12 @@
 import static org.junit.Assert.fail;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
+import java.io.StringWriter;
 import java.net.URL;
-import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
-import javax.xml.stream.XMLEventReader;
-import javax.xml.stream.XMLEventWriter;
-import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLOutputFactory;
 
 import org.junit.Test;
 import org.mycore.libmeta.pica.PicaCollectionXMLProcessor;
@@ -46,21 +42,14 @@ public class FilterTest {
     @Test
     public void testRecord() {
         try {
-            XMLInputFactory inputFactory = XMLInputFactory.newInstance();
-            XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
-            URL url = new URL(SRU_URL_RECORD);
-            URLConnection urlConnection = url.openConnection();
-            BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
-            XMLEventReader xmlEventReader = new FilterPicaXMLFromSRUReaderDelegate(
-                inputFactory.createXMLEventReader(br));
-
-            XMLEventWriter xmlEventWriter = outputFactory.createXMLEventWriter(System.out);
-
-            while (xmlEventReader.hasNext()) {
-                xmlEventWriter.add(xmlEventReader.nextEvent());
+            URL url = new URL(SRU_URL_COLLECTION);
+            StringWriter sw = new StringWriter();
+            try (
+                BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+                BufferedWriter bw = new BufferedWriter(sw)) {
+                FilterPicaXMLFromSRUReaderDelegate.filterPicaRecordXML(br, bw);
             }
-            xmlEventReader.close();
-            xmlEventWriter.close();
+            System.out.println(sw);
 
             Path outFile = Files.createTempFile("test_filter_pica", ".xml");
             PicaXMLProcessor xmlProcessor = PicaXMLProcessor.getInstance();
@@ -71,27 +60,19 @@ public class FilterTest {
             e.printStackTrace();
             fail(e.getMessage());
         }
-
     }
 
     @Test
     public void testCollection() {
         try {
-            XMLInputFactory inputFactory = XMLInputFactory.newInstance();
-            XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
             URL url = new URL(SRU_URL_COLLECTION);
-            URLConnection urlConnection = url.openConnection();
-            BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
-            XMLEventReader xmlEventReader = new FilterPicaXMLFromSRUReaderDelegate(
-                inputFactory.createXMLEventReader(br));
-
-            XMLEventWriter xmlEventWriter = outputFactory.createXMLEventWriter(System.out);
-
-            while (xmlEventReader.hasNext()) {
-                xmlEventWriter.add(xmlEventReader.nextEvent());
+            StringWriter sw = new StringWriter();
+            try (
+                BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+                BufferedWriter bw = new BufferedWriter(sw)) {
+                FilterPicaXMLFromSRUReaderDelegate.filterPicaCollectionXML(br, bw);
             }
-            xmlEventReader.close();
-            xmlEventWriter.close();
+            System.out.println(sw);
 
             Path outFile = Files.createTempFile("test_filter_pica", ".xml");
             PicaCollectionXMLProcessor xmlProcessor = PicaCollectionXMLProcessor.getInstance();
