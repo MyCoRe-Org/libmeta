@@ -32,7 +32,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
  * The root layout element.
  * 
  * @author Robert Stephan
- * @version Alto 2.1
+ * @version Alto 4.4
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class Layout {
@@ -41,7 +41,7 @@ public class Layout {
 	@XmlSchemaType(name = "IDREFS")
 	protected String STYLEREFS;
 	
-	@XmlElement(name = "Page", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = true)
+	@XmlElement(name = "Page", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = true)
 	protected List<Page> page = new Vector<Page>();
 	
 	public String getSTYLEREFS() {
