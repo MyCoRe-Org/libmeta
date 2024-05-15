@@ -22,7 +22,7 @@ import jakarta.xml.bind.annotation.XmlType;
  * ALTO is a standardized XML format to store layout and content information.
  * 
  * @author Robert Stephan
- * @version Alto 4.4 
+ * @version Alto 2.4 
 
  */
 

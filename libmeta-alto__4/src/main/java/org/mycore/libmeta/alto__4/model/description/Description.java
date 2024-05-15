@@ -36,19 +36,21 @@ import jakarta.xml.bind.annotation.XmlType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = { "measurementUnit", "sourceImageInformation", "ocrProcessing" })
+@XmlType(propOrder = { "measurementUnit", "sourceImageInformation", "ocrProcessing", "processing" })
 public class Description {
 
-    @XmlElement(name = "MeasurementUnit", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = true)
+    @XmlElement(name = "MeasurementUnit", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = true)
     protected MeasurementUnit measurementUnit;
 
     @XmlElement(name = "sourceImageInformation",
-        namespace = "http://www.loc.gov/standards/alto/ns-v2#",
-        required = false)
+        namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
     protected SourceImageInformation sourceImageInformation;
 
-    @XmlElement(name = "OCRProcessing", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+    @XmlElement(name = "OCRProcessing", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
     protected List<OCRProcessing> ocrProcessing = new Vector<OCRProcessing>();
+
+    @XmlElement(name = "Processing", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
+    protected List<Processing> processing = new Vector<Processing>();
 
     public MeasurementUnit getMeasurementUnit() {
         return measurementUnit;
@@ -74,6 +76,14 @@ public class Description {
         this.ocrProcessing = ocrProcessing;
     }
 
+    public List<Processing> getProcessing() {
+        return processing;
+    }
+
+    public void setProcessing(List<Processing> processing) {
+        this.processing = processing;
+    }
+
     public static Builder builder() {
         return builder(new Description());
     }
@@ -89,17 +99,22 @@ public class Description {
         }
 
         public Builder MeasurementUnit(MeasurementUnit measurementUnit) {
-        	_target().setMeasurementUnit(measurementUnit);
+            _target().setMeasurementUnit(measurementUnit);
             return _self();
         }
 
         public Builder sourceImageInformation(SourceImageInformation sourceImageInformation) {
-        	_target().setSourceImageInformation(sourceImageInformation);
+            _target().setSourceImageInformation(sourceImageInformation);
             return _self();
         }
 
         public Builder addOCRProcessing(OCRProcessing ocrProcessing) {
-        	_target().getOcrProcessing().add(ocrProcessing);
+            _target().getOcrProcessing().add(ocrProcessing);
+            return _self();
+        }
+
+        public Builder addProcessing(Processing processing) {
+            _target().getProcessing().add(processing);
             return _self();
         }
     }
