@@ -2,6 +2,7 @@ package org.mycore.libmeta.pica.json;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -9,6 +10,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.pica.model.PicaDatafield;
 import org.mycore.libmeta.pica.model.PicaRecord;
 import org.mycore.libmeta.pica.model.PicaSubfield;
@@ -37,14 +39,16 @@ public class PicaJSONProcessor {
         return INSTANCE;
     }
 
-    public void marshal(PicaRecord marc, Path p) throws Exception {
+    public void marshal(PicaRecord marc, Path p) throws LibmetaProcessorException {
         try (BufferedWriter bw = Files.newBufferedWriter(p);
             JsonGenerator jg = Json.createGenerator(bw)) {
             marshal(marc, jg);
+        } catch (IOException e) {
+            throw new LibmetaProcessorException(e);
         }
     }
 
-    public String marshalToString(PicaRecord marc) throws Exception {
+    public String marshalToString(PicaRecord marc) throws LibmetaProcessorException {
         StringWriter sw = new StringWriter();
         try (JsonGenerator jg = Json.createGenerator(sw)) {
             marshal(marc, jg);
@@ -52,24 +56,28 @@ public class PicaJSONProcessor {
         return sw.toString();
     }
 
-    public PicaRecord unmarshal(String s) throws Exception {
+    public PicaRecord unmarshal(String s) throws LibmetaProcessorException {
         try (JsonReader jr = Json.createReader(new StringReader(s))) {
             return unmarshal(jr);
         }
 
     }
 
-    public PicaRecord unmarshal(Path p) throws Exception {
+    public PicaRecord unmarshal(Path p) throws LibmetaProcessorException {
         try (BufferedReader br = Files.newBufferedReader(p);
             JsonReader jr = Json.createReader(br)) {
             return unmarshal(jr);
+        } catch (IOException e) {
+            throw new LibmetaProcessorException(e);
         }
     }
 
-    public PicaRecord unmarshal(URL url) throws Exception {
+    public PicaRecord unmarshal(URL url) throws LibmetaProcessorException {
         try (InputStream is = url.openStream();
             JsonReader jr = Json.createReader(is)) {
             return unmarshal(jr);
+        } catch (IOException e) {
+            throw new LibmetaProcessorException(e);
         }
     }
 

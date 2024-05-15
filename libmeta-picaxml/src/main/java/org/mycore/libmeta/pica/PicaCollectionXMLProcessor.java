@@ -26,6 +26,7 @@ import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 
 import org.mycore.libmeta.common.DefaultXMLProcessor;
+import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.pica.model.PicaCollection;
 import org.mycore.libmeta.pica.xml.FilterPicaXMLFromSRUReaderDelegate;
 import org.mycore.libmeta.pica.xml.FilterPicaXMLFromSRUReaderDelegate.RootElement;
@@ -43,15 +44,19 @@ public class PicaCollectionXMLProcessor extends DefaultXMLProcessor<PicaCollecti
         return INSTANCE;
     }
 
-    public PicaCollection unmarshalFromSRU(URL url) throws Exception {
-        URLConnection urlConnection = url.openConnection();
-        BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
+    public PicaCollection unmarshalFromSRU(URL url) throws LibmetaProcessorException {
+        try {
+            URLConnection urlConnection = url.openConnection();
+            BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
 
-        XMLInputFactory inputFactory = XMLInputFactory.newInstance();
-        XMLEventReader xmlEventReader = new FilterPicaXMLFromSRUReaderDelegate(
-            inputFactory.createXMLEventReader(br), RootElement.COLLECTION);
+            XMLInputFactory inputFactory = XMLInputFactory.newInstance();
+            XMLEventReader xmlEventReader = new FilterPicaXMLFromSRUReaderDelegate(
+                inputFactory.createXMLEventReader(br), RootElement.COLLECTION);
+            return (PicaCollection) createJAXBContext().createUnmarshaller().unmarshal(xmlEventReader);
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
+        }
 
-        return (PicaCollection) createJAXBContext().createUnmarshaller().unmarshal(xmlEventReader);
     }
 
 }
