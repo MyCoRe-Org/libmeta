@@ -40,7 +40,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 
 @XmlAccessorType(XmlAccessType.NONE)
-public class TextStyle implements FormattingAttributeGroup{
+public class TextStyle implements IFormattingAttributeGroup{
 
     @XmlAttribute(name = "ID", required = true)
     @XmlSchemaType(name = "ID")

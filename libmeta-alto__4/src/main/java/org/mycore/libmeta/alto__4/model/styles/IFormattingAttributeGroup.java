@@ -19,7 +19,7 @@ package org.mycore.libmeta.alto__4.model.styles;
 
 import java.util.EnumSet;
 
-public interface FormattingAttributeGroup {
+public interface IFormattingAttributeGroup {
     public String getFONTFAMILY();
 
     public void setFONTFAMILY(String fONTFAMILY);
