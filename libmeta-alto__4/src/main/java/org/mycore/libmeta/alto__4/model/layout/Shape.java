@@ -17,10 +17,10 @@
  */
 package org.mycore.libmeta.alto__4.model.layout;
 
-import org.mycore.libmeta.alto.model.layout.shape.Circle;
-import org.mycore.libmeta.alto.model.layout.shape.Ellipse;
-import org.mycore.libmeta.alto.model.layout.shape.IShape;
-import org.mycore.libmeta.alto.model.layout.shape.Polygon;
+import org.mycore.libmeta.alto__4.model.layout.shape.Circle;
+import org.mycore.libmeta.alto__4.model.layout.shape.Ellipse;
+import org.mycore.libmeta.alto__4.model.layout.shape.IShape;
+import org.mycore.libmeta.alto__4.model.layout.shape.Polygon;
 import org.mycore.libmeta.common.BuilderBase;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -28,12 +28,18 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElements;
 
+/**
+ * Describes the bounding shape of a block, if it is not rectangular.
+ * 
+ * @author Robert Stephan
+ * @version Alto 4.4
+ */
 @XmlAccessorType(XmlAccessType.NONE)
 public class Shape {
 	@XmlElements(value = {
-			@XmlElement(name = "Polygon", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = Polygon.class),
-			@XmlElement(name = "Ellipse", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = Ellipse.class),
-			@XmlElement(name = "Circle", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = Circle.class) })
+			@XmlElement(name = "Polygon", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false, type = Polygon.class),
+			@XmlElement(name = "Ellipse", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false, type = Ellipse.class),
+			@XmlElement(name = "Circle", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false, type = Circle.class) })
 	protected IShape Shape;
 
 	public IShape getShape() {
