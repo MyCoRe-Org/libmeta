@@ -34,7 +34,6 @@ import jakarta.xml.bind.annotation.XmlType;
  * @author Robert Stephan
  * @version Alto 4.4
  */
-
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder = { "textStyle", "paragraphStyle" })
 public class Styles {

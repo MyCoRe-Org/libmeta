@@ -34,30 +34,30 @@ import jakarta.xml.bind.annotation.XmlElements;
  * LayoutTags, StructureTags, RoleTags, NamedEntityTags and OtherTags
  * 
  * @author Robert Stephan
- * @version Alto 2.1
+ * @version Alto 4.4
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class Tags {
     @XmlElements(value = {
         @XmlElement(name = "LayoutTag",
-            namespace = "http://www.loc.gov/standards/alto/ns-v2#",
+            namespace = "http://www.loc.gov/standards/alto/ns-v4#",
             required = false,
             type = LayoutTag.class),
         @XmlElement(name = "StructureTag",
-            namespace = "http://www.loc.gov/standards/alto/ns-v2#",
+            namespace = "http://www.loc.gov/standards/alto/ns-v4#",
             required = false,
             type = StructureTag.class),
         @XmlElement(name = "RoleTag",
-            namespace = "http://www.loc.gov/standards/alto/ns-v2#",
+            namespace = "http://www.loc.gov/standards/alto/ns-v4#",
             required = false,
             type = RoleTag.class),
         @XmlElement(name = "NamedEntityTag",
-            namespace = "http://www.loc.gov/standards/alto/ns-v2#",
+            namespace = "http://www.loc.gov/standards/alto/ns-v4#",
             required = false,
             type = NamedEntityTag.class),
         @XmlElement(name = "OtherTag",
-            namespace = "http://www.loc.gov/standards/alto/ns-v2#",
+            namespace = "http://www.loc.gov/standards/alto/ns-v4#",
             required = false,
             type = OtherTag.class)
     })
