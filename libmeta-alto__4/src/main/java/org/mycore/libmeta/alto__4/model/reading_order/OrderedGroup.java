@@ -37,7 +37,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
  * @version Alto 4.4
   */
 @XmlAccessorType(XmlAccessType.NONE)
-public class OrderedGroup implements IReadingOrderChild, IGroupChild, IElementRefAttributeGroup{
+public class OrderedGroup implements IReadingOrderChild, IGroupChild, IElementRefAttributeGroup {
     @XmlAttribute(name = "ID", required = true)
     @XmlSchemaType(name = "ID")
     private String ID;
@@ -60,7 +60,7 @@ public class OrderedGroup implements IReadingOrderChild, IGroupChild, IElementRe
     @XmlAttribute(name = "TAGREFS", required = false)
     @XmlSchemaType(name = "IDREFS")
     private String TAGREFS;
-    
+
     @XmlElements(value = {
         @XmlElement(name = "ElementRef",
             namespace = "http://www.loc.gov/standards/alto/ns-v4#",
@@ -75,7 +75,7 @@ public class OrderedGroup implements IReadingOrderChild, IGroupChild, IElementRe
             required = false,
             type = UnorderedGroup.class),
     })
-    
+
     protected List<IGroupChild> contents = new Vector<IGroupChild>();
 
     public String getID() {
@@ -101,11 +101,11 @@ public class OrderedGroup implements IReadingOrderChild, IGroupChild, IElementRe
     public void setTAGREFS(String tAGREFS) {
         TAGREFS = tAGREFS;
     }
-    
-    public List<IGroupChild> getContents(){
+
+    public List<IGroupChild> getContents() {
         return contents;
     }
-    
+
     public void addContent(IGroupChild content) {
         contents.add(content);
     }
@@ -118,13 +118,14 @@ public class OrderedGroup implements IReadingOrderChild, IGroupChild, IElementRe
         return new Builder(orderedGroup);
     }
 
-    public static class Builder extends BuilderBase<OrderedGroup, Builder> implements IElementRefAttributeGroupBuilder<OrderedGroup, Builder> {
+    public static class Builder extends BuilderBase<OrderedGroup, Builder>
+        implements IElementRefAttributeGroupBuilder<OrderedGroup, Builder> {
 
         protected Builder(OrderedGroup orderedGroup) {
             super(orderedGroup);
         }
-        
-        protected Builder addContent(IGroupChild content){
+
+        protected Builder addContent(IGroupChild content) {
             _target().getContents().add(content);
             return _self();
         }

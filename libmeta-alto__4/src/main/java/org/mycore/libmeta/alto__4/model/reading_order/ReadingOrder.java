@@ -41,7 +41,6 @@ import jakarta.xml.bind.annotation.XmlElements;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class ReadingOrder {
-    
 
     @XmlElements(value = {
         @XmlElement(name = "OrderedGroup",
@@ -54,11 +53,11 @@ public class ReadingOrder {
             type = UnorderedGroup.class),
     })
     protected List<IReadingOrderChild> contents = new Vector<IReadingOrderChild>();
-        
+
     public List<IReadingOrderChild> getContents() {
         return contents;
     }
-    
+
     public void addContent(IReadingOrderChild content) {
         contents.add(content);
     }
@@ -75,7 +74,7 @@ public class ReadingOrder {
         protected Builder(ReadingOrder r) {
             super(r);
         }
-        
+
         protected Builder addContent(IReadingOrderChild content) {
             _target().getContents().add(content);
             return _self();

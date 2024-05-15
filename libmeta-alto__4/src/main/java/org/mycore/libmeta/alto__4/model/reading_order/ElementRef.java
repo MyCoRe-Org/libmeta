@@ -88,7 +88,8 @@ public class ElementRef implements IGroupChild, IElementRefAttributeGroup {
         return new Builder(elementRef);
     }
 
-    public static class Builder extends BuilderBase<ElementRef, Builder> implements IElementRefAttributeGroupBuilder<ElementRef, Builder> {
+    public static class Builder extends BuilderBase<ElementRef, Builder>
+        implements IElementRefAttributeGroupBuilder<ElementRef, Builder> {
 
         protected Builder(ElementRef elementRef) {
             super(elementRef);
