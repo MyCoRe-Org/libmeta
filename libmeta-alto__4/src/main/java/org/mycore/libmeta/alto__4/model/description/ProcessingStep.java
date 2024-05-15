@@ -83,7 +83,7 @@ public class ProcessingStep {
      * Information about a software application. Where applicable, the preferred
      * method for determining this information is by selecting Help -- About.
      */
-    @XmlElement(name = "processingSoftware", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+    @XmlElement(name = "processingSoftware", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
     protected ProcessingSoftware processingSoftware;
 
     public ProcessingCategory getProcessingCategory() {

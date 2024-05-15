@@ -47,13 +47,13 @@ public class Processing {
 	@XmlAttribute(name = "ID", required = false)
 	protected String ID;
 
-	@XmlElement(name = "preProcessingStep", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+	@XmlElement(name = "preProcessingStep", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
 	protected List<ProcessingStep> preProcessingStep = new Vector<ProcessingStep>();
 	
-	@XmlElement(name = "ocrProcessingStep", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = true)
+	@XmlElement(name = "ocrProcessingStep", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = true)
 	protected ProcessingStep ocrProcessingStep;
 	
-	@XmlElement(name = "postProcessingStep", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+	@XmlElement(name = "postProcessingStep", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
 	protected List<ProcessingStep> postProcessingStep = new Vector<ProcessingStep>();
 	
 

@@ -39,19 +39,19 @@ public class ProcessingSoftware {
 	/**
 	 * The name of the organization or company that created the application.
 	 */
-	@XmlElement(name = "softwareCreator", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+	@XmlElement(name = "softwareCreator", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
 	protected String softwareCreator;
 
 	/**
 	 * The name of the application.
 	 */
-	@XmlElement(name = "softwareName", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+	@XmlElement(name = "softwareName", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
 	protected String softwareName;
 
 	/**
 	 * The version of the application.
 	 */
-	@XmlElement(name = "softwareVersion", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+	@XmlElement(name = "softwareVersion", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
 	protected String softwareVersion;
 
 	/**
@@ -60,7 +60,7 @@ public class ProcessingSoftware {
 	 * is built using commercial components, e.g., an OCR engine SDK. Those
 	 * components should be mentioned here.
 	 */
-	@XmlElement(name = "applicationDescription", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+	@XmlElement(name = "applicationDescription", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
 	protected String applicationDescription;
 
 	public String getSoftwareCreator() {
