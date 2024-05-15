@@ -25,22 +25,24 @@ import org.mycore.libmeta.common.BuilderBase;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * Styles define properties of layout elements. A style defined in a parent
  * element is used as default style for all related children elements.
  * 
  * @author Robert Stephan
- * @version Alto 2.1
+ * @version Alto 4.4
  */
 
 @XmlAccessorType(XmlAccessType.NONE)
+@XmlType(propOrder = { "textStyle", "paragraphStyle" })
 public class Styles {
 
-	@XmlElement(name = "TextStyle", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+	@XmlElement(name = "TextStyle", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
 	protected List<TextStyle> textStyle = new Vector<TextStyle>();
 
-	@XmlElement(name = "ParagraphStyle", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+	@XmlElement(name = "ParagraphStyle", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
 	protected List<ParagraphStyle> paragraphStyle = new Vector<ParagraphStyle>();
 
 	public List<TextStyle> getTextStyle() {
