@@ -105,30 +105,36 @@ private static final PicaPlusProcessor INSTANCE = new PicaPlusProcessor();
 		return col;
 	}
 	
-	public String marshalToString(PicaRecord pica) throws Exception {
+	public String marshalToString(PicaRecord pica) throws LibmetaProcessorException {
         StringWriter sw = new StringWriter();
 	    marshal(pica, sw);
 	    return sw.toString();
     }
 	
-	public void marshal(PicaRecord pica, Path p) throws Exception {
+	public void marshal(PicaRecord pica, Path p) throws LibmetaProcessorException {
 	    try(BufferedWriter bw = Files.newBufferedWriter(p)){
          marshal(pica, bw);
-	    }
+	    } catch (IOException e) {
+	        throw new LibmetaProcessorException(e);
+        }
     }
 	
-	private void marshal(PicaRecord record, Writer w) throws IOException {
-	    for(PicaDatafield df : record.getDatafields()) {
-	        w.append(df.getTag());
-	        if(df.getOccurrence() != null) {
-	            w.append("/").append(df.getOccurrence());
+	private void marshal(PicaRecord record, Writer w) throws LibmetaProcessorException {
+	    try {
+	        for(PicaDatafield df : record.getDatafields()) {
+                w.append(df.getTag());
+	            if(df.getOccurrence() != null) {
+	              w.append("/").append(df.getOccurrence());
+	            }
+	            w.append(" ");
+	            for(PicaSubfield sf : df.getSubfields()) {
+	              w.append("ƒ").append(sf.getCode()).append(sf.getContent());
+	            }
+	            w.append("\n");
 	        }
-	        w.append(" ");
-	        for(PicaSubfield sf : df.getSubfields()) {
-	            w.append("ƒ").append(sf.getCode()).append(sf.getContent());
-	        }
-	        w.append("\n");
-	    }
+	    } catch (IOException e) {
+	        throw new LibmetaProcessorException(e);
+        }
 	}
 	
 }

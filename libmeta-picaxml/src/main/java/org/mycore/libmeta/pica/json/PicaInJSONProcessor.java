@@ -93,10 +93,12 @@ public class PicaInJSONProcessor {
         }
     }
 
-    public PicaRecord unmarshal(URL url) throws Exception {
+    public PicaRecord unmarshal(URL url) throws LibmetaProcessorException {
         try (InputStream is = url.openStream();
             JsonReader jr = Json.createReader(is)) {
             return unmarshal(jr);
+        } catch (IOException e) {
+            throw new LibmetaProcessorException(e);
         }
     }
 
