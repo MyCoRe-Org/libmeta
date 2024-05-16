@@ -17,6 +17,7 @@
  */
 package org.mycore.libmeta.alto__4.model.layout;
 
+import org.mycore.libmeta.alto__4.model.layout.block.textline.ITextlineContent;
 import org.mycore.libmeta.alto__4.model.layout.shape.Circle;
 import org.mycore.libmeta.alto__4.model.layout.shape.Ellipse;
 import org.mycore.libmeta.alto__4.model.layout.shape.IShape;
@@ -35,7 +36,7 @@ import jakarta.xml.bind.annotation.XmlElements;
  * @version Alto 4.4
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Shape {
+public class Shape implements ITextlineContent{
 	@XmlElements(value = {
 			@XmlElement(name = "Polygon", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false, type = Polygon.class),
 			@XmlElement(name = "Ellipse", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false, type = Ellipse.class),

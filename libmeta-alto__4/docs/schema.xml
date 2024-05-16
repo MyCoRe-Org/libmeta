@@ -281,16 +281,7 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
     </xsd:annotation>
     <xsd:restriction base="xsd:string"/>
   </xsd:simpleType>
-  <xsd:complexType name="ShapeType">
-    <xsd:annotation>
-      <xsd:documentation>Describes the bounding shape of a block, if it is not rectangular.</xsd:documentation>
-    </xsd:annotation>
-    <xsd:choice>
-      <xsd:element name="Polygon" type="PolygonType"/>
-      <xsd:element name="Ellipse" type="EllipseType"/>
-      <xsd:element name="Circle" type="CircleType"/>
-    </xsd:choice>
-  </xsd:complexType>
+  
   <xsd:simpleType name="InlineDirType">
     <xsd:annotation>
       <xsd:documentation>Describes the inline base direction and line orientation of a line or of all lines inside a text block.</xsd:documentation>
@@ -304,83 +295,8 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
       <xsd:enumeration value="btt"/>
     </xsd:restriction>
   </xsd:simpleType>
-  <xsd:complexType name="PolygonType">
-    <xsd:annotation>
-      <xsd:documentation>A polygon shape.</xsd:documentation>
-    </xsd:annotation>
-    <xsd:attribute name="POINTS" type="PointsType" use="required"/>
-  </xsd:complexType>
-  <xsd:complexType name="EllipseType">
-    <xsd:annotation>
-      <xsd:documentation>An ellipse shape. HPOS and VPOS describe the center of the ellipse.
-                                HLENGTH and VLENGTH are the width and height of the described ellipse.</xsd:documentation>
-      <xsd:documentation>The attribute ROTATION tells the rotation of the e.g. text or 
-                   illustration within the block. The value is in degrees counterclockwise. </xsd:documentation>
-    </xsd:annotation>
-    <xsd:attribute name="HPOS" type="xsd:float" use="required"/>
-    <xsd:attribute name="VPOS" type="xsd:float" use="required"/>
-    <xsd:attribute name="HLENGTH" type="xsd:float" use="required"/>
-    <xsd:attribute name="VLENGTH" type="xsd:float" use="required"/>
-    <xsd:attribute name="ROTATION" type="xsd:float" use="optional"/>
-  </xsd:complexType>
-  <xsd:complexType name="CircleType">
-    <xsd:annotation>
-      <xsd:documentation>A circle shape. HPOS and VPOS describe the center of the circle.</xsd:documentation>
-    </xsd:annotation>
-    <xsd:attribute name="HPOS" type="xsd:float" use="required"/>
-    <xsd:attribute name="VPOS" type="xsd:float" use="required"/>
-    <xsd:attribute name="RADIUS" type="xsd:float" use="required"/>
-  </xsd:complexType>
   
-  <xsd:complexType name="ComposedBlockType">
-    <xsd:annotation>
-      <xsd:documentation>A block that consists of other blocks</xsd:documentation>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="BlockType">
-        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
-          <xsd:group ref="BlockGroup"/>
-        </xsd:sequence>
-        <xsd:attribute name="TYPE" type="xsd:string" use="optional">
-          <xsd:annotation>
-            <xsd:documentation>A user defined string to identify the type of composed block (e.g. table, advertisement, ...)</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-        <xsd:attribute name="FILEID" type="xsd:string" use="optional">
-          <xsd:annotation>
-            <xsd:documentation>An ID to link to an image which contains only the composed block. The ID and the file link is defined in the related METS file.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:complexType name="IllustrationType">
-    <xsd:annotation>
-      <xsd:documentation>A picture or image.</xsd:documentation>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="BlockType">
-        <xsd:attribute name="TYPE" type="xsd:string" use="optional">
-          <xsd:annotation>
-            <xsd:documentation>A user defined string to identify the type of illustration like photo, map, drawing, chart, ...</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-        <xsd:attribute name="FILEID" type="xsd:string" use="optional">
-          <xsd:annotation>
-            <xsd:documentation>A link to an image which contains only the illustration.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:complexType name="GraphicalElementType">
-    <xsd:annotation>
-      <xsd:documentation>A graphic used to separate blocks. Usually a line or rectangle. </xsd:documentation>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="BlockType"/>
-    </xsd:complexContent>
-  </xsd:complexType>
+  
   <xsd:complexType name="TextBlockType">
     <xsd:annotation>
       <xsd:documentation>A block of text.</xsd:documentation>

@@ -17,8 +17,8 @@
  */
 package org.mycore.libmeta.alto__4.model.layout.block;
 
-import org.mycore.libmeta.alto.model.layout.Block;
-import org.mycore.libmeta.alto.model.layout.IBlockBuilder;
+import org.mycore.libmeta.alto__4.model.layout.Block;
+import org.mycore.libmeta.alto__4.model.layout.IBlockBuilder;
 import org.mycore.libmeta.common.BuilderBase;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -28,6 +28,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  * A graphic used to separate blocks. Usually a line or rectangle.
  * 
  * @author Robert Stephan
+ * @version Alto 4.4
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)

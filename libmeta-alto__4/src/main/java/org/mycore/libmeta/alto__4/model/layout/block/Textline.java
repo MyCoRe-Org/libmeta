@@ -18,15 +18,17 @@
 package org.mycore.libmeta.alto__4.model.layout.block;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Vector;
 
-import org.mycore.libmeta.alto._misc.FloatAdapter;
-import org.mycore.libmeta.alto._misc.IBoundingBoxBuilder;
-import org.mycore.libmeta.alto._misc.IBoundingBoxHolder;
-import org.mycore.libmeta.alto.model.layout.block.textline.ITextlineContent;
-import org.mycore.libmeta.alto.model.layout.block.textline.TextlineHYP;
-import org.mycore.libmeta.alto.model.layout.block.textline.TextlineSP;
-import org.mycore.libmeta.alto.model.layout.block.textline.TextlineString;
+import org.mycore.libmeta.alto__4._misc.FloatAdapter;
+import org.mycore.libmeta.alto__4._misc.IBoundingBoxBuilder;
+import org.mycore.libmeta.alto__4._misc.IBoundingBoxHolder;
+import org.mycore.libmeta.alto__4.model.layout.Shape;
+import org.mycore.libmeta.alto__4.model.layout.block.textline.HYP;
+import org.mycore.libmeta.alto__4.model.layout.block.textline.ITextlineContent;
+import org.mycore.libmeta.alto__4.model.layout.block.textline.SP;
+import org.mycore.libmeta.alto__4.model.layout.block.textline.TextlineString;
 import org.mycore.libmeta.common.BuilderBase;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -37,198 +39,238 @@ import jakarta.xml.bind.annotation.XmlElements;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+/**
+ * A single line of text.
+ */
 @XmlAccessorType(XmlAccessType.NONE)
 public class Textline implements IBoundingBoxHolder {
-	@XmlElements(value = {
-			@XmlElement(name = "String", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = TextlineString.class),
-			@XmlElement(name = "SP", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = TextlineSP.class),
-			@XmlElement(name = "HYP", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = TextlineHYP.class) })
-	protected List<ITextlineContent> content = new Vector<ITextlineContent>();
+    @XmlElements(value = {
+        @XmlElement(name = "Shape", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
+            type = Shape.class),
+        @XmlElement(name = "String", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
+            type = TextlineString.class),
+        @XmlElement(name = "SP", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
+            type = SP.class),
+        @XmlElement(name = "HYP", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
+            type = HYP.class) })
+    protected List<ITextlineContent> content = new Vector<ITextlineContent>();
 
-	@XmlAttribute(name = "ID", required = false)
-	@XmlSchemaType(name = "ID")
-	protected String ID;
+    @XmlAttribute(name = "ID", required = false)
+    @XmlSchemaType(name = "ID")
+    protected TextlineString ID;
 
-	@XmlAttribute(name = "STYLEREFS", required = false)
-	@XmlSchemaType(name = "IDREFS")
-	protected String STYLEREFS;
+    @XmlAttribute(name = "STYLEREFS", required = false)
+    @XmlSchemaType(name = "IDREFS")
+    protected TextlineString STYLEREFS;
 
-	@XmlAttribute(name = "TAGREFS", required = false)
-	@XmlSchemaType(name = "IDREFS")
-	protected String TAGREFS;
+    @XmlAttribute(name = "TAGREFS", required = false)
+    @XmlSchemaType(name = "IDREFS")
+    protected TextlineString TAGREFS;
 
-	@XmlAttribute(name = "HEIGHT", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float HEIGHT;
+    @XmlAttribute(name = "HEIGHT", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float HEIGHT;
 
-	@XmlAttribute(name = "WIDTH", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float WIDTH;
+    @XmlAttribute(name = "WIDTH", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float WIDTH;
 
-	@XmlAttribute(name = "HPOS", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float HPOS;
+    @XmlAttribute(name = "HPOS", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float HPOS;
 
-	@XmlAttribute(name = "VPOS", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float VPOS;
+    @XmlAttribute(name = "VPOS", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float VPOS;
 
-	@XmlAttribute(name = "BASELINE", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float BASELINE;
+    @XmlAttribute(name = "BASELINE", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float BASELINE;
 
-	/** Attribute to record language of the textline. */
-	@XmlAttribute(name = "LANG", required = false)
-	@XmlSchemaType(name = "language")
-	protected String LANG;
+    /** Attribute to record language of the textline. */
+    @XmlAttribute(name = "LANG", required = false)
+    @XmlSchemaType(name = "language")
+    protected TextlineString LANG;
 
-	/**
-	 * Correction Status. Indicates whether manual correction has been done or not.
-	 * The correction status should be recorded at the highest level possible
-	 * (Block, TextLine, String).
-	 */
-	@XmlAttribute(name = "CS", required = false)
-	@XmlSchemaType(name = "boolean")
-	protected Boolean CS;
+    /**
+     * Correction Status. Indicates whether manual correction has been done or not.
+     * The correction status should be recorded at the highest level possible
+     * (Block, TextLine, String).
+     */
+    @XmlAttribute(name = "CS", required = false)
+    @XmlSchemaType(name = "boolean")
+    protected Boolean CS;
 
-	public String getID() {
-		return ID;
-	}
+    public TextlineString getID() {
+        return ID;
+    }
 
-	public void setID(String iD) {
-		ID = iD;
-	}
+    public void setID(TextlineString iD) {
+        ID = iD;
+    }
 
-	public String getSTYLEREFS() {
-		return STYLEREFS;
-	}
+    public TextlineString getSTYLEREFS() {
+        return STYLEREFS;
+    }
 
-	public void setSTYLEREFS(String sTYLEREFS) {
-		STYLEREFS = sTYLEREFS;
-	}
+    public void setSTYLEREFS(TextlineString sTYLEREFS) {
+        STYLEREFS = sTYLEREFS;
+    }
 
-	public String getTAGREFS() {
-		return TAGREFS;
-	}
+    public TextlineString getTAGREFS() {
+        return TAGREFS;
+    }
 
-	public void setTAGREFS(String tAGREFS) {
-		TAGREFS = tAGREFS;
-	}
+    public void setTAGREFS(TextlineString tAGREFS) {
+        TAGREFS = tAGREFS;
+    }
 
-	public Float getHEIGHT() {
-		return HEIGHT;
-	}
+    public Float getHEIGHT() {
+        return HEIGHT;
+    }
 
-	public void setHEIGHT(Float hEIGHT) {
-		HEIGHT = hEIGHT;
-	}
+    public void setHEIGHT(Float hEIGHT) {
+        HEIGHT = hEIGHT;
+    }
 
-	public Float getWIDTH() {
-		return WIDTH;
-	}
+    public Float getWIDTH() {
+        return WIDTH;
+    }
 
-	public void setWIDTH(Float wIDTH) {
-		WIDTH = wIDTH;
-	}
+    public void setWIDTH(Float wIDTH) {
+        WIDTH = wIDTH;
+    }
 
-	public Float getHPOS() {
-		return HPOS;
-	}
+    public Float getHPOS() {
+        return HPOS;
+    }
 
-	public void setHPOS(Float hPOS) {
-		HPOS = hPOS;
-	}
+    public void setHPOS(Float hPOS) {
+        HPOS = hPOS;
+    }
 
-	public Float getVPOS() {
-		return VPOS;
-	}
+    public Float getVPOS() {
+        return VPOS;
+    }
 
-	public void setVPOS(Float vPOS) {
-		VPOS = vPOS;
-	}
+    public void setVPOS(Float vPOS) {
+        VPOS = vPOS;
+    }
 
-	public Float getBASELINE() {
-		return BASELINE;
-	}
+    public Float getBASELINE() {
+        return BASELINE;
+    }
 
-	public void setBASELINE(Float bASELINE) {
-		BASELINE = bASELINE;
-	}
+    public void setBASELINE(Float bASELINE) {
+        BASELINE = bASELINE;
+    }
 
-	public String getLANG() {
-		return LANG;
-	}
+    public TextlineString getLANG() {
+        return LANG;
+    }
 
-	public void setLANG(String lANG) {
-		LANG = lANG;
-	}
+    public void setLANG(TextlineString lANG) {
+        LANG = lANG;
+    }
 
-	public Boolean getCS() {
-		return CS;
-	}
+    public Boolean getCS() {
+        return CS;
+    }
 
-	public void setCS(Boolean cS) {
-		CS = cS;
-	}
+    public void setCS(Boolean cS) {
+        CS = cS;
+    }
 
-	public List<ITextlineContent> getContent() {
-		return content;
-	}
+    //
+    public List<ITextlineContent> getContent() {
+        repairContent();
+        return content;
+    }
 
-	public static Builder builder() {
-		return builder(new Textline());
-	}
+    private void repairContent() {
+        List<ITextlineContent> repaired = new Vector<ITextlineContent>();
+        //das zuletzt hinzugefügte Shape-Element
+        Optional<ITextlineContent> first = content.stream().filter(x -> Shape.class.isInstance(x)).reduce((a, b) -> b);
+        // alternativ das erste Elemente
+        //Optional<ITextlineContent> first = content.stream().filter(x -> Shape.class.isInstance(x)).findFirst();
+        first.ifPresent(x -> repaired.add(x));
+        repaired.addAll(
+            content.stream().filter(x -> TextlineString.class.isInstance(x) || SP.class.isInstance(x)).toList());
+        Optional<ITextlineContent> last = content.stream().filter(x -> HYP.class.isInstance(x)).reduce((a, b) -> b);
+        last.ifPresent(x -> repaired.add(x));
+        content = repaired;
+    }
 
-	public static Builder builder(Textline textline) {
-		return new Builder(textline);
-	}
+    public void addContent(ITextlineContent c) {
+        if (c instanceof Shape) {
+            content.removeIf(x -> x instanceof Shape);
+            content.add(0, c);
+        } else if (c instanceof HYP) {
+            content.removeIf(x -> x instanceof HYP);
+            content.add(c);
+        } else {
+            if (content.get(content.size() - 1) instanceof HYP) {
+                content.add(content.size() - 1, c);
+            } else {
+                content.add(c);
+            }
+        }
+    }
 
-	public static class Builder extends BuilderBase<Textline, Builder>
-			implements IBoundingBoxBuilder<Textline, Builder> {
+    public static Builder builder() {
+        return builder(new Textline());
+    }
 
-		protected Builder(Textline textline) {
-			super(textline);
-		}
+    public static Builder builder(Textline textline) {
+        return new Builder(textline);
+    }
 
-		public Builder addContent(ITextlineContent content) {
-			_target().getContent().add(content);
-			return _self();
-		}
+    public static class Builder extends BuilderBase<Textline, Builder>
+        implements IBoundingBoxBuilder<Textline, Builder> {
 
-		public Builder ID(String id) {
-			_target().setID(id);
-			return _self();
-		}
+        protected Builder(Textline textline) {
+            super(textline);
+        }
 
-		public Builder STYLEREFS(String stylerefs) {
-			_target().setSTYLEREFS(stylerefs);
-			return _self();
-		}
+        public Builder addContent(ITextlineContent content) {
+            _target().addContent(content);
+            return _self();
+        }
 
-		public Builder TAGREFS(String tagrefs) {
-			_target().setTAGREFS(tagrefs);
-			return _self();
-		}
+        public Builder ID(TextlineString id) {
+            _target().setID(id);
+            return _self();
+        }
 
-		public Builder BASELINE(Float baseline) {
-			_target().setBASELINE(baseline);
-			return _self();
-		}
+        public Builder STYLEREFS(TextlineString stylerefs) {
+            _target().setSTYLEREFS(stylerefs);
+            return _self();
+        }
 
-		public Builder LANG(String lang) {
-			_target().setLANG(lang);
-			return _self();
-		}
+        public Builder TAGREFS(TextlineString tagrefs) {
+            _target().setTAGREFS(tagrefs);
+            return _self();
+        }
 
-		public Builder CS(Boolean cs) {
-			_target().setCS(cs);
-			return _self();
-		}
-	}
+        public Builder BASELINE(Float baseline) {
+            _target().setBASELINE(baseline);
+            return _self();
+        }
+
+        public Builder LANG(TextlineString lang) {
+            _target().setLANG(lang);
+            return _self();
+        }
+
+        public Builder CS(Boolean cs) {
+            _target().setCS(cs);
+            return _self();
+        }
+    }
 
 }

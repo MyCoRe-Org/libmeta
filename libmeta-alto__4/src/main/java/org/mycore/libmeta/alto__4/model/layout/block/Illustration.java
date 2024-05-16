@@ -17,8 +17,8 @@
  */
 package org.mycore.libmeta.alto__4.model.layout.block;
 
-import org.mycore.libmeta.alto.model.layout.Block;
-import org.mycore.libmeta.alto.model.layout.IBlockBuilder;
+import org.mycore.libmeta.alto__4.model.layout.Block;
+import org.mycore.libmeta.alto__4.model.layout.IBlockBuilder;
 import org.mycore.libmeta.common.BuilderBase;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -30,6 +30,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
  * A picture or image.
  * 
  * @author Robert Stephan
+ * @version Alto 4.4
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
@@ -43,7 +44,9 @@ public class Illustration extends Block {
 	@XmlSchemaType(name = "string")
 	protected String TYPE;
 
-	/** A link to an image which contains only the illustration. */
+	/**
+	 *  A link to an image which contains only the illustration. 
+	 */
 	@XmlAttribute(name = "FILEID", required = false)
 	@XmlSchemaType(name = "string")
 	protected String FILEID;
