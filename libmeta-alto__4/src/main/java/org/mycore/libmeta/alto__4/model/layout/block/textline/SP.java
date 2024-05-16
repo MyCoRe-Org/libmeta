@@ -17,9 +17,9 @@
  */
 package org.mycore.libmeta.alto__4.model.layout.block.textline;
 
-import org.mycore.libmeta.alto._misc.FloatAdapter;
-import org.mycore.libmeta.alto._misc.IBoundingBoxBuilder;
-import org.mycore.libmeta.alto._misc.IBoundingBoxHolder;
+import org.mycore.libmeta.alto__4._misc.FloatAdapter;
+import org.mycore.libmeta.alto__4._misc.IBoundingBoxBuilder;
+import org.mycore.libmeta.alto__4._misc.IBoundingBoxHolder;
 import org.mycore.libmeta.common.BuilderBase;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -29,7 +29,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlAccessorType(XmlAccessType.NONE)
-public class SP implements ITextlineContent, IBoundingBoxHolder {
+public class SP implements ITextlineChild, IBoundingBoxHolder {
 	@XmlAttribute(name = "ID", required = false)
 	@XmlSchemaType(name = "ID")
 	protected TextlineString ID;

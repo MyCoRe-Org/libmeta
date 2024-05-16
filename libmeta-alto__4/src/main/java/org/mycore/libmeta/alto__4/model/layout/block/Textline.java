@@ -26,7 +26,7 @@ import org.mycore.libmeta.alto__4._misc.IBoundingBoxBuilder;
 import org.mycore.libmeta.alto__4._misc.IBoundingBoxHolder;
 import org.mycore.libmeta.alto__4.model.layout.Shape;
 import org.mycore.libmeta.alto__4.model.layout.block.textline.HYP;
-import org.mycore.libmeta.alto__4.model.layout.block.textline.ITextlineContent;
+import org.mycore.libmeta.alto__4.model.layout.block.textline.ITextlineChild;
 import org.mycore.libmeta.alto__4.model.layout.block.textline.SP;
 import org.mycore.libmeta.alto__4.model.layout.block.textline.TextlineString;
 import org.mycore.libmeta.common.BuilderBase;
@@ -53,7 +53,7 @@ public class Textline implements IBoundingBoxHolder {
             type = SP.class),
         @XmlElement(name = "HYP", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
             type = HYP.class) })
-    protected List<ITextlineContent> content = new Vector<ITextlineContent>();
+    protected List<ITextlineChild> content = new Vector<ITextlineChild>();
 
     @XmlAttribute(name = "ID", required = false)
     @XmlSchemaType(name = "ID")
@@ -187,26 +187,26 @@ public class Textline implements IBoundingBoxHolder {
     }
 
     //
-    public List<ITextlineContent> getContent() {
+    public List<ITextlineChild> getContent() {
         repairContent();
         return content;
     }
 
     private void repairContent() {
-        List<ITextlineContent> repaired = new Vector<ITextlineContent>();
+        List<ITextlineChild> repaired = new Vector<ITextlineChild>();
         //das zuletzt hinzugefügte Shape-Element
-        Optional<ITextlineContent> first = content.stream().filter(x -> Shape.class.isInstance(x)).reduce((a, b) -> b);
+        Optional<ITextlineChild> first = content.stream().filter(x -> Shape.class.isInstance(x)).reduce((a, b) -> b);
         // alternativ das erste Elemente
-        //Optional<ITextlineContent> first = content.stream().filter(x -> Shape.class.isInstance(x)).findFirst();
+        //Optional<ITextlineChild> first = content.stream().filter(x -> Shape.class.isInstance(x)).findFirst();
         first.ifPresent(x -> repaired.add(x));
         repaired.addAll(
             content.stream().filter(x -> TextlineString.class.isInstance(x) || SP.class.isInstance(x)).toList());
-        Optional<ITextlineContent> last = content.stream().filter(x -> HYP.class.isInstance(x)).reduce((a, b) -> b);
+        Optional<ITextlineChild> last = content.stream().filter(x -> HYP.class.isInstance(x)).reduce((a, b) -> b);
         last.ifPresent(x -> repaired.add(x));
         content = repaired;
     }
 
-    public void addContent(ITextlineContent c) {
+    public void addContent(ITextlineChild c) {
         if (c instanceof Shape) {
             content.removeIf(x -> x instanceof Shape);
             content.add(0, c);
@@ -237,7 +237,7 @@ public class Textline implements IBoundingBoxHolder {
             super(textline);
         }
 
-        public Builder addContent(ITextlineContent content) {
+        public Builder addContent(ITextlineChild content) {
             _target().addContent(content);
             return _self();
         }

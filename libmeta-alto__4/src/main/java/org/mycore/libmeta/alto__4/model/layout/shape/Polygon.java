@@ -31,7 +31,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  * @version Alto 4.4
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Polygon implements IShape {
+public class Polygon implements IShapeChild {
 
 	@XmlAttribute(name = "POINTS", required = true)
 	protected Points POINTS;

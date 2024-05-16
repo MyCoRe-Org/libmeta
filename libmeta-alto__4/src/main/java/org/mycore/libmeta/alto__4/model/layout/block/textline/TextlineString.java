@@ -18,18 +18,21 @@
 package org.mycore.libmeta.alto__4.model.layout.block.textline;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Vector;
 
-import org.mycore.libmeta.alto._misc.FloatAdapter;
-import org.mycore.libmeta.alto._misc.IBoundingBoxBuilder;
-import org.mycore.libmeta.alto._misc.IBoundingBoxHolder;
-import org.mycore.libmeta.alto.model.styles.FontStyle;
+import org.mycore.libmeta.alto__4._misc.FloatAdapter;
+import org.mycore.libmeta.alto__4._misc.IBoundingBoxBuilder;
+import org.mycore.libmeta.alto__4._misc.IBoundingBoxHolder;
+import org.mycore.libmeta.alto__4.model.layout.Shape;
+import org.mycore.libmeta.alto__4.model.styles.FontStyle;
 import org.mycore.libmeta.common.BuilderBase;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlElements;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
@@ -39,278 +42,337 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 
 @XmlAccessorType(XmlAccessType.NONE)
-public class TextlineString implements ITextlineContent, IBoundingBoxHolder {
-	/** Any alternative for the word. */
-	@XmlElement(name = "ALTERNATIVE", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected List<TextlineStringALTERNATIVE> alternative = new Vector<>();
+public class TextlineString implements ITextlineChild, IBoundingBoxHolder {
+    /** Any alternative for the word. */
+    @XmlElements(value = {
+        @XmlElement(name = "Shape", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
+            type = Shape.class),
+        @XmlElement(name = "ALTERNATIVE", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
+            type = TextlineStringALTERNATIVE.class),
+        @XmlElement(name = "Glyph", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
+            type = Glyph.class)
+    })
+    protected List<ITextlineStringChild> content = new Vector<>();
 
-	@XmlAttribute(name = "ID", required = false)
-	@XmlSchemaType(name = "ID")
-	protected TextlineString ID;
+    @XmlAttribute(name = "ID", required = false)
+    @XmlSchemaType(name = "ID")
+    protected String ID;
 
-	@XmlAttribute(name = "STYLEREFS", required = false)
-	@XmlSchemaType(name = "IDREFS")
-	protected TextlineString STYLEREFS;
+    @XmlAttribute(name = "STYLEREFS", required = false)
+    @XmlSchemaType(name = "IDREFS")
+    protected String STYLEREFS;
 
-	@XmlAttribute(name = "TAGREFS", required = false)
-	@XmlSchemaType(name = "IDREFS")
-	protected TextlineString TAGREFS;
+    @XmlAttribute(name = "TAGREFS", required = false)
+    @XmlSchemaType(name = "IDREFS")
+    protected String TAGREFS;
 
-	@XmlAttribute(name = "HEIGHT", required = false)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float HEIGHT;
+    @XmlAttribute(name = "PROCESSINGREFS", required = false)
+    @XmlSchemaType(name = "IDREFS")
+    protected String PROCESSINGREFS;
 
-	@XmlAttribute(name = "WIDTH", required = false)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float WIDTH;
+    @XmlAttribute(name = "HEIGHT", required = false)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float HEIGHT;
 
-	@XmlAttribute(name = "HPOS", required = false)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float HPOS;
+    @XmlAttribute(name = "WIDTH", required = false)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float WIDTH;
 
-	@XmlAttribute(name = "VPOS", required = false)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float VPOS;
+    @XmlAttribute(name = "HPOS", required = false)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float HPOS;
 
-	@XmlAttribute(name = "CONTENT", required = true)
-	protected TextlineString CONTENT;
+    @XmlAttribute(name = "VPOS", required = false)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float VPOS;
 
-	@XmlAttribute(name = "STYLE", required = false)
-	protected FontStyle STYLE;
+    @XmlAttribute(name = "CONTENT", required = true)
+    protected String CONTENT;
 
-	/** Type of the substitution (if any). */
-	@XmlAttribute(name = "SUBS_TYPE", required = false)
-	protected SubstitutionType SUBS_TYPE;
+    @XmlAttribute(name = "STYLE", required = false)
+    protected FontStyle STYLE;
 
-	/** Content of the substitution. */
-	@XmlAttribute(name = "SUBS_CONTENT", required = false)
-	protected TextlineString SUBS_CONTENT;
+    /** Type of the substitution (if any). */
+    @XmlAttribute(name = "SUBS_TYPE", required = false)
+    protected SubstitutionType SUBS_TYPE;
 
-	/**
-	 * Word Confidence: Confidence level of the ocr for this string. A value between
-	 * 0 (unsure) and 1 (sure).
-	 */
-	@XmlAttribute(name = "WC", required = false)
-	@XmlSchemaType(name = "float")
-	protected Float WC;
+    /** Content of the substitution. */
+    @XmlAttribute(name = "SUBS_CONTENT", required = false)
+    protected String SUBS_CONTENT;
 
-	/**
-	 * Confidence level of each character in that string. A list of numbers, one
-	 * number between 0 (sure) and 9 (unsure) for each character.
-	 */
-	@XmlAttribute(name = "CC", required = false)
-	protected TextlineString CC;
-	
-	@XmlAttribute(name = "CS", required = false)
-	@XmlSchemaType(name = "boolean")
-	protected Boolean CS;
-	
-	@XmlAttribute(name = "SUBS_CONTENT", required = false)
-	@XmlSchemaType(name = "language")
-	protected TextlineString LANGUAGE;
+    /**
+     * Word Confidence: Confidence level of the ocr for this string. A value between
+     * 0 (unsure) and 1 (sure).
+     */
+    @XmlAttribute(name = "WC", required = false)
+    @XmlSchemaType(name = "float")
+    protected Float WC;
 
+    /**
+     * Confidence level of each character in that string. A list of numbers, one
+     * number between 0 (sure) and 9 (unsure) for each character.
+     */
+    @XmlAttribute(name = "CC", required = false)
+    protected String CC;
 
-	public List<TextlineStringALTERNATIVE> getAlternative() {
-		return alternative;
-	}
+    /**
+     * Correction Status. Indicates whether manual correction has been done or not. 
+     * The correction status should be recorded at the highest level possible (Block, TextLine, String).
+     */
 
-	public TextlineString getID() {
-		return ID;
-	}
+    @XmlAttribute(name = "CS", required = false)
+    @XmlSchemaType(name = "boolean")
+    protected Boolean CS;
 
-	public void setID(TextlineString iD) {
-		ID = iD;
-	}
+    /**
+     * Attribute to record language of the string. The language should be recorded at the highest level possible.
+     */
+    @XmlAttribute(name = "LANG", required = false)
+    @XmlSchemaType(name = "language")
+    protected String LANGUAGE;
 
-	public TextlineString getSTYLEREFS() {
-		return STYLEREFS;
-	}
+    public List<ITextlineStringChild> getContent() {
+        repairContent();
+        return content;
+    }
 
-	public void setSTYLEREFS(TextlineString sTYLEREFS) {
-		STYLEREFS = sTYLEREFS;
-	}
+    public void addContent(ITextlineStringChild c) {
+        if (c instanceof Shape) {
+            content.removeIf(x -> x instanceof Shape);
+            content.add(0, c);
+        } else {
+            content.add(c);
+            repairContent();
+        }
+    }
 
-	public TextlineString getTAGREFS() {
-		return TAGREFS;
-	}
+    private void repairContent() {
+        List<ITextlineStringChild> repaired = new Vector<ITextlineStringChild>();
+        //the last addded Shape element
+        Optional<ITextlineStringChild> first
+            = content.stream().filter(x -> Shape.class.isInstance(x)).reduce((a, b) -> b);
+        first.ifPresent(x -> repaired.add(x));
+        // all ALTERNATIVE elements
+        repaired.addAll(
+            content.stream().filter(x -> TextlineStringALTERNATIVE.class.isInstance(x)).toList());
+        // all Glyph elements
+        repaired.addAll(
+            content.stream().filter(x -> Glyph.class.isInstance(x)).toList());
 
-	public void setTAGREFS(TextlineString tAGREFS) {
-		TAGREFS = tAGREFS;
-	}
+        content = repaired;
+    }
 
-	public Float getHEIGHT() {
-		return HEIGHT;
-	}
+    public String getID() {
+        return ID;
+    }
 
-	public void setHEIGHT(Float hEIGHT) {
-		HEIGHT = hEIGHT;
-	}
+    public void setID(String iD) {
+        ID = iD;
+    }
 
-	public Float getWIDTH() {
-		return WIDTH;
-	}
+    public String getSTYLEREFS() {
+        return STYLEREFS;
+    }
 
-	public void setWIDTH(Float wIDTH) {
-		WIDTH = wIDTH;
-	}
+    public void setSTYLEREFS(String sTYLEREFS) {
+        STYLEREFS = sTYLEREFS;
+    }
 
-	public Float getHPOS() {
-		return HPOS;
-	}
+    public String getTAGREFS() {
+        return TAGREFS;
+    }
 
-	public void setHPOS(Float hPOS) {
-		HPOS = hPOS;
-	}
+    public void setTAGREFS(String tAGREFS) {
+        TAGREFS = tAGREFS;
+    }
 
-	public Float getVPOS() {
-		return VPOS;
-	}
+    public String getPROCESSINGREFSREFS() {
+        return PROCESSINGREFS;
+    }
 
-	public void setVPOS(Float vPOS) {
-		VPOS = vPOS;
-	}
+    public void setPROCESSINGREFS(String pROCESSINGREFS) {
+        PROCESSINGREFS = pROCESSINGREFS;
+    }
 
-	public TextlineString getCONTENT() {
-		return CONTENT;
-	}
+    public Float getHEIGHT() {
+        return HEIGHT;
+    }
 
-	public void setCONTENT(TextlineString cONTENT) {
-		CONTENT = cONTENT;
-	}
+    public void setHEIGHT(Float hEIGHT) {
+        HEIGHT = hEIGHT;
+    }
 
-	public FontStyle getSTYLE() {
-		return STYLE;
-	}
+    public Float getWIDTH() {
+        return WIDTH;
+    }
 
-	public void setSTYLE(FontStyle fontStyle) {
-		this.STYLE = fontStyle;
-	}
+    public void setWIDTH(Float wIDTH) {
+        WIDTH = wIDTH;
+    }
 
-	public SubstitutionType getSUBS_TYPE() {
-		return SUBS_TYPE;
-	}
+    public Float getHPOS() {
+        return HPOS;
+    }
 
-	public void setSUBS_TYPE(SubstitutionType sUBS_TYPE) {
-		SUBS_TYPE = sUBS_TYPE;
-	}
+    public void setHPOS(Float hPOS) {
+        HPOS = hPOS;
+    }
 
-	public TextlineString getSUBS_CONTENT() {
-		return SUBS_CONTENT;
-	}
+    public Float getVPOS() {
+        return VPOS;
+    }
 
-	public void setSUBS_CONTENT(TextlineString sUBS_CONTENT) {
-		SUBS_CONTENT = sUBS_CONTENT;
-	}
+    public void setVPOS(Float vPOS) {
+        VPOS = vPOS;
+    }
 
-	public Float getWC() {
-		return WC;
-	}
+    public String getCONTENT() {
+        return CONTENT;
+    }
 
-	public void setWC(Float wC) {
-		WC = wC;
-	}
+    public void setCONTENT(String cONTENT) {
+        CONTENT = cONTENT;
+    }
 
-	public TextlineString getCC() {
-		return CC;
-	}
+    public FontStyle getSTYLE() {
+        return STYLE;
+    }
 
-	public void setCC(TextlineString cC) {
-		CC = cC;
-	}
+    public void setSTYLE(FontStyle fontStyle) {
+        this.STYLE = fontStyle;
+    }
 
-	public Boolean isCS() {
-		return CS;
-	}
+    public SubstitutionType getSUBS_TYPE() {
+        return SUBS_TYPE;
+    }
 
-	public void setCS(Boolean cS) {
-		CS = cS;
-	}
+    public void setSUBS_TYPE(SubstitutionType sUBS_TYPE) {
+        SUBS_TYPE = sUBS_TYPE;
+    }
 
-	public TextlineString getLANGUAGE() {
-		return LANGUAGE;
-	}
+    public String getSUBS_CONTENT() {
+        return SUBS_CONTENT;
+    }
 
-	public void setLANGUAGE(TextlineString lANGUAGE) {
-		LANGUAGE = lANGUAGE;
-	}
-	
-	public static Builder builder() {
-		return builder(new TextlineString());
-	}
+    public void setSUBS_CONTENT(String sUBS_CONTENT) {
+        SUBS_CONTENT = sUBS_CONTENT;
+    }
 
-	public static Builder builder(TextlineString text) {
-		return new Builder(text);
-	}
+    public Float getWC() {
+        return WC;
+    }
 
-	public static class Builder extends BuilderBase<TextlineString, Builder>
-			implements IBoundingBoxBuilder<TextlineString, Builder> {
+    public void setWC(Float wC) {
+        WC = wC;
+    }
 
-		protected Builder(TextlineString sp) {
-			super(sp);
-		}
+    public String getCC() {
+        return CC;
+    }
 
-		public Builder add(TextlineStringALTERNATIVE alternative) {
-			_target().getAlternative().add(alternative);
-			return _self();
-		}
+    public void setCC(String cC) {
+        CC = cC;
+    }
 
-		public Builder ID(TextlineString id) {
-			_target().setID(id);
-			return _self();
-		}
+    public Boolean isCS() {
+        return CS;
+    }
 
-		public Builder STYLEREFS(TextlineString stylerefs) {
-			_target().setSTYLEREFS(stylerefs);
-			return _self();
-		}
+    public void setCS(Boolean cS) {
+        CS = cS;
+    }
 
-		public Builder TAGREFS(TextlineString tagrefs) {
-			_target().setTAGREFS(tagrefs);
-			return _self();
-		}
+    public String getLANGUAGE() {
+        return LANGUAGE;
+    }
 
-		public Builder CONTENT(TextlineString content) {
-			_target().setCONTENT(content);
-			return _self();
-		}
-		
-		public Builder STYLE(FontStyle style) {
-			_target().setSTYLE(style);
-			return _self();
-		}
-		
-		public Builder SUBS_TYPECONTENT(SubstitutionType substitutionType) {
-			_target().setSUBS_TYPE(substitutionType);
-			return _self();
-		}
-		
-		public Builder SUBS_CONTENT(TextlineString subsContent) {
-			_target().setSUBS_CONTENT(subsContent);
-			return _self();
-		}
-		public Builder WC(Float wc) {
-			_target().setWC(wc);
-			return _self();
-		}
-		
-		public Builder CC(TextlineString cc) {
-			_target().setCC(cc);
-			return _self();
-		}
-		
-		public Builder CS(Boolean cs) {
-			_target().setCS(cs);
-			return _self();
-		}
-		
-		public Builder LANG(TextlineString language) {
-			_target().setLANGUAGE(language);
-			return _self();
-		}
-	}
+    public void setLANGUAGE(String lANGUAGE) {
+        LANGUAGE = lANGUAGE;
+    }
+
+    public static Builder builder() {
+        return builder(new TextlineString());
+    }
+
+    public static Builder builder(TextlineString text) {
+        return new Builder(text);
+    }
+
+    public static class Builder extends BuilderBase<TextlineString, Builder>
+        implements IBoundingBoxBuilder<TextlineString, Builder> {
+
+        protected Builder(TextlineString sp) {
+            super(sp);
+        }
+
+        public Builder addContent(ITextlineStringChild child) {
+            _target().addContent(child);
+            return _self();
+        }
+
+        public Builder ID(String id) {
+            _target().setID(id);
+            return _self();
+        }
+
+        public Builder STYLEREFS(String stylerefs) {
+            _target().setSTYLEREFS(stylerefs);
+            return _self();
+        }
+
+        public Builder TAGREFS(String tagrefs) {
+            _target().setTAGREFS(tagrefs);
+            return _self();
+        }
+
+        public Builder PROCESSINGREFS(String processingrefs) {
+            _target().setPROCESSINGREFS(processingrefs);
+            return _self();
+        }
+
+        public Builder CONTENT(String content) {
+            _target().setCONTENT(content);
+            return _self();
+        }
+
+        public Builder STYLE(FontStyle style) {
+            _target().setSTYLE(style);
+            return _self();
+        }
+
+        public Builder SUBS_TYPECONTENT(SubstitutionType substitutionType) {
+            _target().setSUBS_TYPE(substitutionType);
+            return _self();
+        }
+
+        public Builder SUBS_CONTENT(String subsContent) {
+            _target().setSUBS_CONTENT(subsContent);
+            return _self();
+        }
+
+        public Builder WC(Float wc) {
+            _target().setWC(wc);
+            return _self();
+        }
+
+        public Builder CC(String cc) {
+            _target().setCC(cc);
+            return _self();
+        }
+
+        public Builder CS(Boolean cs) {
+            _target().setCS(cs);
+            return _self();
+        }
+
+        public Builder LANG(String language) {
+            _target().setLANGUAGE(language);
+            return _self();
+        }
+    }
 
 }

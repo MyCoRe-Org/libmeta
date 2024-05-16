@@ -175,31 +175,6 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
       </xsd:annotation>
     </xsd:attributeGroup>
   </xsd:complexType>
-  <xsd:complexType name="SPType">
-    <xsd:annotation>
-      <xsd:documentation>A white space.</xsd:documentation>
-    </xsd:annotation>
-    <xsd:attribute name="ID" type="SPTypeID" use="optional"/>
-    <xsd:attribute name="HEIGHT" type="xsd:float" use="optional"/>
-    <xsd:attribute name="WIDTH" type="xsd:float" use="optional"/>
-    <xsd:attribute name="HPOS" type="xsd:float" use="optional"/>
-    <xsd:attribute name="VPOS" type="xsd:float" use="optional"/>
-  </xsd:complexType>
-  <xsd:simpleType name="SUBS_TYPEType">
-    <xsd:annotation>
-      <xsd:documentation>Type of the substitution (if any).</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="HypPart1"/>
-      <xsd:enumeration value="HypPart2"/>
-      <xsd:enumeration value="Abbreviation"/>
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="CONTENTType">
-    <xsd:restriction base="xsd:string">
-      <xsd:whiteSpace value="preserve"/>
-    </xsd:restriction>
-  </xsd:simpleType>
   <xsd:simpleType name="WCType">
     <xsd:annotation>
       <xsd:documentation>Word Confidence: Confidence level of the ocr for this string. A value between 0 (unsure) and 1 (sure). </xsd:documentation>
@@ -229,48 +204,7 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
       </xsd:extension>
     </xsd:simpleContent>
   </xsd:complexType>
-  <xsd:complexType name="StringType" mixed="false">
-    <xsd:annotation>
-      <xsd:documentation>A sequence of chars. Strings are separated by white spaces or hyphenation chars.</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence minOccurs="0">
-      <xsd:element name="Shape" type="ShapeType" minOccurs="0" maxOccurs="1"/>
-      <xsd:element name="ALTERNATIVE" type="ALTERNATIVEType" minOccurs="0" maxOccurs="unbounded"/>
-      <xsd:element name="Glyph" type="GlyphType" minOccurs="0" maxOccurs="unbounded"/>
-    </xsd:sequence>
-    <xsd:attribute name="ID" type="StringTypeID" use="optional"/>
-    <xsd:attribute name="STYLEREFS" type="xsd:IDREFS" use="optional"/>
-    <xsd:attribute name="TAGREFS" type="xsd:IDREFS" use="optional"/>
-    <xsd:attribute name="PROCESSINGREFS" type="xsd:IDREFS" use="optional"/>
-    <xsd:attribute name="HEIGHT" type="xsd:float" use="optional"/>
-    <xsd:attribute name="WIDTH" type="xsd:float" use="optional"/>
-    <xsd:attribute name="HPOS" type="xsd:float" use="optional"/>
-    <xsd:attribute name="VPOS" type="xsd:float" use="optional"/>
-    <xsd:attribute name="CONTENT" type="CONTENTType" use="required"/>
-    <xsd:attribute name="STYLE" type="fontStylesType" use="optional"/>
-    <xsd:attribute name="SUBS_TYPE" type="SUBS_TYPEType" use="optional"/>
-    <xsd:attribute name="SUBS_CONTENT" type="xsd:string" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>Content of the substitution.</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="WC" type="WCType" use="optional"/>
-    <xsd:attribute name="CC" type="xsd:string" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>Confidence level of each character in that string. A list of numbers, one number between 0 (sure) and 9 (unsure) for each character.</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="CS" type="xsd:boolean" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>Correction Status. Indicates whether manual correction has been done or not. The correction status should be recorded at the highest level possible (Block, TextLine, String).</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="LANG" type="xsd:language" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>Attribute to record language of the string. The language should be recorded at the highest level possible.</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-  </xsd:complexType>
+ 
   <xsd:simpleType name="PointsType">
     <xsd:annotation>
       <xsd:documentation>A list of coordinate-pairs that are absolute to the upper-left corner of a page.</xsd:documentation>
@@ -318,17 +252,7 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
                   <xsd:element name="SP" type="SPType" minOccurs="0"/>
                 </xsd:sequence>
                 <xsd:element name="HYP" minOccurs="0">
-                  <xsd:annotation>
-                    <xsd:documentation>A hyphenation char. Can appear only at the end of a line.</xsd:documentation>
-                  </xsd:annotation>
-                  <xsd:complexType>
-                    <xsd:attribute name="HEIGHT" type="xsd:float" use="optional"/>
-                    <xsd:attribute name="WIDTH" type="xsd:float" use="optional"/>
-                    <xsd:attribute name="HPOS" type="xsd:float" use="optional"/>
-                    <xsd:attribute name="VPOS" type="xsd:float" use="optional"/>
-                    <xsd:attribute name="CONTENT" type="xsd:string" use="required"/>
-                  </xsd:complexType>
-                </xsd:element>
+                  
               </xsd:sequence>
               <xsd:attribute name="ID" type="TextLineID"/>
               <xsd:attribute name="STYLEREFS" type="xsd:IDREFS" use="optional"/>

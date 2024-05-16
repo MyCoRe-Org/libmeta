@@ -15,8 +15,8 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.alto__4.model.layout.shape;
+package org.mycore.libmeta.alto__4.model.layout.block.textline;
 
-public interface IShape {
+public interface ITextlineChild {
 
 }

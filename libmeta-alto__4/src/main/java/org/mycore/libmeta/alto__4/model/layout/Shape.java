@@ -17,10 +17,11 @@
  */
 package org.mycore.libmeta.alto__4.model.layout;
 
-import org.mycore.libmeta.alto__4.model.layout.block.textline.ITextlineContent;
+import org.mycore.libmeta.alto__4.model.layout.block.textline.ITextlineChild;
+import org.mycore.libmeta.alto__4.model.layout.block.textline.ITextlineStringChild;
 import org.mycore.libmeta.alto__4.model.layout.shape.Circle;
 import org.mycore.libmeta.alto__4.model.layout.shape.Ellipse;
-import org.mycore.libmeta.alto__4.model.layout.shape.IShape;
+import org.mycore.libmeta.alto__4.model.layout.shape.IShapeChild;
 import org.mycore.libmeta.alto__4.model.layout.shape.Polygon;
 import org.mycore.libmeta.common.BuilderBase;
 
@@ -36,18 +37,18 @@ import jakarta.xml.bind.annotation.XmlElements;
  * @version Alto 4.4
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Shape implements ITextlineContent{
+public class Shape implements ITextlineChild, ITextlineStringChild{
 	@XmlElements(value = {
 			@XmlElement(name = "Polygon", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false, type = Polygon.class),
 			@XmlElement(name = "Ellipse", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false, type = Ellipse.class),
 			@XmlElement(name = "Circle", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false, type = Circle.class) })
-	protected IShape Shape;
+	protected IShapeChild Shape;
 
-	public IShape getShape() {
+	public IShapeChild getShape() {
 		return Shape;
 	}
 
-	public void setShape(IShape shape) {
+	public void setShape(IShapeChild shape) {
 		Shape = shape;
 	}
 	
@@ -65,7 +66,7 @@ public class Shape implements ITextlineContent{
 			super(shape);
 		}
 
-		public Builder shape(IShape shape) {
+		public Builder shape(IShapeChild shape) {
 			_target().setShape(shape);
 			return _self();
 		}

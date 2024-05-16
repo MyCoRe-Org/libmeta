@@ -109,7 +109,7 @@ public class TextlineString implements ITextlineContent, IBoundingBoxHolder {
 	@XmlSchemaType(name = "boolean")
 	protected Boolean CS;
 	
-	@XmlAttribute(name = "SUBS_CONTENT", required = false)
+	@XmlAttribute(name = "LANG", required = false)
 	@XmlSchemaType(name = "language")
 	protected String LANGUAGE;
 

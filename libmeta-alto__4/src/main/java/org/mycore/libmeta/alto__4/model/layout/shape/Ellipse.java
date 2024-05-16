@@ -39,7 +39,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 
 @XmlAccessorType(XmlAccessType.NONE)
-public class Ellipse implements IShape {
+public class Ellipse implements IShapeChild {
 
     @XmlAttribute(name = "HPOS", required = true)
     @XmlSchemaType(name = "float")

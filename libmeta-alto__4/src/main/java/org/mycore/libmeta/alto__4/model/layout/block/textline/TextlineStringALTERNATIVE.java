@@ -33,7 +33,7 @@ import jakarta.xml.bind.annotation.XmlValue;
  */
 
 @XmlAccessorType(XmlAccessType.NONE)
-public class TextlineStringALTERNATIVE {
+public class TextlineStringALTERNATIVE implements ITextlineStringChild {
 
 	/** Identifies the purpose of the alternative. */
 	@XmlValue

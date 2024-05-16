@@ -34,7 +34,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *  @version Alto 4.4
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Circle implements IShape {
+public class Circle implements IShapeChild {
 
 	@XmlAttribute(name = "HPOS", required = true)
 	@XmlJavaTypeAdapter(FloatAdapter .class)

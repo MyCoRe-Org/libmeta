@@ -17,9 +17,9 @@
  */
 package org.mycore.libmeta.alto__4.model.layout.block.textline;
 
-import org.mycore.libmeta.alto._misc.FloatAdapter;
-import org.mycore.libmeta.alto._misc.IBoundingBoxBuilder;
-import org.mycore.libmeta.alto._misc.IBoundingBoxHolder;
+import org.mycore.libmeta.alto__4._misc.FloatAdapter;
+import org.mycore.libmeta.alto__4._misc.IBoundingBoxBuilder;
+import org.mycore.libmeta.alto__4._misc.IBoundingBoxHolder;
 import org.mycore.libmeta.common.BuilderBase;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -28,8 +28,11 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+/**
+ * A hyphenation char. Can appear only at the end of a line.
+ */
 @XmlAccessorType(XmlAccessType.NONE)
-public class HYP implements ITextlineContent, IBoundingBoxHolder {
+public class HYP implements ITextlineChild, IBoundingBoxHolder {
 	@XmlAttribute(name = "HEIGHT", required = true)
 	@XmlSchemaType(name = "float")
 	@XmlJavaTypeAdapter(FloatAdapter .class)
@@ -50,7 +53,7 @@ public class HYP implements ITextlineContent, IBoundingBoxHolder {
 	@XmlJavaTypeAdapter(FloatAdapter .class)
 	protected Float VPOS;
 	
-	@XmlAttribute(name = "CONTENT", required = false)
+	@XmlAttribute(name = "CONTENT", required = true)
 	@XmlSchemaType(name = "CONTENT")
 	protected TextlineString CONTENT;
 
