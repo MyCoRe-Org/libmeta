@@ -18,7 +18,11 @@
 package org.mycore.libmeta.alto__4.model.layout;
 
 import org.mycore.libmeta.alto__4._misc.FloatAdapter;
+import org.mycore.libmeta.alto__4._misc.IBoundingBoxBuilder;
 import org.mycore.libmeta.alto__4._misc.IBoundingBoxHolder;
+import org.mycore.libmeta.alto__4._misc.IRefsBuilder;
+import org.mycore.libmeta.alto__4._misc.IRefsHolder;
+import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
 import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
@@ -32,63 +36,69 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlAccessorType(XmlAccessType.NONE)
-public class Block implements IAttributeGroupXlinkSimpleLink, IBoundingBoxHolder {
-	
-	@XmlElement(name = "Shape", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected Shape Shape;
-	
-	@XmlAttribute(name = "ID", required = true)
-	@XmlSchemaType(name = "ID")
-	protected String ID;
+public class Block implements IAttributeGroupXlinkSimpleLink, IBoundingBoxHolder, IRefsHolder {
 
-	@XmlAttribute(name = "STYLEREFS", required = false)
-	@XmlSchemaType(name = "IDREFS")
-	protected String STYLEREFS;
-	
-	@XmlAttribute(name = "TAGREFS", required = false)
-	@XmlSchemaType(name = "IDREFS")
-	protected String TAGREFS;
-		
-	@XmlAttribute(name = "HEIGHT", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float HEIGHT;
+    @XmlElement(name = "Shape", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
+    protected Shape Shape;
 
-	@XmlAttribute(name = "WIDTH", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float WIDTH;
+    @XmlAttribute(name = "ID", required = true)
+    @XmlSchemaType(name = "ID")
+    protected String ID;
 
-	@XmlAttribute(name = "HPOS", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float HPOS;
+    @XmlAttribute(name = "STYLEREFS", required = false)
+    @XmlSchemaType(name = "IDREFS")
+    protected String STYLEREFS;
 
-	@XmlAttribute(name = "VPOS", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float VPOS;
-	
-	/**
-	 * Tells the rotation of the block e.g. text or illustration. The value is in degree counterclockwise.
-	 */
-	@XmlAttribute(name = "ROTATION", required = false)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float ROTATAION;
-	
-	/**The next block in reading sequence on the page.*/
-	@XmlAttribute(name = "IDNEXT", required = false)
-	@XmlSchemaType(name = "IDREF")
-	protected String IDNEXT;
-	
-	/** Correction Status. Indicates whether manual correction has been done or not. The correction status should be recorded at the highest level possible (Block, TextLine, String). */
-	@XmlAttribute(name = "CS", required = false)
-	@XmlSchemaType(name = "boolean")
-	protected String CS;
-	
+    @XmlAttribute(name = "TAGREFS", required = false)
+    @XmlSchemaType(name = "IDREFS")
+    protected String TAGREFS;
+
+    @XmlAttribute(name = "PROCESSINGREFS", required = false)
+    @XmlSchemaType(name = "IDREFS")
+    protected String PROCESSINGREFS;
+
+    @XmlAttribute(name = "HEIGHT", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float HEIGHT;
+
+    @XmlAttribute(name = "WIDTH", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float WIDTH;
+
+    @XmlAttribute(name = "HPOS", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float HPOS;
+
+    @XmlAttribute(name = "VPOS", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float VPOS;
+
+    /**
+     * Tells the rotation of the block e.g. text or illustration. The value is in degree counterclockwise.
+     */
+    @XmlAttribute(name = "ROTATION", required = false)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float ROTATION;
+
+    /**The next block in reading sequence on the page.*/
+    @XmlAttribute(name = "IDNEXT", required = false)
+    @XmlSchemaType(name = "IDREF")
+    protected String IDNEXT;
+
+    /** Correction Status. Indicates whether manual correction has been done or not. The correction status should be recorded at the highest level possible (Block, TextLine, String). */
+    @XmlAttribute(name = "CS", required = false)
+    @XmlSchemaType(name = "boolean")
+    protected boolean CS;
+
+    // Attribute group deprecated. 
+    // Planned to be removed in future versions due to issues created on mixed validation 
+    // and because in practice it is not used very often
     // attributeGroup xlink:simpleLink - begin
-
     /**
      * {@code
      * <attribute name="type" type="string" fixed="simple" form="qualified"/>
@@ -144,153 +154,190 @@ public class Block implements IAttributeGroupXlinkSimpleLink, IBoundingBoxHolder
      */
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkActuate xlinkActuate;
-    
-	public Shape getShape() {
-		return Shape;
-	}
 
-	public void setShape(Shape shape) {
-		Shape = shape;
-	}
+    public Shape getShape() {
+        return Shape;
+    }
 
-	public String getID() {
-		return ID;
-	}
+    public void setShape(Shape shape) {
+        Shape = shape;
+    }
 
-	public void setID(String iD) {
-		ID = iD;
-	}
+    public String getID() {
+        return ID;
+    }
 
-	public String getSTYLEREFS() {
-		return STYLEREFS;
-	}
+    public void setID(String iD) {
+        ID = iD;
+    }
 
-	public void setSTYLEREFS(String sTYLEREFS) {
-		STYLEREFS = sTYLEREFS;
-	}
+    public String getSTYLEREFS() {
+        return STYLEREFS;
+    }
 
-	public String getTAGREFS() {
-		return TAGREFS;
-	}
+    public void setSTYLEREFS(String sTYLEREFS) {
+        STYLEREFS = sTYLEREFS;
+    }
 
-	public void setTAGREFS(String tAGREFS) {
-		TAGREFS = tAGREFS;
-	}
+    public String getTAGREFS() {
+        return TAGREFS;
+    }
 
-	public Float getHEIGHT() {
-		return HEIGHT;
-	}
+    public void setTAGREFS(String tAGREFS) {
+        TAGREFS = tAGREFS;
+    }
 
-	public void setHEIGHT(Float hEIGHT) {
-		HEIGHT = hEIGHT;
-	}
+    public String getPROCESSINGREFS() {
+        return PROCESSINGREFS;
+    }
 
-	public Float getWIDTH() {
-		return WIDTH;
-	}
+    public void setPROCESSINGREFS(String pROCESSINGREFS) {
+        PROCESSINGREFS = pROCESSINGREFS;
+    }
 
-	public void setWIDTH(Float wIDTH) {
-		WIDTH = wIDTH;
-	}
+    public Float getHEIGHT() {
+        return HEIGHT;
+    }
 
-	public Float getHPOS() {
-		return HPOS;
-	}
+    public void setHEIGHT(Float hEIGHT) {
+        HEIGHT = hEIGHT;
+    }
 
-	public void setHPOS(Float hPOS) {
-		HPOS = hPOS;
-	}
+    public Float getWIDTH() {
+        return WIDTH;
+    }
 
-	public Float getVPOS() {
-		return VPOS;
-	}
+    public void setWIDTH(Float wIDTH) {
+        WIDTH = wIDTH;
+    }
 
-	public void setVPOS(Float vPOS) {
-		VPOS = vPOS;
-	}
+    public Float getHPOS() {
+        return HPOS;
+    }
 
-	public Float getROTATAION() {
-		return ROTATAION;
-	}
+    public void setHPOS(Float hPOS) {
+        HPOS = hPOS;
+    }
 
-	public void setROTATAION(Float rOTATAION) {
-		ROTATAION = rOTATAION;
-	}
+    public Float getVPOS() {
+        return VPOS;
+    }
 
-	public String getIDNEXT() {
-		return IDNEXT;
-	}
+    public void setVPOS(Float vPOS) {
+        VPOS = vPOS;
+    }
 
-	public void setIDNEXT(String iDNEXT) {
-		IDNEXT = iDNEXT;
-	}
+    public Float getROTATION() {
+        return ROTATION;
+    }
 
-	public String getCS() {
-		return CS;
-	}
+    public void setROTATION(Float rOTATION) {
+        ROTATION = rOTATION;
+    }
 
-	public void setCS(String cS) {
-		CS = cS;
-	}
+    public String getIDNEXT() {
+        return IDNEXT;
+    }
 
-	public XlinkTypeSimple getXlinkType() {
-		return xlinkType;
-	}
+    public void setIDNEXT(String iDNEXT) {
+        IDNEXT = iDNEXT;
+    }
 
-	public void setXlinkType(XlinkTypeSimple xlinkType) {
-		this.xlinkType = xlinkType;
-	}
+    public Boolean getCS() {
+        return CS;
+    }
 
-	public String getXlinkHref() {
-		return xlinkHref;
-	}
+    public void setCS(Boolean cS) {
+        CS = cS;
+    }
 
-	public void setXlinkHref(String xlinkHref) {
-		this.xlinkHref = xlinkHref;
-	}
+    public XlinkTypeSimple getXlinkType() {
+        return xlinkType;
+    }
 
-	public String getXlinkRole() {
-		return xlinkRole;
-	}
+    public void setXlinkType(XlinkTypeSimple xlinkType) {
+        this.xlinkType = xlinkType;
+    }
 
-	public void setXlinkRole(String xlinkRole) {
-		this.xlinkRole = xlinkRole;
-	}
+    public String getXlinkHref() {
+        return xlinkHref;
+    }
 
-	public String getXlinkArcrole() {
-		return xlinkArcrole;
-	}
+    public void setXlinkHref(String xlinkHref) {
+        this.xlinkHref = xlinkHref;
+    }
 
-	public void setXlinkArcrole(String xlinkArcrole) {
-		this.xlinkArcrole = xlinkArcrole;
-	}
+    public String getXlinkRole() {
+        return xlinkRole;
+    }
 
-	public String getXlinkTitle() {
-		return xlinkTitle;
-	}
+    public void setXlinkRole(String xlinkRole) {
+        this.xlinkRole = xlinkRole;
+    }
 
-	public void setXlinkTitle(String xlinkTitle) {
-		this.xlinkTitle = xlinkTitle;
-	}
+    public String getXlinkArcrole() {
+        return xlinkArcrole;
+    }
 
-	public XlinkShow getXlinkShow() {
-		return xlinkShow;
-	}
+    public void setXlinkArcrole(String xlinkArcrole) {
+        this.xlinkArcrole = xlinkArcrole;
+    }
 
-	public void setXlinkShow(XlinkShow xlinkShow) {
-		this.xlinkShow = xlinkShow;
-	}
+    public String getXlinkTitle() {
+        return xlinkTitle;
+    }
 
-	public XlinkActuate getXlinkActuate() {
-		return xlinkActuate;
-	}
+    public void setXlinkTitle(String xlinkTitle) {
+        this.xlinkTitle = xlinkTitle;
+    }
 
-	public void setXlinkActuate(XlinkActuate xlinkActuate) {
-		this.xlinkActuate = xlinkActuate;
-	}
+    public XlinkShow getXlinkShow() {
+        return xlinkShow;
+    }
 
+    public void setXlinkShow(XlinkShow xlinkShow) {
+        this.xlinkShow = xlinkShow;
+    }
 
+    public XlinkActuate getXlinkActuate() {
+        return xlinkActuate;
+    }
 
-    // 
+    public void setXlinkActuate(XlinkActuate xlinkActuate) {
+        this.xlinkActuate = xlinkActuate;
+    }
+
+    public static class Builder extends BuilderBase<Block, Builder> implements
+        IBoundingBoxBuilder<Block, Builder>, IRefsBuilder<IRefsHolder, Builder> {
+
+        protected Builder(Block b) {
+            super(b);
+        }
+
+        public Builder Shape(Shape s) {
+            _target().setShape(s);
+            return _self();
+        }
+
+        public Builder ID(String id) {
+            _target().setID(id);
+            return _self();
+        }
+
+        public Builder ROTATION(Float rotation) {
+            _target().setROTATION(rotation);
+            return _self();
+        }
+
+        public Builder IDNEXT(String idnext) {
+            _target().setIDNEXT(idnext);
+            return _self();
+        }
+
+        public Builder CS(Boolean cs) {
+            _target().setCS(cs);
+            return _self();
+        }
+    }
 
 }

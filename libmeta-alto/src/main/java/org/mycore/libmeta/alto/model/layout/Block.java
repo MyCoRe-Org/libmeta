@@ -75,7 +75,7 @@ public class Block implements IAttributeGroupXlinkSimpleLink, IBoundingBoxHolder
 	@XmlAttribute(name = "ROTATION", required = false)
 	@XmlSchemaType(name = "float")
 	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float ROTATAION;
+	protected Float ROTATION;
 	
 	/**The next block in reading sequence on the page.*/
 	@XmlAttribute(name = "IDNEXT", required = false)
@@ -210,11 +210,11 @@ public class Block implements IAttributeGroupXlinkSimpleLink, IBoundingBoxHolder
 	}
 
 	public Float getROTATAION() {
-		return ROTATAION;
+		return ROTATION;
 	}
 
-	public void setROTATAION(Float rOTATAION) {
-		ROTATAION = rOTATAION;
+	public void setROTATION(Float rOTATION) {
+		ROTATION = rOTATION;
 	}
 
 	public String getIDNEXT() {
