@@ -24,6 +24,8 @@ import java.util.Vector;
 import org.mycore.libmeta.alto__4._misc.FloatAdapter;
 import org.mycore.libmeta.alto__4._misc.IBoundingBoxBuilder;
 import org.mycore.libmeta.alto__4._misc.IBoundingBoxHolder;
+import org.mycore.libmeta.alto__4._misc.IRefsBuilder;
+import org.mycore.libmeta.alto__4._misc.IRefsHolder;
 import org.mycore.libmeta.alto__4.model.layout.Shape;
 import org.mycore.libmeta.alto__4.model.layout.block.textline.HYP;
 import org.mycore.libmeta.alto__4.model.layout.block.textline.ITextlineChild;
@@ -43,7 +45,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * A single line of text.
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Textline implements IBoundingBoxHolder {
+public class TextLine implements IBoundingBoxHolder, IRefsHolder {
     @XmlElements(value = {
         @XmlElement(name = "Shape", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
             type = Shape.class),
@@ -57,15 +59,20 @@ public class Textline implements IBoundingBoxHolder {
 
     @XmlAttribute(name = "ID", required = false)
     @XmlSchemaType(name = "ID")
-    protected TextlineString ID;
+    protected String ID;
 
     @XmlAttribute(name = "STYLEREFS", required = false)
     @XmlSchemaType(name = "IDREFS")
-    protected TextlineString STYLEREFS;
+    protected String STYLEREFS;
 
     @XmlAttribute(name = "TAGREFS", required = false)
     @XmlSchemaType(name = "IDREFS")
-    protected TextlineString TAGREFS;
+    protected String TAGREFS;
+    
+    @XmlAttribute(name = "PROCESSINGREFS", required = false)
+    @XmlSchemaType(name = "IDREFS")
+    protected String PROCESSINGREFS;
+    
 
     @XmlAttribute(name = "HEIGHT", required = true)
     @XmlSchemaType(name = "float")
@@ -95,7 +102,7 @@ public class Textline implements IBoundingBoxHolder {
     /** Attribute to record language of the textline. */
     @XmlAttribute(name = "LANG", required = false)
     @XmlSchemaType(name = "language")
-    protected TextlineString LANG;
+    protected String LANG;
 
     /**
      * Correction Status. Indicates whether manual correction has been done or not.
@@ -105,29 +112,40 @@ public class Textline implements IBoundingBoxHolder {
     @XmlAttribute(name = "CS", required = false)
     @XmlSchemaType(name = "boolean")
     protected Boolean CS;
+    
+    @XmlAttribute(name = "BASEDIRECTION", required = false)
+    protected InlineDir BASEDIRECTION;
 
-    public TextlineString getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(TextlineString iD) {
+    public void setID(String iD) {
         ID = iD;
     }
 
-    public TextlineString getSTYLEREFS() {
+    public String getSTYLEREFS() {
         return STYLEREFS;
     }
 
-    public void setSTYLEREFS(TextlineString sTYLEREFS) {
+    public void setSTYLEREFS(String sTYLEREFS) {
         STYLEREFS = sTYLEREFS;
     }
 
-    public TextlineString getTAGREFS() {
+    public String getTAGREFS() {
         return TAGREFS;
     }
 
-    public void setTAGREFS(TextlineString tAGREFS) {
+    public void setTAGREFS(String tAGREFS) {
         TAGREFS = tAGREFS;
+    }
+    
+    public String getPROCESSINGREFS() {
+        return TAGREFS;
+    }
+
+    public void setPROCESSINGREFS(String pROCESSINGREFS) {
+        PROCESSINGREFS = pROCESSINGREFS;
     }
 
     public Float getHEIGHT() {
@@ -170,11 +188,11 @@ public class Textline implements IBoundingBoxHolder {
         BASELINE = bASELINE;
     }
 
-    public TextlineString getLANG() {
+    public String getLANG() {
         return LANG;
     }
 
-    public void setLANG(TextlineString lANG) {
+    public void setLANG(String lANG) {
         LANG = lANG;
     }
 
@@ -184,6 +202,14 @@ public class Textline implements IBoundingBoxHolder {
 
     public void setCS(Boolean cS) {
         CS = cS;
+    }
+    
+    public InlineDir getBASEDIRECTION() {
+        return BASEDIRECTION;
+    }
+
+    public void setBASEDIRECTION(InlineDir baseDirection) {
+        BASEDIRECTION = baseDirection;
     }
 
     //
@@ -223,17 +249,17 @@ public class Textline implements IBoundingBoxHolder {
     }
 
     public static Builder builder() {
-        return builder(new Textline());
+        return builder(new TextLine());
     }
 
-    public static Builder builder(Textline textline) {
+    public static Builder builder(TextLine textline) {
         return new Builder(textline);
     }
 
-    public static class Builder extends BuilderBase<Textline, Builder>
-        implements IBoundingBoxBuilder<Textline, Builder> {
+    public static class Builder extends BuilderBase<TextLine, Builder>
+        implements IBoundingBoxBuilder<TextLine, Builder>, IRefsBuilder<TextLine, Builder> {
 
-        protected Builder(Textline textline) {
+        protected Builder(TextLine textline) {
             super(textline);
         }
 
@@ -242,17 +268,17 @@ public class Textline implements IBoundingBoxHolder {
             return _self();
         }
 
-        public Builder ID(TextlineString id) {
+        public Builder ID(String id) {
             _target().setID(id);
             return _self();
         }
 
-        public Builder STYLEREFS(TextlineString stylerefs) {
+        public Builder STYLEREFS(String stylerefs) {
             _target().setSTYLEREFS(stylerefs);
             return _self();
         }
 
-        public Builder TAGREFS(TextlineString tagrefs) {
+        public Builder TAGREFS(String tagrefs) {
             _target().setTAGREFS(tagrefs);
             return _self();
         }
@@ -262,13 +288,18 @@ public class Textline implements IBoundingBoxHolder {
             return _self();
         }
 
-        public Builder LANG(TextlineString lang) {
+        public Builder LANG(String lang) {
             _target().setLANG(lang);
             return _self();
         }
 
         public Builder CS(Boolean cs) {
             _target().setCS(cs);
+            return _self();
+        }
+        
+        public Builder BASEDIRECTION(InlineDir baseDirection) {
+            _target().setBASEDIRECTION(baseDirection);
             return _self();
         }
     }

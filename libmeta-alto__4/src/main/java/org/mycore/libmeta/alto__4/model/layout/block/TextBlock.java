@@ -20,8 +20,9 @@ package org.mycore.libmeta.alto__4.model.layout.block;
 import java.util.List;
 import java.util.Vector;
 
-import org.mycore.libmeta.alto.model.layout.Block;
-import org.mycore.libmeta.alto.model.layout.IBlockBuilder;
+import org.mycore.libmeta.alto__4._misc.IRefsBuilder;
+import org.mycore.libmeta.alto__4.model.layout.Block;
+import org.mycore.libmeta.alto__4.model.layout.IBlockBuilder;
 import org.mycore.libmeta.common.BuilderBase;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -29,6 +30,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
+import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * A block of text.
@@ -37,18 +39,35 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
+@XmlType(propOrder = { "TextLine", "shape", "RightMargin", "BottomMargin", "PrintSpace" })
 public class TextBlock extends Block {
-	@XmlElement(name = "TextLine", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected List<Textline> textline = new Vector<Textline>();
+    
+    /** 
+     * A single line of text.
+     */
+	@XmlElement(name = "TextLine", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
+	protected List<TextLine> TextLine = new Vector<TextLine>();
+	
+
 
 	/** Attribute deprecated. LANG should be used instead. */
 	@XmlAttribute(name = "language", required = false)
 	@XmlSchemaType(name = "language")
 	protected String language;
-
+	
+	/**
+	 * Attribute to record language of the textblock.
+	 */
 	@XmlAttribute(name = "LANG", required = false)
 	@XmlSchemaType(name = "language")
 	protected String LANG;
+	
+	/**
+	 * Indicates the inline base direction of the TextBlock.
+	 */
+    @XmlAttribute(name = "BASEDIRECTION", required = false)
+    protected InlineDir BASEDIRECTION;
+	
 
 	//return the LANG value instead of the deprecated LANG
 	public String getLanguage() {
@@ -68,10 +87,22 @@ public class TextBlock extends Block {
 	public void setLANG(String lANG) {
 		LANG = lANG;
 	}
+	
+	public InlineDir getBASEDIRECTION() {
+        return BASEDIRECTION;
+    }
+
+    public void setBASEDIRECTION(InlineDir baseDirection) {
+        BASEDIRECTION = baseDirection;
+    }
 
 
-	public List<Textline> getTextline() {
-		return textline;
+	public List<TextLine> getTextLine() {
+		return TextLine;
+	}
+	
+	public void addTextLine(TextLine textLine) {
+	    getTextLine().add(textLine);
 	}
 
 	public static Builder builder() {
@@ -83,20 +114,47 @@ public class TextBlock extends Block {
 	}
 
 	public static class Builder extends BuilderBase<TextBlock, Builder> implements
-			IBlockBuilder<TextBlock, Builder> {
+			IBlockBuilder<TextBlock, Builder>, IRefsBuilder<TextBlock, Builder> {
 
 		protected Builder(TextBlock textBlock) {
 			super(textBlock);
 		}
 
-		public Builder addTextline(Textline textline) {
-			_target().getTextline().add(textline);
+		public Builder addTextLine(TextLine textline) {
+			_target().getTextLine().add(textline);
 			return _self();
 		}
 
+		public Builder ID(String id) {
+            _target().setID(id);
+            return _self();
+        }
+		
+		public Builder ROTATION(Float rotation) {
+            _target().setROTATION(rotation);
+            return _self();
+        }
+		
+	      
+        public Builder IDNEXT(String idNext) {
+            _target().setIDNEXT(idNext);
+            return _self();
+        }
+        
+        public Builder CS(Boolean cs) {
+            _target().setCS(cs);
+            return _self();
+        }
+        
+		
 		public Builder LANG(String lang) {
 			_target().setLANG(lang);
 			return _self();
 		}
+		
+	    public Builder BASEDIRECTION(InlineDir baseDirection) {
+            _target().setBASEDIRECTION(baseDirection);
+            return _self();
+        }
 	}
 }

@@ -139,42 +139,6 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
     <xsd:restriction base="xsd:ID"/>
   </xsd:simpleType>
  
-  <xsd:complexType name="BlockType">
-    <xsd:annotation>
-      <xsd:documentation>Base type for any kind of block on the page.</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence minOccurs="0">
-      <xsd:element name="Shape" type="ShapeType"/>
-    </xsd:sequence>
-    <xsd:attribute name="ID" type="BlockTypeID" use="required"/>
-    <xsd:attribute name="STYLEREFS" type="xsd:IDREFS"/>
-    <xsd:attribute name="TAGREFS" type="xsd:IDREFS" use="optional"/>
-    <xsd:attribute name="PROCESSINGREFS" type="xsd:IDREFS" use="optional"/>
-    <xsd:attribute name="HEIGHT" type="xsd:float" use="optional"/>
-    <xsd:attribute name="WIDTH" type="xsd:float" use="optional"/>
-    <xsd:attribute name="HPOS" type="xsd:float" use="optional"/>
-    <xsd:attribute name="VPOS" type="xsd:float" use="optional"/>
-    <xsd:attribute name="ROTATION" type="xsd:float" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>Tells the rotation of e.g. text or illustration within the block. The value is in degree counterclockwise.</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="IDNEXT" type="xsd:IDREF" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>The next block in reading order of the page (if ReadingOrder is not specified, and elements are not in order).</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="CS" type="xsd:boolean" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>Correction Status. Indicates whether manual correction has been done or not. The correction status should be recorded at the highest level possible (Block, TextLine, String).</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attributeGroup ref="xlink:simpleLink">
-      <xsd:annotation>
-        <xsd:documentation>Attribute group deprecated. Planned to be removed in future versions due to issues created on mixed validation and because in practice it is not used very often</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attributeGroup>
-  </xsd:complexType>
   <xsd:simpleType name="WCType">
     <xsd:annotation>
       <xsd:documentation>Word Confidence: Confidence level of the ocr for this string. A value between 0 (unsure) and 1 (sure). </xsd:documentation>
@@ -231,182 +195,89 @@ For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. 
   </xsd:simpleType>
   
   
-  <xsd:complexType name="TextBlockType">
-    <xsd:annotation>
-      <xsd:documentation>A block of text.</xsd:documentation>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="BlockType">
-        <xsd:sequence minOccurs="0">
-          <xsd:element name="TextLine" maxOccurs="unbounded">
-            <xsd:annotation>
-              <xsd:documentation>A single line of text.</xsd:documentation>
-            </xsd:annotation>
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:sequence>
-                  <xsd:element name="Shape" type="ShapeType" minOccurs="0" maxOccurs="1"/>
-                </xsd:sequence>
-                <xsd:sequence maxOccurs="unbounded">
-                  <xsd:element name="String" type="StringType"/>
-                  <xsd:element name="SP" type="SPType" minOccurs="0"/>
-                </xsd:sequence>
-                <xsd:element name="HYP" minOccurs="0">
-                  
-              </xsd:sequence>
-              <xsd:attribute name="ID" type="TextLineID"/>
-              <xsd:attribute name="STYLEREFS" type="xsd:IDREFS" use="optional"/>
-              <xsd:attribute name="TAGREFS" type="xsd:IDREFS" use="optional"/>
-              <xsd:attribute name="PROCESSINGREFS" type="xsd:IDREFS" use="optional"/>
-              <xsd:attribute name="HEIGHT" type="xsd:float" use="optional"/>
-              <xsd:attribute name="WIDTH" type="xsd:float" use="optional"/>
-              <xsd:attribute name="HPOS" type="xsd:float" use="optional"/>
-              <xsd:attribute name="VPOS" type="xsd:float" use="optional"/>
-              <xsd:attribute name="BASELINE" type="PointsType" use="optional">
-                <xsd:annotation>
-                  <xsd:documentation>Pixel coordinates based on the left-hand top corner of an image which define a polyline on which a line of text rests.</xsd:documentation>
-                </xsd:annotation>
-              </xsd:attribute>
-              <xsd:attribute name="LANG" type="xsd:language" use="optional">
-                <xsd:annotation>
-                  <xsd:documentation>Attribute to record language of the textline.</xsd:documentation>
-                </xsd:annotation>
-              </xsd:attribute>
-              <xsd:attribute name="CS" type="xsd:boolean" use="optional">
-                <xsd:annotation>
-                  <xsd:documentation>Correction Status. Indicates whether manual correction has been done or not. The correction status should be recorded at the highest level possible (Block, TextLine, String).</xsd:documentation>
-                </xsd:annotation>
-              </xsd:attribute>
-              <xsd:attribute name="BASEDIRECTION" type="InlineDirType" use="optional">
-                <xsd:annotation>
-                  <xsd:documentation>Indicates the inline base direction of this TextLine. Overrides the value on elements higher in the hierarchy.</xsd:documentation>
-                </xsd:annotation>
-              </xsd:attribute>
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:sequence>
-        <xsd:attribute name="language" type="xsd:language" use="optional">
-          <xsd:annotation>
-            <xsd:documentation>Attribute deprecated. LANG should be used instead.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-        <xsd:attribute name="LANG" type="xsd:language" use="optional">
-          <xsd:annotation>
-            <xsd:documentation>Attribute to record language of the textblock.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-        <xsd:attribute name="BASEDIRECTION" type="InlineDirType" use="optional">
-          <xsd:annotation>
-            <xsd:documentation>Indicates the inline base direction of the TextBlock.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
+ 	<xsd:complexType name="TextBlockType">
+		<xsd:annotation>
+			<xsd:documentation>A block of text.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="BlockType">
+				<xsd:sequence minOccurs="0">
+					<xsd:element name="TextLine" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>A single line of text.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:sequence>
+									<xsd:element name="Shape" type="ShapeType" minOccurs="0" maxOccurs="1"/>
+								</xsd:sequence>
+								<xsd:sequence maxOccurs="unbounded">
+									<xsd:element name="String" type="StringType"/>
+									<xsd:element name="SP" type="SPType" minOccurs="0"/>
+								</xsd:sequence>
+								<xsd:element name="HYP" minOccurs="0">
+									<xsd:annotation>
+										<xsd:documentation>A hyphenation char. Can appear only at the end of a line.</xsd:documentation>
+									</xsd:annotation>
+									<xsd:complexType>
+										<xsd:attribute name="HEIGHT" type="xsd:float" use="optional"/>
+										<xsd:attribute name="WIDTH" type="xsd:float" use="optional"/>
+										<xsd:attribute name="HPOS" type="xsd:float" use="optional"/>
+										<xsd:attribute name="VPOS" type="xsd:float" use="optional"/>
+										<xsd:attribute name="CONTENT" type="xsd:string" use="required"/>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+							<xsd:attribute name="ID" type="TextLineID"/>
+							<xsd:attribute name="STYLEREFS" type="xsd:IDREFS" use="optional"/>
+							<xsd:attribute name="TAGREFS" type="xsd:IDREFS" use="optional"/>
+							<xsd:attribute name="PROCESSINGREFS" type="xsd:IDREFS" use="optional"/>
+							<xsd:attribute name="HEIGHT" type="xsd:float" use="optional"/>
+							<xsd:attribute name="WIDTH" type="xsd:float" use="optional"/>
+							<xsd:attribute name="HPOS" type="xsd:float" use="optional"/>
+							<xsd:attribute name="VPOS" type="xsd:float" use="optional"/>
+							<xsd:attribute name="BASELINE" type="PointsType" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>Pixel coordinates based on the left-hand top corner of an image which define a polyline on which a line of text rests.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+							<xsd:attribute name="LANG" type="xsd:language" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>Attribute to record language of the textline.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+							<xsd:attribute name="CS" type="xsd:boolean" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>Correction Status. Indicates whether manual correction has been done or not. The correction status should be recorded at the highest level possible (Block, TextLine, String).</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+							<xsd:attribute name="BASEDIRECTION" type="InlineDirType" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>Indicates the inline base direction of this TextLine. Overrides the value on elements higher in the hierarchy.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="language" type="xsd:language" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>Attribute deprecated. LANG should be used instead.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="LANG" type="xsd:language" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>Attribute to record language of the textblock.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="BASEDIRECTION" type="InlineDirType" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>Indicates the inline base direction of the TextBlock.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
   
+
   
-  <xsd:complexType name="GlyphType" mixed="false">
-    <xsd:annotation>
-      <xsd:documentation>
-        Modern OCR software stores information on glyph level. A glyph is essentially a character or ligature.
-        Accordingly the value for the glyph element will be defined as follows:
-        Pre-composed representation = base + combining character(s) (decomposed representation)
-        See http://www.fileformat.info/info/unicode/char/0101/index.htm
-        "U+0101" = (U+0061) + (U+0304)
-        "combining characters" ("base characters" in combination with non-spacing marks or characters which are combined to one) are represented as one "glyph", e.g. áàâ.
-        
-        Each glyph has its own coordinate information and must be separately addressable as a distinct object.
-        Correction and verification processes can be carried out for individual characters.
-        
-        Post-OCR analysis of the text as well as adaptive OCR algorithm must be able to record information on glyph level.
-        In order to reproduce the decision of the OCR software, optional characters must be recorded. These are called variants.
-        The OCR software evaluates each variant and picks the one with the highest confidence score as the glyph.
-        The confidence score expresses how confident the OCR software is that a single glyph had been recognized correctly.
-        
-        The glyph elements are in order of the word. Each glyph need to be recorded to built up the whole word sequence.
-        
-        The glyph’s CONTENT attribute is no replacement for the string’s CONTENT attribute.
-        Due to post-processing steps such as correction the values of both attributes may be inconsistent. 
-      </xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence minOccurs="0">
-      <xsd:element name="Shape" type="ShapeType" minOccurs="0"/>
-      <xsd:element name="Variant" type="VariantType" minOccurs="0" maxOccurs="unbounded"/>
-    </xsd:sequence>
-    <xsd:attribute name="ID" type="xsd:ID" use="optional"/>
-    <xsd:attribute name="CONTENT" use="required">
-      <xsd:annotation>
-        <xsd:documentation>
-          CONTENT contains the precomposed representation (combining character) of the character from the parent String element.
-          The sequence position of the Glyph element matches the position of the character in the String.
-        </xsd:documentation>
-      </xsd:annotation>
-      <xsd:simpleType>
-        <xsd:restriction base="xsd:string">
-          <xsd:length fixed="true" value="1"/>
-          <xsd:whiteSpace value="preserve"/>
-        </xsd:restriction>
-      </xsd:simpleType>
-    </xsd:attribute>
-    <xsd:attribute name="GC" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>
-          This GC attribute records a float value between 0.0 and 1.0 that expresses the level of confidence for the glyph where 1 is certain.
-          This attribute is optional. If it is not available, the default value for the glyph is “0”.
-          The GC attribute semantic is the same as the WC attribute on the String element and VC on Variant element.
-        </xsd:documentation>
-      </xsd:annotation>
-      <xsd:simpleType>
-        <xsd:restriction base="xsd:float">
-          <xsd:minInclusive value="0"/>
-          <xsd:maxInclusive value="1"/>
-        </xsd:restriction>
-      </xsd:simpleType>
-    </xsd:attribute>
-    <xsd:attribute name="HEIGHT" type="xsd:float" use="optional"/>
-    <xsd:attribute name="WIDTH" type="xsd:float" use="optional"/>
-    <xsd:attribute name="HPOS" type="xsd:float" use="optional"/>
-    <xsd:attribute name="VPOS" type="xsd:float" use="optional"/>
-  </xsd:complexType>
-  <xsd:complexType name="VariantType" mixed="false">
-    <xsd:annotation>
-      <xsd:documentation>
-        Alternative (combined) character for the glyph, outlined by OCR engine or similar recognition processes.
-        In case the variant are two (combining) characters, two characters are outlined in one Variant element.
-        E.g. a Glyph element with CONTENT="m" can have a Variant element with the content "rn".
-        Details for different use-cases see on the samples on GitHub.
-      </xsd:documentation>
-    </xsd:annotation>
-    <xsd:attribute name="CONTENT" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>
-          Each Variant represents an option for the glyph that the OCR software detected as possible alternatives.
-          In case the variant are two (combining) characters, two characters are outlined in one Variant element.
-          E.g. a Glyph element with CONTENT="m" can have a Variant element with the content "rn".
-          Details for different use-cases see on the samples on GitHub.
-        </xsd:documentation>
-      </xsd:annotation>
-      <xsd:simpleType>
-        <xsd:restriction base="xsd:string">
-          <xsd:maxLength value="3"/>
-          <xsd:whiteSpace value="preserve"/>
-        </xsd:restriction>
-      </xsd:simpleType>
-    </xsd:attribute>
-    <xsd:attribute name="VC" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>
-          This VC attribute records a float value between 0.0 and 1.0 that expresses the level of confidence for the variant where is 1 is certain.
-          This attribute is optional. If it is not available, the default value for the variant is “0”.
-          The VC attribute semantic is the same as the GC attribute on the Glyph element.
-        </xsd:documentation>
-      </xsd:annotation>
-      <xsd:simpleType>
-        <xsd:restriction base="xsd:float">
-          <xsd:minInclusive value="0"/>
-          <xsd:maxInclusive value="1"/>
-        </xsd:restriction>
-      </xsd:simpleType>
-    </xsd:attribute>
-  </xsd:complexType>
 </xsd:schema>
