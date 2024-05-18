@@ -24,6 +24,8 @@ import java.util.Vector;
 import org.mycore.libmeta.alto__4._misc.FloatAdapter;
 import org.mycore.libmeta.alto__4._misc.IBoundingBoxBuilder;
 import org.mycore.libmeta.alto__4._misc.IBoundingBoxHolder;
+import org.mycore.libmeta.alto__4._misc.IRefsBuilder;
+import org.mycore.libmeta.alto__4._misc.IRefsHolder;
 import org.mycore.libmeta.alto__4.model.layout.Shape;
 import org.mycore.libmeta.alto__4.model.styles.FontStyle;
 import org.mycore.libmeta.common.BuilderBase;
@@ -42,7 +44,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 
 @XmlAccessorType(XmlAccessType.NONE)
-public class TextlineString implements ITextlineChild, IBoundingBoxHolder {
+public class TextlineString implements ITextlineChild, IBoundingBoxHolder, IRefsHolder {
     /** Any alternative for the word. */
     @XmlElements(value = {
         @XmlElement(name = "Shape", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
@@ -190,7 +192,7 @@ public class TextlineString implements ITextlineChild, IBoundingBoxHolder {
         TAGREFS = tAGREFS;
     }
 
-    public String getPROCESSINGREFSREFS() {
+    public String getPROCESSINGREFS() {
         return PROCESSINGREFS;
     }
 
@@ -303,7 +305,7 @@ public class TextlineString implements ITextlineChild, IBoundingBoxHolder {
     }
 
     public static class Builder extends BuilderBase<TextlineString, Builder>
-        implements IBoundingBoxBuilder<TextlineString, Builder> {
+        implements IBoundingBoxBuilder<TextlineString, Builder>, IRefsBuilder<TextlineString, Builder> {
 
         protected Builder(TextlineString sp) {
             super(sp);
@@ -316,16 +318,6 @@ public class TextlineString implements ITextlineChild, IBoundingBoxHolder {
 
         public Builder ID(String id) {
             _target().setID(id);
-            return _self();
-        }
-
-        public Builder STYLEREFS(String stylerefs) {
-            _target().setSTYLEREFS(stylerefs);
-            return _self();
-        }
-
-        public Builder TAGREFS(String tagrefs) {
-            _target().setTAGREFS(tagrefs);
             return _self();
         }
 

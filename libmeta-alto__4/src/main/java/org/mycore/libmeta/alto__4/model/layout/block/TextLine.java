@@ -273,16 +273,6 @@ public class TextLine implements IBoundingBoxHolder, IRefsHolder {
             return _self();
         }
 
-        public Builder STYLEREFS(String stylerefs) {
-            _target().setSTYLEREFS(stylerefs);
-            return _self();
-        }
-
-        public Builder TAGREFS(String tagrefs) {
-            _target().setTAGREFS(tagrefs);
-            return _self();
-        }
-
         public Builder BASELINE(Float baseline) {
             _target().setBASELINE(baseline);
             return _self();
