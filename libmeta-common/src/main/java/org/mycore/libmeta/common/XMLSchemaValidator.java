@@ -144,10 +144,9 @@ public class XMLSchemaValidator {
 
                 @Override
                 public InputSource resolveEntity(String publicId, String systemId) throws SAXException, IOException {
-                    try {
-                        InputStream is = getClass()
-                            .getResourceAsStream(
-                                "/libmeta/xml_schemas/" + systemId.substring(systemId.lastIndexOf("/") + 1));
+                    try (InputStream is = getClass()
+                        .getResourceAsStream(
+                            "/libmeta/xml_schemas/" + systemId.substring(systemId.lastIndexOf("/") + 1));) {
                         if (is != null) {
                             return new InputSource(is);
                         }
@@ -161,7 +160,7 @@ public class XMLSchemaValidator {
             docBuilder.parse(new InputSource(reader));
         } catch (Exception e) {
             LOGGER.error("Validation error", e);
-            errorMsg +="\n"+e.getMessage();
+            errorMsg += "\n" + e.getMessage();
             valid = false;
         }
         return valid;
@@ -171,7 +170,7 @@ public class XMLSchemaValidator {
     public String getErrorMsg() {
         return errorMsg;
     }
-    
+
     public boolean isValid() {
         return valid;
     }

@@ -23,6 +23,7 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -43,11 +44,10 @@ public class FilterTest {
 
     @Test
     public void testRecord() {
-        try {
+        try (StringWriter sw = new StringWriter();){
             URL url = new URL(SRU_URL_RECORD);
-            StringWriter sw = new StringWriter();
             try (
-                BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+                BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
                 BufferedWriter bw = new BufferedWriter(sw)) {
                 FilterPicaXMLFromSRUReaderDelegate.filterPicaRecordXML(br, bw);
             }
@@ -66,11 +66,10 @@ public class FilterTest {
 
     @Test
     public void testFirstRecordFromCollection() {
-        try {
+        try (StringWriter sw = new StringWriter();) {
             URL url = new URL(SRU_URL_COLLECTION);
-            StringWriter sw = new StringWriter();
             try (
-                BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+                BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
                 BufferedWriter bw = new BufferedWriter(sw)) {
                 FilterPicaXMLFromSRUReaderDelegate.filterPicaRecordXML(br, bw);
             }
@@ -89,11 +88,10 @@ public class FilterTest {
 
     @Test
     public void testEmptyRecord() {
-        try {
+        try (StringWriter sw = new StringWriter();) {
             URL url = new URL(SRU_URL_EMPTY);
-            StringWriter sw = new StringWriter();
             try (
-                BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+                BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
                 BufferedWriter bw = new BufferedWriter(sw)) {
                 FilterPicaXMLFromSRUReaderDelegate.filterPicaRecordXML(br, bw);
             }
@@ -112,11 +110,10 @@ public class FilterTest {
 
     @Test
     public void testCollection() {
-        try {
+        try (StringWriter sw = new StringWriter();) {
             URL url = new URL(SRU_URL_COLLECTION);
-            StringWriter sw = new StringWriter();
             try (
-                BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+                BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
                 BufferedWriter bw = new BufferedWriter(sw)) {
                 FilterPicaXMLFromSRUReaderDelegate.filterPicaCollectionXML(br, bw);
             }
@@ -136,11 +133,10 @@ public class FilterTest {
 
     @Test
     public void testEmptyCollection() {
-        try {
+        try (StringWriter sw = new StringWriter();) {
             URL url = new URL(SRU_URL_EMPTY);
-            StringWriter sw = new StringWriter();
             try (
-                BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+                BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
                 BufferedWriter bw = new BufferedWriter(sw)) {
                 FilterPicaXMLFromSRUReaderDelegate.filterPicaCollectionXML(br, bw);
             }

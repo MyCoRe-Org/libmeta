@@ -130,8 +130,7 @@ public class XMLFormatter {
      */
     public static String prettyPrintXMLAsString(Document doc) throws LibmetaProcessorException {
         //output with indent
-        try {
-            StringWriter result = new StringWriter();
+        try (StringWriter result = new StringWriter();) {
             Transformer tf = TransformerFactory.newInstance().newTransformer();
             tf.setOutputProperty(OutputKeys.INDENT, "yes");
             tf.setOutputProperty(OutputKeys.STANDALONE, "yes");

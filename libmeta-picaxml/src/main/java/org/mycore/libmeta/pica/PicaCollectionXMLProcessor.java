@@ -20,7 +20,7 @@ package org.mycore.libmeta.pica;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
@@ -45,10 +45,7 @@ public class PicaCollectionXMLProcessor extends DefaultXMLProcessor<PicaCollecti
     }
 
     public PicaCollection unmarshalFromSRU(URL url) throws LibmetaProcessorException {
-        try {
-            URLConnection urlConnection = url.openConnection();
-            BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
-
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));){
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
             XMLEventReader xmlEventReader = new FilterPicaXMLFromSRUReaderDelegate(
                 inputFactory.createXMLEventReader(br), RootElement.COLLECTION);
