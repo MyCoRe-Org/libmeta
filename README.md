@@ -9,6 +9,8 @@ which provide a unified approach to the creation and processing of library metad
   in JSON-based standards.
 - Validator classes are used to check XML data against the corresponding XML Schemas.
 
+The [Wiki](https://github.com/MyCoRe-Org/libmeta/wiki/LibMeta-Demonstration) contains some code examples on How to use the APIs.
+
 ### Covered Standards
 - Dublin Core (https://www.dublincore.org)
 - MARC (https://www.loc.gov/marc/bibliographic)
