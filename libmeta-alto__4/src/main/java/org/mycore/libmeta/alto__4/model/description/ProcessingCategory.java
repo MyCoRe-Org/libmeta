@@ -31,14 +31,14 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 @XmlEnum
 public enum ProcessingCategory {
     @XmlEnumValue("contentGeneration")
-    CONTENT_GENERATION,
+    contentGeneration,
     @XmlEnumValue("contentModification")
-    CONTENT_MODIFICATION,
+    contentModification,
     @XmlEnumValue("preOperation")
-    PRE_OPERATION,
+    preOperation,
     @XmlEnumValue("postOperation")
-    POST_OPERATION,
+    postOperation,
     @XmlEnumValue("other")
-    OTHER;
+    other;
 
 }
