@@ -2,7 +2,6 @@ package org.mycore.libmeta.pica.json;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -43,7 +42,7 @@ public class PicaJSONProcessor {
         try (BufferedWriter bw = Files.newBufferedWriter(p);
             JsonGenerator jg = Json.createGenerator(bw)) {
             marshal(marc, jg);
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }
@@ -52,6 +51,8 @@ public class PicaJSONProcessor {
         StringWriter sw = new StringWriter();
         try (JsonGenerator jg = Json.createGenerator(sw)) {
             marshal(marc, jg);
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
         }
         return sw.toString();
     }
@@ -59,15 +60,16 @@ public class PicaJSONProcessor {
     public PicaRecord unmarshal(String s) throws LibmetaProcessorException {
         try (JsonReader jr = Json.createReader(new StringReader(s))) {
             return unmarshal(jr);
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
         }
-
     }
 
     public PicaRecord unmarshal(Path p) throws LibmetaProcessorException {
         try (BufferedReader br = Files.newBufferedReader(p);
             JsonReader jr = Json.createReader(br)) {
             return unmarshal(jr);
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }
@@ -76,55 +78,62 @@ public class PicaJSONProcessor {
         try (InputStream is = url.openStream();
             JsonReader jr = Json.createReader(is)) {
             return unmarshal(jr);
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }
 
-    public void marshal(PicaRecord pica, JsonGenerator jGen) {
-        jGen.writeStartArray();
-        for (PicaDatafield df : pica.getDatafields()) {
+    public void marshal(PicaRecord pica, JsonGenerator jGen) throws LibmetaProcessorException {
+        try {
             jGen.writeStartArray();
-            jGen.write(df.getTag());
-            if (df.getOccurrence() == null) {
-                jGen.writeNull();
-            } else {
-                jGen.write(df.getOccurrence());
+            for (PicaDatafield df : pica.getDatafields()) {
+                jGen.writeStartArray();
+                jGen.write(df.getTag());
+                if (df.getOccurrence() == null) {
+                    jGen.writeNull();
+                } else {
+                    jGen.write(df.getOccurrence());
+                }
+
+                for (PicaSubfield sf : df.getSubfields()) {
+                    jGen.write(sf.getCode());
+                    jGen.write(sf.getContent());
+                }
+                jGen.writeEnd();
             }
 
-            for (PicaSubfield sf : df.getSubfields()) {
-                jGen.write(sf.getCode());
-                jGen.write(sf.getContent());
-            }
             jGen.writeEnd();
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
         }
-
-        jGen.writeEnd();
     }
 
-    public PicaRecord unmarshal(JsonReader jr) {
-        PicaRecord pr = new PicaRecord();
-        JsonArray a = jr.readArray();
-        for (int i = 0; i < a.size(); i++) {
-            JsonArray field = a.getJsonArray(i);
+    public PicaRecord unmarshal(JsonReader jr) throws LibmetaProcessorException {
+        try {
+            PicaRecord pr = new PicaRecord();
+            JsonArray a = jr.readArray();
+            for (int i = 0; i < a.size(); i++) {
+                JsonArray field = a.getJsonArray(i);
 
-            PicaDatafield df = PicaDatafield.builder()
-                .tag(field.getString(0))
-                .build();
-            pr.getDatafields().add(df);
-            if (!field.isNull(1)) {
-                df.setOccurrence(field.getString(1));
+                PicaDatafield df = PicaDatafield.builder()
+                    .tag(field.getString(0))
+                    .build();
+                pr.getDatafields().add(df);
+                if (!field.isNull(1)) {
+                    df.setOccurrence(field.getString(1));
+                }
+                for (int j = 3; j < field.size(); j = j + 2) {
+                    df.getSubfields().add(
+                        PicaSubfield.builder()
+                            .code(field.getString(j))
+                            .content(field.getString(j + 1))
+                            .build());
+                }
             }
-            for (int j = 3; j < field.size(); j = j + 2) {
-                df.getSubfields().add(
-                    PicaSubfield.builder()
-                        .code(field.getString(j))
-                        .content(field.getString(j + 1))
-                        .build());
-            }
+            return pr;
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
         }
-
-        return pr;
     }
 
 }

@@ -19,7 +19,6 @@ package org.mycore.libmeta.pica.json;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -64,31 +63,34 @@ public class PicaInJSONProcessor {
         try (BufferedWriter bw = Files.newBufferedWriter(p);
             JsonWriter jw = Json.createWriter(bw)) {
             marshal(pica, jw);
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }
 
-    public String marshalToString(PicaRecord pica) {
+    public String marshalToString(PicaRecord pica) throws LibmetaProcessorException {
         StringWriter sw = new StringWriter();
         try (JsonWriter jw = Json.createWriter(sw)) {
             marshal(pica, jw);
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
         }
         return sw.toString();
     }
 
-    public PicaRecord unmarshal(String s) {
+    public PicaRecord unmarshal(String s) throws LibmetaProcessorException {
         try (JsonReader jr = Json.createReader(new StringReader(s))) {
             return unmarshal(jr);
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
         }
-
     }
 
     public PicaRecord unmarshal(Path p) throws LibmetaProcessorException {
         try (BufferedReader br = Files.newBufferedReader(p);
             JsonReader jr = Json.createReader(br)) {
             return unmarshal(jr);
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }
@@ -97,58 +99,66 @@ public class PicaInJSONProcessor {
         try (InputStream is = url.openStream();
             JsonReader jr = Json.createReader(is)) {
             return unmarshal(jr);
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }
 
-    public void marshal(PicaRecord pica, JsonWriter jw) {
-        JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
-        JsonArrayBuilder fieldsBuilder = Json.createArrayBuilder();
-        for (PicaDatafield df : pica.getDatafields()) {
-            JsonObjectBuilder fieldBuilder = Json.createObjectBuilder();
-            if (df.getOccurrence() != null) {
-                fieldBuilder.add("occurrence", df.getOccurrence());
+    public void marshal(PicaRecord pica, JsonWriter jw) throws LibmetaProcessorException {
+        try {
+            JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
+            JsonArrayBuilder fieldsBuilder = Json.createArrayBuilder();
+            for (PicaDatafield df : pica.getDatafields()) {
+                JsonObjectBuilder fieldBuilder = Json.createObjectBuilder();
+                if (df.getOccurrence() != null) {
+                    fieldBuilder.add("occurrence", df.getOccurrence());
+                }
+                JsonArrayBuilder subfieldBuilder = Json.createArrayBuilder();
+                for (PicaSubfield sf : df.getSubfields()) {
+                    subfieldBuilder.add(Json.createObjectBuilder().add(sf.getCode(), sf.getContent()));
+                }
+                fieldBuilder.add("subfields", subfieldBuilder);
+                fieldsBuilder.add(Json.createObjectBuilder().add(String.valueOf(df.getTag()), fieldBuilder));
             }
-            JsonArrayBuilder subfieldBuilder = Json.createArrayBuilder();
-            for (PicaSubfield sf : df.getSubfields()) {
-                subfieldBuilder.add(Json.createObjectBuilder().add(sf.getCode(), sf.getContent()));
-            }
-            fieldBuilder.add("subfields", subfieldBuilder);
-            fieldsBuilder.add(Json.createObjectBuilder().add(String.valueOf(df.getTag()), fieldBuilder));
-        }
-        jsonBuilder.add("datafields", fieldsBuilder);
+            jsonBuilder.add("datafields", fieldsBuilder);
 
-        jw.write(jsonBuilder.build());
+            jw.write(jsonBuilder.build());
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
+        }
     }
 
-    public PicaRecord unmarshal(JsonReader jr) {
-        PicaRecord pica = new PicaRecord();
-        JsonObject json = jr.readObject();
-        JsonArray jsonFields = json.getJsonArray("datafields");
+    public PicaRecord unmarshal(JsonReader jr) throws LibmetaProcessorException {
+        try {
+            PicaRecord pica = new PicaRecord();
+            JsonObject json = jr.readObject();
+            JsonArray jsonFields = json.getJsonArray("datafields");
 
-        for (int i = 0; i < jsonFields.size(); i++) {
-            JsonObject jsonField = jsonFields.getJsonObject(i);
-            jsonField.forEach((tag, value) -> {
-                PicaDatafield df = PicaDatafield.builder()
-                    .tag(tag)
-                    .occurrence(value.asJsonObject().containsKey("occurrence")
-                        ? value.asJsonObject().getString("occurrence")
-                        : null)
-                    .build();
-                pica.getDatafields().add(df);
-                value.asJsonObject().getJsonArray("subfields").forEach(sf -> {
-                    sf.asJsonObject().forEach((k, v) -> {
-                        df.getSubfields().add(
-                            PicaSubfield.builder()
-                                .code(k)
-                                .content(((JsonString) v).getString())
-                                .build());
+            for (int i = 0; i < jsonFields.size(); i++) {
+                JsonObject jsonField = jsonFields.getJsonObject(i);
+                jsonField.forEach((tag, value) -> {
+                    PicaDatafield df = PicaDatafield.builder()
+                        .tag(tag)
+                        .occurrence(value.asJsonObject().containsKey("occurrence")
+                            ? value.asJsonObject().getString("occurrence")
+                            : null)
+                        .build();
+                    pica.getDatafields().add(df);
+                    value.asJsonObject().getJsonArray("subfields").forEach(sf -> {
+                        sf.asJsonObject().forEach((k, v) -> {
+                            df.getSubfields().add(
+                                PicaSubfield.builder()
+                                    .code(k)
+                                    .content(((JsonString) v).getString())
+                                    .build());
+                        });
                     });
                 });
-            });
+            }
+            return pica;
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
         }
-        return pica;
     }
 
 }

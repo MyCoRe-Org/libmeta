@@ -19,7 +19,6 @@ package org.mycore.libmeta.daia__1_0;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -55,21 +54,29 @@ public class DAIAJSONProcessor {
         try (BufferedWriter bw = Files.newBufferedWriter(p)) {
             Jsonb jsonb = JsonbBuilder.create(cfg);
             jsonb.toJson(daia, bw);
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }
 
     public String marshalToString(DAIA daia) throws LibmetaProcessorException {
         StringWriter sw = new StringWriter();
-        Jsonb jsonb = JsonbBuilder.create(cfg);
-        jsonb.toJson(daia, sw);
+        try {
+            Jsonb jsonb = JsonbBuilder.create(cfg);
+            jsonb.toJson(daia, sw);
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
+        }
         return sw.toString();
     }
 
     public DAIA unmarshal(String s) throws LibmetaProcessorException {
-        Jsonb jsonb = JsonbBuilder.create(cfg);
-        return jsonb.fromJson(new StringReader(s), DAIA.class);
+        try {
+            Jsonb jsonb = JsonbBuilder.create(cfg);
+            return jsonb.fromJson(new StringReader(s), DAIA.class);
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
+        }
     }
 
     public DAIA unmarshal(Path p) throws LibmetaProcessorException {
@@ -77,16 +84,15 @@ public class DAIAJSONProcessor {
             Jsonb jsonb = JsonbBuilder.create(cfg);
             return jsonb.fromJson(br, DAIA.class);
         } catch (Exception e) {
-            //do nothing
+            throw new LibmetaProcessorException(e);
         }
-        return null;
     }
 
     public DAIA unmarshal(URL url) throws LibmetaProcessorException {
         try (InputStream is = url.openStream()) {
             Jsonb jsonb = JsonbBuilder.create(cfg);
             return jsonb.fromJson(is, DAIA.class);
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }
