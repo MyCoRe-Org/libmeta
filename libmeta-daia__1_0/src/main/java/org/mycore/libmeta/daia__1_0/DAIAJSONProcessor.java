@@ -19,6 +19,7 @@ package org.mycore.libmeta.daia__1_0;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -26,6 +27,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import org.mycore.libmeta.common.LibmetaProcessorException;
 import org.mycore.libmeta.daia__1_0.model.DAIA;
 
 import jakarta.json.bind.Jsonb;
@@ -49,26 +51,28 @@ public class DAIAJSONProcessor {
         return INSTANCE;
     }
 
-    public void marshal(DAIA daia, Path p) throws Exception {
+    public void marshal(DAIA daia, Path p) throws LibmetaProcessorException {
         try (BufferedWriter bw = Files.newBufferedWriter(p)) {
             Jsonb jsonb = JsonbBuilder.create(cfg);
             jsonb.toJson(daia, bw);
+        } catch (IOException e) {
+            throw new LibmetaProcessorException(e);
         }
     }
 
-    public String marshalToString(DAIA daia) throws Exception {
+    public String marshalToString(DAIA daia) throws LibmetaProcessorException {
         StringWriter sw = new StringWriter();
         Jsonb jsonb = JsonbBuilder.create(cfg);
         jsonb.toJson(daia, sw);
         return sw.toString();
     }
 
-    public DAIA unmarshal(String s) throws Exception {
+    public DAIA unmarshal(String s) throws LibmetaProcessorException {
         Jsonb jsonb = JsonbBuilder.create(cfg);
         return jsonb.fromJson(new StringReader(s), DAIA.class);
     }
 
-    public DAIA unmarshal(Path p) throws Exception {
+    public DAIA unmarshal(Path p) throws LibmetaProcessorException {
         try (BufferedReader br = Files.newBufferedReader(p)) {
             Jsonb jsonb = JsonbBuilder.create(cfg);
             return jsonb.fromJson(br, DAIA.class);
@@ -78,10 +82,12 @@ public class DAIAJSONProcessor {
         return null;
     }
 
-    public DAIA unmarshal(URL url) throws Exception {
+    public DAIA unmarshal(URL url) throws LibmetaProcessorException {
         try (InputStream is = url.openStream()) {
             Jsonb jsonb = JsonbBuilder.create(cfg);
             return jsonb.fromJson(is, DAIA.class);
+        } catch (IOException e) {
+            throw new LibmetaProcessorException(e);
         }
     }
 }
