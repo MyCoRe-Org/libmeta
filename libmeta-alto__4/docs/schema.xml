@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ALTO: Analyzed Layout and Text Object  -->
+<!-- This document is available under the Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0 - https://creativecommons.org/licenses/by-sa/4.0/ ). 
+The ALTO Editorial Board has waived all rights to it worldwide under copyright law with confirmation of the original creating authors, including all related and neighboring rights, to the extent allowed by law.
+For the full text see https://creativecommons.org/licenses/by-sa/4.0/legalcode. -->
+
+<!-- Originally created during the EU-funded Project METAe, the Metadata Engine Project (2001 - 2003), by Alexander Egger (1), Birgit Stehno (2) and Gregor Retti (2), (1) University of Graz and (2) University of Innsbruck, Austria with contributions of Ralph Tiede, CCS GmbH, Germany -->
+<!-- Prepared for the Library of Congress by Ralph Tiede, CCS GmbH, with the assistance of Justin Littman (Library of Congress). -->
+
+<!-- Version 4.4 -->
+
+<!-- Change History -->
+<!-- June 22, 2004: Version finalized for docWORKS/METAe -->
+<!-- November 19, 2004: Modifications requested by Justin Littman -->
+<!-- Modifications of November 19, 2004: 
+  1. add "Description" element
+  2. change "InnerMargin/OuterMargin" to "LeftMargin/RightMargin", add "POSITION" attribute to "PAGE" element
+  3. add "PROCESSING" attribute to "PAGE" element
+  4. internal changes to validate with Xerces parser
+  5. define fontstyles by enumerations
+  6. change "WC" (word confidence) attribute to xsd:float in range of "0" to "1".
+  7. Add "ALTERNATIVE" as children to "STRING" element 
+  8. Add "language" attribute to "Textblock" and "STRING" element
+-->
+<!-- Modifications of December 02, 2004: 
+  1. fixed problem with multiple use of blockgroup
+  2. add measurement enumeration 'inch1200'
+-->
+<!-- Modifications of December 14, 2004:
+  1. "FILEID" (attribute of "ComposedBlock"): change type from xsd:IDREF to xsd:string
+  2. include minor changes requested by JDL
+  3. change "ZORDER" to "IDNEXT" (attribute of "BlockType")
+-->
+<!-- Modifications of February 24, 2006:
+  1. ACCURACY attribute added to PAGE element to store information on OCR accuracy
+  2. CS attribute added to TEXTLINE element to indicate manual correction status
+-->
+<!-- Modifications of June 20, 2007 (version 1.3):
+  1. Adaption of xlink namespace and schema location to prevent conflicts on XSL transformations in combination with used namespace in original METS file
+-->
+<!-- Modifications of August 27, 2007 (version 1.4):
+  1. add "QUALITY_DETAIL" attribute to "PAGE" element (gives more details about the page quality, is a free string comparing with QUALITY attribute which is a restrictive one)
+  2. add "Cover" to "POSITION" attribute of "PAGE" element
+  3. specification of interpretation of confidence values (CC, WC, PC and ACCURACY)
+-->
+<!-- Modifications of August 7, 2009:
+  1. Change namespace from old CCS URI to LC-based URI.
+  2. Use standard LC XLink Schema.
+  3. Push version to 2.0 to reflect change in maintenance agency.
+  4. Remove CCS copyright statement.
+  5. Rollback to model used in 1.4 schema except with the changes itemized in 1-4 of this change note.  An incorrect version of the 2.0 alpha schema was public until 2010-01-11.  The incorrect version was a derivative of the Library of Congress's custom ALTO XML Schema that introduced new elements and attributes. 
+-->
+<!-- Modifications of January 11, 2010:
+  1. Rollback to model used in 1.4 schema except with the changes itemized in 1-4 of the previous change note of August 7, 2009.  An incorrect version of the 2.0 alpha schema was public until 2010-01-11.  The incorrect version was a derivative of the Library of Congress's custom ALTO XML Schema that introduced new elements and attributes that extended the 1.4 model prior to editorial board approval. 
+-->
+<!-- February 20, 2014, version 2.1:
+  1. Page and BlockType element HEIGHT, WIDTH, HPOS, VPOS attribute types changed to xsd:float from xsd:int.
+  2. CircleType  HPOS, VPOS and RADIUS attribute type definitions added as xsd:float and made mandatory. Element annotation clarified.
+  3. EllipseType HPOS,VPOS,HLENGTH and VLENGTH attribute type definitions added as xsd:float and made mandatory. Element annotation clarified.
+  4. MeasurementUnit defined as mandatory and element annotation clarified.
+  5. HYP element's CONTENT attribute type definition added as xsd:string.
+  6. Tags (LayoutTag/StructureTag/RoleTag/NamedEntityTag/OtherTag) added to allow for tagging content. TAGREFS attribute added to BlockTypes, TextLine and String
+  7. CS attribute added to String and Block.
+  8. LANG attribute added to String, TextLine and TextBlock. "language" attribute in TextBlock deprecated.
+  9. HEIGHT attribute added to HYP and SP elements.
+-->
+<!-- April, 2014, version 2.2 DRAFT:
+  1. Anonymous types changed to named types (to allow use of xsd:redefine mechanism)  
+-->
+<!-- July 2014, version 2.2 DRAFT
+  1. Version added to xsd:schema.
+  2. SCHEMAVERSION attribute added to <alto> element.
+  3. documentIdentifier element added to <sourceImageInformationType> element (+ documentIdentifierLocation attribute)
+-->
+<!-- August 2014, version 3.0
+  1. Changed namespace and targetNamespace to http://www.loc.gov/standards/alto/ns-v3#
+  2. Changed schema version to 3.0 
+
+  ALTO schemas will be updated by whole numbers upon making changes that break backward compatibility (version 1 to version 2), 
+  and decimals for changes that will not (2.0 to 2.1). The namespace itself will also only change on major versions (ns-v2 to ns-v3). 
+-->
+<!-- January 2016, version 3.1
+  1. Changed schema version to 3.1
+  2. Added support for using different shapes for the elements String, TextLine, all PageSpaceType elements and on all BlockType elements.
+  3. The description of the attribute ROTATION is changed to the rotation of the contents of a block and not the block itself. The attribute is inherited by all sub elements.
+-->
+<!-- January 2018, version 4.0
+  1. Changed schema version to 4.0
+  2. Changed namespace and targetNamespace to http://www.loc.gov/standards/alto/ns-v4#
+  3. Clarification and definition of the licensing to common standard "CC BY-SA 4.0" for this ALTO standard (with agreement of the authors)
+  4. Added character based text description with new Glyph element and its subelement Variant (GlyphType, VariantType)
+  5. Extended annotation for clarification of the difference of existing element ALTERNATIVE and Glyph/Variant
+  6. Introduce generic "Processing" and deprecate "OcrProcessing"
+  7. Introduce generic "processingStep" with "ProcessingStepType" and required attribute "ID" and deprecate "preProcessingStep", "ocrProcessingStep", "postProcessingStep"
+  8. Add common vocabulary for "processingStep" comprising the "ContentGeneration", "ContentModification", "PreOperation", "PostOperation", "Other"
+  9. Fix for the element Shape. The Shape element can now only be used once within a PageSpace or a TextLine as it was intended.
+-->
+<!-- May 2019, version 4.1
+  1. Fix for Processing including  processingStepType.
+  2. Add missing PROCESSINGREFS to PageType, PageSpaceType, BlockType, TextLine, StringType for referencing Processing history. 
+-->
+<!-- June/July 2020, version 4.2
+  1. Change BASELINE to accommodate a list of points in addition to a single point.
+  2. Make FONTSIZE optional. 
+  3. Add "strikethrough" to list of allowed values for FONTSTYLE.
+-->
+<!-- May 2022, version 4.3
+  1. Add BASEDIRECTION attribute defining base direction and line orientation to TextLine and BlockType.
+  2. Add support for explicit reading order definitions with "ReadingOrder" element containing "UnorderedGroup"s, "OrderedGroup"s, and "ElementRef"s. 
+-->
+<!-- March 2023, version 4.4
+  1. Add LANG attribute on PageType level to describe the default language used in document
+  2. Add ROTATION attribute on PageType level to describe the default rotation used in document
+  3. Add OTHERLANGS attribute on PageType to summarize all the languages present into a particular document 
+  4. Adapt "PointsType" documentation
+  5. Adapt xLink attribute group documentation on "BlockType"
+-->
+<xsd:schema xmlns="http://www.loc.gov/standards/alto/ns-v4#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink" targetNamespace="http://www.loc.gov/standards/alto/ns-v4#" elementFormDefault="qualified" attributeFormDefault="unqualified" version="4.4">
+  <xsd:import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.loc.gov/standards/xlink/xlink.xsd"/>
+
+
+  <xsd:simpleType name="SPTypeID">
+    <xsd:restriction base="xsd:ID"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="ParagraphStyleID">
+    <xsd:restriction base="xsd:ID"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="PageID">
+    <xsd:restriction base="xsd:ID"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="BlockTypeID">
+    <xsd:restriction base="xsd:ID"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="StringTypeID">
+    <xsd:restriction base="xsd:ID"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="TextLineID">
+    <xsd:restriction base="xsd:ID"/>
+  </xsd:simpleType>
+ 
+  <xsd:simpleType name="WCType">
+    <xsd:annotation>
+      <xsd:documentation>Word Confidence: Confidence level of the ocr for this string. A value between 0 (unsure) and 1 (sure). </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:float">
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="ALTERNATIVEType">
+    <xsd:annotation>
+      <xsd:documentation>
+        Any alternative for the word.
+        Alternative can outline a variant of writing by new typing / spelling rules, typically manually done or by dictionary replacements.
+        The above sample is an old composed character "Æ" of ancient time, which is replaced now by "Ä".
+        As variant are meant alternatives of the real printed content which are options outlined by the text recognition process. 
+        Similar sample: "Straße" vs. "Strasse". Such alternatives are not coming from text recognition.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name="PURPOSE" type="xsd:string" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>Identifies the purpose of the alternative.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+ 
+  <xsd:simpleType name="PointsType">
+    <xsd:annotation>
+      <xsd:documentation>A list of coordinate-pairs that are absolute to the upper-left corner of a page.</xsd:documentation>
+      <xsd:documentation>The upper left corner of the page is defined as x=0 and y=0</xsd:documentation>
+      <xsd:documentation>Currently there are no rules to enforce a particular format for a points list but in future versions is planned to restrict it to following options:</xsd:documentation>
+      <xsd:documentation>"x1,y1 x2,y2 ... xn,yn" - highly recommended as widely used and easy to read by both human and machine</xsd:documentation>
+      <xsd:documentation>"x1 y1 x2 y2 ... xn yn" - kept for back compatibility, since currently there are tools using this format</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  
+  <xsd:simpleType name="InlineDirType">
+    <xsd:annotation>
+      <xsd:documentation>Describes the inline base direction and line orientation of a line or of all lines inside a text block.</xsd:documentation>
+      <xsd:documentation>The meaning of these terms is defined by the W3C writing modes document: <a href="https://www.w3.org/TR/css-writing-modes-3/#writing-mode"/></xsd:documentation>
+      <xsd:documentation>These values should correspond to the base direction set in the BiDi algorithm to the respective elements during Unicode encoding. A value of "ttb" (top-to-bottom) implies a base direction of left-to-right, a value of "btt" (bottom-to-top) a base direction of right-to-left.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ltr"/>
+      <xsd:enumeration value="rtl"/>
+      <xsd:enumeration value="ttb"/>
+      <xsd:enumeration value="btt"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  
+ 	<xsd:complexType name="TextBlockType">
+		<xsd:annotation>
+			<xsd:documentation>A block of text.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="BlockType">
+				<xsd:sequence minOccurs="0">
+					<xsd:element name="TextLine" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>A single line of text.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:sequence>
+									<xsd:element name="Shape" type="ShapeType" minOccurs="0" maxOccurs="1"/>
+								</xsd:sequence>
+								<xsd:sequence maxOccurs="unbounded">
+									<xsd:element name="String" type="StringType"/>
+									<xsd:element name="SP" type="SPType" minOccurs="0"/>
+								</xsd:sequence>
+								<xsd:element name="HYP" minOccurs="0">
+									<xsd:annotation>
+										<xsd:documentation>A hyphenation char. Can appear only at the end of a line.</xsd:documentation>
+									</xsd:annotation>
+									<xsd:complexType>
+										<xsd:attribute name="HEIGHT" type="xsd:float" use="optional"/>
+										<xsd:attribute name="WIDTH" type="xsd:float" use="optional"/>
+										<xsd:attribute name="HPOS" type="xsd:float" use="optional"/>
+										<xsd:attribute name="VPOS" type="xsd:float" use="optional"/>
+										<xsd:attribute name="CONTENT" type="xsd:string" use="required"/>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+							<xsd:attribute name="ID" type="TextLineID"/>
+							<xsd:attribute name="STYLEREFS" type="xsd:IDREFS" use="optional"/>
+							<xsd:attribute name="TAGREFS" type="xsd:IDREFS" use="optional"/>
+							<xsd:attribute name="PROCESSINGREFS" type="xsd:IDREFS" use="optional"/>
+							<xsd:attribute name="HEIGHT" type="xsd:float" use="optional"/>
+							<xsd:attribute name="WIDTH" type="xsd:float" use="optional"/>
+							<xsd:attribute name="HPOS" type="xsd:float" use="optional"/>
+							<xsd:attribute name="VPOS" type="xsd:float" use="optional"/>
+							<xsd:attribute name="BASELINE" type="PointsType" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>Pixel coordinates based on the left-hand top corner of an image which define a polyline on which a line of text rests.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+							<xsd:attribute name="LANG" type="xsd:language" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>Attribute to record language of the textline.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+							<xsd:attribute name="CS" type="xsd:boolean" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>Correction Status. Indicates whether manual correction has been done or not. The correction status should be recorded at the highest level possible (Block, TextLine, String).</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+							<xsd:attribute name="BASEDIRECTION" type="InlineDirType" use="optional">
+								<xsd:annotation>
+									<xsd:documentation>Indicates the inline base direction of this TextLine. Overrides the value on elements higher in the hierarchy.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:attribute>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="language" type="xsd:language" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>Attribute deprecated. LANG should be used instead.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="LANG" type="xsd:language" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>Attribute to record language of the textblock.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="BASEDIRECTION" type="InlineDirType" use="optional">
+					<xsd:annotation>
+						<xsd:documentation>Indicates the inline base direction of the TextBlock.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+  
+
+  
+</xsd:schema>

@@ -15,37 +15,36 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.alto.model.layout.block.textline;
+package org.mycore.libmeta.alto__4.model.description;
 
 import org.mycore.libmeta.common.BuilderBase;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlValue;
 
 /**
- * Any alternative for the word.
- * Alternative can outline a variant of writing by new typing / spelling rules, typically manually done or by dictionary replacements.
- * The above sample is an old composed character "Æ" of ancient time, which is replaced now by "Ä".
- * As variant are meant alternatives of the real printed content which are options outlined by the text recognition process.
- * Similar sample: "Straße" vs. "Strasse". Such alternatives are not coming from text recognition.
- *  
+ * A unique identifier for the document.
+ * 
+ * This identifier must be unique within the local system.
+ * To facilitate file sharing or interoperability with other systems, 
+ * documentIdentifierLocation may be added to designate the system or application
+ * where the identifier is unique.
+ * 
  * @author Robert Stephan
+ * @version Alto 4.4
  *
  */
-
 @XmlAccessorType(XmlAccessType.NONE)
-public class TextlineStringALTERNATIVE {
+public class DocumentIdentifier {
 
     @XmlValue
     protected String value;
 
-    /** Identifies the purpose of the alternative. */
-    @XmlAttribute(name = "PURPOSE", required = false)
-    @XmlSchemaType(name = "string")
-    protected String PURPOSE;
+    /** A location qualifier, i.e., a namespace. */
+    @XmlAttribute(name = "documentIdentifierLocation", required = false)
+    protected String documentIdentifierLocation;
 
     public String getValue() {
         return value;
@@ -55,26 +54,26 @@ public class TextlineStringALTERNATIVE {
         this.value = value;
     }
 
-    public String getPURPOSE() {
-        return PURPOSE;
+    public String getDocumentIdentifierLocation() {
+        return documentIdentifierLocation;
     }
 
-    public void setPURPOSE(String pURPOSE) {
-        PURPOSE = pURPOSE;
+    public void setDocumentIdentifierLocation(String documentIdentifierLocation) {
+        this.documentIdentifierLocation = documentIdentifierLocation;
     }
 
     public static Builder builder() {
-        return builder(new TextlineStringALTERNATIVE());
+        return builder(new DocumentIdentifier());
     }
 
-    public static Builder builder(TextlineStringALTERNATIVE alternative) {
-        return new Builder(alternative);
+    public static Builder builder(DocumentIdentifier documentIdentifier) {
+        return new Builder(documentIdentifier);
     }
 
-    public static class Builder extends BuilderBase<TextlineStringALTERNATIVE, Builder> {
+    public static class Builder extends BuilderBase<DocumentIdentifier, Builder> {
 
-        protected Builder(TextlineStringALTERNATIVE alternative) {
-            super(alternative);
+        protected Builder(DocumentIdentifier documentIdentifier) {
+            super(documentIdentifier);
         }
 
         public Builder value(String value) {
@@ -82,8 +81,8 @@ public class TextlineStringALTERNATIVE {
             return _self();
         }
 
-        public Builder PURPOSE(String purpose) {
-            _target().setPURPOSE(purpose);
+        public Builder documentIdentifierLocation(String documentIdentifierLocation) {
+            _target().setDocumentIdentifierLocation(documentIdentifierLocation);
             return _self();
         }
     }

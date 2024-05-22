@@ -165,6 +165,7 @@
     <module>libmeta-mods</module>
     <module>libmeta-mycoreclass</module>
     <module>libmeta-alto</module>
+    <module>libmeta-alto__4</module>
     <module>libmeta-xlink</module>
     <module>libmeta-common</module>
     <module>libmeta-dfgviewer</module>
