@@ -33,8 +33,12 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum InlineDir {
-	@XmlEnumValue("ltr") ltr, 
-	@XmlEnumValue("rtl") rtl,
-	@XmlEnumValue("ttb") ttb, 
-	@XmlEnumValue("btt") btt; 
+    @XmlEnumValue("ltr")
+    ltr,
+    @XmlEnumValue("rtl")
+    rtl,
+    @XmlEnumValue("ttb")
+    ttb,
+    @XmlEnumValue("btt")
+    btt;
 }

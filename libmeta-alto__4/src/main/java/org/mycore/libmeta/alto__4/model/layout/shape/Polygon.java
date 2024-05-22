@@ -33,35 +33,35 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Polygon implements IShapeChild {
 
-	@XmlAttribute(name = "POINTS", required = true)
-	protected Points POINTS;
+    @XmlAttribute(name = "POINTS", required = true)
+    protected Points POINTS;
 
-	public Points getPOINTS() {
-		return POINTS;
-	}
+    public Points getPOINTS() {
+        return POINTS;
+    }
 
-	public void setPOINTS(Points points) {
-		POINTS = points;
-	}
+    public void setPOINTS(Points points) {
+        POINTS = points;
+    }
 
-	public static Builder builder() {
-		return builder(new Polygon());
-	}
+    public static Builder builder() {
+        return builder(new Polygon());
+    }
 
-	public static Builder builder(Polygon p) {
-		return new Builder(p);
-	}
+    public static Builder builder(Polygon p) {
+        return new Builder(p);
+    }
 
-	public static class Builder extends BuilderBase<Polygon, Builder> {
+    public static class Builder extends BuilderBase<Polygon, Builder> {
 
-		protected Builder(Polygon p) {
-			super(p);
-		}
+        protected Builder(Polygon p) {
+            super(p);
+        }
 
-		public Builder POINTS(Points points) {
-			_target().setPOINTS(points);
-			return _self();
-		}
+        public Builder POINTS(Points points) {
+            _target().setPOINTS(points);
+            return _self();
+        }
 
-	}
+    }
 }

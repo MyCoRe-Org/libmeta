@@ -8,7 +8,7 @@
   </parent>
   <artifactId>libmeta-alto</artifactId>
 
-  <name>LibMeta Alto</name>
+  <name>LibMeta Alto v2</name>
   <description>Java API for ALTO metadata model.</description>
 
   <dependencies>
