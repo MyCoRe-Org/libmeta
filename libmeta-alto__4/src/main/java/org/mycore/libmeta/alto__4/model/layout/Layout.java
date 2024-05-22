@@ -37,7 +37,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Layout {
 
-	@XmlAttribute(name = "StyleRefs", required = true)
+	@XmlAttribute(name = "STYLEREFS", required = true)
 	@XmlSchemaType(name = "IDREFS")
 	protected String STYLEREFS;
 	
@@ -69,8 +69,8 @@ public class Layout {
             super(l);
         }
         
-        public Builder STYLEREFs(String stylerefs) {
-        	_target().setSTYLEREFS(stylerefs);
+        public Builder STYLEREFS(String sTYLEREFS) {
+        	_target().setSTYLEREFS(sTYLEREFS);
         	return _self();
         }
         

@@ -46,9 +46,12 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 @XmlAccessorType(XmlAccessType.NONE)
 public class TextLine implements IBoundingBoxHolder, IRefsHolder {
+
+    @XmlElement(name = "Shape", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
+        type = Shape.class)
+    protected Shape shape;
+
     @XmlElements(value = {
-        @XmlElement(name = "Shape", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
-            type = Shape.class),
         @XmlElement(name = "String", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
             type = TextlineString.class),
         @XmlElement(name = "SP", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
@@ -68,11 +71,10 @@ public class TextLine implements IBoundingBoxHolder, IRefsHolder {
     @XmlAttribute(name = "TAGREFS", required = false)
     @XmlSchemaType(name = "IDREFS")
     protected String TAGREFS;
-    
+
     @XmlAttribute(name = "PROCESSINGREFS", required = false)
     @XmlSchemaType(name = "IDREFS")
     protected String PROCESSINGREFS;
-    
 
     @XmlAttribute(name = "HEIGHT", required = true)
     @XmlSchemaType(name = "float")
@@ -112,7 +114,7 @@ public class TextLine implements IBoundingBoxHolder, IRefsHolder {
     @XmlAttribute(name = "CS", required = false)
     @XmlSchemaType(name = "boolean")
     protected Boolean CS;
-    
+
     @XmlAttribute(name = "BASEDIRECTION", required = false)
     protected InlineDir BASEDIRECTION;
 
@@ -139,7 +141,7 @@ public class TextLine implements IBoundingBoxHolder, IRefsHolder {
     public void setTAGREFS(String tAGREFS) {
         TAGREFS = tAGREFS;
     }
-    
+
     public String getPROCESSINGREFS() {
         return TAGREFS;
     }
@@ -203,7 +205,7 @@ public class TextLine implements IBoundingBoxHolder, IRefsHolder {
     public void setCS(Boolean cS) {
         CS = cS;
     }
-    
+
     public InlineDir getBASEDIRECTION() {
         return BASEDIRECTION;
     }
@@ -212,7 +214,14 @@ public class TextLine implements IBoundingBoxHolder, IRefsHolder {
         BASEDIRECTION = baseDirection;
     }
 
-    //
+    public Shape getShape() {
+        return shape;
+    }
+
+    public void setShape(Shape shape) {
+        this.shape = shape;
+    }
+
     public List<ITextlineChild> getContent() {
         repairContent();
         return content;
@@ -221,10 +230,6 @@ public class TextLine implements IBoundingBoxHolder, IRefsHolder {
     private void repairContent() {
         List<ITextlineChild> repaired = new Vector<ITextlineChild>();
         //das zuletzt hinzugefügte Shape-Element
-        Optional<ITextlineChild> first = content.stream().filter(x -> Shape.class.isInstance(x)).reduce((a, b) -> b);
-        // alternativ das erste Elemente
-        //Optional<ITextlineChild> first = content.stream().filter(x -> Shape.class.isInstance(x)).findFirst();
-        first.ifPresent(x -> repaired.add(x));
         repaired.addAll(
             content.stream().filter(x -> TextlineString.class.isInstance(x) || SP.class.isInstance(x)).toList());
         Optional<ITextlineChild> last = content.stream().filter(x -> HYP.class.isInstance(x)).reduce((a, b) -> b);
@@ -233,10 +238,7 @@ public class TextLine implements IBoundingBoxHolder, IRefsHolder {
     }
 
     public void addContent(ITextlineChild c) {
-        if (c instanceof Shape) {
-            content.removeIf(x -> x instanceof Shape);
-            content.add(0, c);
-        } else if (c instanceof HYP) {
+        if (c instanceof HYP) {
             content.removeIf(x -> x instanceof HYP);
             content.add(c);
         } else {
@@ -261,6 +263,11 @@ public class TextLine implements IBoundingBoxHolder, IRefsHolder {
 
         protected Builder(TextLine textline) {
             super(textline);
+        }
+        
+        public Builder Shape(Shape shape) {
+            _target().setShape(shape);
+            return _self();
         }
 
         public Builder addContent(ITextlineChild content) {
@@ -287,7 +294,7 @@ public class TextLine implements IBoundingBoxHolder, IRefsHolder {
             _target().setCS(cs);
             return _self();
         }
-        
+
         public Builder BASEDIRECTION(InlineDir baseDirection) {
             _target().setBASEDIRECTION(baseDirection);
             return _self();

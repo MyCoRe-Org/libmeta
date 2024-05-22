@@ -37,7 +37,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * A hyphenation char. Can appear only at the end of a line.
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Glyph implements ITextlineStringChild, IBoundingBoxHolder {
+public class Glyph implements IBoundingBoxHolder {
 
     /** The area between the top line of print and the upper edge of the leaf. It may contain page number or running title. */
     @XmlElement(name = "Shape", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)

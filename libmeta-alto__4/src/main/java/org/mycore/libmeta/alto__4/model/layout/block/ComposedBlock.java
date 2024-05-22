@@ -34,7 +34,9 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 /**
  * A block that consists of other blocks
  * 
+ * @version Alto 4.4
  * @author Robert Stephan
+ * 
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)

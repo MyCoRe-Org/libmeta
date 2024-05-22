@@ -22,9 +22,9 @@ public interface IElementRefAttributeGroup {
 
     public void setID(String iD);
 
-    public String getREFS();
+    public String getREF();
 
-    public void setREFS(String rEFS);
+    public void setREF(String rEF);
 
     public String getTAGREFS();
 

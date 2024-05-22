@@ -67,6 +67,10 @@ public class Tags {
     public List<Tag> getTags() {
         return tags;
     }
+    
+    public void addTag(Tag t) {
+        tags.add(t);
+    }
 
     public static Builder builder() {
         return builder(new Tags());

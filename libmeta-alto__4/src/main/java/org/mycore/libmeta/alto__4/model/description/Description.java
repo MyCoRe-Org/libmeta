@@ -32,7 +32,7 @@ import jakarta.xml.bind.annotation.XmlType;
  * metadata
  * 
  * @author Robert Stephan
- * @version Alto 2.1
+ * @version Alto 4.4
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)

@@ -40,7 +40,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 
 @XmlAccessorType(XmlAccessType.NONE)
-public class TextStyle implements IFormattingAttributeGroup{
+public class TextStyle implements IFormattingAttributeGroup {
 
     @XmlAttribute(name = "ID", required = true)
     @XmlSchemaType(name = "ID")
@@ -122,7 +122,7 @@ public class TextStyle implements IFormattingAttributeGroup{
     public EnumSet<FontStyle> getFONTSTYLE() {
         return FONTSTYLE;
     }
-    
+
     public void setFONTSTYLE(EnumSet<FontStyle> fontstyles) {
         FONTSTYLE = fontstyles;
     }
@@ -135,7 +135,8 @@ public class TextStyle implements IFormattingAttributeGroup{
         return new Builder(textStyle);
     }
 
-    public static class Builder extends BuilderBase<TextStyle, Builder> {
+    public static class Builder extends BuilderBase<TextStyle, Builder>
+        implements IFormattingAttributeGroupBuilder<IFormattingAttributeGroup, Builder> {
 
         protected Builder(TextStyle textStyle) {
             super(textStyle);
@@ -146,35 +147,6 @@ public class TextStyle implements IFormattingAttributeGroup{
             return _self();
         }
 
-        public Builder FONTFAMILY(String fontFamily) {
-            _target().setFONTFAMILY(fontFamily);
-            return _self();
-        }
-
-        public Builder FONTTYPE(FontType fontType) {
-            _target().setFONTTYPE(fontType);
-            return _self();
-        }
-
-        public Builder FONTWIDTH(FontWidth fontWidth) {
-            _target().setFONTWIDTH(fontWidth);
-            return _self();
-        }
-
-        public Builder FONTSIZE(Float fontSize) {
-            _target().setFONTSIZE(fontSize);
-            return _self();
-        }
-
-        public Builder FONTCOLOR(String fontColor) {
-            _target().setFONTCOLOR(fontColor);
-            return _self();
-        }
-
-        public Builder addFONTStyle(FontStyle fontStyle) {
-            _target().getFONTSTYLE().add(fontStyle);
-            return _self();
-        }
     }
-  
+
 }

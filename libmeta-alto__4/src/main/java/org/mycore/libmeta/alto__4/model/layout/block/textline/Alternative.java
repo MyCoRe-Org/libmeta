@@ -33,52 +33,52 @@ import jakarta.xml.bind.annotation.XmlValue;
  */
 
 @XmlAccessorType(XmlAccessType.NONE)
-public class TextlineStringALTERNATIVE implements ITextlineStringChild {
+public class Alternative {
 
 	/** Identifies the purpose of the alternative. */
 	@XmlValue
-	protected TextlineString value;
+	protected String value;
 
 	@XmlAttribute(name = "PURPOSE", required = false)
 	@XmlSchemaType(name = "string")
-	protected TextlineString PURPOSE;
+	protected String PURPOSE;
 
-	public TextlineString getValue() {
+	public String getValue() {
 		return value;
 	}
 
-	public void setValue(TextlineString value) {
+	public void setValue(String value) {
 		this.value = value;
 	}
 
-	public TextlineString getPURPOSE() {
+	public String getPURPOSE() {
 		return PURPOSE;
 	}
 
-	public void setPURPOSE(TextlineString pURPOSE) {
+	public void setPURPOSE(String pURPOSE) {
 		PURPOSE = pURPOSE;
 	}
 
 	public static Builder builder() {
-		return builder(new TextlineStringALTERNATIVE());
+		return builder(new Alternative());
 	}
 
-	public static Builder builder(TextlineStringALTERNATIVE alternative) {
+	public static Builder builder(Alternative alternative) {
 		return new Builder(alternative);
 	}
 
-	public static class Builder extends BuilderBase<TextlineStringALTERNATIVE, Builder> {
+	public static class Builder extends BuilderBase<Alternative, Builder> {
 
-		protected Builder(TextlineStringALTERNATIVE alternative) {
+		protected Builder(Alternative alternative) {
 			super(alternative);
 		}
 
-		public Builder value(TextlineString value) {
+		public Builder value(String value) {
 			_target().setValue(value);
 			return _self();
 		}
 
-		public Builder PURPOSE(TextlineString purpose) {
+		public Builder PURPOSE(String purpose) {
 			_target().setPURPOSE(purpose);
 			return _self();
 		}

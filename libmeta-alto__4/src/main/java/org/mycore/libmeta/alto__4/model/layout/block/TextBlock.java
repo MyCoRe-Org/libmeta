@@ -39,7 +39,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = { "TextLine", "shape", "RightMargin", "BottomMargin", "PrintSpace" })
+@XmlType(propOrder = { "TextLine", "RightMargin", "BottomMargin", "PrintSpace" })
 public class TextBlock extends Block {
     
     /** 
@@ -125,28 +125,6 @@ public class TextBlock extends Block {
 			return _self();
 		}
 
-		public Builder ID(String id) {
-            _target().setID(id);
-            return _self();
-        }
-		
-		public Builder ROTATION(Float rotation) {
-            _target().setROTATION(rotation);
-            return _self();
-        }
-		
-	      
-        public Builder IDNEXT(String idNext) {
-            _target().setIDNEXT(idNext);
-            return _self();
-        }
-        
-        public Builder CS(Boolean cs) {
-            _target().setCS(cs);
-            return _self();
-        }
-        
-		
 		public Builder LANG(String lang) {
 			_target().setLANG(lang);
 			return _self();

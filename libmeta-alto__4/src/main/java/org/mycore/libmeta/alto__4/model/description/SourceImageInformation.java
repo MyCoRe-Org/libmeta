@@ -31,7 +31,7 @@ import jakarta.xml.bind.annotation.XmlType;
  * Information to identify the image file from which the OCR text was created.
  * 
  * @author Robert Stephan
- * @version Alto 2.1
+ * @version Alto 4.4
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
@@ -55,11 +55,11 @@ public class SourceImageInformation {
         this.fileName = fileName;
     }
 
-    public List<FileIdentifier> getFileIdentifier() {
+    public List<FileIdentifier> getFileIdentifiers() {
         return fileIdentifier;
     }
 
-    public List<DocumentIdentifier> getDocumentIdentifier() {
+    public List<DocumentIdentifier> getDocumentIdentifiers() {
         return documentIdentifier;
     }
 
@@ -83,12 +83,12 @@ public class SourceImageInformation {
         }
 
         public Builder addFileIdentifier(FileIdentifier fileIdentifier) {
-            _target().getFileIdentifier().add(fileIdentifier);
+            _target().getFileIdentifiers().add(fileIdentifier);
             return _self();
         }
 
         public Builder addDocumentIdentifier(DocumentIdentifier documentIdentifier) {
-            _target().getDocumentIdentifier().add(documentIdentifier);
+            _target().getDocumentIdentifiers().add(documentIdentifier);
             return _self();
         }
     }

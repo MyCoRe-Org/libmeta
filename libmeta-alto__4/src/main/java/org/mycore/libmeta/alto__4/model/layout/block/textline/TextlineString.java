@@ -18,7 +18,6 @@
 package org.mycore.libmeta.alto__4.model.layout.block.textline;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Vector;
 
 import org.mycore.libmeta.alto__4._misc.FloatAdapter;
@@ -34,27 +33,30 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlElements;
 import jakarta.xml.bind.annotation.XmlSchemaType;
+import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * A sequence of chars. Strings are separated by white spaces or hyphenation
  * chars.
  */
-
+@XmlType(propOrder = { "shape", "alternative", "glyph" })
 @XmlAccessorType(XmlAccessType.NONE)
 public class TextlineString implements ITextlineChild, IBoundingBoxHolder, IRefsHolder {
-    /** Any alternative for the word. */
-    @XmlElements(value = {
-        @XmlElement(name = "Shape", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
-            type = Shape.class),
-        @XmlElement(name = "ALTERNATIVE", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
-            type = TextlineStringALTERNATIVE.class),
-        @XmlElement(name = "Glyph", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
-            type = Glyph.class)
-    })
-    protected List<ITextlineStringChild> content = new Vector<>();
+   
+    @XmlElement(name = "Shape", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
+        type = Shape.class)
+    protected Shape shape;
+    
+    @XmlElement(name = "ALTERNATIVE", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
+        type = Alternative.class)
+    protected List<Alternative> alternative = new Vector<>();
+    
+    @XmlElement(name = "Glyph", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
+        type = Glyph.class)
+    protected List<Glyph> glyph = new Vector<>();
+    
 
     @XmlAttribute(name = "ID", required = false)
     @XmlSchemaType(name = "ID")
@@ -137,37 +139,9 @@ public class TextlineString implements ITextlineChild, IBoundingBoxHolder, IRefs
     @XmlSchemaType(name = "language")
     protected String LANGUAGE;
 
-    public List<ITextlineStringChild> getContent() {
-        repairContent();
-        return content;
-    }
-
-    public void addContent(ITextlineStringChild c) {
-        if (c instanceof Shape) {
-            content.removeIf(x -> x instanceof Shape);
-            content.add(0, c);
-        } else {
-            content.add(c);
-            repairContent();
-        }
-    }
-
-    private void repairContent() {
-        List<ITextlineStringChild> repaired = new Vector<ITextlineStringChild>();
-        //the last addded Shape element
-        Optional<ITextlineStringChild> first
-            = content.stream().filter(x -> Shape.class.isInstance(x)).reduce((a, b) -> b);
-        first.ifPresent(x -> repaired.add(x));
-        // all ALTERNATIVE elements
-        repaired.addAll(
-            content.stream().filter(x -> TextlineStringALTERNATIVE.class.isInstance(x)).toList());
-        // all Glyph elements
-        repaired.addAll(
-            content.stream().filter(x -> Glyph.class.isInstance(x)).toList());
-
-        content = repaired;
-    }
-
+    
+    
+   
     public String getID() {
         return ID;
     }
@@ -295,6 +269,22 @@ public class TextlineString implements ITextlineChild, IBoundingBoxHolder, IRefs
     public void setLANGUAGE(String lANGUAGE) {
         LANGUAGE = lANGUAGE;
     }
+    
+    public Shape getShape() {
+        return shape;
+    }
+
+    public void setShape(Shape shape) {
+        this.shape = shape;
+    }
+
+    public List<Alternative> getAlternative() {
+        return alternative;
+    }
+
+    public List<Glyph> getGlyph() {
+        return glyph;
+    }
 
     public static Builder builder() {
         return builder(new TextlineString());
@@ -311,18 +301,23 @@ public class TextlineString implements ITextlineChild, IBoundingBoxHolder, IRefs
             super(sp);
         }
 
-        public Builder addContent(ITextlineStringChild child) {
-            _target().addContent(child);
+        public Builder Shape(Shape shape) {
+            _target().setShape(shape);
+            return _self();
+        }
+        
+        public Builder addALTERNATIVE(Alternative alternative) {
+            _target().getAlternative().add(alternative);
+            return _self();
+        }
+        
+        public Builder addGlyph(Glyph glyph) {
+            _target().getGlyph().add(glyph);
             return _self();
         }
 
         public Builder ID(String id) {
             _target().setID(id);
-            return _self();
-        }
-
-        public Builder PROCESSINGREFS(String processingrefs) {
-            _target().setPROCESSINGREFS(processingrefs);
             return _self();
         }
 
@@ -336,7 +331,7 @@ public class TextlineString implements ITextlineChild, IBoundingBoxHolder, IRefs
             return _self();
         }
 
-        public Builder SUBS_TYPECONTENT(SubstitutionType substitutionType) {
+        public Builder SUBS_TYPE(SubstitutionType substitutionType) {
             _target().setSUBS_TYPE(substitutionType);
             return _self();
         }
@@ -366,5 +361,4 @@ public class TextlineString implements ITextlineChild, IBoundingBoxHolder, IRefs
             return _self();
         }
     }
-
 }

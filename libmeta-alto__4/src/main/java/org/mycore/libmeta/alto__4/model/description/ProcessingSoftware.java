@@ -29,7 +29,7 @@ import jakarta.xml.bind.annotation.XmlType;
  * method for determining this information is by selecting Help -- About.
  * 
  * @author Robert Stephan
- * @version Alto 2.1
+ * @version Alto 4.4
  * 
  */
 @XmlAccessorType(XmlAccessType.NONE)

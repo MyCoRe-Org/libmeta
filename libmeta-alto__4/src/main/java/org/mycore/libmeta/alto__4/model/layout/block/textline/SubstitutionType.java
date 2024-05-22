@@ -24,13 +24,12 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  * Type of the substitution (if any).
  * 
  * @author Robert Stephan
- * @version Alto 2.1
+ * @version Alto 4.4
  *
  */
 @XmlEnum
 public enum SubstitutionType {
 	@XmlEnumValue("HypPart1") HypPart1,
 	@XmlEnumValue("HypPart2") HypPart2,
-	@XmlEnumValue("Abbreviation") Abbreviation,
-	;
+	@XmlEnumValue("Abbreviation") Abbreviation;
 }

@@ -196,31 +196,5 @@ public class PageSpace implements IBoundingBoxHolder {
             _target().setPROCESSINGREFS(processingRefs);
             return _self();
         }
-
-        protected Float HEIGHT;
-
-        public Builder HEIGHT(Float height) {
-            _target().setHEIGHT(height);
-            return _self();
-        }
-
-        protected Float WIDTH;
-
-        public Builder WIDTH(Float width) {
-            _target().setWIDTH(width);
-            return _self();
-        }
-
-        protected Float HPOS;
-
-        public Builder HPOS(Float hpos) {
-            _target().setHPOS(hpos);
-            return _self();
-        }
-
-        public Builder VPOS(Float vpos) {
-            _target().setVPOS(vpos);
-            return _self();
-        }
     }
 }

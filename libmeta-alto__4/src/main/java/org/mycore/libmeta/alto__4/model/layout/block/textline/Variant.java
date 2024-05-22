@@ -21,6 +21,8 @@ public class Variant {
      * In case the variant are two (combining) characters, two characters are outlined in one Variant element.
      * E.g. a Glyph element with CONTENT="m" can have a Variant element with the content "rn".
      * Details for different use-cases see on the samples on GitHub.
+     * 
+     * maxLength="3"  / whiteSpace="preserve"
      */
     @XmlAttribute(name = "CONTENT", required = true)
     @XmlSchemaType(name = "CONTENT")

@@ -33,7 +33,7 @@ import jakarta.xml.bind.annotation.XmlType;
  * Where possible, this draws from MIX's change history.
  * 
  * @author Robert Stephan
- * @version Alto v2.1
+ * @version Alto 4.4
  *
  */
 

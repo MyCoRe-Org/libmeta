@@ -35,115 +35,118 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlAccessorType(XmlAccessType.NONE)
 public class ParagraphStyle {
 
-	@XmlAttribute(name = "ID", required = true)
-	protected String ID;
-	
-	@XmlAttribute(name = "ALIGN", required = false)
-	protected ParagraphALIGN ALIGN;
-	
-	@XmlAttribute(name = "LEFT", required = false)
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float LEFT;
-	
-	@XmlAttribute(name = "RIGHT", required = false)
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float RIGHT;
-	
-	@XmlAttribute(name = "LINESPACE", required = false)
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float LINESPACE;
-	
-	@XmlAttribute(name = "FIRSTLINE", required = false)
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float FIRSTLINE;
-	
-	
-	public String getID() {
-		return ID;
-	}
+    @XmlAttribute(name = "ID", required = true)
+    protected String ID;
 
-	public void setID(String iD) {
-		ID = iD;
-	}
+    @XmlAttribute(name = "ALIGN", required = false)
+    protected ParagraphALIGN ALIGN;
 
-	public ParagraphALIGN getALIGN() {
-		return ALIGN;
-	}
+    @XmlAttribute(name = "LEFT", required = false)
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float LEFT;
 
-	public void setALIGN(ParagraphALIGN aLIGN) {
-		ALIGN = aLIGN;
-	}
+    @XmlAttribute(name = "RIGHT", required = false)
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float RIGHT;
 
-	public Float getLEFT() {
-		return LEFT;
-	}
+    @XmlAttribute(name = "LINESPACE", required = false)
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float LINESPACE;
 
-	public void setLEFT(Float lEFT) {
-		LEFT = lEFT;
-	}
+    @XmlAttribute(name = "FIRSTLINE", required = false)
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float FIRSTLINE;
 
-	public Float getRIGHT() {
-		return RIGHT;
-	}
+    public String getID() {
+        return ID;
+    }
 
-	public void setRIGHT(Float rIGHT) {
-		RIGHT = rIGHT;
-	}
+    public void setID(String iD) {
+        ID = iD;
+    }
 
-	public Float getLINESPACE() {
-		return LINESPACE;
-	}
+    public ParagraphALIGN getALIGN() {
+        return ALIGN;
+    }
 
-	public void setLINESPACE(Float lINESPACE) {
-		LINESPACE = lINESPACE;
-	}
+    public void setALIGN(ParagraphALIGN aLIGN) {
+        ALIGN = aLIGN;
+    }
 
-	public Float getFIRSTLINE() {
-		return FIRSTLINE;
-	}
+    public Float getLEFT() {
+        return LEFT;
+    }
 
-	public void setFIRSTLINE(Float fIRSTLINE) {
-		FIRSTLINE = fIRSTLINE;
-	}
-	
-	
-	public static Builder builder() {
-		return builder(new ParagraphStyle());
-	}
+    public void setLEFT(Float lEFT) {
+        LEFT = lEFT;
+    }
 
-	public static Builder builder(ParagraphStyle paragraphStyle) {
-		return new Builder(paragraphStyle);
-	}
+    public Float getRIGHT() {
+        return RIGHT;
+    }
 
-	public static class Builder extends BuilderBase<ParagraphStyle, Builder> {
+    public void setRIGHT(Float rIGHT) {
+        RIGHT = rIGHT;
+    }
 
-		protected Builder(ParagraphStyle paragraphStyle) {
-			super(paragraphStyle);
-		}
+    public Float getLINESPACE() {
+        return LINESPACE;
+    }
 
-		public Builder ID(String id) {
-			_target().setID(id);
-			return _self();
-		}
-		
-		public Builder ALIGN(ParagraphALIGN align) {
-			_target().setALIGN(align);
-			return _self();
-		}
-		
-		public Builder LEFT(Float left) {
-			_target().setLEFT(left);
-			return _self();
-		}
-		
-		public Builder LINESPACE(Float linespace) {
-			_target().setLINESPACE(linespace);
-			return _self();
-		}
-		
-		public Builder FIRSTLINE(Float firstline) {
-			_target().setFIRSTLINE(firstline);
-			return _self();
-		}
-	}
+    public void setLINESPACE(Float lINESPACE) {
+        LINESPACE = lINESPACE;
+    }
+
+    public Float getFIRSTLINE() {
+        return FIRSTLINE;
+    }
+
+    public void setFIRSTLINE(Float fIRSTLINE) {
+        FIRSTLINE = fIRSTLINE;
+    }
+
+    public static Builder builder() {
+        return builder(new ParagraphStyle());
+    }
+
+    public static Builder builder(ParagraphStyle paragraphStyle) {
+        return new Builder(paragraphStyle);
+    }
+
+    public static class Builder extends BuilderBase<ParagraphStyle, Builder> {
+
+        protected Builder(ParagraphStyle paragraphStyle) {
+            super(paragraphStyle);
+        }
+
+        public Builder ID(String id) {
+            _target().setID(id);
+            return _self();
+        }
+
+        public Builder ALIGN(ParagraphALIGN align) {
+            _target().setALIGN(align);
+            return _self();
+        }
+
+        public Builder LEFT(Float left) {
+            _target().setLEFT(left);
+            return _self();
+        }
+
+        public Builder RIGHT(Float right) {
+            _target().setRIGHT(right);
+            return _self();
+        }
+
+        public Builder LINESPACE(Float linespace) {
+            _target().setLINESPACE(linespace);
+            return _self();
+        }
+
+        public Builder FIRSTLINE(Float firstline) {
+            _target().setFIRSTLINE(firstline);
+            return _self();
+        }
+    }
 }

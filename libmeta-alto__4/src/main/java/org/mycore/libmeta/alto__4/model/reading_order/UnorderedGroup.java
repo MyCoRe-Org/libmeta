@@ -47,9 +47,9 @@ public class UnorderedGroup implements IReadingOrderChild, IGroupChild, IElement
      *  Valid target elements are any block type,
      *  TextLine, String, or Glyph.
      */
-    @XmlAttribute(name = "REFS", required = false)
+    @XmlAttribute(name = "REF", required = false)
     @XmlSchemaType(name = "IDREFS")
-    private String REFS;
+    private String REF;
 
     /**
      * Optionally annotates the role of the
@@ -86,12 +86,12 @@ public class UnorderedGroup implements IReadingOrderChild, IGroupChild, IElement
         ID = iD;
     }
 
-    public String getREFS() {
-        return REFS;
+    public String getREF() {
+        return REF;
     }
 
-    public void setREFS(String rEFS) {
-        REFS = rEFS;
+    public void setREF(String rEF) {
+        REF = rEF;
     }
 
     public String getTAGREFS() {

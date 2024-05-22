@@ -15,25 +15,42 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mycore.libmeta.alto__4._misc;
+package org.mycore.libmeta.alto__4.model.styles;
 
-public interface IRefsBuilder<T extends IRefsHolder, B> {
+import java.util.EnumSet;
+
+public interface IFormattingAttributeGroupBuilder<T extends IFormattingAttributeGroup, B> {
     public T _target();
 
     public B _self();
 
-    public default B STYLEREFS(String styleRefs) {
-    	_target().setSTYLEREFS(styleRefs);
+    public default B FONTFAMILY(String fontFamily) {
+        _target().setFONTFAMILY(fontFamily);
         return _self();
     }
 
-    public default B TAGREFS(String tagRefs) {
-    	_target().setTAGREFS(tagRefs);
+    public default B FONTTYPE(FontType fontType) {
+        _target().setFONTTYPE(fontType);
         return _self();
     }
 
-    public default B PROCESSINGREFS(String processingRefs) {
-    	_target().setPROCESSINGREFS(processingRefs);
+    public default B FONTWIDTH(FontWidth fontWidth) {
+        _target().setFONTWIDTH(fontWidth);
+        return _self();
+    }
+
+    public default B FONTSIZE(Float fontSize) {
+        _target().setFONTSIZE(fontSize);
+        return _self();
+    }
+
+    public default B FONTCOLOR(String fontColor) {
+        _target().setFONTCOLOR(fontColor);
+        return _self();
+    }
+
+    public default B FONTStyle(EnumSet<FontStyle> fontStyle) {
+        _target().setFONTSTYLE(fontStyle);
         return _self();
     }
 }

@@ -43,9 +43,9 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 @XmlEnum
 public enum MeasurementUnit {
     @XmlEnumValue("pixel")
-    PIXEL,
+    pixel,
     @XmlEnumValue("mm10")
-    MM10,
+    mm10,
     @XmlEnumValue("inch1200")
-    INCH1200;
+    inch1200;
 }

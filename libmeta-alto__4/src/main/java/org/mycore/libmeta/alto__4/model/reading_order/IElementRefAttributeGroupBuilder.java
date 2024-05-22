@@ -34,8 +34,8 @@ public interface IElementRefAttributeGroupBuilder<T extends IElementRefAttribute
         return _self();
     }
 
-    public default B REFS(String refs) {
-        _target().setREFS(refs);
+    public default B REF(String refs) {
+        _target().setREF(refs);
         return _self();
     }
 
