@@ -50,31 +50,27 @@ public class XMLFormatter {
     }
 
     public static Document parseFromResource(String resource) throws LibmetaProcessorException {
-        Document doc = null;
         try {
             DocumentBuilder builder = DB_FACTORY.newDocumentBuilder();
-            doc = builder.parse(XMLFormatter.class.getResourceAsStream(resource));
+            Document doc = builder.parse(XMLFormatter.class.getResourceAsStream(resource));
             doc.getDocumentElement().normalize();
             doc.setXmlStandalone(true);
+            return doc;
         } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
-        return doc;
-
     }
 
     public static Document parseFromString(String xml) throws LibmetaProcessorException {
-        Document doc = null;
         try {
             DocumentBuilder builder = DB_FACTORY.newDocumentBuilder();
-            doc = builder.parse(new InputSource(new StringReader(xml)));
+            Document doc = builder.parse(new InputSource(new StringReader(xml)));
             doc.getDocumentElement().normalize();
             doc.setXmlStandalone(true);
+            return doc;
         } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
-        return doc;
-
     }
 
     /**
