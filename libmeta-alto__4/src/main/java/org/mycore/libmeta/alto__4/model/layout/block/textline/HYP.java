@@ -54,14 +54,13 @@ public class HYP implements ITextlineChild, IBoundingBoxHolder {
 	protected Float VPOS;
 	
 	@XmlAttribute(name = "CONTENT", required = true)
-	@XmlSchemaType(name = "CONTENT")
-	protected TextlineString CONTENT;
+	protected String CONTENT;
 
-	public TextlineString getCONTENT() {
+	public String getCONTENT() {
 		return CONTENT;
 	}
 
-	public void setCONTENT(TextlineString content) {
+	public void setCONTENT(String content) {
 		CONTENT = content;
 	}
 
@@ -112,7 +111,7 @@ public class HYP implements ITextlineChild, IBoundingBoxHolder {
 			super(hyp);
 		}
 
-		public Builder CONTENT(TextlineString content) {
+		public Builder CONTENT(String content) {
 			_target().setCONTENT(content);
 			return _self();
 		}

@@ -17,16 +17,11 @@
  */
 package org.mycore.libmeta.alto__4.model.description;
 
-import java.util.List;
-import java.util.Vector;
-
 import org.mycore.libmeta.common.BuilderBase;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * Information on how the text was created, including preprocessing, OCR processing, and postprocessing steps.
@@ -38,23 +33,13 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = { "preProcessingStep", "ocrProcessingStep", "postProcessingStep" })
-public class Processing {
+public class Processing extends AbstractProcessingStep {
 
     /**
      *  required if direct child of description !!!
      */
     @XmlAttribute(name = "ID", required = false)
     protected String ID;
-
-    @XmlElement(name = "preProcessingStep", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
-    protected List<ProcessingStep> preProcessingStep = new Vector<ProcessingStep>();
-
-    @XmlElement(name = "ocrProcessingStep", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = true)
-    protected ProcessingStep ocrProcessingStep;
-
-    @XmlElement(name = "postProcessingStep", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
-    protected List<ProcessingStep> postProcessingStep = new Vector<ProcessingStep>();
 
     public String getID() {
         return ID;
@@ -64,53 +49,23 @@ public class Processing {
         ID = id;
     }
 
-    public List<ProcessingStep> getPreProcessingStep() {
-        return preProcessingStep;
-    }
-
-    public ProcessingStep getOcrProcessingStep() {
-        return ocrProcessingStep;
-    }
-
-    public void setOcrProcessing(ProcessingStep ocrProcessingStep) {
-        this.ocrProcessingStep = ocrProcessingStep;
-    }
-
-    public List<ProcessingStep> getPostProcessingStep() {
-        return postProcessingStep;
-    }
-
     public static Builder builder() {
         return builder(new Processing());
     }
 
-    public static Builder builder(Processing ocrProcessing) {
-        return new Builder(ocrProcessing);
+    public static Builder builder(Processing processing) {
+        return new Builder(processing);
     }
 
-    public static class Builder extends BuilderBase<Processing, Builder> {
+    public static class Builder extends BuilderBase<Processing, Builder>
+        implements IProcessingStepBuilder<Processing, Builder> {
 
-        protected Builder(Processing ocrProcessing) {
-            super(ocrProcessing);
+        protected Builder(Processing processing) {
+            super(processing);
         }
 
         public Builder ID(String id) {
             _target().setID(id);
-            return _self();
-        }
-
-        public Builder addPreProcessingStep(ProcessingStep preProcessingStep) {
-            _target().getPreProcessingStep().add(preProcessingStep);
-            return _self();
-        }
-
-        public Builder ocrProcessingStep(ProcessingStep ocrProcessingStep) {
-            _target().setOcrProcessing(ocrProcessingStep);
-            return _self();
-        }
-
-        public Builder addPostProcessing(ProcessingStep postProcessingStep) {
-            _target().getPostProcessingStep().add(postProcessingStep);
             return _self();
         }
     }

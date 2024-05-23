@@ -35,7 +35,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * @version Alto 4.4
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = { "TopMargin", "LeftMargin", "RightMargin", "BottomMargin", "PrintSpace" })
+@XmlType(propOrder = { "topMargin", "leftMargin", "rightMargin", "bottomMargin", "printSpace" })
 public class Page {
 
     /** The area between the top line of print and the upper edge of the leaf. It may contain page number or running title. */
