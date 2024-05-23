@@ -32,7 +32,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class SP implements ITextlineChild, IBoundingBoxHolder {
 	@XmlAttribute(name = "ID", required = false)
 	@XmlSchemaType(name = "ID")
-	protected TextlineString ID;
+	protected String ID;
 
 	@XmlAttribute(name = "HEIGHT", required = false)
 	@XmlSchemaType(name = "float")
@@ -54,11 +54,11 @@ public class SP implements ITextlineChild, IBoundingBoxHolder {
 	@XmlJavaTypeAdapter(FloatAdapter .class)
 	protected Float VPOS;
 
-	public TextlineString getID() {
+	public String getID() {
 		return ID;
 	}
 
-	public void setID(TextlineString iD) {
+	public void setID(String iD) {
 		ID = iD;
 	}
 
@@ -109,7 +109,7 @@ public class SP implements ITextlineChild, IBoundingBoxHolder {
 			super(sp);
 		}
 
-		public Builder ID(TextlineString id) {
+		public Builder ID(String id) {
 			_target().setID(id);
 			return _self();
 		}

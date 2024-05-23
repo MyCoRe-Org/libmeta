@@ -39,7 +39,7 @@ import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = { "shape, block" })
+@XmlType(propOrder = { "shape", "block" })
 public class PageSpace implements IBoundingBoxHolder {
 
     /** The area between the top line of print and the upper edge of the leaf. It may contain page number or running title. */
