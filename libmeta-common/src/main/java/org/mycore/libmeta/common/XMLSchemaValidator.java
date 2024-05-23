@@ -144,9 +144,10 @@ public class XMLSchemaValidator {
 
                 @Override
                 public InputSource resolveEntity(String publicId, String systemId) throws SAXException, IOException {
-                    try (InputStream is = getClass()
-                        .getResourceAsStream(
-                            "/libmeta/xml_schemas/" + systemId.substring(systemId.lastIndexOf("/") + 1));) {
+                    try {
+                        InputStream is = getClass()
+                            .getResourceAsStream(
+                                "/libmeta/xml_schemas/" + systemId.substring(systemId.lastIndexOf("/") + 1));
                         if (is != null) {
                             return new InputSource(is);
                         }
