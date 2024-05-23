@@ -48,7 +48,7 @@ public class Processing extends AbstractProcessingStep {
     public void setID(String id) {
         ID = id;
     }
-    
+
     public static Builder builder() {
         return builder(new Processing());
     }
@@ -60,8 +60,8 @@ public class Processing extends AbstractProcessingStep {
     public static class Builder extends BuilderBase<Processing, Builder>
         implements IProcessingStepBuilder<Processing, Builder> {
 
-        protected Builder(Processing ocrProcessing) {
-            super(ocrProcessing);
+        protected Builder(Processing processing) {
+            super(processing);
         }
 
         public Builder ID(String id) {

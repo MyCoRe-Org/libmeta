@@ -39,14 +39,14 @@ import jakarta.xml.bind.annotation.XmlType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = { "TextLine" })
+@XmlType(propOrder = { "textLine" })
 public class TextBlock extends Block {
 
     /** 
      * A single line of text.
      */
     @XmlElement(name = "TextLine", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false)
-    protected List<TextLine> TextLine = new Vector<TextLine>();
+    protected List<TextLine> textLine = new Vector<TextLine>();
 
     /** Attribute deprecated. LANG should be used instead. */
     @XmlAttribute(name = "language", required = false)
@@ -94,7 +94,7 @@ public class TextBlock extends Block {
     }
 
     public List<TextLine> getTextLine() {
-        return TextLine;
+        return textLine;
     }
 
     public void addTextLine(TextLine textLine) {

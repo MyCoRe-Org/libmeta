@@ -26,7 +26,8 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
- * A processing step.
+ * Base class for processing step.
+ * implemented by ProcessingStep and Processing
  * 
  * @author Robert Stephan
  * @version Alto 4.4
