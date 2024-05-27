@@ -26,6 +26,7 @@ import org.mycore.libmeta.alto__4._misc.IBoundingBoxBuilder;
 import org.mycore.libmeta.alto__4._misc.IBoundingBoxHolder;
 import org.mycore.libmeta.alto__4._misc.IRefsBuilder;
 import org.mycore.libmeta.alto__4._misc.IRefsHolder;
+import org.mycore.libmeta.alto__4.model.layout.Points;
 import org.mycore.libmeta.alto__4.model.layout.Shape;
 import org.mycore.libmeta.alto__4.model.layout.block.textline.HYP;
 import org.mycore.libmeta.alto__4.model.layout.block.textline.ITextlineChild;
@@ -97,9 +98,7 @@ public class TextLine implements IBoundingBoxHolder, IRefsHolder {
     protected Float VPOS;
 
     @XmlAttribute(name = "BASELINE", required = true)
-    @XmlSchemaType(name = "float")
-    @XmlJavaTypeAdapter(FloatAdapter.class)
-    protected Float BASELINE;
+    protected Points BASELINE;
 
     /** Attribute to record language of the textline. */
     @XmlAttribute(name = "LANG", required = false)
@@ -182,11 +181,11 @@ public class TextLine implements IBoundingBoxHolder, IRefsHolder {
         VPOS = vPOS;
     }
 
-    public Float getBASELINE() {
+    public Points getBASELINE() {
         return BASELINE;
     }
 
-    public void setBASELINE(Float bASELINE) {
+    public void setBASELINE(Points bASELINE) {
         BASELINE = bASELINE;
     }
 
@@ -242,7 +241,7 @@ public class TextLine implements IBoundingBoxHolder, IRefsHolder {
             content.removeIf(x -> x instanceof HYP);
             content.add(c);
         } else {
-            if (content.get(content.size() - 1) instanceof HYP) {
+            if (content.size() > 0 && content.get(content.size() - 1) instanceof HYP) {
                 content.add(content.size() - 1, c);
             } else {
                 content.add(c);
@@ -280,7 +279,7 @@ public class TextLine implements IBoundingBoxHolder, IRefsHolder {
             return _self();
         }
 
-        public Builder BASELINE(Float baseline) {
+        public Builder BASELINE(Points baseline) {
             _target().setBASELINE(baseline);
             return _self();
         }
