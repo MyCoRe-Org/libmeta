@@ -93,7 +93,7 @@ public class Block implements IAttributeGroupXlinkSimpleLink, IBoundingBoxHolder
     /** Correction Status. Indicates whether manual correction has been done or not. The correction status should be recorded at the highest level possible (Block, TextLine, String). */
     @XmlAttribute(name = "CS", required = false)
     @XmlSchemaType(name = "boolean")
-    protected boolean CS;
+    protected Boolean CS;
 
     // Attribute group deprecated. 
     // Planned to be removed in future versions due to issues created on mixed validation 
