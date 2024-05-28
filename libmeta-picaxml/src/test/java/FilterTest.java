@@ -44,7 +44,7 @@ public class FilterTest {
 
     @Test
     public void testRecord() {
-        try (StringWriter sw = new StringWriter();){
+        try (StringWriter sw = new StringWriter();) {
             URL url = new URL(SRU_URL_RECORD);
             try (
                 BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));

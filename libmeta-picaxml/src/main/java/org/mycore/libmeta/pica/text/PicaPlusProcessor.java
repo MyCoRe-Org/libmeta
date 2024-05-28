@@ -34,107 +34,108 @@ import org.mycore.libmeta.pica.model.PicaRecord;
 import org.mycore.libmeta.pica.model.PicaSubfield;
 
 public class PicaPlusProcessor {
-private static final PicaPlusProcessor INSTANCE = new PicaPlusProcessor();
-    
+    private static final PicaPlusProcessor INSTANCE = new PicaPlusProcessor();
+
     //private constructor to avoid client applications to use constructor
-    private PicaPlusProcessor() {}
-    
+    private PicaPlusProcessor() {
+    }
+
     public static PicaPlusProcessor getInstance() {
         return INSTANCE;
     }
-    
-	/**
-	 * outputs a data field at the subfields belonging to it from a given text line.
-	 */
-	private void createFields(String line, PicaRecord record) throws XMLStreamException {
-		int pos = line.indexOf(" ");
-		String[] data = line.substring(0, pos).split("/");
-		String tag = data[0];
 
-		PicaDatafield dataField = new PicaDatafield();
-		record.getDatafields().add(dataField);
-		dataField.setTag(tag);
-		if (data.length > 1) {
-			dataField.setOccurrence(data[1]);
-		}
+    /**
+     * outputs a data field at the subfields belonging to it from a given text line.
+     */
+    private void createFields(String line, PicaRecord record) throws XMLStreamException {
+        int pos = line.indexOf(" ");
+        String[] data = line.substring(0, pos).split("/");
+        String tag = data[0];
 
-		// get Subfields
-		String[] subfields = line.substring(pos + 1).split("ƒ");
-		for (String sub : subfields) {
-			if (sub.length() > 1) {
-				PicaSubfield subfield = new PicaSubfield();
-				dataField.getSubfields().add(subfield);
-				subfield.setCode(sub.substring(0, 1));
-				subfield.setContent(sub.substring(1));
-			}
-		}
-	}
+        PicaDatafield dataField = new PicaDatafield();
+        record.getDatafields().add(dataField);
+        dataField.setTag(tag);
+        if (data.length > 1) {
+            dataField.setOccurrence(data[1]);
+        }
 
-	public PicaCollection unmarshalFromWinIBWDownlad(Path p) throws LibmetaProcessorException {
-		PicaCollection col = new PicaCollection();
-		try(BufferedReader br = Files.newBufferedReader(p)) {
-			PicaRecord record = null;
-			String s;
-			while ((s = br.readLine()) != null) {
-				if (s.length() == 0) {
-					continue;
-				}
-				if (s.contains("PPN:")) {
-					// a new record begins
-					record = new PicaRecord();
-					col.getRecords().add(record);
-					// ppn = s.substring(s.indexOf("PPN:") + 5, s.indexOf("PPN:") + 5 + 12).trim();
-					continue;
-				}
-				if (s.startsWith("[")) {
-					// [0028 ] ub rostock <28>
-					// we produce some new fields here - USE WITH CARE AS THEY ARE NOT STANDARDIZED
-					// WITH GBV !!!
-					// 100@ ƒa0028ƒbub rostock <28>
-					String[] data = s.substring(1).split("]");
-					createFields("100@ ƒa" + data[0].trim() + "ƒb" + data[1].trim(), record);
-					// comments are currently not supported
-					continue;
-				}
+        // get Subfields
+        String[] subfields = line.substring(pos + 1).split("ƒ");
+        for (String sub : subfields) {
+            if (sub.length() > 1) {
+                PicaSubfield subfield = new PicaSubfield();
+                dataField.getSubfields().add(subfield);
+                subfield.setCode(sub.substring(0, 1));
+                subfield.setContent(sub.substring(1));
+            }
+        }
+    }
 
-				createFields(s, record);
-			}
-		} catch (Exception e) {
-			throw new LibmetaProcessorException(e);
-		}
-		return col;
-	}
-	
-	public String marshalToString(PicaRecord pica) throws LibmetaProcessorException {
+    public PicaCollection unmarshalFromWinIBWDownlad(Path p) throws LibmetaProcessorException {
+        PicaCollection col = new PicaCollection();
+        try (BufferedReader br = Files.newBufferedReader(p)) {
+            PicaRecord record = null;
+            String s;
+            while ((s = br.readLine()) != null) {
+                if (s.length() == 0) {
+                    continue;
+                }
+                if (s.contains("PPN:")) {
+                    // a new record begins
+                    record = new PicaRecord();
+                    col.getRecords().add(record);
+                    // ppn = s.substring(s.indexOf("PPN:") + 5, s.indexOf("PPN:") + 5 + 12).trim();
+                    continue;
+                }
+                if (s.startsWith("[")) {
+                    // [0028 ] ub rostock <28>
+                    // we produce some new fields here - USE WITH CARE AS THEY ARE NOT STANDARDIZED
+                    // WITH GBV !!!
+                    // 100@ ƒa0028ƒbub rostock <28>
+                    String[] data = s.substring(1).split("]");
+                    createFields("100@ ƒa" + data[0].trim() + "ƒb" + data[1].trim(), record);
+                    // comments are currently not supported
+                    continue;
+                }
+
+                createFields(s, record);
+            }
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
+        }
+        return col;
+    }
+
+    public String marshalToString(PicaRecord pica) throws LibmetaProcessorException {
         StringWriter sw = new StringWriter();
-	    marshal(pica, sw);
-	    return sw.toString();
+        marshal(pica, sw);
+        return sw.toString();
     }
-	
-	public void marshal(PicaRecord pica, Path p) throws LibmetaProcessorException {
-	    try(BufferedWriter bw = Files.newBufferedWriter(p)){
-         marshal(pica, bw);
-	    } catch (IOException e) {
-	        throw new LibmetaProcessorException(e);
+
+    public void marshal(PicaRecord pica, Path p) throws LibmetaProcessorException {
+        try (BufferedWriter bw = Files.newBufferedWriter(p)) {
+            marshal(pica, bw);
+        } catch (IOException e) {
+            throw new LibmetaProcessorException(e);
         }
     }
-	
-	private void marshal(PicaRecord record, Writer w) throws LibmetaProcessorException {
-	    try {
-	        for(PicaDatafield df : record.getDatafields()) {
+
+    private void marshal(PicaRecord record, Writer w) throws LibmetaProcessorException {
+        try {
+            for (PicaDatafield df : record.getDatafields()) {
                 w.append(df.getTag());
-	            if(df.getOccurrence() != null) {
-	              w.append("/").append(df.getOccurrence());
-	            }
-	            w.append(" ");
-	            for(PicaSubfield sf : df.getSubfields()) {
-	              w.append("ƒ").append(sf.getCode()).append(sf.getContent());
-	            }
-	            w.append("\n");
-	        }
-	    } catch (IOException e) {
-	        throw new LibmetaProcessorException(e);
+                if (df.getOccurrence() != null) {
+                    w.append("/").append(df.getOccurrence());
+                }
+                w.append(" ");
+                for (PicaSubfield sf : df.getSubfields()) {
+                    w.append("ƒ").append(sf.getCode()).append(sf.getContent());
+                }
+                w.append("\n");
+            }
+        } catch (IOException e) {
+            throw new LibmetaProcessorException(e);
         }
-	}
-	
+    }
+
 }

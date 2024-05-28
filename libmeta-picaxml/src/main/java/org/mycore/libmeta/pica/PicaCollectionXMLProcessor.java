@@ -45,7 +45,7 @@ public class PicaCollectionXMLProcessor extends DefaultXMLProcessor<PicaCollecti
     }
 
     public PicaCollection unmarshalFromSRU(URL url) throws LibmetaProcessorException {
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));){
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));) {
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
             XMLEventReader xmlEventReader = new FilterPicaXMLFromSRUReaderDelegate(
                 inputFactory.createXMLEventReader(br), RootElement.COLLECTION);
