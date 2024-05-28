@@ -21,7 +21,7 @@ import org.mycore.libmeta.common.DefaultXMLProcessor;
 import org.mycore.libmeta.mix.model.Mix;
 
 public class MIXXMLProcessor extends DefaultXMLProcessor<Mix> {
-    
+
     private static final MIXXMLProcessor INSTANCE = new MIXXMLProcessor();
 
     //private constructor to avoid client applications to use constructor

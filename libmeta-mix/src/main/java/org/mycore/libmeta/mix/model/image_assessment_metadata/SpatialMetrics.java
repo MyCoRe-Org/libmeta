@@ -34,66 +34,66 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "samplingFrequencyPlane", "samplingFrequencyUnit", "xSamplingFrequency", "ySamplingFrequency" })
 public class SpatialMetrics {
 
-	// sequence
+    // sequence
 
-	// NDD id="9.1.1"
-	@XmlElement(name = "samplingFrequencyPlane", namespace = "http://www.loc.gov/mix/v20", required = false)
-	protected SamplingFrequencyPlane samplingFrequencyPlane;
+    // NDD id="9.1.1"
+    @XmlElement(name = "samplingFrequencyPlane", namespace = "http://www.loc.gov/mix/v20", required = false)
+    protected SamplingFrequencyPlane samplingFrequencyPlane;
 
-	// NDD id="9.1.2"
-	@XmlElement(name = "samplingFrequencyUnit", namespace = "http://www.loc.gov/mix/v20", required = false)
-	protected SamplingFrequencyUnit samplingFrequencyUnit;
+    // NDD id="9.1.2"
+    @XmlElement(name = "samplingFrequencyUnit", namespace = "http://www.loc.gov/mix/v20", required = false)
+    protected SamplingFrequencyUnit samplingFrequencyUnit;
 
-	// >NDD id="9.1.2.1
-	@XmlElement(name = "xSamplingFrequency", namespace = "http://www.loc.gov/mix/v20", required = false)
-	protected Rational xSamplingFrequency;
+    // >NDD id="9.1.2.1
+    @XmlElement(name = "xSamplingFrequency", namespace = "http://www.loc.gov/mix/v20", required = false)
+    protected Rational xSamplingFrequency;
 
-	// NDD id="9.1.2.2
-	@XmlElement(name = "ySamplingFrequency", namespace = "http://www.loc.gov/mix/v20", required = false)
-	protected Rational ySamplingFrequency;
+    // NDD id="9.1.2.2
+    @XmlElement(name = "ySamplingFrequency", namespace = "http://www.loc.gov/mix/v20", required = false)
+    protected Rational ySamplingFrequency;
 
-	public SpatialMetrics(){
-		
-	}
-	
-	public SpatialMetrics(SamplingFrequencyPlane samplingFrequencyPlane, SamplingFrequencyUnit samplingFrequencyUnit, 
-			Rational xSamplingFrequency, Rational ySamplingFrequency) {
-		this.samplingFrequencyPlane = samplingFrequencyPlane;
-		this.samplingFrequencyUnit = samplingFrequencyUnit;
-		this.xSamplingFrequency = xSamplingFrequency;
-		this.ySamplingFrequency = ySamplingFrequency;
-	}
+    public SpatialMetrics() {
 
-	public SamplingFrequencyPlane getSamplingFrequencyPlane() {
-		return samplingFrequencyPlane;
-	}
+    }
 
-	public void setSamplingFrequencyPlane(SamplingFrequencyPlane samplingFrequencyPlane) {
-		this.samplingFrequencyPlane = samplingFrequencyPlane;
-	}
+    public SpatialMetrics(SamplingFrequencyPlane samplingFrequencyPlane, SamplingFrequencyUnit samplingFrequencyUnit,
+        Rational xSamplingFrequency, Rational ySamplingFrequency) {
+        this.samplingFrequencyPlane = samplingFrequencyPlane;
+        this.samplingFrequencyUnit = samplingFrequencyUnit;
+        this.xSamplingFrequency = xSamplingFrequency;
+        this.ySamplingFrequency = ySamplingFrequency;
+    }
 
-	public SamplingFrequencyUnit getSamplingFrequencyUnit() {
-		return samplingFrequencyUnit;
-	}
+    public SamplingFrequencyPlane getSamplingFrequencyPlane() {
+        return samplingFrequencyPlane;
+    }
 
-	public void setSamplingFrequencyUnit(SamplingFrequencyUnit samplingFrequencyUnit) {
-		this.samplingFrequencyUnit = samplingFrequencyUnit;
-	}
+    public void setSamplingFrequencyPlane(SamplingFrequencyPlane samplingFrequencyPlane) {
+        this.samplingFrequencyPlane = samplingFrequencyPlane;
+    }
 
-	public Rational getxSamplingFrequency() {
-		return xSamplingFrequency;
-	}
+    public SamplingFrequencyUnit getSamplingFrequencyUnit() {
+        return samplingFrequencyUnit;
+    }
 
-	public void setxSamplingFrequency(Rational xSamplingFrequency) {
-		this.xSamplingFrequency = xSamplingFrequency;
-	}
+    public void setSamplingFrequencyUnit(SamplingFrequencyUnit samplingFrequencyUnit) {
+        this.samplingFrequencyUnit = samplingFrequencyUnit;
+    }
 
-	public Rational getySamplingFrequency() {
-		return ySamplingFrequency;
-	}
+    public Rational getxSamplingFrequency() {
+        return xSamplingFrequency;
+    }
 
-	public void setySamplingFrequency(Rational ySamplingFrequency) {
-		this.ySamplingFrequency = ySamplingFrequency;
-	}
+    public void setxSamplingFrequency(Rational xSamplingFrequency) {
+        this.xSamplingFrequency = xSamplingFrequency;
+    }
+
+    public Rational getySamplingFrequency() {
+        return ySamplingFrequency;
+    }
+
+    public void setySamplingFrequency(Rational ySamplingFrequency) {
+        this.ySamplingFrequency = ySamplingFrequency;
+    }
 
 }

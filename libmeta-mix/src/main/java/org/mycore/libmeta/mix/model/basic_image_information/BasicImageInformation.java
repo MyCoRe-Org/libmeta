@@ -26,25 +26,25 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "basicImageCharacteristics" })
 public class BasicImageInformation {
 
-	// sequence
+    // sequence
 
-	// NDD id="7"
-	@XmlElement(name = "BasicImageCharacteristics", namespace = "http://www.loc.gov/mix/v20", required = false)
-	protected BasicImageCharacteristics basicImageCharacteristics;
+    // NDD id="7"
+    @XmlElement(name = "BasicImageCharacteristics", namespace = "http://www.loc.gov/mix/v20", required = false)
+    protected BasicImageCharacteristics basicImageCharacteristics;
 
-	public BasicImageInformation(){
-		
-	}
-	
-	public BasicImageInformation(BasicImageCharacteristics basicImageCharacteristics) {
-		this.basicImageCharacteristics = basicImageCharacteristics;
-	}
+    public BasicImageInformation() {
 
-	public BasicImageCharacteristics getBasicImageCharacteristics() {
-		return basicImageCharacteristics;
-	}
+    }
 
-	public void setBasicImageCharacteristics(BasicImageCharacteristics basicImageCharacteristics) {
-		this.basicImageCharacteristics = basicImageCharacteristics;
-	}	
+    public BasicImageInformation(BasicImageCharacteristics basicImageCharacteristics) {
+        this.basicImageCharacteristics = basicImageCharacteristics;
+    }
+
+    public BasicImageCharacteristics getBasicImageCharacteristics() {
+        return basicImageCharacteristics;
+    }
+
+    public void setBasicImageCharacteristics(BasicImageCharacteristics basicImageCharacteristics) {
+        this.basicImageCharacteristics = basicImageCharacteristics;
+    }
 }

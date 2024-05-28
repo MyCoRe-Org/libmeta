@@ -18,13 +18,13 @@
 
 //does not work under Java 6
 
-@XmlSchema(namespace = "http://www.loc.gov/mix/v20",  
-        xmlns = {   
-            @XmlNs(namespaceURI = "http://www.loc.gov/mix/v20", prefix = "mix"),  
-            @XmlNs(namespaceURI = "http://www.w3.org/2001/XMLSchema-instance", prefix = "xsi")
-        },
-        location = "http://www.loc.gov/mix/v20 http://www.loc.gov/standards/mix/mix20/mix20.xsd",
-        elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)  
+@XmlSchema(namespace = "http://www.loc.gov/mix/v20",
+    xmlns = {
+        @XmlNs(namespaceURI = "http://www.loc.gov/mix/v20", prefix = "mix"),
+        @XmlNs(namespaceURI = "http://www.w3.org/2001/XMLSchema-instance", prefix = "xsi")
+    },
+    location = "http://www.loc.gov/mix/v20 http://www.loc.gov/standards/mix/mix20/mix20.xsd",
+    elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package org.mycore.libmeta.mix.model;
 
 import jakarta.xml.bind.annotation.XmlNs;

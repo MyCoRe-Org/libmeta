@@ -46,36 +46,34 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "basicImageInformation", "imageAssessmentMetadata" })
 public class Mix {
 
-	@XmlElement(name = "BasicImageInformation", namespace = "http://www.loc.gov/mix/v20", required = true)
-	protected BasicImageInformation basicImageInformation;
+    @XmlElement(name = "BasicImageInformation", namespace = "http://www.loc.gov/mix/v20", required = true)
+    protected BasicImageInformation basicImageInformation;
 
-	@XmlElement(name = "ImageAssessmentMetadata", namespace = "http://www.loc.gov/mix/v20", required = true)
-	protected ImageAssessmentMetadata imageAssessmentMetadata;
+    @XmlElement(name = "ImageAssessmentMetadata", namespace = "http://www.loc.gov/mix/v20", required = true)
+    protected ImageAssessmentMetadata imageAssessmentMetadata;
 
-	public Mix(){
-		
-	}
-	
-	public Mix(BasicImageInformation basicImageInformation, ImageAssessmentMetadata imageAssessmentMetadata) {
-		this.basicImageInformation = basicImageInformation;
-		this.imageAssessmentMetadata = imageAssessmentMetadata;
-	}
-	
-	
+    public Mix() {
 
-	public BasicImageInformation getBasicImageInformation() {
-		return basicImageInformation;
-	}
+    }
 
-	public void setBasicImageInformation(BasicImageInformation basicImageInformation) {
-		this.basicImageInformation = basicImageInformation;
-	}
+    public Mix(BasicImageInformation basicImageInformation, ImageAssessmentMetadata imageAssessmentMetadata) {
+        this.basicImageInformation = basicImageInformation;
+        this.imageAssessmentMetadata = imageAssessmentMetadata;
+    }
 
-	public ImageAssessmentMetadata getImageAssessmentMetadata() {
-		return imageAssessmentMetadata;
-	}
+    public BasicImageInformation getBasicImageInformation() {
+        return basicImageInformation;
+    }
 
-	public void setImageAssessmentMetadata(ImageAssessmentMetadata imageAssessmentMetadata) {
-		this.imageAssessmentMetadata = imageAssessmentMetadata;
-	}
+    public void setBasicImageInformation(BasicImageInformation basicImageInformation) {
+        this.basicImageInformation = basicImageInformation;
+    }
+
+    public ImageAssessmentMetadata getImageAssessmentMetadata() {
+        return imageAssessmentMetadata;
+    }
+
+    public void setImageAssessmentMetadata(ImageAssessmentMetadata imageAssessmentMetadata) {
+        this.imageAssessmentMetadata = imageAssessmentMetadata;
+    }
 }
