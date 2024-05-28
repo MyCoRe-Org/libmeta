@@ -45,49 +45,49 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "collection", namespace = "http://www.loc.gov/MARC21/slim")
 @XmlAccessorType(XmlAccessType.NONE)
 public class MarcCollection implements MarcObject {
-	/**
-	 * 
-	 */
-	@XmlElement(name = "record", namespace = "http://www.loc.gov/MARC21/slim", required = false)
-	protected List<MarcRecord> records = new Vector<MarcRecord>();
+    /**
+     * 
+     */
+    @XmlElement(name = "record", namespace = "http://www.loc.gov/MARC21/slim", required = false)
+    protected List<MarcRecord> records = new Vector<MarcRecord>();
 
-	@XmlAttribute(name = "id", required = false)
-	protected String id;
+    @XmlAttribute(name = "id", required = false)
+    protected String id;
 
-	public List<MarcRecord> getRecords() {
-		return records;
-	}
+    public List<MarcRecord> getRecords() {
+        return records;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public static Builder builder() {
-		return builder(new MarcCollection());
-	}
+    public static Builder builder() {
+        return builder(new MarcCollection());
+    }
 
-	public static Builder builder(MarcCollection coll) {
-		return new Builder(coll);
-	}
+    public static Builder builder(MarcCollection coll) {
+        return new Builder(coll);
+    }
 
-	public static class Builder extends BuilderBase<MarcCollection, Builder> {
+    public static class Builder extends BuilderBase<MarcCollection, Builder> {
 
-		protected Builder(MarcCollection col) {
-			super(col);
-		}
+        protected Builder(MarcCollection col) {
+            super(col);
+        }
 
-		public Builder id(String id) {
-			_target().setId(id);
-			return _self();
-		}
+        public Builder id(String id) {
+            _target().setId(id);
+            return _self();
+        }
 
-		public Builder addRecord(MarcRecord record) {
-			_target().getRecords().add(record);
-			return _self();
-		}
-	}
+        public Builder addRecord(MarcRecord record) {
+            _target().getRecords().add(record);
+            return _self();
+        }
+    }
 }
