@@ -62,13 +62,14 @@ public class TitleInfoTest {
 
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String r = """ 
-                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                  <mods:titleInfo>
-                    <mods:title>Bush Cheney</mods:title>
-                  </mods:titleInfo>
-                </mods:mods>""";
+            String r
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:titleInfo>
+                        <mods:title>Bush Cheney</mods:title>
+                      </mods:titleInfo>
+                    </mods:mods>""";
             assertTrue("Test 1 failed", r.equals(s));
         } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
@@ -87,13 +88,14 @@ public class TitleInfoTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String r = """
-                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                  <mods:titleInfo displayLabel="also known as" type="alternative">
-                    <mods:title>Bush-Cheney 2000</mods:title>
-                  </mods:titleInfo>
-                </mods:mods>""";
+            String r
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:titleInfo displayLabel="also known as" type="alternative">
+                        <mods:title>Bush-Cheney 2000</mods:title>
+                      </mods:titleInfo>
+                    </mods:mods>""";
             assertTrue("Test 2 failed", r.equals(s));
         } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
@@ -111,15 +113,16 @@ public class TitleInfoTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String r = """
-                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                  <mods:titleInfo>
-                    <mods:nonSort>The </mods:nonSort>
-                    <mods:title>"wintermind"</mods:title>
-                    <mods:subTitle>William Bonk and American letters</mods:subTitle>
-                  </mods:titleInfo>
-                </mods:mods>""";
+            String r
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:titleInfo>
+                        <mods:nonSort>The </mods:nonSort>
+                        <mods:title>"wintermind"</mods:title>
+                        <mods:subTitle>William Bonk and American letters</mods:subTitle>
+                      </mods:titleInfo>
+                    </mods:mods>""";
             assertTrue("Test 3 failed", r.equals(s));
         } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
@@ -137,14 +140,15 @@ public class TitleInfoTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String r = """ 
-                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                  <mods:titleInfo type="translated" xml:lang="fr">
-                    <mods:nonSort>L'</mods:nonSort>
-                    <mods:title>homme qui voulut être roi</mods:title>
-                  </mods:titleInfo>
-                </mods:mods>""";
+            String r
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:titleInfo type="translated" xml:lang="fr">
+                        <mods:nonSort>L'</mods:nonSort>
+                        <mods:title>homme qui voulut être roi</mods:title>
+                      </mods:titleInfo>
+                    </mods:mods>""";
             assertTrue("Test 4 failed", r.equals(s));
         } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
@@ -164,17 +168,18 @@ public class TitleInfoTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String r = """
-                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                  <mods:titleInfo>
-                    <mods:nonSort>The </mods:nonSort>
-                    <mods:title>Olympics</mods:title>
-                    <mods:subTitle>a history</mods:subTitle>
-                    <mods:partNumber>Part 1</mods:partNumber>
-                    <mods:partName>Ancient</mods:partName>
-                  </mods:titleInfo>
-                </mods:mods>""";
+            String r
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:titleInfo>
+                        <mods:nonSort>The </mods:nonSort>
+                        <mods:title>Olympics</mods:title>
+                        <mods:subTitle>a history</mods:subTitle>
+                        <mods:partNumber>Part 1</mods:partNumber>
+                        <mods:partName>Ancient</mods:partName>
+                      </mods:titleInfo>
+                    </mods:mods>""";
             assertTrue("Test 5 failed", r.equals(s));
         } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
@@ -196,16 +201,17 @@ public class TitleInfoTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String r = """ 
-                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                  <mods:titleInfo>
-                    <mods:title>Zentralblatt für Bakteriologie, Parasitenkunde, Infektionkrankheiten und Hygiene</mods:title>
-                    <mods:partNumber>1. Abt. Originale</mods:partNumber>
-                    <mods:partNumber>Reihe B</mods:partNumber>
-                    <mods:partName>Hygiene. Krankenhaushygiene. Betriebshygiene, präventive Medizin</mods:partName>
-                  </mods:titleInfo>
-                </mods:mods>""";
+            String r
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:titleInfo>
+                        <mods:title>Zentralblatt für Bakteriologie, Parasitenkunde, Infektionkrankheiten und Hygiene</mods:title>
+                        <mods:partNumber>1. Abt. Originale</mods:partNumber>
+                        <mods:partNumber>Reihe B</mods:partNumber>
+                        <mods:partName>Hygiene. Krankenhaushygiene. Betriebshygiene, präventive Medizin</mods:partName>
+                      </mods:titleInfo>
+                    </mods:mods>""";
             assertTrue("Test 6 failed", r.equals(s));
         } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
@@ -222,13 +228,14 @@ public class TitleInfoTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String r = """
-                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                  <mods:titleInfo lang="rus" script="Latn" transliteration="ALA-LC Romanization Tables">
-                    <mods:title>Geodezii︠a︡ i fotogrammetrii︠a︡</mods:title>
-                  </mods:titleInfo>
-                </mods:mods>""";
+            String r
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:titleInfo lang="rus" script="Latn" transliteration="ALA-LC Romanization Tables">
+                        <mods:title>Geodezii︠a︡ i fotogrammetrii︠a︡</mods:title>
+                      </mods:titleInfo>
+                    </mods:mods>""";
             assertTrue("Test 7 failed", r.equals(s));
         } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
@@ -246,13 +253,14 @@ public class TitleInfoTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String r = """ 
-                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                  <mods:titleInfo authority="naf" type="uniform" valueURI="http://id.loc.gov/authorities/n93028706">
-                    <mods:title>Missale Carnotense</mods:title>
-                  </mods:titleInfo>
-                </mods:mods>""";
+            String r
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:titleInfo authority="naf" type="uniform" valueURI="http://id.loc.gov/authorities/n93028706">
+                        <mods:title>Missale Carnotense</mods:title>
+                      </mods:titleInfo>
+                    </mods:mods>""";
             assertTrue("Test 8 failed", r.equals(s));
         } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
@@ -286,42 +294,44 @@ public class TitleInfoTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String r = """
-                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                  <mods:titleInfo>
-                    <mods:title>Canticum canticorum</mods:title>
-                  </mods:titleInfo>
-                  <mods:titleInfo nameTitleGroup="1" type="uniform">
-                    <mods:title>Motets</mods:title>
-                    <mods:partNumber>(1583)</mods:partNumber>
-                  </mods:titleInfo>
-                  <mods:name nameTitleGroup="1" type="personal" usage="primary">
-                    <mods:namePart>Palestrina, Giovanni Pierluigi da</mods:namePart>
-                    <mods:namePart type="date">1525?-1594</mods:namePart>
-                  </mods:name>
-                  <mods:name type="personal">
-                    <mods:namePart>Picotti, Livio.</mods:namePart>
-                    <mods:role>
-                      <mods:roleTerm authority="marcrelator" type="code">prf</mods:roleTerm>
-                    </mods:role>
-                  </mods:name>
-                </mods:mods>""";
+            String r
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:titleInfo>
+                        <mods:title>Canticum canticorum</mods:title>
+                      </mods:titleInfo>
+                      <mods:titleInfo nameTitleGroup="1" type="uniform">
+                        <mods:title>Motets</mods:title>
+                        <mods:partNumber>(1583)</mods:partNumber>
+                      </mods:titleInfo>
+                      <mods:name nameTitleGroup="1" type="personal" usage="primary">
+                        <mods:namePart>Palestrina, Giovanni Pierluigi da</mods:namePart>
+                        <mods:namePart type="date">1525?-1594</mods:namePart>
+                      </mods:name>
+                      <mods:name type="personal">
+                        <mods:namePart>Picotti, Livio.</mods:namePart>
+                        <mods:role>
+                          <mods:roleTerm authority="marcrelator" type="code">prf</mods:roleTerm>
+                        </mods:role>
+                      </mods:name>
+                    </mods:mods>""";
             assertTrue("Test 9 failed", r.equals(s));
         } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
         }
     }
-    
+
     @Test
     public void test10() {
-        String expected = """
-              <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-              <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                <mods:titleInfo otherType="transcribed" otherTypeAuthURI="https://w3id.org/arm/core/vocabularies/origin/0.1/transcribed">
-                  <mods:title>110th St. Elevator Station, New York</mods:title>
-                </mods:titleInfo>
-              </mods:mods>""";
+        String expected
+            = """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <mods:titleInfo otherType="transcribed" otherTypeAuthURI="https://w3id.org/arm/core/vocabularies/origin/0.1/transcribed">
+                    <mods:title>110th St. Elevator Station, New York</mods:title>
+                  </mods:titleInfo>
+                </mods:mods>""";
         Mods mods = Mods.builder()
             .addContent(TitleInfo.builder()
                 .otherType("transcribed")
@@ -338,7 +348,7 @@ public class TitleInfoTest {
             fail(e.getMessage());
         }
     }
-    
+
     @Test
     public void test11() {
         Mods mods = Mods.builder()
@@ -354,17 +364,18 @@ public class TitleInfoTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String expected = """
-                  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                  <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                    <mods:titleInfo otherType="test" otherTypeAuth="example.org" otherTypeAuthURI="http://example.org/title_types" otherTypeURI="http://example.org/title_types/test">
-                      <mods:title>The Test Example</mods:title>
-                    </mods:titleInfo>
-                  </mods:mods>""";
+            String expected
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:titleInfo otherType="test" otherTypeAuth="example.org" otherTypeAuthURI="http://example.org/title_types" otherTypeURI="http://example.org/title_types/test">
+                        <mods:title>The Test Example</mods:title>
+                      </mods:titleInfo>
+                    </mods:mods>""";
             assertEquals("Test 11 failed", expected, s);
         } catch (Exception e) {
             fail(e.getMessage());
         }
     }
-    
+
 }

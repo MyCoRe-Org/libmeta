@@ -43,11 +43,12 @@ public class AbstractTest {
             .content("Broadside advertising ... Academy Hall").build()).build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String r = """
-                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                 <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                   <mods:abstract displayLabel="Content description">Broadside advertising ... Academy Hall</mods:abstract>
-                 </mods:mods>""";
+            String r
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:abstract displayLabel="Content description">Broadside advertising ... Academy Hall</mods:abstract>
+                    </mods:mods>""";
             assertTrue("Test 1 failed", r.equals(s));
         } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
@@ -60,11 +61,12 @@ public class AbstractTest {
             .content("Describes the results of an ongoing evaluation ...").build()).build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String r = """
-                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                 <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                   <mods:abstract shareable="no">Describes the results of an ongoing evaluation ...</mods:abstract>
-                 </mods:mods>""";
+            String r
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:abstract shareable="no">Describes the results of an ongoing evaluation ...</mods:abstract>
+                    </mods:mods>""";
             assertTrue("Test 2 failed", r.equals(s));
         } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
@@ -80,11 +82,12 @@ public class AbstractTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String r = """
-                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                 <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                   <mods:abstract type="summary" xlink:href="http://www.allocine.fr/film/fichefilm_gen_cfilm=808.html" xml:lang="fr">A la fin du XIXème siècle, Rudyard Kipling, ...</mods:abstract>
-                 </mods:mods>""";
+            String r
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:abstract type="summary" xlink:href="http://www.allocine.fr/film/fichefilm_gen_cfilm=808.html" xml:lang="fr">A la fin du XIXème siècle, Rudyard Kipling, ...</mods:abstract>
+                    </mods:mods>""";
             assertTrue("Test 3 failed", r.equals(s));
         } catch (LibmetaProcessorException e) {
             fail(e.getMessage());
@@ -100,11 +103,12 @@ public class AbstractTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String r = """ 
-                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                 <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                   <mods:abstract displayLabel="Review" xlink:href="http://sunsite.berkeley.edu/CurrentCites/2003/cc03.14.3.html">Written in a rather whimsical style ...</mods:abstract>
-                 </mods:mods>""";
+            String r
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:abstract displayLabel="Review" xlink:href="http://sunsite.berkeley.edu/CurrentCites/2003/cc03.14.3.html">Written in a rather whimsical style ...</mods:abstract>
+                    </mods:mods>""";
             assertTrue("Test 4 failed", r.equals(s));
         } catch (LibmetaProcessorException e) {
             fail(e.getMessage());

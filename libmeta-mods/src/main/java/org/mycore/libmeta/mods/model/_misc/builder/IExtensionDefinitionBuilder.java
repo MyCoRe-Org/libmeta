@@ -29,7 +29,7 @@ import org.w3c.dom.Node;
  * @version MODS 3.6
  *
  */
-public interface IExtensionDefinitionBuilder<T extends ExtensionDefinition, B> extends IIDAttributeGroupBuilder<T, B>{
+public interface IExtensionDefinitionBuilder<T extends ExtensionDefinition, B> extends IIDAttributeGroupBuilder<T, B> {
     public T _target();
 
     public B _self();
@@ -58,7 +58,7 @@ public interface IExtensionDefinitionBuilder<T extends ExtensionDefinition, B> e
         _target().setDisplayLabel(displayLabel);
         return _self();
     }
-    
+
     public default B type(String type) {
         _target().setType(type);
         return _self();

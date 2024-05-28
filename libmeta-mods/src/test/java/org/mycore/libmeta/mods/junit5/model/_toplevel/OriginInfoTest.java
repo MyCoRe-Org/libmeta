@@ -64,24 +64,25 @@ public class OriginInfoTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String expected = """
-                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                  <mods:originInfo eventType="publication">
-                    <mods:place supplied="yes">
-                      <mods:placeIdentifier>https://www.wikidata.org/wiki/Q60</mods:placeIdentifier>
-                      <mods:placeTerm authority="wikidata">New York City</mods:placeTerm>
-                    </mods:place>
-                    <mods:agent type="corporate">
-                      <mods:namePart>H. Hagemeister</mods:namePart>
-                      <mods:role>
-                        <mods:roleTerm valueURI="http://id.loc.gov/vocabulary/relators/pbl">Publisher</mods:roleTerm>
-                      </mods:role>
-                    </mods:agent>
-                    <mods:dateOther encoding="edtf">1910</mods:dateOther>
-                    <mods:displayDate>Postmark date: 1910</mods:displayDate>
-                  </mods:originInfo>
-                </mods:mods>""";
+            String expected
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:originInfo eventType="publication">
+                        <mods:place supplied="yes">
+                          <mods:placeIdentifier>https://www.wikidata.org/wiki/Q60</mods:placeIdentifier>
+                          <mods:placeTerm authority="wikidata">New York City</mods:placeTerm>
+                        </mods:place>
+                        <mods:agent type="corporate">
+                          <mods:namePart>H. Hagemeister</mods:namePart>
+                          <mods:role>
+                            <mods:roleTerm valueURI="http://id.loc.gov/vocabulary/relators/pbl">Publisher</mods:roleTerm>
+                          </mods:role>
+                        </mods:agent>
+                        <mods:dateOther encoding="edtf">1910</mods:dateOther>
+                        <mods:displayDate>Postmark date: 1910</mods:displayDate>
+                      </mods:originInfo>
+                    </mods:mods>""";
             assertEquals("Test 1 failed", expected, s);
         } catch (Exception e) {
             fail(e.getMessage());
@@ -109,18 +110,19 @@ public class OriginInfoTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String expected = """ 
-                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                  <mods:originInfo eventType="publication">
-                    <mods:place>
-                      <mods:placeTerm type="text">Rostock</mods:placeTerm>
-                      <mods:cartographics authority="ISO 6709">
-                        <mods:coordinates>+54.0755+012.1035</mods:coordinates>
-                      </mods:cartographics>
-                    </mods:place>
-                  </mods:originInfo>
-                </mods:mods>""";
+            String expected
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:originInfo eventType="publication">
+                        <mods:place>
+                          <mods:placeTerm type="text">Rostock</mods:placeTerm>
+                          <mods:cartographics authority="ISO 6709">
+                            <mods:coordinates>+54.0755+012.1035</mods:coordinates>
+                          </mods:cartographics>
+                        </mods:place>
+                      </mods:originInfo>
+                    </mods:mods>""";
             assertEquals("Test 2 failed", expected, s);
         } catch (Exception e) {
             fail(e.getMessage());
@@ -148,16 +150,17 @@ public class OriginInfoTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String expected = """ 
-                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                  <mods:originInfo eventType="publication" eventTypeURI="http://example.org/vocab/originInfo/publication">
-                    <mods:place>
-                      <mods:placeTerm type="text">Rostock</mods:placeTerm>
-                    </mods:place>
-                    <mods:dateIssued encoding="iso8601">1797</mods:dateIssued>
-                  </mods:originInfo>
-                </mods:mods>""";
+            String expected
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:originInfo eventType="publication" eventTypeURI="http://example.org/vocab/originInfo/publication">
+                        <mods:place>
+                          <mods:placeTerm type="text">Rostock</mods:placeTerm>
+                        </mods:place>
+                        <mods:dateIssued encoding="iso8601">1797</mods:dateIssued>
+                      </mods:originInfo>
+                    </mods:mods>""";
             assertEquals("Test 3 failed", expected, s);
         } catch (Exception e) {
             fail(e.getMessage());

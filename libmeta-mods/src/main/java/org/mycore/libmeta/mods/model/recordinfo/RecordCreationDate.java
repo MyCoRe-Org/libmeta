@@ -31,7 +31,7 @@ import org.mycore.libmeta.mods.model._misc.definitions.DateDefinition;
  *
  */
 public class RecordCreationDate extends DateDefinition implements IRecordInfoSubelement {
-    
+
     public static Builder builder() {
         return builder(new RecordCreationDate());
     }
