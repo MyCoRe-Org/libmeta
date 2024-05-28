@@ -26,12 +26,12 @@ import jakarta.xml.bind.annotation.XmlValue;
  * 
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(name = "", propOrder = {"content"})
+@XmlType(name = "", propOrder = { "content" })
 public class Reference {
 
     @XmlValue
     protected String content;
-    
+
     @XmlAttribute(name = "linktext")
     protected String linktext;
 
