@@ -38,7 +38,7 @@ import org.mycore.libmeta.mets.model.structmap.StructMap;
 public class METSQuery {
     public static StructMap findStructMap(Mets mets, String type) {
         for (StructMap s : mets.getStructMap()) {
-            if(type!=null && s.getTYPE()!=null && type.equals(s.getTYPE())) {
+            if (type != null && s.getTYPE() != null && type.equals(s.getTYPE())) {
                 return s;
             }
         }
@@ -58,7 +58,7 @@ public class METSQuery {
     public static FileGrp findFileGrpOfID(Mets mets, String id) {
         if (mets.getFileSec() != null) {
             for (FileGrp fg : mets.getFileSec().getFileGrp()) {
-                if (id!=null && id.equals(fg.getID())) {
+                if (id != null && id.equals(fg.getID())) {
                     return fg;
                 }
             }
@@ -71,18 +71,18 @@ public class METSQuery {
         if (fg == null) {
             fg = new FileGrp();
             fg.setID(id);
-            if(mets.getFileSec()==null) {
+            if (mets.getFileSec() == null) {
                 mets.setFileSec(new FileSec());
             }
             mets.getFileSec().getFileGrp().add(fg);
         }
         return fg;
     }
-    
+
     public static FileGrp findFileGrpOfUse(Mets mets, String use) {
         if (mets.getFileSec() != null) {
             for (FileGrp fg : mets.getFileSec().getFileGrp()) {
-                if (use!=null && use.equals(fg.getUSE())) {
+                if (use != null && use.equals(fg.getUSE())) {
                     return fg;
                 }
             }
@@ -133,7 +133,7 @@ public class METSQuery {
     }
 
     public static Div findDivOfID(Div parent, String id) {
-        if (id!=null && id.equals(parent.getID())) {
+        if (id != null && id.equals(parent.getID())) {
             return parent;
         } else {
             if (parent.getDiv() != null) {
@@ -146,19 +146,19 @@ public class METSQuery {
         }
         return null;
     }
-    
+
     public static MdSec findDmdSecOfID(Mets mets, String id) {
-        if(id==null || mets == null) {
+        if (id == null || mets == null) {
             return null;
         }
-        for(MdSec dmd: mets.getDmdSec()) {
-            if(id.equals(dmd.getID())) {
+        for (MdSec dmd : mets.getDmdSec()) {
+            if (id.equals(dmd.getID())) {
                 return dmd;
             }
         }
         return null;
     }
-    
+
     /**
      * This method create a stream of divs of a hierarchical structure of div elements in a structMap.
      * (The traversal order is depth first search.)
@@ -169,7 +169,7 @@ public class METSQuery {
     public static Stream<Div> treeTraversalStreamOfDivs(Div div) {
         return Stream.concat(Stream.of(div), div.getDiv().stream().flatMap(x -> treeTraversalStreamOfDivs(x)));
     }
-    
+
     /**
      * returns a filtered stream of SmLinkOrSmLinkGrp
      * @param <T> the type of the SmLinkOrSmLinkGrp
@@ -191,7 +191,7 @@ public class METSQuery {
     public static <T extends SmLinkOrSmLinkGrp> List<T> listFilteredContent(StructLink structLink, Class<T> type) {
         return streamFilteredContent(structLink, type).toList();
     }
-    
+
     /**
      * returns a filtered stream of AreaOrSeqOrPar
      * @param <T> the type of the AreaOrSeqOrPar
@@ -213,7 +213,7 @@ public class METSQuery {
     public static <T extends AreaOrSeqOrPar> List<T> listFilteredContent(Par par, Class<T> type) {
         return streamFilteredContent(par, type).toList();
     }
-    
+
     /**
      * returns a filtered stream of AreaOrSeqOrPar
      * @param <T> the type of the AreaOrSeqOrPar
@@ -235,5 +235,5 @@ public class METSQuery {
     public static <T extends AreaOrSeqOrPar> List<T> listFilteredContent(Seq seq, Class<T> type) {
         return streamFilteredContent(seq, type).toList();
     }
-    
+
 }

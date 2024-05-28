@@ -46,18 +46,31 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum AreaBETYPE {
-	@XmlEnumValue("BYTE") BYTE, 
-	@XmlEnumValue("IDREF") IDREF, 
-	@XmlEnumValue("SMIL") SMIL, 
-	@XmlEnumValue("MIDI") MIDI, 
-	@XmlEnumValue("SMPTE-25") SMPTE_25, 
-	@XmlEnumValue("SMPTE-24") SMPTE_24, 
-	@XmlEnumValue("SMPTE-DF30") SMPTE_DF30, 
-	@XmlEnumValue("SMPTE-NDF30") SMPTE_NDF30, 
-	@XmlEnumValue("SMPTE-DF29.97") SMPTE_DF29_97, 
-	@XmlEnumValue("SMPTE-NDF29.97") SMPTE_NDF29_97, 
-	@XmlEnumValue("TIME") TIME, 
-	@XmlEnumValue("TCF") TCF, 
-	@XmlEnumValue("XPTR") XPTR;
-	
+    @XmlEnumValue("BYTE")
+    BYTE,
+    @XmlEnumValue("IDREF")
+    IDREF,
+    @XmlEnumValue("SMIL")
+    SMIL,
+    @XmlEnumValue("MIDI")
+    MIDI,
+    @XmlEnumValue("SMPTE-25")
+    SMPTE_25,
+    @XmlEnumValue("SMPTE-24")
+    SMPTE_24,
+    @XmlEnumValue("SMPTE-DF30")
+    SMPTE_DF30,
+    @XmlEnumValue("SMPTE-NDF30")
+    SMPTE_NDF30,
+    @XmlEnumValue("SMPTE-DF29.97")
+    SMPTE_DF29_97,
+    @XmlEnumValue("SMPTE-NDF29.97")
+    SMPTE_NDF29_97,
+    @XmlEnumValue("TIME")
+    TIME,
+    @XmlEnumValue("TCF")
+    TCF,
+    @XmlEnumValue("XPTR")
+    XPTR;
+
 }

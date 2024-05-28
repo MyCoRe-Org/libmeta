@@ -165,7 +165,8 @@ public class SmLocatorLink implements IAttributeGroupXlinkLocatorLink {
         return new Builder(sll);
     }
 
-    public static class Builder extends BuilderBase<SmLocatorLink, Builder> implements IAttributeGroupXlinkLocatorLinkBuilder<SmLocatorLink, Builder> {
+    public static class Builder extends BuilderBase<SmLocatorLink, Builder>
+        implements IAttributeGroupXlinkLocatorLinkBuilder<SmLocatorLink, Builder> {
 
         protected Builder(SmLocatorLink sll) {
             super(sll);

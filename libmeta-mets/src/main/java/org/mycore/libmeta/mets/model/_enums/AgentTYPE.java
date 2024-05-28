@@ -48,7 +48,10 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum AgentTYPE {
-	@XmlEnumValue("INDIVIDUAL") INDIVIDUAL,
-	@XmlEnumValue("ORGANIZATION") ORGANIZATION, 
-	@XmlEnumValue("OTHER") OTHER;
+    @XmlEnumValue("INDIVIDUAL")
+    INDIVIDUAL,
+    @XmlEnumValue("ORGANIZATION")
+    ORGANIZATION,
+    @XmlEnumValue("OTHER")
+    OTHER;
 }

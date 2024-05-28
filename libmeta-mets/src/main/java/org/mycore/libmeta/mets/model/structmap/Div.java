@@ -357,7 +357,8 @@ public class Div implements IAttributeGroupORDERLABELS {
         return new Builder(d);
     }
 
-    public static class Builder extends BuilderBase<Div, Builder> implements IAttributeGroupORDERLABELSBuilder<Div, Builder> {
+    public static class Builder extends BuilderBase<Div, Builder>
+        implements IAttributeGroupORDERLABELSBuilder<Div, Builder> {
 
         protected Builder(Div d) {
             super(d);
