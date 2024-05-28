@@ -58,7 +58,7 @@ public class TextStyle {
 
     /** The font size, in points (1/72 of an inch). */
     @XmlAttribute(name = "FONTSIZE", required = true)
-    @XmlJavaTypeAdapter(FloatAdapter .class)
+    @XmlJavaTypeAdapter(FloatAdapter.class)
     protected Float FONTSIZE;
 
     /**
@@ -143,32 +143,32 @@ public class TextStyle {
         }
 
         public Builder FONTFAMILY(String fontFamily) {
-        	_target().setFONTFAMILY(fontFamily);
+            _target().setFONTFAMILY(fontFamily);
             return _self();
         }
 
         public Builder FONTTYPE(FontType fontType) {
-        	_target().setFONTTYPE(fontType);
+            _target().setFONTTYPE(fontType);
             return _self();
         }
 
         public Builder FONTWIDTH(FontWidth fontWidth) {
-        	_target().setFONTWIDTH(fontWidth);
+            _target().setFONTWIDTH(fontWidth);
             return _self();
         }
 
         public Builder FONTSIZE(Float fontSize) {
-        	_target().setFONTSIZE(fontSize);
+            _target().setFONTSIZE(fontSize);
             return _self();
         }
 
         public Builder FONTCOLOR(String fontColor) {
-        	_target().setFONTCOLOR(fontColor);
+            _target().setFONTCOLOR(fontColor);
             return _self();
         }
 
         public Builder addFONTStyle(FontStyle fontStyle) {
-        	_target().getFONTSTYLE().add(fontStyle);
+            _target().getFONTSTYLE().add(fontStyle);
             return _self();
         }
     }

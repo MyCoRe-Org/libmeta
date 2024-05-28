@@ -31,21 +31,21 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class GraphicalElement extends Block{
-	
-	public static Builder builder() {
-		return builder(new GraphicalElement());
-	}
+public class GraphicalElement extends Block {
 
-	public static Builder builder(GraphicalElement graphicalElement) {
-		return new Builder(graphicalElement);
-	}
+    public static Builder builder() {
+        return builder(new GraphicalElement());
+    }
 
-	public static class Builder extends BuilderBase<GraphicalElement, Builder> implements
-			IBlockBuilder<GraphicalElement, Builder> {
+    public static Builder builder(GraphicalElement graphicalElement) {
+        return new Builder(graphicalElement);
+    }
 
-		protected Builder(GraphicalElement graphicalElement) {
-			super(graphicalElement);
-		}
-	}
+    public static class Builder extends BuilderBase<GraphicalElement, Builder> implements
+        IBlockBuilder<GraphicalElement, Builder> {
+
+        protected Builder(GraphicalElement graphicalElement) {
+            super(graphicalElement);
+        }
+    }
 }

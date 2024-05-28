@@ -54,7 +54,7 @@ public abstract class Tag {
     @XmlAttribute(name = "ID", required = true)
     @XmlSchemaType(name = "ID")
     protected String ID;
-    
+
     /**
      * Type can be used to classify and group the information within each tag element type.
      */

@@ -27,27 +27,27 @@ public interface IBlockBuilder<T extends Block, B>
     public T _target();
 
     public B _self();
-    
+
     public default B ID(String id) {
         _target().setID(id);
         return _self();
     }
-    
+
     public default B Shape(Shape shape) {
         _target().setShape(shape);
         return _self();
     }
-    
+
     public default B ROTATION(Float rOTATION) {
         _target().setROTATION(rOTATION);
         return _self();
     }
-    
+
     public default B IDNEXT(String iDNEXT) {
         _target().setIDNEXT(iDNEXT);
         return _self();
     }
-    
+
     public default B CS(Boolean cS) {
         _target().setCS(cS);
         return _self();

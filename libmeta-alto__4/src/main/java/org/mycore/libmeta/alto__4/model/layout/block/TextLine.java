@@ -263,7 +263,7 @@ public class TextLine implements IBoundingBoxHolder, IRefsHolder {
         protected Builder(TextLine textline) {
             super(textline);
         }
-        
+
         public Builder Shape(Shape shape) {
             _target().setShape(shape);
             return _self();

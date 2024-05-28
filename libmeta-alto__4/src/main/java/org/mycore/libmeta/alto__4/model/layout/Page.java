@@ -125,27 +125,25 @@ public class Page {
     @XmlJavaTypeAdapter(FloatAdapter.class)
     @XmlSchemaType(name = "float")
     protected Float PC;
-    
+
     /** Default rotation for text or illustrations on this page. The value is in degree counterclockwise. 
      * The default value can be overwritten on lower levels (Textblock, Textline, etc) */
     @XmlAttribute(name = "ROTATION", required = false)
     @XmlJavaTypeAdapter(FloatAdapter.class)
     @XmlSchemaType(name = "float")
     protected Float ROTATION;
-    
+
     /**Default language for text on this page. 
      * The default value can be overwritten on lower levels (Textblock, Textline, etc)*/
     @XmlAttribute(name = "LANG", required = false)
     @XmlSchemaType(name = "language")
     protected String LANG;
-    
+
     /**Other languages that appear on this page. 
      * Provides a convenient way to summarize all the languages found on a particular page, 
      * without parsing the entire file*/
     @XmlAttribute(name = "OTHERLANGS", required = false)
     protected String OTHERLANGS;
-    
-    
 
     public PageSpace getTopMargin() {
         return topMargin;
@@ -298,7 +296,7 @@ public class Page {
     public void setPC(Float pC) {
         PC = pC;
     }
-    
+
     public Float getROTATION() {
         return ROTATION;
     }
@@ -306,7 +304,7 @@ public class Page {
     public void setROTATION(Float rOTATION) {
         ROTATION = rOTATION;
     }
-    
+
     public String getLANG() {
         return LANG;
     }
@@ -314,7 +312,7 @@ public class Page {
     public void setLANG(String lANG) {
         LANG = lANG;
     }
-    
+
     public String getOTHERLANGS() {
         return OTHERLANGS;
     }
@@ -376,7 +374,7 @@ public class Page {
             _target().setSTYLEREFS(stylerefs);
             return _self();
         }
-        
+
         public Builder PROCESSINGREFS(String processingRefs) {
             _target().setPROCESSINGREFS(processingRefs);
             return _self();
@@ -431,17 +429,17 @@ public class Page {
             _target().setPC(pc);
             return _self();
         }
-        
+
         public Builder ROTATION(Float rotation) {
             _target().setROTATION(rotation);
             return _self();
         }
-        
+
         public Builder LANG(String lang) {
             _target().setLANG(lang);
             return _self();
         }
-        
+
         public Builder OTHERLANGS(String otherlangs) {
             _target().setOTHERLANGS(otherlangs);
             return _self();

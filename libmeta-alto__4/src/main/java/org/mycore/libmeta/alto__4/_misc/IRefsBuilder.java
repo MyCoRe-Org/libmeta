@@ -23,17 +23,17 @@ public interface IRefsBuilder<T extends IRefsHolder, B> {
     public B _self();
 
     public default B STYLEREFS(String styleRefs) {
-    	_target().setSTYLEREFS(styleRefs);
+        _target().setSTYLEREFS(styleRefs);
         return _self();
     }
 
     public default B TAGREFS(String tagRefs) {
-    	_target().setTAGREFS(tagRefs);
+        _target().setTAGREFS(tagRefs);
         return _self();
     }
 
     public default B PROCESSINGREFS(String processingRefs) {
-    	_target().setPROCESSINGREFS(processingRefs);
+        _target().setPROCESSINGREFS(processingRefs);
         return _self();
     }
 }

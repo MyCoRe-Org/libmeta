@@ -29,7 +29,10 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum SubstitutionType {
-	@XmlEnumValue("HypPart1") HypPart1,
-	@XmlEnumValue("HypPart2") HypPart2,
-	@XmlEnumValue("Abbreviation") Abbreviation;
+    @XmlEnumValue("HypPart1")
+    HypPart1,
+    @XmlEnumValue("HypPart2")
+    HypPart2,
+    @XmlEnumValue("Abbreviation")
+    Abbreviation;
 }

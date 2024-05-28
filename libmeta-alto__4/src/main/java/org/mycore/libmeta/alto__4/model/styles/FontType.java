@@ -29,6 +29,8 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum FontType {
-	@XmlEnumValue("serif") serif,
-	@XmlEnumValue("sans-serif") sans_serif;
+    @XmlEnumValue("serif")
+    serif,
+    @XmlEnumValue("sans-serif")
+    sans_serif;
 }

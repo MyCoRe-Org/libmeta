@@ -37,25 +37,25 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Layout {
 
-	@XmlAttribute(name = "StyleRefs", required = true)
-	@XmlSchemaType(name = "IDREFS")
-	protected String STYLEREFS;
-	
-	@XmlElement(name = "Page", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = true)
-	protected List<Page> page = new Vector<Page>();
-	
-	public String getSTYLEREFS() {
-		return STYLEREFS;
-	}
+    @XmlAttribute(name = "StyleRefs", required = true)
+    @XmlSchemaType(name = "IDREFS")
+    protected String STYLEREFS;
 
-	public void setSTYLEREFS(String STYLEREFS) {
-		this.STYLEREFS = STYLEREFS;
-	}
+    @XmlElement(name = "Page", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = true)
+    protected List<Page> page = new Vector<Page>();
 
-	public List<Page> getPage() {
-		return page;
-	}
-	
+    public String getSTYLEREFS() {
+        return STYLEREFS;
+    }
+
+    public void setSTYLEREFS(String STYLEREFS) {
+        this.STYLEREFS = STYLEREFS;
+    }
+
+    public List<Page> getPage() {
+        return page;
+    }
+
     public static Builder builder() {
         return builder(new Layout());
     }
@@ -64,21 +64,20 @@ public class Layout {
         return new Builder(l);
     }
 
-    public static class Builder extends BuilderBase<Layout, Builder>  {
+    public static class Builder extends BuilderBase<Layout, Builder> {
         protected Builder(Layout l) {
             super(l);
         }
-        
+
         public Builder STYLEREFs(String stylerefs) {
-        	_target().setSTYLEREFS(stylerefs);
-        	return _self();
+            _target().setSTYLEREFS(stylerefs);
+            return _self();
         }
-        
+
         public Builder addPage(Page p) {
-        	_target().getPage().add(p);
-        	return _self();
+            _target().getPage().add(p);
+            return _self();
         }
-        
-        
+
     }
 }

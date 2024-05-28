@@ -44,19 +44,18 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlType(propOrder = { "shape", "alternative", "glyph" })
 @XmlAccessorType(XmlAccessType.NONE)
 public class TextlineString implements ITextlineChild, IBoundingBoxHolder, IRefsHolder {
-   
+
     @XmlElement(name = "Shape", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
         type = Shape.class)
     protected Shape shape;
-    
+
     @XmlElement(name = "ALTERNATIVE", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
         type = Alternative.class)
     protected List<Alternative> alternative = new Vector<>();
-    
+
     @XmlElement(name = "Glyph", namespace = "http://www.loc.gov/standards/alto/ns-v4#", required = false,
         type = Glyph.class)
     protected List<Glyph> glyph = new Vector<>();
-    
 
     @XmlAttribute(name = "ID", required = false)
     @XmlSchemaType(name = "ID")
@@ -139,9 +138,6 @@ public class TextlineString implements ITextlineChild, IBoundingBoxHolder, IRefs
     @XmlSchemaType(name = "language")
     protected String LANGUAGE;
 
-    
-    
-   
     public String getID() {
         return ID;
     }
@@ -269,7 +265,7 @@ public class TextlineString implements ITextlineChild, IBoundingBoxHolder, IRefs
     public void setLANGUAGE(String lANGUAGE) {
         LANGUAGE = lANGUAGE;
     }
-    
+
     public Shape getShape() {
         return shape;
     }
@@ -305,12 +301,12 @@ public class TextlineString implements ITextlineChild, IBoundingBoxHolder, IRefs
             _target().setShape(shape);
             return _self();
         }
-        
+
         public Builder addALTERNATIVE(Alternative alternative) {
             _target().getAlternative().add(alternative);
             return _self();
         }
-        
+
         public Builder addGlyph(Glyph glyph) {
             _target().getGlyph().add(glyph);
             return _self();

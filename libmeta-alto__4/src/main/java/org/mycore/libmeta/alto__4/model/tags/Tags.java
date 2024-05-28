@@ -63,11 +63,10 @@ public class Tags {
     })
     private List<Tag> tags = new Vector<Tag>();
 
-    
     public List<Tag> getTags() {
         return tags;
     }
-    
+
     public void addTag(Tag t) {
         tags.add(t);
     }

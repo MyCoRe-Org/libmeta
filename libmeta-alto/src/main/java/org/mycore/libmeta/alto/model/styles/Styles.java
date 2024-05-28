@@ -37,42 +37,42 @@ import jakarta.xml.bind.annotation.XmlElement;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Styles {
 
-	@XmlElement(name = "TextStyle", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected List<TextStyle> textStyle = new Vector<TextStyle>();
+    @XmlElement(name = "TextStyle", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+    protected List<TextStyle> textStyle = new Vector<TextStyle>();
 
-	@XmlElement(name = "ParagraphStyle", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected List<ParagraphStyle> paragraphStyle = new Vector<ParagraphStyle>();
+    @XmlElement(name = "ParagraphStyle", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+    protected List<ParagraphStyle> paragraphStyle = new Vector<ParagraphStyle>();
 
-	public List<TextStyle> getTextStyle() {
-		return textStyle;
-	}
+    public List<TextStyle> getTextStyle() {
+        return textStyle;
+    }
 
-	public List<ParagraphStyle> getParagraphStyle() {
-		return paragraphStyle;
-	}
+    public List<ParagraphStyle> getParagraphStyle() {
+        return paragraphStyle;
+    }
 
-	public static Builder builder() {
-		return builder(new Styles());
-	}
+    public static Builder builder() {
+        return builder(new Styles());
+    }
 
-	public static Builder builder(Styles styles) {
-		return new Builder(styles);
-	}
+    public static Builder builder(Styles styles) {
+        return new Builder(styles);
+    }
 
-	public static class Builder extends BuilderBase<Styles, Builder> {
+    public static class Builder extends BuilderBase<Styles, Builder> {
 
-		protected Builder(Styles styles) {
-			super(styles);
-		}
+        protected Builder(Styles styles) {
+            super(styles);
+        }
 
-		public Builder addTextStyle(TextStyle textStyle) {
-			_target().getTextStyle().add(textStyle);
-			return _self();
-		}
+        public Builder addTextStyle(TextStyle textStyle) {
+            _target().getTextStyle().add(textStyle);
+            return _self();
+        }
 
-		public Builder addParagraphStyle(ParagraphStyle paragraphStyle) {
-			_target().getParagraphStyle().add(paragraphStyle);
-			return _self();
-		}
-	}
+        public Builder addParagraphStyle(ParagraphStyle paragraphStyle) {
+            _target().getParagraphStyle().add(paragraphStyle);
+            return _self();
+        }
+    }
 }

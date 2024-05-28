@@ -35,121 +35,124 @@ import jakarta.xml.bind.annotation.XmlType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = { "processingDateTime", "processingAgency", "processingStepDescription", "processingStepSettings", "processingSoftware" })
+@XmlType(propOrder = { "processingDateTime", "processingAgency", "processingStepDescription", "processingStepSettings",
+    "processingSoftware" })
 public class ProcessingStep {
 
-	/**
-	 * Date or DateTime the image was processed.
-	 */ 
-	 // @TODO support Java DateTime objects
-	 //       (supported schema types: {@code <xsd:union memberTypes="xsd:date xsd:dateTime xsd:gYear xsd:gYearMonth"/>})
-	 
-	@XmlElement(name = "processingDateTime", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected String processingDateTime;
+    /**
+     * Date or DateTime the image was processed.
+     */
+    // @TODO support Java DateTime objects
+    //       (supported schema types: {@code <xsd:union memberTypes="xsd:date xsd:dateTime xsd:gYear xsd:gYearMonth"/>})
 
-	/**
-	 * Identifies the organizationlevel producer(s) of the processed image.
-	 */
-	@XmlElement(name = "processingAgency", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected String processingAgency;
+    @XmlElement(name = "processingDateTime", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+    protected String processingDateTime;
 
-	/**
-	 * An ordinal listing of the image processing steps performed. For example,
-	 * "image despeckling.
-	 */
-	@XmlElement(name = "processingStepDescription", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected List<String> processingStepDescription = new Vector<>();
+    /**
+     * Identifies the organizationlevel producer(s) of the processed image.
+     */
+    @XmlElement(name = "processingAgency", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+    protected String processingAgency;
 
-	/**
-	 * A description of any setting of the processing application. For example, for
-	 * a multi-engine OCR application this might include the engines which were
-	 * used. Ideally, this description should be adequate so that someone else using
-	 * the same application can produce identical results.
-	 */
-	@XmlElement(name = "processingStepSettings", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected String processingStepSettings;
+    /**
+     * An ordinal listing of the image processing steps performed. For example,
+     * "image despeckling.
+     */
+    @XmlElement(name = "processingStepDescription", namespace = "http://www.loc.gov/standards/alto/ns-v2#",
+        required = false)
+    protected List<String> processingStepDescription = new Vector<>();
 
-	/**
-	 * Information about a software application. Where applicable, the preferred
-	 * method for determining this information is by selecting Help -- About.
-	 */
-	@XmlElement(name = "processingSoftware", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected ProcessingSoftware processingSoftware;
+    /**
+     * A description of any setting of the processing application. For example, for
+     * a multi-engine OCR application this might include the engines which were
+     * used. Ideally, this description should be adequate so that someone else using
+     * the same application can produce identical results.
+     */
+    @XmlElement(name = "processingStepSettings", namespace = "http://www.loc.gov/standards/alto/ns-v2#",
+        required = false)
+    protected String processingStepSettings;
 
-	public String getProcessingDateTime() {
-		return processingDateTime;
-	}
+    /**
+     * Information about a software application. Where applicable, the preferred
+     * method for determining this information is by selecting Help -- About.
+     */
+    @XmlElement(name = "processingSoftware", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+    protected ProcessingSoftware processingSoftware;
 
-	public void setProcessingDateTime(String processingDateTime) {
-		this.processingDateTime = processingDateTime;
-	}
+    public String getProcessingDateTime() {
+        return processingDateTime;
+    }
 
-	public String getProcessingAgency() {
-		return processingAgency;
-	}
+    public void setProcessingDateTime(String processingDateTime) {
+        this.processingDateTime = processingDateTime;
+    }
 
-	public void setProcessingAgency(String processingAgency) {
-		this.processingAgency = processingAgency;
-	}
+    public String getProcessingAgency() {
+        return processingAgency;
+    }
 
-	public String getProcessingStepSettings() {
-		return processingStepSettings;
-	}
+    public void setProcessingAgency(String processingAgency) {
+        this.processingAgency = processingAgency;
+    }
 
-	public void setProcessingStepSettings(String processingStepSettings) {
-		this.processingStepSettings = processingStepSettings;
-	}
+    public String getProcessingStepSettings() {
+        return processingStepSettings;
+    }
 
-	public ProcessingSoftware getProcessingSoftware() {
-		return processingSoftware;
-	}
+    public void setProcessingStepSettings(String processingStepSettings) {
+        this.processingStepSettings = processingStepSettings;
+    }
 
-	public void setProcessingSoftware(ProcessingSoftware processingSoftware) {
-		this.processingSoftware = processingSoftware;
-	}
+    public ProcessingSoftware getProcessingSoftware() {
+        return processingSoftware;
+    }
 
-	public List<String> getProcessingStepDescription() {
-		return processingStepDescription;
-	}
-	
-	public static Builder builder() {
-		return builder(new ProcessingStep());
-	}
+    public void setProcessingSoftware(ProcessingSoftware processingSoftware) {
+        this.processingSoftware = processingSoftware;
+    }
 
-	public static Builder builder(ProcessingStep processingStep) {
-		return new Builder(processingStep);
-	}
+    public List<String> getProcessingStepDescription() {
+        return processingStepDescription;
+    }
 
-	public static class Builder extends BuilderBase<ProcessingStep, Builder> {
+    public static Builder builder() {
+        return builder(new ProcessingStep());
+    }
 
-		protected Builder(ProcessingStep processingStep) {
-			super(processingStep);
-		}
-		
-		public Builder processingDateTime(String processingDateTime) {
-			_target().setProcessingDateTime(processingDateTime);
-			return _self();
-		}
-		
-		public Builder processingAgency(String processingAgency) {
-			_target().setProcessingAgency(processingAgency);
-			return _self();
-		}
+    public static Builder builder(ProcessingStep processingStep) {
+        return new Builder(processingStep);
+    }
 
-		public Builder addProcessingStepDescription(String processingStepDescription) {
-			_target().getProcessingStepDescription().add(processingStepDescription);
-			return _self();
-		}
-		
-		public Builder processingStepSettings(String processingStepSettings) {
-			_target().setProcessingStepSettings(processingStepSettings);
-			return _self();
-		}
-		
-		public Builder processingSoftware(ProcessingSoftware processingSoftware) {
-			_target().setProcessingSoftware(processingSoftware);
-			return _self();
-		}
-	}
+    public static class Builder extends BuilderBase<ProcessingStep, Builder> {
+
+        protected Builder(ProcessingStep processingStep) {
+            super(processingStep);
+        }
+
+        public Builder processingDateTime(String processingDateTime) {
+            _target().setProcessingDateTime(processingDateTime);
+            return _self();
+        }
+
+        public Builder processingAgency(String processingAgency) {
+            _target().setProcessingAgency(processingAgency);
+            return _self();
+        }
+
+        public Builder addProcessingStepDescription(String processingStepDescription) {
+            _target().getProcessingStepDescription().add(processingStepDescription);
+            return _self();
+        }
+
+        public Builder processingStepSettings(String processingStepSettings) {
+            _target().setProcessingStepSettings(processingStepSettings);
+            return _self();
+        }
+
+        public Builder processingSoftware(ProcessingSoftware processingSoftware) {
+            _target().setProcessingSoftware(processingSoftware);
+            return _self();
+        }
+    }
 
 }

@@ -30,88 +30,88 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlAccessorType(XmlAccessType.NONE)
 public class TextlineHYP implements ITextlineContent, IBoundingBoxHolder {
-	@XmlAttribute(name = "HEIGHT", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float HEIGHT;
+    @XmlAttribute(name = "HEIGHT", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float HEIGHT;
 
-	@XmlAttribute(name = "WIDTH", required = false)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float WIDTH;
+    @XmlAttribute(name = "WIDTH", required = false)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float WIDTH;
 
-	@XmlAttribute(name = "HPOS", required = false)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float HPOS;
+    @XmlAttribute(name = "HPOS", required = false)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float HPOS;
 
-	@XmlAttribute(name = "VPOS", required = false)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float VPOS;
-	
-	@XmlAttribute(name = "CONTENT", required = false)
-	@XmlSchemaType(name = "CONTENT")
-	protected String CONTENT;
+    @XmlAttribute(name = "VPOS", required = false)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float VPOS;
 
-	public String getCONTENT() {
-		return CONTENT;
-	}
+    @XmlAttribute(name = "CONTENT", required = false)
+    @XmlSchemaType(name = "CONTENT")
+    protected String CONTENT;
 
-	public void setCONTENT(String content) {
-		CONTENT = content;
-	}
+    public String getCONTENT() {
+        return CONTENT;
+    }
 
-	public Float getHEIGHT() {
-		return HEIGHT;
-	}
+    public void setCONTENT(String content) {
+        CONTENT = content;
+    }
 
-	public void setHEIGHT(Float hEIGHT) {
-		HEIGHT = hEIGHT;
-	}
+    public Float getHEIGHT() {
+        return HEIGHT;
+    }
 
-	public Float getWIDTH() {
-		return WIDTH;
-	}
+    public void setHEIGHT(Float hEIGHT) {
+        HEIGHT = hEIGHT;
+    }
 
-	public void setWIDTH(Float wIDTH) {
-		WIDTH = wIDTH;
-	}
+    public Float getWIDTH() {
+        return WIDTH;
+    }
 
-	public Float getHPOS() {
-		return HPOS;
-	}
+    public void setWIDTH(Float wIDTH) {
+        WIDTH = wIDTH;
+    }
 
-	public void setHPOS(Float hPOS) {
-		HPOS = hPOS;
-	}
+    public Float getHPOS() {
+        return HPOS;
+    }
 
-	public Float getVPOS() {
-		return VPOS;
-	}
+    public void setHPOS(Float hPOS) {
+        HPOS = hPOS;
+    }
 
-	public void setVPOS(Float vPOS) {
-		VPOS = vPOS;
-	}
-	
-	public static Builder builder() {
-		return builder(new TextlineHYP());
-	}
+    public Float getVPOS() {
+        return VPOS;
+    }
 
-	public static Builder builder(TextlineHYP  hyp) {
-		return new Builder(hyp);
-	}
+    public void setVPOS(Float vPOS) {
+        VPOS = vPOS;
+    }
 
-	public static class Builder extends BuilderBase<TextlineHYP, Builder> implements
-			IBoundingBoxBuilder<TextlineHYP, Builder> {
+    public static Builder builder() {
+        return builder(new TextlineHYP());
+    }
 
-		protected Builder(TextlineHYP hyp) {
-			super(hyp);
-		}
+    public static Builder builder(TextlineHYP hyp) {
+        return new Builder(hyp);
+    }
 
-		public Builder CONTENT(String content) {
-			_target().setCONTENT(content);
-			return _self();
-		}
-	}
+    public static class Builder extends BuilderBase<TextlineHYP, Builder> implements
+        IBoundingBoxBuilder<TextlineHYP, Builder> {
+
+        protected Builder(TextlineHYP hyp) {
+            super(hyp);
+        }
+
+        public Builder CONTENT(String content) {
+            _target().setCONTENT(content);
+            return _self();
+        }
+    }
 }
