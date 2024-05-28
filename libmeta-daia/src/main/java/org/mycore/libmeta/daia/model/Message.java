@@ -34,7 +34,7 @@ import jakarta.xml.bind.annotation.XmlValue;
 @XmlType
 @XmlAccessorType(XmlAccessType.NONE)
 public class Message {
-    
+
     /**
      * ISO-639 language code (en, fr, de, ...) of the messageIdentifier of this element
      *
