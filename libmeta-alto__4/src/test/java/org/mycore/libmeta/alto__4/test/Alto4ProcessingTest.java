@@ -62,7 +62,7 @@ public class Alto4ProcessingTest {
                     .build())
                 .build();
             String altoXml = Alto4XMLProcessor.getInstance().marshalToString(alto);
-            System.out.println(altoXml);
+            // System.out.println(altoXml);
             assertEquals("Generated XML for Processing is wrong", xml, altoXml);
 
         } catch (Exception e) {
