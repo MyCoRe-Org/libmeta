@@ -30,8 +30,12 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum XlinkActuate {
-	@XmlEnumValue("onLoad") ONLOAD, 
-	@XmlEnumValue("onRequest") ONREQUEST, 
-	@XmlEnumValue("other") OTHER, 
-	@XmlEnumValue("none") NONE;
+    @XmlEnumValue("onLoad")
+    ONLOAD,
+    @XmlEnumValue("onRequest")
+    ONREQUEST,
+    @XmlEnumValue("other")
+    OTHER,
+    @XmlEnumValue("none")
+    NONE;
 }

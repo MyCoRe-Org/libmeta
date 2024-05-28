@@ -31,43 +31,43 @@ import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkArcLink;
  * @param <B> the builder that should be enhanced by this interface
  */
 public interface IAttributeGroupXlinkArcLinkBuilder<T extends IAttributeGroupXlinkArcLink, B> {
-	public T _target();
+    public T _target();
 
-	public B _self();
+    public B _self();
 
-	public default B xlinkType(XlinkTypeArc xlinkType) {
-		_target().setXlinkType(xlinkType);
-		return _self();
-	}
+    public default B xlinkType(XlinkTypeArc xlinkType) {
+        _target().setXlinkType(xlinkType);
+        return _self();
+    }
 
-	public default B xlinkArcrole(String xlinkArcrole) {
-		_target().setXlinkArcrole(xlinkArcrole);
-		return _self();
-	}
+    public default B xlinkArcrole(String xlinkArcrole) {
+        _target().setXlinkArcrole(xlinkArcrole);
+        return _self();
+    }
 
-	public default B xlinkTitle(String xlinkTitle) {
-		_target().setXlinkTitle(xlinkTitle);
-		return _self();
-	}
+    public default B xlinkTitle(String xlinkTitle) {
+        _target().setXlinkTitle(xlinkTitle);
+        return _self();
+    }
 
-	public default B xlinkShow(XlinkShow xlinkShow) {
-		_target().setXlinkShow(xlinkShow);
-		return _self();
-	}
+    public default B xlinkShow(XlinkShow xlinkShow) {
+        _target().setXlinkShow(xlinkShow);
+        return _self();
+    }
 
-	public default B xlinkActuate(XlinkActuate xlinkActuate) {
-		_target().setXlinkActuate(xlinkActuate);
-		return _self();
-	}
+    public default B xlinkActuate(XlinkActuate xlinkActuate) {
+        _target().setXlinkActuate(xlinkActuate);
+        return _self();
+    }
 
-	public default B xlinkFrom(String xlinkFrom) {
-		_target().setXlinkFrom(xlinkFrom);
-		return _self();
-	}
+    public default B xlinkFrom(String xlinkFrom) {
+        _target().setXlinkFrom(xlinkFrom);
+        return _self();
+    }
 
-	public default B xlinkTo(String xlinkTo) {
-		_target().setXlinkTo(xlinkTo);
-		return _self();
-	}
+    public default B xlinkTo(String xlinkTo) {
+        _target().setXlinkTo(xlinkTo);
+        return _self();
+    }
 
 }

@@ -32,41 +32,42 @@ import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink
  */
 public interface IAttributeGroupXlinkSimpleLinkBuilder<T extends IAttributeGroupXlinkSimpleLink, B> {
 
-	T _target();
+    T _target();
 
-	public B _self();
-    
-	public default B xlinkType(XlinkTypeSimple xlinkType) {
+    public B _self();
+
+    public default B xlinkType(XlinkTypeSimple xlinkType) {
         _target().setXlinkType(xlinkType);
         return _self();
     }
-	public default B xlinkHref(String xlinkHref) {
-		_target().setXlinkHref(xlinkHref);
-		return _self();
-	}
 
-	public default B xlinkRole(String xlinkRole) {
-		_target().setXlinkRole(xlinkRole);
-		return _self();
-	}
+    public default B xlinkHref(String xlinkHref) {
+        _target().setXlinkHref(xlinkHref);
+        return _self();
+    }
 
-	public default B xlinkArcrole(String xlinkArcrole) {
-		_target().setXlinkArcrole(xlinkArcrole);
-		return _self();
-	}
+    public default B xlinkRole(String xlinkRole) {
+        _target().setXlinkRole(xlinkRole);
+        return _self();
+    }
 
-	public default B xlinkTitle(String xlinkTitle) {
-		_target().setXlinkTitle(xlinkTitle);
-		return _self();
-	}
+    public default B xlinkArcrole(String xlinkArcrole) {
+        _target().setXlinkArcrole(xlinkArcrole);
+        return _self();
+    }
 
-	public default B xlinkShow(XlinkShow xlinkShow) {
-		_target().setXlinkShow(xlinkShow);
-		return _self();
-	}
+    public default B xlinkTitle(String xlinkTitle) {
+        _target().setXlinkTitle(xlinkTitle);
+        return _self();
+    }
 
-	public default B xlinkActuate(XlinkActuate xlinkActuate) {
-		_target().setXlinkActuate(xlinkActuate);
-		return _self();
-	}
+    public default B xlinkShow(XlinkShow xlinkShow) {
+        _target().setXlinkShow(xlinkShow);
+        return _self();
+    }
+
+    public default B xlinkActuate(XlinkActuate xlinkActuate) {
+        _target().setXlinkActuate(xlinkActuate);
+        return _self();
+    }
 }

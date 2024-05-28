@@ -30,5 +30,6 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum XlinkTypeArc {
-	@XmlEnumValue("arc") ARC;
+    @XmlEnumValue("arc")
+    ARC;
 }

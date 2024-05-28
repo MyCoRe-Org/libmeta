@@ -30,5 +30,6 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum XlinkTypeLocator {
-	@XmlEnumValue("locator") LOCATOR;
+    @XmlEnumValue("locator")
+    LOCATOR;
 }

@@ -30,10 +30,15 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum XlinkShow {
-	@XmlEnumValue("new") NEW, 
-	@XmlEnumValue("replace") REPLACE, 
-	@XmlEnumValue("embed") EMBED, 
-	@XmlEnumValue("other") OTHER, 
-	@XmlEnumValue("none") NONE;
+    @XmlEnumValue("new")
+    NEW,
+    @XmlEnumValue("replace")
+    REPLACE,
+    @XmlEnumValue("embed")
+    EMBED,
+    @XmlEnumValue("other")
+    OTHER,
+    @XmlEnumValue("none")
+    NONE;
 
 }

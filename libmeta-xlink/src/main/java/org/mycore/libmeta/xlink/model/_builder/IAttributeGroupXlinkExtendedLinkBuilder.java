@@ -30,23 +30,23 @@ import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkExtendedLi
  */
 public interface IAttributeGroupXlinkExtendedLinkBuilder<T extends IAttributeGroupXlinkExtendedLink, B> {
 
-	T _target();
+    T _target();
 
-	public B _self();
+    public B _self();
 
-	public default B xlinkType(XlinkTypeExtended xlinkType) {
-		_target().setXlinkType(xlinkType);
-		return _self();
-	}
+    public default B xlinkType(XlinkTypeExtended xlinkType) {
+        _target().setXlinkType(xlinkType);
+        return _self();
+    }
 
-	public default B xlinkRole(String xlinkRole) {
-		_target().setXlinkRole(xlinkRole);
-		return _self();
-	}
+    public default B xlinkRole(String xlinkRole) {
+        _target().setXlinkRole(xlinkRole);
+        return _self();
+    }
 
-	public default B xlinkTitle(String xlinkTitle) {
-		_target().setXlinkTitle(xlinkTitle);
-		return _self();
-	}
+    public default B xlinkTitle(String xlinkTitle) {
+        _target().setXlinkTitle(xlinkTitle);
+        return _self();
+    }
 
 }

@@ -30,35 +30,35 @@ import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkLocatorLin
  */
 public interface IAttributeGroupXlinkLocatorLinkBuilder<T extends IAttributeGroupXlinkLocatorLink, B> {
 
-	T _target();
+    T _target();
 
-	public B _self();
+    public B _self();
 
-	public default B xlinkType(XlinkTypeLocator xlinkType) {
-		_target().setXlinkType(xlinkType);
-		return _self();
-	}
+    public default B xlinkType(XlinkTypeLocator xlinkType) {
+        _target().setXlinkType(xlinkType);
+        return _self();
+    }
 
-	public default B xlinkHref(String xlinkHref) {
-		_target().setXlinkHref(xlinkHref);
-		return _self();
+    public default B xlinkHref(String xlinkHref) {
+        _target().setXlinkHref(xlinkHref);
+        return _self();
 
-	}
+    }
 
-	public default B xlinkRole(String xlinkRole) {
-		_target().setXlinkRole(xlinkRole);
-		return _self();
+    public default B xlinkRole(String xlinkRole) {
+        _target().setXlinkRole(xlinkRole);
+        return _self();
 
-	}
+    }
 
-	public default B xlinkTitle(String xlinkTitle) {
-		_target().setXlinkTitle(xlinkTitle);
-		return _self();
+    public default B xlinkTitle(String xlinkTitle) {
+        _target().setXlinkTitle(xlinkTitle);
+        return _self();
 
-	}
+    }
 
-	public default B xlinkLabel(String xlinkLabel) {
-		_target().setXlinkLabel(xlinkLabel);
-		return _self();
-	}
+    public default B xlinkLabel(String xlinkLabel) {
+        _target().setXlinkLabel(xlinkLabel);
+        return _self();
+    }
 }
