@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="TODO" uri="xsd/dublincore-oai/openarchives.org_OAI_2.0_oai_dc.xsd" />
+</catalog>
