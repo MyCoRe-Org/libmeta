@@ -20,7 +20,6 @@ package org.mycore.libmeta.alto__4.model.styles;
 import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 
-
 /**
  * Indicates the alignement of the paragraph. Could be left, right, center or justify.
  * 
@@ -30,8 +29,12 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum ParagraphALIGN {
-	@XmlEnumValue("Left") Left,
-	@XmlEnumValue("Right") Right,
-	@XmlEnumValue("Center") Center,
-	@XmlEnumValue("Block") Block;
+    @XmlEnumValue("Left")
+    Left,
+    @XmlEnumValue("Right")
+    Right,
+    @XmlEnumValue("Center")
+    Center,
+    @XmlEnumValue("Block")
+    Block;
 }

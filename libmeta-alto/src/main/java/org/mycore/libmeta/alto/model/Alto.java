@@ -125,22 +125,22 @@ public class Alto {
         }
 
         public Builder Styles(Styles styles) {
-        	_target().setStyles(styles);
+            _target().setStyles(styles);
             return _self();
         }
 
         public Builder Tags(Tags tags) {
-        	_target().setTags(tags);
+            _target().setTags(tags);
             return _self();
         }
 
         public Builder Layout(Layout layout) {
-        	_target().setLayout(layout);
+            _target().setLayout(layout);
             return _self();
         }
 
         public Builder xsiSchemaLocation(String schemaLocation) {
-        	_target().setXsiSchemaLocation(schemaLocation);
+            _target().setXsiSchemaLocation(schemaLocation);
             return _self();
         }
     }

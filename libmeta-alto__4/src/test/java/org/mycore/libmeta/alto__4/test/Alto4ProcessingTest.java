@@ -16,7 +16,6 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package org.mycore.libmeta.alto__4.test;
 
 import static org.junit.Assert.assertEquals;
@@ -63,7 +62,7 @@ public class Alto4ProcessingTest {
                     .build())
                 .build();
             String altoXml = Alto4XMLProcessor.getInstance().marshalToString(alto);
-            System.out.println(altoXml);
+            // System.out.println(altoXml);
             assertEquals("Generated XML for Processing is wrong", xml, altoXml);
 
         } catch (Exception e) {

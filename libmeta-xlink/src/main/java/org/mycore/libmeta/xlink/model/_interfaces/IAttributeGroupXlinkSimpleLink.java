@@ -27,33 +27,33 @@ import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
  * @author Robert Stephan
  */
 public interface IAttributeGroupXlinkSimpleLink {
-    
+
     public XlinkTypeSimple getXlinkType();
-    
+
     public void setXlinkType(XlinkTypeSimple xlinkType);
 
-	public String getXlinkHref();
+    public String getXlinkHref();
 
-	public void setXlinkHref(String xlinkHref);
+    public void setXlinkHref(String xlinkHref);
 
-	public String getXlinkRole();
+    public String getXlinkRole();
 
-	public void setXlinkRole(String xlinkRole);
+    public void setXlinkRole(String xlinkRole);
 
-	public String getXlinkArcrole();
+    public String getXlinkArcrole();
 
-	public void setXlinkArcrole(String xlinkArcrole);
+    public void setXlinkArcrole(String xlinkArcrole);
 
-	public String getXlinkTitle();
+    public String getXlinkTitle();
 
-	public void setXlinkTitle(String xlinkTitle);
+    public void setXlinkTitle(String xlinkTitle);
 
-	public XlinkShow getXlinkShow();
+    public XlinkShow getXlinkShow();
 
-	public void setXlinkShow(XlinkShow xlinkShow);
+    public void setXlinkShow(XlinkShow xlinkShow);
 
-	public XlinkActuate getXlinkActuate();
+    public XlinkActuate getXlinkActuate();
 
-	public void setXlinkActuate(XlinkActuate xlinkActuate);
+    public void setXlinkActuate(XlinkActuate xlinkActuate);
 
 }

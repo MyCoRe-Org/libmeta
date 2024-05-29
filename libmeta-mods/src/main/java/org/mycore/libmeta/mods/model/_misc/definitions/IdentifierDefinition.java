@@ -23,7 +23,7 @@ import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 
 import jakarta.xml.bind.annotation.XmlAttribute;
 
-public class IdentifierDefinition extends StringPlusLanguage implements IIDAttributeGroup { 
+public class IdentifierDefinition extends StringPlusLanguage implements IIDAttributeGroup {
     @XmlAttribute(name = "ID")
     protected String ID;
 

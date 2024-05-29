@@ -40,121 +40,125 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlAccessorType(XmlAccessType.NONE)
 public class PageSpace implements IBoundingBoxHolder {
 
-	@XmlElements(value = {
-			@XmlElement(name = "TextBlock", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = TextBlock.class),
-			@XmlElement(name = "Illustration", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = Illustration.class),
-			@XmlElement(name = "GraphicalElement", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = GraphicalElement.class),
-			@XmlElement(name = "ComposedBlock", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = ComposedBlock.class) })
-	protected List<Block> block = new Vector<Block>();
+    @XmlElements(value = {
+        @XmlElement(name = "TextBlock", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false,
+            type = TextBlock.class),
+        @XmlElement(name = "Illustration", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false,
+            type = Illustration.class),
+        @XmlElement(name = "GraphicalElement", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false,
+            type = GraphicalElement.class),
+        @XmlElement(name = "ComposedBlock", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false,
+            type = ComposedBlock.class) })
+    protected List<Block> block = new Vector<Block>();
 
-	@XmlAttribute(name = "ID", required = true)
-	@XmlSchemaType(name = "ID")
-	protected String ID;
+    @XmlAttribute(name = "ID", required = true)
+    @XmlSchemaType(name = "ID")
+    protected String ID;
 
-	@XmlAttribute(name = "STYLEREFS", required = false)
-	@XmlSchemaType(name = "IDREFS")
-	protected String STYLEREFS;
+    @XmlAttribute(name = "STYLEREFS", required = false)
+    @XmlSchemaType(name = "IDREFS")
+    protected String STYLEREFS;
 
-	@XmlAttribute(name = "HEIGHT", required = false)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float HEIGHT;
+    @XmlAttribute(name = "HEIGHT", required = false)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float HEIGHT;
 
-	@XmlAttribute(name = "WIDTH", required = false)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float WIDTH;
+    @XmlAttribute(name = "WIDTH", required = false)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float WIDTH;
 
-	@XmlAttribute(name = "HPOS", required = false)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float HPOS;
+    @XmlAttribute(name = "HPOS", required = false)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float HPOS;
 
-	@XmlAttribute(name = "VPOS", required = false)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float VPOS;
+    @XmlAttribute(name = "VPOS", required = false)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float VPOS;
 
-	public String getID() {
-		return ID;
-	}
+    public String getID() {
+        return ID;
+    }
 
-	public void setID(String iD) {
-		ID = iD;
-	}
+    public void setID(String iD) {
+        ID = iD;
+    }
 
-	public String getSTYLEREFS() {
-		return STYLEREFS;
-	}
+    public String getSTYLEREFS() {
+        return STYLEREFS;
+    }
 
-	public void setSTYLEREFS(String sTYLEREFS) {
-		STYLEREFS = sTYLEREFS;
-	}
+    public void setSTYLEREFS(String sTYLEREFS) {
+        STYLEREFS = sTYLEREFS;
+    }
 
-	public Float getHEIGHT() {
-		return HEIGHT;
-	}
+    public Float getHEIGHT() {
+        return HEIGHT;
+    }
 
-	public void setHEIGHT(Float hEIGHT) {
-		HEIGHT = hEIGHT;
-	}
+    public void setHEIGHT(Float hEIGHT) {
+        HEIGHT = hEIGHT;
+    }
 
-	public Float getWIDTH() {
-		return WIDTH;
-	}
+    public Float getWIDTH() {
+        return WIDTH;
+    }
 
-	public void setWIDTH(Float wIDTH) {
-		WIDTH = wIDTH;
-	}
+    public void setWIDTH(Float wIDTH) {
+        WIDTH = wIDTH;
+    }
 
-	public Float getHPOS() {
-		return HPOS;
-	}
+    public Float getHPOS() {
+        return HPOS;
+    }
 
-	public void setHPOS(Float hPOS) {
-		HPOS = hPOS;
-	}
+    public void setHPOS(Float hPOS) {
+        HPOS = hPOS;
+    }
 
-	public Float getVPOS() {
-		return VPOS;
-	}
+    public Float getVPOS() {
+        return VPOS;
+    }
 
-	public void setVPOS(Float vPOS) {
-		VPOS = vPOS;
-	}
+    public void setVPOS(Float vPOS) {
+        VPOS = vPOS;
+    }
 
-	public List<Block> getBlock() {
-		return block;
-	}
-	
-	public static Builder builder() {
-		return builder(new PageSpace());
-	}
+    public List<Block> getBlock() {
+        return block;
+    }
 
-	public static Builder builder(PageSpace pageSpace) {
-		return new Builder(pageSpace);
-	}
+    public static Builder builder() {
+        return builder(new PageSpace());
+    }
 
-	public static class Builder extends BuilderBase<PageSpace, Builder> 
-	implements IBoundingBoxBuilder<PageSpace, Builder>{
-		
-		protected Builder(PageSpace pageSpace) {
-			super(pageSpace);
-		}
+    public static Builder builder(PageSpace pageSpace) {
+        return new Builder(pageSpace);
+    }
 
-		public Builder addBlock(Block block) {
-			_target().getBlock().add(block);
-			return _self();
-		}
+    public static class Builder extends BuilderBase<PageSpace, Builder>
+        implements IBoundingBoxBuilder<PageSpace, Builder> {
 
-		public Builder ID(String id) {
-			_target().setID(id);
-			return _self();
-		}
+        protected Builder(PageSpace pageSpace) {
+            super(pageSpace);
+        }
 
-		public Builder STYLEREFS(String styleRefs) {
-			_target().setSTYLEREFS(styleRefs);
-			return _self();
-		}
-	}
+        public Builder addBlock(Block block) {
+            _target().getBlock().add(block);
+            return _self();
+        }
+
+        public Builder ID(String id) {
+            _target().setID(id);
+            return _self();
+        }
+
+        public Builder STYLEREFS(String styleRefs) {
+            _target().setSTYLEREFS(styleRefs);
+            return _self();
+        }
+    }
 }

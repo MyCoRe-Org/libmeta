@@ -33,60 +33,60 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlAccessorType(XmlAccessType.NONE)
 public class Block implements IAttributeGroupXlinkSimpleLink, IBoundingBoxHolder {
-	
-	@XmlElement(name = "Shape", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected Shape Shape;
-	
-	@XmlAttribute(name = "ID", required = true)
-	@XmlSchemaType(name = "ID")
-	protected String ID;
 
-	@XmlAttribute(name = "STYLEREFS", required = false)
-	@XmlSchemaType(name = "IDREFS")
-	protected String STYLEREFS;
-	
-	@XmlAttribute(name = "TAGREFS", required = false)
-	@XmlSchemaType(name = "IDREFS")
-	protected String TAGREFS;
-		
-	@XmlAttribute(name = "HEIGHT", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float HEIGHT;
+    @XmlElement(name = "Shape", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+    protected Shape Shape;
 
-	@XmlAttribute(name = "WIDTH", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float WIDTH;
+    @XmlAttribute(name = "ID", required = true)
+    @XmlSchemaType(name = "ID")
+    protected String ID;
 
-	@XmlAttribute(name = "HPOS", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float HPOS;
+    @XmlAttribute(name = "STYLEREFS", required = false)
+    @XmlSchemaType(name = "IDREFS")
+    protected String STYLEREFS;
 
-	@XmlAttribute(name = "VPOS", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float VPOS;
-	
-	/**
-	 * Tells the rotation of the block e.g. text or illustration. The value is in degree counterclockwise.
-	 */
-	@XmlAttribute(name = "ROTATION", required = false)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float ROTATION;
-	
-	/**The next block in reading sequence on the page.*/
-	@XmlAttribute(name = "IDNEXT", required = false)
-	@XmlSchemaType(name = "IDREF")
-	protected String IDNEXT;
-	
-	/** Correction Status. Indicates whether manual correction has been done or not. The correction status should be recorded at the highest level possible (Block, TextLine, String). */
-	@XmlAttribute(name = "CS", required = false)
-	@XmlSchemaType(name = "boolean")
-	protected String CS;
-	
+    @XmlAttribute(name = "TAGREFS", required = false)
+    @XmlSchemaType(name = "IDREFS")
+    protected String TAGREFS;
+
+    @XmlAttribute(name = "HEIGHT", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float HEIGHT;
+
+    @XmlAttribute(name = "WIDTH", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float WIDTH;
+
+    @XmlAttribute(name = "HPOS", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float HPOS;
+
+    @XmlAttribute(name = "VPOS", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float VPOS;
+
+    /**
+     * Tells the rotation of the block e.g. text or illustration. The value is in degree counterclockwise.
+     */
+    @XmlAttribute(name = "ROTATION", required = false)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float ROTATION;
+
+    /**The next block in reading sequence on the page.*/
+    @XmlAttribute(name = "IDNEXT", required = false)
+    @XmlSchemaType(name = "IDREF")
+    protected String IDNEXT;
+
+    /** Correction Status. Indicates whether manual correction has been done or not. The correction status should be recorded at the highest level possible (Block, TextLine, String). */
+    @XmlAttribute(name = "CS", required = false)
+    @XmlSchemaType(name = "boolean")
+    protected String CS;
+
     // attributeGroup xlink:simpleLink - begin
 
     /**
@@ -144,153 +144,149 @@ public class Block implements IAttributeGroupXlinkSimpleLink, IBoundingBoxHolder
      */
     @XmlAttribute(name = "actuate", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkActuate xlinkActuate;
-    
-	public Shape getShape() {
-		return Shape;
-	}
 
-	public void setShape(Shape shape) {
-		Shape = shape;
-	}
+    public Shape getShape() {
+        return Shape;
+    }
 
-	public String getID() {
-		return ID;
-	}
+    public void setShape(Shape shape) {
+        Shape = shape;
+    }
 
-	public void setID(String iD) {
-		ID = iD;
-	}
+    public String getID() {
+        return ID;
+    }
 
-	public String getSTYLEREFS() {
-		return STYLEREFS;
-	}
+    public void setID(String iD) {
+        ID = iD;
+    }
 
-	public void setSTYLEREFS(String sTYLEREFS) {
-		STYLEREFS = sTYLEREFS;
-	}
+    public String getSTYLEREFS() {
+        return STYLEREFS;
+    }
 
-	public String getTAGREFS() {
-		return TAGREFS;
-	}
+    public void setSTYLEREFS(String sTYLEREFS) {
+        STYLEREFS = sTYLEREFS;
+    }
 
-	public void setTAGREFS(String tAGREFS) {
-		TAGREFS = tAGREFS;
-	}
+    public String getTAGREFS() {
+        return TAGREFS;
+    }
 
-	public Float getHEIGHT() {
-		return HEIGHT;
-	}
+    public void setTAGREFS(String tAGREFS) {
+        TAGREFS = tAGREFS;
+    }
 
-	public void setHEIGHT(Float hEIGHT) {
-		HEIGHT = hEIGHT;
-	}
+    public Float getHEIGHT() {
+        return HEIGHT;
+    }
 
-	public Float getWIDTH() {
-		return WIDTH;
-	}
+    public void setHEIGHT(Float hEIGHT) {
+        HEIGHT = hEIGHT;
+    }
 
-	public void setWIDTH(Float wIDTH) {
-		WIDTH = wIDTH;
-	}
+    public Float getWIDTH() {
+        return WIDTH;
+    }
 
-	public Float getHPOS() {
-		return HPOS;
-	}
+    public void setWIDTH(Float wIDTH) {
+        WIDTH = wIDTH;
+    }
 
-	public void setHPOS(Float hPOS) {
-		HPOS = hPOS;
-	}
+    public Float getHPOS() {
+        return HPOS;
+    }
 
-	public Float getVPOS() {
-		return VPOS;
-	}
+    public void setHPOS(Float hPOS) {
+        HPOS = hPOS;
+    }
 
-	public void setVPOS(Float vPOS) {
-		VPOS = vPOS;
-	}
+    public Float getVPOS() {
+        return VPOS;
+    }
 
-	public Float getROTATAION() {
-		return ROTATION;
-	}
+    public void setVPOS(Float vPOS) {
+        VPOS = vPOS;
+    }
 
-	public void setROTATION(Float rOTATION) {
-		ROTATION = rOTATION;
-	}
+    public Float getROTATAION() {
+        return ROTATION;
+    }
 
-	public String getIDNEXT() {
-		return IDNEXT;
-	}
+    public void setROTATION(Float rOTATION) {
+        ROTATION = rOTATION;
+    }
 
-	public void setIDNEXT(String iDNEXT) {
-		IDNEXT = iDNEXT;
-	}
+    public String getIDNEXT() {
+        return IDNEXT;
+    }
 
-	public String getCS() {
-		return CS;
-	}
+    public void setIDNEXT(String iDNEXT) {
+        IDNEXT = iDNEXT;
+    }
 
-	public void setCS(String cS) {
-		CS = cS;
-	}
+    public String getCS() {
+        return CS;
+    }
 
-	public XlinkTypeSimple getXlinkType() {
-		return xlinkType;
-	}
+    public void setCS(String cS) {
+        CS = cS;
+    }
 
-	public void setXlinkType(XlinkTypeSimple xlinkType) {
-		this.xlinkType = xlinkType;
-	}
+    public XlinkTypeSimple getXlinkType() {
+        return xlinkType;
+    }
 
-	public String getXlinkHref() {
-		return xlinkHref;
-	}
+    public void setXlinkType(XlinkTypeSimple xlinkType) {
+        this.xlinkType = xlinkType;
+    }
 
-	public void setXlinkHref(String xlinkHref) {
-		this.xlinkHref = xlinkHref;
-	}
+    public String getXlinkHref() {
+        return xlinkHref;
+    }
 
-	public String getXlinkRole() {
-		return xlinkRole;
-	}
+    public void setXlinkHref(String xlinkHref) {
+        this.xlinkHref = xlinkHref;
+    }
 
-	public void setXlinkRole(String xlinkRole) {
-		this.xlinkRole = xlinkRole;
-	}
+    public String getXlinkRole() {
+        return xlinkRole;
+    }
 
-	public String getXlinkArcrole() {
-		return xlinkArcrole;
-	}
+    public void setXlinkRole(String xlinkRole) {
+        this.xlinkRole = xlinkRole;
+    }
 
-	public void setXlinkArcrole(String xlinkArcrole) {
-		this.xlinkArcrole = xlinkArcrole;
-	}
+    public String getXlinkArcrole() {
+        return xlinkArcrole;
+    }
 
-	public String getXlinkTitle() {
-		return xlinkTitle;
-	}
+    public void setXlinkArcrole(String xlinkArcrole) {
+        this.xlinkArcrole = xlinkArcrole;
+    }
 
-	public void setXlinkTitle(String xlinkTitle) {
-		this.xlinkTitle = xlinkTitle;
-	}
+    public String getXlinkTitle() {
+        return xlinkTitle;
+    }
 
-	public XlinkShow getXlinkShow() {
-		return xlinkShow;
-	}
+    public void setXlinkTitle(String xlinkTitle) {
+        this.xlinkTitle = xlinkTitle;
+    }
 
-	public void setXlinkShow(XlinkShow xlinkShow) {
-		this.xlinkShow = xlinkShow;
-	}
+    public XlinkShow getXlinkShow() {
+        return xlinkShow;
+    }
 
-	public XlinkActuate getXlinkActuate() {
-		return xlinkActuate;
-	}
+    public void setXlinkShow(XlinkShow xlinkShow) {
+        this.xlinkShow = xlinkShow;
+    }
 
-	public void setXlinkActuate(XlinkActuate xlinkActuate) {
-		this.xlinkActuate = xlinkActuate;
-	}
+    public XlinkActuate getXlinkActuate() {
+        return xlinkActuate;
+    }
 
-
-
-    // 
+    public void setXlinkActuate(XlinkActuate xlinkActuate) {
+        this.xlinkActuate = xlinkActuate;
+    }
 
 }

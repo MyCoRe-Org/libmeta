@@ -15,14 +15,14 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-@XmlSchema(namespace = "info:srw/schema/5/picaXML-v1.0",  
-        xmlns = {   
-            @XmlNs(namespaceURI = "info:srw/schema/5/picaXML-v1.0", prefix = "pica"),  
-            @XmlNs(namespaceURI = "http://www.w3.org/2001/XMLSchema-instance", prefix = "xsi")
-        },  
-        elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)  
-      
-    package org.mycore.libmeta.pica.model; 
-      
-    import jakarta.xml.bind.annotation.XmlNs;
-import jakarta.xml.bind.annotation.XmlSchema;  
+@XmlSchema(namespace = "info:srw/schema/5/picaXML-v1.0",
+    xmlns = {
+        @XmlNs(namespaceURI = "info:srw/schema/5/picaXML-v1.0", prefix = "pica"),
+        @XmlNs(namespaceURI = "http://www.w3.org/2001/XMLSchema-instance", prefix = "xsi")
+    },
+    elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
+
+package org.mycore.libmeta.pica.model;
+
+import jakarta.xml.bind.annotation.XmlNs;
+import jakarta.xml.bind.annotation.XmlSchema;

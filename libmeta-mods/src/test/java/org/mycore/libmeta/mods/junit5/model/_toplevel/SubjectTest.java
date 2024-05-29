@@ -34,17 +34,18 @@ public class SubjectTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String expected = """
-                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                  <mods:subject>
-                    <mods:hierarchicalGeographic>
-                      <mods:country>Germany</mods:country>
-                      <mods:state stateType="bundesland">Mecklenburg-Vorpommern</mods:state>
-                      <mods:city>Rostock</mods:city>
-                    </mods:hierarchicalGeographic>
-                  </mods:subject>
-                </mods:mods>""";
+            String expected
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:subject>
+                        <mods:hierarchicalGeographic>
+                          <mods:country>Germany</mods:country>
+                          <mods:state stateType="bundesland">Mecklenburg-Vorpommern</mods:state>
+                          <mods:city>Rostock</mods:city>
+                        </mods:hierarchicalGeographic>
+                      </mods:subject>
+                    </mods:mods>""";
             assertEquals("Test 1 failed", expected, s);
         } catch (Exception e) {
             fail(e.getMessage());

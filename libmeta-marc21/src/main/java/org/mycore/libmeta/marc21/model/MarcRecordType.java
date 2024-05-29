@@ -34,20 +34,20 @@ package org.mycore.libmeta.marc21.model;
  */
 
 public enum MarcRecordType {
-	 BIBLIOGRAPHIC("Bibliographic"),
-	 AUTHORITY("Authority"),
-	 HOLDINGS("Holdings"),
-	 CLASSIFICATION("Classification"),
-	 COMMUNITY("Community");
-	
+    BIBLIOGRAPHIC("Bibliographic"),
+    AUTHORITY("Authority"),
+    HOLDINGS("Holdings"),
+    CLASSIFICATION("Classification"),
+    COMMUNITY("Community");
+
     private String value;
 
     private MarcRecordType(String value) {
-	this.value = value;
+        this.value = value;
     }
 
     @Override
     public String toString() {
-	return value;
+        return value;
     }
 }

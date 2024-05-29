@@ -36,60 +36,60 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Illustration extends Block {
 
-	/**
-	 * A user defined string to identify the type of illustration like photo, map,
-	 * drawing, chart, ...
-	 */
-	@XmlAttribute(name = "TYPE", required = false)
-	@XmlSchemaType(name = "string")
-	protected String TYPE;
+    /**
+     * A user defined string to identify the type of illustration like photo, map,
+     * drawing, chart, ...
+     */
+    @XmlAttribute(name = "TYPE", required = false)
+    @XmlSchemaType(name = "string")
+    protected String TYPE;
 
-	/**
-	 *  A link to an image which contains only the illustration. 
-	 */
-	@XmlAttribute(name = "FILEID", required = false)
-	@XmlSchemaType(name = "string")
-	protected String FILEID;
+    /**
+     *  A link to an image which contains only the illustration. 
+     */
+    @XmlAttribute(name = "FILEID", required = false)
+    @XmlSchemaType(name = "string")
+    protected String FILEID;
 
-	public String getTYPE() {
-		return TYPE;
-	}
+    public String getTYPE() {
+        return TYPE;
+    }
 
-	public void setTYPE(String tYPE) {
-		TYPE = tYPE;
-	}
+    public void setTYPE(String tYPE) {
+        TYPE = tYPE;
+    }
 
-	public String getFILEID() {
-		return FILEID;
-	}
+    public String getFILEID() {
+        return FILEID;
+    }
 
-	public void setFILEID(String fILEID) {
-		FILEID = fILEID;
-	}
+    public void setFILEID(String fILEID) {
+        FILEID = fILEID;
+    }
 
-	public static Builder builder() {
-		return builder(new Illustration());
-	}
+    public static Builder builder() {
+        return builder(new Illustration());
+    }
 
-	public static Builder builder(Illustration Illustration) {
-		return new Builder(Illustration);
-	}
+    public static Builder builder(Illustration Illustration) {
+        return new Builder(Illustration);
+    }
 
-	public static class Builder extends BuilderBase<Illustration, Builder>
-			implements IBlockBuilder<Illustration, Builder> {
+    public static class Builder extends BuilderBase<Illustration, Builder>
+        implements IBlockBuilder<Illustration, Builder> {
 
-		protected Builder(Illustration Illustration) {
-			super(Illustration);
-		}
+        protected Builder(Illustration Illustration) {
+            super(Illustration);
+        }
 
-		public Builder TYPE(String type) {
-			_target().setTYPE(type);
-			return _self();
-		}
+        public Builder TYPE(String type) {
+            _target().setTYPE(type);
+            return _self();
+        }
 
-		public Builder FILEID(String styleRefs) {
-			_target().setSTYLEREFS(styleRefs);
-			return _self();
-		}
-	}
+        public Builder FILEID(String styleRefs) {
+            _target().setSTYLEREFS(styleRefs);
+            return _self();
+        }
+    }
 }

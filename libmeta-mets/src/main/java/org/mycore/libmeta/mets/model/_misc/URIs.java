@@ -38,34 +38,34 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlJavaTypeAdapter(URIs.JAXBAdapter.class)
 public class URIs extends Vector<URI> implements List<URI> {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public static class JAXBAdapter extends XmlAdapter<String, URIs> {
+    public static class JAXBAdapter extends XmlAdapter<String, URIs> {
 
-		public URIs unmarshal(String value) {
-			URIs uris = new URIs();
-			if (value != null) {
-				for (String s : value.trim().split("\\s+")) {
-					try {
-						uris.add(new URI(s));
-					} catch (URISyntaxException e) {
-						// ignore URI
-					}
-				}
-			}
-			return uris;
-		}
+        public URIs unmarshal(String value) {
+            URIs uris = new URIs();
+            if (value != null) {
+                for (String s : value.trim().split("\\s+")) {
+                    try {
+                        uris.add(new URI(s));
+                    } catch (URISyntaxException e) {
+                        // ignore URI
+                    }
+                }
+            }
+            return uris;
+        }
 
-		public String marshal(URIs value) {
-			if(value==null || value.size()==0) {
-				return null;
-			}
-			StringBuffer sb = new StringBuffer();
-			for (URI u : value) {
-				sb.append(" ");
-				sb.append(u.toString());
-			}
-			return sb.toString().trim();
-		}
-	}
+        public String marshal(URIs value) {
+            if (value == null || value.size() == 0) {
+                return null;
+            }
+            StringBuffer sb = new StringBuffer();
+            for (URI u : value) {
+                sb.append(" ");
+                sb.append(u.toString());
+            }
+            return sb.toString().trim();
+        }
+    }
 }

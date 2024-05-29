@@ -36,97 +36,98 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "softwareCreator", "softwareName", "softwareVersion", "applicationDescription" })
 public class ProcessingSoftware {
 
-	/**
-	 * The name of the organization or company that created the application.
-	 */
-	@XmlElement(name = "softwareCreator", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected String softwareCreator;
+    /**
+     * The name of the organization or company that created the application.
+     */
+    @XmlElement(name = "softwareCreator", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+    protected String softwareCreator;
 
-	/**
-	 * The name of the application.
-	 */
-	@XmlElement(name = "softwareName", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected String softwareName;
+    /**
+     * The name of the application.
+     */
+    @XmlElement(name = "softwareName", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+    protected String softwareName;
 
-	/**
-	 * The version of the application.
-	 */
-	@XmlElement(name = "softwareVersion", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected String softwareVersion;
+    /**
+     * The version of the application.
+     */
+    @XmlElement(name = "softwareVersion", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+    protected String softwareVersion;
 
-	/**
-	 * A description of any important characteristics of the application, especially
-	 * for non-commercial applications. For example, if a non-commercial application
-	 * is built using commercial components, e.g., an OCR engine SDK. Those
-	 * components should be mentioned here.
-	 */
-	@XmlElement(name = "applicationDescription", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected String applicationDescription;
+    /**
+     * A description of any important characteristics of the application, especially
+     * for non-commercial applications. For example, if a non-commercial application
+     * is built using commercial components, e.g., an OCR engine SDK. Those
+     * components should be mentioned here.
+     */
+    @XmlElement(name = "applicationDescription", namespace = "http://www.loc.gov/standards/alto/ns-v2#",
+        required = false)
+    protected String applicationDescription;
 
-	public String getSoftwareCreator() {
-		return softwareCreator;
-	}
+    public String getSoftwareCreator() {
+        return softwareCreator;
+    }
 
-	public void setSoftwareCreator(String softwareCreator) {
-		this.softwareCreator = softwareCreator;
-	}
+    public void setSoftwareCreator(String softwareCreator) {
+        this.softwareCreator = softwareCreator;
+    }
 
-	public String getSoftwareName() {
-		return softwareName;
-	}
+    public String getSoftwareName() {
+        return softwareName;
+    }
 
-	public void setSoftwareName(String softwareName) {
-		this.softwareName = softwareName;
-	}
+    public void setSoftwareName(String softwareName) {
+        this.softwareName = softwareName;
+    }
 
-	public String getSoftwareVersion() {
-		return softwareVersion;
-	}
+    public String getSoftwareVersion() {
+        return softwareVersion;
+    }
 
-	public void setSoftwareVersion(String softwareVersion) {
-		this.softwareVersion = softwareVersion;
-	}
+    public void setSoftwareVersion(String softwareVersion) {
+        this.softwareVersion = softwareVersion;
+    }
 
-	public String getApplicationDescription() {
-		return applicationDescription;
-	}
+    public String getApplicationDescription() {
+        return applicationDescription;
+    }
 
-	public void setApplicationDescription(String applicationDescription) {
-		this.applicationDescription = applicationDescription;
-	}
+    public void setApplicationDescription(String applicationDescription) {
+        this.applicationDescription = applicationDescription;
+    }
 
-	public static Builder builder() {
-		return builder(new ProcessingSoftware());
-	}
+    public static Builder builder() {
+        return builder(new ProcessingSoftware());
+    }
 
-	public static Builder builder(ProcessingSoftware processingSoftware) {
-		return new Builder(processingSoftware);
-	}
+    public static Builder builder(ProcessingSoftware processingSoftware) {
+        return new Builder(processingSoftware);
+    }
 
-	public static class Builder extends BuilderBase<ProcessingSoftware, Builder> {
+    public static class Builder extends BuilderBase<ProcessingSoftware, Builder> {
 
-		protected Builder(ProcessingSoftware processingSoftware) {
-			super(processingSoftware);
-		}
+        protected Builder(ProcessingSoftware processingSoftware) {
+            super(processingSoftware);
+        }
 
-		public Builder softwareCreator(String softwareCreator) {
-			_target().setSoftwareCreator(softwareCreator);
-			return _self();
-		}
+        public Builder softwareCreator(String softwareCreator) {
+            _target().setSoftwareCreator(softwareCreator);
+            return _self();
+        }
 
-		public Builder softwareName(String softwareName) {
-			_target().setSoftwareName(softwareName);
-			return _self();
-		}
+        public Builder softwareName(String softwareName) {
+            _target().setSoftwareName(softwareName);
+            return _self();
+        }
 
-		public Builder softwareVersion(String softwareVersion) {
-			_target().setSoftwareVersion(softwareVersion);
-			return _self();
-		}
+        public Builder softwareVersion(String softwareVersion) {
+            _target().setSoftwareVersion(softwareVersion);
+            return _self();
+        }
 
-		public Builder applicationDescription(String applicationDescription) {
-			_target().setApplicationDescription(applicationDescription);
-			return _self();
-		}
-	}
+        public Builder applicationDescription(String applicationDescription) {
+            _target().setApplicationDescription(applicationDescription);
+            return _self();
+        }
+    }
 }

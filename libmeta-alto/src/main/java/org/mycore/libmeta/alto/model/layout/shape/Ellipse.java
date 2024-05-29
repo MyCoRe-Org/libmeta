@@ -29,95 +29,92 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Ellipse implements IShape {
 
-	@XmlAttribute(name = "HPOS", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float HPOS;
-	
-	@XmlAttribute(name = "VPOS", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float VPOS;
-	
-	@XmlAttribute(name = "HLENGTH", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float HLENGTH;
-	
-	@XmlAttribute(name = "VLENGTH", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float VLENGTH;
+    @XmlAttribute(name = "HPOS", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float HPOS;
 
-	public Float getHPOS() {
-		return HPOS;
-	}
+    @XmlAttribute(name = "VPOS", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float VPOS;
 
-	public void setHPOS(Float hPOS) {
-		HPOS = hPOS;
-	}
+    @XmlAttribute(name = "HLENGTH", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float HLENGTH;
 
-	public Float getVPOS() {
-		return VPOS;
-	}
+    @XmlAttribute(name = "VLENGTH", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float VLENGTH;
 
-	public void setVPOS(Float vPOS) {
-		VPOS = vPOS;
-	}
-	
-	public Float getHLENGTH() {
-		return HLENGTH;
-	}
+    public Float getHPOS() {
+        return HPOS;
+    }
 
-	public void setHLENGTH(Float hLENGTH) {
-		HLENGTH = hLENGTH;
-	}
+    public void setHPOS(Float hPOS) {
+        HPOS = hPOS;
+    }
 
-	public Float getVLENGTH() {
-		return VLENGTH;
-	}
+    public Float getVPOS() {
+        return VPOS;
+    }
 
-	public void setVLENGTH(Float vLENGTH) {
-		VLENGTH = vLENGTH;
-	}
+    public void setVPOS(Float vPOS) {
+        VPOS = vPOS;
+    }
 
+    public Float getHLENGTH() {
+        return HLENGTH;
+    }
 
-	public static Builder builder() {
-		return builder(new Ellipse());
-	}
+    public void setHLENGTH(Float hLENGTH) {
+        HLENGTH = hLENGTH;
+    }
 
-	public static Builder builder(Ellipse e) {
-		return new Builder(e);
-	}
+    public Float getVLENGTH() {
+        return VLENGTH;
+    }
 
-	public static class Builder extends BuilderBase<Ellipse, Builder>{
+    public void setVLENGTH(Float vLENGTH) {
+        VLENGTH = vLENGTH;
+    }
 
-		protected Builder(Ellipse e) {
-			super(e);
-		}
-		
-		public Builder HPOS(Float hpos) {
-			_target().setHPOS(hpos);
-			return _self();
-		}
-		
-		public Builder VPOS(Float vpos) {
-			_target().setVPOS(vpos);
-			return _self();
-		}
+    public static Builder builder() {
+        return builder(new Ellipse());
+    }
 
-		public Builder HLENGTH(Float hlength) {
-			_target().setHLENGTH(hlength);
-			return _self();
-		}
-		
-		public Builder VLENGTH(Float vlength) {
-			_target().setVLENGTH(vlength);
-			return _self();
-		}
+    public static Builder builder(Ellipse e) {
+        return new Builder(e);
+    }
 
+    public static class Builder extends BuilderBase<Ellipse, Builder> {
 
-	}
+        protected Builder(Ellipse e) {
+            super(e);
+        }
 
+        public Builder HPOS(Float hpos) {
+            _target().setHPOS(hpos);
+            return _self();
+        }
+
+        public Builder VPOS(Float vpos) {
+            _target().setVPOS(vpos);
+            return _self();
+        }
+
+        public Builder HLENGTH(Float hlength) {
+            _target().setHLENGTH(hlength);
+            return _self();
+        }
+
+        public Builder VLENGTH(Float vlength) {
+            _target().setVLENGTH(vlength);
+            return _self();
+        }
+
+    }
 
 }

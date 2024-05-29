@@ -30,39 +30,42 @@ import jakarta.xml.bind.annotation.XmlElements;
 
 @XmlAccessorType(XmlAccessType.NONE)
 public class Shape {
-	@XmlElements(value = {
-			@XmlElement(name = "Polygon", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = Polygon.class),
-			@XmlElement(name = "Ellipse", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = Ellipse.class),
-			@XmlElement(name = "Circle", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = Circle.class) })
-	protected IShape Shape;
+    @XmlElements(value = {
+        @XmlElement(name = "Polygon", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false,
+            type = Polygon.class),
+        @XmlElement(name = "Ellipse", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false,
+            type = Ellipse.class),
+        @XmlElement(name = "Circle", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false,
+            type = Circle.class) })
+    protected IShape Shape;
 
-	public IShape getShape() {
-		return Shape;
-	}
+    public IShape getShape() {
+        return Shape;
+    }
 
-	public void setShape(IShape shape) {
-		Shape = shape;
-	}
-	
-	public static Builder builder() {
-		return builder(new Shape());
-	}
+    public void setShape(IShape shape) {
+        Shape = shape;
+    }
 
-	public static Builder builder(Shape shape) {
-		return new Builder(shape);
-	}
+    public static Builder builder() {
+        return builder(new Shape());
+    }
 
-	public static class Builder extends BuilderBase<Shape, Builder> {
+    public static Builder builder(Shape shape) {
+        return new Builder(shape);
+    }
 
-		protected Builder(Shape shape) {
-			super(shape);
-		}
+    public static class Builder extends BuilderBase<Shape, Builder> {
 
-		public Builder shape(IShape shape) {
-			_target().setShape(shape);
-			return _self();
-		}
+        protected Builder(Shape shape) {
+            super(shape);
+        }
 
-	}
+        public Builder shape(IShape shape) {
+            _target().setShape(shape);
+            return _self();
+        }
+
+    }
 
 }

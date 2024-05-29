@@ -39,7 +39,7 @@ import jakarta.xml.bind.annotation.XmlType;
 public abstract class Availability {
     @XmlElement(name = "message", namespace = "http://ws.gbv.de/daia/", required = false)
     protected List<Message> message = new Vector<Message>();
-    
+
     /**
      * Information about a more specific limitation of the availability.
      *  Semantics of limitations are not part of the core DAIA standard.
@@ -49,16 +49,16 @@ public abstract class Availability {
      */
     @XmlElement(name = "limitation", namespace = "http://ws.gbv.de/daia/", required = false)
     protected List<SimpleElement> limitation = new Vector<SimpleElement>();
-    
+
     @XmlAttribute(name = "service", required = false)
     protected Service service;
-    
+
     /**
      * URL to get or reserve the service
      */
     @XmlAttribute(name = "href", required = false)
     protected String href;
-    
+
     @XmlEnum
     public enum Service {
         /**

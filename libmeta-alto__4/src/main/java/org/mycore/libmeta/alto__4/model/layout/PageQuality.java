@@ -29,11 +29,18 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum PageQuality {
-	@XmlEnumValue("OK") OK, 
-	@XmlEnumValue("Missing") Missing,
-	@XmlEnumValue("Missing in original") Missing_in_original, 
-	@XmlEnumValue("Damaged") Damaged,
-	@XmlEnumValue("Retained") Retained, 
-	@XmlEnumValue("Target") Target,
-	@XmlEnumValue("As in original") As_in_original; 
+    @XmlEnumValue("OK")
+    OK,
+    @XmlEnumValue("Missing")
+    Missing,
+    @XmlEnumValue("Missing in original")
+    Missing_in_original,
+    @XmlEnumValue("Damaged")
+    Damaged,
+    @XmlEnumValue("Retained")
+    Retained,
+    @XmlEnumValue("Target")
+    Target,
+    @XmlEnumValue("As in original")
+    As_in_original;
 }

@@ -245,7 +245,8 @@ public class SmArcLink implements IAttributeGroupXlinkArcLink {
         return new Builder(sal);
     }
 
-    public static class Builder extends BuilderBase<SmArcLink, Builder> implements IAttributeGroupXlinkArcLinkBuilder<SmArcLink, Builder> {
+    public static class Builder extends BuilderBase<SmArcLink, Builder>
+        implements IAttributeGroupXlinkArcLinkBuilder<SmArcLink, Builder> {
 
         protected Builder(SmArcLink sal) {
             super(sal);

@@ -84,26 +84,48 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum MDTYPE {
-	@XmlEnumValue("MARC") MARC, 
-	@XmlEnumValue("MODS") MODS, 
-	@XmlEnumValue("EAD") EAD, 
-	@XmlEnumValue("DC") DC, 
-	@XmlEnumValue("NISOIMG") NISOIMG,
-	@XmlEnumValue("LC-AV") LC_AV, 
-	@XmlEnumValue("VRA") VRA, 
-	@XmlEnumValue("TEIHDR") TEIHDR, 
-	@XmlEnumValue("DDI") DDI, 
-	@XmlEnumValue("FGDC") FGDC, 
-	@XmlEnumValue("LOM") LOM, 
-	@XmlEnumValue("PREMIS") PREMIS, 
-	@XmlEnumValue("PREMIS:OBJECT") PREMIS_OBJECT, 
-	@XmlEnumValue("PREMIS:AGENT") PREMIS_AGENT, 
-	@XmlEnumValue("PREMIS:RIGHTS") PREMIS_RIGHTS, 
-	@XmlEnumValue("PREMIS:EVENT") PREMIS_EVENT, 
-	@XmlEnumValue("TEXTMD") TEXTMD, 
-	@XmlEnumValue("METSRIGHTS") METSRIGHTS, 
-	@XmlEnumValue("ISO 19115:2003 NAP") ISO_19115_2003_NAP, 
-	@XmlEnumValue("EAC-CPF") EAC_CPF,
-	@XmlEnumValue("LIDO") LIDO, 
-	@XmlEnumValue("OTHER") OTHER;
+    @XmlEnumValue("MARC")
+    MARC,
+    @XmlEnumValue("MODS")
+    MODS,
+    @XmlEnumValue("EAD")
+    EAD,
+    @XmlEnumValue("DC")
+    DC,
+    @XmlEnumValue("NISOIMG")
+    NISOIMG,
+    @XmlEnumValue("LC-AV")
+    LC_AV,
+    @XmlEnumValue("VRA")
+    VRA,
+    @XmlEnumValue("TEIHDR")
+    TEIHDR,
+    @XmlEnumValue("DDI")
+    DDI,
+    @XmlEnumValue("FGDC")
+    FGDC,
+    @XmlEnumValue("LOM")
+    LOM,
+    @XmlEnumValue("PREMIS")
+    PREMIS,
+    @XmlEnumValue("PREMIS:OBJECT")
+    PREMIS_OBJECT,
+    @XmlEnumValue("PREMIS:AGENT")
+    PREMIS_AGENT,
+    @XmlEnumValue("PREMIS:RIGHTS")
+    PREMIS_RIGHTS,
+    @XmlEnumValue("PREMIS:EVENT")
+    PREMIS_EVENT,
+    @XmlEnumValue("TEXTMD")
+    TEXTMD,
+    @XmlEnumValue("METSRIGHTS")
+    METSRIGHTS,
+    @XmlEnumValue("ISO 19115:2003 NAP")
+    ISO_19115_2003_NAP,
+    @XmlEnumValue("EAC-CPF")
+    EAC_CPF,
+    @XmlEnumValue("LIDO")
+    LIDO,
+    @XmlEnumValue("OTHER")
+    OTHER;
 }

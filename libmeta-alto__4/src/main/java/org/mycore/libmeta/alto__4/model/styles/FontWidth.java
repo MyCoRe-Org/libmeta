@@ -28,7 +28,9 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  *
  */
 @XmlEnum
-public enum FontWidth { 
-	@XmlEnumValue("proportional") proportional, 
-	@XmlEnumValue("fixed") fixed;
+public enum FontWidth {
+    @XmlEnumValue("proportional")
+    proportional,
+    @XmlEnumValue("fixed")
+    fixed;
 }

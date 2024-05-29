@@ -26,7 +26,7 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Available extends Availability {
 
-/*
+    /*
     <xs:attribute name="delay" use="optional">
     <xs:simpleType>
       <xs:union memberTypes="xs:duration">
@@ -37,8 +37,8 @@ public class Available extends Availability {
         </xs:simpleType>
       </xs:union>
     </xs:simpleType>
-  </xs:attribute>
-  */
+      </xs:attribute>
+      */
     @XmlAttribute(name = "delay", required = false)
     protected String delay;
 

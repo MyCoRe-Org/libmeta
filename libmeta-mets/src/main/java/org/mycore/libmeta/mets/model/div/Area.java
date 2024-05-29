@@ -56,7 +56,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  * @version METS 1.11
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Area extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS{
+public class Area extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS {
 
     /**
      * {@code
@@ -280,243 +280,236 @@ public class Area extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS{
      */
     @XmlAttribute(name = "CONTENTIDS", required = false)
     protected URIs CONTENTIDS = new URIs();
-    
+
     //AttributeGroup ORDERLABELS - begin
-    
+
     @XmlAttribute(name = "ORDER", required = false)
     protected Integer ORDER;
-    
+
     @XmlAttribute(name = "ORDERLABEL", required = false)
     protected String ORDERLABEL;
-    
+
     @XmlAttribute(name = "LABEL", required = false)
     protected String LABEL;
-    
+
     //AttributeGroup ORDERLABES - end
-    
+
     /**
      * {@code
-   	 * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
-   	 * }
-   	 */
-   	@XmlAnyAttribute
-   	protected Map<QName, String> otherAttributes = new HashMap<QName, String>();
+     * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+     * }
+     */
+    @XmlAnyAttribute
+    protected Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
+    public String getID() {
+        return ID;
+    }
 
-	public String getID() {
-		return ID;
-	}
+    public void setID(String id) {
+        ID = id;
+    }
 
+    public String getFILEID() {
+        return FILEID;
+    }
 
-	public void setID(String id) {
-		ID = id;
-	}
+    public void setFILEID(String fileId) {
+        FILEID = fileId;
+    }
 
+    public AreaSHAPE getSHAPE() {
+        return SHAPE;
+    }
 
-	public String getFILEID() {
-		return FILEID;
-	}
+    public void setSHAPE(AreaSHAPE shape) {
+        SHAPE = shape;
+    }
 
+    public String getCOORDS() {
+        return COORDS;
+    }
 
-	public void setFILEID(String fileId) {
-		FILEID = fileId;
-	}
+    public void setCOORDS(String coords) {
+        COORDS = coords;
+    }
 
+    public String getBEGIN() {
+        return BEGIN;
+    }
 
-	public AreaSHAPE getSHAPE() {
-		return SHAPE;
-	}
+    public void setBEGIN(String begin) {
+        BEGIN = begin;
+    }
 
+    public String getEND() {
+        return END;
+    }
 
-	public void setSHAPE(AreaSHAPE shape) {
-		SHAPE = shape;
-	}
+    public void setEND(String end) {
+        END = end;
+    }
 
+    public AreaBETYPE getBETYPE() {
+        return BETYPE;
+    }
 
-	public String getCOORDS() {
-		return COORDS;
-	}
+    public void setBETYPE(AreaBETYPE beType) {
+        BETYPE = beType;
+    }
 
-	public void setCOORDS(String coords) {
-		COORDS = coords;
-	}
+    public String getEXTEND() {
+        return EXTEND;
+    }
 
-	public String getBEGIN() {
-		return BEGIN;
-	}
+    public void setEXTEND(String extend) {
+        EXTEND = extend;
+    }
 
-	public void setBEGIN(String begin) {
-		BEGIN = begin;
-	}
+    public AreaEXTTYPE getEXTTYPE() {
+        return EXTTYPE;
+    }
 
-	public String getEND() {
-		return END;
-	}
+    public void setEXTTYPE(AreaEXTTYPE extType) {
+        EXTTYPE = extType;
+    }
 
-	public void setEND(String end) {
-		END = end;
-	}
+    public String getADMID() {
+        return ADMID;
+    }
 
-	public AreaBETYPE getBETYPE() {
-		return BETYPE;
-	}
+    public void setADMID(String admId) {
+        ADMID = admId;
+    }
 
-	public void setBETYPE(AreaBETYPE beType) {
-		BETYPE = beType;
-	}
+    public URIs getCONTENTIDS() {
+        return CONTENTIDS;
+    }
 
-	public String getEXTEND() {
-		return EXTEND;
-	}
+    public void setCONTENTIDS(URIs contentIDs) {
+        CONTENTIDS = contentIDs;
+    }
 
-	public void setEXTEND(String extend) {
-		EXTEND = extend;
-	}
+    public Integer getORDER() {
+        return ORDER;
+    }
 
-	public AreaEXTTYPE getEXTTYPE() {
-		return EXTTYPE;
-	}
+    public void setORDER(Integer order) {
+        ORDER = order;
+    }
 
-	public void setEXTTYPE(AreaEXTTYPE extType) {
-		EXTTYPE = extType;
-	}
+    public String getORDERLABEL() {
+        return ORDERLABEL;
+    }
 
-	public String getADMID() {
-		return ADMID;
-	}
+    public void setORDERLABEL(String orderLabel) {
+        ORDERLABEL = orderLabel;
+    }
 
-	public void setADMID(String admId) {
-		ADMID = admId;
-	}
+    public String getLABEL() {
+        return LABEL;
+    }
 
-	public URIs getCONTENTIDS() {
-		return CONTENTIDS;
-	}
+    public void setLABEL(String label) {
+        LABEL = label;
+    }
 
-	public void setCONTENTIDS(URIs contentIDs) {
-		CONTENTIDS = contentIDs;
-	}
-
-	public Integer getORDER() {
-		return ORDER;
-	}
-
-	public void setORDER(Integer order) {
-		ORDER = order;
-	}
-
-	public String getORDERLABEL() {
-		return ORDERLABEL;
-	}
-
-	public void setORDERLABEL(String orderLabel) {
-		ORDERLABEL = orderLabel;
-	}
-
-	public String getLABEL() {
-		return LABEL;
-	}
-
-	public void setLABEL(String label) {
-		LABEL = label;
-	}
-
-	public Map<QName, String> getOtherAttributes() {
-		return otherAttributes;
-	}
+    public Map<QName, String> getOtherAttributes() {
+        return otherAttributes;
+    }
 
     public String getOtherAttribute(QName qname) {
         return otherAttributes.get(qname);
     }
 
-	public void setOtherAttributes(Map<QName, String> otherAttributes) {
-		this.otherAttributes = otherAttributes;
-	}
-   	
-	 public static Builder builder() {
-	        return builder(new Area());
-	    }
+    public void setOtherAttributes(Map<QName, String> otherAttributes) {
+        this.otherAttributes = otherAttributes;
+    }
 
-	    public static Builder builder(Area a) {
-	        return new Builder(a);
-	    }
+    public static Builder builder() {
+        return builder(new Area());
+    }
 
-	    public static class Builder extends BuilderBase<Area, Builder> implements IAttributeGroupORDERLABELSBuilder<Area, Builder> {
+    public static Builder builder(Area a) {
+        return new Builder(a);
+    }
 
-	        protected Builder(Area a) {
-	            super(a);
-	        }
+    public static class Builder extends BuilderBase<Area, Builder> implements IAttributeGroupORDERLABELSBuilder<Area,
+        Builder> {
 
-		public Builder ID(String id) {
-			_target().setID(id);
-			return _self();
-		}
+        protected Builder(Area a) {
+            super(a);
+        }
 
-		public Builder FILEID(String fileID) {
-		    _target().setFILEID(fileID);
-			return _self();
-		}
-		
-		public Builder SHAPE(AreaSHAPE shape) {
-			_target().setSHAPE(shape);
-			return _self();
-		}
+        public Builder ID(String id) {
+            _target().setID(id);
+            return _self();
+        }
 
-		public Builder COORDS(String coords) {
-			_target().setCOORDS(coords);
-			return _self();
-		}
+        public Builder FILEID(String fileID) {
+            _target().setFILEID(fileID);
+            return _self();
+        }
 
-		public Builder BEGIN(String begin) {
-		    _target().setBEGIN(begin);
-			return _self();
-		}
-		
-		public Builder END(String end) {
-		    _target().setEND(end);
-			return _self();
-		}
+        public Builder SHAPE(AreaSHAPE shape) {
+            _target().setSHAPE(shape);
+            return _self();
+        }
 
-		public Builder BETYPE(AreaBETYPE beType) {
-		    _target().setBETYPE(beType);
-			return _self();
-		}
+        public Builder COORDS(String coords) {
+            _target().setCOORDS(coords);
+            return _self();
+        }
 
-		public Builder EXTEND(String extend) {
-		    _target().setEXTEND(extend);
-			return _self();
-		}
-		
-		public Builder EXTTYPE(AreaEXTTYPE extType) {
-		    _target().setEXTTYPE(extType);
-			return _self();
-		}
-		
-		public Builder ADMID(String admID) {
-		    _target().setADMID(admID);
-			return _self();
-		}
-		
-		public Builder addCONTENTID(URI uri) {
-		    _target().getCONTENTIDS().add(uri);
-			return _self();
-		}
-		
-		public Builder addCONTENTID(String uri) {
-		    URI u = null;
-		    try {
-		        u = new URI(uri);
-		    }
-		    catch(URISyntaxException e) {
-		        //ignore
-		    }
-            
+        public Builder BEGIN(String begin) {
+            _target().setBEGIN(begin);
+            return _self();
+        }
+
+        public Builder END(String end) {
+            _target().setEND(end);
+            return _self();
+        }
+
+        public Builder BETYPE(AreaBETYPE beType) {
+            _target().setBETYPE(beType);
+            return _self();
+        }
+
+        public Builder EXTEND(String extend) {
+            _target().setEXTEND(extend);
+            return _self();
+        }
+
+        public Builder EXTTYPE(AreaEXTTYPE extType) {
+            _target().setEXTTYPE(extType);
+            return _self();
+        }
+
+        public Builder ADMID(String admID) {
+            _target().setADMID(admID);
+            return _self();
+        }
+
+        public Builder addCONTENTID(URI uri) {
+            _target().getCONTENTIDS().add(uri);
+            return _self();
+        }
+
+        public Builder addCONTENTID(String uri) {
+            URI u = null;
+            try {
+                u = new URI(uri);
+            } catch (URISyntaxException e) {
+                //ignore
+            }
+
             return addCONTENTID(u);
         }
-				
-		public Builder addOtherAttribute(QName name, String value) {
-			_target().getOtherAttributes().put(name, value);
-			return _self();
-		}
-	}
+
+        public Builder addOtherAttribute(QName name, String value) {
+            _target().getOtherAttributes().put(name, value);
+            return _self();
+        }
+    }
 }

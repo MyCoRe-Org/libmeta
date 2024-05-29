@@ -27,31 +27,31 @@ import org.mycore.libmeta.xlink.model.XlinkTypeArc;
  * @author Robert Stephan
  */
 public interface IAttributeGroupXlinkArcLink {
-	public XlinkTypeArc getXlinkType();
+    public XlinkTypeArc getXlinkType();
 
-	public String getXlinkArcrole();
+    public String getXlinkArcrole();
 
-	public String getXlinkTitle();
+    public String getXlinkTitle();
 
-	public XlinkShow getXlinkShow();
+    public XlinkShow getXlinkShow();
 
-	public XlinkActuate getXlinkActuate();
+    public XlinkActuate getXlinkActuate();
 
-	public String getXlinkFrom();
+    public String getXlinkFrom();
 
-	public String getXlinkTo();
+    public String getXlinkTo();
 
-	public void setXlinkType(XlinkTypeArc xlinkType);
+    public void setXlinkType(XlinkTypeArc xlinkType);
 
-	public void setXlinkArcrole(String xlinkArcrole);
+    public void setXlinkArcrole(String xlinkArcrole);
 
-	public void setXlinkTitle(String xlinkTitle);
+    public void setXlinkTitle(String xlinkTitle);
 
-	public void setXlinkShow(XlinkShow xlinkShow);
+    public void setXlinkShow(XlinkShow xlinkShow);
 
-	public void setXlinkActuate(XlinkActuate xlinkActuate);
+    public void setXlinkActuate(XlinkActuate xlinkActuate);
 
-	public void setXlinkFrom(String xlinkFrom);
+    public void setXlinkFrom(String xlinkFrom);
 
-	public void setXlinkTo(String xlinkTo);
+    public void setXlinkTo(String xlinkTo);
 }

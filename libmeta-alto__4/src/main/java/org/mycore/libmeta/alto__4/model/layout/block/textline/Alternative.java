@@ -35,52 +35,52 @@ import jakarta.xml.bind.annotation.XmlValue;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Alternative {
 
-	/** Identifies the purpose of the alternative. */
-	@XmlValue
-	protected String value;
+    /** Identifies the purpose of the alternative. */
+    @XmlValue
+    protected String value;
 
-	@XmlAttribute(name = "PURPOSE", required = false)
-	@XmlSchemaType(name = "string")
-	protected String PURPOSE;
+    @XmlAttribute(name = "PURPOSE", required = false)
+    @XmlSchemaType(name = "string")
+    protected String PURPOSE;
 
-	public String getValue() {
-		return value;
-	}
+    public String getValue() {
+        return value;
+    }
 
-	public void setValue(String value) {
-		this.value = value;
-	}
+    public void setValue(String value) {
+        this.value = value;
+    }
 
-	public String getPURPOSE() {
-		return PURPOSE;
-	}
+    public String getPURPOSE() {
+        return PURPOSE;
+    }
 
-	public void setPURPOSE(String pURPOSE) {
-		PURPOSE = pURPOSE;
-	}
+    public void setPURPOSE(String pURPOSE) {
+        PURPOSE = pURPOSE;
+    }
 
-	public static Builder builder() {
-		return builder(new Alternative());
-	}
+    public static Builder builder() {
+        return builder(new Alternative());
+    }
 
-	public static Builder builder(Alternative alternative) {
-		return new Builder(alternative);
-	}
+    public static Builder builder(Alternative alternative) {
+        return new Builder(alternative);
+    }
 
-	public static class Builder extends BuilderBase<Alternative, Builder> {
+    public static class Builder extends BuilderBase<Alternative, Builder> {
 
-		protected Builder(Alternative alternative) {
-			super(alternative);
-		}
+        protected Builder(Alternative alternative) {
+            super(alternative);
+        }
 
-		public Builder value(String value) {
-			_target().setValue(value);
-			return _self();
-		}
+        public Builder value(String value) {
+            _target().setValue(value);
+            return _self();
+        }
 
-		public Builder PURPOSE(String purpose) {
-			_target().setPURPOSE(purpose);
-			return _self();
-		}
-	}
+        public Builder PURPOSE(String purpose) {
+            _target().setPURPOSE(purpose);
+            return _self();
+        }
+    }
 }

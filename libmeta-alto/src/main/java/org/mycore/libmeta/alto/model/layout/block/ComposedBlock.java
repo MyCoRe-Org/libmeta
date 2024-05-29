@@ -40,70 +40,74 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 @XmlAccessorType(XmlAccessType.NONE)
 public class ComposedBlock extends Block {
 
-	@XmlElements(value = {
-			@XmlElement(name = "TextBlock", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = TextBlock.class),
-			@XmlElement(name = "Illustration", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = Illustration.class),
-			@XmlElement(name = "GraphicalElement", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = GraphicalElement.class),
-			@XmlElement(name = "ComposedBlock", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = ComposedBlock.class) })
-	protected List<Block> block = new Vector<Block>();
+    @XmlElements(value = {
+        @XmlElement(name = "TextBlock", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false,
+            type = TextBlock.class),
+        @XmlElement(name = "Illustration", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false,
+            type = Illustration.class),
+        @XmlElement(name = "GraphicalElement", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false,
+            type = GraphicalElement.class),
+        @XmlElement(name = "ComposedBlock", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false,
+            type = ComposedBlock.class) })
+    protected List<Block> block = new Vector<Block>();
 
-	@XmlAttribute(name = "TYPE", required = false)
-	@XmlSchemaType(name = "string")
-	protected String TYPE;
+    @XmlAttribute(name = "TYPE", required = false)
+    @XmlSchemaType(name = "string")
+    protected String TYPE;
 
-	@XmlAttribute(name = "FILEID", required = false)
-	@XmlSchemaType(name = "string")
-	protected String FILEID;
+    @XmlAttribute(name = "FILEID", required = false)
+    @XmlSchemaType(name = "string")
+    protected String FILEID;
 
-	public String getTYPE() {
-		return TYPE;
-	}
+    public String getTYPE() {
+        return TYPE;
+    }
 
-	public void setTYPE(String tYPE) {
-		TYPE = tYPE;
-	}
+    public void setTYPE(String tYPE) {
+        TYPE = tYPE;
+    }
 
-	public String getFILEID() {
-		return FILEID;
-	}
+    public String getFILEID() {
+        return FILEID;
+    }
 
-	public void setFILEID(String fILEID) {
-		FILEID = fILEID;
-	}
+    public void setFILEID(String fILEID) {
+        FILEID = fILEID;
+    }
 
-	public List<Block> getBlock() {
-		return block;
-	}
+    public List<Block> getBlock() {
+        return block;
+    }
 
-	public static Builder builder() {
-		return builder(new ComposedBlock());
-	}
+    public static Builder builder() {
+        return builder(new ComposedBlock());
+    }
 
-	public static Builder builder(ComposedBlock composedBlock) {
-		return new Builder(composedBlock);
-	}
+    public static Builder builder(ComposedBlock composedBlock) {
+        return new Builder(composedBlock);
+    }
 
-	public static class Builder extends BuilderBase<ComposedBlock, Builder> implements
-			IBlockBuilder<ComposedBlock, Builder> {
+    public static class Builder extends BuilderBase<ComposedBlock, Builder> implements
+        IBlockBuilder<ComposedBlock, Builder> {
 
-		protected Builder(ComposedBlock composedBlock) {
-			super(composedBlock);
-		}
-		
-		public Builder addBlock(Block block) {
-			_target().getBlock().add(block);
-			return _self();
-		}
+        protected Builder(ComposedBlock composedBlock) {
+            super(composedBlock);
+        }
 
-		public Builder TYPE(String type) {
-			_target().setTYPE(type);
-			return _self();
-		}
+        public Builder addBlock(Block block) {
+            _target().getBlock().add(block);
+            return _self();
+        }
 
-		public Builder FILEID(String styleRefs) {
-			_target().setSTYLEREFS(styleRefs);
-			return _self();
-		}
-	}
+        public Builder TYPE(String type) {
+            _target().setTYPE(type);
+            return _self();
+        }
+
+        public Builder FILEID(String styleRefs) {
+            _target().setSTYLEREFS(styleRefs);
+            return _self();
+        }
+    }
 
 }

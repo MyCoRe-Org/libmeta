@@ -25,7 +25,7 @@ import java.util.List;
  * @author Robert Stephan
  */
 public interface HasPicaDatafields {
-	
-	public List<PicaDatafield> getDatafields();
-	
+
+    public List<PicaDatafield> getDatafields();
+
 }

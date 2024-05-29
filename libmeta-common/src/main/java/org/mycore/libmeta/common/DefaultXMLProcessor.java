@@ -139,7 +139,7 @@ public abstract class DefaultXMLProcessor<T> {
             throw new LibmetaProcessorException(e);
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     public T unmarshal(Source xml) throws LibmetaProcessorException {
         try {

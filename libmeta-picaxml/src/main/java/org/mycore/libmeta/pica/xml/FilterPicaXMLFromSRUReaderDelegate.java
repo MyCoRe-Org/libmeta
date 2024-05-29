@@ -54,8 +54,9 @@ public class FilterPicaXMLFromSRUReaderDelegate extends EventReaderDelegate {
     private static QName qnSubfield = new QName("info:srw/schema/5/picaXML-v1.0", "subfield");
 
     private static QName qnZSRecords = new QName("http://www.loc.gov/zing/srw/", "records");
-    
-    private static QName qnZSearchRetrieveResponse = new QName("http://www.loc.gov/zing/srw/", "searchRetrieveResponse");
+
+    private static QName qnZSearchRetrieveResponse
+        = new QName("http://www.loc.gov/zing/srw/", "searchRetrieveResponse");
 
     private Queue<XMLEvent> queueOfNewEvents = new LinkedList<XMLEvent>();
 
@@ -134,7 +135,7 @@ public class FilterPicaXMLFromSRUReaderDelegate extends EventReaderDelegate {
                         continue;
                     }
                 }
-                
+
                 if (xmlEvent.asEndElement().getName().equals(qnZSearchRetrieveResponse)) {
                     //handle empty SRU responses ...
                     if (rootElement == RootElement.COLLECTION && isFirstRecord) {
@@ -144,7 +145,7 @@ public class FilterPicaXMLFromSRUReaderDelegate extends EventReaderDelegate {
                         queueOfNewEvents.add(eventFactory.createEndElement(qnCollection, null));
                         continue;
                     }
-                    
+
                     if (rootElement == RootElement.RECORD && isFirstRecord) {
                         queueOfNewEvents.add(eventFactory.createCharacters("\n"));
                         queueOfNewEvents.add(eventFactory.createStartElement(qnRecord, null, null));
@@ -153,7 +154,7 @@ public class FilterPicaXMLFromSRUReaderDelegate extends EventReaderDelegate {
                         continue;
                     }
                 }
-                
+
                 if (!xmlEvent.asEndElement().getName().getNamespaceURI().equals("info:srw/schema/5/picaXML-v1.0")) {
                     continue;
                 }

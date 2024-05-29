@@ -17,7 +17,7 @@
  */
 package org.mycore.libmeta.alto;
 
- import org.mycore.libmeta.alto.model.Alto;
+import org.mycore.libmeta.alto.model.Alto;
 import org.mycore.libmeta.common.DefaultXMLProcessor;
 
 /**

@@ -35,7 +35,10 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum AreaSHAPE {
-	@XmlEnumValue("RECT") RECT, 
-	@XmlEnumValue("CIRCLE") CIRCLE, 
-	@XmlEnumValue("POLY") POLY;
+    @XmlEnumValue("RECT")
+    RECT,
+    @XmlEnumValue("CIRCLE")
+    CIRCLE,
+    @XmlEnumValue("POLY")
+    POLY;
 }

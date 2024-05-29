@@ -149,14 +149,15 @@ public class MODSQuery {
     public static <T extends IAgentSubelement> List<T> listFilteredContent(Agent agent, Class<T> type) {
         return streamFilteredContent(agent, type).toList();
     }
-    
+
     /**
      * returns a filtered List of OriginInfoSubelement
      * @param <T> the type of the OriginInfoSubelement
      * @param type the class to filter and cast elements for
      * @return an object stream of MODS originmInfo subelements
      */
-    public static <T extends IOriginInfoSubelement> Stream<T> streamFilteredContent(OriginInfo originInfo, Class<T> type) {
+    public static <T extends IOriginInfoSubelement> Stream<T> streamFilteredContent(
+        OriginInfo originInfo, Class<T> type) {
         return originInfo.getContent().stream().filter(type::isInstance).map(type::cast);
     }
 
@@ -169,7 +170,7 @@ public class MODSQuery {
     public static <T extends IOriginInfoSubelement> List<T> listFilteredContent(OriginInfo originInfo, Class<T> type) {
         return streamFilteredContent(originInfo, type).toList();
     }
-    
+
     /**
      * returns a filtered List of PartSubelement
      * @param <T> the type of the PartSubelement
@@ -189,14 +190,15 @@ public class MODSQuery {
     public static <T extends IPartSubelement> List<T> listFilteredContent(Part part, Class<T> type) {
         return streamFilteredContent(part, type).toList();
     }
-    
+
     /**
      * returns a filtered List of PhysicalDescriptionSubelement
      * @param <T> the type of the PhysicalDescriptionSubelement
      * @param type the class to filter and cast elements for
      * @return an object stream of MODS physical description subelements
      */
-    public static <T extends IPhysicalDescriptionSubelement> Stream<T> streamFilteredContent(PhysicalDescription physicalDescription, Class<T> type) {
+    public static <T extends IPhysicalDescriptionSubelement> Stream<T> streamFilteredContent(
+        PhysicalDescription physicalDescription, Class<T> type) {
         return physicalDescription.getContent().stream().filter(type::isInstance).map(type::cast);
     }
 
@@ -206,10 +208,11 @@ public class MODSQuery {
      * @param type the class to filter and cast elements for
      * @return an object stream of MODS physical description subelements
      */
-    public static <T extends IPhysicalDescriptionSubelement> List<T> listFilteredContent(PhysicalDescription physicalDescription, Class<T> type) {
+    public static <T extends IPhysicalDescriptionSubelement> List<T> listFilteredContent(
+        PhysicalDescription physicalDescription, Class<T> type) {
         return streamFilteredContent(physicalDescription, type).toList();
     }
-    
+
     /**
      * returns a filtered List of SubjectSubelement
      * @param <T> the type of the SubjectSubelement
@@ -249,7 +252,7 @@ public class MODSQuery {
     public static <T extends ITitleInfoSubelement> List<T> listFilteredContent(TitleInfo titleInfo, Class<T> type) {
         return streamFilteredContent(titleInfo, type).toList();
     }
-    
+
     /**
      * returns a filtered List of PlaceSubelement
      * @param <T> the type of the PlaceSubelement
@@ -269,7 +272,7 @@ public class MODSQuery {
     public static <T extends ITitleInfoSubelement> List<T> listFilteredContent(Place place, Class<T> type) {
         return streamFilteredContent(place, type).toList();
     }
-    
+
     /**
      * returns a filtered List of PartDetailSubelement
      * @param <T> the type of the PartDetailSubelement
@@ -289,14 +292,15 @@ public class MODSQuery {
     public static <T extends ITitleInfoSubelement> List<T> listFilteredContent(Detail detail, Class<T> type) {
         return streamFilteredContent(detail, type).toList();
     }
-    
+
     /**
      * returns a filtered List of HierarchicalGeographicSubelement
      * @param <T> the type of the HierarchicalGeographicSubelement
      * @param type the class to filter and cast elements for
      * @return an object stream of MODS hierarchical geographic subelements
      */
-    public static <T extends ITitleInfoSubelement> Stream<T> streamFilteredContent(SubjectHierarchicalGeographic subjectHierarchicalGeographic, Class<T> type) {
+    public static <T extends ITitleInfoSubelement> Stream<T> streamFilteredContent(
+        SubjectHierarchicalGeographic subjectHierarchicalGeographic, Class<T> type) {
         return subjectHierarchicalGeographic.getContent().stream().filter(type::isInstance).map(type::cast);
     }
 
@@ -306,17 +310,19 @@ public class MODSQuery {
      * @param type the class to filter and cast elements for
      * @return an object stream of MODS hierarchical geographic subelements
      */
-    public static <T extends ITitleInfoSubelement> List<T> listFilteredContent(SubjectHierarchicalGeographic subjectHierarchicalGeographic, Class<T> type) {
+    public static <T extends ITitleInfoSubelement> List<T> listFilteredContent(
+        SubjectHierarchicalGeographic subjectHierarchicalGeographic, Class<T> type) {
         return streamFilteredContent(subjectHierarchicalGeographic, type).toList();
     }
-    
+
     /**
      * returns a filtered List of SubjectNameSubelement
      * @param <T> the type of the SubjectNameSubelement
      * @param type the class to filter and cast elements for
      * @return an object stream of MODS subject name subelements
      */
-    public static <T extends ITitleInfoSubelement> Stream<T> streamFilteredContent(SubjectName subjectName, Class<T> type) {
+    public static <T extends ITitleInfoSubelement> Stream<T> streamFilteredContent(
+        SubjectName subjectName, Class<T> type) {
         return subjectName.getContent().stream().filter(type::isInstance).map(type::cast);
     }
 
@@ -329,14 +335,15 @@ public class MODSQuery {
     public static <T extends ITitleInfoSubelement> List<T> listFilteredContent(SubjectName subjectName, Class<T> type) {
         return streamFilteredContent(subjectName, type).toList();
     }
-    
+
     /**
      * returns a filtered List of SubjectTitleInfoSubelement
      * @param <T> the type of the SubjectTitleInfoSubelement
      * @param type the class to filter and cast elements for
      * @return an object stream of MODS subject title info subelements
      */
-    public static <T extends ITitleInfoSubelement> Stream<T> streamFilteredContent(SubjectTitleInfo subjectTitleInfo, Class<T> type) {
+    public static <T extends ITitleInfoSubelement> Stream<T> streamFilteredContent(
+        SubjectTitleInfo subjectTitleInfo, Class<T> type) {
         return subjectTitleInfo.getContent().stream().filter(type::isInstance).map(type::cast);
     }
 
@@ -346,8 +353,9 @@ public class MODSQuery {
      * @param type the class to filter and cast elements for
      * @return an object stream of MODS subject name subelements
      */
-    public static <T extends ITitleInfoSubelement> List<T> listFilteredContent(SubjectTitleInfo subjectTitleInfo, Class<T> type) {
+    public static <T extends ITitleInfoSubelement> List<T> listFilteredContent(
+        SubjectTitleInfo subjectTitleInfo, Class<T> type) {
         return streamFilteredContent(subjectTitleInfo, type).toList();
     }
-    
+
 }

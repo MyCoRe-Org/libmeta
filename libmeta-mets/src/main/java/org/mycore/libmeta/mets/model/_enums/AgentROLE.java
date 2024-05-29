@@ -58,12 +58,20 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 
 @XmlEnum
 public enum AgentROLE {
-	@XmlEnumValue("CREATOR") CREATOR,
-	@XmlEnumValue("EDITOR") EDITOR, 
-	@XmlEnumValue("ARCHIVIST") ARCHIVIST, 
-	@XmlEnumValue("PRESERVATION") PRESERVATION, 
-	@XmlEnumValue("DISSEMINATOR") DISSEMINATOR,
-	@XmlEnumValue("CUSTODIAN") CUSTODIAN,
-	@XmlEnumValue("IPOWNER") IPOWNER, 
-	@XmlEnumValue("OTHER") OTHER;
+    @XmlEnumValue("CREATOR")
+    CREATOR,
+    @XmlEnumValue("EDITOR")
+    EDITOR,
+    @XmlEnumValue("ARCHIVIST")
+    ARCHIVIST,
+    @XmlEnumValue("PRESERVATION")
+    PRESERVATION,
+    @XmlEnumValue("DISSEMINATOR")
+    DISSEMINATOR,
+    @XmlEnumValue("CUSTODIAN")
+    CUSTODIAN,
+    @XmlEnumValue("IPOWNER")
+    IPOWNER,
+    @XmlEnumValue("OTHER")
+    OTHER;
 }

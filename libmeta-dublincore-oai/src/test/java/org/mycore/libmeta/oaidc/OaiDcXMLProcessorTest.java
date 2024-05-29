@@ -32,7 +32,8 @@ public class OaiDcXMLProcessorTest {
 
     @Test
     public void testMarshalToString() {
-        DCTitle title = DCTitle.builder().value("Using Structural Metadata to Localize Experience of Digital Content").build();
+        DCTitle title = DCTitle.builder().value("Using Structural Metadata to Localize Experience of Digital Content")
+            .build();
         DCContributor contributor = DCContributor.builder().lang("de").value("Max Meier").build();
 
         OaiDc oaiDc = OaiDc.builder()
@@ -41,12 +42,13 @@ public class OaiDcXMLProcessorTest {
             .build();
         try {
             String actual = OaiDcXMLProcessor.getInstance().marshalToString(oaiDc);
-            String expected = """
-            	<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-            	<oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
-            	  <dc:title>Using Structural Metadata to Localize Experience of Digital Content</dc:title>
-            	  <dc:contributor xml:lang="de">Max Meier</dc:contributor>
-            	</oai_dc:dc>""";
+            String expected
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/">
+                      <dc:title>Using Structural Metadata to Localize Experience of Digital Content</dc:title>
+                      <dc:contributor xml:lang="de">Max Meier</dc:contributor>
+                    </oai_dc:dc>""";
             assertTrue("testMarshalToString failed", expected.equals(actual));
         } catch (Exception e) {
             fail(e.getMessage());
@@ -66,7 +68,7 @@ public class OaiDcXMLProcessorTest {
             OaiDc odaDC = OaiDcXMLProcessor.getInstance().unmarshal(expected);
             DCContributor dcContributor = DCQuery.streamFilteredContent(odaDC, DCContributor.class).findFirst().get();
             assertEquals("Test 2 failed for DCContributor", dcContributor.getValue(), "Max Meier");
-            
+
             DCTitle dcTitle = DCQuery.listFilteredContent(odaDC, DCTitle.class).get(0);
             assertEquals("Test 2 failed for DCTitle", dcTitle.getValue(),
                 "Using Structural Metadata to Localize Experience of Digital Content");
@@ -75,5 +77,5 @@ public class OaiDcXMLProcessorTest {
             fail(e.getMessage());
         }
     }
-    
+
 }

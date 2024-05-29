@@ -41,15 +41,26 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 
 @XmlEnum
 public enum CHECKSUMTYPE {
-	@XmlEnumValue("Adler-32") ADLER_32, 
-	@XmlEnumValue("CRC32") CRC32, 
-	@XmlEnumValue("HAVAL") HAVAL, 
-	@XmlEnumValue("MD5") MD5, 
-	@XmlEnumValue("MNP") MNP, 
-	@XmlEnumValue("SHA-1") SHA_1, 
-	@XmlEnumValue("SHA-256") SHA_256, 
-	@XmlEnumValue("SHA-384") SHA_384, 
-	@XmlEnumValue("SHA-512") SHA_512, 
-	@XmlEnumValue("TIGER") TIGER, 
-	@XmlEnumValue("WHIRLPOOL") WHIRLPOOL;
+    @XmlEnumValue("Adler-32")
+    ADLER_32,
+    @XmlEnumValue("CRC32")
+    CRC32,
+    @XmlEnumValue("HAVAL")
+    HAVAL,
+    @XmlEnumValue("MD5")
+    MD5,
+    @XmlEnumValue("MNP")
+    MNP,
+    @XmlEnumValue("SHA-1")
+    SHA_1,
+    @XmlEnumValue("SHA-256")
+    SHA_256,
+    @XmlEnumValue("SHA-384")
+    SHA_384,
+    @XmlEnumValue("SHA-512")
+    SHA_512,
+    @XmlEnumValue("TIGER")
+    TIGER,
+    @XmlEnumValue("WHIRLPOOL")
+    WHIRLPOOL;
 }

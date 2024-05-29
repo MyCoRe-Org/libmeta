@@ -36,72 +36,72 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Circle implements IShapeChild {
 
-	@XmlAttribute(name = "HPOS", required = true)
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	@XmlSchemaType(name = "float")
-	protected Float HPOS;
-	
-	@XmlAttribute(name = "VPOS", required = true)
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	@XmlSchemaType(name = "float")
-	protected Float VPOS;
-	
-	@XmlAttribute(name = "RADIUS", required = true)
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	@XmlSchemaType(name = "float")
-	protected Float RADIUS;
+    @XmlAttribute(name = "HPOS", required = true)
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    @XmlSchemaType(name = "float")
+    protected Float HPOS;
 
-	public Float getHPOS() {
-		return HPOS;
-	}
+    @XmlAttribute(name = "VPOS", required = true)
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    @XmlSchemaType(name = "float")
+    protected Float VPOS;
 
-	public void setHPOS(Float hPOS) {
-		HPOS = hPOS;
-	}
+    @XmlAttribute(name = "RADIUS", required = true)
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    @XmlSchemaType(name = "float")
+    protected Float RADIUS;
 
-	public Float getVPOS() {
-		return VPOS;
-	}
+    public Float getHPOS() {
+        return HPOS;
+    }
 
-	public void setVPOS(Float vPOS) {
-		VPOS = vPOS;
-	}
+    public void setHPOS(Float hPOS) {
+        HPOS = hPOS;
+    }
 
-	public Float getRADIUS() {
-		return RADIUS;
-	}
+    public Float getVPOS() {
+        return VPOS;
+    }
 
-	public void setRADIUS(Float rADIUS) {
-		RADIUS = rADIUS;
-	}
-	
-	public static Builder builder() {
-		return builder(new Circle());
-	}
+    public void setVPOS(Float vPOS) {
+        VPOS = vPOS;
+    }
 
-	public static Builder builder(Circle circle) {
-		return new Builder(circle);
-	}
+    public Float getRADIUS() {
+        return RADIUS;
+    }
 
-	public static class Builder extends BuilderBase<Circle, Builder> {
+    public void setRADIUS(Float rADIUS) {
+        RADIUS = rADIUS;
+    }
 
-		protected Builder(Circle circle) {
-			super(circle);
-		}
-		
-		public Builder HPOS(Float hpos) {
-			_target().setHPOS(hpos);
-			return _self();
-		}
-		
-		public Builder VPOS(Float vpos) {
-			_target().setVPOS(vpos);
-			return _self();
-		}
-		
-		public Builder RADIUS(Float radius) {
-			_target().setRADIUS(radius);
-			return _self();
-		}
-	}
+    public static Builder builder() {
+        return builder(new Circle());
+    }
+
+    public static Builder builder(Circle circle) {
+        return new Builder(circle);
+    }
+
+    public static class Builder extends BuilderBase<Circle, Builder> {
+
+        protected Builder(Circle circle) {
+            super(circle);
+        }
+
+        public Builder HPOS(Float hpos) {
+            _target().setHPOS(hpos);
+            return _self();
+        }
+
+        public Builder VPOS(Float vpos) {
+            _target().setVPOS(vpos);
+            return _self();
+        }
+
+        public Builder RADIUS(Float radius) {
+            _target().setRADIUS(radius);
+            return _self();
+        }
+    }
 }

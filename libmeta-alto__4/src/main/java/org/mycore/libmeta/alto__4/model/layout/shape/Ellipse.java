@@ -97,7 +97,7 @@ public class Ellipse implements IShapeChild {
     public void setVLENGTH(Float vLENGTH) {
         VLENGTH = vLENGTH;
     }
-    
+
     public Float geROTATION() {
         return ROTATION;
     }
@@ -139,7 +139,7 @@ public class Ellipse implements IShapeChild {
             _target().setVLENGTH(vlength);
             return _self();
         }
-        
+
         public Builder ROTATION(Float rotation) {
             _target().setROTATION(rotation);
             return _self();

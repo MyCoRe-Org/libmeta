@@ -44,14 +44,14 @@ public class FilterTest {
 
     @Test
     public void testRecord() {
-        try (StringWriter sw = new StringWriter();){
+        try (StringWriter sw = new StringWriter();) {
             URL url = new URL(SRU_URL_RECORD);
             try (
                 BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
                 BufferedWriter bw = new BufferedWriter(sw)) {
                 FilterPicaXMLFromSRUReaderDelegate.filterPicaRecordXML(br, bw);
             }
-            System.out.println(sw);
+            // System.out.println(sw);
 
             Path outFile = Files.createTempFile("test_filter_pica", ".xml");
             PicaXMLProcessor xmlProcessor = PicaXMLProcessor.getInstance();
@@ -73,7 +73,7 @@ public class FilterTest {
                 BufferedWriter bw = new BufferedWriter(sw)) {
                 FilterPicaXMLFromSRUReaderDelegate.filterPicaRecordXML(br, bw);
             }
-            System.out.println(sw);
+            // System.out.println(sw);
 
             Path outFile = Files.createTempFile("test_filter_pica", ".xml");
             PicaXMLProcessor xmlProcessor = PicaXMLProcessor.getInstance();
@@ -95,7 +95,7 @@ public class FilterTest {
                 BufferedWriter bw = new BufferedWriter(sw)) {
                 FilterPicaXMLFromSRUReaderDelegate.filterPicaRecordXML(br, bw);
             }
-            System.out.println(sw);
+            // System.out.println(sw);
 
             Path outFile = Files.createTempFile("test_filter_pica", ".xml");
             PicaXMLProcessor xmlProcessor = PicaXMLProcessor.getInstance();
@@ -117,7 +117,7 @@ public class FilterTest {
                 BufferedWriter bw = new BufferedWriter(sw)) {
                 FilterPicaXMLFromSRUReaderDelegate.filterPicaCollectionXML(br, bw);
             }
-            System.out.println(sw);
+            // System.out.println(sw);
 
             Path outFile = Files.createTempFile("test_filter_pica", ".xml");
             PicaCollectionXMLProcessor xmlProcessor = PicaCollectionXMLProcessor.getInstance();
@@ -140,7 +140,7 @@ public class FilterTest {
                 BufferedWriter bw = new BufferedWriter(sw)) {
                 FilterPicaXMLFromSRUReaderDelegate.filterPicaCollectionXML(br, bw);
             }
-            System.out.println(sw);
+            // System.out.println(sw);
 
             Path outFile = Files.createTempFile("test_filter_pica", ".xml");
             PicaCollectionXMLProcessor xmlProcessor = PicaCollectionXMLProcessor.getInstance();

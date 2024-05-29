@@ -43,6 +43,7 @@ public class MODSQueryTest {
         try {
             mods = MODSXMLProcessor.getInstance().unmarshal(expected);
             Extension extension = MODSQuery.streamFilteredContent(mods, Extension.class).findFirst().get();
+            @SuppressWarnings("unchecked")
             Node node = (Node) extension.getContent().stream().filter(Node.class::isInstance).findFirst().get();
             assertEquals("Test 1 failed", node.getLocalName(), "edtms");
         } catch (LibmetaProcessorException e) {

@@ -328,24 +328,24 @@ Version: 0.54 (2010-05-06) by Jakob Voss
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder = { "message", "institution", "document" })
 public class DAIA {
-/*   <xs:sequence>
+    /*   <xs:sequence>
         <xs:element maxOccurs="unbounded" minOccurs="0" name="message" type="message"/>
         <xs:element maxOccurs="1" minOccurs="0" ref="institution"/>
         <xs:element maxOccurs="unbounded" minOccurs="0" name="document" type="document"/>
       </xs:sequence>
-*/
+    */
     @XmlElement(name = "message", namespace = "http://ws.gbv.de/daia/", required = false)
     protected List<Message> message = new Vector<Message>();
-    
+
     /**
      * Information about the institution that was queried.
      */
     @XmlElement(name = "institution", namespace = "http://ws.gbv.de/daia/", required = false)
     protected SimpleElement institution;
-   
+
     @XmlElement(name = "document", namespace = "http://ws.gbv.de/daia/", required = false)
     protected List<Document> document = new Vector<Document>();
-  
+
     /*
     <xs:attribute name="timestamp" type="xs:dateTime" use="required">
     <xs:annotation>
@@ -355,53 +355,52 @@ public class DAIA {
         'T' hh ':' mm ':' ss ('.' s+)? ((('+' | '-') hh ':' mm) | 'Z')?.
       </xs:documentation>
     </xs:annotation>    
-  </xs:attribute>*/
-  @XmlAttribute(name = "timestamp", required = true)
-  protected String timestamp;
-  
-  /*<xs:attribute name="version" type="xs:string" use="required"/>*/
-  @XmlAttribute(name = "version", required = true)
-  protected String version;
+    </xs:attribute>*/
+    @XmlAttribute(name = "timestamp", required = true)
+    protected String timestamp;
 
-public List<Message> getMessage() {
-    return message;
-}
+    /*<xs:attribute name="version" type="xs:string" use="required"/>*/
+    @XmlAttribute(name = "version", required = true)
+    protected String version;
 
-public void setMessage(List<Message> message) {
-    this.message = message;
-}
+    public List<Message> getMessage() {
+        return message;
+    }
 
-public SimpleElement getInstitution() {
-    return institution;
-}
+    public void setMessage(List<Message> message) {
+        this.message = message;
+    }
 
-public void setInstitution(SimpleElement institution) {
-    this.institution = institution;
-}
+    public SimpleElement getInstitution() {
+        return institution;
+    }
 
-public List<Document> getDocument() {
-    return document;
-}
+    public void setInstitution(SimpleElement institution) {
+        this.institution = institution;
+    }
 
-public void setDocument(List<Document> document) {
-    this.document = document;
-}
+    public List<Document> getDocument() {
+        return document;
+    }
 
-public String getTimestamp() {
-    return timestamp;
-}
+    public void setDocument(List<Document> document) {
+        this.document = document;
+    }
 
-public void setTimestamp(String timestamp) {
-    this.timestamp = timestamp;
-}
+    public String getTimestamp() {
+        return timestamp;
+    }
 
-public String getVersion() {
-    return version;
-}
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
 
-public void setVersion(String version) {
-    this.version = version;
-}
-  
-  
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
 }

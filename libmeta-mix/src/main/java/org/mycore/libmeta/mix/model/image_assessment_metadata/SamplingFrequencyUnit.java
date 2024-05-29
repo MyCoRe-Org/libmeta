@@ -22,7 +22,10 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 
 @XmlEnum
 public enum SamplingFrequencyUnit {
-	@XmlEnumValue("no absolute unit of measurement") NO_ABSOLUTE_UNIT_OF_MEASUREMENT,
-	@XmlEnumValue("in.") INCH,
-	@XmlEnumValue("cm") CM
+    @XmlEnumValue("no absolute unit of measurement")
+    NO_ABSOLUTE_UNIT_OF_MEASUREMENT,
+    @XmlEnumValue("in.")
+    INCH,
+    @XmlEnumValue("cm")
+    CM
 }

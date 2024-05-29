@@ -20,7 +20,7 @@ package org.mycore.libmeta.common;
 public class BuilderBase<T extends Object, B> {
 
     private T target = null;
-    
+
     protected BuilderBase(T object) {
         target = object;
     }
@@ -32,7 +32,7 @@ public class BuilderBase<T extends Object, B> {
     public T build() {
         return target;
     }
-    
+
     @SuppressWarnings("unchecked")
     public B _self() {
         return (B) this;

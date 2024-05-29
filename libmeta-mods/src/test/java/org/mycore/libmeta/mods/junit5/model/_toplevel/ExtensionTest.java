@@ -16,18 +16,19 @@ public class ExtensionTest {
 
     @Test
     public void test1() {
-        String expected = """
-             <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-             <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-               <mods:extension type="degree">
-                 <edtms>
-                   <name>Ph.D.</name>
-                   <level>2</level>
-                   <discipline>Comparitive and International Education</discipline>
-                   <grantor>Coumbia University</grantor>
-                 </edtms>
-               </mods:extension>
-             </mods:mods>""";
+        String expected
+            = """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <mods:extension type="degree">
+                    <edtms>
+                      <name>Ph.D.</name>
+                      <level>2</level>
+                      <discipline>Comparitive and International Education</discipline>
+                      <grantor>Coumbia University</grantor>
+                    </edtms>
+                  </mods:extension>
+                </mods:mods>""";
 
         String edtmsXML = """
             <edtms>
@@ -52,30 +53,32 @@ public class ExtensionTest {
             fail(e.getMessage());
         }
     }
-    
+
     @Test
     public void test2() {
-        String expected = """
-             <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-             <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-               <mods:extension>
-                 <vra xml:ns="http://www.vraweb.org/vracore4.htm" xsi:schemaLocation="http://www.vraweb.org/vracore4.htm http://www.loc.gov/standards/vracore/vra-strict.xsd">
-                   <image>
-                     <techniqueSet>
-                       <technique>digital imaging</technique>
-                     </techniqueSet>
-                   </image>
-                 </vra>
-               </mods:extension>
-             </mods:mods>""";
-        String vraXML = """
-             <vra xml:ns="http://www.vraweb.org/vracore4.htm" xsi:schemaLocation="http://www.vraweb.org/vracore4.htm http://www.loc.gov/standards/vracore/vra-strict.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-               <image> 
-                 <techniqueSet>
-                 <technique>digital imaging</technique>
-                 </techniqueSet>
-               </image>
-             </vra>""";
+        String expected
+            = """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <mods:extension>
+                    <vra xml:ns="http://www.vraweb.org/vracore4.htm" xsi:schemaLocation="http://www.vraweb.org/vracore4.htm http://www.loc.gov/standards/vracore/vra-strict.xsd">
+                      <image>
+                        <techniqueSet>
+                          <technique>digital imaging</technique>
+                        </techniqueSet>
+                      </image>
+                    </vra>
+                  </mods:extension>
+                </mods:mods>""";
+        String vraXML
+            = """
+                <vra xml:ns="http://www.vraweb.org/vracore4.htm" xsi:schemaLocation="http://www.vraweb.org/vracore4.htm http://www.loc.gov/standards/vracore/vra-strict.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                  <image>
+                    <techniqueSet>
+                    <technique>digital imaging</technique>
+                    </techniqueSet>
+                  </image>
+                </vra>""";
         try {
             Document document = XMLFormatter.parseFromString(vraXML);
             XMLFormatter.cleanEmptyTextNodes(document);

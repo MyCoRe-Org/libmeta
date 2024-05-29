@@ -29,28 +29,28 @@ import jakarta.xml.bind.annotation.XmlType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = { "spatialMetrics"})
+@XmlType(propOrder = { "spatialMetrics" })
 public class ImageAssessmentMetadata {
-    
+
     //sequence
-	
-	//NDD id="9.1"
-    @XmlElement(name = "SpatialMetrics", namespace = "http://www.loc.gov/mix/v20", required = false)    
+
+    //NDD id="9.1"
+    @XmlElement(name = "SpatialMetrics", namespace = "http://www.loc.gov/mix/v20", required = false)
     protected SpatialMetrics spatialMetrics;
-    
-    public ImageAssessmentMetadata(){
-    	
-    }
-    
-    public ImageAssessmentMetadata(SpatialMetrics spatialMetrics){
-    	this.spatialMetrics = spatialMetrics;
+
+    public ImageAssessmentMetadata() {
+
     }
 
-	public SpatialMetrics getSpatialMetrics() {
-		return spatialMetrics;
-	}
+    public ImageAssessmentMetadata(SpatialMetrics spatialMetrics) {
+        this.spatialMetrics = spatialMetrics;
+    }
 
-	public void setSpatialMetrics(SpatialMetrics spatialMetrics) {
-		this.spatialMetrics = spatialMetrics;
-	}
+    public SpatialMetrics getSpatialMetrics() {
+        return spatialMetrics;
+    }
+
+    public void setSpatialMetrics(SpatialMetrics spatialMetrics) {
+        this.spatialMetrics = spatialMetrics;
+    }
 }

@@ -47,7 +47,7 @@ public class PicaDatafield implements PicaObject {
      */
     @XmlElement(name = "subfield", namespace = "info:srw/schema/5/picaXML-v1.0", required = true)
     protected List<PicaSubfield> subfields = new Vector<PicaSubfield>();
-    
+
     /**
      * &lt;xs:attribute name="tag" use="required"&gt;
      *   &lt;xs:simpleType&gt;
@@ -59,7 +59,7 @@ public class PicaDatafield implements PicaObject {
      */
     @XmlAttribute(name = "tag", required = true)
     protected String tag;
-    
+
     /**
      * &lt;xs:attribute name="occurrence" use="optional"&gt;
      *   &lt;xs:simpleType&gt;
@@ -77,22 +77,22 @@ public class PicaDatafield implements PicaObject {
     }
 
     public String getTag() {
-		return tag;
-	}
+        return tag;
+    }
 
-	public void setTag(String tag) {
-		this.tag = tag;
-	}
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
 
-	public String getOccurrence() {
-		return occurrence;
-	}
+    public String getOccurrence() {
+        return occurrence;
+    }
 
-	public void setOccurrence(String occurrence) {
-		this.occurrence = occurrence;
-	}
-    
-	public static Builder builder() {
+    public void setOccurrence(String occurrence) {
+        this.occurrence = occurrence;
+    }
+
+    public static Builder builder() {
         return builder(new PicaDatafield());
     }
 
@@ -105,27 +105,27 @@ public class PicaDatafield implements PicaObject {
         protected Builder(PicaDatafield datafield) {
             super(datafield);
         }
-		
-		public Builder addSubfield(PicaSubfield subfield) {
-			_target().getSubfields().add(subfield);
-			return _self();
-		}
-		
-		public Builder addSubfield(String code, String content) {
-			PicaSubfield sf = new PicaSubfield();
-			sf.setCode(code);
-			sf.setContent(content);
-			return addSubfield(sf);
-		}
-		
-		public Builder tag(String tag) {
-			_target().setTag(tag);
-			return _self();
-		}
-		
-		public Builder occurrence(String occurrence) {
-			_target().setOccurrence(occurrence);
-			return _self();
-		}		
-	}
+
+        public Builder addSubfield(PicaSubfield subfield) {
+            _target().getSubfields().add(subfield);
+            return _self();
+        }
+
+        public Builder addSubfield(String code, String content) {
+            PicaSubfield sf = new PicaSubfield();
+            sf.setCode(code);
+            sf.setContent(content);
+            return addSubfield(sf);
+        }
+
+        public Builder tag(String tag) {
+            _target().setTag(tag);
+            return _self();
+        }
+
+        public Builder occurrence(String occurrence) {
+            _target().setOccurrence(occurrence);
+            return _self();
+        }
+    }
 }

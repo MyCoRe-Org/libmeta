@@ -29,9 +29,14 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum PagePosition {
-	@XmlEnumValue("Left") Left, 
-	@XmlEnumValue("Right") Right,
-	@XmlEnumValue("Foldout") Foldout, 
-	@XmlEnumValue("Single") Single,
-	@XmlEnumValue("Cover") Cover; 
+    @XmlEnumValue("Left")
+    Left,
+    @XmlEnumValue("Right")
+    Right,
+    @XmlEnumValue("Foldout")
+    Foldout,
+    @XmlEnumValue("Single")
+    Single,
+    @XmlEnumValue("Cover")
+    Cover;
 }

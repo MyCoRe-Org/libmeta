@@ -29,10 +29,16 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum FontStyle {
-	@XmlEnumValue("bold") bold,
-	@XmlEnumValue("italics") italics,
-	@XmlEnumValue("smallcaps") smallcaps,
-	@XmlEnumValue("subscript") subscript,
-	@XmlEnumValue("superscript") superscript,
-	@XmlEnumValue("unterline") underline;
+    @XmlEnumValue("bold")
+    bold,
+    @XmlEnumValue("italics")
+    italics,
+    @XmlEnumValue("smallcaps")
+    smallcaps,
+    @XmlEnumValue("subscript")
+    subscript,
+    @XmlEnumValue("superscript")
+    superscript,
+    @XmlEnumValue("unterline")
+    underline;
 }

@@ -62,7 +62,7 @@ public class PhysicalLocation extends StringPlusLanguagePlusAuthority
     protected String type;
 
     // IXlinkSimpleLinkAttributeGroup - begin
-    
+
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected XlinkTypeSimple xlinkType;
 
@@ -101,7 +101,7 @@ public class PhysicalLocation extends StringPlusLanguagePlusAuthority
     public void setType(String type) {
         this.type = type;
     }
-    
+
     public XlinkTypeSimple getXlinkType() {
         return xlinkType;
     }

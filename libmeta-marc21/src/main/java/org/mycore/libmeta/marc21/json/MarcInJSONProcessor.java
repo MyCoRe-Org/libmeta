@@ -66,7 +66,7 @@ public class MarcInJSONProcessor {
         try (BufferedWriter bw = Files.newBufferedWriter(p);
             JsonWriter jw = Json.createWriter(bw)) {
             marshal(marc, jw);
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }
@@ -75,7 +75,7 @@ public class MarcInJSONProcessor {
         StringWriter sw = new StringWriter();
         try (JsonWriter jw = Json.createWriter(sw)) {
             marshal(marc, jw);
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
         return sw.toString();
@@ -84,7 +84,7 @@ public class MarcInJSONProcessor {
     public MarcRecord unmarshal(String s) throws LibmetaProcessorException {
         try (JsonReader jr = Json.createReader(new StringReader(s))) {
             return unmarshal(jr);
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }
@@ -93,7 +93,7 @@ public class MarcInJSONProcessor {
         try (BufferedReader br = Files.newBufferedReader(p);
             JsonReader jr = Json.createReader(br)) {
             return unmarshal(jr);
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }
@@ -102,7 +102,7 @@ public class MarcInJSONProcessor {
         try (InputStream is = url.openStream();
             JsonReader jr = Json.createReader(is)) {
             return unmarshal(jr);
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }
@@ -134,7 +134,7 @@ public class MarcInJSONProcessor {
             jsonBuilder.add("fields", fieldsBuilder);
 
             jw.write(jsonBuilder.build());
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }
@@ -177,7 +177,7 @@ public class MarcInJSONProcessor {
                 });
             }
             return marc;
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }

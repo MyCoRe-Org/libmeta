@@ -43,7 +43,7 @@ public class DCSimpleXMLProcessor extends DefaultXMLProcessor<DCElement> {
     }
 
     @Override
-    public JAXBContext createJAXBContext() throws JAXBException{
+    public JAXBContext createJAXBContext() throws JAXBException {
         return JAXBContext.newInstance("org.mycore.libmeta.dcsimple.model");
     }
 

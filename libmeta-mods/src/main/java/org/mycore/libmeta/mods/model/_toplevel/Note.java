@@ -72,7 +72,7 @@ public class Note extends StringPlusLanguage
     protected String typeURI;
 
     // attributeGroup xlink:simpleLink - begin
-    
+
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
     protected XlinkTypeSimple xlinkType;
 
