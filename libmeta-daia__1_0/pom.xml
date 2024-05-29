@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.mycore.libmeta</groupId>
@@ -7,12 +8,12 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>libmeta-daia__1_0</artifactId>
-
   <name>LibMeta DAIA 1.0</name>
   <description>
     Java API for DAIA library metadata model.
     Implements model version 1.0.0 which is used by the DAIA(2) interface.
   </description>
+
   <dependencies>
     <dependency>
       <groupId>org.mycore.libmeta</groupId>
