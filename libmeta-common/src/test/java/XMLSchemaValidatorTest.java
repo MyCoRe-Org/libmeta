@@ -12,7 +12,8 @@ public class XMLSchemaValidatorTest {
         String actual
             = """
                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                <pica:record xmlns:pica="info:srw/schema/5/picaXML-v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="info:srw/schema/5/picaXML-v1.0 https://www.loc.gov/standards/sru/recordSchemas/pica-xml-v1-0.xsd" >
+                <pica:record xmlns:pica="info:srw/schema/5/picaXML-v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                             xsi:schemaLocation="info:srw/schema/5/picaXML-v1.0 https://www.loc.gov/standards/sru/recordSchemas/pica-xml-v1-0.xsd">
                   <pica:datafield tag="001@">
                     <pica:subfield code="0">382</pica:subfield>
                     <pica:subfield code="a">U</pica:subfield>
@@ -42,6 +43,7 @@ public class XMLSchemaValidatorTest {
                 </pica:record>
                 """;
         XMLSchemaValidator xsv = new XMLSchemaValidator("");
-        assertTrue(xsv.validate(new StringReader(actual), "testPica"));
+        xsv.validate(new StringReader(actual), "testPica");
+        assertTrue(xsv.getErrorMsg(), xsv.isValid());
     }
 }
