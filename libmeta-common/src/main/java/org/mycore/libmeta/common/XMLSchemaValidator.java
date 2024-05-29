@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import javax.xml.catalog.CatalogFeatures;
+import javax.xml.catalog.CatalogFeatures.Feature;
 import javax.xml.catalog.CatalogManager;
 import javax.xml.catalog.CatalogResolver;
 import javax.xml.parsers.DocumentBuilder;
@@ -40,6 +41,26 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
+/**
+ * This class validates XML files against their corresponding XML Schemas.
+ * 
+ * The implementation looks for XML catalog files on classpath.
+ * The predefined locations are /libmeta/catalog.xml and /libmeta/catalog.additional.xml
+ * The 2nd path may be used, if you have the need to add more entries (for example in tests).
+ * 
+ * You can 1) provide your own schemaLocation Mapping which will override the xsi:schemaLocation attribute
+ *            for the validation phase
+ *         2) configure if the resolver should work in strict mode
+ *            (see https://docs.oracle.com/javase%2F9%2Fdocs%2Fapi%2F%2F/javax/xml/catalog/CatalogFeatures.html)
+ *            if true - all schema files must be provided locally in classpath
+ *            otherwise the resolvers tries to look up unmatched schema locations on the internet 
+ * 
+ * The results are stored as properties valid, errorMsg) in the validator object.
+ * You should NOT reuse the object for another validation. Create a new instance for each usage!
+ * 
+ * 
+ * 
+ */
 public class XMLSchemaValidator {
     private static final Logger LOGGER = LoggerFactory.getLogger(XMLSchemaValidator.class);
     static final String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
@@ -71,15 +92,40 @@ public class XMLSchemaValidator {
 
     private String errorMsg = "";
 
+    /**
+     * create an new XML schema validator instance
+     * in strictMode with no external schema locations
+     */
     public XMLSchemaValidator() {
-        init(null);
+        init(true, null);
     }
 
-    public XMLSchemaValidator(String schemaLocations) {
-        init(schemaLocations);
+    /**
+     * create a new XML schema validator instance
+     * @param strictMode 
+     *   - if false, the validator will try to resolve unknown schema location urls on the internet.
+     *   - if true, the validation fails if a schema location is not found in one of the catalog.xml files
+     */
+    public XMLSchemaValidator(boolean strictMode) {
+        init(strictMode, null);
     }
 
-    private void init(String schemaLocations) {
+    /**
+     * create a new XML schema validator instance
+     * @param strictMode 
+     *   - if false, the validator will try to resolve unknown schema location urls on the internet.
+     *   - if true, the validation fails if a schema location is not found in one of the catalog.xml files
+     *   
+     *   @param schemaLocations
+     *     It contains a mappings of XML namespace and XML schema location
+     *     The syntax matches the requirements of the xsi:schemaLocation attribute
+     *     You may set it null, if you do want to set any schema location.
+     */
+    public XMLSchemaValidator(boolean strictMode, String schemaLocations) {
+        init(strictMode, schemaLocations);
+    }
+
+    private void init(boolean strictMode, String schemaLocations) {
 
         URI[] catalogURLs = Stream.of(
             XMLSchemaValidator.class.getResource("/libmeta/catalog.xml"),
@@ -97,7 +143,11 @@ public class XMLSchemaValidator {
             .filter(x -> x != null)
             .toArray(URI[]::new);
 
-        xmlSchemaCatalogResolver = CatalogManager.catalogResolver(CatalogFeatures.defaults(), catalogURLs);
+        CatalogFeatures f = strictMode
+            ? CatalogFeatures.defaults()
+            : CatalogFeatures.builder().with(Feature.RESOLVE, "continue").build();
+
+        xmlSchemaCatalogResolver = CatalogManager.catalogResolver(f, catalogURLs);
 
         List<String> schemas = new ArrayList<>();
         if (schemaLocations != null) {
@@ -121,9 +171,15 @@ public class XMLSchemaValidator {
         } catch (IllegalArgumentException x) {
             LOGGER.error("Error in constructor", x);
         }
-
     }
 
+    /**
+     * This starts the validation process.
+     * It should only be called ON TIME !!!!
+     * 
+     * @param path - a file to test
+     * @return true, if the file is valid for the defined XML schema
+     */
     public boolean validate(Path path) {
         final Path p = path;
         try (Reader reader = Files.newBufferedReader(p)) {
@@ -136,6 +192,15 @@ public class XMLSchemaValidator {
         return valid;
     }
 
+    /**
+     * This starts the validation process.
+     * It should only be called ON TIME !!!!
+     * 
+     * @param reader - a reader object, that access the XML (from String, stream, file, ...)
+     * @param resourceName - a human readable name of the resource (e.g. file name) for messages and debugging
+     * 
+     * @return true, if the file is valid for the defined XML schema
+     */
     public boolean validate(Reader reader, String resourceName) {
         try {
             DocumentBuilder docBuilder = DOC_BUILDER_FACTORY.newDocumentBuilder();
@@ -177,10 +242,17 @@ public class XMLSchemaValidator {
 
     }
 
+    /**
+     * @return the error message (...or empty string if valid)
+     */
     public String getErrorMsg() {
         return errorMsg;
     }
 
+    /**
+     * 
+     * @return true, if the validation was successful
+     */
     public boolean isValid() {
         return valid;
     }

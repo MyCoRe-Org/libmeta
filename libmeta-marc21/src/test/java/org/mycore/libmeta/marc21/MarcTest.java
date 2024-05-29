@@ -84,7 +84,7 @@ public class MarcTest {
     @Test
     public void testXMLValidation() {
         XMLSchemaValidator validator = new XMLSchemaValidator(
-            "http://www.loc.gov/MARC21/slim https://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd");
+            true, "http://www.loc.gov/MARC21/slim https://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd");
         assertTrue(validator.validate(new StringReader(XML_DARWIN), "MARC record of Darwin's Origin ..."));
     }
 

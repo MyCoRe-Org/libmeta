@@ -60,7 +60,7 @@ public class XMLSchemaValidatorTest {
                   </pica:datafield>
                 </pica:record>
                 """;
-        XMLSchemaValidator xsv = new XMLSchemaValidator("");
+        XMLSchemaValidator xsv = new XMLSchemaValidator();
         xsv.validate(new StringReader(actual), "testPica");
         assertTrue(xsv.getErrorMsg(), xsv.isValid());
     }
@@ -78,7 +78,7 @@ public class XMLSchemaValidatorTest {
                   </pica:datafield1>
                 </pica:record>
                 """;
-        XMLSchemaValidator xsv = new XMLSchemaValidator("");
+        XMLSchemaValidator xsv = new XMLSchemaValidator(true);
         xsv.validate(new StringReader(actual), "testPica");
         assertTrue("Error not detected: 'Element datafield1 unknown'", !xsv.isValid() && xsv.getErrorMsg().contains("datafield1"));
     }

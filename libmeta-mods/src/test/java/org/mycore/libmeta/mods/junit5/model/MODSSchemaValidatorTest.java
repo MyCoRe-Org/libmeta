@@ -37,7 +37,7 @@ public class MODSSchemaValidatorTest {
             = """
                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
                 <mods:mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                           xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:hi="https://example.com/xsd/hello_world" 
+                           xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" 
                            xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd
                                                https://example.com/xsd/hello_world http://example.com/xsd/hello_world.xsd">
                   <mods:note>Beispiel XML MODS Extension</mods:note>
@@ -51,6 +51,33 @@ public class MODSSchemaValidatorTest {
 
         XMLSchemaValidator schemaValidator = new XMLSchemaValidator();
         schemaValidator.validate(new StringReader(mods_xml), "mods_extension.xml");
+        assertTrue(schemaValidator.getErrorMsg(), schemaValidator.isValid());
+    }
+    
+    @Test
+    public void testExtensionExtern() {
+        String mods_xml
+            = """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <mods:mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:m="http://www.w3.org/1998/Math/MathML" 
+                           xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd
+                                               http://www.w3.org/1998/Math/MathML https://www.w3.org/Math/XMLSchema/mathml3/mathml3.xsd">
+                  <mods:note>Example (MathML):  Cubed Root of x </mods:note>
+                  <mods:extension>
+                     <m:math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                       <m:mrow>
+                         <m:mroot>
+                           <m:mi>x</m:mi>
+                           <m:mn>3</m:mn>
+                         </m:mroot>
+                       </m:mrow>
+                     </m:math>
+                  </mods:extension>
+                </mods:mods>""";
+
+        XMLSchemaValidator schemaValidator = new XMLSchemaValidator(false);
+        schemaValidator.validate(new StringReader(mods_xml), "mods_with_mathml.xml");
         assertTrue(schemaValidator.getErrorMsg(), schemaValidator.isValid());
     }
 }
