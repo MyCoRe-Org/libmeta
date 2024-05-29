@@ -16,8 +16,8 @@
   <systemSuffix systemIdSuffix="mods-3-5.xsd" uri="xsd/mods/mods-3-8.xsd" />
   <systemSuffix systemIdSuffix="mods-3-4.xsd" uri="xsd/mods/mods-3-8.xsd" />
 
-  <system systemId="http://www.loc.gov/standards/mods/xml.xsd" uri="xsd/mods/xml.xsd" />
-  <system systemId="https://www.loc.gov/standards/mods/xml.xsd" uri="xsd/mods/xml.xsd" />
+  <system systemId="http://www.loc.gov/mods/xml.xsd" uri="xsd/mods/xml.xsd" />
+  <system systemId="https://www.loc.gov/mods/xml.xsd" uri="xsd/mods/xml.xsd" />
 
   <system systemId="http://www.loc.gov/standards/xlink/xlink.xsd" uri="xsd/mods/xlink.xsd" />
   <system systemId="https://www.loc.gov/standards/xlink/xlink.xsd" uri="xsd/mods/xlink.xsd" />

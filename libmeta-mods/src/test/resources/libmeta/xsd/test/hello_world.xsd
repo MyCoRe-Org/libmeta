@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://example.com/xsd/hello_world"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="hello_world">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="salutation" type="xs:string" />
+        <xs:element name="target" type="xs:string" />
+      </xs:sequence>
+      <xs:attribute name="ID" type="xs:ID" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

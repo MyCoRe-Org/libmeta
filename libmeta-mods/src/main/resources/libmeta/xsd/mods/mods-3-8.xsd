@@ -156,8 +156,7 @@ minOccurs="0" and for the mods record definition minOccurs="1" (default).
 			<xs:element ref="originInfo"/>
 			<xs:element ref="part"/>
 			<xs:element ref="physicalDescription"/>
-            <xs:element name="recordInfo1" type="recordInfoDefinition"/>
-			<!-- <xs:element ref="recordInfo"/> -->
+			<xs:element ref="recordInfo"/>
 			<xs:element ref="relatedItem"/>
 			<xs:element ref="subject"/>
 			<xs:element ref="tableOfContents"/>

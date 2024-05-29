@@ -19,12 +19,13 @@ package org.mycore.libmeta.common;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import javax.xml.catalog.CatalogFeatures;
 import javax.xml.catalog.CatalogManager;
@@ -79,15 +80,24 @@ public class XMLSchemaValidator {
     }
 
     private void init(String schemaLocations) {
-        try {
-            URL catalogURL = XMLSchemaValidator.class.getResource("/libmeta/catalog.xml");
-            if (catalogURL != null) {
-                xmlSchemaCatalogResolver = CatalogManager.catalogResolver(CatalogFeatures.defaults(),
-                    catalogURL.toURI());
-            }
-        } catch (URISyntaxException e) {
-            //ignore
-        }
+
+        URI[] catalogURLs = Stream.of(
+            XMLSchemaValidator.class.getResource("/libmeta/catalog.xml"),
+            XMLSchemaValidator.class.getResource("/libmeta/catalog.additional.xml"))
+            .filter(x -> x != null)
+            .map(x -> {
+                try {
+                    return x.toURI();
+                } catch (URISyntaxException e) {
+                    LOGGER.error("Wrong URI: " + x, e);
+                    return null;
+                }
+
+            })
+            .filter(x -> x != null)
+            .toArray(URI[]::new);
+
+        xmlSchemaCatalogResolver = CatalogManager.catalogResolver(CatalogFeatures.defaults(), catalogURLs);
 
         List<String> schemas = new ArrayList<>();
         if (schemaLocations != null) {
