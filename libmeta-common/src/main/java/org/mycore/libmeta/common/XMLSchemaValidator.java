@@ -18,19 +18,23 @@
 package org.mycore.libmeta.common;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.Reader;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
+import javax.xml.catalog.CatalogFeatures;
+import javax.xml.catalog.CatalogManager;
+import javax.xml.catalog.CatalogResolver;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.xml.sax.EntityResolver;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -61,6 +65,8 @@ public class XMLSchemaValidator {
 
     private DocumentBuilderFactory DOC_BUILDER_FACTORY = DocumentBuilderFactory.newInstance();
 
+    private CatalogResolver xmlSchemaCatalogResolver;
+
     private boolean valid = true;
 
     private String errorMsg = "";
@@ -74,6 +80,25 @@ public class XMLSchemaValidator {
     }
 
     private void init(String schemaLocations) {
+
+        URI[] catalogURLs = Stream.of(
+            XMLSchemaValidator.class.getResource("/libmeta/catalog.xml"),
+            XMLSchemaValidator.class.getResource("/libmeta/catalog.additional.xml"))
+            .filter(x -> x != null)
+            .map(x -> {
+                try {
+                    return x.toURI();
+                } catch (URISyntaxException e) {
+                    LOGGER.error("Wrong URI: " + x, e);
+                    return null;
+                }
+
+            })
+            .filter(x -> x != null)
+            .toArray(URI[]::new);
+
+        xmlSchemaCatalogResolver = CatalogManager.catalogResolver(CatalogFeatures.defaults(), catalogURLs);
+
         List<String> schemas = new ArrayList<>();
         if (schemaLocations != null) {
             for (String s : schemaLocations.split("\\s")) {
@@ -140,23 +165,7 @@ public class XMLSchemaValidator {
                 }
             });
 
-            docBuilder.setEntityResolver(new EntityResolver() {
-
-                @Override
-                public InputSource resolveEntity(String publicId, String systemId) throws SAXException, IOException {
-                    try {
-                        InputStream is = getClass()
-                            .getResourceAsStream(
-                                "/libmeta/xml_schemas/" + systemId.substring(systemId.lastIndexOf("/") + 1));
-                        if (is != null) {
-                            return new InputSource(is);
-                        }
-                    } catch (Exception e) {
-                        LOGGER.error("Error resolving entity", e);
-                    }
-                    return null;
-                }
-            });
+            docBuilder.setEntityResolver(xmlSchemaCatalogResolver);
 
             docBuilder.parse(new InputSource(reader));
         } catch (Exception e) {
