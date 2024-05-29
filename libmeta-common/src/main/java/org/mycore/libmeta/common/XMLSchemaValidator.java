@@ -58,8 +58,6 @@ import org.xml.sax.SAXParseException;
  * The results are stored as properties valid, errorMsg) in the validator object.
  * You should NOT reuse the object for another validation. Create a new instance for each usage!
  * 
- * 
- * 
  */
 public class XMLSchemaValidator {
     private static final Logger LOGGER = LoggerFactory.getLogger(XMLSchemaValidator.class);
@@ -88,7 +86,7 @@ public class XMLSchemaValidator {
 
     private CatalogResolver xmlSchemaCatalogResolver;
 
-    private boolean valid = true;
+    private boolean valid = false;
 
     private String errorMsg = "";
 
@@ -183,7 +181,7 @@ public class XMLSchemaValidator {
     public boolean validate(Path path) {
         final Path p = path;
         try (Reader reader = Files.newBufferedReader(p)) {
-            return validate(reader, p.getFileName().toString());
+            validate(reader, p.getFileName().toString());
         } catch (IOException e) {
             LOGGER.debug("Validation error", e);
             errorMsg += "\n" + e.getMessage();
@@ -194,7 +192,7 @@ public class XMLSchemaValidator {
 
     /**
      * This starts the validation process.
-     * It should only be called ON TIME !!!!
+     * It should only be called ONCE !!!!
      * 
      * @param reader - a reader object, that access the XML (from String, stream, file, ...)
      * @param resourceName - a human readable name of the resource (e.g. file name) for messages and debugging
@@ -202,6 +200,7 @@ public class XMLSchemaValidator {
      * @return true, if the file is valid for the defined XML schema
      */
     public boolean validate(Reader reader, String resourceName) {
+        valid = true;
         try {
             DocumentBuilder docBuilder = DOC_BUILDER_FACTORY.newDocumentBuilder();
             docBuilder.setErrorHandler(new ErrorHandler() {
@@ -239,18 +238,17 @@ public class XMLSchemaValidator {
             valid = false;
         }
         return valid;
-
     }
 
     /**
      * @return the error message (...or empty string if valid)
+     * after validation
      */
     public String getErrorMsg() {
         return errorMsg;
     }
 
     /**
-     * 
      * @return true, if the validation was successful
      */
     public boolean isValid() {

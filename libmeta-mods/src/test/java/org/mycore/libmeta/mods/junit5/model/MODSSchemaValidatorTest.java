@@ -65,7 +65,7 @@ public class MODSSchemaValidatorTest {
                                                http://www.w3.org/1998/Math/MathML https://www.w3.org/Math/XMLSchema/mathml3/mathml3.xsd">
                   <mods:note>Example (MathML):  Cubed Root of x </mods:note>
                   <mods:extension>
-                     <m:math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                     <m:math display="block">
                        <m:mrow>
                          <m:mroot>
                            <m:mi>x</m:mi>
