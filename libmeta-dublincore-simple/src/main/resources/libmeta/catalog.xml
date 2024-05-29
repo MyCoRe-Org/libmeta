@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-  <system systemId="TODO" uri="xsd/dublincore-simple/simpledc20021212.xsd" />
+  <system systemId="http://dublincore.org/schemas/xmls/simpledc20021212.xsd"
+    uri="xsd/dublincore-simple/simpledc20021212.xsd" />
+  <system systemId="https://dublincore.org/schemas/xmls/simpledc20021212.xsd"
+    uri="xsd/dublincore-simple/simpledc20021212.xsd" />
+
+  <system systemId="http://www.w3.org/2001/03/xml.xsd" uri="xsd/dublincore-simple/xml.xsd" />
+  <system systemId="https://www.w3.org/2001/03/xml.xsd" uri="xsd/dublincore-simple/xml.xsd" />
 </catalog>

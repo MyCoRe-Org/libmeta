@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-  <system systemId="TODO" uri="xsd/dfgviewer/dfg-viewer.xsd" />
+  <!-- The schema files do not exist. The URLs only work together with this catalog.xml -->
+  <system systemId="http://dfg-viewer.de/dfg-viewer.xsd" uri="xsd/dfgviewer/dfg-viewer.xsd" />
+  <system systemId="https://dfg-viewer.de/dfg-viewer.xsd" uri="xsd/dfgviewer/dfg-viewer.xsd" />
+  <system systemId="http://www.mycore.de/downloads/libmeta/dfg-viewer.xsd" uri="xsd/dfgviewer/dfg-viewer.xsd" />
+  <system systemId="https://www.mycore.de/downloads/libmeta/dfg-viewer.xsd" uri="xsd/dfgviewer/dfg-viewer.xsd" />
 </catalog>
