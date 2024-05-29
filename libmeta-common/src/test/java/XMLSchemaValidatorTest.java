@@ -64,4 +64,22 @@ public class XMLSchemaValidatorTest {
         xsv.validate(new StringReader(actual), "testPica");
         assertTrue(xsv.getErrorMsg(), xsv.isValid());
     }
+    
+    @Test
+    public void testValidateError() {
+        String actual
+            = """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <pica:record xmlns:pica="info:srw/schema/5/picaXML-v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                             xsi:schemaLocation="info:srw/schema/5/picaXML-v1.0 https://www.loc.gov/standards/sru/recordSchemas/pica-xml-v1-0.xsd">
+                  <pica:datafield1 tag="028C">
+                    <pica:subfield code="9">728438135</pica:subfield>
+                    <pica:subfield code="7">gnd/1027147291</pica:subfield>
+                  </pica:datafield1>
+                </pica:record>
+                """;
+        XMLSchemaValidator xsv = new XMLSchemaValidator("");
+        xsv.validate(new StringReader(actual), "testPica");
+        assertTrue("Error not detected: 'Element datafield1 unknown'", !xsv.isValid() && xsv.getErrorMsg().contains("datafield1"));
+    }
 }
