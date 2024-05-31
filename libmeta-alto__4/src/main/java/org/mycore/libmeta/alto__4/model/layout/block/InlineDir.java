@@ -23,10 +23,11 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 /**
  * Describes the inline base direction and line orientation of a line or of all lines inside a text block.
  * The meaning of these terms is defined by the W3C writing modes document: 
- * <a href="https://www.w3.org/TR/css-writing-modes-3/#writing-mode"/>
+ * https://www.w3.org/TR/css-writing-modes-3/#writing-mode
+ * 
  * These values should correspond to the base direction set in the BiDi algorithm to the respective elements 
  * during Unicode encoding. A value of "ttb" (top-to-bottom) implies a base direction of left-to-right,
- * a value of "btt" (bottom-to-top) a base direction of right-to-left.</xsd:documentation>
+ * a value of "btt" (bottom-to-top) a base direction of right-to-left.
  * 
  * @author Robert Stephan
  * @version Alto 4.4
