@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.mycore.libmeta</groupId>
     <artifactId>libmeta-parent</artifactId>
-    <version>0.9.0</version>
+    <version>0.9.1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>libmeta-daia__1_0</artifactId>
