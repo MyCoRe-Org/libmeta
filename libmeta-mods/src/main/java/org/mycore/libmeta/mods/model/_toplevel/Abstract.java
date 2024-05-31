@@ -28,6 +28,7 @@ import org.mycore.libmeta.mods.model._misc.enums.No;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
+import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
 import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBuilder;
 import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink;
 
@@ -75,7 +76,7 @@ public class Abstract extends StringPlusLanguage
     // attributeGroup xlink:simpleLink - begin
 
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
-    protected String xlinkType;
+    protected XlinkTypeSimple xlinkType;
 
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkHref;
@@ -144,11 +145,11 @@ public class Abstract extends StringPlusLanguage
         this.type = type;
     }
 
-    public String getXlinkType() {
+    public XlinkTypeSimple getXlinkType() {
         return xlinkType;
     }
 
-    public void setXlinkType(String xlinkType) {
+    public void setXlinkType(XlinkTypeSimple xlinkType) {
         this.xlinkType = xlinkType;
     }
 
@@ -242,8 +243,10 @@ public class Abstract extends StringPlusLanguage
 
     public static class Builder extends BuilderBase<Abstract, Builder>
         implements IIDAttributeGroupBuilder<Abstract, Builder>,
-        IAttributeGroupXlinkSimpleLinkBuilder<Abstract, Builder>, IAltFormatAttributeGroupBuilder<Abstract, Builder>,
-        ILanguageAttributeGroupBuilder<Abstract, Builder>, IXsStringBuilder<Abstract, Builder> {
+        IAttributeGroupXlinkSimpleLinkBuilder<Abstract, Builder>,
+        IAltFormatAttributeGroupBuilder<Abstract, Builder>,
+        ILanguageAttributeGroupBuilder<Abstract, Builder>,
+        IXsStringBuilder<Abstract, Builder> {
 
         protected Builder(Abstract spl) {
             super(spl);

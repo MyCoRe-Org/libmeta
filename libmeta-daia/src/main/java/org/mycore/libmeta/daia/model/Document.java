@@ -37,17 +37,17 @@ import jakarta.xml.bind.annotation.XmlType;
 public class Document {
     @XmlElement(name = "message", namespace = "http://ws.gbv.de/daia/", required = false)
     protected List<Message> message = new Vector<Message>();
-    
+
     @XmlElement(name = "item", namespace = "http://ws.gbv.de/daia/", required = false)
     protected List<Item> item = new Vector<Item>();
-    
+
     /**
      * Identifier of a document
      */
     //<xs:attribute name="id" type="xs:anyURI" use="required">
     @XmlAttribute(name = "id", required = true)
     protected String id;
-    
+
     /**
      * Hyperlink to information about the document
      */

@@ -89,17 +89,17 @@ public class Description {
         }
 
         public Builder MeasurementUnit(MeasurementUnit measurementUnit) {
-        	_target().setMeasurementUnit(measurementUnit);
+            _target().setMeasurementUnit(measurementUnit);
             return _self();
         }
 
         public Builder sourceImageInformation(SourceImageInformation sourceImageInformation) {
-        	_target().setSourceImageInformation(sourceImageInformation);
+            _target().setSourceImageInformation(sourceImageInformation);
             return _self();
         }
 
         public Builder addOCRProcessing(OCRProcessing ocrProcessing) {
-        	_target().getOcrProcessing().add(ocrProcessing);
+            _target().getOcrProcessing().add(ocrProcessing);
             return _self();
         }
     }

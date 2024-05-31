@@ -18,8 +18,8 @@
 package org.mycore.libmeta.mods.model.recordinfo;
 
 import org.mycore.libmeta.common.BuilderBase;
-import org.mycore.libmeta.mods.model._misc.DateDefinition;
 import org.mycore.libmeta.mods.model._misc.builder.IDateDefinitionBuilder;
+import org.mycore.libmeta.mods.model._misc.definitions.DateDefinition;
 
 /**
  * {@code
@@ -31,7 +31,8 @@ import org.mycore.libmeta.mods.model._misc.builder.IDateDefinitionBuilder;
  *
  */
 public class RecordCreationDate extends DateDefinition implements IRecordInfoSubelement {
-    public static Builder builderForRecordCcreationDate() {
+
+    public static Builder builder() {
         return builder(new RecordCreationDate());
     }
 

@@ -20,7 +20,6 @@ package org.mycore.libmeta.mets.model._enums;
 import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 
-
 /**
  * TRANSFORMTYPE (string/R): Is used to indicate the type of transformation
  * needed to render content of a file accessible. This may include unpacking a
@@ -37,7 +36,9 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum TRANSFORMTYPE {
-	@XmlEnumValue("decompression") DECOMPRESSION, 
-	@XmlEnumValue("decryption") DECRYPTION;
+    @XmlEnumValue("decompression")
+    DECOMPRESSION,
+    @XmlEnumValue("decryption")
+    DECRYPTION;
 
 }

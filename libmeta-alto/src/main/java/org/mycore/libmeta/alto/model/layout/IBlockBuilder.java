@@ -21,10 +21,10 @@ import org.mycore.libmeta.alto._misc.IBoundingBoxBuilder;
 import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBuilder;
 
 public interface IBlockBuilder<T extends Block, B>
-		extends IBoundingBoxBuilder<T, B>, IAttributeGroupXlinkSimpleLinkBuilder<T, B> {
+    extends IBoundingBoxBuilder<T, B>, IAttributeGroupXlinkSimpleLinkBuilder<T, B> {
 
-	public T _target();
+    public T _target();
 
-	public B _self();
+    public B _self();
 
 }

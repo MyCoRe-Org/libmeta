@@ -18,8 +18,8 @@
 package org.mycore.libmeta.mods.model.location;
 
 import org.mycore.libmeta.common.BuilderBase;
-import org.mycore.libmeta.mods.model._misc.builder.IExtensionBuilder;
-import org.mycore.libmeta.mods.model._toplevel.Extension;
+import org.mycore.libmeta.mods.model._misc.builder.IExtensionDefinitionBuilder;
+import org.mycore.libmeta.mods.model._misc.definitions.ExtensionDefinition;
 
 /**
  * MODS CopyInformation Subelement: HoldingExternal
@@ -32,9 +32,9 @@ import org.mycore.libmeta.mods.model._toplevel.Extension;
  * @version MODS 3.6
  *
  */
-public class HoldingExternal extends Extension implements ILocationSublement {
+public class HoldingExternal extends ExtensionDefinition implements ILocationSublement {
 
-    public static Builder builderForHoldingExternal() {
+    public static Builder builder() {
         return builder(new HoldingExternal());
     }
 
@@ -43,7 +43,7 @@ public class HoldingExternal extends Extension implements ILocationSublement {
     }
 
     public static class Builder extends BuilderBase<HoldingExternal, Builder>
-        implements IExtensionBuilder<HoldingExternal, Builder> {
+        implements IExtensionDefinitionBuilder<HoldingExternal, Builder> {
         protected Builder(HoldingExternal he) {
             super(he);
         }

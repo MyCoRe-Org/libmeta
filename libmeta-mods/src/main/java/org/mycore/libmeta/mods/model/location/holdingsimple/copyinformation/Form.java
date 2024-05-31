@@ -60,7 +60,7 @@ public class Form extends StringPlusLanguagePlusAuthority implements ICopyInform
         this.type = type;
     }
 
-    public static Builder builderForForm() {
+    public static Builder builder() {
         return builder(new Form());
     }
 

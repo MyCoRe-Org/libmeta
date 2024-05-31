@@ -59,7 +59,7 @@ public class HoldingSimple implements ILocationSublement {
         return copyInformation;
     }
 
-    public static Builder builderForHoldingSimple() {
+    public static Builder builder() {
         return builder(new HoldingSimple());
     }
 

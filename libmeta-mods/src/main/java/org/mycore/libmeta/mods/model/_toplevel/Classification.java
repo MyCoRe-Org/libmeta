@@ -143,7 +143,7 @@ public class Classification extends StringPlusLanguagePlusAuthority
         this.generator = generator;
     }
 
-    public static Builder builderForClassification() {
+    public static Builder builder() {
         return builder(new Classification());
     }
 

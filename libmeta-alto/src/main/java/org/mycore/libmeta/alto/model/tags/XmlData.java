@@ -28,18 +28,16 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAnyElement;
 import jakarta.xml.bind.annotation.XmlMixed;
 
-
-
 @XmlAccessorType(XmlAccessType.NONE)
 public class XmlData {
-   
+
     @SuppressWarnings("rawtypes")
-	@XmlAnyElement(lax = true)
+    @XmlAnyElement(lax = true)
     @XmlMixed
     private List content = new Vector();
-    
-     @SuppressWarnings("rawtypes")
-	public List getContent() {
+
+    @SuppressWarnings("rawtypes")
+    public List getContent() {
         return content;
     }
 
@@ -47,19 +45,18 @@ public class XmlData {
         this.content = nodes;
     }
 
-    
-	public static Builder builder() {
-		return builder(new XmlData());
-	}
-	
-	public static Builder builder(XmlData xml) {
-		return new Builder(xml);
-	}
-	
-	public static class Builder extends BuilderBase<XmlData, Builder> {
+    public static Builder builder() {
+        return builder(new XmlData());
+    }
 
-	    protected Builder(XmlData xml) {
-			super(xml);
-		}
-	}
+    public static Builder builder(XmlData xml) {
+        return new Builder(xml);
+    }
+
+    public static class Builder extends BuilderBase<XmlData, Builder> {
+
+        protected Builder(XmlData xml) {
+            super(xml);
+        }
+    }
 }

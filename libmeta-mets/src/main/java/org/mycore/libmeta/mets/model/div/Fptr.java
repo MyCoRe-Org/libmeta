@@ -233,13 +233,17 @@ public class Fptr {
     public URIs getCONTENTIDS() {
         return CONTENTIDS;
     }
-    
+
     public void setCONTENTIDS(URIs contentIDs) {
         CONTENTIDS = contentIDs;
     }
 
     public Map<QName, String> getOtherAttributes() {
         return otherAttributes;
+    }
+
+    public String getOtherAttribute(QName qname) {
+        return otherAttributes.get(qname);
     }
 
     public static Builder builder() {

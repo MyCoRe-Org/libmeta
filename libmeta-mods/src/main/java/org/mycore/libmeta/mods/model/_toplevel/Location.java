@@ -223,7 +223,7 @@ public class Location implements ITopLevelElement, IIDAttributeGroup, ILanguageA
         this.holdingExternal = holdingExternal;
     }
 
-    public static Builder builderForLocation() {
+    public static Builder builder() {
         return builder(new Location());
     }
 

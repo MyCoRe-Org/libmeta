@@ -19,13 +19,8 @@ package org.mycore.libmeta.mods.model._toplevel;
 
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
-import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
-import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
-import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
-import org.mycore.libmeta.mods.model._misc.enums.Yes;
-import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
-
-import jakarta.xml.bind.annotation.XmlAttribute;
+import org.mycore.libmeta.mods.model._misc.builder.IIdentifierDefinitionBuilder;
+import org.mycore.libmeta.mods.model._misc.definitions.IdentifierDefinition;
 
 /**
  *  Top Level Element {@literal <identifier>}
@@ -48,86 +43,9 @@ import jakarta.xml.bind.annotation.XmlAttribute;
  * @version MODS 3.6
  *
  */
-public class Identifier extends StringPlusLanguage implements ITopLevelElement, IIDAttributeGroup {
+public class Identifier extends IdentifierDefinition implements ITopLevelElement, IIDAttributeGroup {
 
-    @XmlAttribute(name = "ID")
-    protected String ID;
-
-    @XmlAttribute(name = "IDREF")
-    protected String IDREF;
-
-    @XmlAttribute(name = "displayLabel")
-    protected String displayLabel;
-
-    @XmlAttribute(name = "type")
-    protected String type;
-
-    @XmlAttribute(name = "typeURI")
-    protected String typeURI;
-
-    @XmlAttribute(name = "invalid")
-    protected Yes invalid;
-
-    @XmlAttribute(name = "altRepGroup")
-    protected String altRepGroup;
-
-    public String getID() {
-        return ID;
-    }
-
-    public void setID(String iD) {
-        ID = iD;
-    }
-
-    public String getIDREF() {
-        return IDREF;
-    }
-
-    public void setIDREF(String iDREF) {
-        IDREF = iDREF;
-    }
-
-    public String getDisplayLabel() {
-        return displayLabel;
-    }
-
-    public void setDisplayLabel(String displayLabel) {
-        this.displayLabel = displayLabel;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getTypeURI() {
-        return typeURI;
-    }
-
-    public void setTypeURI(String typeURI) {
-        this.typeURI = typeURI;
-    }
-
-    public Yes getInvalid() {
-        return invalid;
-    }
-
-    public void setInvalid(Yes invalid) {
-        this.invalid = invalid;
-    }
-
-    public String getAltRepGroup() {
-        return altRepGroup;
-    }
-
-    public void setAltRepGroup(String altRepGroup) {
-        this.altRepGroup = altRepGroup;
-    }
-
-    public static Builder builderForIdentifier() {
+    public static Builder builder() {
         return builder(new Identifier());
     }
 
@@ -136,36 +54,12 @@ public class Identifier extends StringPlusLanguage implements ITopLevelElement, 
     }
 
     public static class Builder extends BuilderBase<Identifier, Builder>
-        implements IXsStringBuilder<Identifier, Builder>, IIDAttributeGroupBuilder<Identifier, Builder>,
-        ILanguageAttributeGroupBuilder<Identifier, Builder> {
+        implements IIdentifierDefinitionBuilder<Identifier, Builder> {
+
         protected Builder(Identifier spl) {
             super(spl);
         }
 
-        public Builder displayLabel(String displayLabel) {
-            _target().setDisplayLabel(displayLabel);
-            return _self();
-        }
-
-        public Builder type(String type) {
-            _target().setType(type);
-            return _self();
-        }
-
-        public Builder typeURI(String typeURI) {
-            _target().setTypeURI(typeURI);
-            return _self();
-        }
-
-        public Builder invalid(Yes invalid) {
-            _target().setInvalid(invalid);
-            return _self();
-        }
-
-        public Builder altRepGroup(String altRepGroup) {
-            _target().setAltRepGroup(altRepGroup);
-            return _self();
-        }
     }
 
 }

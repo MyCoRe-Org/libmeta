@@ -17,10 +17,6 @@
  */
 package org.mycore.libmeta.mods.model.subject;
 
-import org.mycore.libmeta.common.BuilderBase;
-import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
-import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
-import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguagePlusAuthority;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -60,11 +56,7 @@ public class SubjectGeographicCode extends StringPlusLanguagePlusAuthority {
         return new Builder(sgc);
     }
 
-    public static class Builder extends BuilderBase<SubjectGeographicCode, Builder>
-        implements IXsStringBuilder<SubjectGeographicCode, Builder>,
-        ILanguageAttributeGroupBuilder<SubjectGeographicCode, Builder>,
-        IAuthorityAttributeGroupBuilder<SubjectGeographicCode, Builder> {
-
+    public static class Builder extends StringPlusLanguagePlusAuthority.Builder<SubjectGeographicCode> {
         protected Builder(SubjectGeographicCode sgc) {
             super(sgc);
         }

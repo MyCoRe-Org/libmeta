@@ -21,6 +21,8 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -45,7 +47,7 @@ import org.slf4j.LoggerFactory;
  */
 public class PicaPlus2PicaXMLConverter {
     private static final Logger LOGGER = LoggerFactory.getLogger(PicaPlus2PicaXMLConverter.class);
-    
+
     String lastTag = null;
 
     String ppn = null;
@@ -67,12 +69,10 @@ public class PicaPlus2PicaXMLConverter {
 
     public void processStreams(InputStream inS, OutputStream outS) {
         XMLOutputFactory factory = XMLOutputFactory.newInstance();
-        
-        try {
-            XMLStreamWriter xmlWriter = factory.createXMLStreamWriter(outS, "UTF-8");
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(inS, "UTF-8"))) {
-              process(br, xmlWriter);
-            }
+        try (OutputStreamWriter w = new OutputStreamWriter(outS, StandardCharsets.UTF_8);
+            BufferedReader br = new BufferedReader(new InputStreamReader(inS, StandardCharsets.UTF_8))) {
+            XMLStreamWriter xmlWriter = factory.createXMLStreamWriter(w);
+            process(br, xmlWriter);
         } catch (Exception e) {
             LOGGER.error("Process streams error", e);
         }

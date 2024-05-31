@@ -18,8 +18,8 @@
 package org.mycore.libmeta.mods.model.origininfo;
 
 import org.mycore.libmeta.common.BuilderBase;
-import org.mycore.libmeta.mods.model._misc.DateDefinition;
 import org.mycore.libmeta.mods.model._misc.builder.IDateDefinitionBuilder;
+import org.mycore.libmeta.mods.model._misc.definitions.DateDefinition;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -54,7 +54,7 @@ public class DateOther extends DateDefinition implements IOriginInfoSubelement {
         this.type = type;
     }
 
-    public static Builder builderForDateOther() {
+    public static Builder builder() {
         return builder(new DateOther());
     }
 

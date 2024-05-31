@@ -33,6 +33,8 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum SmLinkGrpARCLINKORDER {
-	@XmlEnumValue("ordered") ORDERED, 
-	@XmlEnumValue("unordered") UNORDERED;
+    @XmlEnumValue("ordered")
+    ORDERED,
+    @XmlEnumValue("unordered")
+    UNORDERED;
 }

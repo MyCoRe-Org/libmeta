@@ -17,7 +17,9 @@
  */
 package org.mycore.libmeta.mods.model.cartographics;
 
-import org.mycore.libmeta.mods.model._toplevel.Extension;
+import org.mycore.libmeta.common.BuilderBase;
+import org.mycore.libmeta.mods.model._misc.builder.IExtensionDefinitionBuilder;
+import org.mycore.libmeta.mods.model._misc.definitions.ExtensionDefinition;
 
 /**
  * MODS Cartographics Subelement {@literal <cartographicExtension>}
@@ -26,6 +28,20 @@ import org.mycore.libmeta.mods.model._toplevel.Extension;
  * @version MODS 3.6
  *
  */
-public class CartographicExtension extends Extension implements ICartographicsSubelement {
+public class CartographicExtension extends ExtensionDefinition implements ICartographicsSubelement {
+    public static Builder builder() {
+        return builder(new CartographicExtension());
+    }
 
+    public static Builder builder(CartographicExtension ce) {
+        return new Builder(ce);
+    }
+
+    public static class Builder extends BuilderBase<CartographicExtension, Builder>
+        implements IExtensionDefinitionBuilder<CartographicExtension, Builder> {
+
+        protected Builder(CartographicExtension ce) {
+            super(ce);
+        }
+    }
 }

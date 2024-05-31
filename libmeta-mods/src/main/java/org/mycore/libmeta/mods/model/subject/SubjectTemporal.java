@@ -18,10 +18,10 @@
 package org.mycore.libmeta.mods.model.subject;
 
 import org.mycore.libmeta.common.BuilderBase;
-import org.mycore.libmeta.mods.model._misc.DateDefinition;
 import org.mycore.libmeta.mods.model._misc.IAuthorityAttributeGroup;
 import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IDateDefinitionBuilder;
+import org.mycore.libmeta.mods.model._misc.definitions.DateDefinition;
 
 import jakarta.xml.bind.annotation.XmlAttribute;
 
@@ -79,7 +79,7 @@ public class SubjectTemporal extends DateDefinition implements ISubjectSubelemen
 
     // IAuthorityAttributeGroup - end
 
-    public static Builder builderForSubjectTemporal() {
+    public static Builder builder() {
         return builder(new SubjectTemporal());
     }
 
@@ -88,7 +88,8 @@ public class SubjectTemporal extends DateDefinition implements ISubjectSubelemen
     }
 
     public static class Builder extends BuilderBase<SubjectTemporal, Builder> implements
-        IDateDefinitionBuilder<SubjectTemporal, Builder>, IAuthorityAttributeGroupBuilder<SubjectTemporal, Builder> {
+        IDateDefinitionBuilder<SubjectTemporal, Builder>,
+        IAuthorityAttributeGroupBuilder<SubjectTemporal, Builder> {
 
         protected Builder(SubjectTemporal subjectTemporal) {
             super(subjectTemporal);

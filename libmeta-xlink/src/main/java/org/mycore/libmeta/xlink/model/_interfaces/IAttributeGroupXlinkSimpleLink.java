@@ -19,6 +19,7 @@ package org.mycore.libmeta.xlink.model._interfaces;
 
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
+import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
 
 /**
  * Interface for elements that should contain XlinkSimpleLink attributes
@@ -27,28 +28,32 @@ import org.mycore.libmeta.xlink.model.XlinkShow;
  */
 public interface IAttributeGroupXlinkSimpleLink {
 
-	public String getXlinkHref();
+    public XlinkTypeSimple getXlinkType();
 
-	public void setXlinkHref(String xlinkHref);
+    public void setXlinkType(XlinkTypeSimple xlinkType);
 
-	public String getXlinkRole();
+    public String getXlinkHref();
 
-	public void setXlinkRole(String xlinkRole);
+    public void setXlinkHref(String xlinkHref);
 
-	public String getXlinkArcrole();
+    public String getXlinkRole();
 
-	public void setXlinkArcrole(String xlinkArcrole);
+    public void setXlinkRole(String xlinkRole);
 
-	public String getXlinkTitle();
+    public String getXlinkArcrole();
 
-	public void setXlinkTitle(String xlinkTitle);
+    public void setXlinkArcrole(String xlinkArcrole);
 
-	public XlinkShow getXlinkShow();
+    public String getXlinkTitle();
 
-	public void setXlinkShow(XlinkShow xlinkShow);
+    public void setXlinkTitle(String xlinkTitle);
 
-	public XlinkActuate getXlinkActuate();
+    public XlinkShow getXlinkShow();
 
-	public void setXlinkActuate(XlinkActuate xlinkActuate);
+    public void setXlinkShow(XlinkShow xlinkShow);
+
+    public XlinkActuate getXlinkActuate();
+
+    public void setXlinkActuate(XlinkActuate xlinkActuate);
 
 }

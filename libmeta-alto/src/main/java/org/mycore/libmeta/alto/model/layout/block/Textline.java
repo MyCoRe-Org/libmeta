@@ -39,196 +39,199 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlAccessorType(XmlAccessType.NONE)
 public class Textline implements IBoundingBoxHolder {
-	@XmlElements(value = {
-			@XmlElement(name = "String", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = TextlineString.class),
-			@XmlElement(name = "SP", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = TextlineSP.class),
-			@XmlElement(name = "HYP", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false, type = TextlineHYP.class) })
-	protected List<ITextlineContent> content = new Vector<ITextlineContent>();
+    @XmlElements(value = {
+        @XmlElement(name = "String", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false,
+            type = TextlineString.class),
+        @XmlElement(name = "SP", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false,
+            type = TextlineSP.class),
+        @XmlElement(name = "HYP", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false,
+            type = TextlineHYP.class) })
+    protected List<ITextlineContent> content = new Vector<ITextlineContent>();
 
-	@XmlAttribute(name = "ID", required = false)
-	@XmlSchemaType(name = "ID")
-	protected String ID;
+    @XmlAttribute(name = "ID", required = false)
+    @XmlSchemaType(name = "ID")
+    protected String ID;
 
-	@XmlAttribute(name = "STYLEREFS", required = false)
-	@XmlSchemaType(name = "IDREFS")
-	protected String STYLEREFS;
+    @XmlAttribute(name = "STYLEREFS", required = false)
+    @XmlSchemaType(name = "IDREFS")
+    protected String STYLEREFS;
 
-	@XmlAttribute(name = "TAGREFS", required = false)
-	@XmlSchemaType(name = "IDREFS")
-	protected String TAGREFS;
+    @XmlAttribute(name = "TAGREFS", required = false)
+    @XmlSchemaType(name = "IDREFS")
+    protected String TAGREFS;
 
-	@XmlAttribute(name = "HEIGHT", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float HEIGHT;
+    @XmlAttribute(name = "HEIGHT", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float HEIGHT;
 
-	@XmlAttribute(name = "WIDTH", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float WIDTH;
+    @XmlAttribute(name = "WIDTH", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float WIDTH;
 
-	@XmlAttribute(name = "HPOS", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float HPOS;
+    @XmlAttribute(name = "HPOS", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float HPOS;
 
-	@XmlAttribute(name = "VPOS", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float VPOS;
+    @XmlAttribute(name = "VPOS", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float VPOS;
 
-	@XmlAttribute(name = "BASELINE", required = true)
-	@XmlSchemaType(name = "float")
-	@XmlJavaTypeAdapter(FloatAdapter .class)
-	protected Float BASELINE;
+    @XmlAttribute(name = "BASELINE", required = true)
+    @XmlSchemaType(name = "float")
+    @XmlJavaTypeAdapter(FloatAdapter.class)
+    protected Float BASELINE;
 
-	/** Attribute to record language of the textline. */
-	@XmlAttribute(name = "LANG", required = false)
-	@XmlSchemaType(name = "language")
-	protected String LANG;
+    /** Attribute to record language of the textline. */
+    @XmlAttribute(name = "LANG", required = false)
+    @XmlSchemaType(name = "language")
+    protected String LANG;
 
-	/**
-	 * Correction Status. Indicates whether manual correction has been done or not.
-	 * The correction status should be recorded at the highest level possible
-	 * (Block, TextLine, String).
-	 */
-	@XmlAttribute(name = "CS", required = false)
-	@XmlSchemaType(name = "boolean")
-	protected Boolean CS;
+    /**
+     * Correction Status. Indicates whether manual correction has been done or not.
+     * The correction status should be recorded at the highest level possible
+     * (Block, TextLine, String).
+     */
+    @XmlAttribute(name = "CS", required = false)
+    @XmlSchemaType(name = "boolean")
+    protected Boolean CS;
 
-	public String getID() {
-		return ID;
-	}
+    public String getID() {
+        return ID;
+    }
 
-	public void setID(String iD) {
-		ID = iD;
-	}
+    public void setID(String iD) {
+        ID = iD;
+    }
 
-	public String getSTYLEREFS() {
-		return STYLEREFS;
-	}
+    public String getSTYLEREFS() {
+        return STYLEREFS;
+    }
 
-	public void setSTYLEREFS(String sTYLEREFS) {
-		STYLEREFS = sTYLEREFS;
-	}
+    public void setSTYLEREFS(String sTYLEREFS) {
+        STYLEREFS = sTYLEREFS;
+    }
 
-	public String getTAGREFS() {
-		return TAGREFS;
-	}
+    public String getTAGREFS() {
+        return TAGREFS;
+    }
 
-	public void setTAGREFS(String tAGREFS) {
-		TAGREFS = tAGREFS;
-	}
+    public void setTAGREFS(String tAGREFS) {
+        TAGREFS = tAGREFS;
+    }
 
-	public Float getHEIGHT() {
-		return HEIGHT;
-	}
+    public Float getHEIGHT() {
+        return HEIGHT;
+    }
 
-	public void setHEIGHT(Float hEIGHT) {
-		HEIGHT = hEIGHT;
-	}
+    public void setHEIGHT(Float hEIGHT) {
+        HEIGHT = hEIGHT;
+    }
 
-	public Float getWIDTH() {
-		return WIDTH;
-	}
+    public Float getWIDTH() {
+        return WIDTH;
+    }
 
-	public void setWIDTH(Float wIDTH) {
-		WIDTH = wIDTH;
-	}
+    public void setWIDTH(Float wIDTH) {
+        WIDTH = wIDTH;
+    }
 
-	public Float getHPOS() {
-		return HPOS;
-	}
+    public Float getHPOS() {
+        return HPOS;
+    }
 
-	public void setHPOS(Float hPOS) {
-		HPOS = hPOS;
-	}
+    public void setHPOS(Float hPOS) {
+        HPOS = hPOS;
+    }
 
-	public Float getVPOS() {
-		return VPOS;
-	}
+    public Float getVPOS() {
+        return VPOS;
+    }
 
-	public void setVPOS(Float vPOS) {
-		VPOS = vPOS;
-	}
+    public void setVPOS(Float vPOS) {
+        VPOS = vPOS;
+    }
 
-	public Float getBASELINE() {
-		return BASELINE;
-	}
+    public Float getBASELINE() {
+        return BASELINE;
+    }
 
-	public void setBASELINE(Float bASELINE) {
-		BASELINE = bASELINE;
-	}
+    public void setBASELINE(Float bASELINE) {
+        BASELINE = bASELINE;
+    }
 
-	public String getLANG() {
-		return LANG;
-	}
+    public String getLANG() {
+        return LANG;
+    }
 
-	public void setLANG(String lANG) {
-		LANG = lANG;
-	}
+    public void setLANG(String lANG) {
+        LANG = lANG;
+    }
 
-	public Boolean getCS() {
-		return CS;
-	}
+    public Boolean getCS() {
+        return CS;
+    }
 
-	public void setCS(Boolean cS) {
-		CS = cS;
-	}
+    public void setCS(Boolean cS) {
+        CS = cS;
+    }
 
-	public List<ITextlineContent> getContent() {
-		return content;
-	}
+    public List<ITextlineContent> getContent() {
+        return content;
+    }
 
-	public static Builder builder() {
-		return builder(new Textline());
-	}
+    public static Builder builder() {
+        return builder(new Textline());
+    }
 
-	public static Builder builder(Textline textline) {
-		return new Builder(textline);
-	}
+    public static Builder builder(Textline textline) {
+        return new Builder(textline);
+    }
 
-	public static class Builder extends BuilderBase<Textline, Builder>
-			implements IBoundingBoxBuilder<Textline, Builder> {
+    public static class Builder extends BuilderBase<Textline, Builder>
+        implements IBoundingBoxBuilder<Textline, Builder> {
 
-		protected Builder(Textline textline) {
-			super(textline);
-		}
+        protected Builder(Textline textline) {
+            super(textline);
+        }
 
-		public Builder addContent(ITextlineContent content) {
-			_target().getContent().add(content);
-			return _self();
-		}
+        public Builder addContent(ITextlineContent content) {
+            _target().getContent().add(content);
+            return _self();
+        }
 
-		public Builder ID(String id) {
-			_target().setID(id);
-			return _self();
-		}
+        public Builder ID(String id) {
+            _target().setID(id);
+            return _self();
+        }
 
-		public Builder STYLEREFS(String stylerefs) {
-			_target().setSTYLEREFS(stylerefs);
-			return _self();
-		}
+        public Builder STYLEREFS(String stylerefs) {
+            _target().setSTYLEREFS(stylerefs);
+            return _self();
+        }
 
-		public Builder TAGREFS(String tagrefs) {
-			_target().setTAGREFS(tagrefs);
-			return _self();
-		}
+        public Builder TAGREFS(String tagrefs) {
+            _target().setTAGREFS(tagrefs);
+            return _self();
+        }
 
-		public Builder BASELINE(Float baseline) {
-			_target().setBASELINE(baseline);
-			return _self();
-		}
+        public Builder BASELINE(Float baseline) {
+            _target().setBASELINE(baseline);
+            return _self();
+        }
 
-		public Builder LANG(String lang) {
-			_target().setLANG(lang);
-			return _self();
-		}
+        public Builder LANG(String lang) {
+            _target().setLANG(lang);
+            return _self();
+        }
 
-		public Builder CS(Boolean cs) {
-			_target().setCS(cs);
-			return _self();
-		}
-	}
+        public Builder CS(Boolean cs) {
+            _target().setCS(cs);
+            return _self();
+        }
+    }
 
 }

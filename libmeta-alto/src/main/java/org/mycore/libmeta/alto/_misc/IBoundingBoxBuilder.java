@@ -23,22 +23,22 @@ public interface IBoundingBoxBuilder<T extends IBoundingBoxHolder, B> {
     public B _self();
 
     public default B HEIGHT(Float height) {
-    	_target().setHEIGHT(height);
+        _target().setHEIGHT(height);
         return _self();
     }
 
     public default B WIDTH(Float width) {
-    	_target().setWIDTH(width);
+        _target().setWIDTH(width);
         return _self();
     }
 
     public default B HPOS(Float hpos) {
-    	_target().setHPOS(hpos);
+        _target().setHPOS(hpos);
         return _self();
     }
 
     public default B VPOS(Float vpos) {
-    	_target().setVPOS(vpos);
+        _target().setVPOS(vpos);
         return _self();
     }
 }

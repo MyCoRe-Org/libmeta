@@ -22,8 +22,11 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 
 @XmlEnum
 public enum SamplingFrequencyPlane {
-	@XmlEnumValue("camera/scanner focal plane") CAMERA_SCANNER_FOCAL_PLANE,
-	@XmlEnumValue("object plane") OBJECT_PLANE,
-	@XmlEnumValue("source object plane") SOURCE_OBJECT_PLANE
-	
+    @XmlEnumValue("camera/scanner focal plane")
+    CAMERA_SCANNER_FOCAL_PLANE,
+    @XmlEnumValue("object plane")
+    OBJECT_PLANE,
+    @XmlEnumValue("source object plane")
+    SOURCE_OBJECT_PLANE
+
 }

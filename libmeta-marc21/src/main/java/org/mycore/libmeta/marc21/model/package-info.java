@@ -15,13 +15,13 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
  */
-@XmlSchema(namespace = "http://www.loc.gov/MARC21/slim",  
-        xmlns = {   
-            @XmlNs(namespaceURI = "http://www.loc.gov/MARC21/slim", prefix = "marc"),  
-            @XmlNs(namespaceURI = "http://www.w3.org/2001/XMLSchema-instance", prefix = "xsi")
-        },
-        location = "http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd",
-        elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)  
+@XmlSchema(namespace = "http://www.loc.gov/MARC21/slim",
+    xmlns = {
+        @XmlNs(namespaceURI = "http://www.loc.gov/MARC21/slim", prefix = "marc"),
+        @XmlNs(namespaceURI = "http://www.w3.org/2001/XMLSchema-instance", prefix = "xsi")
+    },
+    location = "http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd",
+    elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package org.mycore.libmeta.marc21.model;
 
 import jakarta.xml.bind.annotation.XmlNs;

@@ -106,7 +106,7 @@ public class TargetAudience extends StringPlusLanguagePlusAuthority implements I
         this.altRepGroup = altRepGroup;
     }
 
-    public static Builder builderForTargetAudience() {
+    public static Builder builder() {
         return builder(new TargetAudience());
     }
 

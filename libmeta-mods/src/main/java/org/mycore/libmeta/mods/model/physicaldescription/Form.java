@@ -21,9 +21,11 @@ import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.builder.IAuthorityAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
 import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
+import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguagePlusAuthority;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
 
 /**
  * MODS PhysicalDescription Subelement: Form
@@ -39,15 +41,25 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-public class Form extends org.mycore.libmeta.mods.model.location.holdingsimple.copyinformation.Form
-    implements IPhysicalDescriptionSubelement {
+public class Form extends StringPlusLanguagePlusAuthority implements IPhysicalDescriptionSubelement {
+
+    @XmlAttribute(name = "type", required = false)
+    protected String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public static Builder builder() {
         return builder(new Form());
     }
 
-    public static Builder builder(Form f) {
-        return new Builder(f);
+    public static Builder builder(Form form) {
+        return new Builder(form);
     }
 
     public static class Builder extends BuilderBase<Form, Builder> implements IXsStringBuilder<Form, Builder>,

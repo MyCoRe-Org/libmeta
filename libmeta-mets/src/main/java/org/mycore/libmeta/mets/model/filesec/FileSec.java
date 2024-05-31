@@ -106,33 +106,36 @@ public class FileSec {
      */
     @XmlAttribute(name = "ID", required = false)
     protected String ID;
-    
+
     /**
      * {@code
-	 * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
-	 * }
-	 */
-	@XmlAnyAttribute
-	protected Map<QName, String> otherAttributes = new HashMap<QName, String>();
-
+     * 	<xsd:anyAttribute namespace="##other" processContents="lax" />
+     * }
+     */
+    @XmlAnyAttribute
+    protected Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
     public List<FileGrp> getFileGrp() {
-	return fileGrp;
+        return fileGrp;
     }
 
-	public String getID() {
-		return ID;
-	}
+    public String getID() {
+        return ID;
+    }
 
-	public void setID(String id) {
-		ID = id;
-	}
+    public void setID(String id) {
+        ID = id;
+    }
 
-	public Map<QName, String> getOtherAttributes() {
-		return otherAttributes;
-	}
+    public Map<QName, String> getOtherAttributes() {
+        return otherAttributes;
+    }
 
-	public static Builder builder() {
+    public String getOtherAttribute(QName qname) {
+        return otherAttributes.get(qname);
+    }
+
+    public static Builder builder() {
         return builder(new FileSec());
     }
 
@@ -146,21 +149,20 @@ public class FileSec {
             super(fs);
         }
 
-		public Builder addFileGrp(FileGrp fg) {
-			_target().getFileGrp().add(fg);
-			return _self();
-		}
+        public Builder addFileGrp(FileGrp fg) {
+            _target().getFileGrp().add(fg);
+            return _self();
+        }
 
-		public Builder ID(String id) {
-			_target().setID(id);
-			return _self();
-		}
+        public Builder ID(String id) {
+            _target().setID(id);
+            return _self();
+        }
 
-		public Builder addOtherAttribute(QName name, String value) {
-			_target().getOtherAttributes().put(name, value);
-			return _self();
-		}
-	}
-
+        public Builder addOtherAttribute(QName name, String value) {
+            _target().getOtherAttributes().put(name, value);
+            return _self();
+        }
+    }
 
 }

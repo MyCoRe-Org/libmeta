@@ -27,7 +27,11 @@ import jakarta.xml.bind.annotation.XmlValue;
 
 /**
  * Any alternative for the word.
- * 
+ * Alternative can outline a variant of writing by new typing / spelling rules, typically manually done or by dictionary replacements.
+ * The above sample is an old composed character "Æ" of ancient time, which is replaced now by "Ä".
+ * As variant are meant alternatives of the real printed content which are options outlined by the text recognition process.
+ * Similar sample: "Straße" vs. "Strasse". Such alternatives are not coming from text recognition.
+ *  
  * @author Robert Stephan
  *
  */
@@ -35,52 +39,52 @@ import jakarta.xml.bind.annotation.XmlValue;
 @XmlAccessorType(XmlAccessType.NONE)
 public class TextlineStringALTERNATIVE {
 
-	/** Identifies the purpose of the alternative. */
-	@XmlValue
-	protected String value;
+    @XmlValue
+    protected String value;
 
-	@XmlAttribute(name = "PURPOSE", required = false)
-	@XmlSchemaType(name = "string")
-	protected String PURPOSE;
+    /** Identifies the purpose of the alternative. */
+    @XmlAttribute(name = "PURPOSE", required = false)
+    @XmlSchemaType(name = "string")
+    protected String PURPOSE;
 
-	public String getValue() {
-		return value;
-	}
+    public String getValue() {
+        return value;
+    }
 
-	public void setValue(String value) {
-		this.value = value;
-	}
+    public void setValue(String value) {
+        this.value = value;
+    }
 
-	public String getPURPOSE() {
-		return PURPOSE;
-	}
+    public String getPURPOSE() {
+        return PURPOSE;
+    }
 
-	public void setPURPOSE(String pURPOSE) {
-		PURPOSE = pURPOSE;
-	}
+    public void setPURPOSE(String pURPOSE) {
+        PURPOSE = pURPOSE;
+    }
 
-	public static Builder builder() {
-		return builder(new TextlineStringALTERNATIVE());
-	}
+    public static Builder builder() {
+        return builder(new TextlineStringALTERNATIVE());
+    }
 
-	public static Builder builder(TextlineStringALTERNATIVE alternative) {
-		return new Builder(alternative);
-	}
+    public static Builder builder(TextlineStringALTERNATIVE alternative) {
+        return new Builder(alternative);
+    }
 
-	public static class Builder extends BuilderBase<TextlineStringALTERNATIVE, Builder> {
+    public static class Builder extends BuilderBase<TextlineStringALTERNATIVE, Builder> {
 
-		protected Builder(TextlineStringALTERNATIVE alternative) {
-			super(alternative);
-		}
+        protected Builder(TextlineStringALTERNATIVE alternative) {
+            super(alternative);
+        }
 
-		public Builder value(String value) {
-			_target().setValue(value);
-			return _self();
-		}
+        public Builder value(String value) {
+            _target().setValue(value);
+            return _self();
+        }
 
-		public Builder PURPOSE(String purpose) {
-			_target().setPURPOSE(purpose);
-			return _self();
-		}
-	}
+        public Builder PURPOSE(String purpose) {
+            _target().setPURPOSE(purpose);
+            return _self();
+        }
+    }
 }

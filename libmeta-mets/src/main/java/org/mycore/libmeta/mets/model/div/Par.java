@@ -146,6 +146,10 @@ public class Par extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS {
         return otherAttributes;
     }
 
+    public String getOtherAttribute(QName qname) {
+        return otherAttributes.get(qname);
+    }
+
     public static Builder builder() {
         return builder(new Par());
     }
@@ -154,7 +158,8 @@ public class Par extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS {
         return new Builder(p);
     }
 
-    public static class Builder extends BuilderBase<Par, Builder> implements IAttributeGroupORDERLABELSBuilder<Par, Builder> {
+    public static class Builder extends BuilderBase<Par, Builder>
+        implements IAttributeGroupORDERLABELSBuilder<Par, Builder> {
 
         protected Builder(Par p) {
             super(p);

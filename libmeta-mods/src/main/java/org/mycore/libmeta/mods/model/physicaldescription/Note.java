@@ -25,6 +25,7 @@ import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
 import org.mycore.libmeta.mods.model._misc.types.StringPlusLanguage;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
+import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
 import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBuilder;
 import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink;
 
@@ -67,6 +68,9 @@ public class Note extends StringPlusLanguage
     protected String typeURI;
 
     // IXlinkSimpleLinkAttributeGroup - begin
+
+    @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = false)
+    protected XlinkTypeSimple xlinkType;
 
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkHref;
@@ -116,6 +120,14 @@ public class Note extends StringPlusLanguage
 
     public void setTypeURI(String typeURI) {
         this.typeURI = typeURI;
+    }
+
+    public XlinkTypeSimple getXlinkType() {
+        return xlinkType;
+    }
+
+    public void setXlinkType(XlinkTypeSimple xlinkType) {
+        this.xlinkType = xlinkType;
     }
 
     public String getXlinkHref() {

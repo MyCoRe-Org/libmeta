@@ -80,12 +80,12 @@ public class StringPlusLanguagePlusAuthority extends StringPlusLanguage implemen
         this.valueURI = valueURI;
     }
 
-    public static class Builder extends BuilderBase<StringPlusLanguagePlusAuthority, Builder>
-        implements IXsStringBuilder<StringPlusLanguagePlusAuthority, Builder>,
-        ILanguageAttributeGroupBuilder<StringPlusLanguagePlusAuthority, Builder>,
-        IAuthorityAttributeGroupBuilder<StringPlusLanguagePlusAuthority, Builder> {
+    public static class Builder<T extends StringPlusLanguagePlusAuthority> extends BuilderBase<T, Builder<T>>
+        implements IXsStringBuilder<T, Builder<T>>,
+        ILanguageAttributeGroupBuilder<T, Builder<T>>,
+        IAuthorityAttributeGroupBuilder<T, Builder<T>> {
 
-        protected Builder(StringPlusLanguagePlusAuthority spl) {
+        protected Builder(T spl) {
             super(spl);
         }
     }

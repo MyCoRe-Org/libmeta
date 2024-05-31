@@ -33,11 +33,10 @@ import javax.xml.stream.events.XMLEvent;
 import javax.xml.stream.util.EventReaderDelegate;
 
 /**
- * FilterPicaXMLReaderDelegate kann benutzt werden um PicaPlus XML Dokumente
- * aus SRU-Response Dokumenten zu extrahieren
+ * FilterPicaXMLReaderDelegate can be used to extract PicaPlusXML Documents
+ * from SRU responses.
  * 
- * Die Klasse basiert auf der Java StAX API und kann als XMLEventReader benutzt
- * werden.
+ * The implementation is based on the Java StAX API and can be used as XMLEventReader.
  * 
  * @author Robert Stephan
  * 
@@ -56,64 +55,143 @@ public class FilterPicaXMLFromSRUReaderDelegate extends EventReaderDelegate {
 
     private static QName qnZSRecords = new QName("http://www.loc.gov/zing/srw/", "records");
 
+    private static QName qnZSearchRetrieveResponse
+        = new QName("http://www.loc.gov/zing/srw/", "searchRetrieveResponse");
+
     private Queue<XMLEvent> queueOfNewEvents = new LinkedList<XMLEvent>();
 
     private XMLEventFactory eventFactory = XMLEventFactory.newInstance();
 
     private boolean showText = false;
 
+    private boolean isFirstRecord = true;
+
+    public enum RootElement {
+        RECORD, COLLECTION;
+    }
+
+    private RootElement rootElement;
+
     /**
-     * Constructor
-     * 
-     * @param parentXMLEventReader - the parent XML event reader
-     */
-    public FilterPicaXMLFromSRUReaderDelegate(XMLEventReader parentXMLEventReader) {
+    * Constructor
+    * 
+    * @param parentXMLEventReader - the parent XML event reader
+    */
+    public FilterPicaXMLFromSRUReaderDelegate(XMLEventReader parentXMLEventReader, RootElement rootElement) {
         super(parentXMLEventReader);
+        this.rootElement = rootElement;
     }
 
     @Override
     public XMLEvent nextEvent() throws XMLStreamException {
-        if (!queueOfNewEvents.isEmpty()) {
-            return queueOfNewEvents.poll();
+        while (true) {
+            if (!queueOfNewEvents.isEmpty()) {
+                return queueOfNewEvents.poll();
+            }
+
+            XMLEvent xmlEvent = super.nextEvent();
+            if (xmlEvent == null) {
+                return null;
+            }
+            if (xmlEvent.isStartElement()) {
+                if (xmlEvent.asStartElement().getName().equals(qnZSRecords)) {
+                    if (rootElement == RootElement.COLLECTION) {
+                        queueOfNewEvents.add(eventFactory.createCharacters("\n"));
+                        queueOfNewEvents.add(eventFactory.createStartElement(qnCollection, null, null));
+                        queueOfNewEvents.add(eventFactory.createNamespace("info:srw/schema/5/picaXML-v1.0"));
+                        queueOfNewEvents.add(eventFactory.createCharacters("\n"));
+                    }
+                    continue;
+                }
+
+                if (xmlEvent.asStartElement().getName().equals(qnRecord)) {
+                    if (isFirstRecord || rootElement == RootElement.COLLECTION) {
+                        showText = true;
+                        return xmlEvent;
+                    } else {
+                        continue;
+                    }
+                }
+
+                if (!xmlEvent.asStartElement().getName().getNamespaceURI().equals("info:srw/schema/5/picaXML-v1.0")) {
+                    continue;
+                }
+            }
+
+            if (xmlEvent.isEndElement()) {
+                if (xmlEvent.asEndElement().getName().equals(qnZSRecords)) {
+                    if (rootElement == RootElement.COLLECTION) {
+                        queueOfNewEvents.add(eventFactory.createCharacters("\n"));
+                        queueOfNewEvents.add(eventFactory.createEndElement(qnCollection, null));
+                        continue;
+                    }
+                }
+                if (xmlEvent.asEndElement().getName().equals(qnRecord)) {
+                    showText = false;
+                    if (isFirstRecord || rootElement == RootElement.COLLECTION) {
+                        isFirstRecord = false;
+                        return xmlEvent;
+                    } else {
+                        continue;
+                    }
+                }
+
+                if (xmlEvent.asEndElement().getName().equals(qnZSearchRetrieveResponse)) {
+                    //handle empty SRU responses ...
+                    if (rootElement == RootElement.COLLECTION && isFirstRecord) {
+                        queueOfNewEvents.add(eventFactory.createCharacters("\n"));
+                        queueOfNewEvents.add(eventFactory.createStartElement(qnCollection, null, null));
+                        queueOfNewEvents.add(eventFactory.createNamespace("info:srw/schema/5/picaXML-v1.0"));
+                        queueOfNewEvents.add(eventFactory.createEndElement(qnCollection, null));
+                        continue;
+                    }
+
+                    if (rootElement == RootElement.RECORD && isFirstRecord) {
+                        queueOfNewEvents.add(eventFactory.createCharacters("\n"));
+                        queueOfNewEvents.add(eventFactory.createStartElement(qnRecord, null, null));
+                        queueOfNewEvents.add(eventFactory.createNamespace("info:srw/schema/5/picaXML-v1.0"));
+                        queueOfNewEvents.add(eventFactory.createEndElement(qnRecord, null));
+                        continue;
+                    }
+                }
+
+                if (!xmlEvent.asEndElement().getName().getNamespaceURI().equals("info:srw/schema/5/picaXML-v1.0")) {
+                    continue;
+                }
+            }
+            if (xmlEvent.isCharacters() && !showText) {
+                continue;
+            }
+
+            if (isFirstRecord || rootElement == RootElement.COLLECTION
+                || xmlEvent.isStartDocument() || xmlEvent.isEndDocument()) {
+                return xmlEvent;
+            } else {
+                continue;
+            }
         }
+    }
 
-        XMLEvent xmlEvent = super.nextEvent();
-        if (xmlEvent == null) {
-            return null;
-        }
-        if (xmlEvent.isStartElement()) {
-            if (xmlEvent.asStartElement().getName().equals(qnZSRecords)) {
-                queueOfNewEvents.add(eventFactory.createStartElement(qnCollection, null, null));
-                queueOfNewEvents.add(eventFactory.createNamespace("info:srw/schema/5/picaXML-v1.0"));
-                return nextEvent();
-            }
-            if (xmlEvent.asStartElement().getName().equals(qnRecord)) {
-                showText = true;
-            }
+    /**
+     * utility function to retrieve (the first) pica record XML from SRU responses
+     * 
+     * @param in - the input XML
+     * @param out - the output XML
+     * @throws Exception - an error during processing occured
+     */
+    public static void filterPicaRecordXML(Reader in, Writer out) throws Exception {
+        filterPicaXML(in, out, RootElement.RECORD);
+    }
 
-            if (!xmlEvent.asStartElement().getName().getNamespaceURI().equals("info:srw/schema/5/picaXML-v1.0")) {
-                return nextEvent();
-            }
-
-        }
-
-        if (xmlEvent.isEndElement()) {
-            if (xmlEvent.asEndElement().getName().equals(qnZSRecords)) {
-                return eventFactory.createEndElement(qnCollection, null);
-            }
-            if (xmlEvent.asEndElement().getName().equals(qnRecord)) {
-                showText = false;
-            }
-            if (!xmlEvent.asEndElement().getName().getNamespaceURI().equals("info:srw/schema/5/picaXML-v1.0")) {
-                return nextEvent();
-            }
-        }
-        if (xmlEvent.isCharacters() && !showText) {
-            return nextEvent();
-        }
-
-        return xmlEvent;
-
+    /**
+     * utility function to retrieve pica collection XML from SRU responses
+     * 
+     * @param in - the input XML
+     * @param out - the output XML
+     * @throws Exception - an error during processing occured
+     */
+    public static void filterPicaCollectionXML(Reader in, Writer out) throws Exception {
+        filterPicaXML(in, out, RootElement.COLLECTION);
     }
 
     /**
@@ -121,13 +199,15 @@ public class FilterPicaXMLFromSRUReaderDelegate extends EventReaderDelegate {
      * 
      * @param in - the input XML
      * @param out - the output XML
+     * @param rootElement the expected Pica root Element (record or collection)
      * @throws Exception - an error during processing occured
      */
-    public static void filterPicaXML(Reader in, Writer out) throws Exception {
+    private static void filterPicaXML(Reader in, Writer out, RootElement rootElement) throws Exception {
         XMLInputFactory inputFactory = XMLInputFactory.newInstance();
         XMLOutputFactory outputFactory = XMLOutputFactory.newInstance();
 
-        XMLEventReader xmlEventReader = new FilterPicaXMLFromSRUReaderDelegate(inputFactory.createXMLEventReader(in));
+        XMLEventReader xmlEventReader
+            = new FilterPicaXMLFromSRUReaderDelegate(inputFactory.createXMLEventReader(in), rootElement);
         XMLEventWriter xmlEventWriter = outputFactory.createXMLEventWriter(out);
 
         while (xmlEventReader.hasNext()) {

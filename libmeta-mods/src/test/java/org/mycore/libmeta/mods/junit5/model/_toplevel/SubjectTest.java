@@ -1,3 +1,21 @@
+
+/* 
+ * This file is part of *** MyCoRe LibMeta ***
+ * See https://github.com/MyCoRe-Org/libmeta/ for details.
+ * 
+ * MyCoRe LibMeta is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published 
+ * by the Free Software Foundation, either version 3 of the License, 
+ * or (at your option) any later version.
+ *
+ * MyCoRe LibMeta is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+ * See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package org.mycore.libmeta.mods.junit5.model._toplevel;
 
 import static org.junit.Assert.assertEquals;
@@ -24,7 +42,7 @@ public class SubjectTest {
         City city = new City();
         city.setContent("Rostock");
         Mods mods = Mods.builder()
-            .addContent(Subject.builderForSubject()
+            .addContent(Subject.builder()
                 .addContent(SubjectHierarchicalGeographic.builder()
                     .addContent(c)
                     .addContent(state)
@@ -34,16 +52,18 @@ public class SubjectTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<mods:mods xmlns:mods=\"http://www.loc.gov/mods/v3\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n"
-                + "  <mods:subject>\n"
-                + "    <mods:hierarchicalGeographic>\n"
-                + "      <mods:country>Germany</mods:country>\n"
-                + "      <mods:state stateType=\"bundesland\">Mecklenburg-Vorpommern</mods:state>\n"
-                + "      <mods:city>Rostock</mods:city>\n"
-                + "    </mods:hierarchicalGeographic>\n"
-                + "  </mods:subject>\n"
-                + "</mods:mods>";
+            String expected
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:subject>
+                        <mods:hierarchicalGeographic>
+                          <mods:country>Germany</mods:country>
+                          <mods:state stateType="bundesland">Mecklenburg-Vorpommern</mods:state>
+                          <mods:city>Rostock</mods:city>
+                        </mods:hierarchicalGeographic>
+                      </mods:subject>
+                    </mods:mods>""";
             assertEquals("Test 1 failed", expected, s);
         } catch (Exception e) {
             fail(e.getMessage());

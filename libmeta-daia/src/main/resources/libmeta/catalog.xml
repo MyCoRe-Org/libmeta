@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://ws.gbv.de/daia/daia.xsd" uri="xsd/daia/daia.xsd" />
+  <system systemId="https://ws.gbv.de/daia/daia.xsd" uri="xsd/daia/daia.xsd" />
+</catalog>

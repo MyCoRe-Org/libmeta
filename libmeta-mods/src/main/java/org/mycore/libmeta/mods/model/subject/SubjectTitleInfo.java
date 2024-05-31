@@ -35,6 +35,7 @@ import org.mycore.libmeta.mods.model.titleInfo.SubTitle;
 import org.mycore.libmeta.mods.model.titleInfo.Title;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
+import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
 import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBuilder;
 import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink;
 
@@ -101,6 +102,9 @@ public class SubjectTitleInfo
     protected String IDREF;
 
     // IXlinkSimpleLinkAttributeGroup - begin
+
+    @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = false)
+    protected XlinkTypeSimple xlinkType;
 
     @XmlAttribute(name = "href", namespace = "http://www.w3.org/1999/xlink", required = false)
     protected String xlinkHref;
@@ -202,6 +206,14 @@ public class SubjectTitleInfo
 
     public void setIDREF(String iDREF) {
         this.IDREF = iDREF;
+    }
+
+    public XlinkTypeSimple getXlinkType() {
+        return xlinkType;
+    }
+
+    public void setXlinkType(XlinkTypeSimple xlinkType) {
+        this.xlinkType = xlinkType;
     }
 
     public String getXlinkHref() {
@@ -317,7 +329,8 @@ public class SubjectTitleInfo
     }
 
     public static class Builder extends BuilderBase<SubjectTitleInfo, Builder> implements
-        IIDAttributeGroupBuilder<SubjectTitleInfo, Builder>, IAuthorityAttributeGroupBuilder<SubjectTitleInfo, Builder>,
+        IIDAttributeGroupBuilder<SubjectTitleInfo, Builder>,
+        IAuthorityAttributeGroupBuilder<SubjectTitleInfo, Builder>,
         IAttributeGroupXlinkSimpleLinkBuilder<SubjectTitleInfo, Builder> {
 
         protected Builder(SubjectTitleInfo subjectTitleInfo) {

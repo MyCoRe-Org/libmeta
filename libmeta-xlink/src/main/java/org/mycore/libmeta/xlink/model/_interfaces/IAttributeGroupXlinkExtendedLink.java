@@ -26,16 +26,16 @@ import org.mycore.libmeta.xlink.model.XlinkTypeExtended;
  */
 public interface IAttributeGroupXlinkExtendedLink {
 
-	public XlinkTypeExtended getXlinkType();
+    public XlinkTypeExtended getXlinkType();
 
-	public String getXlinkRole();
+    public String getXlinkRole();
 
-	public String getXlinkTitle();
+    public String getXlinkTitle();
 
-	public void setXlinkType(XlinkTypeExtended xlinkType);
+    public void setXlinkType(XlinkTypeExtended xlinkType);
 
-	public void setXlinkRole(String xlinkRole);
+    public void setXlinkRole(String xlinkRole);
 
-	public void setXlinkTitle(String xlinkTitle);
+    public void setXlinkTitle(String xlinkTitle);
 
 }

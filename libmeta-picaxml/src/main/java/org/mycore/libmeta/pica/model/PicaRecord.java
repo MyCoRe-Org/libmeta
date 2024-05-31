@@ -40,7 +40,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "record", namespace = "info:srw/schema/5/picaXML-v1.0")
 @XmlAccessorType(XmlAccessType.NONE)
-public class PicaRecord implements PicaObject, HasPicaDatafields{
+public class PicaRecord implements PicaObject, HasPicaDatafields {
     /**
      * 
      */
@@ -65,10 +65,10 @@ public class PicaRecord implements PicaObject, HasPicaDatafields{
         protected Builder(PicaRecord record) {
             super(record);
         }
-		
-		public Builder addDatafield(PicaDatafield df) {
-			_target().getDatafields().add(df);
-			return _self();
-		}
-	}
+
+        public Builder addDatafield(PicaDatafield df) {
+            _target().getDatafields().add(df);
+            return _self();
+        }
+    }
 }

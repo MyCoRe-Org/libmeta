@@ -64,13 +64,12 @@ public class Item {
     // <xs:element maxOccurs="1" minOccurs="0" ref="storage"/>
     @XmlElement(name = "storage", namespace = "http://ws.gbv.de/daia/", required = false)
     protected SimpleElement storage;
-    
-    
+
     @XmlElement(name = "available", namespace = "http://ws.gbv.de/daia/", required = false)
     protected List<Available> available = new Vector<Available>();
-    
+
     @XmlElement(name = "unavailable", namespace = "http://ws.gbv.de/daia/", required = false)
-    protected List<Unavailable> unavailable = new Vector<Unavailable>();  
+    protected List<Unavailable> unavailable = new Vector<Unavailable>();
 
     /**
      * An item must be identified by an URI. Real URIs of a given schema should be used, 

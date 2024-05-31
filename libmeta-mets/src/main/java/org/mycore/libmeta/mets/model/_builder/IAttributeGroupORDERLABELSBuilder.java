@@ -27,67 +27,67 @@ import org.mycore.libmeta.mets.model._interfaces.IAttributeGroupORDERLABELS;
  *
  */
 public interface IAttributeGroupORDERLABELSBuilder<T extends IAttributeGroupORDERLABELS, B> {
-	
+
     public T _target();
 
     public B _self();
-    
-	/**
-	 * {@code
-	 * <xsd:attribute name="ORDER" type="xsd:integer" use="optional" />
-	 * }
-	 *  
-	 * ORDER (integer/O): A representation of the element's order among its
-	 * siblings (e.g., its absolute, numeric sequence). For an example, and clarification of the distinction 
-	 * between ORDER and ORDERLABEL, see the description of the ORDERLABEL attribute.
-	 * 
-	 * @param order - the order as integer
-	 * @return the builder
-	 */
-	public default B ORDER(Integer order) {
-	    _target().setORDER(order);
+
+    /**
+     * {@code
+     * <xsd:attribute name="ORDER" type="xsd:integer" use="optional" />
+     * }
+     *  
+     * ORDER (integer/O): A representation of the element's order among its
+     * siblings (e.g., its absolute, numeric sequence). For an example, and clarification of the distinction 
+     * between ORDER and ORDERLABEL, see the description of the ORDERLABEL attribute.
+     * 
+     * @param order - the order as integer
+     * @return the builder
+     */
+    public default B ORDER(Integer order) {
+        _target().setORDER(order);
         return _self();
-	}
-	
-	/**
-	 * {@code
-	 * <xsd:attribute name="ORDERLABEL" type="xsd:string" use="optional" />
-	 * }
-	 * 
-	 * ORDERLABEL (string/O): A representation of the element's order among
-	 * its siblings (e.g., “xii”), or of any non-integer native numbering system. It is presumed that this value will
-	 * still be machine actionable (e.g., it would support ‘go to page ___’ function), and it should not be used as a
-	 * replacement/substitute for the LABEL attribute. To understand the differences between ORDER, ORDERLABEL and LABEL,
-	 * imagine a text with 10 roman numbered pages followed by 10 arabic numbered pages. Page iii would have an ORDER of
-	 * “3”, an ORDERLABEL of “iii” and a LABEL of “Page iii”, while page 3 would have an ORDER of “13”, an ORDERLABEL of
-	 * “3” and a LABEL of “Page 3”.
-	 * 
-	 * @param orderlabel - the orderLabel as String
-	 * @return the builder
-	 */
-	public default B ORDERLABEL(String orderlabel) {
-	    _target().setORDERLABEL(orderlabel);
+    }
+
+    /**
+     * {@code
+     * <xsd:attribute name="ORDERLABEL" type="xsd:string" use="optional" />
+     * }
+     * 
+     * ORDERLABEL (string/O): A representation of the element's order among
+     * its siblings (e.g., “xii”), or of any non-integer native numbering system. It is presumed that this value will
+     * still be machine actionable (e.g., it would support ‘go to page ___’ function), and it should not be used as a
+     * replacement/substitute for the LABEL attribute. To understand the differences between ORDER, ORDERLABEL and LABEL,
+     * imagine a text with 10 roman numbered pages followed by 10 arabic numbered pages. Page iii would have an ORDER of
+     * “3”, an ORDERLABEL of “iii” and a LABEL of “Page iii”, while page 3 would have an ORDER of “13”, an ORDERLABEL of
+     * “3” and a LABEL of “Page 3”.
+     * 
+     * @param orderlabel - the orderLabel as String
+     * @return the builder
+     */
+    public default B ORDERLABEL(String orderlabel) {
+        _target().setORDERLABEL(orderlabel);
         return _self();
-	}
-	
-	/**
-	 * {@code
-	 * <xsd:attribute name="LABEL" type="xsd:string" use="optional" />
-	 * }
-	 * 
-	 * LABEL (string/O): An attribute used, for example, to identify a
-	 * &lt;div&gt; to an end user viewing the document. Thus a hierarchical arrangement of the &lt;div&gt; LABEL values
-	 * could provide a table of contents to the digital content represented by a METS document and facilitate the users’
-	 * navigation of the digital object. Note that a &lt;div&gt; LABEL should be specific to its level in the structural
-	 * map. In the case of a book with chapters, the book &lt;div&gt; LABEL should have the book title and the chapter
-	 * &lt;div&gt;; LABELs should have the individual chapter titles, rather than having the chapter &lt;div&gt; LABELs
-	 * combine both book title and chapter title . For further of the distinction between LABEL and ORDERLABEL see the
-	 * 
-	 * @param label - the label
-	 * @return the builder
-	 */
-	public default B LABEL(String label) {
-	    _target().setLABEL(label);
+    }
+
+    /**
+     * {@code
+     * <xsd:attribute name="LABEL" type="xsd:string" use="optional" />
+     * }
+     * 
+     * LABEL (string/O): An attribute used, for example, to identify a
+     * &lt;div&gt; to an end user viewing the document. Thus a hierarchical arrangement of the &lt;div&gt; LABEL values
+     * could provide a table of contents to the digital content represented by a METS document and facilitate the users’
+     * navigation of the digital object. Note that a &lt;div&gt; LABEL should be specific to its level in the structural
+     * map. In the case of a book with chapters, the book &lt;div&gt; LABEL should have the book title and the chapter
+     * &lt;div&gt;; LABELs should have the individual chapter titles, rather than having the chapter &lt;div&gt; LABELs
+     * combine both book title and chapter title . For further of the distinction between LABEL and ORDERLABEL see the
+     * 
+     * @param label - the label
+     * @return the builder
+     */
+    public default B LABEL(String label) {
+        _target().setLABEL(label);
         return _self();
-	}
+    }
 }

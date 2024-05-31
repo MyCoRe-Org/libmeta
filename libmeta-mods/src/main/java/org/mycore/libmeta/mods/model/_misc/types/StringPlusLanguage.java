@@ -83,9 +83,10 @@ public class StringPlusLanguage extends XsString implements ILanguageAttributeGr
         this.transliteration = transliteration;
     }
 
-    public static class Builder extends BuilderBase<StringPlusLanguage, Builder> implements
-        ILanguageAttributeGroupBuilder<StringPlusLanguage, Builder>, IXsStringBuilder<StringPlusLanguage, Builder> {
-        protected Builder(StringPlusLanguage spl) {
+    public static class Builder<T extends StringPlusLanguage> extends BuilderBase<T, Builder<T>>
+        implements ILanguageAttributeGroupBuilder<T, Builder<T>>,
+        IXsStringBuilder<T, Builder<T>> {
+        protected Builder(T spl) {
             super(spl);
         }
     }

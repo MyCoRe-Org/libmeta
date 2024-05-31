@@ -119,7 +119,7 @@ public class Genre extends StringPlusLanguagePlusAuthority implements ITopLevelE
         this.usage = usage;
     }
 
-    public static Builder builderForGenre() {
+    public static Builder builder() {
         return builder(new Genre());
     }
 

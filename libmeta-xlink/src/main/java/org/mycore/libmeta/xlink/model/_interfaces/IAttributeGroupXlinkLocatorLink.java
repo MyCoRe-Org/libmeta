@@ -25,23 +25,23 @@ import org.mycore.libmeta.xlink.model.XlinkTypeLocator;
  * @author Robert Stephan
  */
 public interface IAttributeGroupXlinkLocatorLink {
-	public XlinkTypeLocator getXlinkType();
+    public XlinkTypeLocator getXlinkType();
 
-	public String getXlinkHref();
+    public String getXlinkHref();
 
-	public String getXlinkRole();
+    public String getXlinkRole();
 
-	public String getXlinkTitle();
+    public String getXlinkTitle();
 
-	public String getXlinkLabel();
+    public String getXlinkLabel();
 
-	public void setXlinkType(XlinkTypeLocator xlinkType);
+    public void setXlinkType(XlinkTypeLocator xlinkType);
 
-	public void setXlinkHref(String xlinkHref);
+    public void setXlinkHref(String xlinkHref);
 
-	public void setXlinkRole(String xlinkRole);
+    public void setXlinkRole(String xlinkRole);
 
-	public void setXlinkTitle(String xlinkTitle);
+    public void setXlinkTitle(String xlinkTitle);
 
-	public void setXlinkLabel(String xlinkLabel);
+    public void setXlinkLabel(String xlinkLabel);
 }

@@ -67,7 +67,7 @@ public class LanguageTerm extends StringPlusLanguagePlusAuthority implements ILa
         this.type = type;
     }
 
-    public static Builder builderForLanguageTerm() {
+    public static Builder builder() {
         return builder(new LanguageTerm());
     }
 

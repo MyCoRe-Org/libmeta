@@ -212,7 +212,7 @@ public class Language implements ITopLevelElement, IIDAttributeGroup, ILanguageA
         this.usage = usage;
     }
 
-    public static Builder builderForLanguage() {
+    public static Builder builder() {
         return builder(new Language());
     }
 

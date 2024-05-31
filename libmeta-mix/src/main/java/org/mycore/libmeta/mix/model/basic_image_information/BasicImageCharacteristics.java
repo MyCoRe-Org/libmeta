@@ -25,40 +25,40 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlType(propOrder = { "imageWidth", "imageHeight" })
 public class BasicImageCharacteristics {
-    
+
     //sequence
-	
-	// NDD id="7.1.1"
-    @XmlElement(name = "imageWidth", namespace = "http://www.loc.gov/mix/v20", required = false)    
+
+    // NDD id="7.1.1"
+    @XmlElement(name = "imageWidth", namespace = "http://www.loc.gov/mix/v20", required = false)
     protected Integer imageWidth;
-    
+
     // NDD id="7.1.2"
-    @XmlElement(name = "imageHeight", namespace = "http://www.loc.gov/mix/v20", required = false)    
+    @XmlElement(name = "imageHeight", namespace = "http://www.loc.gov/mix/v20", required = false)
     protected Integer imageHeight;
-    
-    public BasicImageCharacteristics(){
-    	
-    }
-    
-    public BasicImageCharacteristics(Integer imageWidth, Integer imageHeight){
-    	this.imageWidth = imageWidth;
-    	this.imageHeight = imageHeight;
+
+    public BasicImageCharacteristics() {
+
     }
 
-	public Integer getImageWidth() {
-		return imageWidth;
-	}
-
-	public void setImageWidth(Integer imageWidth) {
-		this.imageWidth = imageWidth;
-	}
-
-	public Integer getImageHeight() {
-		return imageHeight;
-	}
-
-	public void setImageHeight(Integer imageHeight) {
-		this.imageHeight = imageHeight;
-	}
-    
+    public BasicImageCharacteristics(Integer imageWidth, Integer imageHeight) {
+        this.imageWidth = imageWidth;
+        this.imageHeight = imageHeight;
     }
+
+    public Integer getImageWidth() {
+        return imageWidth;
+    }
+
+    public void setImageWidth(Integer imageWidth) {
+        this.imageWidth = imageWidth;
+    }
+
+    public Integer getImageHeight() {
+        return imageHeight;
+    }
+
+    public void setImageHeight(Integer imageHeight) {
+        this.imageHeight = imageHeight;
+    }
+
+}

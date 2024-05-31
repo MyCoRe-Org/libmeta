@@ -18,8 +18,8 @@
 package org.mycore.libmeta.mods.model.origininfo;
 
 import org.mycore.libmeta.common.BuilderBase;
-import org.mycore.libmeta.mods.model._misc.DateDefinition;
 import org.mycore.libmeta.mods.model._misc.builder.IDateDefinitionBuilder;
+import org.mycore.libmeta.mods.model._misc.definitions.DateDefinition;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -38,7 +38,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.NONE)
 public class DateModified extends DateDefinition implements IOriginInfoSubelement {
 
-    public static Builder builderForDateModified() {
+    public static Builder builder() {
         return builder(new DateModified());
     }
 

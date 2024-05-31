@@ -48,11 +48,18 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum LOCTYPE {
-	@XmlEnumValue("ARK") ARK,
-	@XmlEnumValue("URN") URN,
-	@XmlEnumValue("URL") URL, 
-	@XmlEnumValue("PURL") PURL, 
-	@XmlEnumValue("HANDLE") HANDLE, 
-	@XmlEnumValue("DOI") DOI, 
-	@XmlEnumValue("OTHER") OTHER;
+    @XmlEnumValue("ARK")
+    ARK,
+    @XmlEnumValue("URN")
+    URN,
+    @XmlEnumValue("URL")
+    URL,
+    @XmlEnumValue("PURL")
+    PURL,
+    @XmlEnumValue("HANDLE")
+    HANDLE,
+    @XmlEnumValue("DOI")
+    DOI,
+    @XmlEnumValue("OTHER")
+    OTHER;
 }

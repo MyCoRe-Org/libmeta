@@ -96,7 +96,7 @@ public class Publisher extends StringPlusLanguagePlusSupplied
     }
 
     //IAuthorityAttributeGroup - end
-    public static Builder builderForPublisher() {
+    public static Builder builder() {
         return builder(new Publisher());
     }
 

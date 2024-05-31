@@ -35,49 +35,49 @@ import jakarta.xml.bind.annotation.XmlType;
  *
  */
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = { "fileName", "fileIdentifier"})
+@XmlType(propOrder = { "fileName", "fileIdentifier" })
 public class SourceImageInformation {
 
-	@XmlElement(name = "fileName", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected String fileName;
-	
-	@XmlElement(name = "fileIdentifier", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
-	protected List<FileIdentifier> fileIdentifier = new Vector<>();
+    @XmlElement(name = "fileName", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+    protected String fileName;
 
-	public String getFileName() {
-		return fileName;
-	}
+    @XmlElement(name = "fileIdentifier", namespace = "http://www.loc.gov/standards/alto/ns-v2#", required = false)
+    protected List<FileIdentifier> fileIdentifier = new Vector<>();
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
+    public String getFileName() {
+        return fileName;
+    }
 
-	public List<FileIdentifier> getFileIdentifier() {
-		return fileIdentifier;
-	}
-	
-	public static Builder builder() {
-		return builder(new SourceImageInformation());
-	}
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
 
-	public static Builder builder(SourceImageInformation sourceImageInformation) {
-		return new Builder(sourceImageInformation);
-	}
+    public List<FileIdentifier> getFileIdentifier() {
+        return fileIdentifier;
+    }
 
-	public static class Builder extends BuilderBase<SourceImageInformation, Builder> {
+    public static Builder builder() {
+        return builder(new SourceImageInformation());
+    }
 
-		protected Builder(SourceImageInformation sourceImageInformation) {
-			super(sourceImageInformation);
-		}
-		
-		public Builder fileName(String fileName) {
-			_target().setFileName(fileName);
-			return _self();
-		}
+    public static Builder builder(SourceImageInformation sourceImageInformation) {
+        return new Builder(sourceImageInformation);
+    }
 
-		public Builder addFileIdentifier(FileIdentifier fileIdentifier) {
-			_target().getFileIdentifier().add(fileIdentifier);
-			return _self();
-		}
-	}
+    public static class Builder extends BuilderBase<SourceImageInformation, Builder> {
+
+        protected Builder(SourceImageInformation sourceImageInformation) {
+            super(sourceImageInformation);
+        }
+
+        public Builder fileName(String fileName) {
+            _target().setFileName(fileName);
+            return _self();
+        }
+
+        public Builder addFileIdentifier(FileIdentifier fileIdentifier) {
+            _target().getFileIdentifier().add(fileIdentifier);
+            return _self();
+        }
+    }
 }

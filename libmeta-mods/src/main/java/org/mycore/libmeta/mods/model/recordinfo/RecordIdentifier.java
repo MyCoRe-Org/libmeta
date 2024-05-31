@@ -55,7 +55,7 @@ public class RecordIdentifier extends StringPlusLanguage implements IRecordInfoS
         this.source = source;
     }
 
-    public static Builder builderForRecordIdentifier() {
+    public static Builder builder() {
         return builder(new RecordIdentifier());
     }
 

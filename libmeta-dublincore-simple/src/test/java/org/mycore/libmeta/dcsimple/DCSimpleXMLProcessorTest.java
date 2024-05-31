@@ -24,7 +24,6 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 import org.mycore.libmeta.dcsimple.model.DCContributor;
 import org.mycore.libmeta.dcsimple.model.DCElement;
-import org.mycore.libmeta.dcsimple.xml.DCSimpleXMLProcessor;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -35,8 +34,9 @@ public class DCSimpleXMLProcessorTest {
         DCElement contributor = DCContributor.builder().lang("de").value("Max Meier").build();
         try {
             String actual = DCSimpleXMLProcessor.getInstance().marshalToString(contributor);
-            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<dc:contributor xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xml:lang=\"de\">Max Meier</dc:contributor>";
+            String expected = """
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <dc:contributor xmlns:dc="http://purl.org/dc/elements/1.1/" xml:lang="de">Max Meier</dc:contributor>""";
             assertTrue("testMarshalToString failed", expected.equals(actual));
         } catch (Exception e) {
             fail(e.getMessage());
@@ -63,8 +63,9 @@ public class DCSimpleXMLProcessorTest {
 
     //@Test
     public void testUnMarshalFromString() {
-        String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-            + "<dc:contributor xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xml:lang=\"de\">Max Meier</dc:contributor>";
+        String xml = """
+            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+            <dc:contributor xmlns:dc="http://purl.org/dc/elements/1.1/" xml:lang="de">Max Meier</dc:contributor>""";
         try {
             DCElement actual = DCSimpleXMLProcessor.getInstance().unmarshal(xml);
             assertEquals(actual.getClass(), DCContributor.class);

@@ -40,7 +40,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.NONE)
 public class ElectronicLocator extends StringPlusLanguage implements ILocationSublement {
 
-    public static Builder builderForElectronicLocator() {
+    public static Builder builder() {
         return builder(new ElectronicLocator());
     }
 

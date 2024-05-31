@@ -32,5 +32,6 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum BETYPE {
-	@XmlEnumValue("BYTE") BYTE;
+    @XmlEnumValue("BYTE")
+    BYTE;
 }

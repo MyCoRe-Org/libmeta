@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://www.loc.gov/alto/alto.xsd" uri="xsd/alto__v2/alto-2-1.xsd" />
+  <system systemId="https://www.loc.gov/alto/alto.xsd" uri="xsd/alto__v2/alto-2-1.xsd" />
+
+  <system systemId="http://www.loc.gov/standards/xlink/xlink.xsd" uri="xsd/alto__v2/xlink.xsd" />
+  <system systemId="https://www.loc.gov/standards/xlink/xlink.xsd" uri="xsd/alto__v2/xlink.xsd" />
+</catalog>

@@ -40,7 +40,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.NONE)
 public class ShelfLocator extends StringPlusLanguage implements ILocationSublement, ICopyInformationSubelement {
 
-    public static Builder builderForShelfLocator() {
+    public static Builder builder() {
         return builder(new ShelfLocator());
     }
 

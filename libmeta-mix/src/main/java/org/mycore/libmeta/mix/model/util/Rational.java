@@ -26,38 +26,38 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "numerator", "denominator" })
 public class Rational {
 
-	// sequence
+    // sequence
 
-	// NDD id="9.1.1"
-	@XmlElement(name = "numerator", namespace = "http://www.loc.gov/mix/v20", required = false)
-	protected Integer numerator;
+    // NDD id="9.1.1"
+    @XmlElement(name = "numerator", namespace = "http://www.loc.gov/mix/v20", required = false)
+    protected Integer numerator;
 
-	// NDD id="9.1.2"
-	@XmlElement(name = "denominator", namespace = "http://www.loc.gov/mix/v20", required = false)
-	protected Integer denominator;
+    // NDD id="9.1.2"
+    @XmlElement(name = "denominator", namespace = "http://www.loc.gov/mix/v20", required = false)
+    protected Integer denominator;
 
-	public Rational(){
-		
-	}
-	
-	public Rational(Integer numerator, Integer denominator) {
-		this.numerator = numerator;
-		this.denominator = denominator;
-	}
+    public Rational() {
 
-	public Integer getNumerator() {
-		return numerator;
-	}
+    }
 
-	public void setNumerator(Integer numerator) {
-		this.numerator = numerator;
-	}
+    public Rational(Integer numerator, Integer denominator) {
+        this.numerator = numerator;
+        this.denominator = denominator;
+    }
 
-	public Integer getDenominator() {
-		return denominator;
-	}
+    public Integer getNumerator() {
+        return numerator;
+    }
 
-	public void setDenominator(Integer denominator) {
-		this.denominator = denominator;
-	}
+    public void setNumerator(Integer numerator) {
+        this.numerator = numerator;
+    }
+
+    public Integer getDenominator() {
+        return denominator;
+    }
+
+    public void setDenominator(Integer denominator) {
+        this.denominator = denominator;
+    }
 }

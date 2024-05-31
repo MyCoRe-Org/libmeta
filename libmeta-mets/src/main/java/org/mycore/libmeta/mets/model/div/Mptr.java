@@ -27,6 +27,7 @@ import org.mycore.libmeta.mets.model._interfaces.IAttributeGroupLOCATION;
 import org.mycore.libmeta.mets.model._misc.URIs;
 import org.mycore.libmeta.xlink.model.XlinkActuate;
 import org.mycore.libmeta.xlink.model.XlinkShow;
+import org.mycore.libmeta.xlink.model.XlinkTypeSimple;
 import org.mycore.libmeta.xlink.model._builder.IAttributeGroupXlinkSimpleLinkBuilder;
 import org.mycore.libmeta.xlink.model._interfaces.IAttributeGroupXlinkSimpleLink;
 
@@ -113,7 +114,7 @@ public class Mptr implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimple
      * }
      */
     @XmlAttribute(name = "type", namespace = "http://www.w3.org/1999/xlink", required = true)
-    protected String xlinkType;
+    protected XlinkTypeSimple xlinkType;
 
     /**
      * {@code
@@ -199,6 +200,14 @@ public class Mptr implements IAttributeGroupLOCATION, IAttributeGroupXlinkSimple
 
     public void setOTHERLOCTYPE(String otherLoctype) {
         OTHERLOCTYPE = otherLoctype;
+    }
+
+    public XlinkTypeSimple getXlinkType() {
+        return xlinkType;
+    }
+
+    public void setXlinkType(XlinkTypeSimple xlinkType) {
+        this.xlinkType = xlinkType;
     }
 
     public String getXlinkHref() {

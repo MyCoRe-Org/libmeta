@@ -153,7 +153,7 @@ public class TypeOfResource extends StringPlusLanguagePlusAuthority implements I
         this.usage = usage;
     }
 
-    public static Builder builderForTypeOfResource() {
+    public static Builder builder() {
         return builder(new TypeOfResource());
     }
 

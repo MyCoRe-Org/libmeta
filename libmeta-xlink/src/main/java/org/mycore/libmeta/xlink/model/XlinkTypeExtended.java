@@ -30,5 +30,6 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
  */
 @XmlEnum
 public enum XlinkTypeExtended {
-	@XmlEnumValue("extended") EXTENDED;
+    @XmlEnumValue("extended")
+    EXTENDED;
 }

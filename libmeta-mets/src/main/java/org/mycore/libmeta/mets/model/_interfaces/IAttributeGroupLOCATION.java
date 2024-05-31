@@ -28,45 +28,45 @@ import org.mycore.libmeta.mets.model._enums.LOCTYPE;
  */
 public interface IAttributeGroupLOCATION {
 
-	/**
-	 * {@code
-	 * <xsd:attribute name="LOCTYPE" use="required">
-	 *   <xsd:simpleType>
-	 *     <xsd:restriction base="xsd:string">
-	 *       <xsd:enumeration value="ARK" />
-	 *       <xsd:enumeration value="URN" />
-	 *       <xsd:enumeration value="URL" />
-	 *       <xsd:enumeration value="PURL" />
-	 *       <xsd:enumeration value="HANDLE" />
-	 *       <xsd:enumeration value="DOI" />
-	 *       <xsd:enumeration value="OTHER" />
-	 *     </xsd:restriction>
-	 *   </xsd:simpleType>
-	 * /xsd:attribute>
-	 * }
-	 * 
-	 * LOCTYPE (string/R): Specifies the locator type used in the xlink:href attribute. 
-	 * Valid values for LOCTYPE are:
-	 *		ARK  URN  URL  PURL  HANDLE DOI OTHER
-	 *
-	 * @return the location type
-	 */
-	public LOCTYPE getLOCTYPE();
+    /**
+     * {@code
+     * <xsd:attribute name="LOCTYPE" use="required">
+     *   <xsd:simpleType>
+     *     <xsd:restriction base="xsd:string">
+     *       <xsd:enumeration value="ARK" />
+     *       <xsd:enumeration value="URN" />
+     *       <xsd:enumeration value="URL" />
+     *       <xsd:enumeration value="PURL" />
+     *       <xsd:enumeration value="HANDLE" />
+     *       <xsd:enumeration value="DOI" />
+     *       <xsd:enumeration value="OTHER" />
+     *     </xsd:restriction>
+     *   </xsd:simpleType>
+     * /xsd:attribute>
+     * }
+     * 
+     * LOCTYPE (string/R): Specifies the locator type used in the xlink:href attribute. 
+     * Valid values for LOCTYPE are:
+     *		ARK  URN  URL  PURL  HANDLE DOI OTHER
+     *
+     * @return the location type
+     */
+    public LOCTYPE getLOCTYPE();
 
-	public void setLOCTYPE(LOCTYPE loctype);
+    public void setLOCTYPE(LOCTYPE loctype);
 
-	/**
-	 * {@code
-	 * <xsd:attribute name="OTHERLOCTYPE" type="xsd:string" use="optional" />
-	 * }
-	 * 
-	 * OTHERLOCTYPE (string/O): Specifies the locator type when the value
-	 * OTHER is used in the LOCTYPE attribute. Although optional, it is strongly recommended when OTHER is used.
-	 * 
-	 * @return the other location type
-	 */
-	public String getOTHERLOCTYPE();
+    /**
+     * {@code
+     * <xsd:attribute name="OTHERLOCTYPE" type="xsd:string" use="optional" />
+     * }
+     * 
+     * OTHERLOCTYPE (string/O): Specifies the locator type when the value
+     * OTHER is used in the LOCTYPE attribute. Although optional, it is strongly recommended when OTHER is used.
+     * 
+     * @return the other location type
+     */
+    public String getOTHERLOCTYPE();
 
-	public void setOTHERLOCTYPE(String otherLocType);
+    public void setOTHERLOCTYPE(String otherLocType);
 
 }

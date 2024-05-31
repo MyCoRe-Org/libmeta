@@ -1,3 +1,21 @@
+
+/* 
+ * This file is part of *** MyCoRe LibMeta ***
+ * See https://github.com/MyCoRe-Org/libmeta/ for details.
+ * 
+ * MyCoRe LibMeta is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published 
+ * by the Free Software Foundation, either version 3 of the License, 
+ * or (at your option) any later version.
+ *
+ * MyCoRe LibMeta is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+ * See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with MyCoRe LibMeta.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package org.mycore.libmeta.mods.junit5.model._toplevel;
 
 import static org.junit.Assert.assertEquals;
@@ -29,14 +47,14 @@ public class OriginInfoTest {
     @Test
     public void test1() {
         Mods mods = Mods.builder()
-            .addContent(OriginInfo.builderForOriginInfo()
+            .addContent(OriginInfo.builder()
                 .eventType("publication")
-                .addContent(Place.builderForPlace()
+                .addContent(Place.builder()
                     .supplied(Yes.YES)
                     .addContent(PlaceIdentifier.builder()
                         .content("https://www.wikidata.org/wiki/Q60")
                         .build())
-                    .addContent(PlaceTerm.builderForPlaceTerm()
+                    .addContent(PlaceTerm.builder()
                         .authority("wikidata")
                         .content("New York City")
                         .build())
@@ -53,7 +71,7 @@ public class OriginInfoTest {
                             .build())
                         .build())
                     .build())
-                .addContent(DateOther.builderForDateOther()
+                .addContent(DateOther.builder()
                     .encoding(DateEncoding.EDTF)
                     .content("1910")
                     .build())
@@ -64,23 +82,25 @@ public class OriginInfoTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<mods:mods xmlns:mods=\"http://www.loc.gov/mods/v3\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n"
-                + "  <mods:originInfo eventType=\"publication\">\n"
-                + "    <mods:place supplied=\"yes\">\n"
-                + "      <mods:placeIdentifier>https://www.wikidata.org/wiki/Q60</mods:placeIdentifier>\n"
-                + "      <mods:placeTerm authority=\"wikidata\">New York City</mods:placeTerm>\n"
-                + "    </mods:place>\n"
-                + "    <mods:agent type=\"corporate\">\n"
-                + "      <mods:namePart>H. Hagemeister</mods:namePart>\n"
-                + "      <mods:role>\n"
-                + "        <mods:roleTerm valueURI=\"http://id.loc.gov/vocabulary/relators/pbl\">Publisher</mods:roleTerm>\n"
-                + "      </mods:role>\n"
-                + "    </mods:agent>\n"
-                + "    <mods:dateOther encoding=\"edtf\">1910</mods:dateOther>\n"
-                + "    <mods:displayDate>Postmark date: 1910</mods:displayDate>\n"
-                + "  </mods:originInfo>\n"
-                + "</mods:mods>";
+            String expected
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:originInfo eventType="publication">
+                        <mods:place supplied="yes">
+                          <mods:placeIdentifier>https://www.wikidata.org/wiki/Q60</mods:placeIdentifier>
+                          <mods:placeTerm authority="wikidata">New York City</mods:placeTerm>
+                        </mods:place>
+                        <mods:agent type="corporate">
+                          <mods:namePart>H. Hagemeister</mods:namePart>
+                          <mods:role>
+                            <mods:roleTerm valueURI="http://id.loc.gov/vocabulary/relators/pbl">Publisher</mods:roleTerm>
+                          </mods:role>
+                        </mods:agent>
+                        <mods:dateOther encoding="edtf">1910</mods:dateOther>
+                        <mods:displayDate>Postmark date: 1910</mods:displayDate>
+                      </mods:originInfo>
+                    </mods:mods>""";
             assertEquals("Test 1 failed", expected, s);
         } catch (Exception e) {
             fail(e.getMessage());
@@ -90,10 +110,10 @@ public class OriginInfoTest {
     @Test
     public void test2() {
         Mods mods = Mods.builder()
-            .addContent(OriginInfo.builderForOriginInfo()
+            .addContent(OriginInfo.builder()
                 .eventType("publication")
-                .addContent(Place.builderForPlace()
-                    .addContent(PlaceTerm.builderForPlaceTerm()
+                .addContent(Place.builder()
+                    .addContent(PlaceTerm.builder()
                         .type(CodeOrText.TEXT)
                         .content("Rostock")
                         .build())
@@ -108,17 +128,19 @@ public class OriginInfoTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<mods:mods xmlns:mods=\"http://www.loc.gov/mods/v3\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n"
-                + "  <mods:originInfo eventType=\"publication\">\n"
-                + "    <mods:place>\n"
-                + "      <mods:placeTerm type=\"text\">Rostock</mods:placeTerm>\n"
-                + "      <mods:cartographics authority=\"ISO 6709\">\n"
-                + "        <mods:coordinates>+54.0755+012.1035</mods:coordinates>\n"
-                + "      </mods:cartographics>\n"
-                + "    </mods:place>\n"
-                + "  </mods:originInfo>\n"
-                + "</mods:mods>";
+            String expected
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:originInfo eventType="publication">
+                        <mods:place>
+                          <mods:placeTerm type="text">Rostock</mods:placeTerm>
+                          <mods:cartographics authority="ISO 6709">
+                            <mods:coordinates>+54.0755+012.1035</mods:coordinates>
+                          </mods:cartographics>
+                        </mods:place>
+                      </mods:originInfo>
+                    </mods:mods>""";
             assertEquals("Test 2 failed", expected, s);
         } catch (Exception e) {
             fail(e.getMessage());
@@ -129,16 +151,16 @@ public class OriginInfoTest {
     @Test
     public void test3() {
         Mods mods = Mods.builder()
-            .addContent(OriginInfo.builderForOriginInfo()
+            .addContent(OriginInfo.builder()
                 .eventType("publication")
                 .eventTypeURI("http://example.org/vocab/originInfo/publication")
-                .addContent(Place.builderForPlace()
-                    .addContent(PlaceTerm.builderForPlaceTerm()
+                .addContent(Place.builder()
+                    .addContent(PlaceTerm.builder()
                         .type(CodeOrText.TEXT)
                         .content("Rostock")
                         .build())
                     .build())
-                .addContent(DateIssued.builderForDateIssued()
+                .addContent(DateIssued.builder()
                     .encoding(DateEncoding.ISO8601)
                     .content("1797")
                     .build())
@@ -146,15 +168,17 @@ public class OriginInfoTest {
             .build();
         try {
             String s = MODSXMLProcessor.getInstance().marshalToString(mods);
-            String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-                + "<mods:mods xmlns:mods=\"http://www.loc.gov/mods/v3\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n"
-                + "  <mods:originInfo eventType=\"publication\" eventTypeURI=\"http://example.org/vocab/originInfo/publication\">\n"
-                + "    <mods:place>\n"
-                + "      <mods:placeTerm type=\"text\">Rostock</mods:placeTerm>\n"
-                + "    </mods:place>\n"
-                + "    <mods:dateIssued encoding=\"iso8601\">1797</mods:dateIssued>\n"
-                + "  </mods:originInfo>\n"
-                + "</mods:mods>";
+            String expected
+                = """
+                    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                    <mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                      <mods:originInfo eventType="publication" eventTypeURI="http://example.org/vocab/originInfo/publication">
+                        <mods:place>
+                          <mods:placeTerm type="text">Rostock</mods:placeTerm>
+                        </mods:place>
+                        <mods:dateIssued encoding="iso8601">1797</mods:dateIssued>
+                      </mods:originInfo>
+                    </mods:mods>""";
             assertEquals("Test 3 failed", expected, s);
         } catch (Exception e) {
             fail(e.getMessage());

@@ -140,6 +140,10 @@ public class Seq extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS {
         return otherAttributes;
     }
 
+    public String getOtherAttribute(QName qname) {
+        return otherAttributes.get(qname);
+    }
+
     public static Builder builder() {
         return builder(new Seq());
     }
@@ -148,7 +152,8 @@ public class Seq extends AreaOrSeqOrPar implements IAttributeGroupORDERLABELS {
         return new Builder(s);
     }
 
-    public static class Builder extends BuilderBase<Seq, Builder> implements IAttributeGroupORDERLABELSBuilder<Seq, Builder> {
+    public static class Builder extends BuilderBase<Seq, Builder>
+        implements IAttributeGroupORDERLABELSBuilder<Seq, Builder> {
 
         protected Builder(Seq s) {
             super(s);

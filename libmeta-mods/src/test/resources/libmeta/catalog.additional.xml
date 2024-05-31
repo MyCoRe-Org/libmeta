@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://example.com/xsd/hello_world.xsd" uri="xsd/test/hello_world.xsd" />
+</catalog>

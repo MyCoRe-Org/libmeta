@@ -20,13 +20,11 @@ package org.mycore.libmeta.mods.model.name;
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.IAlternativeNameSubelement;
 import org.mycore.libmeta.mods.model._misc.INameSubelement;
-import org.mycore.libmeta.mods.model._misc.builder.ILanguageAttributeGroupBuilder;
-import org.mycore.libmeta.mods.model._misc.builder.IXsStringBuilder;
-import org.mycore.libmeta.mods.model._misc.enums.Yes;
-import org.mycore.libmeta.mods.model._toplevel.Identifier;
+import org.mycore.libmeta.mods.model._misc.builder.IIdentifierDefinitionBuilder;
+import org.mycore.libmeta.mods.model._misc.definitions.IdentifierDefinition;
 import org.mycore.libmeta.mods.model.subject.name.ISubjectNameSubelement;
 
-public class NameIdentifier extends Identifier
+public class NameIdentifier extends IdentifierDefinition
     implements INameSubelement, IAlternativeNameSubelement, ISubjectNameSubelement {
 
     public static Builder builder() {
@@ -37,40 +35,12 @@ public class NameIdentifier extends Identifier
         return new Builder(ni);
     }
 
-    /**
-     * 
-     *
-     * @see Identifier.Builder for implementation details
-     */
     public static class Builder extends BuilderBase<NameIdentifier, Builder>
-        implements IXsStringBuilder<NameIdentifier, Builder>, ILanguageAttributeGroupBuilder<NameIdentifier, Builder> {
-        protected Builder(NameIdentifier spl) {
-            super(spl);
+        implements IIdentifierDefinitionBuilder<NameIdentifier, Builder> {
+
+        protected Builder(NameIdentifier ni) {
+            super(ni);
         }
 
-        public Builder displayLabel(String displayLabel) {
-            _target().setDisplayLabel(displayLabel);
-            return _self();
-        }
-
-        public Builder type(String type) {
-            _target().setType(type);
-            return _self();
-        }
-
-        public Builder typeURI(String typeURI) {
-            _target().setTypeURI(typeURI);
-            return _self();
-        }
-
-        public Builder invalid(Yes invalid) {
-            _target().setInvalid(invalid);
-            return _self();
-        }
-
-        public Builder altRepGroup(String altRepGroup) {
-            _target().setAltRepGroup(altRepGroup);
-            return _self();
-        }
     }
 }

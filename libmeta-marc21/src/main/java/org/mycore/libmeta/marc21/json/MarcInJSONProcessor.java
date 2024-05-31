@@ -19,7 +19,6 @@ package org.mycore.libmeta.marc21.json;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -67,33 +66,34 @@ public class MarcInJSONProcessor {
         try (BufferedWriter bw = Files.newBufferedWriter(p);
             JsonWriter jw = Json.createWriter(bw)) {
             marshal(marc, jw);
-        }
-        catch(IOException e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }
 
-    public String marshalToString(MarcRecord marc) {
+    public String marshalToString(MarcRecord marc) throws LibmetaProcessorException {
         StringWriter sw = new StringWriter();
         try (JsonWriter jw = Json.createWriter(sw)) {
             marshal(marc, jw);
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
         }
         return sw.toString();
     }
 
-    public MarcRecord unmarshal(String s) {
+    public MarcRecord unmarshal(String s) throws LibmetaProcessorException {
         try (JsonReader jr = Json.createReader(new StringReader(s))) {
             return unmarshal(jr);
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
         }
-
     }
 
     public MarcRecord unmarshal(Path p) throws LibmetaProcessorException {
         try (BufferedReader br = Files.newBufferedReader(p);
             JsonReader jr = Json.createReader(br)) {
             return unmarshal(jr);
-        }
-        catch(IOException e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }
@@ -102,77 +102,84 @@ public class MarcInJSONProcessor {
         try (InputStream is = url.openStream();
             JsonReader jr = Json.createReader(is)) {
             return unmarshal(jr);
-        }
-        catch(IOException e) {
+        } catch (Exception e) {
             throw new LibmetaProcessorException(e);
         }
     }
 
-    public void marshal(MarcRecord marc, JsonWriter jw) {
-        JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
-        if (marc.getLeader() != null) {
-            jsonBuilder.add("leader", Json.createValue(marc.getLeader().getContent()));
-        }
-
-        JsonArrayBuilder fieldsBuilder = Json.createArrayBuilder();
-        for (MarcControlfield cf : marc.getControlfields()) {
-            fieldsBuilder
-                .add(Json.createObjectBuilder()
-                    .add(cf.getTag(), cf.getContent()));
-        }
-        for (MarcDatafield df : marc.getDatafields()) {
-            JsonObjectBuilder fieldBuilder = Json.createObjectBuilder();
-            fieldBuilder.add("ind1", df.getInd1());
-            fieldBuilder.add("ind2", df.getInd2());
-            JsonArrayBuilder subfieldBuilder = Json.createArrayBuilder();
-            for (MarcSubfield sf : df.getSubfields()) {
-                subfieldBuilder.add(Json.createObjectBuilder().add(sf.getCode(), sf.getContent()));
+    public void marshal(MarcRecord marc, JsonWriter jw) throws LibmetaProcessorException {
+        try {
+            JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
+            if (marc.getLeader() != null) {
+                jsonBuilder.add("leader", Json.createValue(marc.getLeader().getContent()));
             }
-            fieldBuilder.add("subfields", subfieldBuilder);
-            fieldsBuilder.add(Json.createObjectBuilder().add(String.valueOf(df.getTag()), fieldBuilder));
-        }
-        jsonBuilder.add("fields", fieldsBuilder);
 
-        jw.write(jsonBuilder.build());
+            JsonArrayBuilder fieldsBuilder = Json.createArrayBuilder();
+            for (MarcControlfield cf : marc.getControlfields()) {
+                fieldsBuilder
+                    .add(Json.createObjectBuilder()
+                        .add(cf.getTag(), cf.getContent()));
+            }
+            for (MarcDatafield df : marc.getDatafields()) {
+                JsonObjectBuilder fieldBuilder = Json.createObjectBuilder();
+                fieldBuilder.add("ind1", df.getInd1());
+                fieldBuilder.add("ind2", df.getInd2());
+                JsonArrayBuilder subfieldBuilder = Json.createArrayBuilder();
+                for (MarcSubfield sf : df.getSubfields()) {
+                    subfieldBuilder.add(Json.createObjectBuilder().add(sf.getCode(), sf.getContent()));
+                }
+                fieldBuilder.add("subfields", subfieldBuilder);
+                fieldsBuilder.add(Json.createObjectBuilder().add(String.valueOf(df.getTag()), fieldBuilder));
+            }
+            jsonBuilder.add("fields", fieldsBuilder);
+
+            jw.write(jsonBuilder.build());
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
+        }
     }
 
-    public MarcRecord unmarshal(JsonReader jr) {
-        MarcRecord marc = new MarcRecord();
-        JsonObject json = jr.readObject();
-        if (json.containsKey("leader")) {
-            marc.setLeader(MarcLeader.builder().content(json.getString("leader")).build());
-        }
-        JsonArray jsonFields = json.getJsonArray("fields");
+    public MarcRecord unmarshal(JsonReader jr) throws LibmetaProcessorException {
+        try {
+            MarcRecord marc = new MarcRecord();
+            JsonObject json = jr.readObject();
+            if (json.containsKey("leader")) {
+                marc.setLeader(MarcLeader.builder().content(json.getString("leader")).build());
+            }
+            JsonArray jsonFields = json.getJsonArray("fields");
 
-        for (int i = 0; i < jsonFields.size(); i++) {
-            JsonObject jsonField = jsonFields.getJsonObject(i);
-            jsonField.forEach((tag, value) -> {
-                if (value instanceof JsonString) {
-                    marc.getControlfields().add(
-                        MarcControlfield.builder()
+            for (int i = 0; i < jsonFields.size(); i++) {
+                JsonObject jsonField = jsonFields.getJsonObject(i);
+                jsonField.forEach((tag, value) -> {
+                    if (value instanceof JsonString) {
+                        marc.getControlfields().add(
+                            MarcControlfield.builder()
+                                .tag(tag)
+                                .content(((JsonString) value).getString())
+                                .build());
+                    } else {
+                        MarcDatafield df = MarcDatafield.builder()
                             .tag(tag)
-                            .content(((JsonString) value).getString())
-                            .build());
-                } else {
-                    MarcDatafield df = MarcDatafield.builder()
-                        .tag(tag)
-                        .ind1(value.asJsonObject().getString("ind1"))
-                        .ind2(value.asJsonObject().getString("ind2"))
-                        .build();
-                    marc.getDatafields().add(df);
-                    value.asJsonObject().getJsonArray("subfields").forEach(sf -> {
-                        sf.asJsonObject().forEach((k, v) -> {
-                            df.getSubfields().add(
-                                MarcSubfield.builder()
-                                    .code(k)
-                                    .content(((JsonString) v).getString())
-                                    .build());
+                            .ind1(value.asJsonObject().getString("ind1"))
+                            .ind2(value.asJsonObject().getString("ind2"))
+                            .build();
+                        marc.getDatafields().add(df);
+                        value.asJsonObject().getJsonArray("subfields").forEach(sf -> {
+                            sf.asJsonObject().forEach((k, v) -> {
+                                df.getSubfields().add(
+                                    MarcSubfield.builder()
+                                        .code(k)
+                                        .content(((JsonString) v).getString())
+                                        .build());
+                            });
                         });
-                    });
-                }
-            });
+                    }
+                });
+            }
+            return marc;
+        } catch (Exception e) {
+            throw new LibmetaProcessorException(e);
         }
-        return marc;
     }
 
 }

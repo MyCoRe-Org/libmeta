@@ -54,7 +54,7 @@ public class ItemIdentifier extends StringPlusLanguage implements ICopyInformati
         this.type = type;
     }
 
-    public static Builder builderForItemIdentifier() {
+    public static Builder builder() {
         return builder(new ItemIdentifier());
     }
 

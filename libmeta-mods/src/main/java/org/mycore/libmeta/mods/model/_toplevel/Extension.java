@@ -17,20 +17,13 @@
  */
 package org.mycore.libmeta.mods.model._toplevel;
 
-import java.util.List;
-import java.util.Vector;
-
 import org.mycore.libmeta.common.BuilderBase;
 import org.mycore.libmeta.mods.model._misc.IIDAttributeGroup;
-import org.mycore.libmeta.mods.model._misc.builder.IExtensionBuilder;
-import org.mycore.libmeta.mods.model._misc.builder.IIDAttributeGroupBuilder;
-import org.w3c.dom.Node;
+import org.mycore.libmeta.mods.model._misc.builder.IExtensionDefinitionBuilder;
+import org.mycore.libmeta.mods.model._misc.definitions.ExtensionDefinition;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAnyElement;
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlMixed;
 
 /**
  *    Top Level Element {@literal <extension>}
@@ -51,70 +44,7 @@ import jakarta.xml.bind.annotation.XmlMixed;
  */
 
 @XmlAccessorType(XmlAccessType.NONE)
-public class Extension implements ITopLevelElement, IIDAttributeGroup {
-
-    @SuppressWarnings("rawtypes")
-    @XmlAnyElement(lax = true)
-    @XmlMixed
-    private List content = new Vector();
-
-    @XmlAttribute(name = "ID")
-    protected String ID;
-
-    @XmlAttribute(name = "IDREF")
-    protected String IDREF;
-
-    /**
-     * {@code
-     * <xs:attribute name="displayLabel" type="xs:string"/>
-     * }
-     */
-    @XmlAttribute(name = "displayLabel")
-    protected String displayLabel;
-
-    @XmlAttribute(name = "type")
-    protected String type;
-
-    public String getID() {
-        return ID;
-    }
-
-    public void setID(String iD) {
-        ID = iD;
-    }
-
-    public String getIDREF() {
-        return IDREF;
-    }
-
-    public void setIDREF(String iDREF) {
-        IDREF = iDREF;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    @SuppressWarnings("rawtypes")
-    public List getContent() {
-        return content;
-    }
-
-    public void setContent(List<Node> nodes) {
-        this.content = nodes;
-    }
-
-    public String getDisplayLabel() {
-        return displayLabel;
-    }
-
-    public void setDisplayLabel(String displayLabel) {
-        this.displayLabel = displayLabel;
-    }
+public class Extension extends ExtensionDefinition implements ITopLevelElement, IIDAttributeGroup {
 
     public static Builder builder() {
         return builder(new Extension());
@@ -125,15 +55,10 @@ public class Extension implements ITopLevelElement, IIDAttributeGroup {
     }
 
     public static class Builder extends BuilderBase<Extension, Builder>
-        implements IExtensionBuilder<Extension, Builder>, IIDAttributeGroupBuilder<Extension, Builder> {
+        implements IExtensionDefinitionBuilder<Extension, Builder> {
 
         protected Builder(Extension ext) {
             super(ext);
-        }
-
-        public Builder type(String type) {
-            _target().setType(type);
-            return this;
         }
     }
 }

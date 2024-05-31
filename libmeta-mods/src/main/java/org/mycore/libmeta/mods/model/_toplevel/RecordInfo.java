@@ -183,7 +183,7 @@ public class RecordInfo implements ITopLevelElement, IIDAttributeGroup, ILanguag
         this.altRepGroup = altRepGroup;
     }
 
-    public static Builder builderForRecordInfo() {
+    public static Builder builder() {
         return builder(new RecordInfo());
     }
 
